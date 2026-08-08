@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&amp;family=Karla:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#f6f1e8; }
+  * { box-sizing:border-box; }
+  a { color:#7d2b2b; text-decoration:none; }
+  a:hover { color:#b08442; }
+  ::selection { background:#e6d3b8; }
+</style>
+</helmet>
+
+<div style="font-family:Karla, system-ui, sans-serif; background:#f6f1e8; color:#22201d; min-height:100vh;">
+
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:24px; padding:0 40px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase;">
+    <span style="opacity:.75;">Greek Orthodox Metropolis of New Jersey</span>
+    <div style="display:flex; gap:26px; align-items:center;">
+      <span style="cursor:pointer; opacity:.85;" style-hover="opacity:1; color:#e6b96a;" onClick="{{ goFestival }}">Greek Festival</span>
+      <span style="cursor:pointer; opacity:.85;" style-hover="opacity:1; color:#e6b96a;" onClick="{{ goBookstore }}">Bookstore</span>
+      <span style="cursor:pointer; opacity:.85;" style-hover="opacity:1; color:#e6b96a;" onClick="{{ goHall }}">Hall Rental</span>
+      <span style="cursor:pointer; opacity:.85;" style-hover="opacity:1; color:#e6b96a;" onClick="{{ goMobile }}">Mobile views</span>
+    </div>
+  </div>
+
+  <header style="position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:40px; padding:0 40px; height:84px; max-width:1440px; margin:0 auto;">
+      <div style="display:flex; align-items:center; gap:16px; cursor:pointer;" onClick="{{ goHome }}">
+        <div style="width:40px; height:52px; border:1.5px solid #7d2b2b; border-radius:20px 20px 3px 3px; display:flex; align-items:center; justify-content:center;">
+          <div style="width:2px; height:20px; background:#7d2b2b; position:relative;">
+            <div style="position:absolute; top:5px; left:-7px; width:16px; height:2px; background:#7d2b2b;"></div>
+          </div>
+        </div>
+        <div style="line-height:1.15;">
+          <div style="font-family:Newsreader, serif; font-size:20px; font-weight:500; color:#3a1414; letter-spacing:.01em;">Nativity of the Theotokos</div>
+          <div style="font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#8a7f70; margin-top:3px;">Greek Orthodox Church &nbsp;·&nbsp; Fredericksburg, VA</div>
+        </div>
+      </div>
+      <nav style="display:flex; align-items:center; gap:24px; font-size:13.5px; letter-spacing:.05em; white-space:nowrap;">
+        <span style="cursor:pointer; padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap;" style-hover="color:#7d2b2b;" onClick="{{ goVisit }}">Visit</span>
+        <span style="cursor:pointer; padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap;" style-hover="color:#7d2b2b;" onClick="{{ goFaith }}">Our Faith</span>
+        <span style="cursor:pointer; padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap;" style-hover="color:#7d2b2b;" onClick="{{ goCalendar }}">Calendar</span>
+        <span style="cursor:pointer; padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap;" style-hover="color:#7d2b2b;" onClick="{{ goMinistries }}">Ministries</span>
+        <span style="cursor:pointer; padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap;" style-hover="color:#7d2b2b;" onClick="{{ goAbout }}">About</span>
+        <span style="cursor:pointer; padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap;" style-hover="color:#7d2b2b;" onClick="{{ goContact }}">Contact</span>
+        <span style="cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:11px 22px; border-radius:2px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap;" style-hover="background:#5e1f1f;" onClick="{{ goVisit }}">Plan a visit</span>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main>
+    <section style="position:relative; height:640px; background:#3a1414; overflow:hidden;">
+      <div style="position:absolute; inset:0; background-image:url('https://www.nativity.va.goarch.org/assets/images/carousel-anastasis-icon%20use.jpg'); background-size:cover; background-position:center; opacity:.42;"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.72) 46%, rgba(58,20,20,.25) 100%);"></div>
+      <div style="position:relative; max-width:1440px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; max-width:1440px;">
+        <div style="max-width:620px;">
+          <div style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:26px;">Est. in Fredericksburg &nbsp;·&nbsp; Orthodox Christian</div>
+          <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:66px; line-height:1.08; color:#faf5ec; margin:0 0 26px; letter-spacing:-.015em; text-wrap:balance;">Come and see.<br>You are welcome here.</h1>
+          <p style="font-size:17.5px; line-height:1.65; color:#e8d9c4; margin:0 0 38px; max-width:520px; text-wrap:pretty;">Nativity of the Theotokos is a Greek Orthodox Christian parish in Fredericksburg, Virginia. Whether you are Orthodox, exploring the ancient Christian faith, or simply visiting, we welcome you to join us in prayer and worship.</p>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <span style="cursor:pointer; background:#e0b673; color:#3a1414; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;" style-hover="background:#f0cd91;" onClick="{{ goVisit }}">Plan your first visit</span>
+            <span style="cursor:pointer; border:1px solid rgba(232,217,196,.5); color:#f0e6d6; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;" style-hover="border-color:#e0b673; color:#e0b673;" onClick="{{ goContact }}">Service times &amp; directions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#7d2b2b; color:#f6ece0;">
+      <div style="max-width:1240px; margin:0 auto; padding:0 40px;">
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:rgba(246,241,232,.18);">
+          <div style="background:#7d2b2b; padding:30px 28px;">
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:10px;">Every Sunday</div>
+            <div style="font-family:Newsreader, serif; font-size:25px; font-weight:400;">9:00 a.m.</div>
+            <div style="font-size:13.5px; opacity:.85; margin-top:4px;">Orthros &amp; Divine Liturgy</div>
+          </div>
+          <div style="background:#7d2b2b; padding:30px 28px;">
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:10px;">Afterwards</div>
+            <div style="font-family:Newsreader, serif; font-size:25px; font-weight:400;">Join us for the Agape Meal</div>
+            <div style="font-size:13.5px; opacity:.85; margin-top:4px;">Visitors are always welcome.</div>
+          </div>
+          <div style="background:#7d2b2b; padding:30px 28px;">
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:10px;">Where</div>
+            <div style="font-family:Newsreader, serif; font-size:25px; font-weight:400;">12326 Spotswood Furnace Rd</div>
+            <div style="font-size:13.5px; opacity:.85; margin-top:4px;">Fredericksburg, VA 22407</div>
+          </div>
+          <div style="background:#7d2b2b; padding:30px 28px;">
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:10px;">Parking</div>
+            <div style="font-family:Newsreader, serif; font-size:25px; font-weight:400;">Free, on site</div>
+            <div style="font-size:13.5px; opacity:.85; margin-top:4px;">Enter from Spotswood Furnace Rd</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:104px 40px 88px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:88px; align-items:start;">
+        <div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:26px;">Welcome</div>
+          <blockquote style="font-family:Newsreader, serif; font-size:34px; line-height:1.34; font-weight:300; font-style:italic; color:#3a1414; margin:0 0 22px; text-wrap:pretty;">“Welcome one another, therefore, just as Christ has welcomed you, for the glory of God.”</blockquote>
+          <div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8a7f70;">Romans 15:7</div>
+        </div>
+        <div style="font-size:17px; line-height:1.75; color:#4a443c;">
+          <p style="margin:0 0 20px; text-wrap:pretty;">For nearly two thousand years, the Orthodox Church has proclaimed the apostolic faith and gathered around the Eucharist in worship. That same life of prayer continues here in Fredericksburg.</p>
+          <p style="margin:0; text-wrap:pretty;">If you are encountering Orthodoxy for the first time, you are welcome to visit. You do not need to know the prayers, understand when to stand, or know what to do beforehand. Simply come. We would be glad to have you with us.</p>
+          <div style="display:flex; gap:28px; margin-top:34px; flex-wrap:wrap;">
+            <span style="cursor:pointer; font-size:13.5px; letter-spacing:.06em; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px;" style-hover="border-color:#7d2b2b;" onClick="{{ goFaith }}">About the Orthodox faith →</span>
+            <span style="cursor:pointer; font-size:13.5px; letter-spacing:.06em; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px;" style-hover="border-color:#7d2b2b;" onClick="{{ goAbout }}">Meet Fr. John →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:88px 40px;">
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; margin-bottom:64px;">
+          <div>
+            <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:22px;">Plan your visit</div>
+            <h2 style="font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.1; margin:0 0 24px; color:#3a1414;">Your First Sunday</h2>
+            <p style="font-size:17.5px; line-height:1.75; color:#4a443c; margin:0; max-width:60ch; text-wrap:pretty;">Visiting an Orthodox church for the first time can feel unfamiliar. You don't need to know the prayers, when to stand, or what to do before you arrive. Someone will be there to welcome you, help you find your way, and give you a complimentary prayer book so you can follow along if you would like.</p>
+          </div>
+          <div style="border:1px solid #ccbda4; background:#f6f1e8; padding:30px 28px;">
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:12px;">A practical note</div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 14px; color:#3a1414;">When should I arrive?</h3>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">If you would like to experience the full Sunday morning cycle of worship, join us for Orthros at 9:00 AM. If this is your first visit—especially if you are bringing young children—you are also welcome to arrive closer to the beginning of Divine Liturgy, which typically begins at 10:00 AM.</p>
+          </div>
+        </div>
+
+        <div style="border:1px solid #ccbda4; background:#f6f1e8; padding:44px 42px; display:grid; grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr); gap:44px; align-items:start;">
+          <div>
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:16px;">What a Sunday looks like</div>
+            <div style="display:grid; gap:0; border-top:1px solid #e4dac8;">
+              <div style="display:grid; grid-template-columns:150px minmax(0,1fr); gap:18px; padding:13px 0; border-bottom:1px solid #e4dac8; align-items:baseline;"><span style="font-family:Newsreader, serif; font-size:17px; color:#7d2b2b;">9:00 AM</span><span style="font-size:15px; color:#5b5449;">Orthros — morning prayer</span></div>
+              <div style="display:grid; grid-template-columns:150px minmax(0,1fr); gap:18px; padding:13px 0; border-bottom:1px solid #e4dac8; align-items:baseline;"><span style="font-family:Newsreader, serif; font-size:17px; color:#7d2b2b;">10:00 AM</span><span style="font-size:15px; color:#5b5449;">Divine Liturgy</span></div>
+              <div style="display:grid; grid-template-columns:150px minmax(0,1fr); gap:18px; padding:13px 0; border-bottom:1px solid #e4dac8; align-items:baseline;"><span style="font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#8a7f70;">Within</span><span style="font-size:15px; color:#5b5449;">Holy Communion, then antidoron for all</span></div>
+              <div style="display:grid; grid-template-columns:150px minmax(0,1fr); gap:18px; padding:13px 0; border-bottom:1px solid #e4dac8; align-items:baseline;"><span style="font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#8a7f70;">Afterwards</span><span style="font-size:15px; color:#5b5449;">The Agape Meal in the parish hall</span></div>
+              <div style="display:grid; grid-template-columns:150px minmax(0,1fr); gap:18px; padding:13px 0; align-items:baseline;"><span style="font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#8a7f70;">Before you go</span><span style="font-size:15px; color:#5b5449;">The parish bookstore</span></div>
+            </div>
+          </div>
+          <div style="background:#e4dac8; width:1px; height:100%;"></div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:26px; margin:0 0 14px; color:#3a1414;">Read the whole thing before you come</h3>
+            <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0 0 22px; text-wrap:pretty;">The visitor page walks through each part of the morning — what Orthros is, what happens during the Liturgy, what to do during Communion if you are not Orthodox, and what to expect at the Agape Meal afterwards. It also covers parking, what to wear, and children in worship.</p>
+            <p style="font-family:Newsreader, serif; font-weight:300; font-style:italic; font-size:21px; line-height:1.5; color:#3a1414; margin:0 0 26px;">You don't need to have everything figured out before you visit. Just come. We'll help with the rest.</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <span style="cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px;" style-hover="background:#5e1f1f;" onClick="{{ goVisit }}">Plan your first visit</span>
+              <span style="cursor:pointer; border:1px solid #ccbda4; color:#5b5449; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px;" style-hover="border-color:#7d2b2b; color:#7d2b2b;" onClick="{{ goContact }}">Get directions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:96px 40px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:80px;">
+        <div>
+          <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0 0 8px; color:#3a1414;">Upcoming services &amp; events</h2>
+          <div style="font-size:13px; color:#8a7f70; margin-bottom:36px;">All services at the church unless noted</div>
+          <div style="border-top:1px solid #ded2be;">
+            <div style="display:grid; grid-template-columns:130px 1fr auto; gap:20px; align-items:baseline; padding:22px 0; border-bottom:1px solid #ded2be;">
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#b08442;">Sun · Aug 9</div>
+              <div><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">Orthros &amp; Divine Liturgy</div></div>
+              <div style="font-size:14px; color:#5b5449;">9:00 a.m.</div>
+            </div>
+            <div style="display:grid; grid-template-columns:130px 1fr auto; gap:20px; align-items:baseline; padding:22px 0; border-bottom:1px solid #ded2be;">
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#b08442;">Fri · Aug 14</div>
+              <div><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">Great Vespers — Dormition of the Theotokos</div></div>
+              <div style="font-size:14px; color:#5b5449;">6:00 p.m.</div>
+            </div>
+            <div style="display:grid; grid-template-columns:130px 1fr auto; gap:20px; align-items:baseline; padding:22px 0; border-bottom:1px solid #ded2be;">
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#b08442;">Sat · Aug 15</div>
+              <div><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">Divine Liturgy — Dormition of the Theotokos</div><div style="font-size:14px; color:#8a7f70; margin-top:4px;">One of the twelve Great Feasts</div></div>
+              <div style="font-size:14px; color:#5b5449;">9:00 a.m.</div>
+            </div>
+            <div style="display:grid; grid-template-columns:130px 1fr auto; gap:20px; align-items:baseline; padding:22px 0; border-bottom:1px solid #ded2be;">
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#b08442;">Sun · Aug 16</div>
+              <div><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">Orthros &amp; Divine Liturgy</div><div style="font-size:14px; color:#8a7f70; margin-top:4px;">Philoptochos hosting the Agape Meal</div></div>
+              <div style="font-size:14px; color:#5b5449;">9:00 a.m.</div>
+            </div>
+            <div style="display:grid; grid-template-columns:130px 1fr auto; gap:20px; align-items:baseline; padding:22px 0; border-bottom:1px solid #ded2be;">
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#b08442;">Wed · Aug 19</div>
+              <div><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">Paraklesis Service</div></div>
+              <div style="font-size:14px; color:#5b5449;">6:30 p.m.</div>
+            </div>
+          </div>
+          <span style="display:inline-block; cursor:pointer; margin-top:30px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px;" style-hover="border-color:#7d2b2b;" onClick="{{ goCalendar }}">View the full parish calendar →</span>
+        </div>
+
+        <aside>
+          <div style="border:1px solid #ded2be; background:#fbf8f2;">
+            <div style="height:190px; background-image:url('https://onlinechapel.goarch.org/images/clark/transfiguration.jpg'); background-size:cover; background-position:center; border-bottom:1px solid #ded2be;"></div>
+            <div style="padding:30px 30px 34px;">
+              <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Online Chapel</div>
+              <h3 style="font-family:Newsreader, serif; font-weight:400; font-size:23px; margin:0 0 6px; color:#3a1414;">Saints, feasts &amp; readings</h3>
+              <div style="font-size:14px; color:#8a7f70; margin-bottom:22px;">10th Saturday after Pentecost</div>
+              <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:10px;">Today's readings</div>
+              <div style="display:flex; flex-direction:column; gap:7px; font-size:15px; line-height:1.5;">
+                <a href="https://www.goarch.org/chapel/lectionary" target="_blank" rel="noreferrer">Romans 15:30–33</a>
+                <a href="https://www.goarch.org/chapel/lectionary" target="_blank" rel="noreferrer">Matthew 17:24–27; 18:1–4</a>
+              </div>
+              <div style="height:1px; background:#e4dac8; margin:24px 0;"></div>
+              <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:10px;">Commemorated today</div>
+              <p style="font-size:14.5px; line-height:1.65; color:#5b5449; margin:0;">Afterfeast of the Transfiguration; Emilian the Confessor, Bishop of Cyzikos; Gregory of Sinai and Mount Athos.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section style="background:#3a1414; color:#f0e6d6;">
+      <div style="max-width:1240px; margin:0 auto; padding:0 40px;">
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:70px; align-items:center; min-height:400px; padding:70px 0;">
+          <div>
+            <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:22px;">Every autumn</div>
+            <h2 style="font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.12; margin:0 0 20px; color:#faf5ec;">The Fredericksburg Greek Festival</h2>
+            <p style="font-size:17px; line-height:1.7; color:#dcccb4; margin:0 0 32px; max-width:520px; text-wrap:pretty;">Three days of food, music and dancing on the church grounds, run by the parish and open to the whole city. For many of our neighbours it is the first time they walk through our doors — and the church is open for tours all weekend.</p>
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+              <span style="cursor:pointer; background:#e0b673; color:#3a1414; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; border-radius:2px;" style-hover="background:#f0cd91;" onClick="{{ goFestival }}">Festival details</span>
+              <span style="cursor:pointer; border:1px solid rgba(240,230,214,.45); color:#f0e6d6; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px;" style-hover="border-color:#e0b673; color:#e0b673;" onClick="{{ goMinistries }}">Volunteer with us</span>
+            </div>
+          </div>
+          <div style="height:300px; background-image:url('https://www.nativity.va.goarch.org/assets/images/Banquet%202.png'); background-size:cover; background-position:center; border:1px solid rgba(224,182,115,.35);"></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:96px 40px;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:44px; flex-wrap:wrap;">
+        <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0; color:#3a1414;">The life of the parish</h2>
+        <span style="cursor:pointer; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b;" style-hover="color:#b08442;" onClick="{{ goMinistries }}">All ministries →</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:#ded2be; border:1px solid #ded2be;">
+        <div style="background:#f6f1e8; padding:32px 26px; cursor:pointer;" style-hover="background:#fbf8f2;" onClick="{{ goMinistries }}">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">Sunday School</h3>
+          <p style="font-size:14.5px; line-height:1.65; color:#5b5449; margin:0;">Ages 4 through high school, meeting after Communion.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:32px 26px; cursor:pointer;" style-hover="background:#fbf8f2;" onClick="{{ goMinistries }}">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">GOYA &amp; JOY</h3>
+          <p style="font-size:14.5px; line-height:1.65; color:#5b5449; margin:0;">Youth groups for grades 3–6 and 7–12: service, retreats, basketball.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:32px 26px; cursor:pointer;" style-hover="background:#fbf8f2;" onClick="{{ goMinistries }}">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">Philoptochos</h3>
+          <p style="font-size:14.5px; line-height:1.65; color:#5b5449; margin:0;">The women's charitable society — “friends of the poor” since 1931.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:32px 26px; cursor:pointer;" style-hover="background:#fbf8f2;" onClick="{{ goMinistries }}">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">Dance Troupe</h3>
+          <p style="font-size:14.5px; line-height:1.65; color:#5b5449; margin:0;">Traditional Greek dance, rehearsing for the festival and beyond.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isVisit }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="background:#ece3d5; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:82px 40px 74px;">
+        <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:22px;">Visiting</div>
+        <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.1; margin:0 0 22px; color:#3a1414; max-width:15ch;">Your first Sunday, explained</h1>
+        <p style="font-size:18px; line-height:1.7; color:#4a443c; margin:0; max-width:640px; text-wrap:pretty;">Orthodox worship can be unfamiliar the first time. Nothing here is a requirement — it is simply what to expect, so you can arrive without wondering.</p>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:88px 40px 40px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; margin-bottom:56px;">
+        <div>
+          <h2 style="font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.1; margin:0 0 22px; color:#3a1414;">Your First Sunday</h2>
+          <p style="font-size:17.5px; line-height:1.75; color:#4a443c; margin:0; max-width:60ch; text-wrap:pretty;">Visiting an Orthodox church for the first time can feel unfamiliar. You don't need to know the prayers, when to stand, or what to do before you arrive. Someone will be there to welcome you, help you find your way, and give you a complimentary prayer book so you can follow along if you would like.</p>
+        </div>
+        <div style="border:1px solid #ccbda4; background:#ece3d5; padding:30px 28px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:12px;">A practical note</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 14px; color:#3a1414;">When should I arrive?</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">If you would like to experience the full Sunday morning cycle of worship, join us for Orthros at 9:00 AM. If this is your first visit—especially if you are bringing young children—you may want to come closer to the beginning of Divine Liturgy, which typically begins at 10:00 AM.</p>
+        </div>
+      </div>
+
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:20px 0; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; margin-bottom:12px; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70;">
+          <span style="color:#7d2b2b;">Arrive</span><span style="color:#c9b795;">›</span>
+          <span>Orthros</span><span style="color:#c9b795;">›</span>
+          <span>Divine Liturgy</span><span style="color:#c9b795;">›</span>
+          <span>Holy Communion</span><span style="color:#c9b795;">›</span>
+          <span>Agape Meal</span><span style="color:#c9b795;">›</span>
+          <span>Bookstore</span>
+        </div>
+
+      <div>
+          <div style="display:grid; grid-template-columns:190px minmax(0,1fr); gap:44px; padding:44px 0; border-bottom:1px solid #ded2be;">
+            <div>
+              <div style="font-family:Newsreader, serif; font-size:15px; color:#b08442; letter-spacing:.2em; margin-bottom:14px;">01</div>
+              <div style="font-family:Newsreader, serif; font-size:26px; color:#7d2b2b; line-height:1.2;">9:00 AM</div>
+            </div>
+            <div>
+              <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:28px; margin:0 0 6px; color:#3a1414;">Orthros</h3>
+              <div style="font-family:Newsreader, serif; font-style:italic; font-size:17px; color:#8a7f70; margin-bottom:18px;">The morning prayer service</div>
+              <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 18px; max-width:62ch; text-wrap:pretty;">Orthros, also called Matins, is the Church's morning service of prayer and preparation before the Divine Liturgy. It includes psalms, hymns, Scripture, and prayers that reflect the feast or saint being commemorated that day.</p>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty;">Visitors are welcome to attend Orthros, but they should not feel obligated to begin their first visit here. Many inquirers and families with young children choose to arrive closer to the beginning of the Divine Liturgy.</p>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:190px minmax(0,1fr); gap:44px; padding:44px 0; border-bottom:1px solid #ded2be;">
+            <div>
+              <div style="font-family:Newsreader, serif; font-size:15px; color:#b08442; letter-spacing:.2em; margin-bottom:14px;">02</div>
+              <div style="font-family:Newsreader, serif; font-size:26px; color:#7d2b2b; line-height:1.2;">10:00 AM</div>
+            </div>
+            <div>
+              <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:28px; margin:0 0 6px; color:#3a1414;">Divine Liturgy</h3>
+              <div style="font-family:Newsreader, serif; font-style:italic; font-size:17px; color:#8a7f70; margin-bottom:18px;">The principal worship service of Sunday</div>
+              <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 18px; max-width:62ch; text-wrap:pretty;">The Divine Liturgy is the central worship service of the Orthodox Church, when the parish gathers in prayer and celebrates the Holy Eucharist. Expect ancient prayers and hymns, readings from Scripture, incense, icons, and periods when the congregation stands.</p>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty;">Visitors are welcome to participate in the prayers and worship. Don't worry about knowing when to stand, sit, make the sign of the Cross, or venerate an icon. You are welcome to simply observe and pray.</p>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:190px minmax(0,1fr); gap:44px; padding:44px 0; border-bottom:1px solid #ded2be;">
+            <div>
+              <div style="font-family:Newsreader, serif; font-size:15px; color:#b08442; letter-spacing:.2em; margin-bottom:14px;">03</div>
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70;">Within the Liturgy</div>
+            </div>
+            <div>
+              <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:28px; margin:0 0 6px; color:#3a1414;">Holy Communion</h3>
+              <div style="font-family:Newsreader, serif; font-style:italic; font-size:17px; color:#8a7f70; margin-bottom:18px;">A note for our visitors</div>
+              <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 18px; max-width:62ch; text-wrap:pretty;">The Eucharist is received by baptized and chrismated Orthodox Christians who are properly prepared to receive Holy Communion. If you are not Orthodox, please remain in place during Communion. This does not mean that you are unwelcome; Orthodox Christians understand Communion as an expression of full sacramental unity in the faith.</p>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty;">Visitors are welcome to receive antidoron, the blessed bread shared with the faithful and visitors. If you are unsure what to do at any point, simply ask the person who greeted you.</p>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:190px minmax(0,1fr); gap:44px; padding:44px 0; border-bottom:1px solid #ded2be;">
+            <div>
+              <div style="font-family:Newsreader, serif; font-size:15px; color:#b08442; letter-spacing:.2em; margin-bottom:14px;">04</div>
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70;">After Liturgy</div>
+            </div>
+            <div>
+              <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:28px; margin:0 0 6px; color:#3a1414;">The Agape Meal</h3>
+              <div style="font-family:Newsreader, serif; font-style:italic; font-size:17px; color:#8a7f70; margin-bottom:18px;">Please stay and eat with us.</div>
+              <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 18px; max-width:62ch; text-wrap:pretty;">Our Sunday gathering doesn't end when the service does. After Divine Liturgy, we gather for our Agape Meal—a shared, potluck-style meal in the parish hall.</p>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty;">Visitors are warmly invited to join us. You do not need to bring anything. This is a wonderful opportunity to meet parishioners, ask questions, and get to know our community.</p>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:190px minmax(0,1fr); gap:44px; padding:44px 0;">
+            <div>
+              <div style="font-family:Newsreader, serif; font-size:15px; color:#b08442; letter-spacing:.2em; margin-bottom:14px;">05</div>
+              <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70;">Before you leave</div>
+            </div>
+            <div>
+              <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:28px; margin:0 0 18px; color:#3a1414;">Visit the Parish Bookstore</h3>
+              <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 22px; max-width:62ch; text-wrap:pretty;">While you are here, you are welcome to browse our parish bookstore. It includes books for those learning about the Orthodox faith, spiritual reading, pamphlets, prayer books, and other Orthodox devotional and worship items.</p>
+              <span style="cursor:pointer; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px;" style-hover="border-color:#7d2b2b;" onClick="{{ goBookstore }}">Browse the bookstore →</span>
+            </div>
+          </div>
+        </div>
+      </section></main></sc-if></div>
+
+      <div style="border-top:1px solid #ded2be; margin-top:20px; padding-top:52px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:60px; align-items:center;">
+        <p style="font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.45; color:#3a1414; margin:0; max-width:24ch; text-wrap:pretty;">You don't need to have everything figured out before you visit. Just come. We'll help with the rest.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <span style="cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px;" style-hover="background:#5e1f1f;" onClick="{{ goContact }}">Get directions</span>
+          <span style="cursor:pointer; border:1px solid #ccbda4; color:#5b5449; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px;" style-hover="border-color:#7d2b2b; color:#7d2b2b;" onClick="{{ goCalendar }}">View the parish calendar</span>
+        </div>
+      </div>
+    
+
+    <section style="background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:84px 40px;">
+        <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:38px; margin:0 0 44px; color:#3a1414;">Questions people ask before coming</h2>
+        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:44px 70px;">
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">What should I wear?</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Modest and reasonably neat. Many wear what they'd wear to a nice dinner. Shorts and jeans appear too. Nobody is checking.</p>
+          </div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">Do I need to be Greek?</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">No. A growing share of our parish is not, including converts and families from other Orthodox traditions. The services are mostly in English.</p>
+          </div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">Is there somewhere to sit?</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Yes — full pews. Orthodox tradition stands for much of the service, but sit whenever you need to. Follow those around you or don't.</p>
+          </div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">What about my children?</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Bring them. Orthodox services are noisy at the edges and always have been. There is a cry room if you want one, but no obligation to use it.</p>
+          </div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">Will I be singled out?</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">No. Visitors are never asked to stand or introduce themselves. Come, watch, leave whenever you like.</p>
+          </div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414;">I'm interested in becoming Orthodox.</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Speak with Fr. John — no commitment implied. Inquirers' conversations happen quietly and at your own pace, often over many months. If you would rather begin by watching, <a href="https://www.youtube.com/watch?v=YimgCkBbH7c&amp;list=PLxcntdlvObPgDGgBg1mYsUxnfGcyTBKcc" target="_blank" rel="noreferrer">this video series</a> explains the Divine Liturgy and the faith behind it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:88px 40px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:70px; align-items:center;">
+        <div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Getting here</div>
+          <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:36px; margin:0 0 20px; color:#3a1414;">12326 Spotswood Furnace Road</h2>
+          <p style="font-size:17px; line-height:1.7; color:#5b5449; margin:0 0 28px;">Fredericksburg, Virginia 22407<br>About ten minutes west of I-95, exit 130.</p>
+          <div style="display:grid; gap:16px; font-size:15.5px; line-height:1.6; color:#5b5449; border-top:1px solid #e4dac8; padding-top:26px;">
+            <div><strong style="color:#3a1414;">Parking</strong> — free lot on site, entered directly from Spotswood Furnace Road. Additional overflow parking on the grass at feast days and the festival.</div>
+            <div><strong style="color:#3a1414;">Accessibility</strong> — step-free entrance on the north side; the hall is reachable by lift.</div>
+            <div><strong style="color:#3a1414;">Which door</strong> — the main narthex doors face the parking lot. They are open from 8:30 a.m.</div>
+          </div>
+          <span style="display:inline-block; cursor:pointer; margin-top:32px; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px;" style-hover="background:#5e1f1f;" onClick="{{ goContact }}">Contact us before you come</span>
+        </div>
+        <div style="height:400px; border:1px solid #ded2be; background:#e6ddcd; display:flex; align-items:center; justify-content:center; color:#9c9182; font-size:13px; letter-spacing:.16em; text-transform:uppercase;">Map embed — Spotswood Furnace Rd</div>
+      </div>
+    </section>
+  
+  
+
+  <sc-if value="{{ isFaith }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="position:relative; background:#3a1414; height:380px; overflow:hidden;">
+      <div style="position:absolute; inset:0; background-image:url('https://www.nativity.va.goarch.org/assets/images/resurrection.jpg'); background-size:cover; background-position:center 30%; opacity:.4;"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.95), rgba(58,20,20,.5));"></div>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:20px;">Our Faith</div>
+        <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0; color:#faf5ec; max-width:16ch;">The Church of the Apostles, still here</h1>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:84px 40px 60px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px;">
+        <p style="font-family:Newsreader, serif; font-size:27px; line-height:1.5; font-weight:300; color:#3a1414; margin:0; text-wrap:pretty;">Orthodox Christianity is not a denomination that broke away from something. It is the continuous life of the Church founded at Pentecost, holding the same faith, the same sacraments and the same worship across twenty centuries.</p>
+        <div style="font-size:16.5px; line-height:1.75; color:#5b5449;">
+          <p style="margin:0 0 18px; text-wrap:pretty;">That continuity is what a visitor feels first: the hymns, the icons, the fasting seasons, the shape of the year. None of it is nostalgia. It is the ordinary practice of a Church that never stopped.</p>
+          <p style="margin:0; text-wrap:pretty;">The pages below are the parish's introduction to that life. If you would rather ask a person than read, that is always the better option — Fr. John is glad to talk.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:20px 40px 96px;">
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:#ded2be; border:1px solid #ded2be;">
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">The Orthodox Church</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Where the Church came from and how it is ordered today.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">The House of God</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Reading a church building: the narthex, nave, altar, and every icon in between.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">Worship</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Why we chant, stand, cross ourselves, and use incense.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">The Divine Liturgy</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">A walk through the service of St. John Chrysostom, part by part.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">The Sacraments</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Baptism, chrismation, confession, marriage, unction, ordination, Eucharist.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">Special Services</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Memorials, blessings, Paraklesis, and the services of Holy Week.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">Teachings</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">The Creed, the Councils, and what Orthodox Christians actually believe.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">Spirituality</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Prayer, fasting, almsgiving, and the practical life of an Orthodox Christian.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:36px 30px;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">Parish History</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">How a Greek Orthodox community took root in Fredericksburg.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#ece3d5; border-top:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 40px;">
+        <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:34px; margin:0 0 34px; color:#3a1414;">Watch and read further</h2>
+        <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:26px;">
+          <a href="https://www.youtube.com/watch?v=YimgCkBbH7c&amp;list=PLxcntdlvObPgDGgBg1mYsUxnfGcyTBKcc" target="_blank" rel="noreferrer" style="display:block; border:1px solid #ded2be; background:#f6f1e8;">
+            <div style="height:150px; background:#3a1414; display:flex; flex-direction:column; justify-content:center; padding:24px;">
+              <div style="font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:#e0b673; margin-bottom:10px;">Video series</div>
+              <div style="font-family:Newsreader, serif; font-weight:300; font-size:22px; line-height:1.25; color:#faf5ec;">Begin here</div>
+            </div>
+            <div style="padding:24px;"><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">An Introduction to the Orthodox Worship Space</div><div style="font-size:13px; color:#8a7f70; margin-top:8px;">First of a series on Orthodox worship and belief</div></div>
+          </a>
+          <a href="https://www.goarch.org/introduction" target="_blank" rel="noreferrer" style="display:block; border:1px solid #ded2be; background:#f6f1e8;">
+            <div style="height:150px; background-image:url('https://www.nativity.va.goarch.org/assets/images/ascension-christ.jpg'); background-size:cover; background-position:center;"></div>
+            <div style="padding:24px;"><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">An Introduction to the Orthodox Church</div><div style="font-size:13px; color:#8a7f70; margin-top:8px;">goarch.org</div></div>
+          </a>
+          <a href="https://www.goarch.org/-/in-search-of-hidden-holy-sites" target="_blank" rel="noreferrer" style="display:block; border:1px solid #ded2be; background:#f6f1e8;">
+            <div style="height:150px; background-image:url('https://www.nativity.va.goarch.org/assets/images/Holy-sites.jpg'); background-size:cover; background-position:center;"></div>
+            <div style="padding:24px;"><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">In Search of Hidden Holy Sites</div><div style="font-size:13px; color:#8a7f70; margin-top:8px;">Video series</div></div>
+          </a>
+          <a href="https://www.goarch.org/-/modern-elders" target="_blank" rel="noreferrer" style="display:block; border:1px solid #ded2be; background:#f6f1e8;">
+            <div style="height:150px; background-image:url('https://www.nativity.va.goarch.org/assets/images/Elders.jpg'); background-size:cover; background-position:center;"></div>
+            <div style="padding:24px;"><div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414;">Modern Elders Series</div><div style="font-size:13px; color:#8a7f70; margin-top:8px;">Video series</div></div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isCalendar }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="background:#ece3d5; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 40px 64px;">
+        <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Parish calendar</div>
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap;">
+          <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1; margin:0; color:#3a1414;">August 2026</h1>
+          <div style="display:flex; gap:10px;">
+            <span style="cursor:pointer; border:1px solid #ccbda4; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#5b5449;" style-hover="border-color:#7d2b2b; color:#7d2b2b;">← July</span>
+            <span style="cursor:pointer; border:1px solid #ccbda4; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#5b5449;" style-hover="border-color:#7d2b2b; color:#7d2b2b;">September →</span>
+            <span style="cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase;" style-hover="background:#5e1f1f;">Subscribe (iCal)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:70px 40px 96px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:70px; align-items:start;">
+        <div>
+          <div style="display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:1px; background:#ded2be; border:1px solid #ded2be;">
+            <div style="background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; text-align:center;">Sun</div>
+            <div style="background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; text-align:center;">Mon</div>
+            <div style="background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; text-align:center;">Tue</div>
+            <div style="background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; text-align:center;">Wed</div>
+            <div style="background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; text-align:center;">Thu</div>
+            <div style="background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; text-align:center;">Fri</div>
+            <div style="background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; text-align:center;">Sat</div>
+            <sc-for list="{{ days }}" as="d" hint-placeholder-count="35">
+              <div style="background:#f6f1e8; min-height:104px; padding:9px 10px; min-width:0; overflow:hidden;">
+                <div style="font-size:13px; color:#8a7f70; margin-bottom:6px;">{{ d.n }}</div>
+                <sc-if value="{{ d.has }}" hint-placeholder-val="{{ false }}">
+                  <div style="background:#f2e5dd; border-left:2px solid #7d2b2b; padding:5px 7px; font-size:11.5px; line-height:1.35; color:#5e1f1f;">{{ d.label }}</div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <aside>
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:18px;">Regular schedule</div>
+          <div style="display:grid; gap:0; border-top:1px solid #ded2be;">
+            <div style="padding:16px 0; border-bottom:1px solid #ded2be;"><div style="font-family:Newsreader, serif; font-size:19px; color:#3a1414;">Sunday</div><div style="font-size:14.5px; color:#5b5449; margin-top:4px;">9:00 a.m. Orthros &amp; Divine Liturgy</div></div>
+            <div style="padding:16px 0; border-bottom:1px solid #ded2be;"><div style="font-family:Newsreader, serif; font-size:19px; color:#3a1414;">Wednesday</div><div style="font-size:14.5px; color:#5b5449; margin-top:4px;">6:30 p.m. Paraklesis (in season)</div></div>
+            <div style="padding:16px 0; border-bottom:1px solid #ded2be;"><div style="font-family:Newsreader, serif; font-size:19px; color:#3a1414;">Great Feasts</div><div style="font-size:14.5px; color:#5b5449; margin-top:4px;">Vespers the evening before, Liturgy at 9:00 a.m.</div></div>
+            <div style="padding:16px 0; border-bottom:1px solid #ded2be;"><div style="font-family:Newsreader, serif; font-size:19px; color:#3a1414;">Confession</div><div style="font-size:14.5px; color:#5b5449; margin-top:4px;">By appointment with Fr. John</div></div>
+          </div>
+          <div style="margin-top:34px; background:#ece3d5; border:1px solid #ded2be; padding:26px 24px;">
+            <div style="font-family:Newsreader, serif; font-size:20px; color:#3a1414; margin-bottom:10px;">Office hours</div>
+            <p style="font-size:14.5px; line-height:1.65; color:#5b5449; margin:0 0 14px;">Tuesday–Friday, 9:00 a.m. – 2:00 p.m. Call ahead if you are driving in.</p>
+            <div style="font-size:15px; color:#7d2b2b;">(540) 548-2665</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isMinistries }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="background:#ece3d5; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 40px 66px;">
+        <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Parish ministries</div>
+        <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0 0 20px; color:#3a1414; max-width:18ch;">The parish is what its people do together</h1>
+        <p style="font-size:17.5px; line-height:1.7; color:#4a443c; margin:0; max-width:640px; text-wrap:pretty;">Every ministry below welcomes newcomers, and none of them require you to have been here long. Ask at coffee hour, or write to the parish office.</p>
+      </div>
+    </section>
+    <section style="max-width:1240px; margin:0 auto; padding:80px 40px 96px;">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be;">
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Youth</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">Sunday School</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Classes for ages 4 through high school, meeting after Holy Communion from September through May. New students may join any week.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Youth</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">GOYA</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Greek Orthodox Youth of America, grades 7–12. Monthly meetings, service projects, basketball, and the Metropolis summer camp.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Youth</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">JOY</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Junior Orthodox Youth, grades 3–6. Crafts, outings and service, with parents very much included.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Service</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">Ladies' Philoptochos Society</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">“Friends of the poor.” The parish's charitable arm — local food assistance, hospital visits, and national Archdiocese relief work.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Culture</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">Dance Troupe</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Traditional dance from across Greece, rehearsing through the year and performing at the festival. All ages, no experience needed.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Fellowship</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">AHEPA</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">The American Hellenic Educational Progressive Association — scholarships, veterans' work and community service.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Governance</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">Parish Council</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Elected stewards responsible for the temporal affairs of the parish, serving alongside the presiding priest.</p>
+        </div>
+        <div style="background:#f6f1e8; padding:40px 32px;">
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Worship</div>
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">Choir &amp; Chanters</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0;">Byzantine chant and choral singing at every Liturgy. Readers and altar servers are also always needed.</p>
+        </div>
+        <div style="background:#ece3d5; padding:40px 32px; display:flex; flex-direction:column; justify-content:center;">
+          <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414;">Register your family</h3>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 20px;">The first step to joining any ministry — and to being counted as a steward of the parish.</p>
+          <span style="cursor:pointer; align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase;" style-hover="background:#5e1f1f;" onClick="{{ goGive }}">Registration form</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:80px 40px 60px;">
+      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">About the parish</div>
+      <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0; color:#3a1414; max-width:16ch;">Nativity of the Theotokos</h1>
+    </section>
+    <section style="max-width:1240px; margin:0 auto; padding:0 40px 90px;">
+      <div style="display:grid; grid-template-columns:380px minmax(0,1fr); gap:70px; align-items:start;">
+        <div>
+          <div style="height:420px; background-image:url('https://www.nativity.va.goarch.org/assets/images/Father%27s%20pic.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd;"></div>
+          <div style="margin-top:22px;">
+            <div style="font-family:Newsreader, serif; font-size:24px; color:#3a1414; line-height:1.25;">Rev. Protopresbyter John C. Katsoulis</div>
+            <div style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-top:8px;">Presiding Priest</div>
+            <div style="font-size:15px; color:#5b5449; margin-top:14px; line-height:1.7;">(540) 548-2665<br><a href="#" onClick="{{ goContact }}">Write to Fr. John →</a></div>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:Newsreader, serif; font-size:26px; line-height:1.5; font-weight:300; color:#3a1414; margin:0 0 28px; text-wrap:pretty;">We are a parish of the Greek Orthodox Metropolis of New Jersey, serving Orthodox Christians across Fredericksburg, Spotsylvania, Stafford and King George.</p>
+          <div style="font-size:16.5px; line-height:1.75; color:#5b5449;">
+            <p style="margin:0 0 18px; text-wrap:pretty;">The community began as a small group of families meeting where they could, and grew into the church that stands today on Spotswood Furnace Road. Its name — the Nativity of the Theotokos — marks the birth of the Mother of God, celebrated each September the eighth.</p>
+            <p style="margin:0 0 18px; text-wrap:pretty;">Today the parish is a mix of families with Greek roots going back generations, Orthodox Christians who moved to the area for work or the military, and converts who found their way here from other traditions. That mix is the ordinary condition of an American Orthodox parish, and it is a good one.</p>
+            <p style="margin:0; text-wrap:pretty;">Fr. John serves as presiding priest, assisted by an elected Parish Council and a large number of parishioners who quietly keep everything running.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-top:44px;">
+            <div style="background:#f6f1e8; padding:26px 22px;"><div style="font-family:Newsreader, serif; font-size:30px; color:#7d2b2b;">1963</div><div style="font-size:13.5px; color:#8a7f70; margin-top:6px;">Community founded</div></div>
+            <div style="background:#f6f1e8; padding:26px 22px;"><div style="font-family:Newsreader, serif; font-size:30px; color:#7d2b2b;">Sept 8</div><div style="font-size:13.5px; color:#8a7f70; margin-top:6px;">Our feast day</div></div>
+            <div style="background:#f6f1e8; padding:26px 22px;"><div style="font-family:Newsreader, serif; font-size:30px; color:#7d2b2b;">GOMNJ</div><div style="font-size:13.5px; color:#8a7f70; margin-top:6px;">Metropolis of New Jersey</div></div>
+          </div>
+          <div style="font-size:12.5px; color:#a0968a; margin-top:14px; font-style:italic;">Founding year shown as a placeholder — please confirm.</div>
+        </div>
+      </div>
+    </section>
+    <section style="background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:80px 40px;">
+        <div style="max-width:70ch; margin-bottom:50px;">
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Parish Council</div>
+          <h2 style="font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.12; margin:0 0 20px; color:#3a1414;">Those elected to serve the parish</h2>
+          <p style="font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty;">The Parish Council is elected by the stewards of the parish and serves alongside Fr. John in caring for its temporal affairs — the buildings, the finances, the hospitality, and the work of the committees below. Council members are parishioners, not staff, and are glad to be asked questions.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; border-top:1px solid #ded2be; border-left:1px solid #ded2be;">
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Chris Rigopoulos</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Parish Council Member</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Co-leads Building and Grounds, overseeing the care, safety and long-term planning of the church property.</p>
+            <div style="font-size:14px;"><a href="mailto:chris.rigopoulos@ntgoc.org">chris.rigopoulos@ntgoc.org</a></div>
+          </div>
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Dennis Makrinos</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Parish Council Member</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Co-leads Building and Grounds, working on maintenance, repairs and facility projects across the parish.</p>
+            <div style="font-size:14px;"><a href="mailto:dennis.makrinos@ntgoc.org">dennis.makrinos@ntgoc.org</a></div>
+          </div>
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Eleni Yiasemides</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Parish Council Member</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Leads the Worship and Liturgical Committee with Fr. John, coordinating volunteers and supplies for the divine services.</p>
+            <div style="font-size:14px;"><a href="mailto:eleni.yiasemides@ntgoc.org">eleni.yiasemides@ntgoc.org</a></div>
+          </div>
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Jason Yianilos</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Parish Council Member</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Leads Fellowship and Hospitality, and co-leads Youth and Family. The person to find if you are visiting for the first time.</p>
+            <div style="font-size:14px;"><a href="mailto:jason.yianilos@ntgoc.org">jason.yianilos@ntgoc.org</a></div>
+          </div>
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Nick Roman</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Parish Council Member</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Co-leads Education and Catechesis and Youth and Family — Sunday School, Bible study and instruction for catechumens.</p>
+            <div style="font-size:14px;"><a href="mailto:nick.roman@ntgoc.org">nick.roman@ntgoc.org</a></div>
+          </div>
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Anthony Hatzis</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Parish Council Member</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Co-leads Education and Catechesis, supporting adult formation and educational resources for the parish.</p>
+            <div style="font-size:14px;"><a href="mailto:anthony.hatzis@ntgoc.org">anthony.hatzis@ntgoc.org</a></div>
+          </div>
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Gamal Salem</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Parish Council Member</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Leads Fundraising and Events, coordinating the initiatives and major parish events that support our ministries.</p>
+            <div style="font-size:14px;"><a href="mailto:gamal.salem@ntgoc.org">gamal.salem@ntgoc.org</a></div>
+          </div>
+          <div style="background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414;">Rev. Protopresbyter John C. Katsoulis</h3>
+            <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Presiding Priest</div>
+            <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px;">Serves as spiritual father of the parish and sits with the Council, leading the Worship and Liturgical Committee.</p>
+            <div style="font-size:14px; color:#5b5449;">(540) 548-2665</div>
+          </div>
+        </div>
+        <div style="font-size:12.5px; color:#a0968a; margin-top:16px; font-style:italic;">Council offices (President, Vice-President, Secretary, Treasurer), personal biographies and real email addresses are placeholders — please send the current roster and we will set them.</div>
+
+        <div style="margin-top:76px;">
+          <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:36px; margin:0 0 12px; color:#3a1414;">Parish Council Committees</h2>
+          <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 40px; max-width:64ch; text-wrap:pretty;">Each committee is open to any parishioner willing to help. If one of them interests you, write to its lead or speak with them after Divine Liturgy.</p>
+          <div style="border-top:1px solid #ded2be;">
+            <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be;">
+              <div>
+                <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414;">Building and Grounds / Facilities</h3>
+                <div style="font-size:14px; color:#8a7f70;">Parish Council Leads: Chris Rigopoulos and Dennis Makrinos</div>
+              </div>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">Oversees the care of our church buildings, grounds, and parish property, including maintenance, repairs, safety, security, and long-term facility planning.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be;">
+              <div>
+                <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414;">Worship / Liturgical</h3>
+                <div style="font-size:14px; color:#8a7f70;">Leads: Fr. John and Eleni Yiasemides</div>
+              </div>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">Supports the reverent celebration of divine services by helping coordinate liturgical volunteers, supplies, and other worship needs under the guidance of our priest.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be;">
+              <div>
+                <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414;">Fellowship / Hospitality</h3>
+                <div style="font-size:14px; color:#8a7f70;">Lead: Jason Yianilos</div>
+              </div>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">Strengthens Christian fellowship by coordinating coffee hours, parish meals, visitor hospitality, and social gatherings.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be;">
+              <div>
+                <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414;">Education / Catechesis</h3>
+                <div style="font-size:14px; color:#8a7f70;">Leads: Nick Roman and Anthony Hatzis</div>
+              </div>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">Supports Sunday School, Bible studies, catechumen instruction, educational resources, and other opportunities for Orthodox Christian formation.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be;">
+              <div>
+                <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414;">Youth and Family</h3>
+                <div style="font-size:14px; color:#8a7f70;">Leads: Nick Roman and Jason Yianilos</div>
+              </div>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">Develops activities, programs, and service opportunities that support the spiritual growth of children, teenagers, young adults, and families.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be;">
+              <div>
+                <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414;">Fundraising and Events</h3>
+                <div style="font-size:14px; color:#8a7f70;">Lead: Gamal Salem</div>
+              </div>
+              <p style="font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">Coordinates fundraising initiatives and major parish events that support the mission and ministries of our church.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#f6f1e8;">
+      <div style="max-width:1240px; margin:0 auto; padding:70px 40px;">
+        <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:32px; margin:0 0 30px; color:#3a1414;">The Light — parish newsletter</h2>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#" style="border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449;">2026</a>
+          <a href="#" style="border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449;">2025</a>
+          <a href="#" style="border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449;">2024</a>
+          <a href="#" style="border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449;">2023</a>
+          <a href="#" style="border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449;">2022</a>
+          <a href="#" style="border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449;">Archive</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isGive }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:84px 40px 70px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; align-items:start;">
+        <div>
+          <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Stewardship</div>
+          <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:50px; line-height:1.12; margin:0 0 24px; color:#3a1414;">Giving, and what it pays for</h1>
+          <p style="font-size:17px; line-height:1.75; color:#5b5449; margin:0 0 18px; text-wrap:pretty;">Stewardship is not dues. It is the offering by which the parish exists: the priest's salary, the utilities, the Sunday School materials, the charity the Philoptochos gives away, and the building itself.</p>
+          <p style="font-size:17px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">Visitors are never expected to give. If you are new, put nothing in the tray and enjoy the coffee.</p>
+        </div>
+        <div style="border:1px solid #ded2be; background:#fbf8f2; padding:38px 34px;">
+          <h2 style="font-family:Newsreader, serif; font-weight:500; font-size:26px; margin:0 0 22px; color:#3a1414;">Ways to give</h2>
+          <div style="display:grid; gap:14px;">
+            <a href="https://square.link/u/u8cIpGbh" target="_blank" rel="noreferrer" style="display:block; background:#7d2b2b; color:#f6f1e8; padding:16px 22px; font-size:13px; letter-spacing:.14em; text-transform:uppercase; text-align:center;">Give online</a>
+            <a href="https://square.link/u/ZlTPph2Q" target="_blank" rel="noreferrer" style="display:block; border:1px solid #ccbda4; color:#5b5449; padding:16px 22px; font-size:13px; letter-spacing:.14em; text-transform:uppercase; text-align:center;">Memorial donation</a>
+            <a href="#" style="display:block; border:1px solid #ccbda4; color:#5b5449; padding:16px 22px; font-size:13px; letter-spacing:.14em; text-transform:uppercase; text-align:center;">2026 stewardship pledge</a>
+            <a href="#" style="display:block; border:1px solid #ccbda4; color:#5b5449; padding:16px 22px; font-size:13px; letter-spacing:.14em; text-transform:uppercase; text-align:center;">Family registration form</a>
+          </div>
+          <div style="height:1px; background:#e4dac8; margin:26px 0;"></div>
+          <p style="font-size:14.5px; line-height:1.7; color:#5b5449; margin:0;">Cheques may be mailed to the parish office at 12326 Spotswood Furnace Rd, Fredericksburg, VA 22407.</p>
+        </div>
+      </div>
+    </section>
+    <section style="background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:70px 40px;">
+        <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:32px; margin:0 0 34px; color:#3a1414;">Building projects</h2>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:60px; align-items:center;">
+          <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty;">The parish maintains an ongoing programme of capital work on the church and grounds. Plans, budgets and progress reports are published so stewards can see where their offerings go.</p>
+          <a href="https://sites.google.com/ntgoc.org/projects/home" target="_blank" rel="noreferrer" style="display:block; height:180px; background-image:url('https://www.nativity.va.goarch.org/assets/images/Screenshot%202024-04-27%20at%206.13.23%E2%80%AFPM.png'); background-size:cover; background-position:center; border:1px solid #ded2be; background-color:#e6ddcd;"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:84px 40px 90px;">
+      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Contact</div>
+      <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:50px; line-height:1.12; margin:0 0 50px; color:#3a1414;">Ask us anything</h1>
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:80px; align-items:start;">
+        <div>
+          <div style="display:grid; gap:26px; border-top:1px solid #ded2be; padding-top:28px;">
+            <div><div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#b08442; margin-bottom:8px;">Church</div><div style="font-size:17px; line-height:1.6; color:#3a1414;">12326 Spotswood Furnace Rd<br>Fredericksburg, VA 22407</div></div>
+            <div><div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#b08442; margin-bottom:8px;">Telephone</div><div style="font-size:17px; color:#3a1414;">(540) 548-2665</div></div>
+            <div><div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#b08442; margin-bottom:8px;">Office hours</div><div style="font-size:17px; color:#3a1414;">Tuesday – Friday, 9:00 a.m. – 2:00 p.m.</div></div>
+            <div><div style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#b08442; margin-bottom:8px;">Follow</div><div style="font-size:16px; display:flex; gap:20px;"><a href="https://www.facebook.com/ntgoc/" target="_blank" rel="noreferrer">Facebook</a><a href="https://www.youtube.com/channel/UCwsbcv9QxTsdEaDhqEAVIYQ/featured" target="_blank" rel="noreferrer">YouTube</a></div></div>
+          </div>
+          <div style="margin-top:40px; height:260px; border:1px solid #ded2be; background:#e6ddcd; display:flex; align-items:center; justify-content:center; color:#9c9182; font-size:13px; letter-spacing:.16em; text-transform:uppercase;">Map embed</div>
+        </div>
+        <div style="border:1px solid #ded2be; background:#fbf8f2; padding:40px 36px;">
+          <h2 style="font-family:Newsreader, serif; font-weight:500; font-size:26px; margin:0 0 8px; color:#3a1414;">Send a message</h2>
+          <p style="font-size:14.5px; line-height:1.65; color:#8a7f70; margin:0 0 28px;">Goes to the parish office. Mark it for Fr. John if it is pastoral or confidential.</p>
+          <div style="display:grid; gap:18px;">
+            <div><div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">Your name</div><div style="border:1px solid #d5c8b1; background:#f6f1e8; height:46px;"></div></div>
+            <div><div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">Email</div><div style="border:1px solid #d5c8b1; background:#f6f1e8; height:46px;"></div></div>
+            <div><div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">This is about</div><div style="border:1px solid #d5c8b1; background:#f6f1e8; height:46px; display:flex; align-items:center; padding:0 14px; font-size:15px; color:#5b5449;">Visiting for the first time</div></div>
+            <div><div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">Message</div><div style="border:1px solid #d5c8b1; background:#f6f1e8; height:130px;"></div></div>
+            <div style="background:#7d2b2b; color:#f6f1e8; padding:16px; text-align:center; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer;" style-hover="background:#5e1f1f;">Send</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isFestival }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="position:relative; height:460px; background:#3a1414; overflow:hidden;">
+      <div style="position:absolute; inset:0; background-image:url('https://www.nativity.va.goarch.org/assets/images/Banquet%202.png'); background-size:cover; background-position:center; opacity:.45;"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.94), rgba(58,20,20,.45));"></div>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:20px;">Fredericksburg Greek Festival</div>
+        <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.08; margin:0 0 20px; color:#faf5ec; max-width:14ch;">Three days. Everyone invited.</h1>
+        <p style="font-size:17.5px; line-height:1.7; color:#dcccb4; margin:0; max-width:560px;">Food, music, dancing and church tours on the grounds at Spotswood Furnace Road.</p>
+      </div>
+    </section>
+    <section style="max-width:1240px; margin:0 auto; padding:84px 40px;">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-bottom:60px;">
+        <div style="background:#f6f1e8; padding:34px 28px;"><div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:12px;">Eat</div><p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Souvlaki, pastitsio, spanakopita, gyros and a pastry table built over several weeks by the Philoptochos. Dine in or take away.</p></div>
+        <div style="background:#f6f1e8; padding:34px 28px;"><div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:12px;">Watch</div><p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Live music and performances by the parish dance troupe through each afternoon and evening.</p></div>
+        <div style="background:#f6f1e8; padding:34px 28px;"><div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:12px;">See</div><p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Guided tours of the church on the hour — the icons, the architecture, and what all of it means. No booking needed.</p></div>
+      </div>
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start;">
+        <div>
+          <h2 style="font-family:Newsreader, serif; font-weight:400; font-size:34px; margin:0 0 20px; color:#3a1414;">Volunteers make it happen</h2>
+          <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 16px; text-wrap:pretty;">The festival is run entirely by parishioners and friends of the parish — cooking, serving, parking, setup and teardown. You do not need to be Orthodox or Greek to help, and many volunteers are neighbours who simply enjoy it.</p>
+          <p style="font-size:16.5px; line-height:1.75; color:#5b5449; margin:0;">Shifts are two hours. Sign-ups open in late summer.</p>
+        </div>
+        <div style="border:1px solid #ded2be; background:#fbf8f2; padding:32px 28px;">
+          <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px;">Dates &amp; tickets</div>
+          <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0 0 20px;">Dates for this year are announced on the festival website, along with the menu and advance banquet tickets.</p>
+          <a href="http://www.fredgreek.org/" target="_blank" rel="noreferrer" style="display:block; background:#7d2b2b; color:#f6f1e8; padding:15px 22px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; text-align:center;">fredgreek.org</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isHall }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:84px 40px 90px;">
+      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Hall rental</div>
+      <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:50px; line-height:1.12; margin:0 0 40px; color:#3a1414; max-width:16ch;">The parish hall is available to the community</h1>
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) 400px; gap:70px; align-items:start;">
+        <div style="font-size:16.5px; line-height:1.75; color:#5b5449;">
+          <p style="margin:0 0 18px; text-wrap:pretty;">Our hall seats roughly 200 and is used for baptisms, memorials, receptions, meetings and community gatherings. It has a full commercial kitchen, tables and chairs, a sound system and its own parking.</p>
+          <p style="margin:0 0 30px; text-wrap:pretty;">Rental is open to parishioners and to the wider Fredericksburg community. Rates differ for the two, and a refundable deposit is required.</p>
+          <div style="display:grid; gap:0; border-top:1px solid #ded2be;">
+            <div style="display:grid; grid-template-columns:1fr auto; padding:16px 0; border-bottom:1px solid #ded2be;"><span>Capacity</span><span style="color:#3a1414;">≈ 200 seated</span></div>
+            <div style="display:grid; grid-template-columns:1fr auto; padding:16px 0; border-bottom:1px solid #ded2be;"><span>Kitchen</span><span style="color:#3a1414;">Full commercial</span></div>
+            <div style="display:grid; grid-template-columns:1fr auto; padding:16px 0; border-bottom:1px solid #ded2be;"><span>Parking</span><span style="color:#3a1414;">On-site, free</span></div>
+            <div style="display:grid; grid-template-columns:1fr auto; padding:16px 0; border-bottom:1px solid #ded2be;"><span>Booking</span><span style="color:#3a1414;">Through the parish office</span></div>
+          </div>
+        </div>
+        <div style="border:1px solid #ded2be; background:#fbf8f2; padding:34px 30px;">
+          <h2 style="font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 14px; color:#3a1414;">Enquire</h2>
+          <p style="font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 22px;">Tell us the date, the occasion and rough numbers, and the office will send rates and the rental agreement.</p>
+          <span style="display:block; cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:15px 22px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; text-align:center;" style-hover="background:#5e1f1f;" onClick="{{ goContact }}">Check availability</span>
+          <div style="font-size:15px; color:#5b5449; margin-top:18px; text-align:center;">or call (540) 548-2665</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isBookstore }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="background:#ece3d5; border-bottom:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 40px 66px;">
+        <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Parish bookstore</div>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) 400px; gap:70px; align-items:end;">
+          <div>
+            <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0 0 20px; color:#3a1414; max-width:18ch;">Books, icons and things for the home</h1>
+            <p style="font-size:17.5px; line-height:1.7; color:#4a443c; margin:0; max-width:620px; text-wrap:pretty;">The bookstore keeps a small, carefully chosen stock: Scripture and prayer books, icons for the home, incense, candles and prayer ropes. Order here and collect after Divine Liturgy on Sunday — nothing is posted, and nothing is paid for until you have it in your hands.</p>
+          </div>
+          <div style="border:1px solid #ccbda4; background:#fbf8f2; padding:28px 26px;">
+            <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:12px;">How collection works</div>
+            <div style="display:grid; gap:12px; font-size:14.5px; line-height:1.6; color:#5b5449;">
+              <div><strong style="color:#3a1414;">1.</strong> Reserve what you would like below.</div>
+              <div><strong style="color:#3a1414;">2.</strong> We set it aside and email you a confirmation.</div>
+              <div><strong style="color:#3a1414;">3.</strong> Collect and pay at the bookstore table after Liturgy, in the narthex.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:56px 40px 96px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:40px;">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <sc-for list="{{ cats }}" as="c" hint-placeholder-count="5">
+            <span style="{{ c.style }}" onClick="{{ c.pick }}">{{ c.name }}</span>
+          </sc-for>
+        </div>
+        <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-size:13.5px; color:#5b5449;">{{ cartLabel }}</span>
+            <span style="cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:12px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase;" style-hover="background:#5e1f1f;">Reserve for Sunday</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:0; border-top:1px solid #ded2be; border-left:1px solid #ded2be;">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+          <div style="background:#f6f1e8; display:flex; flex-direction:column; min-width:0; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be;">
+            <div style="aspect-ratio:4/5; background:#ece3d5; border-bottom:1px solid #ded2be; display:flex; align-items:center; justify-content:center; padding:20px;">
+              <span style="font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#a89b88; text-align:center;">{{ it.cat }}</span>
+            </div>
+            <div style="padding:24px 22px 26px; display:flex; flex-direction:column; flex:1;">
+              <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:20px; line-height:1.3; margin:0 0 6px; color:#3a1414;">{{ it.name }}</h3>
+              <div style="font-size:13px; color:#8a7f70; margin-bottom:12px;">{{ it.by }}</div>
+              <p style="font-size:14px; line-height:1.6; color:#5b5449; margin:0 0 20px;">{{ it.note }}</p>
+              <div style="margin-top:auto; display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <span style="font-family:Newsreader, serif; font-size:22px; color:#7d2b2b;">{{ it.priceLabel }}</span>
+                <span style="font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:#a08a6a;">{{ it.stockLabel }}</span>
+              </div>
+              <span style="cursor:pointer; margin-top:16px; border:1px solid #ccbda4; padding:12px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#5b5449;" style-hover="border-color:#7d2b2b; color:#7d2b2b;" onClick="{{ it.add }}">Reserve</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="font-size:12.5px; color:#a0968a; margin-top:20px; font-style:italic;">Titles, prices and stock counts shown are placeholders for the mockup. Product photographs to be added.</div>
+    </section>
+
+    <section style="background:#ece3d5; border-top:1px solid #ded2be;">
+      <div style="max-width:1240px; margin:0 auto; padding:74px 40px;">
+        <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px;">
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">When the table is open</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Sundays after Divine Liturgy, in the narthex, until coffee hour ends. Also open during the Greek Festival and on feast days.</p>
+          </div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">Looking for something else</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">Most Orthodox titles can be ordered in within a week or two. Ask at the table, or <span style="cursor:pointer; color:#7d2b2b; border-bottom:1px solid #d9c6a8;" onClick="{{ goContact }}">write to the parish office</span>.</p>
+          </div>
+          <div>
+            <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414;">New to Orthodoxy</h3>
+            <p style="font-size:15.5px; line-height:1.7; color:#5b5449; margin:0;">If you are not sure where to begin, say so. There are two or three books we usually put in the hands of someone visiting for the first time, and there is no obligation to buy any of them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <main style="background:#ece3d5; border-bottom:1px solid #ded2be;">
+    <section style="max-width:1240px; margin:0 auto; padding:76px 40px 90px;">
+      <div style="font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px;">Mobile</div>
+      <h1 style="font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.1; margin:0 0 16px; color:#3a1414;">Home screen on a phone</h1>
+      <p style="font-size:17px; line-height:1.7; color:#4a443c; margin:0 0 56px; max-width:600px;">Most visitors find a parish on a phone, usually on Saturday night. The service time, the address and the “what to expect” link sit above the fold.</p>
+      <div style="display:flex; gap:56px; flex-wrap:wrap;">
+        <div>
+          <div style="width:390px; border:1px solid #ccbda4; background:#f6f1e8; overflow:hidden; box-shadow:0 18px 44px rgba(58,20,20,.13);">
+            <div style="height:34px; background:#3a1414; color:#e8d8bd; display:flex; align-items:center; justify-content:space-between; padding:0 18px; font-size:11px; letter-spacing:.06em;"><span>9:41</span><span>▮▮▮</span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #ded2be;">
+              <div style="line-height:1.15;"><div style="font-family:Newsreader, serif; font-size:16px; color:#3a1414;">Nativity of the Theotokos</div><div style="font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:#8a7f70; margin-top:2px;">Fredericksburg, VA</div></div>
+              <div style="display:grid; gap:4px;"><div style="width:20px; height:1.5px; background:#3a1414;"></div><div style="width:20px; height:1.5px; background:#3a1414;"></div><div style="width:20px; height:1.5px; background:#3a1414;"></div></div>
+            </div>
+            <div style="position:relative; height:300px; background:#3a1414; overflow:hidden;">
+              <div style="position:absolute; inset:0; background-image:url('https://www.nativity.va.goarch.org/assets/images/carousel-anastasis-icon%20use.jpg'); background-size:cover; background-position:center; opacity:.42;"></div>
+              <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(58,20,20,.55), rgba(58,20,20,.95));"></div>
+              <div style="position:absolute; inset:0; padding:26px 20px; display:flex; flex-direction:column; justify-content:flex-end;">
+                <h2 style="font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.12; color:#faf5ec; margin:0 0 12px;">However you arrived here, there is a place for you.</h2>
+                <div style="background:#e0b673; color:#3a1414; padding:14px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; margin-top:8px;">What to expect on Sunday</div>
+              </div>
+            </div>
+            <div style="background:#7d2b2b; color:#f6ece0; padding:22px 20px;">
+              <div style="font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:8px;">Every Sunday</div>
+              <div style="font-family:Newsreader, serif; font-size:26px;">9:00 a.m.</div>
+              <div style="font-size:13.5px; opacity:.88; margin-top:3px;">Orthros &amp; Divine Liturgy</div>
+              <div style="height:1px; background:rgba(246,241,232,.25); margin:18px 0;"></div>
+              <div style="font-size:14px; line-height:1.5;">12326 Spotswood Furnace Rd<br>Fredericksburg, VA 22407</div>
+              <div style="display:flex; gap:10px; margin-top:16px;">
+                <div style="flex:1; border:1px solid rgba(246,241,232,.45); padding:11px; text-align:center; font-size:11px; letter-spacing:.12em; text-transform:uppercase;">Directions</div>
+                <div style="flex:1; border:1px solid rgba(246,241,232,.45); padding:11px; text-align:center; font-size:11px; letter-spacing:.12em; text-transform:uppercase;">Call</div>
+              </div>
+            </div>
+            <div style="padding:26px 20px;">
+              <div style="font-family:Newsreader, serif; font-style:italic; font-weight:300; font-size:20px; line-height:1.45; color:#3a1414;">“Welcome one another, therefore, just as Christ has welcomed you.”</div>
+              <div style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-top:12px;">Romans 15:7</div>
+            </div>
+          </div>
+          <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; margin-top:18px; text-align:center;">Home — above the fold</div>
+        </div>
+
+        <div>
+          <div style="width:390px; border:1px solid #ccbda4; background:#f6f1e8; overflow:hidden; box-shadow:0 18px 44px rgba(58,20,20,.13);">
+            <div style="height:34px; background:#3a1414; color:#e8d8bd; display:flex; align-items:center; justify-content:space-between; padding:0 18px; font-size:11px; letter-spacing:.06em;"><span>9:41</span><span>▮▮▮</span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #ded2be;">
+              <div style="font-family:Newsreader, serif; font-size:16px; color:#3a1414;">Menu</div>
+              <div style="font-size:20px; color:#3a1414; line-height:1;">×</div>
+            </div>
+            <div style="padding:8px 0;">
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414;">Visit</div>
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414;">Our Faith</div>
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414;">Calendar</div>
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414;">Ministries</div>
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414;">About</div>
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414;">Contact</div>
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70;">Greek Festival</div>
+              <div style="padding:17px 20px; border-bottom:1px solid #e4dac8; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70;">Hall Rental</div>
+              <div style="padding:17px 20px; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70;">Give</div>
+            </div>
+            <div style="padding:20px; background:#7d2b2b; color:#f6ece0;">
+              <div style="font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:6px;">Next service</div>
+              <div style="font-family:Newsreader, serif; font-size:20px;">Sunday, 9:00 a.m.</div>
+            </div>
+          </div>
+          <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a7f70; margin-top:18px; text-align:center;">Navigation drawer</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <footer style="background:#3a1414; color:#e0d3bd;">
+    <div style="max-width:1240px; margin:0 auto; padding:70px 40px 34px;">
+      <div style="display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3, minmax(0,1fr)); gap:56px;">
+        <div>
+          <div style="font-family:Newsreader, serif; font-size:22px; color:#faf5ec; line-height:1.3; margin-bottom:14px;">Nativity of the Theotokos<br>Greek Orthodox Church</div>
+          <div style="font-size:15px; line-height:1.7; opacity:.8;">12326 Spotswood Furnace Rd<br>Fredericksburg, VA 22407<br>(540) 548-2665</div>
+          <div style="display:flex; gap:18px; margin-top:20px; font-size:14px;">
+            <a href="https://www.facebook.com/ntgoc/" target="_blank" rel="noreferrer" style="color:#e0b673;">Facebook</a>
+            <a href="https://www.youtube.com/channel/UCwsbcv9QxTsdEaDhqEAVIYQ/featured" target="_blank" rel="noreferrer" style="color:#e0b673;">YouTube</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.55; margin-bottom:16px;">Visit</div>
+          <div style="display:grid; gap:10px; font-size:14.5px;">
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goVisit }}">First-time visitors</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goCalendar }}">Service times</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goContact }}">Directions</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goHall }}">Hall rental</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.55; margin-bottom:16px;">Parish</div>
+          <div style="display:grid; gap:10px; font-size:14.5px;">
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goAbout }}">Clergy &amp; history</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goMinistries }}">Ministries</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goBookstore }}">Parish Bookstore</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goFestival }}">Greek Festival</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goAbout }}">The Light newsletter</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.55; margin-bottom:16px;">Support the parish</div>
+          <div style="display:grid; gap:10px; font-size:14.5px;">
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goGive }}">Stewardship &amp; giving</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goGive }}">Memorial donation</span>
+            <span style="cursor:pointer; opacity:.85;" style-hover="color:#e0b673; opacity:1;" onClick="{{ goGive }}">Building projects</span>
+          </div>
+        </div>
+      </div>
+      <div style="height:1px; background:rgba(224,182,115,.22); margin:44px 0 22px;"></div>
+      <div style="display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; font-size:12px; letter-spacing:.08em; opacity:.6;">
+        <span>A parish of the Greek Orthodox Metropolis of New Jersey · Greek Orthodox Archdiocese of America</span>
+        <span>Ecumenical Patriarchate of Constantinople</span>
+      </div>
+    </div>
+  </footer>
+
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 'home', cat: 'All', cart: 0 };
+
+  catalog() {
+    return [
+      { id: 'b1', cat: 'Books', name: 'The Orthodox Study Bible', by: 'St. Athanasius Academy', price: 52, stock: 6, note: 'Old and New Testaments with Orthodox commentary' },
+      { id: 'b2', cat: 'Books', name: 'The Orthodox Church', by: 'Metropolitan Kallistos Ware', price: 20, stock: 9, note: 'The standard introduction, in print since 1963' },
+      { id: 'b3', cat: 'Books', name: 'Thinking Orthodox', by: 'Dr. Eugenia Constantinou', price: 25, stock: 4, note: 'How the Orthodox mind understands doctrine' },
+      { id: 'b4', cat: 'Books', name: 'The Way of a Pilgrim', by: 'Anonymous', price: 16, stock: 7, note: 'A Russian account of the Jesus Prayer' },
+      { id: 'b5', cat: 'Books', name: 'A Prayer Book for Orthodox Christians', by: 'Holy Transfiguration Monastery', price: 18, stock: 12, note: 'Morning, evening and pre-Communion prayers' },
+      { id: 'b6', cat: 'Books', name: 'Wounded by Love', by: 'Elder Porphyrios', price: 22, stock: 3, note: 'Counsels of a modern Athonite elder' },
+      { id: 'c1', cat: 'Children', name: 'The Children\u2019s Bible Reader', by: 'Illustrated', price: 28, stock: 5, note: 'Scripture retold for ages 5\u201312' },
+      { id: 'c2', cat: 'Children', name: 'Sweet Song: A Story of Saint Romanos', by: 'Jane G. Meyer', price: 18, stock: 4, note: 'The chanter who could not sing' },
+      { id: 'c3', cat: 'Children', name: 'The Barn and the Book', by: 'Melinda Johnson', price: 15, stock: 2, note: 'A monastery story for older children' },
+      { id: 'i1', cat: 'Icons', name: 'Nativity of the Theotokos', by: 'Mounted print, 5 \u00d7 7 in', price: 22, stock: 15, note: 'The icon of our parish feast, 8 September' },
+      { id: 'i2', cat: 'Icons', name: 'Christ Pantocrator', by: 'Mounted print, 8 \u00d7 10 in', price: 30, stock: 8, note: 'After the sixth-century icon of Sinai' },
+      { id: 'i3', cat: 'Icons', name: 'The Guardian Angel', by: 'Mounted print, 4 \u00d7 6 in', price: 14, stock: 11, note: 'A common gift at baptism' },
+      { id: 'p1', cat: 'Prayer & Home', name: 'Pure beeswax candles', by: 'Box of 12', price: 12, stock: 20, note: 'For the icon corner at home' },
+      { id: 'p2', cat: 'Prayer & Home', name: 'Frankincense', by: '1 oz, Mount Athos', price: 10, stock: 14, note: 'Resin incense for a home censer' },
+      { id: 'p3', cat: 'Prayer & Home', name: 'Charcoal discs', by: 'Roll of 10', price: 5, stock: 25, note: 'Quick-lighting, for use with incense' },
+      { id: 'p4', cat: 'Prayer & Home', name: 'Prayer rope (komboskini)', by: '33 knots, hand-tied', price: 16, stock: 9, note: 'For praying the Jesus Prayer' },
+      { id: 'p5', cat: 'Prayer & Home', name: 'Vigil lamp with float wicks', by: 'Glass and brass', price: 34, stock: 6, note: 'The lamp kept burning before the icons' }
+    ];
+  }
+  go(p) {
+    return () => {
+      this.setState({ page: p });
+      try { window.scrollTo({ top: 0 }); } catch (e) {}
+    };
+  }
+  buildDays() {
+    const events = {
+      2: 'Divine Liturgy 9a',
+      6: 'Transfiguration — Liturgy 9a',
+      9: 'Divine Liturgy 9a',
+      14: 'Great Vespers 6p',
+      15: 'Dormition — Liturgy 9a',
+      16: 'Divine Liturgy 9a',
+      19: 'Paraklesis 6:30p',
+      23: 'Divine Liturgy 9a',
+      26: 'Paraklesis 6:30p',
+      29: 'Beheading of St. John',
+      30: 'Divine Liturgy 9a'
+    };
+    const out = [];
+    for (let i = 0; i < 6; i++) out.push({ n: '', has: false, label: '' });
+    for (let n = 1; n <= 31; n++) out.push({ n: String(n), has: !!events[n], label: events[n] || '' });
+    while (out.length % 7 !== 0) out.push({ n: '', has: false, label: '' });
+    return out;
+  }
+  setCat(c) { return () => this.setState({ cat: c }); }
+
+  renderVals() {
+    const p = this.state.page;
+    const cat = this.state.cat;
+    const cats = ['All', 'Books', 'Children', 'Icons', 'Prayer & Home'].map(c => ({
+      name: c,
+      pick: this.setCat(c),
+      style: c === cat
+        ? 'cursor:pointer; white-space:nowrap; padding:11px 20px; border:1px solid #7d2b2b; background:#7d2b2b; color:#f6f1e8; font-size:12px; letter-spacing:.12em; text-transform:uppercase;'
+        : 'cursor:pointer; white-space:nowrap; padding:11px 20px; border:1px solid #ccbda4; background:transparent; color:#5b5449; font-size:12px; letter-spacing:.12em; text-transform:uppercase;'
+    }));
+    const items = this.catalog()
+      .filter(it => cat === 'All' || it.cat === cat)
+      .map(it => ({
+        ...it,
+        priceLabel: '$' + it.price,
+        stockLabel: it.stock <= 3 ? 'Only ' + it.stock + ' left' : 'In stock',
+        add: () => this.setState(s => ({ cart: s.cart + 1 }))
+      }));
+    return {
+      days: this.buildDays(),
+      cats: cats,
+      items: items,
+      cartLabel: this.state.cart === 1 ? '1 item reserved' : this.state.cart + ' items reserved',
+      hasCart: this.state.cart > 0,
+      isBookstore: p === 'bookstore',
+      goBookstore: this.go('bookstore'),
+      isHome: p === 'home', isVisit: p === 'visit', isFaith: p === 'faith',
+      isCalendar: p === 'calendar', isMinistries: p === 'ministries', isAbout: p === 'about',
+      isGive: p === 'give', isContact: p === 'contact', isFestival: p === 'festival',
+      isHall: p === 'hall', isMobile: p === 'mobile',
+      goHome: this.go('home'), goVisit: this.go('visit'), goFaith: this.go('faith'),
+      goCalendar: this.go('calendar'), goMinistries: this.go('ministries'), goAbout: this.go('about'),
+      goGive: this.go('give'), goContact: this.go('contact'), goFestival: this.go('festival'),
+      goHall: this.go('hall'), goMobile: this.go('mobile')
+    };
+  }
+}
+</script>
+</body>
+</html>
