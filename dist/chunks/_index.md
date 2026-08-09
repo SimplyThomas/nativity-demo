@@ -36,7 +36,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1202 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
-| ☐ | `ntgocHomeServiceTimes` | 1467 b | 1 page | — |
+| ☐ | `ntgocHomeServiceTimes` | 1770 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeUpcomingServices` | 3737 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3203 b | 1 page | — |
