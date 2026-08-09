@@ -19,7 +19,8 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 
 | File / folder | What it is |
 |---|---|
-| `*.html` (16 pages) | **Source.** Edit directly. |
+| `*.html` (17 pages) | **Source.** Edit directly. |
+| `data/site.json` | **Source of truth** for any fact stated on more than one page. Lint enforces it. |
 | `assets/css/components.css` | **Source.** Ships to the parish CMS. |
 | `assets/css/provisional.css` | **Source.** Demo only — contains a reset, never import it. |
 | `assets/js/ntgoc-enhance.js` | **Source.** Progressive enhancement only. |
@@ -59,7 +60,7 @@ Two further checks run in CI and are worth running locally before a big change:
 
 ```sh
 npm run snap           # layout + colour regression (the only check that sees layout)
-npm run audit:a11y     # axe-core, WCAG 2.1 AA, 16 pages x 2 viewports
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 17 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)
@@ -95,7 +96,7 @@ verified the fact; when you do, record the source in `data/parish-facts.json`.
 ### Editing the header, nav or footer — `npm run shell`
 
 Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
-`ntgocSiteFooter`) are the same markup on all fifteen pages — about a third of
+`ntgocSiteFooter`) are the same markup on all seventeen pages — about a third of
 all the HTML here. Edit them **once, in one page**, then propagate:
 
 ```sh
@@ -188,7 +189,7 @@ the responsive layer at the bottom of the file last so it still wins on source
 order.
 
 **Touching the header or footer?** Edit one page and run `npm run shell` — see
-above. Do not make the change fifteen times by hand; `npm run shell -- --check`
+above. Do not make the change seventeen times by hand; `npm run shell -- --check`
 runs in CI and will fail if you miss one.
 
 **Adding an item to the Parish Life dropdown?** One more
@@ -208,7 +209,7 @@ it verifies the draft banner, `noindex`, the heading structure and the links.
 
 ## What changed, and why
 
-Until 8 August 2026 the twelve pages were **generated** from a Claude Design
+Until 8 August 2026 the pages were **generated** from a Claude Design
 import by `tools/archive/render.mjs`. Editing a page directly did nothing — the next
 build erased it.
 

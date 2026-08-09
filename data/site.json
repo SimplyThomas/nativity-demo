@@ -1,0 +1,140 @@
+{
+  "_README": "One source of truth for the facts that appear on more than one page. This project is static hand-edited HTML with no build step, so this file cannot inject values — instead `npm run lint` reads it and FAILS when a page contradicts it (see 'canonical facts' in tools/lint.mjs). Change a shared fact here first, then fix the pages lint names. Provenance for each fact lives in data/parish-facts.json; this file is about keeping the pages consistent with it.",
+  "_updated": "2026-08-09",
+
+  "serviceTimes": {
+    "orthros": "9:00 a.m.",
+    "divineLiturgy": "10:00 a.m.",
+    "sundayLine": "Orthros 9:00 a.m. · Divine Liturgy 10:00 a.m.",
+    "status": "CONFIRMED_BY_PARISH",
+    "note": "Two distinct services. A single 9:00 start against both is the error the live parish site makes; never reproduce it. Feast-day Liturgy times are NOT covered by this confirmation and stay tagged TODO: verify."
+  },
+
+  "contact": {
+    "address": "12326 Spotswood Furnace Rd",
+    "cityStateZip": "Fredericksburg, VA 22407",
+    "phone": "(540) 548-2665",
+    "phoneHref": "tel:+15405482665",
+    "officeHours": "Tuesday – Friday, 9:00 a.m. – 3:00 p.m.",
+    "officeEmail": "office@ntgoc.org",
+    "newsletterEmail": "newsletter@ntgoc.org",
+    "stewardshipEmail": "pctreasurer@ntgoc.org",
+    "priestRoute": "Contact the parish office to arrange a conversation with Fr. John.",
+    "note": "The parish office is the ONLY published route to Fr. John. Do not promise he is available immediately after Liturgy, and never publish his personal mobile."
+  },
+
+  "terminology": {
+    "fellowshipMeal": "coffee hour",
+    "fellowshipMealNote": "The parish calls the post-Liturgy fellowship 'coffee hour'. It may be described as an agape/shared meal in passing, but 'the Agape Meal' must not be the primary label.",
+    "liturgyBook": "Greek-English Divine Liturgy book",
+    "liturgyBookNote": "Available from a greeter or in the pew. NOT a gift and not taken home — never call it complimentary, free or a take-home prayer book."
+  },
+
+  "worship": {
+    "languages": "approximately 50% Greek and 50% English",
+    "languagesNote": "Confirmed by the parish. Congregational portions — the Creed, the Lord's Prayer — are offered in more than one language. Earlier drafts said 'mostly in English'; that is wrong.",
+    "communion": "Holy Communion is received by Orthodox Christians who are properly prepared to receive the Eucharist.",
+    "antidoron": "Antidoron is blessed bread that anyone may receive, including visitors who are not Orthodox. It is normally given by the priest after Divine Liturgy concludes, as people leave for the social hall. It is not Holy Communion.",
+    "seating": "There is no reserved seating.",
+    "dress": "Dress like you are meeting someone important. — Fr. John"
+  },
+
+  "parking": {
+    "value": "Free, on site",
+    "note": "No visitor-specific parking and no overflow arrangement. Do not describe either."
+  },
+
+  "bookstore": {
+    "hours": "Open every Sunday after Divine Liturgy",
+    "stock": "Orthodox books, pamphlets, prayer books, icons, prayer ropes, incense, crosses, candles and other devotional items"
+  },
+
+  "newsletter": {
+    "name": "The Light",
+    "frequency": "monthly"
+  },
+
+  "ministries": [
+    "Sunday School",
+    "GOYA",
+    "JOY",
+    "Ladies' Philoptochos Society",
+    "Dance Troupe",
+    "AHEPA",
+    "Parish Council",
+    "Choir & Chanters"
+  ],
+  "_ministriesNote": "The list is settled for this presentation. Descriptions stay general: meeting frequencies, age and grade ranges, sports, retreats, camps and named charitable programmes are all unsourced and must not be restored. 'Choir & Chanters' has no ministry page on the live site and stays tagged TODO: verify.",
+
+  "links": {
+    "giveOnline": "https://square.link/u/u8cIpGbh",
+    "memorialDonation": "https://square.link/u/ZlTPph2Q",
+    "buildingProjects": "https://sites.google.com/ntgoc.org/projects/home",
+    "familyRegistration": "https://docs.google.com/forms/d/e/1FAIpQLSc31bhBH5k03LSTeEGr_NL9bcYbg6zl432sKOJPWXM7JaOHAw/viewform?usp=header",
+    "greekFestival": "https://www.fredgreek.org/",
+    "dailyReadings": "https://www.goarch.org/chapel",
+    "cloudOfWitnesses": "https://orthodoxsaintfinder.com/",
+    "stewardshipPledge": null,
+    "parishCommunity": null,
+    "parishUpdates": null,
+    "newsletterArchive": null,
+    "_nullNote": "null means the destination does not exist yet. Render it as a clearly-labelled proposed placeholder — never invent a URL, and never leave a bare href=\"#\" that looks live."
+  },
+
+  "proposed": {
+    "_note": "Presented in the demo as proposals for Fr. John's review. None of these exists today. Every one of them must carry the visible 'Proposed' label so the Parish Council can tell the difference.",
+    "items": [
+      "Visitor follow-up / contact collection",
+      "Welcome Ministry training and development",
+      "Faces You Might See (names and photographs)",
+      "A welcome from Fr. John",
+      "Private parish community",
+      "Parish update emails",
+      "Current volunteer needs",
+      "Parish announcement cards"
+    ]
+  },
+
+  "canonical": {
+    "_note": "Enforced by `npm run lint`. Each pattern is something a page must NOT say, because it contradicts a fact above. Adding an entry here is how a correction is made permanent instead of being quietly undone by the next edit.",
+    "forbidden": [
+      {
+        "pattern": "Agape Meal",
+        "caseSensitive": true,
+        "why": "The parish calls it coffee hour. Use that as the primary label. Lower-case 'an agape meal', explaining the term in passing, is fine."
+      },
+      {
+        "pattern": "complimentary (prayer|Divine Liturgy) book",
+        "why": "The Divine Liturgy book is not a gift and may not be taken home."
+      },
+      {
+        "pattern": "(take|takes|taken) home[^.]{0,30}(prayer|Divine Liturgy) book",
+        "why": "The Divine Liturgy book stays in the church."
+      },
+      {
+        "pattern": "overflow parking",
+        "why": "There is no overflow parking arrangement."
+      },
+      {
+        "pattern": "visitor parking",
+        "why": "There is no visitor-specific parking."
+      },
+      {
+        "pattern": "(wheelchair|step-free|accessible entrance|reachable by lift)",
+        "why": "No accessibility feature is confirmed. Do not claim one until the parish does."
+      },
+      {
+        "pattern": "mostly in English",
+        "why": "Services are approximately 50% Greek and 50% English."
+      },
+      {
+        "pattern": "Divine Liturgy[^.<]{0,24}9:00 ?(a\\.m\\.|AM)",
+        "why": "Sunday Divine Liturgy begins at 10:00 a.m.; Orthros begins at 9:00 a.m."
+      },
+      {
+        "pattern": "Divine Liturgy 9a",
+        "why": "Sunday Divine Liturgy begins at 10:00 a.m.; Orthros begins at 9:00 a.m."
+      }
+    ]
+  }
+}
