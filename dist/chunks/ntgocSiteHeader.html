@@ -6,13 +6,13 @@
   with the chunk name set to exactly:  ntgocSiteHeader
   Asset paths point at /assets/templates/ntgoc/ — confirm that path before importing.
 -->
-<header class="ntgoc-header ntgoc-sticky">
+<header class="ntgoc-header">
     <div class="ntgoc-header-inner ntgoc-flex ntgoc-gutter ntgoc-shell">
       <a href="#" data-ntgoc-link="index" class="ntgoc-inherit ntgoc-logo ntgoc-flex">
         <img class="ntgoc-site-mark" src="/assets/templates/ntgoc/img/goa-seal.png" alt="" width="44" height="44" decoding="async">
         <div class="ntgoc-logo-text">
           <div class="ntgoc-logo-name">Nativity of the Theotokos</div>
-          <div class="ntgoc-logo-sub">Greek Orthodox Church &nbsp;·&nbsp; Fredericksburg, VA</div>
+          <div class="ntgoc-logo-sub"><span class="ntgoc-logo-sub__jurisdiction">Greek Orthodox Church &nbsp;·&nbsp; </span>Fredericksburg, VA</div>
         </div>
       </a>
       <nav class="ntgoc-nav ntgoc-flex">
@@ -20,7 +20,7 @@
         <div class="ntgoc-navgroup">
           <a href="#" data-ntgoc-link="parish-life" class="ntgoc-inherit ntgoc-nav-link ntgoc-navgroup__top">Parish Life<span class="ntgoc-navgroup__caret" aria-hidden="true"></span></a>
           <div class="ntgoc-navgroup__menu">
-            <a href="#" data-ntgoc-link="parish-life" class="ntgoc-inherit ntgoc-navgroup__item ntgoc-navgroup__item--overview">Parish Life</a>
+            <a href="#" data-ntgoc-link="parish-life" class="ntgoc-inherit ntgoc-navgroup__item">Parish Life</a>
             <a href="#" data-ntgoc-link="for-our-parish" class="ntgoc-inherit ntgoc-navgroup__item">For Our Parish</a>
             <a href="#" data-ntgoc-link="ministries" class="ntgoc-inherit ntgoc-navgroup__item">Ministries</a>
             <a href="#" data-ntgoc-link="committees" class="ntgoc-inherit ntgoc-navgroup__item">Parish Council Committees</a>
@@ -32,7 +32,7 @@
         <div class="ntgoc-navgroup">
           <a href="#" data-ntgoc-link="events" class="ntgoc-inherit ntgoc-nav-link ntgoc-navgroup__top">Events<span class="ntgoc-navgroup__caret" aria-hidden="true"></span></a>
           <div class="ntgoc-navgroup__menu">
-            <a href="#" data-ntgoc-link="events" class="ntgoc-inherit ntgoc-navgroup__item ntgoc-navgroup__item--overview">Events</a>
+            <a href="#" data-ntgoc-link="events" class="ntgoc-inherit ntgoc-navgroup__item">Events</a>
             <a href="https://www.fredgreek.org/" target="_blank" rel="noreferrer" class="ntgoc-inherit ntgoc-navgroup__item">Greek Festival</a>
             <a href="#" data-ntgoc-link="hall" class="ntgoc-inherit ntgoc-navgroup__item">Hall Rental</a>
           </div>
@@ -41,5 +41,36 @@
         <a href="#" data-ntgoc-link="contact" class="ntgoc-inherit ntgoc-nav-link">Contact</a>
         <a href="#" data-ntgoc-link="visit" class="ntgoc-inherit ntgoc-btn-primary">Plan a visit</a>
       </nav>
+        <details class="ntgoc-drawer" data-ntgoc-drawer>
+          <summary class="ntgoc-drawer__toggle">
+            <span class="ntgoc-drawer__bars" aria-hidden="true"></span>
+            <span class="ntgoc-visually-hidden">Menu</span>
+          </summary>
+          <nav class="ntgoc-drawer__panel" aria-label="Main menu">
+            <div class="ntgoc-drawer__list">
+              <a href="#" data-ntgoc-link="visit" class="ntgoc-inherit ntgoc-drawer__cta">Plan a visit</a>
+              <a href="#" data-ntgoc-link="faith" class="ntgoc-inherit ntgoc-drawer__link">Our Faith</a>
+              <a href="#" data-ntgoc-link="parish-life" class="ntgoc-inherit ntgoc-drawer__link">Parish Life</a>
+              <a href="#" data-ntgoc-link="for-our-parish" class="ntgoc-inherit ntgoc-drawer__sub">For Our Parish</a>
+              <a href="#" data-ntgoc-link="ministries" class="ntgoc-inherit ntgoc-drawer__sub">Ministries</a>
+              <a href="#" data-ntgoc-link="committees" class="ntgoc-inherit ntgoc-drawer__sub">Parish Council Committees</a>
+              <a href="#" data-ntgoc-link="bookstore" class="ntgoc-inherit ntgoc-drawer__sub">Parish Bookstore</a>
+              <a href="#" data-ntgoc-link="newsletter" class="ntgoc-inherit ntgoc-drawer__sub">The Light newsletter</a>
+              <a href="#" data-ntgoc-link="calendar" class="ntgoc-inherit ntgoc-drawer__link">Calendar</a>
+              <a href="#" data-ntgoc-link="events" class="ntgoc-inherit ntgoc-drawer__link">Events</a>
+              <a href="https://www.fredgreek.org/" target="_blank" rel="noreferrer" class="ntgoc-inherit ntgoc-drawer__sub">Greek Festival</a>
+              <a href="#" data-ntgoc-link="hall" class="ntgoc-inherit ntgoc-drawer__sub">Hall Rental</a>
+              <a href="#" data-ntgoc-link="about" class="ntgoc-inherit ntgoc-drawer__link">About</a>
+              <a href="#" data-ntgoc-link="contact" class="ntgoc-inherit ntgoc-drawer__link">Contact</a>
+            </div>
+            <div class="ntgoc-drawer__utility">
+              <a href="#" data-ntgoc-link="give" class="ntgoc-inherit ntgoc-drawer__utility-link">Give</a>
+            </div>
+            <div class="ntgoc-drawer__service">
+              <div class="ntgoc-drawer__service-label">Next service</div>
+              <div class="ntgoc-drawer__service-time">Sunday &nbsp;·&nbsp; Orthros 9:00 a.m. &nbsp;·&nbsp; Divine Liturgy 10:00 a.m.</div>
+            </div>
+          </nav>
+        </details>
     </div>
   </header>

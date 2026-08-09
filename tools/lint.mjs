@@ -318,6 +318,64 @@ for (const rel of PAGES) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 6c. The drawer and the desktop nav must offer the same links
+ *
+ * Below 900px the horizontal nav is hidden and the <details> drawer is the
+ * whole navigation. The two lists are the same links written twice, and
+ * nothing but this check stops one being updated while the other quietly
+ * rots — which on a phone means a page nobody can reach.
+ *
+ * Sets, not sequences: the drawer leads with "Plan a visit" the way the
+ * mobile design does, and that is deliberate. .ntgoc-drawer__utility and
+ * .ntgoc-drawer__service are drawer-only and are not compared.
+ * ------------------------------------------------------------------ */
+{
+  /* Pull the hrefs out of the element carrying `cls`, by walking from its
+     opening tag to the matching close and counting nesting on the way. A
+     plain non-greedy match would stop at the first </div> instead. */
+  const hrefsIn = (body, cls) => {
+    const opener = new RegExp(
+      `<(\\w+)[^>]*\\sclass="[^"]*(?<![\\w-])${cls}(?![\\w-])[^"]*"[^>]*>`);
+    const m = body.match(opener);
+    if (!m) return null;
+
+    const start = m.index;
+    let depth = 0, end = -1;
+    for (const t of body.matchAll(new RegExp(`<(/?)${m[1]}\\b[^>]*>`, 'g'))) {
+      if (t.index < start) continue;
+      depth += t[1] ? -1 : 1;
+      if (depth === 0) { end = t.index; break; }
+    }
+    if (end === -1) return null;
+
+    return new Set([...body.slice(start, end).matchAll(/<a\s+href="([^"]+)"/g)]
+      .map(x => x[1]));
+  };
+
+  for (const rel of PAGES) {
+    const body = read(rel);
+    const nav = hrefsIn(body, 'ntgoc-nav');
+    const drawer = hrefsIn(body, 'ntgoc-drawer__list');
+    if (!nav && !drawer) continue;
+    if (!drawer) {
+      err('nav-drawer-parity', rel,
+        'has a desktop nav but no .ntgoc-drawer__list — below 900px there is no navigation at all');
+      continue;
+    }
+    if (!nav) {
+      err('nav-drawer-parity', rel, 'has a .ntgoc-drawer__list but no .ntgoc-nav');
+      continue;
+    }
+    for (const h of [...nav].filter(h => !drawer.has(h))) {
+      err('nav-drawer-parity', rel, `"${h}" is in the desktop nav but missing from the drawer`);
+    }
+    for (const h of [...drawer].filter(h => !nav.has(h))) {
+      err('nav-drawer-parity', rel, `"${h}" is in the drawer but missing from the desktop nav`);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * 7. Assets referenced from the markup actually exist
  * ------------------------------------------------------------------ */
 for (const rel of PAGES) {

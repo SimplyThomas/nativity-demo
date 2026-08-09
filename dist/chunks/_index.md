@@ -41,7 +41,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3203 b | 1 page | — |
 | ☐ | `ntgocMinistriesHero` | 597 b | 1 page | — |
-| ☐ | `ntgocMobileViews` | 4484 b | 1 page | — |
+| ☐ | `ntgocMobileViews` | 4488 b | 1 page | — |
 | ☐ | `ntgocNewsletterArchive` | 1898 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |
 | ☐ | `ntgocParishAnnouncements` | 3615 b | 1 page | — |
@@ -65,7 +65,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 2415 b | 1 page | yes (1) |
 | ☐ | `ntgocSiteFooter` | 3464 b | 17 pages | yes (14) |
-| ☐ | `ntgocSiteHeader` | 2837 b | 17 pages | yes (16) |
+| ☐ | `ntgocSiteHeader` | 5269 b | 17 pages | yes (30) |
 | ☐ | `ntgocTopBar` | 373 b | 17 pages | yes (1) |
 | ☐ | `ntgocVisitorChildren` | 2573 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1856 b | 1 page | yes (1) |
