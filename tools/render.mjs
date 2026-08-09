@@ -785,6 +785,23 @@ const DRAFT_BANNER = `
 <!-- /CHUNK:ntgocDraftBanner -->`;
 
 const shell = (page, body) => `<!DOCTYPE html>
+<!--
+  ============================================================
+  GENERATED FILE — DO NOT EDIT.
+
+  Rebuilt from design-src/ by tools/render.mjs. Any change made
+  directly to this file is destroyed by the next build.
+
+  Where to make the change instead:
+    layout / copy / colour ....  the Claude Design project, then re-import
+    a wrong parish fact .......  CORRECTIONS in tools/render.mjs
+    reorder or hide a block ...  applyLocalEdits() in tools/render.mjs
+    responsive behaviour ......  the responsive layer in tools/render.mjs
+    page list / chunk names ...  PAGES / CHUNK_NAMES in tools/render.mjs
+
+  Full guide: CONTRIBUTING.md      Preview locally: npm run dev
+  ============================================================
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">

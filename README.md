@@ -31,15 +31,19 @@ the output.
 
 ## Building
 
-No dependencies, no build step in the usual sense — two Node scripts, run in
-order:
+> **The twelve `.html` files at the repo root are generated, not source.** So is
+> `assets/css/components.css` and everything in `dist/chunks/`. Editing them
+> works until the next build erases it. **Read `CONTRIBUTING.md` first** — it
+> has a table of where each kind of change actually goes.
 
 ```sh
-node tools/render.mjs          # design-src/ -> pages + CSS
-node tools/extract-chunks.mjs  # pages -> dist/chunks/
+npm run dev      # http://localhost:4000, rebuilds on save
+npm run build    # one-shot: design-src/ -> pages -> dist/chunks/
+npm run verify   # did anything hand-edited get overwritten?
 ```
 
-The site works if you open `index.html` from disk.
+The site itself has no dependencies — `npm install` only fetches the audit
+tools. The built site works if you open `index.html` from disk.
 
 ## Design decisions worth knowing
 

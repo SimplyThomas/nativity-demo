@@ -1,3 +1,4 @@
 node_modules/
 .DS_Store
 axe-results.json
+.verify-backup/

@@ -4,7 +4,9 @@
   "type": "module",
   "description": "Draft website preview for Nativity of the Theotokos Greek Orthodox Church. The site itself has NO dependencies - these are audit tools only.",
   "scripts": {
+    "dev": "node tools/dev.mjs",
     "build": "node tools/render.mjs && node tools/extract-chunks.mjs",
+    "verify": "node tools/verify.mjs",
     "audit:a11y": "node tools/audit-a11y.mjs",
     "audit:reflow": "node tools/audit-reflow.mjs"
   },
