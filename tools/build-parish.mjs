@@ -202,68 +202,55 @@ function upcoming(limit, unit) {
 /**
  * "This week at Nativity" on for-our-parish.html.
  *
- * Each day carries data-ntgoc-date so the browser can drop a day that has
- * already passed. The page is static and may sit unrebuilt for a fortnight;
- * with JavaScript off the list is still correct as of the date printed under it.
+ * Emits the page's own markup — one .ntgoc-week__row per service, the date
+ * written once per day and left blank on the rows below it so the three
+ * columns stay lined up. Each row carries data-ntgoc-date so the browser can
+ * drop a day that has already gone: the page is static and may sit unrebuilt
+ * for a fortnight, and with JavaScript off the list is still correct as of the
+ * date printed under it.
  */
 function renderThisWeek() {
   const { days, count, total } = upcoming(WEEK_LIMIT, 'events');
   if (!days.length) {
-    return '        <p class="ntgoc-body-lg">Nothing further is on the parish calendar at the moment. ' +
+    return '        <p class="ntgoc-parish-sub">Nothing further is on the parish calendar at the moment. ' +
       'The calendar is the place to check.</p>';
   }
 
-  /* Every row is labelled "Divine service" or "Parish life", but the label is
-     only SHOWN when the list actually holds both. A week of nothing but
-     services does not need every row saying so on screen — that is the clutter
-     the brief warned about — while a screen reader gets the label either way,
-     and the moment the parish adds a meeting or a class it becomes visible on
-     every row. So the burgundy/gold distinction is never carried by colour
-     alone at the point where it means something. */
+  /* Every row says whether it is a divine service or another part of parish
+     life, but it is only SHOWN when the list actually holds both. A week of
+     nothing but services does not need every row saying so on screen — that is
+     the clutter — while a screen reader gets it either way, and the moment the
+     parish adds a meeting or a class it becomes visible on every row. */
   const mixed = new Set(days.flatMap(d => d.events.map(e => e.kind))).size > 1;
 
-  const rows = days.map(day => {
-    const items = day.events.map(ev => {
-      const name = esc(ev.name, 'event name');
-      const detail = [ev.service ? esc(ev.service, 'event service') : '', ev.note ? esc(ev.note, 'event note') : '']
-        .filter(Boolean).join(' &middot; ');
-      return [
-        `            <div class="ntgoc-our-parish-week__event" data-ntgoc-kind="${ev.kind}">`,
-        '              <div>',
-        `                <div class="ntgoc-our-parish-week__name">${name}${todo(ev)}</div>`,
-        detail ? `                <div class="ntgoc-our-parish-week__note">${detail}</div>` : '',
-        ev.location ? `                <div class="ntgoc-our-parish-week__note">${esc(ev.location, 'event location')}</div>` : '',
-        `                <div class="ntgoc-our-parish-week__kind${mixed ? '' : ' ntgoc-visually-hidden'}">${KIND_LABEL[ev.kind]}</div>`,
-        '              </div>',
-        `              <div class="ntgoc-our-parish-week__time">${ev.time ? esc(ev.time, 'event time') : '&mdash;'}</div>`,
-        '            </div>',
-      ].filter(Boolean).join('\n');
-    }).join('\n');
+  const rows = days.flatMap(day => day.events.map((ev, i) => {
+    const note = [
+      mixed ? KIND_LABEL[ev.kind] : '',
+      ev.service ? esc(ev.service, 'event service') : '',
+      ev.note ? esc(ev.note, 'event note') : '',
+      ev.location ? esc(ev.location, 'event location') : '',
+    ].filter(Boolean).join(' &middot; ');
 
     return [
-      `        <li class="ntgoc-our-parish-week__day" data-ntgoc-date="${day.iso}">`,
-      '          <div class="ntgoc-our-parish-week__when">',
-      `            <div class="ntgoc-our-parish-week__weekday">${weekday(day.at)}</div>`,
-      `            <div class="ntgoc-our-parish-week__date">${dayMonth(day.at)}</div>`,
+      `        <div class="ntgoc-week__row" data-ntgoc-date="${day.iso}">`,
+      `          <div class="ntgoc-service-date">${i === 0 ? weekday(day.at).slice(0, 3) + ' ' + dayMonth(day.at) : ''}</div>`,
+      '          <div>',
+      `            <div class="ntgoc-h4">${esc(ev.name, 'event name')}${todo(ev)}` +
+        (mixed ? '' : `<span class="ntgoc-visually-hidden"> — ${KIND_LABEL[ev.kind]}</span>`) + '</div>',
+      note ? `            <div class="ntgoc-week__note">${note}</div>` : '',
       '          </div>',
-      '          <div class="ntgoc-our-parish-week__events">',
-      items,
-      '          </div>',
-      '        </li>',
-    ].join('\n');
-  });
+      `          <div class="ntgoc-week__time">${ev.time ? esc(ev.time, 'event time') : '&mdash;'}</div>`,
+      '        </div>',
+    ].filter(Boolean).join('\n');
+  }));
 
-  const more = total > count
-    ? ` The next ${count} of ${total} on the calendar this month.`
-    : '';
+  const more = total > count ? ` The next ${count} of ${total} still to come this month.` : '';
 
   return [
-    '      <ol class="ntgoc-our-parish-week" data-ntgoc-week>',
     rows.join('\n'),
-    '      </ol>',
-    '      <p class="ntgoc-our-parish-week__asof" data-ntgoc-week-empty hidden>Everything listed here has now passed. ' +
+    '        <p class="ntgoc-parish-sub" data-ntgoc-week-empty hidden>Everything listed here has now passed. ' +
       'The parish calendar has what is coming next.</p>',
-    `      <p class="ntgoc-our-parish-week__asof">Taken from the parish calendar on ${dayMonth(TODAY)} ${TODAY.getFullYear()}.${more}</p>`,
+    `        <p class="ntgoc-parish-sub">Taken from the parish calendar on ${dayMonth(TODAY)} ${TODAY.getFullYear()}.${more}</p>`,
   ].join('\n');
 }
 
@@ -304,60 +291,42 @@ const live = [...(announcements.announcements || [])]
   .sort((a, b) => parseDate(b.posted) - parseDate(a.posted));
 
 /**
- * `level` is the heading level for the title. The urgent panel sits directly
- * under the page's h1 and so has to be an h2; the ordinary announcements sit
- * under the section's own h2 and so are h3. Getting this wrong is a skipped
- * heading level, which lint fails on.
+ * One announcement card, in the page's own markup.
+ *
+ * Urgent entries sort to the front and take the --urgent variant: a red rule
+ * across the top of the card and a red kind label. That is the "clear way to
+ * feature an urgent announcement" — a weather cancellation, a service moved at
+ * short notice — without a second layout to maintain.
  */
-function announcementBody(a, indent, level) {
-  const pad = ' '.repeat(indent);
+function announcementCard(a) {
+  const kind = a.urgent ? 'Urgent notice' : (a.kind ? esc(a.kind, `announcement "${a.id}" kind`) : 'From the office');
   const meta = [`Posted ${dayMonth(parseDate(a.posted))}`];
-  if (a.expires) meta.push(`comes down after ${dayMonth(parseDate(a.expires))}`);
-  const link = a.link && a.link.href
-    ? `${pad}  <p class="ntgoc-our-parish-note"><a href="${esc(a.link.href, 'announcement link')}" class="ntgoc-faith-card__more">${esc(a.link.label || 'Read more', 'announcement link label')} →</a></p>\n`
-    : '';
-  const sample = a.sample
-    ? `${pad}  <span class="ntgoc-our-parish-news__sample">Sample</span>\n`
-    : '';
-  return sample +
-    `${pad}  <h${level} class="ntgoc-our-parish-news__title">${esc(a.title, `announcement "${a.id}" title`)}</h${level}>\n` +
-    `${pad}  <p class="ntgoc-our-parish-news__body">${esc(a.body, `announcement "${a.id}" body`)}</p>\n` +
-    link +
-    `${pad}  <p class="ntgoc-our-parish-news__meta">${meta.join(' &middot; ')}</p>\n`;
-}
+  if (a.expires) meta.push(`until ${dayMonth(parseDate(a.expires))}`);
 
-/** The urgent panel, which sits above everything else on the page. */
-function renderUrgent() {
-  const urgent = live.filter(a => a.urgent);
-  if (!urgent.length) {
-    return '  <!-- No urgent notice. Set "urgent": true on an entry in\n' +
-           '       data/parish-announcements.json and rebuild to put one here. -->';
-  }
   return [
-    '  <section class="ntgoc-our-parish-urgent" role="region" aria-label="Urgent parish notice" data-ntgoc-urgent>',
-    '    <div class="ntgoc-our-parish-urgent__inner ntgoc-gutter ntgoc-shell">',
-    urgent.map(a =>
-      `      <article class="ntgoc-our-parish-news__item ntgoc-our-parish-news__item--urgent"${a.expires ? ` data-ntgoc-expires="${a.expires}"` : ''}>\n` +
-      `        <div class="ntgoc-our-parish-urgent__flag">Parish notice</div>\n` +
-      announcementBody(a, 6, 2) +
-      '      </article>').join('\n'),
-    '    </div>',
-    '  </section>',
-  ].join('\n');
+    `          <div class="ntgoc-announce__card${a.urgent ? ' ntgoc-announce__card--urgent' : ''}"` +
+      `${a.expires ? ` data-ntgoc-expires="${a.expires}"` : ''}>`,
+    `            <div class="ntgoc-announce__kind${a.urgent ? ' ntgoc-announce__kind--urgent' : ''}">` +
+      `${kind}${a.sample ? ' &middot; sample' : ''}</div>`,
+    `            <h3 class="ntgoc-h3-sm">${esc(a.title, `announcement "${a.id}" title`)}</h3>`,
+    `            <p class="ntgoc-announce__text">${esc(a.body, `announcement "${a.id}" body`)}</p>`,
+    a.link && a.link.href
+      ? `            <p class="ntgoc-announce__text"><a href="${esc(a.link.href, 'announcement link')}">` +
+        `${esc(a.link.label || 'Read more', 'announcement link label')} →</a></p>`
+      : '',
+    `            <div class="ntgoc-announce__meta">${meta.join(' &middot; ')}</div>`,
+    '          </div>',
+  ].filter(Boolean).join('\n');
 }
 
-/** The ordinary announcements list. */
+/** The announcements grid. Urgent first, then newest first. */
 function renderAnnouncements() {
-  const ordinary = live.filter(a => !a.urgent);
-  if (!ordinary.length) {
-    return '        <p class="ntgoc-body-lg">Nothing is posted at the moment. ' +
-      'Announcements appear here as the parish office adds them &mdash; and come down again on their own ' +
-      'once they are out of date.</p>';
+  if (!live.length) {
+    return '          <p class="ntgoc-parish-sub">Nothing is posted at the moment. Announcements appear here as ' +
+      'the parish office adds them &mdash; and come down again on their own once they are out of date.</p>';
   }
-  return ordinary.map(a =>
-    `        <article class="ntgoc-our-parish-news__item"${a.expires ? ` data-ntgoc-expires="${a.expires}"` : ''}>\n` +
-    announcementBody(a, 8, 3) +
-    '        </article>').join('\n');
+  const ordered = [...live].sort((a, b) => (b.urgent ? 1 : 0) - (a.urgent ? 1 : 0));
+  return ordered.map(announcementCard).join('\n');
 }
 
 /* ------------------------------------------------------------------ *
@@ -366,7 +335,6 @@ function renderAnnouncements() {
 const REGIONS = [
   ['calendar.html', 'calendarMonth', renderMonthGrid],
   ['parish-life.html', 'nextFewWeeks', renderAgenda],
-  ['for-our-parish.html', 'urgentNotice', renderUrgent],
   ['for-our-parish.html', 'thisWeek', renderThisWeek],
   ['for-our-parish.html', 'announcements', renderAnnouncements],
 ];

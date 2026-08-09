@@ -1,22 +1,23 @@
 {
-  "_README": "Parish announcements for the 'For Our Parish' page. This file is the whole editing surface: add an object, run `npm run parish`, and the announcements block on for-our-parish.html is rewritten. Nobody has to touch the page markup, and there is no way to break the page layout from in here.",
+  "_README": "Parish announcements for the 'For Our Parish' page. This file is the whole editing surface: add an object, run `npm run parish`, and the announcements grid on for-our-parish.html is rewritten. Nobody has to touch the page markup, and there is no way to break the page layout from in here.",
 
   "_fields": {
     "id": "REQUIRED. A short kebab-case slug, unique in this file. Used only to tell two entries apart in a diff.",
+    "kind": "Optional. The small caps label at the top of the card — 'Sunday School', 'Volunteers needed', 'Ministry update', 'Parish event'. Defaults to 'From the office'. Ignored when `urgent` is set.",
     "title": "REQUIRED. One line. This is what a parishioner scanning the page reads.",
     "body": "REQUIRED. A sentence or two. Plain text — no HTML, and none of the EVO bracket sequences (see CLAUDE.md).",
     "posted": "REQUIRED. ISO YYYY-MM-DD. Shown as 'Posted 9 August'.",
     "expires": "Optional. ISO YYYY-MM-DD, the last day it should appear. Dropped at build time once past, and hidden in the browser too, so an announcement disappears on its own even if nobody rebuilds the page. Omit for something with no natural end date — but then it is on you to delete it.",
-    "urgent": "Optional. true pulls it to the top of the page in the burgundy panel, above everything else. For a weather cancellation or a last-minute change to the service schedule. Use it rarely: a page where everything is urgent has nothing urgent on it.",
+    "urgent": "Optional. true sorts it to the front of the grid and gives the card the red rule and red label. For a weather cancellation or a last-minute change to the service schedule. Use it rarely: a page where everything is urgent has nothing urgent on it.",
     "link": "Optional { \"href\": \"...\", \"label\": \"...\" }. Must point at something that actually exists.",
-    "sample": "Optional. true marks the entry as a demonstration and prints a visible 'Sample' tag on it. The two entries below are samples so the Parish Council can see what the block looks like. Delete them when the first real announcement is written."
+    "sample": "Optional. true appends 'sample' to the card's label. The two entries below are samples so the Parish Council can see what the section does. Delete them when the first real announcement is written."
   },
 
   "announcements": [
     {
       "id": "sample-urgent",
       "title": "Sample — this is how an urgent notice appears",
-      "body": "An urgent announcement sits at the top of the page, above This Week, in the burgundy panel. It is meant for a weather cancellation, a last-minute change to the service schedule, or a death in the parish family. Set \"urgent\": true on an entry in data/parish-announcements.json to put a notice here.",
+      "body": "An urgent announcement sorts to the front of this grid and takes the red rule, so it is not read as ordinary parish business. It is meant for a weather closure, a service moved at short notice, or a death in the parish family. Set \"urgent\": true on an entry in data/parish-announcements.json.",
       "posted": "2026-08-09",
       "expires": "2026-12-31",
       "urgent": true,
@@ -24,8 +25,9 @@
     },
     {
       "id": "sample-ordinary",
+      "kind": "From the office",
       "title": "Sample — this is how an ordinary announcement appears",
-      "body": "Announcements run newest first and each one can carry an expiry date, so old notices fall off the page by themselves rather than piling up. Nothing on this page is a real parish announcement yet; these two entries exist to show the Parish Council the shape of the thing.",
+      "body": "Announcements run newest first, each under a label saying what kind of notice it is, and each one can carry a date after which it comes down by itself rather than piling up. Nothing on this page is a real parish announcement yet; these two entries exist to show the Parish Council the shape of the thing.",
       "posted": "2026-08-09",
       "expires": "2026-12-31",
       "sample": true
@@ -33,9 +35,10 @@
   ],
 
   "_forTheAdministrator": [
-    "Announcements are sorted by `posted`, newest first. `urgent` entries are lifted out of that order and shown above This Week.",
+    "Announcements are sorted urgent-first, then by `posted`, newest first.",
     "An entry whose `expires` date has passed is left out of the rendered page, and is also hidden by assets/js/ntgoc-enhance.js in the visitor's browser — so a page that has not been rebuilt for a fortnight still does not show a fortnight-old notice.",
     "Nothing here may contain a parishioner's name or a personal phone number without their recorded permission. That rule does not relax for something as ordinary as a thank-you.",
-    "The same applies to facts: an announcement is a parish page like any other. If it asserts a date or a time nobody has confirmed, it needs a source."
+    "The same applies to facts: an announcement is a parish page like any other. If it asserts a date or a time nobody has confirmed, it needs a source — and it must not contradict data/site.json, which `npm run lint` enforces.",
+    "Who may post an announcement, and what needs approval first, is a decision for Fr. John and the Parish Council. The proposal block under this section on the page says so."
   ]
 }

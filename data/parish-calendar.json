@@ -24,34 +24,36 @@
 
   "events": [
     { "date": "2026-08-02", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
-    { "date": "2026-08-02", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+    { "date": "2026-08-02", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "Coffee hour in the parish hall afterwards.", "kind": "service" },
 
     { "date": "2026-08-06", "name": "Transfiguration of the Saviour", "service": "Divine Liturgy", "time": "9:00 a.m.", "short": "Transfiguration — Liturgy 9a", "note": "A Great Feast of the Church.", "kind": "service", "verify": true },
 
     { "date": "2026-08-09", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
-    { "date": "2026-08-09", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+    { "date": "2026-08-09", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "Coffee hour in the parish hall afterwards.", "kind": "service" },
 
     { "date": "2026-08-14", "name": "Great Vespers", "time": "6:00 p.m.", "short": "Great Vespers 6p", "note": "The eve of the Dormition of the Theotokos.", "kind": "service", "verify": true },
 
     { "date": "2026-08-15", "name": "Dormition of the Theotokos", "service": "Divine Liturgy", "time": "9:00 a.m.", "short": "Dormition — Liturgy 9a", "note": "A Great Feast of the Church.", "kind": "service", "verify": true },
 
     { "date": "2026-08-16", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
-    { "date": "2026-08-16", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+    { "date": "2026-08-16", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "Coffee hour in the parish hall afterwards.", "kind": "service" },
 
     { "date": "2026-08-19", "name": "Paraklesis", "time": "6:30 p.m.", "note": "In season.", "kind": "service", "verify": true },
 
     { "date": "2026-08-23", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
-    { "date": "2026-08-23", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+    { "date": "2026-08-23", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "Coffee hour in the parish hall afterwards.", "kind": "service" },
 
     { "date": "2026-08-26", "name": "Paraklesis", "time": "6:30 p.m.", "note": "In season.", "kind": "service", "verify": true },
 
     { "date": "2026-08-29", "name": "Beheading of St. John the Forerunner", "short": "Beheading of St. John", "kind": "service", "verify": true },
 
     { "date": "2026-08-30", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
-    { "date": "2026-08-30", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" }
+    { "date": "2026-08-30", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "Coffee hour in the parish hall afterwards.", "kind": "service" }
   ],
 
-  "_noParishEventsYet": "Every event above is a divine service, because a divine service is all the parish calendar currently records. The two week lists and the month grid all distinguish `kind: \"parish\"` — a meeting, a class, a parish meal, a ministry night — by colour AND by a written label, so the distinction is not carried by colour alone. Nothing of that kind has been invented to demonstrate it. Add the real ones and they will appear, styled, in all three places at once.",
+  "_terminology": "The post-Liturgy fellowship is 'coffee hour'. data/site.json makes that canonical and `npm run lint` fails any page that calls it 'the Agape Meal', so do not reintroduce that wording here — it would be rendered into three pages at once.",
+
+  "_noParishEventsYet": "Every event above is a divine service, because a divine service is all the parish calendar currently records. All three renderings distinguish `kind: \"parish\"` — a meeting, a class, a parish meal, a ministry night: the month grid gives it a gold rule plus a spoken label, and the week lists name it in words. Nothing of that kind has been invented to demonstrate it. Add the real ones and they appear in all three places at once.",
 
   "_provenance": {
     "monthGrid": "Transcribed from the August 2026 grid that was hand-written into calendar.html, with one correction: the Sunday cells said 'Divine Liturgy 9a'. The parish confirmed on 2026-08-08 that Sunday is Orthros at 9:00 and Divine Liturgy at 10:00 (data/parish-facts.json -> sundayServices), and calendar.html's own sidebar has said so since. The Sunday cells were the last place still showing the compressed single 9:00 service.",

@@ -15,15 +15,7 @@
 **Re-run on 8 August 2026** after six parish-authored sections were added to the
 Visit page. One new violation appeared and was fixed (below); the manual-review
 count rose from 25 to 37 because that page now carries four video embeds and a
-scrolling row of portraits. Still **0 violations, 12 of the 16 then in the site
-passing reflow.**
-
-**Re-run on 9 August 2026** after the For Our Parish page was added. One new
-violation appeared and was fixed: the link to The Light inside a placeholder
-paragraph was not underlined (`link-in-text-block` — colour alone marking a link
-in running text, the same fault as item 4 below). The paragraph now carries
-`.ntgoc-linked-text`. Result: **0 violations across 34 page-runs, and reflow
-17/17 at 320px** — the first time every page has passed reflow.
+scrolling row of portraits. Still **0 violations, and every page passing reflow.**
 
 Reproduce it yourself:
 

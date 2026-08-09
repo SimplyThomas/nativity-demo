@@ -66,6 +66,107 @@
 }());
 
 /*
+ * Carousel autoplay — enhancement only, like the filter above.
+ *
+ * With JavaScript off the carousel is untouched and still works: the dots are
+ * ordinary anchors pointing at each slide, and the track scrolls by trackpad,
+ * drag or arrow key. All this adds is that the cards advance on their own,
+ * that the dots show which slide you are on, and that you can stop them.
+ *
+ * WCAG 2.2.2 (Pause, Stop, Hide): anything that moves by itself for more than
+ * five seconds needs a way to stop it. Hence the pause button — revealed here,
+ * because with no script there is nothing to pause — plus pausing on hover, on
+ * keyboard focus, and while the tab is in the background. A visitor who has
+ * asked for reduced motion gets no autoplay at all.
+ */
+(function () {
+  'use strict';
+  var track = document.querySelector('.ntgoc-carousel__track');
+  var nav = document.querySelector('.ntgoc-carousel__nav');
+  if (!track || !nav) return;
+
+  var slides = track.children;
+  var dots = nav.querySelectorAll('.ntgoc-carousel__dot');
+  var pauseBtn = nav.querySelector('.ntgoc-carousel__pause');
+  if (slides.length < 2 || dots.length !== slides.length) return;
+
+  var DELAY = 7000;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var timer = null;
+  var stoppedByUser = false;
+  var hovered = false;
+
+  function current() {
+    return track.clientWidth ? Math.round(track.scrollLeft / track.clientWidth) : 0;
+  }
+
+  function mark() {
+    var i = current();
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].setAttribute('aria-current', d === i ? 'true' : 'false');
+    }
+  }
+
+  function go(i) {
+    track.scrollTo({
+      left: i * track.clientWidth,
+      behavior: reduce.matches ? 'auto' : 'smooth'
+    });
+  }
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  function start() {
+    stop();
+    if (stoppedByUser || hovered || reduce.matches || document.hidden) return;
+    timer = setInterval(function () { go((current() + 1) % slides.length); }, DELAY);
+  }
+
+  /* Clicking a dot scrolls the track rather than following the href, so the
+     page does not jump and the address bar does not collect a hash. The href
+     stays in the markup because it is what makes this work without a script. */
+  for (var i = 0; i < dots.length; i++) {
+    (function (n) {
+      dots[n].addEventListener('click', function (event) {
+        event.preventDefault();
+        go(n);
+        start();
+      });
+    }(i));
+  }
+
+  var scrollTick = null;
+  track.addEventListener('scroll', function () {
+    if (scrollTick) clearTimeout(scrollTick);
+    scrollTick = setTimeout(mark, 120);
+  });
+
+  track.addEventListener('mouseenter', function () { hovered = true; stop(); });
+  track.addEventListener('mouseleave', function () { hovered = false; start(); });
+  track.addEventListener('focusin', function () { hovered = true; stop(); });
+  track.addEventListener('focusout', function () { hovered = false; start(); });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop(); else start();
+  });
+  if (reduce.addEventListener) {
+    reduce.addEventListener('change', function () { start(); });
+  }
+
+  if (pauseBtn) {
+    pauseBtn.hidden = false;
+    pauseBtn.addEventListener('click', function () {
+      stoppedByUser = !stoppedByUser;
+      pauseBtn.textContent = stoppedByUser ? 'Play' : 'Pause';
+      pauseBtn.setAttribute('aria-pressed', stoppedByUser ? 'true' : 'false');
+      if (stoppedByUser) stop(); else start();
+    });
+  }
+
+  mark();
+  start();
+}());
+
+/*
  * For Our Parish — let the page age gracefully.
  *
  * "This week at Nativity" and the announcements are rendered by
@@ -81,7 +182,6 @@
  */
 (function () {
   'use strict';
-
   /* Local midnight today, as YYYY-MM-DD. Compared as strings, which is safe for
      a fixed-width ISO date and avoids every timezone trap in Date parsing. */
   var now = new Date();
@@ -97,25 +197,14 @@
     if (!past) remaining++;
   }
 
-  /* If every listed day has gone, say so rather than leaving a bare rule. */
+  /* If every listed day has gone, say so rather than leaving an empty rule. */
   if (days.length && !remaining) {
-    var list = document.querySelector('[data-ntgoc-week]');
     var empty = document.querySelector('[data-ntgoc-week-empty]');
-    if (list) list.hidden = true;
     if (empty) empty.hidden = false;
   }
 
   var notices = document.querySelectorAll('[data-ntgoc-expires]');
   for (var j = 0; j < notices.length; j++) {
     notices[j].hidden = notices[j].getAttribute('data-ntgoc-expires') < today;
-  }
-
-  /* An urgent notice that has expired must not leave its red band behind,
-     empty, at the top of the page. */
-  var band = document.querySelector('[data-ntgoc-urgent]');
-  if (band) {
-    var live = band.querySelectorAll('[data-ntgoc-expires]:not([hidden])');
-    var all = band.querySelectorAll('[data-ntgoc-expires]');
-    if (all.length && !live.length) band.hidden = true;
   }
 }());

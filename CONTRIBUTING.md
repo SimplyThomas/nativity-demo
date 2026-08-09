@@ -20,6 +20,9 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 | File / folder | What it is |
 |---|---|
 | `*.html` (17 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
+| `data/site.json` | **Source of truth** for any fact stated on more than one page. Lint enforces it. |
+| `data/parish-calendar.json` | **Source of truth** for the calendar. Rendered into three pages by `npm run parish`. |
+| `data/parish-announcements.json` | **Source of truth** for parish announcements. Same build. |
 | `assets/css/components.css` | **Source.** Ships to the parish CMS. |
 | `assets/css/provisional.css` | **Source.** Demo only — contains a reset, never import it. |
 | `assets/js/ntgoc-enhance.js` | **Source.** Progressive enhancement only. |
@@ -95,7 +98,7 @@ verified the fact; when you do, record the source in `data/parish-facts.json`.
 ### Editing the header, nav or footer — `npm run shell`
 
 Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
-`ntgocSiteFooter`) are the same markup on all fifteen pages — about a third of
+`ntgocSiteFooter`) are the same markup on all seventeen pages — about a third of
 all the HTML here. Edit them **once, in one page**, then propagate:
 
 ```sh
@@ -153,7 +156,7 @@ npm run parish -- --today 2026-09-06   # render as if it were another day
 | Edit this | To change |
 |---|---|
 | `data/parish-calendar.json` | the month grid on Calendar, "This week at Nativity" on For Our Parish, and "The next few weeks" on Parish Life |
-| `data/parish-announcements.json` | the announcements and the urgent notice on For Our Parish |
+| `data/parish-announcements.json` | the announcement cards on For Our Parish, urgent ones included |
 
 It only ever rewrites what is between `<!-- BUILD:name -->` and
 `<!-- /BUILD:name -->`, and refuses to run if a marker is missing. Everything
@@ -221,7 +224,7 @@ the responsive layer at the bottom of the file last so it still wins on source
 order.
 
 **Touching the header or footer?** Edit one page and run `npm run shell` — see
-above. Do not make the change fifteen times by hand; `npm run shell -- --check`
+above. Do not make the change seventeen times by hand; `npm run shell -- --check`
 runs in CI and will fail if you miss one.
 
 **Adding an item to the Parish Life dropdown?** One more
@@ -241,7 +244,7 @@ it verifies the draft banner, `noindex`, the heading structure and the links.
 
 ## What changed, and why
 
-Until 8 August 2026 the twelve pages were **generated** from a Claude Design
+Until 8 August 2026 the pages were **generated** from a Claude Design
 import by `tools/archive/render.mjs`. Editing a page directly did nothing — the next
 build erased it.
 

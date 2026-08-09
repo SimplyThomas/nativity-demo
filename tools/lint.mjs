@@ -360,6 +360,45 @@ for (const rel of PAGES) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 8a. Canonical facts — data/site.json is the one source of truth
+ *
+ * Service times, the name of the fellowship meal, the Divine Liturgy book,
+ * parking and accessibility are all stated on more than one page. A correction
+ * applied to four pages out of six is worse than no correction, because the
+ * site then contradicts itself and a visitor acts on whichever page they found.
+ *
+ * There is no build step to inject values into hand-edited HTML, so the guard
+ * runs the other way: data/site.json lists what a page must NOT say, and this
+ * fails the build when one says it. Making a correction stick means adding the
+ * old wording to `canonical.forbidden` — otherwise the next rewrite reinstates
+ * it, which is exactly how "complimentary prayer book" came back twice.
+ * ------------------------------------------------------------------ */
+{
+  const rel = 'data/site.json';
+  if (!existsSync(join(ROOT, rel))) {
+    err('site-config-missing', rel, 'missing — this is the source of truth for shared facts');
+  } else {
+    let site = null;
+    try { site = JSON.parse(read(rel)); }
+    catch (e) { err('site-config-invalid', rel, `is not valid JSON: ${String(e.message).slice(0, 80)}`); }
+
+    for (const rule of site?.canonical?.forbidden ?? []) {
+      // Case matters for a few: 'the Agape Meal' as a heading is wrong, while
+      // 'an agape meal' explaining the term in passing is fine.
+      const re = new RegExp(rule.pattern, rule.caseSensitive ? 'g' : 'gi');
+      for (const page of PAGES) {
+        if ((rule.allowIn ?? []).includes(page)) continue;
+        // Comments carry the reasoning for a correction and legitimately quote
+        // the wording being corrected, so they are not scanned.
+        const body = read(page).replace(/<!--[\s\S]*?-->/g, '');
+        const hit = body.match(re);
+        if (hit) err('canonical-fact', page, `says "${hit[0]}" — ${rule.why}`);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * 8b. Documentation must not point at the retired renderer
  *
  * The docs told a volunteer to run `node tools/render.mjs` for months after it

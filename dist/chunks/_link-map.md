@@ -28,41 +28,44 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-87 links across 31 chunks.
+92 links across 34 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
+| `ntgocAboutClergy` | contact | ☐ |
 | `ntgocAboutParishCouncil` | committees ×2 | ☐ |
 | `ntgocBookstoreNotes` | contact | ☐ |
 | `ntgocCommitteesList` | about | ☐ |
 | `ntgocEventsList` | calendar, hall, contact | ☐ |
 | `ntgocFaithTopics` | about, contact | ☐ |
 | `ntgocHallRental` | contact | ☐ |
-| `ntgocHomeFestivalPromo` | ministries | ☐ |
+| `ntgocHomeFestivalPromo` | ministries, calendar, about | ☐ |
+| `ntgocHomeForOurParish` | for-our-parish | ☐ |
 | `ntgocHomeHero` | visit, contact | ☐ |
 | `ntgocHomeMinistriesPromo` | ministries ×5 | ☐ |
 | `ntgocHomeUpcomingServices` | calendar | ☐ |
 | `ntgocHomeWelcome` | faith, about | ☐ |
-| `ntgocMinistriesGrid` | give | ☐ |
 | `ntgocNewsletterArchive` | parish-life | ☐ |
-| `ntgocOurParishConnect` | newsletter ×2, contact | ☐ |
-| `ntgocOurParishFamilies` | parish-life ×2, ministries, visit | ☐ |
-| `ntgocOurParishHelp` | contact | ☐ |
-| `ntgocOurParishOrthodox` | faith | ☐ |
-| `ntgocOurParishResources` | calendar ×2, ministries, give, committees, bookstore, newsletter, hall, contact, about, faith | ☐ |
-| `ntgocOurParishServe` | ministries, committees, contact | ☐ |
-| `ntgocOurParishStewardship` | give | ☐ |
-| `ntgocOurParishWeek` | calendar | ☐ |
+| `ntgocParishAsk` | contact | ☐ |
+| `ntgocParishConnected` | newsletter | ☐ |
+| `ntgocParishFamilies` | ministries, visit, contact | ☐ |
 | `ntgocParishLifeBookstore` | bookstore | ☐ |
 | `ntgocParishLifeGallery` | contact | ☐ |
+| `ntgocParishLifeNext` | ministries, for-our-parish | ☐ |
+| `ntgocParishLifeService` | ministries | ☐ |
 | `ntgocParishLifeUpcoming` | calendar | ☐ |
+| `ntgocParishOrthodoxResources` | faith, bookstore | ☐ |
+| `ntgocParishResources` | calendar, visit, ministries ×2, give, bookstore, about, newsletter, contact, hall | ☐ |
+| `ntgocParishServe` | ministries, committees | ☐ |
+| `ntgocParishStewardship` | give | ☐ |
+| `ntgocParishWeek` | calendar | ☐ |
 | `ntgocSiteFooter` | visit, calendar, contact, hall, parish-life, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
 | `ntgocSiteHeader` | index, faith, parish-life ×2, for-our-parish, ministries, committees, bookstore, newsletter, calendar, events ×2, hall, about, contact, visit | ☐ |
 | `ntgocTopBar` | mobile-views | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |
 | `ntgocVisitorHero` | contact, calendar | ☐ |
-| `ntgocVisitorSundaySchool` | ministries | ☐ |
+| `ntgocVisitorNextSteps` | contact ×2, faith, calendar | ☐ |
 
 > Search each chunk for `data-ntgoc-link`. External links (the Archdiocese,
 > Square, the Google form, fredgreek.org) are real URLs already — leave them.

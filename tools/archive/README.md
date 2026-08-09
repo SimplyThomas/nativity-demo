@@ -15,7 +15,7 @@ Edit them directly. See `CONTRIBUTING.md`.
 
 ## ⚠️ Do not just run it
 
-`node tools/archive/render.mjs` would **overwrite all twelve pages and
+`node tools/archive/render.mjs` would **overwrite the pages it knows about and
 `components.css`** with output regenerated from the old design file — destroying
 every hand edit made since the switch. It is archived here precisely so that
 running it is a deliberate act, not an accident.

@@ -14,7 +14,7 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The fifteen `.html` files at the repo root are SOURCE. Edit them directly.**
+**The seventeen `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
@@ -57,13 +57,18 @@ Run it after any CSS change. If a change is intended:
 `data/parish-announcements.json` into the blocks marked
 `<!-- BUILD:name -->` … `<!-- /BUILD:name -->` on `calendar.html`,
 `parish-life.html` and `for-our-parish.html`. It touches nothing outside those
-markers, and it is not the retired renderer — it owns five blocks, not twelve
+markers, and it is not the retired renderer — it owns four blocks, not twelve
 files.
 
 Edit the JSON, not the markup between the markers. The same list of services
-used to be hand-written into three pages and two of them had drifted; that is
-what this exists to stop. It is deliberately **not** gated by CI: "upcoming"
-depends on today's date, so a CI check would fail every morning.
+used to be hand-written into three pages, and the copies had drifted: 14 and 15
+August were dated to the wrong weekdays on Parish Life. That is what this exists
+to stop. It is deliberately **not** gated by CI: "upcoming" depends on today's
+date, so a CI check would fail every morning.
+
+`data/site.json` is the other half of the same idea, from the opposite
+direction: it lists what a page must NOT say, and lint fails when one says it.
+Use that for a fact stated in prose, and this for a list rendered from data.
 
 ---
 
@@ -94,20 +99,30 @@ something that should not be published.
    Bootstrap 4.1.3, and anything unscoped would restyle the parish template.
 6. **Reusable blocks stay wrapped** in `<!-- CHUNK:ntgocName -->` … `<!-- /CHUNK:ntgocName -->`.
    That is the entire import mechanism.
+7. **A shared fact is stated once, in `data/site.json`.** Service times, the name
+   of the fellowship meal, the Divine Liturgy book, parking and accessibility all
+   appear on several pages. `data/site.json` holds the agreed value plus a list of
+   wordings a page must *not* carry, and lint fails on any page that carries one.
+   Correcting a fact means fixing the pages **and** adding the old wording to
+   `canonical.forbidden` — otherwise the next rewrite quietly reinstates it, which
+   is how "complimentary prayer book" came back twice.
 
 ---
 
 ## Traps that have already caught someone
 
-- **Editing the header/footer in one page.** They are duplicated across all 12
-  (a third of all HTML). Edit one, then `npm run shell`. Hand-copying drifts and
-  CI fails.
+- **Editing the header/footer in one page.** They are duplicated across every
+  page (a third of all HTML). Edit one, then `npm run shell`. Hand-copying
+  drifts and CI fails.
 - **`git checkout -- '*.html'`** reverts markup but *not* `components.css`. After
   a rename that leaves the two halves out of step and every page unstyled. Lint
   catches it now (`class-undefined`) — it was added after this happened twice.
 - **Dropping a closing tag.** Browsers hide it; the extracted chunk is broken and
   that is what gets pasted into the CMS. Lint checks tag balance.
 - **Editing `dist/chunks/`.** Generated. Regenerate from the pages instead.
+- **Correcting a fact on the page you happen to be editing.** Every one of these
+  facts is on three or four pages. Add it to `canonical.forbidden` in
+  `data/site.json` and let lint find the rest.
 - **Adding a class without checking for an existing one.** Lint warns when two
   classes end up with identical rules and prints the exact
   `npm run rename -- --merge` command. Merging compares media queries and
@@ -134,6 +149,7 @@ Expected clean state: lint passes, snapshot reports no layout or colour change,
 | How do I make a change safely? | `CONTRIBUTING.md` |
 | How does a volunteer import this into EVO? | `IMPORT.md` |
 | What is verified, corrected, or withheld? | `data/parish-facts.json` |
+| What must every page agree on? | `data/site.json` |
 | What was the accessibility work? | `ACCESSIBILITY.md` |
 | What did the old renderer guarantee? | `tools/archive/README.md` |
 

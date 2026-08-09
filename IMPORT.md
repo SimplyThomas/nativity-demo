@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 70 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 73 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -231,7 +231,7 @@ Then the page content, grouped by page:
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
-| **For Our Parish** | `ntgocOurParishHero`, `ntgocOurParishUrgent`, `ntgocOurParishWeek`, `ntgocOurParishNews`, `ntgocOurParishConnect`, `ntgocOurParishStewardship`, `ntgocOurParishServe`, `ntgocOurParishFamilies`, `ntgocOurParishResources`, `ntgocOurParishOrthodox`, `ntgocOurParishHelp` — *see the note below on keeping it up to date* |
+| **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
@@ -243,8 +243,8 @@ Then the page content, grouped by page:
 | **Hall Rental** | `ntgocHallRental` |
 | **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
 
-> **For Our Parish is the one page that goes stale on its own.** Three of its
-> chunks — `ntgocOurParishUrgent`, `ntgocOurParishWeek` and `ntgocOurParishNews`
+> **For Our Parish is the one page that goes stale on its own.** Two of its
+> chunks — `ntgocParishWeek` and `ntgocParishAnnouncements`
 > — are rendered from `data/parish-calendar.json` and
 > `data/parish-announcements.json` by `npm run parish`. In this repo that means
 > one place to edit. Once the page is in Evolution CMS there is no build step,
@@ -253,7 +253,7 @@ Then the page content, grouped by page:
 > 1. **Edit the chunk in the EVO manager.** No tooling, but the announcement
 >    markup has to be copied by hand each time, and the week list is only as
 >    right as whoever last retyped it. This is what most parishes end up doing.
-> 2. **Keep editing the JSON here, run `npm run parish`, and paste the three
+> 2. **Keep editing the JSON here, run `npm run parish`, and paste the two
 >    chunks in again.** Correct by construction, but it needs somebody who can
 >    run a command.
 > 3. **Replace them with an EVO snippet** that reads the parish calendar
@@ -417,12 +417,22 @@ visitor's message is worse than no form at all.
 
 ### Step 6 — The JavaScript (optional)
 
-One file: `assets/js/ntgoc-enhance.js`. It does exactly one thing — filters the
-bookstore catalogue by category.
+One file: `assets/js/ntgoc-enhance.js`. It does two things — filters the
+bookstore catalogue by category, and advances the home page's festival cards on
+their own.
 
 **It is optional.** With JavaScript off, every bookstore item is already visible
-and the category buttons simply do nothing. Nothing else on the site needs
-JavaScript at all. If in doubt, skip it.
+and the category buttons simply do nothing; the festival carousel keeps working
+too, because its dots are ordinary links to each card and the strip scrolls by
+trackpad, drag or arrow key. All the script adds there is the automatic
+advance, the filled dot showing which card you are on, and the Pause button —
+which stays hidden without it, since there would be nothing to pause. Nothing
+on the site *needs* JavaScript. If in doubt, skip it.
+
+If you do take it, the autoplay is built to the accessibility rule that matters
+here (WCAG 2.2.2): it stops on hover, on keyboard focus, while the tab is in the
+background, and for good on a click of Pause — and it never starts at all for a
+visitor whose system asks for reduced motion.
 
 If you want it: upload to `/assets/templates/ntgoc/js/ntgoc-enhance.js` and add
 before `</body>` in the template:
@@ -622,7 +632,7 @@ npm run lint     # checks everything this guide depends on
 The seventeen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
-twelve pages from the old design file. See `CONTRIBUTING.md`.
+every page from the old design file. See `CONTRIBUTING.md`.
 
 The extraction step refuses to write any chunk containing an EVO reserved
 sequence (`[[ ]]`, `[! !]`, `{{ }}`, `[* *]`, `[( )]`, `[~ ~]`, `[+ +]`) and exits
