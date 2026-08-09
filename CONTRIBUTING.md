@@ -1,131 +1,122 @@
 # Making changes
 
-Short version: **the twelve `.html` files at the repo root are output, not
-source.** So is `assets/css/components.css` and everything in `dist/chunks/`.
-Editing them feels like it works, right up until the next build erases it.
+**Edit the HTML and CSS directly.** They are the source.
 
 ```sh
-npm install     # only needed for the audit tools
-npm run dev     # http://localhost:4000, rebuilds when you save
+npm install    # once — only for the audit tools
+npm run dev    # http://localhost:4000
+# edit index.html, visit.html, assets/css/components.css … and reload
+npm run lint   # before you commit
 ```
 
-`npm run dev` watches `design-src/`, `tools/` and `data/` — the things you
-actually edit — and rebuilds on save. It deliberately does *not* watch the
-generated HTML.
+That is the whole workflow. If you have used this repo before and remember
+being told never to edit the HTML, that changed on **8 August 2026** — see
+[What changed](#what-changed-and-why) below.
 
 ---
 
-## Where does my change go?
+## Where things live
 
-| I want to change… | Edit this | Notes |
-|---|---|---|
-| Layout, spacing, colour, typography, copy, a whole new section | **The Claude Design project**, then re-import | Design is the source of truth for how it looks |
-| A parish fact that is wrong | `CORRECTIONS` in `tools/render.mjs`, and record it in `data/parish-facts.json` | Always with a source, or tag it `TODO: verify` |
-| Reorder, hide, or tweak a block without touching Design | `applyLocalEdits()` in `tools/render.mjs` | Warns on rebuild if it stops matching |
-| How it behaves on a phone | the responsive layer at the bottom of the generated CSS, authored in `tools/render.mjs` | The design has no media queries of its own |
-| A contrast or accessibility problem | `CONTRAST_FIX` / `DECLARATION_FIX` in `tools/render.mjs` | See `ACCESSIBILITY.md` |
-| Which blocks become EVO chunks, or their names | `CHUNK_NAMES` in `tools/render.mjs` | |
-| Add a page | `PAGES` **and** `CHUNK_NAMES` in `tools/render.mjs` | The renderer will not invent a filename for a route it hasn't been told about |
-| The EVO asset path | `ASSET_ROOT` at the top of `tools/extract-chunks.mjs` | One line; rewrites every chunk and the stylesheet |
-| Images | add to `assets/img/`, register in `IMAGES` in `tools/render.mjs` | Record provenance in `data/parish-facts.json` |
-| Anything in `*.html`, `components.css`, `dist/chunks/` | **nowhere — it's generated** | Find the real source above |
+| File / folder | What it is |
+|---|---|
+| `*.html` (12 pages) | **Source.** Edit directly. |
+| `assets/css/components.css` | **Source.** Ships to the parish CMS. |
+| `assets/css/provisional.css` | **Source.** Demo only — contains a reset, never import it. |
+| `assets/js/ntgoc-enhance.js` | **Source.** Progressive enhancement only. |
+| `assets/img/` | Images, provenance recorded in `data/parish-facts.json`. |
+| `dist/chunks/` | **Generated** by `npm run chunks`. Never edit — paste into EVO. |
+| `data/parish-facts.json` | Every parish fact, its source, and whether it is verified. |
+| `content/` | Parish-authored copy, kept for reference. Already spliced into `visit.html`. |
+| `design-src/` | Archive of the original Claude Design import. No longer an input. |
+| `tools/archive/` | The retired renderer. Do not run it — see its README. |
 
----
-
-## Why is it built this way?
-
-Because the design has to keep flowing in from Claude Design, and the site has
-to keep flowing out into Evolution CMS. Both ends are moving:
-
-```
-Claude Design  ->  design-src/  ->  render.mjs  ->  12 pages + CSS
-                                                          |
-                                                  extract-chunks.mjs
-                                                          |
-                                                    dist/chunks/  ->  paste into EVO
-```
-
-If pages were hand-maintained, every re-import from Design would mean manually
-re-applying weeks of fixes — the contrast corrections, the verified facts, the
-responsive layer, the chunk delimiters, the recovered content. Instead each of
-those is a **rule**, so they survive re-import automatically and the diff after
-a re-import shows only what genuinely changed in the design.
-
-That is a real trade: you give up editing the HTML directly. In exchange the
-corrections are durable and re-importing is a five-minute job instead of a day.
+The **only** generated thing left is `dist/chunks/`. `npm run dev` keeps it in
+step automatically; `npm run lint` fails if it has drifted.
 
 ---
 
-## If you already hand-edited a generated file
+## The rules that must not break
+
+These are not style preferences. Each one exists because breaking it corrupts
+the CMS import, breaks the live parish template, or publishes something that
+should not be published. `npm run lint` enforces all of them, and CI runs it on
+every push and pull request.
+
+| Rule | Why |
+|---|---|
+| No `[[ ]]`, `[! !]`, `{{ }}`, `[* *]`, `[( )]`, `[~ ~]`, `[+ +]` in content | Evolution CMS interprets these and silently eats the surrounding markup |
+| Every reusable block wrapped in `<!-- CHUNK:ntgocName -->` … `<!-- /CHUNK:ntgocName -->` | These delimiters are how the EVO chunks get extracted |
+| A shared chunk (header, footer) must be byte-identical on every page | Otherwise the import silently takes one page's copy for the whole site |
+| Every custom class prefixed `ntgoc-` | The live site runs Bootstrap 4.1.3; anything unprefixed can collide |
+| No CSS reset and no bare element selectors in `components.css` | A reset pasted into EVO breaks the surrounding parish template |
+| Image URLs in `components.css` are `../img/…` | URLs in a stylesheet resolve against the stylesheet, not the page |
+| `noindex` + draft banner on every page, `robots.txt` disallowing all | This must never compete with the real parish site or be mistaken for it |
+| No Open Graph tags | A shared link must not render a convincing preview card |
+| One `<h1>` per page, no skipped heading levels | Accessibility floor |
+| Unverified parish facts tagged `<!-- TODO: verify -->` | Never assert a service time or a name we cannot source |
+
+Two further checks run in CI and are worth running locally before a big change:
 
 ```sh
-npm run verify
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 12 pages x 2 viewports
+npm run audit:reflow   # 320px reflow + focus indicators
+npm run check          # all three
 ```
 
-It snapshots every generated file, rebuilds, and tells you what moved. If your
-edit was overwritten, the previous contents are saved to `.verify-backup/` so
-you can diff and move the change somewhere durable.
+### About the TODO markers
 
-Run it before committing. It exits non-zero on drift, so it also works as a
-pre-commit hook:
-
-```sh
-printf '#!/bin/sh\nnpm run --silent verify\n' > .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
-```
-
-Two different things make `verify` fail, and they need opposite responses:
-
-- **You hand-edited output.** The edit is gone; recover it from
-  `.verify-backup/` and re-express it as a rule.
-- **You changed a source and didn't commit the rebuild.** Harmless — review
-  `git diff` and commit.
+There are 30-odd `<!-- TODO: verify -->` comments in the pages. They are
+invisible to visitors and they are **the point of this project** — each one
+marks a claim nobody has confirmed. Do not delete one unless you have actually
+verified the fact; when you do, record the source in `data/parish-facts.json`.
+`IMPORT.md` lists what is still outstanding.
 
 ---
 
-## A worked example
+## Editing safely
 
-You move a card on the home page by editing `index.html`. It looks right in the
-browser. The next `npm run build` erases it.
+**Adding a section?** Wrap it in chunk delimiters and give it an `ntgoc`-prefixed
+camelCase name:
 
-The durable version — this is genuinely in the repo, from exactly this mistake:
-
-```js
-// applyLocalEdits(), tools/render.mjs
-const out = withinChunk(body, 'ntgocHomeServiceTimes', chunk => {
-  const moved = moveCardLast(chunk, 'Afterwards');
-  applied = moved !== null;
-  return moved ?? chunk;
-});
-if (!applied) {
-  console.warn('  ! local edit did not apply: home "Afterwards" card reorder.');
-}
+```html
+<!-- CHUNK:ntgocVisitorParking -->
+<section class="ntgoc-parking">
+  <h2 class="ntgoc-h3">Where to park</h2>
+</section>
+<!-- /CHUNK:ntgocVisitorParking -->
 ```
 
-Note the warning. A rule that silently stops matching is worse than no rule, so
-every local edit announces itself when the design shifts underneath it.
+**Adding CSS?** Put it in `components.css` as a single `.ntgoc-*` class, and keep
+the responsive layer at the bottom of the file last so it still wins on source
+order.
 
-Better still, make the change in Claude Design and re-import — then it lives
-with the rest of the design instead of as a patch on top of it.
+**Touching the header or footer?** Apply the identical change to all twelve
+pages. `npm run lint` will tell you if you missed one — that is the check that
+catches it, not code review.
+
+**Adding a page?** Copy an existing one for the shell, and check `lint` passes:
+it verifies the draft banner, `noindex`, the heading structure and the links.
 
 ---
 
-## Checks before you push
+## What changed, and why
 
-```sh
-npm run verify        # output matches sources
-npm run audit:a11y    # axe-core, 12 pages x 2 viewports — expect 0 violations
-npm run audit:reflow  # 320px reflow + focus indicators — expect 12/12
-```
+Until 8 August 2026 the twelve pages were **generated** from a Claude Design
+import by `tools/render.mjs`. Editing a page directly did nothing — the next
+build erased it.
 
-`extract-chunks.mjs` additionally refuses to emit any chunk containing an EVO
-reserved sequence (`[[ ]]`, `[! !]`, `{{ }}`, `[* *]`, `[( )]`, `[~ ~]`, `[+ +]`)
-and exits non-zero instead. If that fires, fix the source — never the chunk.
+That made sense while the design was still arriving from upstream. Once the
+import was complete it stopped earning its keep: every small copy change meant a
+round trip through Claude Design instead of just editing the file.
 
-## Re-importing from Claude Design
+So the upstream link was cut. Everything the renderer used to apply on each
+build is now **baked permanently into the committed HTML and CSS** — the
+contrast corrections, the verified facts, the responsive layer, the chunk
+delimiters, the recovered content. Nothing was lost.
 
-Covered in `design-src/README.md`, including the DesignSync quirks and the known
-defects in the design source. The short version: re-fetch both files, overwrite
-`design-src/`, `git diff design-src/` to see what changed, rebuild, and review.
-Class names are content-hashed, so unchanged styles keep their names and the
-diff stays readable.
+The trade is that those things are no longer re-applied automatically. That is
+what `npm run lint` and CI are for: the disciplines the renderer used to
+guarantee are now checked instead of regenerated.
+
+`tools/archive/README.md` has the full before/after table, and explains how to
+diff against a fresh design import if that is ever wanted again.

@@ -1,13 +1,30 @@
 import puppeteer from 'puppeteer-core';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
+const BASE = process.env.SITE_URL || `file://${REPO}`;
+
+/* Resolve a browser: CI runners and local machines put it in different places. */
+import { existsSync } from 'node:fs';
+const CHROME = [
+  process.env.CHROME_PATH,
+  '/usr/bin/chromium', '/usr/bin/chromium-browser',
+  '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable',
+  '/opt/google/chrome/chrome',
+].find(p => p && existsSync(p));
+if (!CHROME) {
+  console.error('No Chrome/Chromium found. Set CHROME_PATH to a browser binary.');
+  process.exit(2);
+}
 const PAGES=['index.html','visit.html','faith.html','calendar.html','ministries.html','about.html',
   'give.html','contact.html','festival.html','hall.html','bookstore.html','mobile-views.html'];
-const b=await puppeteer.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--disable-gpu']});
+const b=await puppeteer.launch({executablePath:CHROME,headless:true,args:['--no-sandbox','--disable-gpu']});
 console.log('WCAG 1.4.10 Reflow — viewport 320x800, no horizontal scrolling allowed\n');
 let bad=0;
 for(const f of PAGES){
   const p=await b.newPage();
   await p.setViewport({width:320,height:800});
-  await p.goto(`file:///home/tom/nativity-demo/${f}`,{waitUntil:'networkidle0'});
+  await p.goto(`${BASE}/${f}`,{waitUntil:'networkidle0'});
   const r=await p.evaluate(()=>{
     const d=document.documentElement;
     const over=[...document.querySelectorAll('*')]
@@ -23,7 +40,7 @@ for(const f of PAGES){
 // keyboard focus check on one representative page
 const p=await b.newPage();
 await p.setViewport({width:1440,height:900});
-await p.goto('file:///home/tom/nativity-demo/contact.html',{waitUntil:'networkidle0'});
+await p.goto(`${BASE}/contact.html`,{waitUntil:'networkidle0'});
 const focus=await p.evaluate(()=>{
   const out=[];
   const els=[...document.querySelectorAll('a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])')];

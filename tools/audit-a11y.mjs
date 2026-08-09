@@ -1,11 +1,28 @@
 import puppeteer from 'puppeteer-core';
+
+/* Resolve a browser: CI runners and local machines put it in different places. */
+import { existsSync } from 'node:fs';
+const CHROME = [
+  process.env.CHROME_PATH,
+  '/usr/bin/chromium', '/usr/bin/chromium-browser',
+  '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable',
+  '/opt/google/chrome/chrome',
+].find(p => p && existsSync(p));
+if (!CHROME) {
+  console.error('No Chrome/Chromium found. Set CHROME_PATH to a browser binary.');
+  process.exit(2);
+}
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const axeSource = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
 
-const SITE = process.argv[2] || 'file:///home/tom/nativity-demo';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
+const BASE = process.env.SITE_URL || `file://${REPO}`;
+const SITE = process.argv[2] || BASE;
 const PAGES = [
   'index.html', 'visit.html', 'faith.html', 'calendar.html', 'ministries.html',
   'about.html', 'give.html', 'contact.html', 'festival.html', 'hall.html',
@@ -17,7 +34,7 @@ const VIEWPORTS = [
 ];
 
 const browser = await puppeteer.launch({
-  executablePath: '/usr/bin/chromium',
+  executablePath: CHROME,
   headless: true,
   args: ['--no-sandbox', '--disable-gpu', '--allow-file-access-from-files'],
 });
@@ -80,3 +97,14 @@ for (const r of rows) {
   for (const s of r.sample) console.log(`              -> ${s.target}`.slice(0, 140));
 }
 if (!rows.length) console.log('  No violations and nothing flagged for review.');
+
+/* Only real violations fail the build. "NEEDS-REVIEW" is axe declining to judge
+   text over background images; those are verified by hand in ACCESSIBILITY.md. */
+const violations = rows.filter(r => r.impact !== 'NEEDS-REVIEW');
+const nodes = violations.reduce((n, r) => n + r.nodes, 0);
+if (violations.length) {
+  console.error(`\n  ✗ ${violations.length} accessibility rule(s) violated across ${nodes} node(s).`);
+  console.error('    See ACCESSIBILITY.md for how the existing ones were resolved.\n');
+  process.exit(1);
+}
+console.log(`\n  ✓ no WCAG 2.1 AA violations across ${PAGES.length * VIEWPORTS.length} page-runs.\n`);

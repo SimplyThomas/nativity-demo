@@ -5,10 +5,11 @@
   "description": "Draft website preview for Nativity of the Theotokos Greek Orthodox Church. The site itself has NO dependencies - these are audit tools only.",
   "scripts": {
     "dev": "node tools/dev.mjs",
-    "build": "node tools/render.mjs && node tools/extract-chunks.mjs",
-    "verify": "node tools/verify.mjs",
+    "chunks": "node tools/extract-chunks.mjs",
+    "lint": "node tools/lint.mjs",
     "audit:a11y": "node tools/audit-a11y.mjs",
-    "audit:reflow": "node tools/audit-reflow.mjs"
+    "audit:reflow": "node tools/audit-reflow.mjs",
+    "check": "npm run lint && npm run audit:a11y && npm run audit:reflow"
   },
   "devDependencies": {
     "axe-core": "^4.13.0",

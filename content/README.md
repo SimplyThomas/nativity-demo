@@ -1,4 +1,8 @@
-# content/ — parish-authored sections
+# content/ — parish-authored sections (REFERENCE)
+
+> **No longer spliced in at build time.** These sections are now part of
+> `visit.html` directly, like the rest of the page. This folder is kept as the
+> clean, un-marked-up record of the parish's own copy. See `CONTRIBUTING.md`.
 
 Everything else on this site is generated from `design-src/Nativity Website.dc.html`.
 This folder is the exception: it holds copy written **by the parish**, for pages

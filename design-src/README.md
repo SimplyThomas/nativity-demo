@@ -1,4 +1,13 @@
-# design-src/ — the imported Claude Design files
+# design-src/ — the imported Claude Design files (ARCHIVE)
+
+> **This folder is no longer an input to the site.** The Claude Design upstream
+> link was cut on 8 August 2026; the HTML and CSS in this repo are now the
+> source and are edited directly. See `CONTRIBUTING.md`.
+>
+> Everything below is kept because it documents how the original import was
+> done and what defects the design file contained — which is exactly what you
+> would need if the design were ever re-imported. See `tools/archive/README.md`
+> for how to do that without destroying the current site.
 
 **Never edit anything in this folder.** These files are the record of what Claude
 Design produced. The site is generated *from* them by `tools/render.mjs`. If you

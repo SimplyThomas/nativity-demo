@@ -17,34 +17,38 @@ compete with the real site in search, and not to be mistaken for it.
 
 | Path | What it is |
 |---|---|
-| `design-src/` | The imported Claude Design files, **unmodified**. The source of truth for how the site looks. Read `design-src/README.md` first. |
+| `design-src/` | Archive of the original Claude Design import. **No longer an input** — the upstream link was cut on 2026-08-08. |
 | `content/` | Parish-authored copy the design does not contain — currently the six middle sections of the Visit page. Survives a design re-import. |
-| `tools/render.mjs` | Turns the design (plus `content/`) into 12 static HTML pages + `components.css`. |
+| `tools/lint.mjs` | Enforces the rules that used to be guaranteed by the renderer. Run by CI. |
 | `tools/extract-chunks.mjs` | Turns those pages into paste-ready Evolution CMS chunks. |
 | `dist/chunks/` | **Generated.** 42 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
 | `data/parish-facts.json` | Every parish fact, its source URL, and whether it is verified, corrected, or withheld. |
 | `IMPORT.md` | Step-by-step import instructions for a volunteer with no command line. |
+| `CONTRIBUTING.md` | How to make changes, and the rules that must not break. |
 | `assets/css/components.css` | **Generated.** Ships to EVO. |
 | `assets/css/provisional.css` | Demo only. Contains a reset — never import it. |
 
-The twelve `.html` files at the repo root are **generated**. Edit the design, or
-`content/` for the parish-authored sections — never the output.
+The twelve `.html` files at the repo root are the **source** — edit them
+directly. The only generated artefact left is `dist/chunks/`.
 
 ## Building
 
-> **The twelve `.html` files at the repo root are generated, not source.** So is
-> `assets/css/components.css` and everything in `dist/chunks/`. Editing them
-> works until the next build erases it. **Read `CONTRIBUTING.md` first** — it
-> has a table of where each kind of change actually goes.
+There is no build. The HTML and CSS are the source — edit them and reload.
 
 ```sh
-npm run dev      # http://localhost:4000, rebuilds on save
-npm run build    # one-shot: design-src/ -> pages -> dist/chunks/
-npm run verify   # did anything hand-edited get overwritten?
+npm install    # once, for the audit tools only
+npm run dev    # http://localhost:4000
+npm run lint   # the hardline rules, before you commit
+npm run check  # lint + accessibility + reflow
 ```
 
-The site itself has no dependencies — `npm install` only fetches the audit
-tools. The built site works if you open `index.html` from disk.
+`npm run chunks` regenerates `dist/chunks/` (the Evolution CMS import files);
+`npm run dev` does it automatically on save. The site itself has no
+dependencies and works if you open `index.html` from disk.
+
+**Read `CONTRIBUTING.md` before editing** — it lists the rules that must not
+break and why, all of which CI enforces on every push.
+
 
 ## Design decisions worth knowing
 

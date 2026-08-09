@@ -1,0 +1,74 @@
+name: checks
+
+# No untrusted input is interpolated into any `run:` step in this workflow.
+# The only expression used anywhere is `github.ref`, in a `concurrency` key,
+# which is never evaluated by a shell.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# The site is static and these checks only read it; nothing needs write access.
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Hardline rules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # tools/lint.mjs has no dependencies, so it runs without an install.
+      # It checks: EVO reserved sequences, chunk delimiters, noindex + draft
+      # banner + robots.txt, heading structure, CSS scoping and prefixing,
+      # dead links and missing assets, and that dist/chunks matches the pages.
+      - name: Lint
+        run: npm run lint
+
+      # A stale dist/chunks means a volunteer would paste outdated markup into
+      # the parish CMS. lint regenerates it; fail if that produced a diff.
+      - name: dist/chunks is committed and current
+        run: git diff --exit-code -- dist/chunks
+
+  accessibility:
+    name: Accessibility (WCAG 2.1 AA)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # ubuntu-latest ships Google Chrome preinstalled; point puppeteer-core at
+      # it rather than downloading a second browser.
+      - name: Locate a browser
+        run: echo "CHROME_PATH=$(which google-chrome || which chromium-browser || which chromium)" >> "$GITHUB_ENV"
+
+      - name: axe-core — 12 pages x 2 viewports
+        run: npm run audit:a11y
+
+      - name: Reflow at 320px and focus indicators
+        run: npm run audit:reflow
+
+      - name: Upload axe report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: axe-results
+          path: axe-results.json
+          if-no-files-found: ignore
