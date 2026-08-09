@@ -10,15 +10,17 @@ match the filename exactly — that is how pages call it.
 |:--:|---|---:|---:|:--:|
 | ☐ | `ntgocAboutClergy` | 2462 b | 1 page | — |
 | ☐ | `ntgocAboutHero` | 190 b | 1 page | — |
-| ☐ | `ntgocAboutNewsletter` | 570 b | 1 page | — |
-| ☐ | `ntgocAboutParishCouncil` | 7769 b | 1 page | — |
+| ☐ | `ntgocAboutNewsletter` | 592 b | 1 page | — |
+| ☐ | `ntgocAboutParishCouncil` | 4991 b | 1 page | — |
 | ☐ | `ntgocBookstoreCatalog` | 14500 b | 1 page | — |
 | ☐ | `ntgocBookstoreHero` | 1191 b | 1 page | — |
 | ☐ | `ntgocBookstoreNotes` | 1084 b | 1 page | yes (1) |
 | ☐ | `ntgocCalendarGrid` | 9261 b | 1 page | — |
 | ☐ | `ntgocCalendarHero` | 533 b | 1 page | — |
+| ☐ | `ntgocCommitteesHero` | 482 b | 1 page | — |
+| ☐ | `ntgocCommitteesList` | 3549 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 2759 b | 1 page | — |
-| ☐ | `ntgocDraftBanner` | 488 b | 12 pages | — |
+| ☐ | `ntgocDraftBanner` | 488 b | 14 pages | — |
 | ☐ | `ntgocFaithHero` | 398 b | 1 page | — |
 | ☐ | `ntgocFaithIntro` | 886 b | 1 page | — |
 | ☐ | `ntgocFaithTopics` | 4308 b | 1 page | yes (2) |
@@ -37,10 +39,20 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeWelcome` | 1240 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 2964 b | 1 page | yes (1) |
 | ☐ | `ntgocMinistriesHero` | 440 b | 1 page | — |
-| ☐ | `ntgocMobileViews` | 3525 b | 1 page | — |
-| ☐ | `ntgocSiteFooter` | 3074 b | 12 pages | yes (11) |
-| ☐ | `ntgocSiteHeader` | 1225 b | 12 pages | yes (7) |
-| ☐ | `ntgocTopBar` | 705 b | 12 pages | yes (3) |
+| ☐ | `ntgocMobileViews` | 3734 b | 1 page | — |
+| ☐ | `ntgocParishLifeBookstore` | 1478 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeEvents` | 1053 b | 1 page | — |
+| ☐ | `ntgocParishLifeFellowship` | 847 b | 1 page | — |
+| ☐ | `ntgocParishLifeFormation` | 1784 b | 1 page | — |
+| ☐ | `ntgocParishLifeGallery` | 3110 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeHero` | 1029 b | 1 page | — |
+| ☐ | `ntgocParishLifeMinistries` | 4830 b | 1 page | yes (7) |
+| ☐ | `ntgocParishLifeService` | 652 b | 1 page | — |
+| ☐ | `ntgocParishLifeUpcoming` | 2847 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeWorship` | 1254 b | 1 page | — |
+| ☐ | `ntgocSiteFooter` | 3279 b | 14 pages | yes (10) |
+| ☐ | `ntgocSiteHeader` | 1879 b | 14 pages | yes (7) |
+| ☐ | `ntgocTopBar` | 705 b | 14 pages | yes (3) |
 | ☐ | `ntgocVisitorChildren` | 2325 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1537 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorFirstSunday` | 6141 b | 1 page | yes (3) |

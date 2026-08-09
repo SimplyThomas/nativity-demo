@@ -225,6 +225,30 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-nav-link:hover, .ntgoc-nav-link:focus-visible { color:#7d2b2b; }
 .ntgoc-btn-primary { background:#7d2b2b; color:#f6f1e8; padding:11px 22px; border-radius:2px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap; }
 .ntgoc-btn-primary:hover, .ntgoc-btn-primary:focus-visible { background:#5e1f1f; }
+
+/* --- the Parish Life dropdown ---------------------------------------
+   Authored here, not transcribed: the design carries "Parish Life" as a
+   flat nav item and has no submenu of its own.
+
+   It opens on :hover for pointers and on :focus-within for keyboards, so
+   it needs no JavaScript — which is the only version that survives the
+   move into Evolution CMS. The keyboard path works because the parent
+   link sits INSIDE .ntgoc-navgroup and before the panel: focusing it
+   matches :focus-within, which reveals the panel, which is what makes
+   the links inside it tabbable. Moving the parent link out of the group,
+   or the panel above it, silently strips the submenu from the tab order.
+
+   Below 640px the whole thing flattens into the wrapped nav — see the
+   responsive layer at the foot of this file.
+   ------------------------------------------------------------------ */
+.ntgoc-navgroup { position:relative; display:flex; align-items:center; }
+.ntgoc-navgroup__top { display:inline-flex; align-items:center; gap:7px; }
+.ntgoc-navgroup__caret { width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid currentColor; opacity:.55; }
+.ntgoc-navgroup__menu { position:absolute; top:100%; left:-16px; z-index:50; display:none; min-width:212px; padding:8px 0; background:#faf5ec; border:1px solid #ded2be; border-top:2px solid #7d2b2b; box-shadow:0 10px 26px rgba(58,20,20,.16); }
+.ntgoc-navgroup:hover .ntgoc-navgroup__menu,
+.ntgoc-navgroup:focus-within .ntgoc-navgroup__menu { display:block; }
+.ntgoc-navgroup__item { display:block; padding:10px 20px; color:#3a1414; white-space:nowrap; }
+.ntgoc-navgroup__item:hover, .ntgoc-navgroup__item:focus-visible { background:#ece3d5; color:#7d2b2b; }
 .ntgoc-s162d12 { position:relative; height:640px; background:#3a1414; overflow:hidden; }
 .ntgoc-s504123 { position:absolute; inset:0; background-image:url('../img/hero-anastasis-icon.jpg'); background-size:cover; background-position:center; opacity:.42; }
 .ntgoc-s75653a { position:absolute; inset:0; background:linear-gradient(100deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.72) 46%, rgba(58,20,20,.25) 100%); }
@@ -644,9 +668,103 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-s258599 { padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414; }
 .ntgoc-sbac2fb { padding:17px 20px; border-bottom:1px solid #e4dac8; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; }
 .ntgoc-sd9529b { padding:17px 20px; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; }
+
+/* Indented child row in the Mobile views drawer mock — the flattened
+   Parish Life group. Authored, not from the design. */
+.ntgoc-drawer-sub { padding:14px 20px 14px 38px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:19px; color:#5b5449; }
 .ntgoc-s2959e9 { padding:20px; background:#7d2b2b; color:#f6ece0; }
 .ntgoc-scb38e6 { font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:6px; }
 .ntgoc-s7d6eb0 { font-family:Newsreader, serif; font-size:20px; }
+
+/* --- Parish Life ----------------------------------------------------
+   Transcribed from the Parish Life page of the Claude Design file. That
+   page is built almost entirely from image slots, so nearly every frame
+   here is a .ntgoc-photoslot: a labelled placeholder naming the
+   photograph the parish still has to supply. They are meant to be seen —
+   an empty frame on a draft the Parish Council is reviewing is a request
+   for a photograph, which is the honest version of a stock image.
+   ------------------------------------------------------------------ */
+.ntgoc-photoslot { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; height:100%; padding:18px; text-align:center; background:#efe7d9; background-image:repeating-linear-gradient(135deg, transparent 0 11px, rgba(176,132,66,.10) 11px 22px); }
+.ntgoc-photoslot__label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; }
+.ntgoc-photoslot__hint { font-size:13px; line-height:1.6; color:#6c6458; max-width:34ch; }
+.ntgoc-photoslot--dark { background:#4a1c1c; background-image:repeating-linear-gradient(135deg, transparent 0 11px, rgba(224,182,115,.10) 11px 22px); }
+.ntgoc-photoslot--dark .ntgoc-photoslot__label { color:#e0b673; }
+.ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
+
+.ntgoc-pl-hero { position:relative; height:660px; background:#3a1414; overflow:hidden; }
+.ntgoc-pl-hero__photo { position:absolute; inset:0; }
+.ntgoc-pl-hero__scrim { position:absolute; inset:0; background:linear-gradient(75deg, rgba(58,20,20,.92) 0%, rgba(58,20,20,.62) 52%, rgba(58,20,20,.12) 100%); pointer-events:none; }
+.ntgoc-pl-hero__inner { position:relative; max-width:1240px; margin:0 auto; padding:0 40px 76px; height:100%; display:flex; flex-direction:column; justify-content:flex-end; }
+.ntgoc-pl-hero__body { max-width:660px; }
+.ntgoc-pl-eyebrow { font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:22px; }
+.ntgoc-pl-h1 { font-family:Newsreader, serif; font-weight:300; font-size:72px; line-height:1.05; color:#faf5ec; margin:0 0 26px; letter-spacing:-.015em; }
+.ntgoc-pl-lede { font-size:18.5px; line-height:1.7; color:#eaddc7; margin:0 0 18px; text-wrap:pretty; }
+.ntgoc-pl-lede--serif { font-family:Newsreader, serif; font-style:italic; font-weight:300; font-size:24px; line-height:1.5; color:#e0b673; margin:0; }
+
+.ntgoc-pl-section { max-width:1240px; margin:0 auto; padding:88px 40px; }
+.ntgoc-pl-band { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
+.ntgoc-pl-band--dark { background:#3a1414; color:#f0e6d6; }
+.ntgoc-pl-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; align-items:center; }
+.ntgoc-pl-split--left { grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); }
+.ntgoc-pl-split--right { grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); }
+.ntgoc-pl-split--top { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); align-items:start; }
+.ntgoc-pl-kicker { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:20px; }
+.ntgoc-pl-h2 { font-family:Newsreader, serif; font-weight:300; font-size:46px; line-height:1.12; margin:0 0 22px; color:#3a1414; }
+.ntgoc-pl-h2--light { color:#faf5ec; }
+.ntgoc-pl-body { font-size:17.5px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
+.ntgoc-pl-body--light { color:#dcccb4; }
+.ntgoc-pl-body + .ntgoc-pl-h2 { margin-top:34px; }
+.ntgoc-pl-ctarow { margin-top:30px; }
+.ntgoc-pl-note { margin-top:28px; padding-top:22px; border-top:1px solid #ded2be; font-size:15px; line-height:1.7; color:#5b5449; }
+.ntgoc-pl-frame { border:1px solid #ded2be; }
+.ntgoc-pl-frame--dark { border:1px solid rgba(224,182,115,.35); }
+.ntgoc-pl-frame--sand { border:1px solid #ccbda4; }
+.ntgoc-pl-h520 { height:520px; }
+.ntgoc-pl-h460 { height:460px; }
+.ntgoc-pl-h440 { height:440px; }
+.ntgoc-pl-h420 { height:420px; }
+.ntgoc-pl-h230 { height:230px; }
+.ntgoc-pl-pair { display:flex; gap:14px; margin-top:26px; }
+.ntgoc-pl-pair > * { flex:1; min-width:0; height:150px; }
+.ntgoc-pl-mosaic { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-auto-rows:210px; gap:14px; }
+.ntgoc-pl-mosaic > * { min-width:0; }
+.ntgoc-pl-mosaic--books { grid-auto-rows:200px; }
+.ntgoc-pl-mosaic__wide { grid-column:span 2; }
+
+.ntgoc-pl-galleryhead { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:34px; }
+.ntgoc-pl-gallery { display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); grid-auto-rows:190px; grid-auto-flow:dense; gap:14px; }
+.ntgoc-pl-gallery > * { min-width:0; border:1px solid #ccbda4; }
+.ntgoc-pl-gallery__w2 { grid-column:span 2; }
+.ntgoc-pl-gallery__w3 { grid-column:span 3; }
+.ntgoc-pl-gallery__h2 { grid-row:span 2; }
+.ntgoc-pl-permission { display:grid; grid-template-columns:150px minmax(0,1fr); gap:24px; margin-top:34px; padding-top:22px; border-top:1px solid #ccbda4; align-items:start; }
+.ntgoc-pl-label { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; }
+.ntgoc-pl-intro { max-width:640px; margin-bottom:44px; }
+.ntgoc-pl-permission__text { font-size:14.5px; line-height:1.7; color:#5b5449; margin:0; max-width:80ch; }
+
+.ntgoc-pl-cards { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:22px; }
+.ntgoc-pl-card { border:1px solid #ded2be; background:#fbf8f2; display:flex; flex-direction:column; }
+.ntgoc-pl-card__photo { height:200px; min-width:0; border-bottom:1px solid #ded2be; }
+.ntgoc-pl-card__body { padding:26px 26px 28px; display:flex; flex-direction:column; gap:12px; flex:1; }
+.ntgoc-pl-card__title { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0; color:#3a1414; }
+.ntgoc-pl-card__text { font-size:15px; line-height:1.65; color:#5b5449; margin:0; flex:1; }
+.ntgoc-pl-card__link { align-self:flex-start; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
+.ntgoc-pl-card__link:hover, .ntgoc-pl-card__link:focus-visible { border-color:#7d2b2b; }
+.ntgoc-pl-card--note { border:1px dashed #ccbda4; background:transparent; justify-content:center; gap:12px; padding:34px 28px; min-height:260px; }
+
+.ntgoc-pl-cta { display:inline-block; border:1px solid rgba(240,230,214,.45); color:#f0e6d6; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.ntgoc-pl-cta:hover, .ntgoc-pl-cta:focus-visible { border-color:#e0b673; color:#e0b673; }
+.ntgoc-pl-cta--solid { display:inline-block; background:#7d2b2b; color:#f6f1e8; border:0; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.ntgoc-pl-cta--solid:hover, .ntgoc-pl-cta--solid:focus-visible { background:#5e1f1f; color:#f6f1e8; }
+.ntgoc-pl-cta--quiet { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#e0b673; border-bottom:1px solid rgba(224,182,115,.5); padding-bottom:4px; }
+.ntgoc-pl-cta--quiet:hover, .ntgoc-pl-cta--quiet:focus-visible { color:#f0cd91; }
+
+.ntgoc-pl-agenda { border-top:1px solid rgba(224,182,115,.28); }
+.ntgoc-pl-agenda__row { display:grid; grid-template-columns:150px minmax(0,1fr) auto; gap:24px; align-items:baseline; padding:22px 0; border-bottom:1px solid rgba(224,182,115,.28); }
+.ntgoc-pl-agenda__when { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#e0b673; }
+.ntgoc-pl-agenda__name { font-family:Newsreader, serif; font-size:21px; color:#faf5ec; }
+.ntgoc-pl-agenda__note { font-size:14px; color:#c3b299; margin-top:4px; }
+.ntgoc-pl-agenda__time { font-size:14.5px; color:#dcccb4; }
 
 /* --- responsive layer ----------------------------------------------
    The design is fixed-desktop and carries no media queries of its own,
@@ -693,6 +811,24 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
     gap: 12px;
     padding-top: 14px;
   }
+
+  /* A hover-opened panel is no use on a touch screen, so the Parish Life
+     group dissolves into the wrapped nav and its children sit inline
+     alongside the other links. display:contents does that without moving
+     any markup. The three selectors below repeat the base rule's :hover
+     and :focus-within so they match its specificity — source order then
+     decides, and this block is later. */
+  .ntgoc-navgroup { display: contents; }
+  .ntgoc-navgroup__caret { display: none; }
+  .ntgoc-navgroup__menu,
+  .ntgoc-navgroup:hover .ntgoc-navgroup__menu,
+  .ntgoc-navgroup:focus-within .ntgoc-navgroup__menu {
+    position: static;
+    display: contents;
+  }
+  /* "Parish Life" is already in the nav as the group's own link. */
+  .ntgoc-navgroup__item--overview { display: none; }
+  .ntgoc-navgroup__item { padding: 0 0 3px; border-bottom: 2px solid transparent; }
 }
 
 /* The two authored grids on the Visit page. These come last so they win over
@@ -728,6 +864,38 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* The jump list drops to one column when two would wrap mid-question. */
 @media (max-width: 640px) {
   .ntgoc-jumplist { grid-template-columns: 1fr !important; }
+}
+
+/* Parish Life. The two-column splits carry .ntgoc-grid and stack on the
+   blanket rule above; what is left is the photo mosaics, which want to
+   thin out by degrees rather than drop straight to one column, and the
+   fixed frame heights, which are far too tall once stacked. */
+@media (max-width: 900px) {
+  .ntgoc-pl-section { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .ntgoc-pl-hero__inner { padding-bottom: 52px !important; }
+  .ntgoc-pl-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; grid-auto-rows: 170px; }
+  .ntgoc-pl-gallery__w3 { grid-column: span 2; }
+  .ntgoc-pl-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ntgoc-pl-h520, .ntgoc-pl-h460, .ntgoc-pl-h440, .ntgoc-pl-h420 { height: 320px; }
+  .ntgoc-pl-mosaic { grid-auto-rows: 170px; }
+}
+@media (max-width: 640px) {
+  .ntgoc-photoslot { padding: 12px; gap: 6px; }
+  .ntgoc-pl-h1 { margin-bottom: 18px; }
+  .ntgoc-pl-lede { font-size: 16.5px; }
+  .ntgoc-pl-lede--serif { font-size: 20px; }
+  .ntgoc-pl-h2 { font-size: clamp(28px, 8vw, 38px); }
+  .ntgoc-pl-body { font-size: 16.5px; }
+  .ntgoc-pl-split { gap: 34px !important; }
+  .ntgoc-pl-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; grid-auto-rows: 150px; }
+  .ntgoc-pl-gallery__w2, .ntgoc-pl-gallery__w3 { grid-column: span 2; }
+  .ntgoc-pl-gallery__h2 { grid-row: span 1; }
+  .ntgoc-pl-cards { grid-template-columns: 1fr; }
+  .ntgoc-pl-mosaic { grid-template-columns: 1fr; grid-auto-rows: 190px; }
+  .ntgoc-pl-mosaic__wide { grid-column: span 1; }
+  .ntgoc-pl-permission { grid-template-columns: 1fr; gap: 12px; }
+  .ntgoc-pl-agenda__row { grid-template-columns: 1fr; gap: 6px; }
+  .ntgoc-pl-h520, .ntgoc-pl-h460, .ntgoc-pl-h440, .ntgoc-pl-h420 { height: 240px; }
 }
 
 /* --- accessibility floor ------------------------------------------ */

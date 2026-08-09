@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 45 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 57 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -111,7 +111,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 45 files.
+   are corrected together. Do **not** hand-edit paths in 57 files.
 
 The twelve images to upload:
 
@@ -220,7 +220,9 @@ Then the page content, grouped by page:
 | **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorOnThisPage`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
+| **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeMinistries`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
+| **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil`, `ntgocAboutNewsletter` |
 | **Giving** | `ntgocGiveWays`, `ntgocGiveProjects` |
 | **Contact** | `ntgocContactCard` |
@@ -230,8 +232,9 @@ Then the page content, grouped by page:
 
 > **Nothing links to the Greek Festival page any more.** On 8 August 2026 the
 > parish asked that every "Greek Festival" link go to the festival's own site,
-> <https://www.fredgreek.org/> — so all 25 of them do: the top bar and the
-> footer on every page, and the "Festival details" button on the home page.
+> <https://www.fredgreek.org/> — so all 29 of them do: the top bar and the
+> footer on every page, the "Festival details" button on the home page, and the
+> "The Greek Festival →" button on the Parish Life page.
 > `festival.html` still exists and its two chunks are still extracted, but a
 > visitor has no way to reach it.
 >
@@ -240,6 +243,44 @@ Then the page content, grouped by page:
 > that its dates and the "two-hour volunteer shifts" line were never verified
 > (see below), so the festival's own site is the more reliable destination
 > regardless.
+
+> **`ntgocAboutParishCouncil` has shrunk.** The six committees used to sit at
+> the foot of that chunk; they are now their own page, `ntgocCommitteesHero` +
+> `ntgocCommitteesList`, because the Parish Life menu links to them directly.
+> What is left on About is the Council roster and a two-line pointer. **If you
+> already created the old chunk in EVO, replace its body** — otherwise the
+> committees appear twice, once on each page, and only one copy gets updated
+> when the roster finally arrives.
+>
+> **`ntgocAboutNewsletter` is now a link target.** The Parish Life menu and the
+> footer both point at `about.html#ntgoc-newsletter`, so the `id` on that
+> section has to survive the import. In EVO the fragment becomes the About
+> page's own id — check both links after the internal-link step.
+>
+> **The Light's year links go nowhere.** All six (`2026` … `Archive`) are
+> `href="#"` placeholders; the newsletter has no archive on the live site to
+> point at. That mattered less when the section was buried at the foot of the
+> About page. It is now in the main navigation, so a visitor who follows it
+> finds six buttons that do nothing. **Either supply the archive URLs before
+> importing, or drop the year row and leave the heading.**
+
+> **The Parish Life page is mostly empty photo frames, on purpose.** The design
+> builds that page out of twenty-six photographs the parish has not supplied, so
+> every one of them is a labelled placeholder saying what belongs there — "the
+> Agape Meal in the parish hall", "a Bible study or catechism class". That is
+> the point: the page is a request for photographs, and it should be shown to
+> the Parish Council in that state rather than filled with stock images.
+>
+> **Do not import it as it stands.** Either wait until there are photographs, or
+> import it and accept that visitors see the frames. `ntgocParishLifeGallery`
+> also carries the parish's photograph-permission note, which has to be true
+> before any photograph goes up: permission from those pictured, separate
+> permission for any photograph that prominently features a child, and a working
+> way to ask for one to be taken down.
+>
+> `ntgocParishLifeUpcoming` **goes stale.** Its five entries are copied from the
+> August 2026 grid on the Calendar page. Either keep the two in step or drop the
+> chunk and leave the "View full parish calendar" link that sits above it.
 
 `ntgocMobileViews` is **not a real page.** It is a design reference showing what
 the site looks like on a phone. Do not import it.
@@ -491,11 +532,11 @@ so the next person knows those files are **generated from the pages** and must
 never be edited directly.
 
 ```sh
-npm run chunks   # the 12 HTML pages -> dist/chunks/
+npm run chunks   # the 14 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The twelve `.html` files at the repo root are the source and are edited by hand.
+The fourteen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 twelve pages from the old design file. See `CONTRIBUTING.md`.

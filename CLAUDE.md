@@ -14,7 +14,7 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The twelve `.html` files at the repo root are SOURCE. Edit them directly.**
+**The fourteen `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
@@ -36,7 +36,7 @@ The only generated artefact is `dist/chunks/` (`npm run chunks`).
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 12 pages
+npm run shell    # propagate header/footer to all 14 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
@@ -103,7 +103,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 12 pages × 2 viewports, reflow 12/12 at 320px.
+0 axe violations across 14 pages × 2 viewports, reflow 14/14 at 320px.
 
 ---
 
