@@ -134,7 +134,7 @@
       "value": "fredgreek.org",
       "status": "VERIFIED",
       "source": "/ (footer link to http://www.fredgreek.org/)",
-      "note": "Design's festival dates and 'two-hour shifts' claim are NOT on the live site \u2014 tagged TODO: verify."
+      "note": "Design's festival dates and 'two-hour shifts' claim are NOT on the live site \u2014 tagged TODO: verify. On 2026-08-08 the parish asked that every \"Greek Festival\" link go to https://www.fredgreek.org/ rather than to this draft's own festival page, so all 25 of them (top bar and footer on every page, plus the home promo) now point there. festival.html still exists but nothing links to it \u2014 a decision for the parish."
     },
     "externalLinks": {
       "giveOnline": "https://square.link/u/u8cIpGbh",

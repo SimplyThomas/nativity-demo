@@ -7252,7 +7252,7 @@
    "x": 0,
    "y": 0,
    "w": 1440,
-   "h": 2438,
+   "h": 2740,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7522,7 +7522,7 @@
    "x": 0,
    "y": 182,
    "w": 1440,
-   "h": 1820,
+   "h": 2122,
    "c": "rgb(34, 32, 29)",
    "bg": "rgba(0, 0, 0, 0)",
    "fs": "16px",
@@ -7652,7 +7652,7 @@
    "x": 100,
    "y": 908,
    "w": 1240,
-   "h": 594,
+   "h": 898,
    "c": "rgb(34, 32, 29)",
    "bg": "rgba(0, 0, 0, 0)",
    "fs": "16px",
@@ -7662,17 +7662,17 @@
    "x": 140,
    "y": 928,
    "w": 1160,
-   "h": 478,
+   "h": 782,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(222, 210, 190)",
    "fs": "16px",
    "d": "grid"
   },
-  "ntgocFaithTopics/div.ntgoc-card#0": {
+  "ntgocFaithTopics/a.ntgoc-inherit#0": {
    "x": 142,
    "y": 930,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7698,11 +7698,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#1": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#0": {
+   "x": 172,
+   "y": 1070,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#1": {
    "x": 528,
    "y": 930,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7728,11 +7738,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#2": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#1": {
+   "x": 558,
+   "y": 1070,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#2": {
    "x": 914,
    "y": 930,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7758,11 +7778,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#3": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#2": {
+   "x": 944,
+   "y": 1070,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#3": {
    "x": 142,
-   "y": 1088,
+   "y": 1124,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7770,7 +7800,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#3": {
    "x": 172,
-   "y": 1124,
+   "y": 1160,
    "w": 326,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -7780,7 +7810,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#3": {
    "x": 172,
-   "y": 1160,
+   "y": 1196,
    "w": 326,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -7788,11 +7818,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#4": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#3": {
+   "x": 172,
+   "y": 1264,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#4": {
    "x": 528,
-   "y": 1088,
+   "y": 1124,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7800,7 +7840,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#4": {
    "x": 558,
-   "y": 1124,
+   "y": 1160,
    "w": 326,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -7810,7 +7850,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#4": {
    "x": 558,
-   "y": 1160,
+   "y": 1196,
    "w": 326,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -7818,11 +7858,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#5": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#4": {
+   "x": 558,
+   "y": 1264,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#5": {
    "x": 914,
-   "y": 1088,
+   "y": 1124,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7830,7 +7880,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#5": {
    "x": 944,
-   "y": 1124,
+   "y": 1160,
    "w": 326,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -7840,7 +7890,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#5": {
    "x": 944,
-   "y": 1160,
+   "y": 1196,
    "w": 326,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -7848,11 +7898,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#6": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#5": {
+   "x": 944,
+   "y": 1264,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#6": {
    "x": 142,
-   "y": 1248,
+   "y": 1320,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7860,7 +7920,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#6": {
    "x": 172,
-   "y": 1284,
+   "y": 1356,
    "w": 326,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -7870,7 +7930,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#6": {
    "x": 172,
-   "y": 1318,
+   "y": 1390,
    "w": 326,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -7878,11 +7938,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#7": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#6": {
+   "x": 172,
+   "y": 1460,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#7": {
    "x": 528,
-   "y": 1248,
+   "y": 1320,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7890,7 +7960,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#7": {
    "x": 558,
-   "y": 1284,
+   "y": 1356,
    "w": 326,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -7900,7 +7970,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#7": {
    "x": 558,
-   "y": 1318,
+   "y": 1390,
    "w": 326,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -7908,11 +7978,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#8": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#7": {
+   "x": 558,
+   "y": 1460,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#8": {
    "x": 914,
-   "y": 1248,
+   "y": 1320,
    "w": 386,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -7920,7 +8000,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#8": {
    "x": 944,
-   "y": 1284,
+   "y": 1356,
    "w": 326,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -7930,7 +8010,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#8": {
    "x": 944,
-   "y": 1318,
+   "y": 1390,
    "w": 326,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -7938,9 +8018,79 @@
    "fs": "15px",
    "d": "block"
   },
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#8": {
+   "x": 944,
+   "y": 1460,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/div.ntgoc-card#0": {
+   "x": 142,
+   "y": 1514,
+   "w": 1158,
+   "h": 194,
+   "c": "rgb(34, 32, 29)",
+   "bg": "rgb(246, 241, 232)",
+   "fs": "16px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/h2.ntgoc-h3#9": {
+   "x": 172,
+   "y": 1550,
+   "w": 1098,
+   "h": 24,
+   "c": "rgb(58, 20, 20)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "23px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/p.ntgoc-body#9": {
+   "x": 172,
+   "y": 1586,
+   "w": 1098,
+   "h": 52,
+   "c": "rgb(91, 84, 73)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "15px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/div.ntgoc-faith-invite__links#0": {
+   "x": 172,
+   "y": 1654,
+   "w": 1098,
+   "h": 18,
+   "c": "rgb(34, 32, 29)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "16px",
+   "d": "flex"
+  },
+  "ntgocFaithTopics/a.ntgoc-faith-card__more#0": {
+   "x": 172,
+   "y": 1654,
+   "w": 250,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/a.ntgoc-faith-card__more#1": {
+   "x": 454,
+   "y": 1654,
+   "w": 160,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "block"
+  },
   "ntgocFaithWatchRead/section.ntgoc-seec63e#0": {
    "x": 0,
-   "y": 1502,
+   "y": 1806,
    "w": 1440,
    "h": 500,
    "c": "rgb(34, 32, 29)",
@@ -7950,7 +8100,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sd1b357#0": {
    "x": 100,
-   "y": 1504,
+   "y": 1806,
    "w": 1240,
    "h": 498,
    "c": "rgb(34, 32, 29)",
@@ -7960,7 +8110,7 @@
   },
   "ntgocFaithWatchRead/h2.ntgoc-s458878#0": {
    "x": 140,
-   "y": 1580,
+   "y": 1882,
    "w": 1160,
    "h": 34,
    "c": "rgb(58, 20, 20)",
@@ -7970,7 +8120,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s553fd6#0": {
    "x": 140,
-   "y": 1648,
+   "y": 1950,
    "w": 1160,
    "h": 278,
    "c": "rgb(34, 32, 29)",
@@ -7980,7 +8130,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#0": {
    "x": 140,
-   "y": 1648,
+   "y": 1950,
    "w": 270,
    "h": 278,
    "c": "rgb(125, 43, 43)",
@@ -7990,7 +8140,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s5c615e#0": {
    "x": 142,
-   "y": 1648,
+   "y": 1952,
    "w": 268,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -8000,7 +8150,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-se5ecaa#0": {
    "x": 166,
-   "y": 1698,
+   "y": 2002,
    "w": 220,
    "h": 12,
    "c": "rgb(224, 182, 115)",
@@ -8010,7 +8160,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s29c3f0#0": {
    "x": 166,
-   "y": 1720,
+   "y": 2024,
    "w": 220,
    "h": 28,
    "c": "rgb(250, 245, 236)",
@@ -8020,7 +8170,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#0": {
    "x": 142,
-   "y": 1798,
+   "y": 2102,
    "w": 268,
    "h": 126,
    "c": "rgb(125, 43, 43)",
@@ -8030,7 +8180,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#0": {
    "x": 166,
-   "y": 1822,
+   "y": 2126,
    "w": 220,
    "h": 40,
    "c": "rgb(58, 20, 20)",
@@ -8040,7 +8190,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#0": {
    "x": 166,
-   "y": 1870,
+   "y": 2174,
    "w": 220,
    "h": 30,
    "c": "rgb(108, 100, 88)",
@@ -8050,7 +8200,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#1": {
    "x": 436,
-   "y": 1648,
+   "y": 1950,
    "w": 270,
    "h": 278,
    "c": "rgb(125, 43, 43)",
@@ -8060,7 +8210,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s06b7b1#0": {
    "x": 438,
-   "y": 1648,
+   "y": 1952,
    "w": 268,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -8070,7 +8220,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#1": {
    "x": 438,
-   "y": 1798,
+   "y": 2102,
    "w": 268,
    "h": 112,
    "c": "rgb(125, 43, 43)",
@@ -8080,7 +8230,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#1": {
    "x": 462,
-   "y": 1822,
+   "y": 2126,
    "w": 220,
    "h": 40,
    "c": "rgb(58, 20, 20)",
@@ -8090,7 +8240,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#1": {
    "x": 462,
-   "y": 1870,
+   "y": 2174,
    "w": 220,
    "h": 16,
    "c": "rgb(108, 100, 88)",
@@ -8100,7 +8250,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#2": {
    "x": 734,
-   "y": 1648,
+   "y": 1950,
    "w": 270,
    "h": 278,
    "c": "rgb(125, 43, 43)",
@@ -8110,7 +8260,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s384787#0": {
    "x": 734,
-   "y": 1648,
+   "y": 1952,
    "w": 268,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -8120,7 +8270,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#2": {
    "x": 734,
-   "y": 1798,
+   "y": 2102,
    "w": 268,
    "h": 112,
    "c": "rgb(125, 43, 43)",
@@ -8130,7 +8280,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#2": {
    "x": 758,
-   "y": 1822,
+   "y": 2126,
    "w": 220,
    "h": 40,
    "c": "rgb(58, 20, 20)",
@@ -8140,7 +8290,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#2": {
    "x": 758,
-   "y": 1870,
+   "y": 2174,
    "w": 220,
    "h": 16,
    "c": "rgb(108, 100, 88)",
@@ -8150,7 +8300,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#3": {
    "x": 1030,
-   "y": 1648,
+   "y": 1950,
    "w": 270,
    "h": 278,
    "c": "rgb(125, 43, 43)",
@@ -8160,7 +8310,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s87b1ad#0": {
    "x": 1030,
-   "y": 1648,
+   "y": 1952,
    "w": 268,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -8170,7 +8320,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#3": {
    "x": 1030,
-   "y": 1798,
+   "y": 2102,
    "w": 268,
    "h": 92,
    "c": "rgb(125, 43, 43)",
@@ -8180,7 +8330,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#3": {
    "x": 1054,
-   "y": 1822,
+   "y": 2126,
    "w": 220,
    "h": 20,
    "c": "rgb(58, 20, 20)",
@@ -8190,7 +8340,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#3": {
    "x": 1054,
-   "y": 1850,
+   "y": 2154,
    "w": 220,
    "h": 16,
    "c": "rgb(108, 100, 88)",
@@ -8200,7 +8350,7 @@
   },
   "ntgocSiteFooter/footer.ntgoc-s725a1c#0": {
    "x": 0,
-   "y": 2002,
+   "y": 2304,
    "w": 1440,
    "h": 436,
    "c": "rgb(224, 211, 189)",
@@ -8210,7 +8360,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s579e00#0": {
    "x": 100,
-   "y": 2002,
+   "y": 2304,
    "w": 1240,
    "h": 436,
    "c": "rgb(224, 211, 189)",
@@ -8220,7 +8370,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-sc3b3b0#0": {
    "x": 140,
-   "y": 2072,
+   "y": 2374,
    "w": 1160,
    "h": 184,
    "c": "rgb(224, 211, 189)",
@@ -8230,7 +8380,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-sae32d4#0": {
    "x": 140,
-   "y": 2072,
+   "y": 2374,
    "w": 316,
    "h": 58,
    "c": "rgb(250, 245, 236)",
@@ -8240,7 +8390,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s004ac8#0": {
    "x": 140,
-   "y": 2142,
+   "y": 2446,
    "w": 316,
    "h": 76,
    "c": "rgb(224, 211, 189)",
@@ -8250,7 +8400,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-saa2162#0": {
    "x": 140,
-   "y": 2240,
+   "y": 2542,
    "w": 316,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8260,7 +8410,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-footer-social#0": {
    "x": 140,
-   "y": 2240,
+   "y": 2542,
    "w": 60,
    "h": 18,
    "c": "rgb(224, 182, 115)",
@@ -8270,7 +8420,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-footer-social#1": {
    "x": 218,
-   "y": 2240,
+   "y": 2542,
    "w": 52,
    "h": 18,
    "c": "rgb(224, 182, 115)",
@@ -8280,7 +8430,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-footer-heading#0": {
    "x": 512,
-   "y": 2072,
+   "y": 2374,
    "w": 226,
    "h": 14,
    "c": "rgb(224, 211, 189)",
@@ -8290,7 +8440,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s228833#0": {
    "x": 512,
-   "y": 2100,
+   "y": 2404,
    "w": 226,
    "h": 98,
    "c": "rgb(224, 211, 189)",
@@ -8300,7 +8450,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#0": {
    "x": 512,
-   "y": 2100,
+   "y": 2404,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8310,7 +8460,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#1": {
    "x": 512,
-   "y": 2128,
+   "y": 2430,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8320,7 +8470,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#2": {
    "x": 512,
-   "y": 2154,
+   "y": 2458,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8330,7 +8480,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#3": {
    "x": 512,
-   "y": 2182,
+   "y": 2484,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8340,7 +8490,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-footer-heading#1": {
    "x": 794,
-   "y": 2072,
+   "y": 2374,
    "w": 226,
    "h": 14,
    "c": "rgb(224, 211, 189)",
@@ -8350,7 +8500,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s228833#1": {
    "x": 794,
-   "y": 2100,
+   "y": 2404,
    "w": 226,
    "h": 126,
    "c": "rgb(224, 211, 189)",
@@ -8360,7 +8510,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#4": {
    "x": 794,
-   "y": 2100,
+   "y": 2404,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8370,7 +8520,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#5": {
    "x": 794,
-   "y": 2128,
+   "y": 2430,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8380,7 +8530,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#6": {
    "x": 794,
-   "y": 2154,
+   "y": 2458,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8390,7 +8540,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#7": {
    "x": 794,
-   "y": 2182,
+   "y": 2484,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8400,7 +8550,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#8": {
    "x": 794,
-   "y": 2208,
+   "y": 2512,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8410,7 +8560,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-footer-heading#2": {
    "x": 1074,
-   "y": 2072,
+   "y": 2374,
    "w": 226,
    "h": 14,
    "c": "rgb(224, 211, 189)",
@@ -8420,7 +8570,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s228833#2": {
    "x": 1074,
-   "y": 2100,
+   "y": 2404,
    "w": 226,
    "h": 72,
    "c": "rgb(224, 211, 189)",
@@ -8430,7 +8580,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#9": {
    "x": 1074,
-   "y": 2100,
+   "y": 2404,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8440,7 +8590,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#10": {
    "x": 1074,
-   "y": 2128,
+   "y": 2430,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8450,7 +8600,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#11": {
    "x": 1074,
-   "y": 2154,
+   "y": 2458,
    "w": 226,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -8460,7 +8610,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-sce3b1e#0": {
    "x": 140,
-   "y": 2300,
+   "y": 2604,
    "w": 1160,
    "h": 2,
    "c": "rgb(224, 211, 189)",
@@ -8470,7 +8620,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-colophon#0": {
    "x": 140,
-   "y": 2324,
+   "y": 2626,
    "w": 1160,
    "h": 80,
    "c": "rgb(224, 211, 189)",
@@ -8480,7 +8630,7 @@
   },
   "ntgocSiteFooter/img.ntgoc-colophon__seal#0": {
    "x": 140,
-   "y": 2324,
+   "y": 2626,
    "w": 80,
    "h": 80,
    "c": "rgb(224, 211, 189)",
@@ -8490,7 +8640,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s57e4c2#0": {
    "x": 242,
-   "y": 2356,
+   "y": 2660,
    "w": 1058,
    "h": 14,
    "c": "rgb(224, 211, 189)",
@@ -25206,7 +25356,7 @@
    "x": 0,
    "y": 0,
    "w": 390,
-   "h": 5526,
+   "h": 6202,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25476,7 +25626,7 @@
    "x": 0,
    "y": 420,
    "w": 390,
-   "h": 4106,
+   "h": 4782,
    "c": "rgb(34, 32, 29)",
    "bg": "rgba(0, 0, 0, 0)",
    "fs": "16px",
@@ -25606,7 +25756,7 @@
    "x": 0,
    "y": 1668,
    "w": 390,
-   "h": 1548,
+   "h": 2224,
    "c": "rgb(34, 32, 29)",
    "bg": "rgba(0, 0, 0, 0)",
    "fs": "16px",
@@ -25616,17 +25766,17 @@
    "x": 16,
    "y": 1688,
    "w": 358,
-   "h": 1432,
+   "h": 2108,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(222, 210, 190)",
    "fs": "16px",
    "d": "grid"
   },
-  "ntgocFaithTopics/div.ntgoc-card#0": {
+  "ntgocFaithTopics/a.ntgoc-inherit#0": {
    "x": 18,
    "y": 1690,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25652,11 +25802,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#1": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#0": {
+   "x": 48,
+   "y": 1830,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#1": {
    "x": 18,
-   "y": 1848,
+   "y": 1884,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25664,7 +25824,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#1": {
    "x": 48,
-   "y": 1884,
+   "y": 1920,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25674,7 +25834,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#1": {
    "x": 48,
-   "y": 1920,
+   "y": 1956,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25682,11 +25842,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#2": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#1": {
+   "x": 48,
+   "y": 2024,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#2": {
    "x": 18,
-   "y": 2008,
+   "y": 2080,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25694,7 +25864,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#2": {
    "x": 48,
-   "y": 2044,
+   "y": 2116,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25704,7 +25874,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#2": {
    "x": 48,
-   "y": 2078,
+   "y": 2150,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25712,11 +25882,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#3": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#2": {
+   "x": 48,
+   "y": 2220,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#3": {
    "x": 18,
-   "y": 2166,
+   "y": 2274,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25724,7 +25904,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#3": {
    "x": 48,
-   "y": 2202,
+   "y": 2310,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25734,7 +25914,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#3": {
    "x": 48,
-   "y": 2238,
+   "y": 2346,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25742,11 +25922,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#4": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#3": {
+   "x": 48,
+   "y": 2414,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#4": {
    "x": 18,
-   "y": 2326,
+   "y": 2470,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25754,7 +25944,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#4": {
    "x": 48,
-   "y": 2362,
+   "y": 2506,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25764,7 +25954,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#4": {
    "x": 48,
-   "y": 2396,
+   "y": 2540,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25772,11 +25962,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#5": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#4": {
+   "x": 48,
+   "y": 2610,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#5": {
    "x": 18,
-   "y": 2484,
+   "y": 2664,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25784,7 +25984,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#5": {
    "x": 48,
-   "y": 2520,
+   "y": 2700,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25794,7 +25994,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#5": {
    "x": 48,
-   "y": 2556,
+   "y": 2736,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25802,11 +26002,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#6": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#5": {
+   "x": 48,
+   "y": 2804,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#6": {
    "x": 18,
-   "y": 2644,
+   "y": 2860,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25814,7 +26024,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#6": {
    "x": 48,
-   "y": 2680,
+   "y": 2896,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25824,7 +26034,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#6": {
    "x": 48,
-   "y": 2714,
+   "y": 2930,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25832,11 +26042,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#7": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#6": {
+   "x": 48,
+   "y": 3000,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#7": {
    "x": 18,
-   "y": 2802,
+   "y": 3054,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25844,7 +26064,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#7": {
    "x": 48,
-   "y": 2838,
+   "y": 3090,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25854,7 +26074,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#7": {
    "x": 48,
-   "y": 2874,
+   "y": 3126,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25862,11 +26082,21 @@
    "fs": "15px",
    "d": "block"
   },
-  "ntgocFaithTopics/div.ntgoc-card#8": {
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#7": {
+   "x": 48,
+   "y": 3194,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/a.ntgoc-inherit#8": {
    "x": 18,
-   "y": 2962,
+   "y": 3250,
    "w": 356,
-   "h": 158,
+   "h": 194,
    "c": "rgb(34, 32, 29)",
    "bg": "rgb(246, 241, 232)",
    "fs": "16px",
@@ -25874,7 +26104,7 @@
   },
   "ntgocFaithTopics/h2.ntgoc-h3#8": {
    "x": 48,
-   "y": 2998,
+   "y": 3286,
    "w": 296,
    "h": 24,
    "c": "rgb(58, 20, 20)",
@@ -25884,7 +26114,7 @@
   },
   "ntgocFaithTopics/p.ntgoc-body#8": {
    "x": 48,
-   "y": 3032,
+   "y": 3320,
    "w": 296,
    "h": 52,
    "c": "rgb(91, 84, 73)",
@@ -25892,9 +26122,79 @@
    "fs": "15px",
    "d": "block"
   },
+  "ntgocFaithTopics/span.ntgoc-faith-card__more#8": {
+   "x": 48,
+   "y": 3390,
+   "w": 100,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "inline-block"
+  },
+  "ntgocFaithTopics/div.ntgoc-card#0": {
+   "x": 18,
+   "y": 3444,
+   "w": 356,
+   "h": 352,
+   "c": "rgb(34, 32, 29)",
+   "bg": "rgb(246, 241, 232)",
+   "fs": "16px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/h2.ntgoc-h3#9": {
+   "x": 48,
+   "y": 3480,
+   "w": 296,
+   "h": 46,
+   "c": "rgb(58, 20, 20)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "23px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/p.ntgoc-body#9": {
+   "x": 48,
+   "y": 3538,
+   "w": 296,
+   "h": 154,
+   "c": "rgb(91, 84, 73)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "15px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/div.ntgoc-faith-invite__links#0": {
+   "x": 48,
+   "y": 3710,
+   "w": 296,
+   "h": 50,
+   "c": "rgb(34, 32, 29)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "16px",
+   "d": "flex"
+  },
+  "ntgocFaithTopics/a.ntgoc-faith-card__more#0": {
+   "x": 48,
+   "y": 3710,
+   "w": 250,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "block"
+  },
+  "ntgocFaithTopics/a.ntgoc-faith-card__more#1": {
+   "x": 48,
+   "y": 3742,
+   "w": 160,
+   "h": 18,
+   "c": "rgb(125, 43, 43)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "fs": "12px",
+   "d": "block"
+  },
   "ntgocFaithWatchRead/section.ntgoc-seec63e#0": {
    "x": 0,
-   "y": 3216,
+   "y": 3892,
    "w": 390,
    "h": 1312,
    "c": "rgb(34, 32, 29)",
@@ -25904,7 +26204,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sd1b357#0": {
    "x": 0,
-   "y": 3218,
+   "y": 3894,
    "w": 390,
    "h": 1310,
    "c": "rgb(34, 32, 29)",
@@ -25914,7 +26214,7 @@
   },
   "ntgocFaithWatchRead/h2.ntgoc-s458878#0": {
    "x": 16,
-   "y": 3294,
+   "y": 3970,
    "w": 358,
    "h": 34,
    "c": "rgb(58, 20, 20)",
@@ -25924,7 +26224,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s553fd6#0": {
    "x": 16,
-   "y": 3362,
+   "y": 4038,
    "w": 358,
    "h": 1090,
    "c": "rgb(34, 32, 29)",
@@ -25934,7 +26234,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#0": {
    "x": 16,
-   "y": 3362,
+   "y": 4038,
    "w": 358,
    "h": 264,
    "c": "rgb(125, 43, 43)",
@@ -25944,7 +26244,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s5c615e#0": {
    "x": 18,
-   "y": 3362,
+   "y": 4038,
    "w": 356,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -25954,7 +26254,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-se5ecaa#0": {
    "x": 42,
-   "y": 3412,
+   "y": 4088,
    "w": 308,
    "h": 12,
    "c": "rgb(224, 182, 115)",
@@ -25964,7 +26264,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s29c3f0#0": {
    "x": 42,
-   "y": 3434,
+   "y": 4110,
    "w": 308,
    "h": 28,
    "c": "rgb(250, 245, 236)",
@@ -25974,7 +26274,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#0": {
    "x": 18,
-   "y": 3512,
+   "y": 4188,
    "w": 356,
    "h": 112,
    "c": "rgb(125, 43, 43)",
@@ -25984,7 +26284,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#0": {
    "x": 42,
-   "y": 3536,
+   "y": 4212,
    "w": 308,
    "h": 40,
    "c": "rgb(58, 20, 20)",
@@ -25994,7 +26294,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#0": {
    "x": 42,
-   "y": 3584,
+   "y": 4260,
    "w": 308,
    "h": 16,
    "c": "rgb(108, 100, 88)",
@@ -26004,7 +26304,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#1": {
    "x": 16,
-   "y": 3650,
+   "y": 4326,
    "w": 358,
    "h": 264,
    "c": "rgb(125, 43, 43)",
@@ -26014,7 +26314,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s06b7b1#0": {
    "x": 18,
-   "y": 3652,
+   "y": 4328,
    "w": 356,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -26024,7 +26324,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#1": {
    "x": 18,
-   "y": 3802,
+   "y": 4478,
    "w": 356,
    "h": 112,
    "c": "rgb(125, 43, 43)",
@@ -26034,7 +26334,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#1": {
    "x": 42,
-   "y": 3826,
+   "y": 4502,
    "w": 308,
    "h": 40,
    "c": "rgb(58, 20, 20)",
@@ -26044,7 +26344,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#1": {
    "x": 42,
-   "y": 3874,
+   "y": 4550,
    "w": 308,
    "h": 16,
    "c": "rgb(108, 100, 88)",
@@ -26054,7 +26354,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#2": {
    "x": 16,
-   "y": 3940,
+   "y": 4616,
    "w": 358,
    "h": 244,
    "c": "rgb(125, 43, 43)",
@@ -26064,7 +26364,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s384787#0": {
    "x": 18,
-   "y": 3940,
+   "y": 4616,
    "w": 356,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -26074,7 +26374,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#2": {
    "x": 18,
-   "y": 4090,
+   "y": 4766,
    "w": 356,
    "h": 92,
    "c": "rgb(125, 43, 43)",
@@ -26084,7 +26384,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#2": {
    "x": 42,
-   "y": 4114,
+   "y": 4790,
    "w": 308,
    "h": 20,
    "c": "rgb(58, 20, 20)",
@@ -26094,7 +26394,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#2": {
    "x": 42,
-   "y": 4142,
+   "y": 4818,
    "w": 308,
    "h": 16,
    "c": "rgb(108, 100, 88)",
@@ -26104,7 +26404,7 @@
   },
   "ntgocFaithWatchRead/a.ntgoc-s8927f8#3": {
    "x": 16,
-   "y": 4208,
+   "y": 4884,
    "w": 358,
    "h": 244,
    "c": "rgb(125, 43, 43)",
@@ -26114,7 +26414,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s87b1ad#0": {
    "x": 18,
-   "y": 4210,
+   "y": 4886,
    "w": 356,
    "h": 150,
    "c": "rgb(125, 43, 43)",
@@ -26124,7 +26424,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-s345879#3": {
    "x": 18,
-   "y": 4360,
+   "y": 5036,
    "w": 356,
    "h": 92,
    "c": "rgb(125, 43, 43)",
@@ -26134,7 +26434,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-h4#3": {
    "x": 42,
-   "y": 4384,
+   "y": 5060,
    "w": 308,
    "h": 20,
    "c": "rgb(58, 20, 20)",
@@ -26144,7 +26444,7 @@
   },
   "ntgocFaithWatchRead/div.ntgoc-sff7880#3": {
    "x": 42,
-   "y": 4412,
+   "y": 5088,
    "w": 308,
    "h": 16,
    "c": "rgb(108, 100, 88)",
@@ -26154,7 +26454,7 @@
   },
   "ntgocSiteFooter/footer.ntgoc-s725a1c#0": {
    "x": 0,
-   "y": 4528,
+   "y": 5204,
    "w": 390,
    "h": 998,
    "c": "rgb(224, 211, 189)",
@@ -26164,7 +26464,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s579e00#0": {
    "x": 0,
-   "y": 4528,
+   "y": 5204,
    "w": 390,
    "h": 998,
    "c": "rgb(224, 211, 189)",
@@ -26174,7 +26474,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-sc3b3b0#0": {
    "x": 16,
-   "y": 4598,
+   "y": 5274,
    "w": 358,
    "h": 734,
    "c": "rgb(224, 211, 189)",
@@ -26184,7 +26484,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-sae32d4#0": {
    "x": 16,
-   "y": 4598,
+   "y": 5274,
    "w": 358,
    "h": 58,
    "c": "rgb(250, 245, 236)",
@@ -26194,7 +26494,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s004ac8#0": {
    "x": 16,
-   "y": 4668,
+   "y": 5344,
    "w": 358,
    "h": 76,
    "c": "rgb(224, 211, 189)",
@@ -26204,7 +26504,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-saa2162#0": {
    "x": 16,
-   "y": 4764,
+   "y": 5440,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26214,7 +26514,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-footer-social#0": {
    "x": 16,
-   "y": 4764,
+   "y": 5440,
    "w": 60,
    "h": 18,
    "c": "rgb(224, 182, 115)",
@@ -26224,7 +26524,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-footer-social#1": {
    "x": 94,
-   "y": 4764,
+   "y": 5440,
    "w": 52,
    "h": 18,
    "c": "rgb(224, 182, 115)",
@@ -26234,7 +26534,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-footer-heading#0": {
    "x": 16,
-   "y": 4838,
+   "y": 5514,
    "w": 358,
    "h": 14,
    "c": "rgb(224, 211, 189)",
@@ -26244,7 +26544,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s228833#0": {
    "x": 16,
-   "y": 4866,
+   "y": 5542,
    "w": 358,
    "h": 98,
    "c": "rgb(224, 211, 189)",
@@ -26254,7 +26554,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#0": {
    "x": 16,
-   "y": 4866,
+   "y": 5542,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26264,7 +26564,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#1": {
    "x": 16,
-   "y": 4894,
+   "y": 5570,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26274,7 +26574,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#2": {
    "x": 16,
-   "y": 4920,
+   "y": 5596,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26284,7 +26584,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#3": {
    "x": 16,
-   "y": 4948,
+   "y": 5624,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26294,7 +26594,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-footer-heading#1": {
    "x": 16,
-   "y": 5020,
+   "y": 5696,
    "w": 358,
    "h": 14,
    "c": "rgb(224, 211, 189)",
@@ -26304,7 +26604,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s228833#1": {
    "x": 16,
-   "y": 5050,
+   "y": 5726,
    "w": 358,
    "h": 126,
    "c": "rgb(224, 211, 189)",
@@ -26314,7 +26614,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#4": {
    "x": 16,
-   "y": 5050,
+   "y": 5726,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26324,7 +26624,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#5": {
    "x": 16,
-   "y": 5076,
+   "y": 5752,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26334,7 +26634,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#6": {
    "x": 16,
-   "y": 5104,
+   "y": 5780,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26344,7 +26644,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#7": {
    "x": 16,
-   "y": 5130,
+   "y": 5806,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26354,7 +26654,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#8": {
    "x": 16,
-   "y": 5158,
+   "y": 5834,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26364,7 +26664,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-footer-heading#2": {
    "x": 16,
-   "y": 5230,
+   "y": 5906,
    "w": 358,
    "h": 14,
    "c": "rgb(224, 211, 189)",
@@ -26374,7 +26674,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s228833#2": {
    "x": 16,
-   "y": 5260,
+   "y": 5936,
    "w": 358,
    "h": 72,
    "c": "rgb(224, 211, 189)",
@@ -26384,7 +26684,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#9": {
    "x": 16,
-   "y": 5260,
+   "y": 5936,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26394,7 +26694,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#10": {
    "x": 16,
-   "y": 5286,
+   "y": 5962,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26404,7 +26704,7 @@
   },
   "ntgocSiteFooter/a.ntgoc-inherit#11": {
    "x": 16,
-   "y": 5314,
+   "y": 5990,
    "w": 358,
    "h": 18,
    "c": "rgb(224, 211, 189)",
@@ -26414,7 +26714,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-sce3b1e#0": {
    "x": 16,
-   "y": 5374,
+   "y": 6050,
    "w": 358,
    "h": 2,
    "c": "rgb(224, 211, 189)",
@@ -26424,7 +26724,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-colophon#0": {
    "x": 16,
-   "y": 5398,
+   "y": 6074,
    "w": 358,
    "h": 94,
    "c": "rgb(224, 211, 189)",
@@ -26434,7 +26734,7 @@
   },
   "ntgocSiteFooter/img.ntgoc-colophon__seal#0": {
    "x": 16,
-   "y": 5404,
+   "y": 6080,
    "w": 80,
    "h": 80,
    "c": "rgb(224, 211, 189)",
@@ -26444,7 +26744,7 @@
   },
   "ntgocSiteFooter/div.ntgoc-s57e4c2#0": {
    "x": 118,
-   "y": 5398,
+   "y": 6074,
    "w": 256,
    "h": 94,
    "c": "rgb(224, 211, 189)",
