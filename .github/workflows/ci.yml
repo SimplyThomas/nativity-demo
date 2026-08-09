@@ -71,7 +71,7 @@ jobs:
       - name: Layout and colour unchanged
         run: npm run snap
 
-      - name: axe-core — 14 pages x 2 viewports
+      - name: axe-core — 15 pages x 2 viewports
         run: npm run audit:a11y
 
       - name: Reflow at 320px and focus indicators

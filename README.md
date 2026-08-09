@@ -28,7 +28,7 @@ compete with the real site in search, and not to be mistaken for it.
 | `assets/css/components.css` | **Generated.** Ships to EVO. |
 | `assets/css/provisional.css` | Demo only. Contains a reset — never import it. |
 
-The fourteen `.html` files at the repo root are the **source** — edit them
+The fifteen `.html` files at the repo root are the **source** — edit them
 directly. The only generated artefact left is `dist/chunks/`.
 
 ## Building

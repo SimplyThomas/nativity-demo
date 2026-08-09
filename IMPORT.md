@@ -220,10 +220,11 @@ Then the page content, grouped by page:
 | **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorOnThisPage`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
-| **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeMinistries`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
+| **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
-| **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil`, `ntgocAboutNewsletter` |
+| **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil` |
+| **The Light (newsletter)** | `ntgocNewsletterHero`, `ntgocNewsletterArchive` |
 | **Giving** | `ntgocGiveWays`, `ntgocGiveProjects` |
 | **Contact** | `ntgocContactCard` |
 | **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` — *nothing links to this page, see below* |
@@ -252,17 +253,25 @@ Then the page content, grouped by page:
 > committees appear twice, once on each page, and only one copy gets updated
 > when the roster finally arrives.
 >
-> **`ntgocAboutNewsletter` is now a link target.** The Parish Life menu and the
-> footer both point at `about.html#ntgoc-newsletter`, so the `id` on that
-> section has to survive the import. In EVO the fragment becomes the About
-> page's own id — check both links after the internal-link step.
+> **`ntgocAboutNewsletter` no longer exists.** The Light is its own page now —
+> `ntgocNewsletterHero` + `ntgocNewsletterArchive` — reached from the Parish
+> Life menu and the footer. **If you already created `ntgocAboutNewsletter` in
+> EVO, delete it** and take the two new chunks instead; leaving it in place puts
+> the year buttons at the foot of the About page as well as on their own page.
 >
-> **The Light's year links go nowhere.** All six (`2026` … `Archive`) are
-> `href="#"` placeholders; the newsletter has no archive on the live site to
-> point at. That mattered less when the section was buried at the foot of the
-> About page. It is now in the main navigation, so a visitor who follows it
-> finds six buttons that do nothing. **Either supply the archive URLs before
-> importing, or drop the year row and leave the heading.**
+> **The Light's year links still go nowhere.** All six (`2026` … `Archive`) are
+> `href="#"` placeholders; the parish site has no newsletter archive to point
+> them at. Giving them a page of their own makes that more visible, not less —
+> a visitor who follows the menu item now lands on a page whose main content
+> does nothing. The page says so in plain sight rather than hiding it.
+> **Either supply the archive URLs — or the address the issues already live at —
+> before importing, or drop the year row and leave the rest of the page.**
+>
+> The same page carries `newsletter@ntgoc.org` for contributions, which is a
+> verified role address (`data/parish-facts.json`), and repeats the parish's
+> photograph-permission rule for anyone sending in pictures. What it does *not*
+> say is the deadline, the publication schedule, or who edits it — none of that
+> could be sourced, so all three are flagged rather than guessed.
 
 > **The Parish Life page is mostly empty photo frames, on purpose.** The design
 > builds that page out of twenty-six photographs the parish has not supplied, so
@@ -532,11 +541,11 @@ so the next person knows those files are **generated from the pages** and must
 never be edited directly.
 
 ```sh
-npm run chunks   # the 14 HTML pages -> dist/chunks/
+npm run chunks   # the 15 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The fourteen `.html` files at the repo root are the source and are edited by hand.
+The fifteen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 twelve pages from the old design file. See `CONTRIBUTING.md`.

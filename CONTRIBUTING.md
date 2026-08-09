@@ -19,7 +19,7 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 
 | File / folder | What it is |
 |---|---|
-| `*.html` (14 pages) | **Source.** Edit directly. |
+| `*.html` (15 pages) | **Source.** Edit directly. |
 | `assets/css/components.css` | **Source.** Ships to the parish CMS. |
 | `assets/css/provisional.css` | **Source.** Demo only — contains a reset, never import it. |
 | `assets/js/ntgoc-enhance.js` | **Source.** Progressive enhancement only. |
@@ -59,7 +59,7 @@ Two further checks run in CI and are worth running locally before a big change:
 
 ```sh
 npm run snap           # layout + colour regression (the only check that sees layout)
-npm run audit:a11y     # axe-core, WCAG 2.1 AA, 14 pages x 2 viewports
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 15 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)
@@ -95,11 +95,11 @@ verified the fact; when you do, record the source in `data/parish-facts.json`.
 ### Editing the header, nav or footer — `npm run shell`
 
 Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
-`ntgocSiteFooter`) are the same markup on all fourteen pages — about a third of
+`ntgocSiteFooter`) are the same markup on all fifteen pages — about a third of
 all the HTML here. Edit them **once, in one page**, then propagate:
 
 ```sh
-npm run shell                      # from index.html to the other thirteen
+npm run shell                      # from index.html to the other fourteen
 npm run shell -- --from visit.html # if you edited the shell there instead
 npm run shell -- --check           # report drift, change nothing (CI runs this)
 ```
@@ -107,7 +107,7 @@ npm run shell -- --check           # report drift, change nothing (CI runs this)
 It handles the one thing you cannot copy verbatim: `aria-current="page"` marks
 the link to the page you are on, so it is stripped from the source and
 re-applied per page. Do not hand-copy the shell between files — CI fails if
-thirteen pages agree and one does not.
+fourteen pages agree and one does not.
 
 ### Renaming a cryptic class — `npm run rename`
 
@@ -152,7 +152,7 @@ the responsive layer at the bottom of the file last so it still wins on source
 order.
 
 **Touching the header or footer?** Edit one page and run `npm run shell` — see
-above. Do not make the change fourteen times by hand; `npm run shell -- --check`
+above. Do not make the change fifteen times by hand; `npm run shell -- --check`
 runs in CI and will fail if you miss one.
 
 **Adding an item to the Parish Life dropdown?** One more
