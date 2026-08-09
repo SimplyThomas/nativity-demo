@@ -1215,6 +1215,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-announce,
   .ntgoc-directory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+  /* The directions map is a 721x387 background image drawn with
+     background-size:contain, so at 390px it paints about 209px tall — inside a
+     box .ntgoc-tall has just given a 50-60vh min-height. That is two hundred
+     pixels of empty parchment wrapped around the map. Give the box the shape of
+     the picture it holds instead. */
+  .ntgoc-visitor-directions-media { min-height: 0; aspect-ratio: 721 / 387; }
+
   .ntgoc-stage__heading { font-size: clamp(28px, 6vw, 40px); }
   .ntgoc-nextsteps__heading { font-size: clamp(30px, 6.5vw, 42px); }
   .ntgoc-parish-h2 { font-size: clamp(27px, 5.5vw, 36px); }
@@ -1256,9 +1263,66 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
      onto a second line at the LEFT of the header, and the panel's right:0
      anchor goes with it, so the drawer opens off the side of the screen. */
   .ntgoc-header-inner { gap: 16px !important; flex-wrap: nowrap; }
+  /* .ntgoc-logo carries .ntgoc-flex as well, and it is the same trap one level
+     down. At 390px the seal and the name still fit on a line so nothing wraps;
+     at 320px they do not, the name drops below the seal, and the logo becomes
+     98px of content inside an 84px header. The overflow is not clipped and the
+     header is sticky and translucent, so "Fredericksburg, VA" then sits on top
+     of the page text on all seventeen pages, at every scroll position. */
+  .ntgoc-logo { flex-wrap: nowrap; }
   /* Two lines of logo text overflow the 84px header once the row cannot wrap.
      Drop the jurisdiction rather than the whole line: the top bar carries the
      Metropolis, not this, and the mobile design keeps the town under the name. */
   .ntgoc-logo-sub__jurisdiction { display: none; }
   .ntgoc-home-service-times-actions { display: flex; }
+}
+
+/* The three .ntgoc-tall heroes. .ntgoc-tall trades the fixed height for a
+   min-height, and a min-height is not a height: each of these heroes puts its
+   words in a `height:100%` flex column, and a percentage height against an
+   auto-height parent is auto. So justify-content quietly stopped doing
+   anything — centred on the home and festival heroes, bottom-aligned on parish
+   life — and all three settled at the very top of the photograph with six
+   pixels between the eyebrow and the sticky header, where every
+   .ntgoc-page-hero has fifty-two. min-height:inherit gives the column the
+   height it was centring inside again. The padding is the floor for the home
+   hero, whose content is already taller than the min-height and so has nothing
+   left to centre. */
+@media (max-width: 900px) {
+  .ntgoc-home-hero-row-shell,
+  .ntgoc-faith-hero-row,
+  .ntgoc-parish-life-hero__inner {
+    min-height: inherit;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* The month grid. .ntgoc-calendar-grid-grid-ruled carries .ntgoc-grid, so the
+   blanket one-column rule flattened August into forty-two stacked full-width
+   boxes — the first six of them the blank cells that pad the week before the
+   1st — and made a single month seven thousand pixels tall. Seven columns still
+   read down to about 640px. Below that a cell is fifty pixels wide, which will
+   not hold "Orthros 9a · Liturgy 10a" at any size worth reading, so the month
+   becomes a list of days. */
+@media (max-width: 900px) {
+  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: repeat(7, minmax(0, 1fr)) !important; }
+  .ntgoc-calendar-day { min-height: 86px; padding: 7px 6px; }
+  .ntgoc-calendar-event { font-size: 10.5px; padding: 4px 5px; }
+}
+@media (max-width: 640px) {
+  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: 1fr !important; }
+  .ntgoc-calendar-weekday { display: none; }
+  /* The blank cells carry an empty day number. They are the padding a
+     seven-column month needs and a list of days does not. */
+  .ntgoc-calendar-day:has(.ntgoc-calendar-daynum:empty) { display: none; }
+  .ntgoc-calendar-day {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 2.75em 1fr;
+    gap: 4px 10px;
+    padding: 11px 12px;
+  }
+  .ntgoc-calendar-daynum { font-size: 14px; margin-bottom: 0; }
+  .ntgoc-calendar-event { grid-column: 2; font-size: 13px; padding: 5px 8px; }
 }
