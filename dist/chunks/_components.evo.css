@@ -116,7 +116,7 @@
   border: 0;
 }
 
-/* --- generated component rules (395 rules) --------------------- */
+/* --- generated component rules (396 rules) --------------------- */
 .ntgoc-sd952ed { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:0 40px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
 .ntgoc-s94462a { opacity:.75; }
 .ntgoc-sd0dbcc { display:flex; gap:26px; align-items:center; }
@@ -271,6 +271,7 @@
 .ntgoc-s5639c3 { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 22px; max-width:62ch; text-wrap:pretty; }
 .ntgoc-s3e141a { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
 .ntgoc-s3e141a:hover, .ntgoc-s3e141a:focus-visible { border-color:#7d2b2b; }
+.ntgoc-s2df69a { max-width:1240px; margin:0 auto; padding:0 40px 40px; }
 .ntgoc-sa35931 { border-top:1px solid #ded2be; margin-top:20px; padding-top:52px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:60px; align-items:center; }
 .ntgoc-s1b565b { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.45; color:#3a1414; margin:0; max-width:24ch; text-wrap:pretty; }
 .ntgoc-s9d514c { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }

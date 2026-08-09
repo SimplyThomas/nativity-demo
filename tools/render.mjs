@@ -860,6 +860,21 @@ function balancedBlocks(text) {
  * orphaned content is re-attached to the view it follows, which is plainly where
  * the author meant it to sit.
  */
+/**
+ * Recovered content has to sit in the same width container as the section it
+ * was orphaned out of, or it spans the full viewport while everything around
+ * it stays constrained. Reuse the last shell the view itself used — taking the
+ * measurements from the design rather than inventing them — and drop the top
+ * padding, since the recovered block brings its own border-top and padding-top.
+ */
+function shellStyleFrom(html) {
+  const shells = [...html.matchAll(/<section style="([^"]*max-width:[^"]*)"/g)];
+  const style = shells.length
+    ? shells[shells.length - 1][1]
+    : 'max-width:1240px; margin:0 auto; padding:88px 40px;';
+  return style.replace(/padding:\s*[^;]+;?/, 'padding:0 40px 40px;');
+}
+
 function viewFor(scope) {
   let out = '', cursor = 0, matchedPrevious = false;
   for (;;) {
@@ -868,7 +883,8 @@ function viewFor(scope) {
     // Text between this block and the previous one belongs to the previous view.
     const gap = balancedBlocks(viewsSrc.slice(cursor, i === -1 ? viewsSrc.length : i));
     if (matchedPrevious && gap.trim()) {
-      const recovered = `<section>${resolveAll(gap, scope)}</section>`;
+      const recovered =
+        `<section style="${shellStyleFrom(out)}">${resolveAll(gap, scope)}</section>`;
       out = out.includes('</main>')
         ? out.replace(/<\/main>(?![\s\S]*<\/main>)/, `${recovered}</main>`)
         : out + recovered;
