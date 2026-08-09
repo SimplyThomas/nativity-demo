@@ -1,0 +1,183 @@
+#!/usr/bin/env node
+/**
+ * extract-chunks.mjs — pull every delimited block out of the rendered pages and
+ * write it to dist/chunks/<chunkName>.html, ready to paste into the Evolution
+ * CMS manager (Elements → Chunks → New Chunk).
+ *
+ *   node tools/extract-chunks.mjs
+ *
+ * What it does:
+ *   - Walks every .html file at the repo root.
+ *   - Finds <!-- CHUNK:name --> ... <!-- /CHUNK:name --> pairs.
+ *   - Rewrites relative asset paths to the EVO asset root (see ASSET_ROOT).
+ *   - Rewrites page links (visit.html) to EVO link placeholders a volunteer can
+ *     replace with the real resource id.
+ *   - Refuses to write a chunk containing an EVO reserved character sequence.
+ *
+ * A chunk that appears on several pages (the header, the footer) is written once;
+ * the script checks that every copy is identical and warns if they have drifted.
+ */
+
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const OUT = join(ROOT, 'dist', 'chunks');
+
+/* ------------------------------------------------------------------ *
+ * CONFIGURE ME
+ *
+ * Where images will live once uploaded through the EVO file manager.
+ * The live site serves its template assets from /assets/templates/, and a
+ * custom.css already sits there — but the exact folder for a new template has
+ * NOT been confirmed with the Department of Internet Ministries. Confirm before
+ * importing, then change this one line and re-run.
+ * ------------------------------------------------------------------ */
+const ASSET_ROOT = '/assets/templates/ntgoc/';
+
+/**
+ * EVO reserved sequences. If any of these reach a chunk, the CMS parser will
+ * eat or corrupt the markup. This is a hard gate, not a warning.
+ */
+const RESERVED = [
+  ['[[', ']]', 'cached snippet call'],
+  ['[!', '!]', 'uncached snippet call'],
+  ['{{', '}}', 'chunk call'],
+  ['[*', '*]', 'resource field / template variable'],
+  ['[(', ')]', 'system setting'],
+  ['[~', '~]', 'link to resource by id'],
+  ['[+', '+]', 'placeholder'],
+];
+
+/* Page file -> a human note for the volunteer replacing the link in EVO. */
+const PAGE_LINKS = [
+  'index.html', 'visit.html', 'faith.html', 'calendar.html', 'ministries.html',
+  'about.html', 'give.html', 'contact.html', 'festival.html', 'hall.html',
+  'bookstore.html', 'mobile-views.html',
+];
+
+/* ------------------------------------------------------------------ */
+
+function rewriteAssets(html) {
+  let out = html;
+
+  // assets/img/foo.jpg -> <ASSET_ROOT>img/foo.jpg   (also inside url('...'))
+  out = out.replace(/(["'(])assets\/(img|css|js)\//g, `$1${ASSET_ROOT}$2/`);
+
+  // Internal page links become an obvious placeholder rather than a broken href:
+  // a volunteer swaps each for EVO's link-by-id syntax once resources exist.
+  for (const page of PAGE_LINKS) {
+    const name = page.replace(/\.html$/, '');
+    out = out.replace(
+      new RegExp(`href="${page.replace('.', '\\.')}"`, 'g'),
+      `href="#" data-ntgoc-link="${name}"`);
+  }
+
+  return out;
+}
+
+function scanReserved(html) {
+  const found = [];
+  for (const [open, close, meaning] of RESERVED) {
+    if (html.includes(open) || html.includes(close)) {
+      found.push(`${open} ${close}  (${meaning})`);
+    }
+  }
+  return found;
+}
+
+/* ------------------------------------------------------------------ */
+
+rmSync(OUT, { recursive: true, force: true });
+mkdirSync(OUT, { recursive: true });
+
+const pages = readdirSync(ROOT).filter(f => f.endsWith('.html'));
+const chunks = new Map();   // name -> { body, sources: [] }
+
+for (const page of pages) {
+  const html = readFileSync(join(ROOT, page), 'utf8');
+  const re = /<!-- CHUNK:(\w+) -->([\s\S]*?)<!-- \/CHUNK:\1 -->/g;
+  for (const m of html.matchAll(re)) {
+    const [, name, raw] = m;
+    // aria-current marks the active nav item and is therefore per-page state.
+    // It must not be baked into a reusable chunk — in EVO the template decides
+    // which item is current — so it is stripped before the chunk is stored.
+    const body = raw.trim().replace(/ aria-current="page"/g, '');
+    const seen = chunks.get(name);
+    if (seen) {
+      if (seen.body !== body) {
+        console.warn(`  ! ${name} differs between ${seen.sources[0]} and ${page} — keeping the ${seen.sources[0]} copy`);
+      }
+      seen.sources.push(page);
+    } else {
+      chunks.set(name, { body, sources: [page] });
+    }
+  }
+}
+
+let written = 0, blocked = 0;
+const manifest = [];
+
+for (const [name, { body, sources }] of [...chunks].sort()) {
+  const out = rewriteAssets(body);
+  const bad = scanReserved(out);
+
+  if (bad.length) {
+    blocked++;
+    console.error(`  ✗ ${name}: contains EVO reserved sequence(s):\n      ${bad.join('\n      ')}`);
+    continue;
+  }
+
+  const header = `<!--
+  ${name}
+  Generated by tools/extract-chunks.mjs — do not edit here.
+  Source: ${sources.join(', ')}
+  Paste the markup BELOW this comment into EVO: Elements -> Chunks -> New Chunk,
+  with the chunk name set to exactly:  ${name}
+  Asset paths point at ${ASSET_ROOT} — confirm that path before importing.
+-->
+`;
+  writeFileSync(join(OUT, `${name}.html`), header + out + '\n');
+  manifest.push({ name, bytes: out.length, pages: sources.length });
+  written++;
+}
+
+/* ------------------------------------------------------------------ *
+ * components.css, with asset paths rewritten for EVO.
+ *
+ * The background images live in the stylesheet rather than in the chunks
+ * (they were inline background-image declarations in the design), so the
+ * same path rewrite has to be applied here or the icons will 404 in EVO.
+ * ------------------------------------------------------------------ */
+
+const css = readFileSync(join(ROOT, 'assets/css/components.css'), 'utf8');
+const cssOut = css.replace(/(["'(])assets\/(img|css|js)\//g, `$1${ASSET_ROOT}$2/`);
+const cssBad = scanReserved(cssOut);
+
+if (cssBad.length) {
+  console.error(`  ✗ components.css contains EVO reserved sequence(s):\n      ${cssBad.join('\n      ')}`);
+  blocked++;
+} else {
+  writeFileSync(join(OUT, '_components.evo.css'),
+    `/* components.css, prepared for Evolution CMS.\n` +
+    `   Generated by tools/extract-chunks.mjs — do not edit here.\n` +
+    `   Asset paths rewritten to ${ASSET_ROOT}\n` +
+    `   Upload as a stylesheet, or paste into the template <head>. See IMPORT.md. */\n\n` +
+    cssOut);
+}
+
+/* A small index so a volunteer can see the whole set at a glance. */
+writeFileSync(join(OUT, '_index.md'),
+  `# Extracted EVO chunks\n\n` +
+  `Generated by \`node tools/extract-chunks.mjs\`.\n` +
+  `Asset root: \`${ASSET_ROOT}\` — confirm with the Department of Internet Ministries before import.\n\n` +
+  `| Chunk | Size | Appears on |\n|---|---:|---:|\n` +
+  manifest.map(c => `| \`${c.name}\` | ${c.bytes} b | ${c.pages} page${c.pages > 1 ? 's' : ''} |`).join('\n') +
+  `\n`);
+
+console.log(`extracted ${written} chunks -> dist/chunks/`);
+if (blocked) {
+  console.error(`\n${blocked} chunk(s) BLOCKED by the reserved-sequence gate. Fix the source before importing.`);
+  process.exit(1);
+}

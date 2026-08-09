@@ -1,0 +1,158 @@
+{
+  "_README": "Facts harvested from the live parish site on 2026-08-08. 'status' is the audit verdict against what the Claude Design file asserts. Nothing here is a guess: every VERIFIED entry has a source URL. Entries marked UNVERIFIED stay tagged <!-- TODO: verify --> in the built HTML.",
+  "_harvestDate": "2026-08-08",
+  "_source": "https://www.nativity.va.goarch.org/",
+
+  "facts": {
+    "parishName": {
+      "value": "Nativity of the Theotokos Greek Orthodox Church",
+      "status": "VERIFIED",
+      "source": "/"
+    },
+    "address": {
+      "value": "12326 Spotswood Furnace Rd, Fredericksburg, VA 22407",
+      "status": "VERIFIED",
+      "source": "/contact-us/",
+      "note": "Site footer spells it 'Spotswood Furnace Rd'; the contact page body has a typo, 'Spotswood Furnance Road'. Footer spelling used."
+    },
+    "phone": {
+      "value": "(540) 548-2665",
+      "status": "VERIFIED",
+      "source": "/contact-us/",
+      "label": "Voice"
+    },
+    "fax": {
+      "value": "(540) 548-2824",
+      "status": "VERIFIED",
+      "source": "/contact-us/"
+    },
+    "priestCell": {
+      "value": "(540) 645-1427",
+      "status": "VERIFIED_BUT_WITHHELD",
+      "source": "/contact-us/",
+      "note": "Fr. John's personal cell. Published on the live site, but deliberately NOT rendered into this draft. Not our call to re-publish a personal number on an unofficial site."
+    },
+    "clergy": {
+      "value": "Rev. Protopresbyter John C. Katsoulis",
+      "title": "Presiding Priest",
+      "status": "VERIFIED",
+      "source": "/about-us/clergy",
+      "note": "Design's wording matches the live site exactly."
+    },
+    "officeHours": {
+      "value": "Tuesday – Friday, 9:00 a.m. – 3:00 p.m.",
+      "status": "CORRECTED",
+      "source": "/contact-us/",
+      "designSaid": "Tuesday – Friday, 9:00 a.m. – 2:00 p.m.",
+      "note": "Design was an hour short. Live site: 'Normal office hours at the church are Tuesday through Friday from 9:00 - 3:00.'"
+    },
+    "sundayServices": {
+      "value": "9:00 a.m. — Orthros & Divine Liturgy",
+      "status": "VERIFIED",
+      "source": "/",
+      "note": "Live site states '9 am Orthros & Divine Liturgy' as a single 9:00 start. This RESOLVES the design's internal contradiction: the home page (9:00 for both) was right; the Visit timeline (Orthros 9:00, Liturgy 10:00) was wrong. Corrected to a single 9:00 start, but flagged for Father because a 9:00 Orthros with a 10:00 Liturgy is the more common parish pattern and the live site may simply be compressing it."
+    },
+    "emails": {
+      "office": "office@ntgoc.org",
+      "newsletter": "newsletter@ntgoc.org",
+      "stewardship": "pctreasurer@ntgoc.org",
+      "status": "VERIFIED",
+      "source": "/contact-us/, /hall-rental",
+      "note": "Role addresses, not personal ones — safe to publish."
+    },
+    "directions": {
+      "value": "From I-95 take exit 130B and go west on Route 3 for just over 4 miles. After passing the Harrison Crossing Shopping Center (Home Depot), turn right at the next traffic light onto Spotswood Furnace Road and proceed approximately two-tenths of a mile. Riverbend High School will be on the right; the church is on the left, just past the high school.",
+      "status": "CORRECTED",
+      "source": "/contact-us/",
+      "designSaid": "About ten minutes west of I-95, exit 130.",
+      "note": "Design had the wrong exit (130 vs 130B) and a vague drive time. Replaced with the parish's own directions."
+    },
+    "founding": {
+      "firstLiturgy": "9 April 1989, at St. George's Episcopal Church",
+      "charter": "1991, from the Greek Orthodox Archdiocese of North and South America",
+      "landPurchased": "1992",
+      "buildingCompleted": "March 2000; first Liturgy in the new church 12 March 2000",
+      "status": "CORRECTED",
+      "source": "/about-us/",
+      "designSaid": "1963 — Community founded",
+      "note": "The design was wrong by 26 years and self-flagged the number as a placeholder. The real history is above. This is the single most valuable correction the harvest produced."
+    },
+    "metropolis": {
+      "value": "Greek Orthodox Metropolis of New Jersey",
+      "status": "VERIFIED",
+      "source": "/about-us/clergy"
+    },
+    "feastDay": {
+      "value": "8 September — the Nativity of the Theotokos",
+      "status": "VERIFIED_EXTERNAL",
+      "source": "Fixed date in the Orthodox calendar; also the parish's patronal name.",
+      "note": "Not stated as a date on the live site, but it is a fixed feast, not a parish-specific claim."
+    },
+    "ministries": {
+      "value": ["Parish Council", "Ladies' Philoptochos Society", "Sunday School", "GOYA", "JOY", "Dance Troupe", "AHEPA", "Stewardship"],
+      "status": "CORRECTED",
+      "source": "/parish-ministries/",
+      "designSaid": ["Sunday School", "GOYA", "Ladies' Philoptochos Society", "Dance Troupe", "AHEPA", "Parish Council", "Choir & Chanters"],
+      "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped — the parish may well have chanters without a ministry page."
+    },
+    "hallRental": {
+      "status": "UNVERIFIED",
+      "designSaid": "Capacity ≈ 200 seated; full commercial kitchen; on-site free parking",
+      "source": "/hall-rental",
+      "note": "The live hall-rental page gives NO capacity, kitchen, or parking details — only a deposit link and a contract PDF. Every one of the design's three specifics is unsourced. Left in place, each tagged TODO: verify."
+    },
+    "parishCouncil": {
+      "status": "WITHHELD",
+      "designSaid": "7 members named in full, each with an @ntgoc.org address",
+      "note": "Replaced with neutral placeholders per your instruction. The live site's Parish Council page was not scraped for names."
+    },
+    "greekFestival": {
+      "value": "fredgreek.org",
+      "status": "VERIFIED",
+      "source": "/ (footer link to http://www.fredgreek.org/)",
+      "note": "Design's festival dates and 'two-hour shifts' claim are NOT on the live site — tagged TODO: verify."
+    },
+    "externalLinks": {
+      "giveOnline": "https://square.link/u/u8cIpGbh",
+      "secondSquareLink": "https://square.link/u/ZlTPph2Q",
+      "buildingProjects": "https://sites.google.com/ntgoc.org/projects/home",
+      "familyRegistration": "https://docs.google.com/forms/d/e/1FAIpQLSc31bhBH5k03LSTeEGr_NL9bcYbg6zl432sKOJPWXM7JaOHAw/viewform?usp=header",
+      "status": "VERIFIED",
+      "source": "/",
+      "note": "All present on the live site; the design reproduces them correctly."
+    }
+  },
+
+  "hosting": {
+    "cms": "Evolution CMS (EVO), Greek Orthodox Archdiocese Department of Internet Ministries",
+    "cssFramework": "Bootstrap 4.1.3",
+    "alsoLoaded": ["jQuery 3.3.1", "Font Awesome 5.2.0", "popper.js 1.12.9", "css-vars-ponyfill@1"],
+    "templateAssetRoot": "/assets/templates/",
+    "observedStylesheets": [
+      "/assets/templates/common/css/content.css",
+      "/assets/templates/common/css/template.css",
+      "/assets/templates/custom.css",
+      "/assets/templates/t05.css"
+    ],
+    "status": "VERIFIED",
+    "source": "view-source of https://www.nativity.va.goarch.org/",
+    "notes": [
+      "custom.css already exists at the template asset root — strong evidence that additional custom stylesheets CAN be added. Confirm with DIM before relying on it.",
+      "css-vars-ponyfill is loaded, which implies the template already expects CSS custom properties and that legacy-browser support was a concern. Our --ntgoc-* tokens should be safe.",
+      "Bootstrap 4.1.3 styles bare element selectors (h1-h6, p, a, ul). components.css must set those properties explicitly on .ntgoc-* classes rather than relying on inheritance."
+    ]
+  },
+
+  "assetProvenance": {
+    "_note": "One-time harvest from the live parish site on 2026-08-08, at the site owner's direction. Parish-owned unless noted.",
+    "hero-anastasis-icon.jpg": {"from": "nativity.va.goarch.org/assets/images/carousel-anastasis-icon use.jpg", "owner": "parish"},
+    "feast-transfiguration.jpg": {"from": "onlinechapel.goarch.org/images/clark/transfiguration.jpg", "owner": "GOARCH Online Chapel — NOT parish-owned; check reuse terms before import"},
+    "festival-banquet.png": {"from": "nativity.va.goarch.org/assets/images/Banquet 2.png", "owner": "parish"},
+    "faith-resurrection.jpg": {"from": "nativity.va.goarch.org/assets/images/resurrection.jpg", "owner": "parish"},
+    "faith-ascension.jpg": {"from": "nativity.va.goarch.org/assets/images/ascension-christ.jpg", "owner": "parish"},
+    "faith-holy-sites.jpg": {"from": "nativity.va.goarch.org/assets/images/Holy-sites.jpg", "owner": "parish"},
+    "faith-elders.jpg": {"from": "nativity.va.goarch.org/assets/images/Elders.jpg", "owner": "parish"},
+    "clergy-fr-john.jpg": {"from": "nativity.va.goarch.org/assets/images/Father's pic.jpg", "owner": "parish — photograph of a named individual; confirm Fr. John is content for it to appear in the draft"},
+    "give-building-projects.png": {"from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png", "owner": "parish"}
+  }
+}

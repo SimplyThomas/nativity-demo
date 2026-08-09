@@ -1,0 +1,21 @@
+/* ============================================================
+   provisional.css — DEMO ONLY. DELETE BEFORE IMPORTING TO EVO.
+
+   Holds the global reset the Claude Design source carried in its
+   <helmet> block. Pasting a reset into Evolution CMS would break the
+   surrounding Bootstrap template, so it is isolated here and is never
+   referenced by any extracted chunk.
+   ============================================================ */
+
+html, body { margin: 0; padding: 0; background: #f6f1e8; }
+* { box-sizing: border-box; }
+a { color: #7d2b2b; text-decoration: none; }
+a:hover { color: #b08442; }
+::selection { background: #e6d3b8; }
+
+body.ntgoc-page {
+  font-family: Karla, system-ui, sans-serif;
+  color: #22201d;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; }
