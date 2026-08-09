@@ -320,7 +320,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-navgroup__item { display:block; padding:10px 20px; color:#3a1414; white-space:nowrap; }
 .ntgoc-navgroup__item:hover, .ntgoc-navgroup__item:focus-visible { background:#ece3d5; color:#7d2b2b; }
 .ntgoc-s162d12 { position:relative; height:640px; background:#3a1414; overflow:hidden; }
-.ntgoc-s504123 { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/hero-anastasis-icon.jpg'); background-size:cover; background-position:center; opacity:.42; }
+.ntgoc-s504123 { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/parish-nave-aisle.jpg'); background-size:cover; background-position:center; opacity:.42; }
 .ntgoc-s75653a { position:absolute; inset:0; background:linear-gradient(100deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.72) 46%, rgba(58,20,20,.25) 100%); }
 .ntgoc-s15cf29 { position:relative; max-width:1440px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; max-width:1440px; }
 .ntgoc-sbde964 { max-width:620px; }
@@ -352,31 +352,11 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-s53925a:hover, .ntgoc-s53925a:focus-visible { border-color:#7d2b2b; }
 .ntgoc-sb3e0fc { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
 .ntgoc-s24274a { max-width:1240px; margin:0 auto; padding:88px 40px; }
-.ntgoc-s8f03af { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; margin-bottom:64px; }
 .ntgoc-scba592 { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:22px; }
-.ntgoc-s1c0ec4 { font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.1; margin:0 0 24px; color:#3a1414; }
-.ntgoc-sac4861 { font-size:17.5px; line-height:1.75; color:#4a443c; margin:0; max-width:60ch; text-wrap:pretty; }
-.ntgoc-s29a724 { border:1px solid #ccbda4; background:#f6f1e8; padding:30px 28px; }
 .ntgoc-s07f412 { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:12px; }
 .ntgoc-s3562ae { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 14px; color:#3a1414; }
 .ntgoc-body { font-size:15px; line-height:1.7; color:#5b5449; margin:0; }
-.ntgoc-s779d8b { border:1px solid #ccbda4; background:#f6f1e8; padding:44px 42px; display:grid; grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr); gap:44px; align-items:start; }
-.ntgoc-s803d2f { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:16px; }
-.ntgoc-saca676 { display:grid; gap:0; border-top:1px solid #e4dac8; }
-.ntgoc-s3a4739 { display:grid; grid-template-columns:150px minmax(0,1fr); gap:18px; padding:13px 0; border-bottom:1px solid #e4dac8; align-items:baseline; }
-.ntgoc-s41cc79 { font-family:Newsreader, serif; font-size:17px; color:#7d2b2b; }
-.ntgoc-s71c88d { font-size:15px; color:#5b5449; }
-.ntgoc-se1ab92 { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#6c6458; }
-.ntgoc-s591db7 { display:grid; grid-template-columns:150px minmax(0,1fr); gap:18px; padding:13px 0; align-items:baseline; }
-.ntgoc-sb72a10 { background:#e4dac8; width:1px; height:100%; }
-.ntgoc-s7f2785 { font-family:Newsreader, serif; font-weight:500; font-size:26px; margin:0 0 14px; color:#3a1414; }
-.ntgoc-sf97287 { font-size:16px; line-height:1.75; color:#5b5449; margin:0 0 22px; text-wrap:pretty; }
-.ntgoc-s303ec7 { font-family:Newsreader, serif; font-weight:300; font-style:italic; font-size:21px; line-height:1.5; color:#3a1414; margin:0 0 26px; }
 .ntgoc-sc0a50c { display:flex; gap:12px; flex-wrap:wrap; }
-.ntgoc-sf74447 { background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-sf74447:hover, .ntgoc-sf74447:focus-visible { background:#5e1f1f; }
-.ntgoc-sa2210f { border:1px solid #ccbda4; color:#5b5449; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-sa2210f:hover, .ntgoc-sa2210f:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-se5903e { max-width:1240px; margin:0 auto; padding:96px 40px; }
 .ntgoc-s725fa5 { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-s76db04 { font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0 0 8px; color:#3a1414; }

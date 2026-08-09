@@ -139,20 +139,29 @@ harmless.
 
 ## Verified by hand
 
-### The 37 "needs review" items
+### The 95 "needs review" items
 
-**25 of them: contrast over a background image.** axe cannot compute contrast
-for text over an image, so it defers. All 25 are the gold `#e0b673` eyebrow
-labels over the hero images. Measured manually against the actual composite
-(base `#3a1414`, image at 42% opacity, gradient overlay):
+**Contrast over a background image.** axe cannot compute contrast for text over
+an image, so it defers. Most of these are the gold `#e0b673` eyebrow labels over
+the hero images. Measured by sampling the brightest pixel actually rendered
+behind each label and computing the ratio against it:
 
-| Situation | Ratio |
-|---|---:|
-| Where the text sits (gradient at .94) | 8.09:1 |
-| Over solid oxblood, no image | 8.61:1 |
-| Worst case: gradient at .72 over the brightest part of the image | **6.14:1** |
+| Hero | Ratio | Needs |
+|---|---:|---:|
+| Home — nave photograph at 42% under the gradient | **6.62:1** | 4.5 |
+| Parish Life — same photograph at full strength under its two-layer scrim | **5.07:1** | 4.5 |
+| Over solid oxblood, no image | 8.61:1 | 4.5 |
 
-All pass comfortably. No change needed.
+The home hero's headline (11.07:1) and lede (10.52:1) are far clear of their
+thresholds.
+
+**This is why the home hero keeps its 42% opacity.** The photograph was changed
+to match Parish Life's; matching that page's *treatment* as well — the image at
+full strength — was measured and drops the gold eyebrow to **4.32:1**, under
+the 4.5 minimum for text that size. Parish Life gets away with full strength
+because its scrim has a second bottom gradient and its eyebrow sits lower. If
+the two heroes are ever made identical, the eyebrow needs a darker scrim or a
+lighter gold, and the number above has to be re-measured.
 
 **4 more: the greeter names, mobile viewport only.** axe defers on the cards
 that sit outside the 390px viewport in the scrolling row. The text is the

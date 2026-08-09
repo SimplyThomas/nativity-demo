@@ -30,15 +30,14 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocGiveWays` | 1420 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 1755 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeFestivalPromo` | 1066 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeFirstSunday` | 3148 b | 1 page | yes (2) |
-| ☐ | `ntgocHomeHero` | 1122 b | 1 page | yes (2) |
+| ☐ | `ntgocHomeHero` | 1134 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1372 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1135 b | 1 page | — |
 | ☐ | `ntgocHomeUpcomingServices` | 3146 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1240 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 2964 b | 1 page | yes (1) |
 | ☐ | `ntgocMinistriesHero` | 440 b | 1 page | — |
-| ☐ | `ntgocMobileViews` | 3734 b | 1 page | — |
+| ☐ | `ntgocMobileViews` | 3746 b | 1 page | — |
 | ☐ | `ntgocNewsletterArchive` | 1640 b | 1 page | — |
 | ☐ | `ntgocNewsletterHero` | 368 b | 1 page | — |
 | ☐ | `ntgocParishLifeBookstore` | 1478 b | 1 page | yes (1) |

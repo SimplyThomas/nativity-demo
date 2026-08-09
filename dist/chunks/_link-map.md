@@ -23,7 +23,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-47 links across 21 chunks.
+45 links across 20 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -32,7 +32,6 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocFaithTopics` | about, contact | ☐ |
 | `ntgocHallRental` | contact | ☐ |
 | `ntgocHomeFestivalPromo` | ministries | ☐ |
-| `ntgocHomeFirstSunday` | visit, contact | ☐ |
 | `ntgocHomeHero` | visit, contact | ☐ |
 | `ntgocHomeMinistriesPromo` | ministries ×5 | ☐ |
 | `ntgocHomeUpcomingServices` | calendar | ☐ |
