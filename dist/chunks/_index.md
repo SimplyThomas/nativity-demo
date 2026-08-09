@@ -64,7 +64,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 2415 b | 1 page | yes (1) |
 | ☐ | `ntgocSiteFooter` | 3464 b | 16 pages | yes (14) |
-| ☐ | `ntgocSiteHeader` | 5292 b | 16 pages | yes (30) |
+| ☐ | `ntgocSiteHeader` | 5368 b | 16 pages | yes (30) |
 | ☐ | `ntgocTopBar` | 208 b | 16 pages | — |
 | ☐ | `ntgocVisitorChildren` | 2573 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1856 b | 1 page | yes (1) |

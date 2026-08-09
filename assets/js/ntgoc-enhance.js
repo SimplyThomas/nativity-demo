@@ -78,24 +78,13 @@
   var toggle = drawer.querySelector('summary');
   if (!toggle) return;
 
-  var panel = drawer.querySelector('.ntgoc-drawer__panel');
-  if (!panel) return;
-
+  /* The panel covers the viewport, so the page behind it must not scroll
+     under it. Nothing here sizes or positions the panel — CSS does all of
+     that, which is why the drawer is complete without this file. */
   drawer.addEventListener('toggle', function () {
     if (drawer.open) {
-      /* The stylesheet caps the panel at 100vh minus the header, which assumes
-         the header is pinned to the top of the screen. On a page that has not
-         been scrolled it is not — the draft banner and top bar are still above
-         it — so that cap is too tall and the last rows fall below the fold,
-         where the scroll lock on the next line would strand them. Measure
-         where the panel actually starts instead. Moving the page to make the
-         stylesheet's assumption true would scroll the visitor somewhere they
-         did not ask to go, and leave them there after the drawer closed. */
-      panel.style.maxHeight =
-        (window.innerHeight - toggle.getBoundingClientRect().bottom - 16) + 'px';
       document.body.className += ' ntgoc-scroll-locked';
     } else {
-      panel.style.maxHeight = '';
       document.body.className = document.body.className
         .replace(/\s*ntgoc-scroll-locked/g, '');
     }
@@ -107,12 +96,9 @@
     toggle.focus();
   });
 
-  /* A click anywhere outside the drawer closes it. Registered on the
-     document, so it also catches taps on the page behind the panel. */
-  document.addEventListener('click', function (event) {
-    if (!drawer.open || drawer.contains(event.target)) return;
-    drawer.open = false;
-  });
+  /* There is deliberately no close-on-click-outside here. The panel is
+     full screen, so there is no outside left to click — the ✕ is the way
+     out, and on a touch screen it is the one people reach for anyway. */
 
   /* Following a link inside the drawer should not leave it hanging open
      behind the next page's paint. */

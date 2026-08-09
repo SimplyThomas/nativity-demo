@@ -324,17 +324,35 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-drawer[open] .ntgoc-drawer__bars { background:transparent; }
 .ntgoc-drawer[open] .ntgoc-drawer__bars::before { top:0; transform:rotate(45deg); }
 .ntgoc-drawer[open] .ntgoc-drawer__bars::after { top:0; transform:rotate(-45deg); }
-/* 65vh, not 100vh minus the header: the panel hangs off the bottom of a sticky
-   header that is only at the top of the screen once the page has been scrolled
-   past the draft banner and the top bar. Measured at 390px, an unscrolled page
-   puts the panel's top at 219px, so a taller cap drops the service card below
-   the fold. The panel scrolls inside itself, so a conservative cap costs
-   nothing — and ntgoc-enhance.js replaces this with the exact figure when it
-   is present. This value is what a visitor with JavaScript off gets. */
-.ntgoc-drawer__panel { position:absolute; top:100%; right:0; z-index:60; display:flex; flex-direction:column; width:100vw; max-width:min(360px, calc(100vw - 32px)); max-height:65vh; overflow-y:auto; -webkit-overflow-scrolling:touch; background:#f6f1e8; border:1px solid #ded2be; border-top:2px solid #7d2b2b; box-shadow:0 18px 44px rgba(58,20,20,.18); }
-/* The list grows and the two blocks below it sit against the bottom edge, so a
-   short drawer does not leave the service card floating mid-panel. */
-.ntgoc-drawer__list { flex:1 1 auto; }
+/* Once open, the hamburger is the ✕ on the full-screen panel, so it has to
+   float above it — z-index one higher than the panel, aligned with the title
+   row inside. Being the <summary>, it still closes the panel with no script. */
+.ntgoc-drawer[open] .ntgoc-drawer__toggle { position:fixed; top:10px; right:14px; z-index:71; margin-right:0; }
+/* Full screen, fixed to the viewport rather than hung off the header. The
+   header is sticky, so on an unscrolled page it sits about 220px down, below
+   the draft banner and the top bar — a panel anchored to it either falls off
+   the bottom of the screen or has to be capped short to avoid it. Covering
+   the viewport removes the question. 100dvh, not 100vh, so a phone's URL bar
+   does not clip the last row. */
+.ntgoc-drawer__panel {
+  position:fixed; inset:0; z-index:70;
+  display:flex; flex-direction:column;
+  height:100vh; height:100dvh;
+  overflow:hidden;
+  background:#f6f1e8;
+}
+/* Browsers hide a closed <details> by their own means — Chrome skips painting
+   the content rather than removing its box, which left this fixed panel with a
+   34x844 phantom box down the side of every page. Not painted and not
+   clickable, but not something to leave to engine behaviour either. */
+.ntgoc-drawer:not([open]) .ntgoc-drawer__panel { display:none; }
+/* The panel covers the site header, so it carries its own: the parish name,
+   and the ✕ — which is the <summary>, floated over this row when open, so
+   that closing needs no JavaScript. */
+.ntgoc-drawer__head { display:flex; align-items:center; flex:none; height:64px; padding:0 20px; border-bottom:1px solid #ded2be; font-family:Newsreader, serif; font-size:17px; color:#3a1414; }
+/* Only the links scroll. The Give row and the service card stay put against
+   the bottom edge, the way the two buttons do on the site this follows. */
+.ntgoc-drawer__list { flex:1 1 auto; overflow-y:auto; -webkit-overflow-scrolling:touch; }
 .ntgoc-drawer__utility { flex:none; border-top:1px solid #ded2be; }
 .ntgoc-drawer__cta { display:block; padding:18px 20px; background:#7d2b2b; color:#f6f1e8; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-drawer__cta:hover, .ntgoc-drawer__cta:focus-visible { background:#5e1f1f; }
@@ -1215,6 +1233,22 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 @media (max-width: 900px) {
   .ntgoc-nav { display: none; }
   .ntgoc-drawer { display: block; }
+  /* Two things about the header have to give way for a full-screen panel that
+     lives inside it.
+
+     A backdrop-filter makes an element the containing block for any fixed
+     descendant, so the blur was quietly anchoring the panel to the header
+     rather than the viewport — it opened 155px down the screen. The header's
+     background is rgba(...,.94), all but opaque, so the blur is no loss here.
+
+     And z-index:40 opens a stacking context, which caps everything inside it
+     — panel and ✕ included — below the draft banner's deliberate z-index:100.
+     The banner stayed on top of the open menu and swallowed taps meant for
+     the ✕. Raising the header above it also means the header now passes over
+     the banner as the page scrolls, rather than under it, which is what a
+     sticky header should do anyway. The banner is untouched and returns the
+     moment the menu closes. */
+  .ntgoc-header { backdrop-filter: none; z-index: 110; }
   /* The header stays one row: seal, name, hamburger. .ntgoc-header-inner also
      carries .ntgoc-flex, which wraps below 640px — that drops the hamburger
      onto a second line at the LEFT of the header, and the panel's right:0
