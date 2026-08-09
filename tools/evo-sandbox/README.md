@@ -116,6 +116,11 @@ lose the same afternoon.
   `core/storage/cache/`.** Clear the wrong one after writing to the tables and
   `siteCache.idx.php` keeps a pre-seed alias listing: every new page 404s while
   the CMS quietly serves the default document instead. Nothing logs it.
+- **`/manager/` returns 404 to `curl` and 200 to a browser.** Not a fault in the
+  sandbox: `manager/includes/accesscontrol.inc.php:6` 404s, with an empty body
+  and no log line, any request that arrives without an `Accept-Language` header.
+  It is a crude bot guard, and every browser sends one. Add
+  `-H 'Accept-Language: en'` when testing the manager from the command line.
 - **`ext-readline` is deliberately not built** into the 3.x image. On PHP 8.3 its
   configure insists on libedit, which then fails to compile. Nothing here needs
   it, and its absence turns a bad installer argument into an immediate error
