@@ -178,7 +178,7 @@ body never scrolls sideways.
 
 ### Keyboard
 
-37 focusable elements on the contact page; **0 without a visible focus
+36 focusable elements on the contact page; **0 without a visible focus
 indicator** (3px gold outline, 2px offset). The bookstore category filters were
 `<div>`s in the design and are now real `<button>`s with `aria-pressed`, so the
 filter is fully keyboard-operable — it was not before.

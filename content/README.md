@@ -10,7 +10,7 @@ the Claude Design source does not cover.
 
 | File | Injected into |
 |---|---|
-| `visit-sections.html` | `visit.html`, between the Sunday-morning timeline and the FAQ |
+| `visit-sections.html` | `visit.html`, between the Sunday-morning timeline and the directions block |
 
 ## Why it is not in `design-src/`
 

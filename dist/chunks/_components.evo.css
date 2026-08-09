@@ -273,7 +273,6 @@
 .ntgoc-s1d1c6d { font-size:18px; line-height:1.7; color:#4a443c; margin:0; max-width:640px; text-wrap:pretty; }
 .ntgoc-s0b90e6 { max-width:1240px; margin:0 auto; padding:88px 40px 40px; }
 .ntgoc-s2ab6d1 { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; margin-bottom:56px; }
-.ntgoc-sc5139b { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.1; margin:0 0 22px; color:#3a1414; }
 .ntgoc-s2ee8c9 { border:1px solid #ccbda4; background:#ece3d5; padding:30px 28px; }
 .ntgoc-s8dc162 { display:flex; gap:14px; flex-wrap:wrap; margin:0 0 44px; }
 .ntgoc-s9d514c { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
@@ -298,6 +297,7 @@
 .ntgoc-s3e141a:hover, .ntgoc-s3e141a:focus-visible { border-color:#7d2b2b; }
 .ntgoc-s6bbafd { max-width:1240px; margin:0 auto; padding:78px 40px; }
 .ntgoc-s1b9065 { display:grid; grid-template-columns:380px minmax(0,1fr); gap:70px; align-items:start; }
+.ntgoc-sc5139b { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.1; margin:0 0 22px; color:#3a1414; }
 .ntgoc-s1b565b { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.45; color:#3a1414; margin:0; max-width:24ch; text-wrap:pretty; }
 .ntgoc-sfffbe7 { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:34px 0 14px; color:#3a1414; }
 .ntgoc-s2c8bd0 { font-size:16px; line-height:1.75; color:#5b5449; margin:0 0 34px; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty; }
@@ -322,10 +322,12 @@
 .ntgoc-s7e6260 { margin:0 0 34px; }
 .ntgoc-s7e1f7a { cursor:pointer; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
 .ntgoc-s7e1f7a:hover, .ntgoc-s7e1f7a:focus-visible { border-color:#7d2b2b; }
+.ntgoc-s41b435 { border:1px solid #ccbda4; background:#f6f1e8; padding:30px 28px; max-width:62ch; margin:0 0 34px; }
+.ntgoc-sa5b838 { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px; }
+.ntgoc-s39e4b7 { margin:0; }
 .ntgoc-saf13f7 { max-width:62ch; margin:0 0 46px; }
 .ntgoc-s24507e { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.45; color:#3a1414; margin:0 0 22px; max-width:24ch; text-wrap:pretty; }
 .ntgoc-sedce60 { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px; }
-.ntgoc-s39e4b7 { margin:0; }
 .ntgoc-s33ba85 { height:230px; display:flex; align-items:center; justify-content:center; background:#ece3d5; border:1px solid #ccbda4; color:#6c6458; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
 .ntgoc-s3a42b6 { padding-top:16px; }
 .ntgoc-s78cf3e { font-family:Newsreader, serif; font-size:22px; color:#3a1414; line-height:1.2; margin-bottom:6px; }
@@ -333,6 +335,7 @@
 .ntgoc-s1c975a { font-family:Newsreader, serif; font-style:italic; font-size:15.5px; line-height:1.6; color:#6c6458; margin:10px 0 0; }
 .ntgoc-sb515c6 { font-family:Newsreader, serif; font-style:italic; font-size:15px; line-height:1.7; color:#6c6458; margin:22px 0 0; max-width:62ch; }
 .ntgoc-s41056f { border:1px solid #ccbda4; background:#ece3d5; padding:30px 28px; margin-top:46px; max-width:62ch; }
+.ntgoc-s1d9bb6 { font-family:Newsreader, serif; font-style:italic; font-size:21px; line-height:1.5; color:#3a1414; margin:0; max-width:40ch; text-wrap:pretty; }
 .ntgoc-s4c1d10 { margin:0 0 44px; }
 .ntgoc-s670710 { border:1px solid #ccbda4; background:#ece3d5; }
 .ntgoc-see3dce { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:32px; }
@@ -341,10 +344,6 @@
 .ntgoc-s1c8822 { cursor:pointer; display:inline-block; background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-s1c8822:hover, .ntgoc-s1c8822:focus-visible { background:#5e1f1f; }
 .ntgoc-s31095f { font-size:16px; line-height:1.75; color:#5b5449; margin:46px 0 0; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty; }
-.ntgoc-s79d672 { max-width:1240px; margin:0 auto; padding:84px 40px; }
-.ntgoc-sf33ab5 { font-family:Newsreader, serif; font-weight:400; font-size:38px; margin:0 0 44px; color:#3a1414; }
-.ntgoc-sdec085 { display:grid; grid-template-columns:repeat(2, 1fr); gap:44px 70px; }
-.ntgoc-body-lg { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0; }
 .ntgoc-sa06efe { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:70px; align-items:center; }
 .ntgoc-s512195 { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:20px; }
 .ntgoc-s71f981 { font-family:Newsreader, serif; font-weight:400; font-size:36px; margin:0 0 20px; color:#3a1414; }
@@ -439,7 +438,6 @@
 .ntgoc-sb1429f { background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
 .ntgoc-sbf4407 { font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414; }
 .ntgoc-sa08ba0 { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
-.ntgoc-sa5b838 { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px; }
 .ntgoc-s7b2878 { font-size:14px; }
 .ntgoc-see2825 { font-size:12.5px; color:#6d6358; margin-top:16px; font-style:italic; }
 .ntgoc-sc38b6b { margin-top:76px; }
@@ -493,8 +491,10 @@
 .ntgoc-s7bf429 { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.94), rgba(58,20,20,.45)); }
 .ntgoc-sa29d42 { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.08; margin:0 0 20px; color:#faf5ec; max-width:14ch; }
 .ntgoc-s8e0243 { font-size:17.5px; line-height:1.7; color:#dcccb4; margin:0; max-width:560px; }
+.ntgoc-s79d672 { max-width:1240px; margin:0 auto; padding:84px 40px; }
 .ntgoc-sc14cdf { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-bottom:60px; }
 .ntgoc-sbaaa79 { background:#f6f1e8; padding:34px 28px; }
+.ntgoc-body-lg { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0; }
 .ntgoc-sc5855f { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; }
 .ntgoc-s19d3a5 { font-family:Newsreader, serif; font-weight:400; font-size:34px; margin:0 0 20px; color:#3a1414; }
 .ntgoc-s886a0d { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 16px; text-wrap:pretty; }
