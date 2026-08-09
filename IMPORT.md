@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 56 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 57 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -111,7 +111,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 56 files.
+   are corrected together. Do **not** hand-edit paths in 57 files.
 
 The thirteen images to upload:
 
@@ -227,7 +227,7 @@ Then the page content, grouped by page:
 | Page | Chunks, in order |
 |---|---|
 | **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeFirstSunday`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo` |
-| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
+| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorEssentials`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
@@ -315,6 +315,11 @@ the site looks like on a phone. Do not import it.
 >
 > Import them **in the order listed above**. They read as a sequence — dress,
 > language, children, Sunday School, the greeters, arriving.
+>
+> **`ntgocVisitorFirstSunday` is now a collapsed row too**, titled "Sunday
+> Morning, Step by Step". The times a visitor needs are in
+> `ntgocVisitorEssentials` above it, which is why collapsing the schedule does
+> not hide anything essential — import the two together or neither.
 >
 > **Each of the eight is a collapsed accordion row.** The markup is a plain
 > `<details>` / `<summary>` — no JavaScript, so it keeps working in EVO exactly

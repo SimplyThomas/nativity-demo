@@ -131,6 +131,59 @@
 a.ntgoc-faith-card__more:hover,
 a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 
+/* --- Visit page hero and essentials ----------------------------------
+   The hero used to be a title alone in a large parchment band, and the
+   practical facts a visitor needs — when, where, which door — were spread
+   between a paragraph, a note card and the directions block at the very
+   bottom. The lede and the two actions now sit in the hero, and the three
+   facts sit directly under it, so the answers are visible before anything
+   has to be opened.
+   -------------------------------------------------------------------- */
+.ntgoc-visit-lede {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #4a443c;
+  margin: 0;
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+.ntgoc-visit-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+
+.ntgoc-essentials__grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 40px 44px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 44px;
+  align-items: start;
+}
+.ntgoc-essentials__label {
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #736249;
+  margin-bottom: 16px;
+}
+.ntgoc-essentials__value {
+  font-family: Newsreader, serif;
+  font-size: 23px;
+  line-height: 1.45;
+  color: #3a1414;
+}
+.ntgoc-essentials__note {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #6c6458;
+  margin: 12px 0 0;
+  max-width: 34ch;
+  text-wrap: pretty;
+}
+
+/* The arrival note keeps the card, but no longer sits in a two-column grid
+   beside a paragraph that has moved up into the hero. */
+.ntgoc-schedule-note { max-width: 460px; margin: 0 0 44px; }
+
 /* --- Visit page accordion -------------------------------------------
    Eight sections, each a question a visitor actually asks, collapsed by
    default so the page is scannable rather than 23 screens of prose. Plain
@@ -385,10 +438,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-s8f2c70 { background:#ece3d5; border-bottom:1px solid #ded2be; }
 .ntgoc-s60afb9 { max-width:1240px; margin:0 auto; padding:82px 40px 74px; }
 .ntgoc-s00593a { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.1; margin:0 0 22px; color:#3a1414; max-width:15ch; }
-.ntgoc-s0b90e6 { max-width:1240px; margin:0 auto; padding:88px 40px 40px; }
-.ntgoc-s2ab6d1 { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; margin-bottom:56px; }
 .ntgoc-s2ee8c9 { border:1px solid #ccbda4; background:#ece3d5; padding:30px 28px; }
-.ntgoc-s8dc162 { display:flex; gap:14px; flex-wrap:wrap; margin:0 0 44px; }
 .ntgoc-s9d514c { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-s9d514c:hover, .ntgoc-s9d514c:focus-visible { background:#5e1f1f; }
 .ntgoc-s27f26e { border:1px solid #ccbda4; color:#5b5449; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
@@ -912,4 +962,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* The three essentials stack rather than squeeze. */
+@media (max-width: 900px) {
+  .ntgoc-essentials__grid { grid-template-columns: 1fr !important; gap: 30px !important; padding-top: 32px; padding-bottom: 34px; }
 }

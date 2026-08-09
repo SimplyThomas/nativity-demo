@@ -55,9 +55,10 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocTopBar` | 705 b | 15 pages | yes (3) |
 | ☐ | `ntgocVisitorChildren` | 2465 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1537 b | 1 page | yes (1) |
-| ☐ | `ntgocVisitorFirstSunday` | 6141 b | 1 page | yes (3) |
+| ☐ | `ntgocVisitorEssentials` | 1268 b | 1 page | — |
+| ☐ | `ntgocVisitorFirstSunday` | 5761 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorGreeters` | 2876 b | 1 page | — |
-| ☐ | `ntgocVisitorHero` | 236 b | 1 page | — |
+| ☐ | `ntgocVisitorHero` | 873 b | 1 page | yes (2) |
 | ☐ | `ntgocVisitorLanguage` | 6631 b | 1 page | — |
 | ☐ | `ntgocVisitorSundaySchool` | 1656 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorVideos` | 3561 b | 1 page | — |

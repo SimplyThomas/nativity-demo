@@ -23,7 +23,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-47 links across 20 chunks.
+47 links across 21 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -45,7 +45,8 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocSiteHeader` | index, faith, calendar, ministries, about, contact, visit | ☐ |
 | `ntgocTopBar` | bookstore, hall, mobile-views | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
-| `ntgocVisitorFirstSunday` | contact, calendar, bookstore | ☐ |
+| `ntgocVisitorFirstSunday` | bookstore | ☐ |
+| `ntgocVisitorHero` | contact, calendar | ☐ |
 | `ntgocVisitorSundaySchool` | ministries | ☐ |
 
 > Search each chunk for `data-ntgoc-link`. External links (the Archdiocese,
