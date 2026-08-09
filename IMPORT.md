@@ -516,8 +516,24 @@ nervous visitors; it is not worth publishing a parishioner's face without asking
   `@ntgoc.org` addresses. Replaced with neutral placeholders — publishing named
   volunteers and harvestable addresses on an unofficial draft is not a volunteer's
   call. Restore real names only with each person's agreement.
-- **Fr. John's mobile number.** It is on the live site's contact page; it is not
-  in this draft. Re-publishing a personal number was not ours to decide.
+- **Fr. John's mobile number — removed from the project entirely (9 Aug 2026).**
+  It is on the live site's contact page. It was never rendered into any page of
+  this draft, but the digits were written down in two working files:
+  `data/parish-facts.json`, which recorded it as withheld, and the retired
+  renderer's find-and-replace rule. **This repository is public**, so a number
+  sitting in a data file is published whether or not a page displays it. Both
+  are now redacted. Every phone number on the site is the parish office line,
+  (540) 548-2665.
+
+  > **It is still in the git history.** Redacting a file does not remove it from
+  > the commits that carried it — it entered at `577a085` and is readable in
+  > every commit since. Erasing it for good means rewriting that history and
+  > force-pushing, which rewrites every commit id and has to be co-ordinated
+  > with anyone else holding a clone. **That is a decision for the parish, not
+  > for a volunteer.** Until it is made, treat the number as still published,
+  > and note that GitHub may retain unreachable objects even after a rewrite —
+  > the only certain remedy is asking GitHub Support to purge them, or deleting
+  > and recreating the repository.
 
 ---
 

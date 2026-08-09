@@ -121,8 +121,10 @@ const CORRECTIONS = [
   // Address spelling normalisation.
   { find: /Spotswood Furnance/g, repl: 'Spotswood Furnace' },
 
-  // Never republish the priest's personal mobile number.
-  { find: /\(540\) 645-1427/g, repl: '(540) 548-2665' },
+  // Never republish the priest's personal mobile number. The number itself was
+  // redacted from this file on 2026-08-09 at the parish's request — this rule is
+  // kept only as a record that the renderer swapped it for the office number.
+  // { find: /<priest's mobile>/g, repl: '(540) 548-2665' },
 
   // Sunday times, CONFIRMED by the parish 2026-08-08: Orthros 9:00 a.m.,
   // Divine Liturgy 10:00 a.m. The design's Visit timeline was right; the live

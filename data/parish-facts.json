@@ -26,10 +26,10 @@
       "source": "/contact-us/"
     },
     "priestCell": {
-      "value": "(540) 645-1427",
-      "status": "VERIFIED_BUT_WITHHELD",
+      "value": "REDACTED \u2014 not recorded here",
+      "status": "WITHHELD",
       "source": "/contact-us/",
-      "note": "Fr. John's personal cell. Published on the live site, but deliberately NOT rendered into this draft. Not our call to re-publish a personal number on an unofficial site."
+      "note": "Fr. John's personal mobile. It is published on the live parish site and was never rendered into this draft. On 2026-08-09 the parish asked that it be removed from the project completely, so the digits are no longer written down here either \u2014 this repository is public, and a number sitting in a data file is published whether or not a page displays it. If the number is ever needed, take it from the parish office, not from this file. NOTE: it remains in this repository's git history; see IMPORT.md."
     },
     "clergy": {
       "value": "Rev. Protopresbyter John C. Katsoulis",
