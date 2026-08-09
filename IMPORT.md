@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 57 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 56 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -111,7 +111,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 57 files.
+   are corrected together. Do **not** hand-edit paths in 56 files.
 
 The thirteen images to upload:
 
@@ -227,7 +227,7 @@ Then the page content, grouped by page:
 | Page | Chunks, in order |
 |---|---|
 | **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeFirstSunday`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo` |
-| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorOnThisPage`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
+| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
@@ -316,13 +316,17 @@ the site looks like on a phone. Do not import it.
 > Import them **in the order listed above**. They read as a sequence — dress,
 > language, children, Sunday School, the greeters, arriving.
 >
-> **`ntgocVisitorOnThisPage` is the exception:** it is a jump list, and every
-> link in it points at an `id` on one of the other chunks. Import it last, and
-> if the parish decides to leave a section out, delete that section's line from
-> the list — otherwise the link goes nowhere. The ids are `#ntgoc-sunday-morning`,
-> `#ntgoc-language`, `#ntgoc-wear`, `#ntgoc-bring`, `#ntgoc-children`,
-> `#ntgoc-sunday-school`, `#ntgoc-greeters`, `#ntgoc-when-you-arrive`,
-> `#ntgoc-videos` and `#ntgoc-directions`.
+> **Each of the eight is a collapsed accordion row.** The markup is a plain
+> `<details>` / `<summary>` — no JavaScript, so it keeps working in EVO exactly
+> as it does here. Keep the `<summary>` as the first child of the `<details>`
+> when editing; that is what makes the browser announce the row as expandable.
+> Two of them, the Creed and the Lord's Prayer, are disclosures *inside* the
+> Language row, which is legal and intended.
+>
+> **A consequence worth knowing before import:** text inside a closed row is
+> not reached by the browser's find-on-page in Firefox or Safari, and the
+> automated accessibility audit cannot see it either — the four YouTube embeds
+> now sit behind a closed row and no longer appear in the axe report.
 
 > **`ntgocVisitorFaqAndDirections` no longer exists.** It has been split: the
 > FAQ card was removed and the block is now `ntgocVisitorDirections`. **If you

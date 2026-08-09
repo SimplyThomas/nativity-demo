@@ -53,17 +53,16 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocSiteFooter` | 3267 b | 15 pages | yes (10) |
 | ☐ | `ntgocSiteHeader` | 1867 b | 15 pages | yes (7) |
 | ☐ | `ntgocTopBar` | 705 b | 15 pages | yes (3) |
-| ☐ | `ntgocVisitorChildren` | 2325 b | 1 page | — |
+| ☐ | `ntgocVisitorChildren` | 2465 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1537 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorFirstSunday` | 6141 b | 1 page | yes (3) |
-| ☐ | `ntgocVisitorGreeters` | 2726 b | 1 page | — |
+| ☐ | `ntgocVisitorGreeters` | 2876 b | 1 page | — |
 | ☐ | `ntgocVisitorHero` | 236 b | 1 page | — |
-| ☐ | `ntgocVisitorLanguage` | 6491 b | 1 page | — |
-| ☐ | `ntgocVisitorOnThisPage` | 1060 b | 1 page | — |
-| ☐ | `ntgocVisitorSundaySchool` | 1501 b | 1 page | yes (1) |
-| ☐ | `ntgocVisitorVideos` | 3404 b | 1 page | — |
-| ☐ | `ntgocVisitorWhatToBring` | 1667 b | 1 page | — |
-| ☐ | `ntgocVisitorWhatToWear` | 2308 b | 1 page | — |
-| ☐ | `ntgocVisitorWhenYouArrive` | 2362 b | 1 page | — |
+| ☐ | `ntgocVisitorLanguage` | 6631 b | 1 page | — |
+| ☐ | `ntgocVisitorSundaySchool` | 1656 b | 1 page | yes (1) |
+| ☐ | `ntgocVisitorVideos` | 3561 b | 1 page | — |
+| ☐ | `ntgocVisitorWhatToBring` | 1829 b | 1 page | — |
+| ☐ | `ntgocVisitorWhatToWear` | 2448 b | 1 page | — |
+| ☐ | `ntgocVisitorWhenYouArrive` | 2509 b | 1 page | — |
 
 See `_link-map.md` for the links, and `_components.evo.css` for the stylesheet.
