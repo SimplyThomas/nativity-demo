@@ -18,16 +18,17 @@ compete with the real site in search, and not to be mistaken for it.
 | Path | What it is |
 |---|---|
 | `design-src/` | The imported Claude Design files, **unmodified**. The source of truth for how the site looks. Read `design-src/README.md` first. |
-| `tools/render.mjs` | Turns the design into 12 static HTML pages + `components.css`. |
+| `content/` | Parish-authored copy the design does not contain — currently the six middle sections of the Visit page. Survives a design re-import. |
+| `tools/render.mjs` | Turns the design (plus `content/`) into 12 static HTML pages + `components.css`. |
 | `tools/extract-chunks.mjs` | Turns those pages into paste-ready Evolution CMS chunks. |
-| `dist/chunks/` | **Generated.** 35 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
+| `dist/chunks/` | **Generated.** 42 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
 | `data/parish-facts.json` | Every parish fact, its source URL, and whether it is verified, corrected, or withheld. |
 | `IMPORT.md` | Step-by-step import instructions for a volunteer with no command line. |
 | `assets/css/components.css` | **Generated.** Ships to EVO. |
 | `assets/css/provisional.css` | Demo only. Contains a reset — never import it. |
 
-The twelve `.html` files at the repo root are **generated**. Edit the design, not
-the output.
+The twelve `.html` files at the repo root are **generated**. Edit the design, or
+`content/` for the parish-authored sections — never the output.
 
 ## Building
 
@@ -57,8 +58,11 @@ tools. The built site works if you open `index.html` from disk.
   4.1.3 template the live site runs on.
 - **Class names are content-hashed and stable,** so re-importing from Claude
   Design produces a readable diff rather than renaming all 359 classes.
-- **No unsourced parish fact goes unflagged.** 22 `<!-- TODO: verify -->` markers
+- **No unsourced parish fact goes unflagged.** 33 `<!-- TODO: verify -->` markers
   remain. See "What still has to be verified" in `IMPORT.md`.
+- **Nobody's face or name goes up without asking.** The Visit page's "Faces You
+  Might See" row ships as empty frames; the Parish Council block ships without
+  names. Both are filled in only with each person's permission.
 
 ## Status
 

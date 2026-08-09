@@ -163,6 +163,11 @@ rather than numbering.
 - **If a new view appears**, add it to `PAGES` and `CHUNK_NAMES` in
   `tools/render.mjs`. The renderer will not invent a filename for a route it has
   never been told about.
+- **The Visit view now has parish copy spliced into it** from
+  `content/visit-sections.html` (see `content/README.md`), and three of its FAQ
+  answers are rewritten to point at those sections. If a re-import changes that
+  FAQ copy, the build **fails loudly** — `applyVisitFaqEdits` throws rather than
+  leave the page contradicting itself. Update the pattern, don't delete the check.
 - **If new parish facts appear**, add them to `data/parish-facts.json` with a
   source URL, or tag them `<!-- TODO: verify -->`. Never let an unsourced claim
   through unflagged — that is the one thing this project exists to prevent.
