@@ -46,6 +46,13 @@
       "designSaid": "Tuesday – Friday, 9:00 a.m. – 2:00 p.m.",
       "note": "Design was an hour short. Live site: 'Normal office hours at the church are Tuesday through Friday from 9:00 - 3:00.'"
     },
+    "divineLiturgyBook": {
+      "value": "The Divine Liturgy book is in the pews. Greeters do not hand one out.",
+      "status": "CORRECTED_BY_PARISH",
+      "source": "Corrected directly by the parish, 2026-08-08.",
+      "note": "The draft said in six places that a greeter would give a visitor a complimentary prayer book \u2014 in the design's own 'Your First Sunday' copy (Home and Visit), and in the parish-authored Language, What Should I Bring, Faces You Might See and When You Arrive sections. All six now say the book is waiting in the pew. Worth re-checking after any copy change: it is the kind of small, friendly-sounding detail that gets reintroduced by accident.",
+      "affects": ["index.html", "visit.html"]
+    },
     "sundayServices": {
       "value": "Orthros 9:00 a.m.; Divine Liturgy 10:00 a.m.",
       "status": "CONFIRMED_BY_PARISH",

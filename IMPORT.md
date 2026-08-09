@@ -204,9 +204,10 @@ the site looks like on a phone. Do not import it.
 > statements on the site — see below — and `ntgocVisitorGreeters` must not be
 > imported at all until real photographs and permissions exist.
 >
-> Import them **in the order listed above**. `ntgocVisitorChildren` links to
-> `#ntgoc-sunday-school`, an anchor on `ntgocVisitorSundaySchool`; import the one
-> without the other and that link points at nothing.
+> Import them **in the order listed above**. They read as a sequence — dress,
+> language, children, Sunday School, the greeters, arriving — and no chunk
+> depends on an anchor in another, so a missing one degrades quietly rather than
+> leaving a dead link.
 
 > **`ntgocVisitorFaqAndDirections` no longer exists.** It has been split: the
 > FAQ card was removed and the block is now `ntgocVisitorDirections`. **If you
