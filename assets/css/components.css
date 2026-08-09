@@ -268,7 +268,6 @@
 .ntgoc-s1d1c6d { font-size:18px; line-height:1.7; color:#4a443c; margin:0; max-width:640px; text-wrap:pretty; }
 .ntgoc-s0b90e6 { max-width:1240px; margin:0 auto; padding:88px 40px 40px; }
 .ntgoc-s2ab6d1 { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; margin-bottom:56px; }
-.ntgoc-sc5139b { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.1; margin:0 0 22px; color:#3a1414; }
 .ntgoc-s2ee8c9 { border:1px solid #ccbda4; background:#ece3d5; padding:30px 28px; }
 .ntgoc-s8dc162 { display:flex; gap:14px; flex-wrap:wrap; margin:0 0 44px; }
 .ntgoc-s9d514c { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
@@ -293,6 +292,7 @@
 .ntgoc-s3e141a:hover, .ntgoc-s3e141a:focus-visible { border-color:#7d2b2b; }
 .ntgoc-s6bbafd { max-width:1240px; margin:0 auto; padding:78px 40px; }
 .ntgoc-s1b9065 { display:grid; grid-template-columns:380px minmax(0,1fr); gap:70px; align-items:start; }
+.ntgoc-sc5139b { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.1; margin:0 0 22px; color:#3a1414; }
 .ntgoc-s1b565b { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.45; color:#3a1414; margin:0; max-width:24ch; text-wrap:pretty; }
 .ntgoc-sfffbe7 { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:34px 0 14px; color:#3a1414; }
 .ntgoc-s2c8bd0 { font-size:16px; line-height:1.75; color:#5b5449; margin:0 0 34px; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty; }

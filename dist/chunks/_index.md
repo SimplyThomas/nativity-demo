@@ -40,7 +40,7 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocTopBar` | 640 b | 12 pages |
 | `ntgocVisitorChildren` | 2432 b | 1 page |
 | `ntgocVisitorDirections` | 1515 b | 1 page |
-| `ntgocVisitorFirstSunday` | 6174 b | 1 page |
+| `ntgocVisitorFirstSunday` | 6115 b | 1 page |
 | `ntgocVisitorGreeters` | 2778 b | 1 page |
 | `ntgocVisitorHero` | 422 b | 1 page |
 | `ntgocVisitorLanguage` | 6538 b | 1 page |
