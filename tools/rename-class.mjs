@@ -139,7 +139,15 @@ function rename(pairs) {
 
 /* ---------------- dispatch ---------------- */
 
-if (args[0] === '--suggest') suggest(Number(args[1]) || 15);
+if (args[0] === '--from-file') {
+  // Batch mode. Only worth using with `npm run snap` either side of it: a large
+  // rename is safe precisely because the snapshot can prove nothing moved.
+  if (!args[1]) { console.error('  usage: --from-file <old-to-new.json>'); process.exit(1); }
+  const map = JSON.parse(readFileSync(args[1], 'utf8'));
+  const pairs = Object.entries(map);
+  console.log(`  ${pairs.length} rename(s) from ${args[1]}`);
+  rename(pairs);
+} else if (args[0] === '--suggest') suggest(Number(args[1]) || 15);
 else if (args[0] === '--where') {
   if (!args[1]) { console.error('  usage: --where <class>'); process.exit(1); }
   where(args[1].replace(/^\./, ''));

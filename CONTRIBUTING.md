@@ -109,25 +109,24 @@ the link to the page you are on, so it is stripped from the source and
 re-applied per page. Do not hand-copy the shell between files — CI fails if
 fourteen pages agree and one does not.
 
-### Renaming a cryptic class — `npm run rename`
+### Renaming a class — `npm run rename`
 
-Most classes are still named `.ntgoc-s504123`. Those are content hashes left
-over from when the pages were generated; they made re-import diffs stable, and
-that upstream is gone, so now they are just unreadable.
+Every class now has a descriptive name; the `.ntgoc-s504123` content hashes
+left over from the generated era are gone.
 
 ```sh
-npm run rename -- --suggest              # the worst offenders, ranked by use
-npm run rename -- --where ntgoc-s504123  # what does it style? which pages?
-npm run rename -- ntgoc-s504123 ntgoc-hero-icon
+npm run rename -- --suggest              # any hashes that creep back in
+npm run rename -- --where ntgoc-card     # what does it style? which pages?
+npm run rename -- ntgoc-card ntgoc-panel
+npm run rename -- --from-file map.json   # batch, {"old":"new"}
 ```
 
 It rewrites every page, `components.css` and the JS together, re-extracts the
-chunks and runs lint — so a rename that breaks something fails immediately
-instead of silently unstyling a page.
+chunks and runs lint, so a rename that breaks something fails immediately.
 
-**Rename opportunistically, never in bulk.** When you are already editing a
-block, rename its classes in the same commit. A 400-class sweep would be an
-unreviewable diff, and layout breakage would be invisible inside it.
+Bulk renames are safe **because `npm run snap` can prove them cosmetic** — the
+338-class sweep was verified as 0 changes across 4648 elements. Run the
+snapshot either side of any large rename.
 
 > **A trap worth knowing:** `git checkout -- '*.html'` reverts the markup but
 > **not** `components.css`, which leaves the two halves of a rename out of step

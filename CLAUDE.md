@@ -88,11 +88,11 @@ something that should not be published.
 - **Dropping a closing tag.** Browsers hide it; the extracted chunk is broken and
   that is what gets pasted into the CMS. Lint checks tag balance.
 - **Editing `dist/chunks/`.** Generated. Regenerate from the pages instead.
-- **`.ntgoc-s504123`-style names.** Content hashes from the generated era, ~362
-  left. `npm run rename -- --where <class>` shows what one styles;
-  `npm run rename -- <old> <new>` rewrites pages, CSS and JS together. Batches
-  are safe now that `npm run snap` can prove a rename moved nothing — verify with
-  it rather than by eye, since you cannot see the page.
+- **Class names are all semantic now** (`ntgoc-council-name`, `ntgoc-footer-address`).
+  The old `.ntgoc-s504123` content hashes are gone. Keep new ones descriptive;
+  `npm run rename -- <old> <new>` rewrites pages, CSS and JS together, and
+  `npm run snap` can prove a rename moved nothing — verify with it rather than
+  by eye, since you cannot see the page.
 
 ---
 
