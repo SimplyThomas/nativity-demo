@@ -58,10 +58,27 @@ every push and pull request.
 Two further checks run in CI and are worth running locally before a big change:
 
 ```sh
+npm run snap           # layout + colour regression (the only check that sees layout)
 npm run audit:a11y     # axe-core, WCAG 2.1 AA, 12 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
-npm run check          # all three
+npm run check          # all of the above
+npm run links          # outbound links still resolve (monthly in CI, never gates)
 ```
+
+### `npm run snap` — the one that sees layout
+
+`lint` and `axe` check structure and semantics. Neither notices a collapsed
+grid or a hero pushed off-screen, which is the breakage nobody spots in a diff.
+`snap` records the geometry and key computed styles of every element and
+compares them against `tests/layout-baseline.json`.
+
+It records a fingerprint, not pixels — font rendering differs between a laptop
+and a CI runner, so pixel baselines would fail constantly. Keys exclude the
+class name, so a pure rename can be *proved* cosmetic: the 28-class rename was
+verified as 0 changes across 3616 elements.
+
+If a layout change is intended: `npm run snap -- --update`, then commit the
+baseline in the same commit as the change that caused it.
 
 ### About the TODO markers
 

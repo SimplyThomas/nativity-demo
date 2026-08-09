@@ -27,7 +27,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 26
 
       # tools/lint.mjs has no dependencies, so it runs without an install.
       # It checks: EVO reserved sequences, chunk delimiters, noindex + draft
@@ -55,7 +55,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 26
           cache: npm
 
       - run: npm ci

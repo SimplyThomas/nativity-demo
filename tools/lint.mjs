@@ -287,6 +287,22 @@ for (const rel of PAGES) {
       'no TODO: verify markers left. If facts were confirmed, record them in data/parish-facts.json; ' +
       'if they were merely deleted, unsourced claims may now be presented as fact.');
   }
+
+  // The fact record is the only defence against an unsourced claim reaching a
+  // parish page. If it stops parsing, nothing downstream will notice.
+  if (!existsSync(join(ROOT, 'data/parish-facts.json'))) {
+    err('facts-missing', 'data/parish-facts.json', 'missing — this is the record of what is verified');
+  } else {
+    try {
+      const facts = JSON.parse(read('data/parish-facts.json'));
+      if (!facts.facts || typeof facts.facts !== 'object') {
+        err('facts-shape', 'data/parish-facts.json', 'has no "facts" object');
+      }
+    } catch (e) {
+      err('facts-invalid', 'data/parish-facts.json', `is not valid JSON: ${String(e.message).slice(0, 80)}`);
+    }
+  }
+  console.log(`  ${todos} TODO: verify marker(s) across ${PAGES.length} pages — see IMPORT.md\n`);
 }
 
 /* ------------------------------------------------------------------ *
@@ -313,6 +329,39 @@ for (const rel of PAGES) {
     if (/^\s*node tools\/archive\/render\.mjs\s*$/m.test(body) && !/SCRATCH|scratch|do not run|Do not run/i.test(body)) {
       err('stale-doc', rel, 'shows a bare `node tools/archive/render.mjs` command without warning that it overwrites every page');
     }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * 8c. Cross-references inside a page must resolve
+ *
+ * The retired renderer had a guard that THREW if the Visit FAQ stopped matching
+ * the sections it pointed at, rather than let the page contradict itself. That
+ * guard was lost when the renderer was archived, and the Visit page is the most
+ * actively rewritten page here. Same job, done structurally: every in-page
+ * anchor must have a target, and every jump-list entry must lead somewhere.
+ * ------------------------------------------------------------------ */
+for (const rel of PAGES) {
+  const body = read(rel);
+  const ids = new Set([...body.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]));
+  for (const m of body.matchAll(/href="#([^"]+)"/g)) {
+    if (!ids.has(m[1])) {
+      err('dead-anchor', rel, `href="#${m[1]}" has no matching id on the page`);
+    }
+  }
+  for (const m of body.matchAll(/\saria-labelledby="([^"]+)"/g)) {
+    for (const id of m[1].split(/\s+/)) {
+      if (!ids.has(id)) err('dead-aria', rel, `aria-labelledby="${id}" points at no element`);
+    }
+  }
+  for (const m of body.matchAll(/\saria-describedby="([^"]+)"/g)) {
+    for (const id of m[1].split(/\s+/)) {
+      if (!ids.has(id)) err('dead-aria', rel, `aria-describedby="${id}" points at no element`);
+    }
+  }
+  const dupes = [...body.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]);
+  for (const id of new Set(dupes)) {
+    if (dupes.filter(d => d === id).length > 1) err('duplicate-id', rel, `id="${id}" appears more than once`);
   }
 }
 

@@ -39,7 +39,14 @@ npm run check    # lint + accessibility + reflow (what CI runs)
 npm run shell    # propagate header/footer to all 12 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
+npm run snap     # layout/colour regression vs tests/layout-baseline.json
+npm run links    # do the outbound links still resolve? (monthly in CI)
 ```
+
+`npm run snap` is the only check that sees *layout*. You cannot look at the
+page; lint and axe check structure and semantics, not whether a grid collapsed.
+Run it after any CSS change. If a change is intended:
+`npm run snap -- --update`, then commit `tests/layout-baseline.json`.
 
 `npm run lint` needs no dependencies. The audits need `npm install`.
 
@@ -81,9 +88,11 @@ something that should not be published.
 - **Dropping a closing tag.** Browsers hide it; the extracted chunk is broken and
   that is what gets pasted into the CMS. Lint checks tag balance.
 - **Editing `dist/chunks/`.** Generated. Regenerate from the pages instead.
-- **`.ntgoc-s504123`-style names.** Content hashes from the generated era, ~394
-  left. Use `npm run rename -- --where <class>` to find out what one styles.
-  Rename opportunistically while editing a block; never in bulk.
+- **`.ntgoc-s504123`-style names.** Content hashes from the generated era, ~362
+  left. `npm run rename -- --where <class>` shows what one styles;
+  `npm run rename -- <old> <new>` rewrites pages, CSS and JS together. Batches
+  are safe now that `npm run snap` can prove a rename moved nothing — verify with
+  it rather than by eye, since you cannot see the page.
 
 ---
 
@@ -93,8 +102,8 @@ Do not claim work is complete without running `npm run lint`, and `npm run check
 for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
-Expected clean state: lint passes, 0 axe violations across 12 pages × 2
-viewports, reflow 12/12 at 320px.
+Expected clean state: lint passes, snapshot reports no layout or colour change,
+0 axe violations across 12 pages × 2 viewports, reflow 12/12 at 320px.
 
 ---
 

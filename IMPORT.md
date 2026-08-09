@@ -285,8 +285,11 @@ resource tree) and replace the placeholder with EVO's link syntax:
 <a href="[~12~]">Plan your first visit</a>
 ```
 
-Search each chunk for `data-ntgoc-link` — there is one per link, and the
-attribute value tells you which page it should point at. External links (the
+**`dist/chunks/_link-map.md` is the worksheet for this step.** It lists every
+page whose resource id you need, then every chunk containing a link and what it
+points at, with a tick box per chunk. `dist/chunks/_index.md` is the same idea
+for the chunks themselves. Work through those two files rather than hunting
+through the markup. External links (the
 Archdiocese, Square giving, the Google registration form, fredgreek.org) are real
 URLs already and need no change.
 

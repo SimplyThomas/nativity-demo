@@ -1,0 +1,33 @@
+name: external links
+
+# Checks that the outbound links still resolve: the parish site, the
+# Archdiocese, the Square giving pages, the Google registration form,
+# fredgreek.org and the YouTube embeds. These rot quietly, and a dead giving
+# link on a parish page is worse than no link at all.
+#
+# Scheduled rather than per-push: it depends on other people's servers, so it
+# must never block a commit.
+#
+# This workflow interpolates no expressions of any kind into any step.
+
+on:
+  schedule:
+    - cron: '17 6 1 * *'      # 06:17 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: Outbound links still resolve
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+
+      - name: Check
+        run: node tools/check-links.mjs
