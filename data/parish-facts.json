@@ -277,7 +277,13 @@
     ],
     "evoVersion": "1.4.x",
     "evoVersionStatus": "UNCONFIRMED",
-    "evoVersionNote": "Reported as 'pretty sure 1.4.x' by the project owner, 2026-08-08. Not verified against the manager's About screen or DIM. It matters: the chunk-call syntax this project relies on ({{chunkName}}, [~id~], [*tv*]) is the Evolution 1.x family. Evolution 3.x changes template/element handling, so if it turns out to be 3.x the IMPORT.md syntax needs rechecking. Confirm in the manager footer or Help -> About before importing."
+    "evoVersionNote": "Reported as 'pretty sure 1.4.x' by the project owner, 2026-08-08. Not verified against the manager's About screen or DIM. It matters: the chunk-call syntax this project relies on ({{chunkName}}, [~id~], [*tv*]) is the Evolution 1.x family. Evolution 3.x changes template/element handling, so if it turns out to be 3.x the IMPORT.md syntax needs rechecking. Confirm in the manager footer or Help -> About before importing.",
+    "cmsMajorVersion": {
+      "value": "Evolution CMS 1.4.x",
+      "status": "REPORTED",
+      "source": "Inference, 2026-08-09: the parish install was compared against a local Evolution CMS 1.4.18 and a local 3.5.7 running side by side (tools/evo-sandbox), and it matches the 1.4 manager. NOT read from Help -> About or confirmed by the Department of Internet Ministries.",
+      "note": "Strong evidence, but still inference \u2014 so IMPORT.md's \"reported as 1.4.x, but not confirmed\" caveat stands, and the About screen should still be checked before an import. What this does settle is that IMPORT.md is written against the right syntax. Worth recording either way: the tag syntax is identical in both versions \u2014 3.5.7 still implements {{ }}, [* *], [( )] and [~ ~] \u2014 so the chunks import unmodified even if the version turns out to be 3.x. The difference between the versions is how the manager presents Elements, not how pages parse."
+    }
   },
   "assetProvenance": {
     "_note": "One-time harvest from the live parish site on 2026-08-08, at the site owner's direction. Parish-owned unless noted.",

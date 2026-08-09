@@ -17,6 +17,12 @@ Visit page. One new violation appeared and was fixed (below); the manual-review
 count rose from 25 to 37 because that page now carries four video embeds and a
 scrolling row of portraits. Still **0 violations, and every page passing reflow.**
 
+**Re-checked 9 August 2026.** `npm run audit:reflow` now reports **17 of 17
+passing** at 320px, and axe still reports 0 violations across 32 page-runs. The
+"12 of 16" above is the 8 August state, kept as the record of it — CLAUDE.md's
+"Expected clean state" has said 16/16 for a while, so this line read as a
+regression that was not one.
+
 Reproduce it yourself:
 
 ```sh
