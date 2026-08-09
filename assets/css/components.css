@@ -517,6 +517,16 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-calendar-day { background:#f6f1e8; min-height:104px; padding:9px 10px; min-width:0; overflow:hidden; }
 .ntgoc-calendar-daynum { font-size:13px; color:#6c6458; margin-bottom:6px; }
 .ntgoc-calendar-event { background:#f2e5dd; border-left:2px solid #7d2b2b; padding:5px 7px; font-size:11.5px; line-height:1.35; color:#5e1f1f; }
+/* A day can hold more than one entry now that Sunday shows both Orthros and the
+   Liturgy, so they need separating. */
+.ntgoc-calendar-day__events { display:grid; gap:4px; }
+/* Divine service or other parish activity. Styled off the data attribute the
+   build writes, rather than a modifier class, so adding the parish's first
+   meeting or class to data/parish-calendar.json needs no CSS at all. In the
+   grid the colour is a hint; the week list on for-our-parish.html carries the
+   written label, and a parish entry here also announces itself to a screen
+   reader, so nothing is said by colour alone. */
+.ntgoc-calendar-event[data-ntgoc-kind="parish"] { background:#f3ecdc; border-left-color:#b08442; color:#5d4a20; }
 .ntgoc-calendar-grid-micro-caps { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:18px; }
 .ntgoc-calendar-grid-grid { display:grid; gap:0; border-top:1px solid #ded2be; }
 .ntgoc-calendar-grid-rule { padding:16px 0; border-bottom:1px solid #ded2be; }
@@ -781,6 +791,92 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-parish-life-agenda__note { font-size:14px; color:#c3b299; margin-top:4px; }
 .ntgoc-parish-life-agenda__time { font-size:14.5px; color:#dcccb4; }
 
+/* --- For Our Parish --------------------------------------------------
+   The parishioners' page. Everything else on this site is written for
+   someone deciding whether to come; this one is for the people already
+   here, so it is a board rather than a brochure: shorter measures, more
+   rows to the screen, and the things that change weekly at the top.
+
+   It reuses the site's cards, bands and small-caps links rather than
+   introducing a second visual language. What is new here is the week
+   list, the announcement item, and the dashed placeholder block — and
+   that last one is deliberately visible. An empty frame on a draft is a
+   request for something the parish has not supplied yet, the same
+   argument as .ntgoc-photoslot on Parish Life.
+   -------------------------------------------------------------------- */
+.ntgoc-our-parish-section { max-width:1240px; margin:0 auto; padding:72px 40px; }
+.ntgoc-our-parish-head { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:32px; }
+.ntgoc-our-parish-h2 { font-family:Newsreader, serif; font-weight:400; font-size:34px; line-height:1.15; margin:0; color:#3a1414; }
+.ntgoc-our-parish-lede { font-size:15.5px; line-height:1.7; color:#5b5449; margin:12px 0 0; max-width:64ch; text-wrap:pretty; }
+.ntgoc-our-parish-note { font-size:13.5px; line-height:1.6; color:#6c6458; margin:16px 0 0; }
+.ntgoc-our-parish-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; align-items:start; }
+
+/* Two- and three-up card rows, hairline-ruled like the rest of the site. */
+.ntgoc-our-parish-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1px; background:#ded2be; border:1px solid #ded2be; }
+.ntgoc-our-parish-grid--three { grid-template-columns:repeat(3, minmax(0,1fr)); }
+
+/* Buttons. The row of them is the page's main verb, so they are sized for a
+   thumb rather than for a desktop pointer. */
+.ntgoc-our-parish-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
+.ntgoc-our-parish-action { display:inline-block; border:1px solid #ccbda4; padding:14px 22px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#5b5449; }
+.ntgoc-our-parish-action:hover, .ntgoc-our-parish-action:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
+.ntgoc-our-parish-action--primary { background:#7d2b2b; border-color:#7d2b2b; color:#f6f1e8; }
+.ntgoc-our-parish-action--primary:hover, .ntgoc-our-parish-action--primary:focus-visible { background:#5e1f1f; border-color:#5e1f1f; color:#f6f1e8; }
+/* Marks a link that leaves the parish site. The arrow is decorative — every
+   one of these also carries an aria-label saying it opens in a new tab. */
+.ntgoc-our-parish-external::after { content:" ↗"; font-size:.85em; color:#7f5f30; }
+
+/* The placeholder block. Dashed, not solid: it should read as unfinished. */
+.ntgoc-our-parish-todo { border:1px dashed #c3b291; background:#f1e9dc; padding:16px 18px; margin-top:20px; max-width:62ch; }
+.ntgoc-our-parish-todo__label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:7px; }
+.ntgoc-our-parish-todo__text { font-size:14px; line-height:1.7; color:#5b5449; margin:0; }
+
+/* This week at Nativity. One row per day, the day's services stacked inside
+   it, so a Sunday with Orthros and Liturgy reads as one Sunday. */
+.ntgoc-our-parish-week { list-style:none; margin:0; padding:0; border-top:1px solid #ded2be; }
+.ntgoc-our-parish-week__day { display:grid; grid-template-columns:170px minmax(0,1fr); gap:28px; padding:20px 0; border-bottom:1px solid #ded2be; }
+.ntgoc-our-parish-week__weekday { font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; }
+.ntgoc-our-parish-week__date { font-family:Newsreader, serif; font-size:21px; color:#3a1414; margin-top:3px; }
+.ntgoc-our-parish-week__events { display:grid; gap:14px; }
+.ntgoc-our-parish-week__event { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:20px; align-items:baseline; border-left:2px solid #7d2b2b; padding-left:16px; }
+.ntgoc-our-parish-week__event[data-ntgoc-kind="parish"] { border-left-color:#b08442; }
+.ntgoc-our-parish-week__name { font-family:Newsreader, serif; font-size:20px; line-height:1.3; color:#3a1414; }
+.ntgoc-our-parish-week__note { font-size:14px; line-height:1.6; color:#6c6458; margin:5px 0 0; }
+.ntgoc-our-parish-week__kind { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#7d2b2b; margin-top:8px; }
+.ntgoc-our-parish-week__event[data-ntgoc-kind="parish"] .ntgoc-our-parish-week__kind { color:#7f5f30; }
+.ntgoc-our-parish-week__time { font-size:15px; color:#3a1414; white-space:nowrap; }
+.ntgoc-our-parish-week__asof { font-size:13px; line-height:1.6; color:#6c6458; margin:18px 0 0; }
+
+/* Announcements. */
+.ntgoc-our-parish-news__list { display:grid; gap:16px; }
+.ntgoc-our-parish-news__item { border:1px solid #ded2be; background:#fbf8f2; padding:26px 24px; }
+.ntgoc-our-parish-news__title { font-family:Newsreader, serif; font-weight:500; font-size:21px; line-height:1.3; margin:0 0 10px; color:#3a1414; }
+.ntgoc-our-parish-news__body { font-size:15px; line-height:1.7; color:#5b5449; margin:0; }
+.ntgoc-our-parish-news__meta { font-size:12px; letter-spacing:.04em; color:#7f6a4d; margin:16px 0 0; }
+/* The two entries shipped with this draft are demonstrations, and say so. */
+.ntgoc-our-parish-news__sample { display:inline-block; background:#e6dcc7; color:#5e4a22; padding:3px 9px; margin-bottom:11px; font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
+
+/* The urgent notice: a weather cancellation, a service moved at short notice.
+   It sits above everything, in the parish's own red, and it is the one thing
+   on the page that is allowed to shout. */
+.ntgoc-our-parish-urgent { background:#7d2b2b; color:#f6ece0; }
+.ntgoc-our-parish-urgent__inner { max-width:1240px; margin:0 auto; padding:30px 40px; }
+.ntgoc-our-parish-urgent__flag { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.75; margin-bottom:12px; }
+.ntgoc-our-parish-news__item--urgent { border:0; background:transparent; padding:0; }
+.ntgoc-our-parish-news__item--urgent .ntgoc-our-parish-news__title { color:#faf5ec; }
+.ntgoc-our-parish-news__item--urgent .ntgoc-our-parish-news__body { color:#f2e2ce; }
+.ntgoc-our-parish-news__item--urgent .ntgoc-our-parish-news__meta { color:#e2c9a4; }
+.ntgoc-our-parish-news__item--urgent .ntgoc-our-parish-news__sample { background:rgba(246,236,224,.16); color:#f6ece0; }
+
+/* The resource directory. A plain ruled grid of links: the fastest thing to
+   scan, and the easiest to add a row to. */
+.ntgoc-our-parish-resources { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); border-top:1px solid #ded2be; border-left:1px solid #ded2be; }
+.ntgoc-our-parish-resources__link { display:block; padding:18px 20px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; font-size:15px; color:#3a1414; }
+.ntgoc-our-parish-resources__link:hover, .ntgoc-our-parish-resources__link:focus-visible { background:#f1e9dc; color:#7d2b2b; }
+.ntgoc-our-parish-resources__note { font-size:13.5px; line-height:1.7; color:#6c6458; margin:22px 0 0; max-width:74ch; }
+
+.ntgoc-our-parish-help { max-width:62ch; }
+
 /* --- responsive layer ----------------------------------------------
    The design is fixed-desktop and carries no media queries of its own,
    so this layer is the ONE place where layout was authored rather than
@@ -845,6 +941,17 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   margin: 24px 0 0;
   max-width: 58ch;
   text-wrap: pretty;
+}
+/* One line between the title and the lede, for a page that has something to say
+   in six words before it says it in fifty. */
+.ntgoc-page-hero__tagline {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #e0b673;
+  margin: 20px 0 0;
 }
 .ntgoc-page-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
 
@@ -992,4 +1099,31 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-page-hero { min-height: 320px; }
   .ntgoc-page-hero__inner { padding: 52px 20px; }
   .ntgoc-page-hero__title { font-size: 38px; }
+  .ntgoc-page-hero__tagline { font-size: 20px; }
+}
+
+/* For Our Parish. Parishioners will read this on a phone, standing in the
+   hall, more often than on a desktop — so it is the one page here whose
+   narrow layout matters more than its wide one. */
+@media (max-width: 900px) {
+  .ntgoc-our-parish-section { padding-top: 54px !important; padding-bottom: 54px !important; }
+  .ntgoc-our-parish-split { gap: 40px !important; }
+  .ntgoc-our-parish-resources { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ntgoc-our-parish-urgent__inner { padding: 26px 20px; }
+}
+@media (max-width: 640px) {
+  .ntgoc-our-parish-h2 { font-size: clamp(26px, 7.5vw, 34px); }
+  .ntgoc-our-parish-head { align-items: flex-start; gap: 18px; margin-bottom: 26px; }
+  .ntgoc-our-parish-resources { grid-template-columns: 1fr; }
+  /* The date stops being a column and becomes a heading for the day's rows. */
+  .ntgoc-our-parish-week__day { grid-template-columns: 1fr; gap: 12px; padding: 18px 0; }
+  .ntgoc-our-parish-week__when { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .ntgoc-our-parish-week__date { margin-top: 0; font-size: 19px; }
+  /* The time keeps its own column — it is what the eye goes to — but the gap
+     and the type come down so the name still gets most of a 320px screen. */
+  .ntgoc-our-parish-week__event { gap: 12px; padding-left: 14px; }
+  .ntgoc-our-parish-week__name { font-size: 18px; }
+  .ntgoc-our-parish-week__time { font-size: 14.5px; }
+  .ntgoc-our-parish-news__item { padding: 22px 20px; }
+  .ntgoc-our-parish-action { padding: 13px 18px; }
 }

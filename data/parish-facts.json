@@ -60,7 +60,8 @@
       "status": "CONFIRMED_BY_PARISH",
       "source": "Confirmed directly by the parish, 2026-08-08.",
       "note": "The design's Visit timeline was right and the live site is misleading: nativity.va.goarch.org shows '9 am Orthros & Divine Liturgy', compressing two distinct services into one 9:00 start. Every place the draft showed a single 9:00 against both services now shows both times. Feast-day Liturgies are NOT covered by this confirmation \u2014 the Dormition Liturgy (15 Aug) remains 9:00 a.m. as the design had it, and the 'Great Feasts' line stays tagged TODO: verify.",
-      "actionForTheRealSite": "The live parish site's own homepage is arguably wrong here. Worth raising separately from this draft \u2014 it is the single fact a first-time visitor acts on."
+      "actionForTheRealSite": "The live parish site's own homepage is arguably wrong here. Worth raising separately from this draft \u2014 it is the single fact a first-time visitor acts on.",
+      "followUp2026_08_09": "Two places had been missed and were corrected when the calendar moved into data/parish-calendar.json: the Sunday cells of the August grid on calendar.html still read 'Divine Liturgy 9a', and 'The next few weeks' on parish-life.html showed the Sunday Liturgy at 9:00 a.m. (and gave 14 and 15 August the wrong weekday names). Both are now rendered from the one calendar file, so there is no longer a third copy to miss."
     },
     "emails": {
       "office": "office@ntgoc.org",
@@ -147,6 +148,32 @@
       "status": "VERIFIED",
       "source": "/",
       "note": "All present on the live site; the design reproduces them correctly."
+    },
+    "orthodoxSaintFinder": {
+      "value": "https://orthodoxsaintfinder.com",
+      "status": "EXTERNAL_AT_OWNER_REQUEST",
+      "source": "Named by the project owner on 2026-08-09 as a resource to link from the For Our Parish page.",
+      "note": "A Cloud of Witnesses / Orthodox Saint Finder. NOT a parish resource, and the page says so in as many words. It is the only third-party Orthodox resource linked from this draft, so it sets a precedent: what else belongs on that list is an editorial question for Fr. John, not one to settle by adding links. The link resolves (npm run links, 2026-08-09)."
+    },
+    "parishCommunityGroup": {
+      "status": "DOES_NOT_EXIST_YET",
+      "note": "The 'Join our parish community' button on for-our-parish.html is a placeholder with no link behind it, deliberately. The parish has no private online group — no Facebook group, GroupMe or equivalent has been named. The public Facebook page (facebook.com/ntgoc/) is a different thing and is linked as itself. Do not point this button at the public page to make it look finished."
+    },
+    "parishEmailList": {
+      "status": "DOES_NOT_EXIST_YET",
+      "note": "'Receive parish updates' is a placeholder for the same reason: no parish email list or sign-up form has been named. The Light newsletter exists and is linked; a list for short-notice news does not."
+    },
+    "stewardshipPledgeForm": {
+      "status": "DOES_NOT_EXIST_YET",
+      "note": "There is no online stewardship commitment form. give.html has carried a dead '2026 stewardship pledge' link (href=\"#\") since the design import, and For Our Parish shows a placeholder rather than repeating that dead link. Giving online (Square) is a separate thing and does work."
+    },
+    "volunteerNeeds": {
+      "status": "DOES_NOT_EXIST_YET",
+      "note": "No rota, sign-up sheet or volunteer-needs system was found or named, so 'Current volunteer needs' is a placeholder. The brief for For Our Parish asked for it only 'if we establish a system for it'."
+    },
+    "sundaySchoolResources": {
+      "status": "DOES_NOT_EXIST_YET",
+      "note": "Sunday School is a confirmed ministry (see `ministries`) and is linked as one. A Sunday School calendar, youth activities listing and parent forms are not published anywhere this draft can see, so For Our Parish names the gap instead of inventing headings for them."
     }
   },
   "hosting": {

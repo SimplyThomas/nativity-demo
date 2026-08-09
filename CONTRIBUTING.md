@@ -19,7 +19,7 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 
 | File / folder | What it is |
 |---|---|
-| `*.html` (16 pages) | **Source.** Edit directly. |
+| `*.html` (17 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
 | `assets/css/components.css` | **Source.** Ships to the parish CMS. |
 | `assets/css/provisional.css` | **Source.** Demo only — contains a reset, never import it. |
 | `assets/js/ntgoc-enhance.js` | **Source.** Progressive enhancement only. |
@@ -59,7 +59,7 @@ Two further checks run in CI and are worth running locally before a big change:
 
 ```sh
 npm run snap           # layout + colour regression (the only check that sees layout)
-npm run audit:a11y     # axe-core, WCAG 2.1 AA, 16 pages x 2 viewports
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 17 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)
@@ -138,6 +138,39 @@ Two further rules, both from mistakes this repo actually made:
 Before adding a class, check whether an existing one already does the job —
 `npm run lint` warns when two classes end up with identical rules and tells you
 the exact `--merge` command.
+
+### Changing a service time or posting a notice — `npm run parish`
+
+The parish calendar and the parish announcements live in two JSON files and are
+rendered into the pages:
+
+```sh
+npm run parish                    # rebuild, re-extract chunks, lint
+npm run parish -- --check         # what is stale? change nothing
+npm run parish -- --today 2026-09-06   # render as if it were another day
+```
+
+| Edit this | To change |
+|---|---|
+| `data/parish-calendar.json` | the month grid on Calendar, "This week at Nativity" on For Our Parish, and "The next few weeks" on Parish Life |
+| `data/parish-announcements.json` | the announcements and the urgent notice on For Our Parish |
+
+It only ever rewrites what is between `<!-- BUILD:name -->` and
+`<!-- /BUILD:name -->`, and refuses to run if a marker is missing. Everything
+else on those pages is hand-edited source as usual. **Do not edit inside the
+markers** — the next build overwrites it.
+
+This exists because the same list of services was written out by hand in three
+places, and two of them had quietly gone wrong: Parish Life showed the Sunday
+Liturgy at 9:00 a.m. when the parish had confirmed 10:00, and dated 14 and 15
+August to the wrong weekdays. One file, three renderings.
+
+An event marked `"verify": true` gets a `<!-- TODO: verify -->` marker in every
+one of those renderings, so an unconfirmed feast-day time cannot be laundered
+into fact by being displayed three times.
+
+Not run by CI: "upcoming" depends on today's date, so a CI check on it would
+fail every morning. Run it when you change either file, and before you publish.
 
 ### Renaming a class — `npm run rename`
 

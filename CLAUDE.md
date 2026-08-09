@@ -36,9 +36,10 @@ The only generated artefact is `dist/chunks/` (`npm run chunks`).
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 16 pages
+npm run shell    # propagate header/footer to all 17 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
+npm run parish   # render the calendar + announcements into the pages
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
 npm run links    # do the outbound links still resolve? (monthly in CI)
 ```
@@ -49,6 +50,20 @@ Run it after any CSS change. If a change is intended:
 `npm run snap -- --update`, then commit `tests/layout-baseline.json`.
 
 `npm run lint` needs no dependencies. The audits need `npm install`.
+
+### The one thing that IS generated from data
+
+`npm run parish` renders `data/parish-calendar.json` and
+`data/parish-announcements.json` into the blocks marked
+`<!-- BUILD:name -->` … `<!-- /BUILD:name -->` on `calendar.html`,
+`parish-life.html` and `for-our-parish.html`. It touches nothing outside those
+markers, and it is not the retired renderer — it owns five blocks, not twelve
+files.
+
+Edit the JSON, not the markup between the markers. The same list of services
+used to be hand-written into three pages and two of them had drifted; that is
+what this exists to stop. It is deliberately **not** gated by CI: "upcoming"
+depends on today's date, so a CI check would fail every morning.
 
 ---
 
@@ -108,7 +123,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 16 pages × 2 viewports, reflow 16/16 at 320px.
+0 axe violations across 17 pages × 2 viewports, reflow 17/17 at 320px.
 
 ---
 

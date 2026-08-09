@@ -2,9 +2,16 @@
  * ntgoc-enhance.js — progressive enhancement only.
  *
  * Everything on this site is complete and readable with JavaScript disabled.
- * This file adds one convenience: filtering the bookstore catalogue by category.
- * With JS off, every item is already visible and the category buttons simply do
- * nothing, which is the version that survives the move into Evolution CMS.
+ * This file adds two conveniences:
+ *
+ *   1. filtering the bookstore catalogue by category;
+ *   2. dropping days and announcements that have already passed on the
+ *      For Our Parish page.
+ *
+ * With JS off, every bookstore item is already visible and the category buttons
+ * simply do nothing; the For Our Parish lists show exactly what they showed when
+ * the page was last built, which is stated on the page in words. That is the
+ * version that survives the move into Evolution CMS.
  *
  * No dependencies. Safe to paste into EVO as a chunk or an external file.
  */
@@ -55,5 +62,60 @@
     filters[k].addEventListener('click', function (event) {
       apply(event.currentTarget.getAttribute('data-ntgoc-filter'));
     });
+  }
+}());
+
+/*
+ * For Our Parish — let the page age gracefully.
+ *
+ * "This week at Nativity" and the announcements are rendered by
+ * `npm run parish` and then committed, so the page is only as fresh as the last
+ * build. A parish website is not rebuilt every morning. This drops a day that
+ * has already gone and an announcement past its expiry date, so a page nobody
+ * has touched for a fortnight is still not actively wrong.
+ *
+ * It only ever HIDES. It cannot invent an event that is not already in the
+ * markup, so the JS-off version is a superset of this one, never a different
+ * one — the page stays honest either way, and says in words which date it was
+ * built from.
+ */
+(function () {
+  'use strict';
+
+  /* Local midnight today, as YYYY-MM-DD. Compared as strings, which is safe for
+     a fixed-width ISO date and avoids every timezone trap in Date parsing. */
+  var now = new Date();
+  var today = now.getFullYear() + '-' +
+    ('0' + (now.getMonth() + 1)).slice(-2) + '-' +
+    ('0' + now.getDate()).slice(-2);
+
+  var days = document.querySelectorAll('[data-ntgoc-date]');
+  var remaining = 0;
+  for (var i = 0; i < days.length; i++) {
+    var past = days[i].getAttribute('data-ntgoc-date') < today;
+    days[i].hidden = past;
+    if (!past) remaining++;
+  }
+
+  /* If every listed day has gone, say so rather than leaving a bare rule. */
+  if (days.length && !remaining) {
+    var list = document.querySelector('[data-ntgoc-week]');
+    var empty = document.querySelector('[data-ntgoc-week-empty]');
+    if (list) list.hidden = true;
+    if (empty) empty.hidden = false;
+  }
+
+  var notices = document.querySelectorAll('[data-ntgoc-expires]');
+  for (var j = 0; j < notices.length; j++) {
+    notices[j].hidden = notices[j].getAttribute('data-ntgoc-expires') < today;
+  }
+
+  /* An urgent notice that has expired must not leave its red band behind,
+     empty, at the top of the page. */
+  var band = document.querySelector('[data-ntgoc-urgent]');
+  if (band) {
+    var live = band.querySelectorAll('[data-ntgoc-expires]:not([hidden])');
+    var all = band.querySelectorAll('[data-ntgoc-expires]');
+    if (all.length && !live.length) band.hidden = true;
   }
 }());

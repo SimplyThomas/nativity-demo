@@ -16,6 +16,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `contact` | _________ |
 | `events` | _________ |
 | `faith` | _________ |
+| `for-our-parish` | _________ |
 | `give` | _________ |
 | `hall` | _________ |
 | `index` | _________ |
@@ -27,7 +28,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-60 links across 23 chunks.
+87 links across 31 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -44,11 +45,19 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocHomeWelcome` | faith, about | ☐ |
 | `ntgocMinistriesGrid` | give | ☐ |
 | `ntgocNewsletterArchive` | parish-life | ☐ |
+| `ntgocOurParishConnect` | newsletter ×2, contact | ☐ |
+| `ntgocOurParishFamilies` | parish-life ×2, ministries, visit | ☐ |
+| `ntgocOurParishHelp` | contact | ☐ |
+| `ntgocOurParishOrthodox` | faith | ☐ |
+| `ntgocOurParishResources` | calendar ×2, ministries, give, committees, bookstore, newsletter, hall, contact, about, faith | ☐ |
+| `ntgocOurParishServe` | ministries, committees, contact | ☐ |
+| `ntgocOurParishStewardship` | give | ☐ |
+| `ntgocOurParishWeek` | calendar | ☐ |
 | `ntgocParishLifeBookstore` | bookstore | ☐ |
 | `ntgocParishLifeGallery` | contact | ☐ |
 | `ntgocParishLifeUpcoming` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, calendar, contact, hall, parish-life, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
-| `ntgocSiteHeader` | index, faith, parish-life ×2, ministries, committees, bookstore, newsletter, calendar, events ×2, hall, about, contact, visit | ☐ |
+| `ntgocSiteFooter` | visit, calendar, contact, hall, parish-life, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteHeader` | index, faith, parish-life ×2, for-our-parish, ministries, committees, bookstore, newsletter, calendar, events ×2, hall, about, contact, visit | ☐ |
 | `ntgocTopBar` | mobile-views | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |

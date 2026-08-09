@@ -1,0 +1,60 @@
+{
+  "_README": "The parish calendar, once. Every place on this site that shows a service or a parish event is rendered from this file by `npm run parish` — the month grid on calendar.html, 'This week at Nativity' on for-our-parish.html, and 'The next few weeks' on parish-life.html. Before this file existed those three lists were hand-copied, and two of them had already drifted: parish-life.html showed the Sunday Liturgy at 9:00 a.m. (the parish confirmed 10:00) and gave 14 and 15 August the wrong weekday names. Edit the calendar HERE and nowhere else, then run `npm run parish`.",
+
+  "_fields": {
+    "date": "REQUIRED. ISO YYYY-MM-DD. Read as a local date, never UTC.",
+    "name": "REQUIRED. What to call it in a list — 'Divine Liturgy', 'Dormition of the Theotokos'.",
+    "service": "Optional. The service celebrated, when `name` is the feast rather than the service.",
+    "time": "Optional display string, exactly as it should read: '9:00 a.m.'. Omit when the time is genuinely not known — do not guess one.",
+    "short": "Optional. The compact label for the month grid, where a cell is about 20 characters wide. Derived from `name` and `time` when omitted.",
+    "note": "Optional one-line context shown under the name in the week lists. Not shown in the month grid.",
+    "location": "Optional. Shown only when it is not the church itself — 'Parish hall', 'Fellowship hall'.",
+    "kind": "REQUIRED. 'service' for a divine service, 'parish' for a meeting, class, meal or other parish activity. This is what the two lists colour-code and label.",
+    "verify": "Optional. true adds a TODO: verify marker to every rendering of this event. Use it for anything not confirmed by the parish — see data/parish-facts.json."
+  },
+
+  "_addingAnEvent": "Add an object to `events`, keep the array sorted by date, run `npm run parish`, then `npm run lint`. An event whose date has passed is dropped from the two week lists automatically but stays in the month grid, which is a record of the month.",
+
+  "month": {
+    "id": "2026-08",
+    "label": "August 2026",
+    "previous": "July",
+    "next": "September"
+  },
+
+  "events": [
+    { "date": "2026-08-02", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
+    { "date": "2026-08-02", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+
+    { "date": "2026-08-06", "name": "Transfiguration of the Saviour", "service": "Divine Liturgy", "time": "9:00 a.m.", "short": "Transfiguration — Liturgy 9a", "note": "A Great Feast of the Church.", "kind": "service", "verify": true },
+
+    { "date": "2026-08-09", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
+    { "date": "2026-08-09", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+
+    { "date": "2026-08-14", "name": "Great Vespers", "time": "6:00 p.m.", "short": "Great Vespers 6p", "note": "The eve of the Dormition of the Theotokos.", "kind": "service", "verify": true },
+
+    { "date": "2026-08-15", "name": "Dormition of the Theotokos", "service": "Divine Liturgy", "time": "9:00 a.m.", "short": "Dormition — Liturgy 9a", "note": "A Great Feast of the Church.", "kind": "service", "verify": true },
+
+    { "date": "2026-08-16", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
+    { "date": "2026-08-16", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+
+    { "date": "2026-08-19", "name": "Paraklesis", "time": "6:30 p.m.", "note": "In season.", "kind": "service", "verify": true },
+
+    { "date": "2026-08-23", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
+    { "date": "2026-08-23", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" },
+
+    { "date": "2026-08-26", "name": "Paraklesis", "time": "6:30 p.m.", "note": "In season.", "kind": "service", "verify": true },
+
+    { "date": "2026-08-29", "name": "Beheading of St. John the Forerunner", "short": "Beheading of St. John", "kind": "service", "verify": true },
+
+    { "date": "2026-08-30", "name": "Orthros", "time": "9:00 a.m.", "kind": "service" },
+    { "date": "2026-08-30", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "The Agape Meal follows in the hall.", "kind": "service" }
+  ],
+
+  "_noParishEventsYet": "Every event above is a divine service, because a divine service is all the parish calendar currently records. The two week lists and the month grid all distinguish `kind: \"parish\"` — a meeting, a class, a parish meal, a ministry night — by colour AND by a written label, so the distinction is not carried by colour alone. Nothing of that kind has been invented to demonstrate it. Add the real ones and they will appear, styled, in all three places at once.",
+
+  "_provenance": {
+    "monthGrid": "Transcribed from the August 2026 grid that was hand-written into calendar.html, with one correction: the Sunday cells said 'Divine Liturgy 9a'. The parish confirmed on 2026-08-08 that Sunday is Orthros at 9:00 and Divine Liturgy at 10:00 (data/parish-facts.json -> sundayServices), and calendar.html's own sidebar has said so since. The Sunday cells were the last place still showing the compressed single 9:00 service.",
+    "feastTimes": "Every feast-day and weekday service here is tagged verify:true. parish-facts.json -> sundayServices is explicit that the parish's confirmation covers Sunday only, and the 'Great Feasts' line on the calendar sidebar has carried a TODO: verify marker throughout."
+  }
+}

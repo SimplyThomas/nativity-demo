@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 59 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 70 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -231,6 +231,7 @@ Then the page content, grouped by page:
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
+| **For Our Parish** | `ntgocOurParishHero`, `ntgocOurParishUrgent`, `ntgocOurParishWeek`, `ntgocOurParishNews`, `ntgocOurParishConnect`, `ntgocOurParishStewardship`, `ntgocOurParishServe`, `ntgocOurParishFamilies`, `ntgocOurParishResources`, `ntgocOurParishOrthodox`, `ntgocOurParishHelp` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
@@ -241,6 +242,30 @@ Then the page content, grouped by page:
 | **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` — *nothing links to this page, see below* |
 | **Hall Rental** | `ntgocHallRental` |
 | **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
+
+> **For Our Parish is the one page that goes stale on its own.** Three of its
+> chunks — `ntgocOurParishUrgent`, `ntgocOurParishWeek` and `ntgocOurParishNews`
+> — are rendered from `data/parish-calendar.json` and
+> `data/parish-announcements.json` by `npm run parish`. In this repo that means
+> one place to edit. Once the page is in Evolution CMS there is no build step,
+> so the parish has to decide which of these it wants:
+>
+> 1. **Edit the chunk in the EVO manager.** No tooling, but the announcement
+>    markup has to be copied by hand each time, and the week list is only as
+>    right as whoever last retyped it. This is what most parishes end up doing.
+> 2. **Keep editing the JSON here, run `npm run parish`, and paste the three
+>    chunks in again.** Correct by construction, but it needs somebody who can
+>    run a command.
+> 3. **Replace them with an EVO snippet** that reads the parish calendar
+>    directly. The right answer long-term, and the one to ask the Department of
+>    Internet Ministries about — see the questions at the foot of this file.
+>    Note that a snippet call is written `[[snippetName]]`, which is exactly the
+>    sequence nothing in this repo is allowed to contain, so it has to be added
+>    in the manager after import, never pasted in from here.
+>
+> Until one of those is chosen, the page carries an "as of" line saying which
+> date its list was built from, and its JavaScript hides days and announcements
+> that have gone past. It ages honestly rather than lying quietly.
 
 > **Nothing links to the Greek Festival *page* any more** — the "Greek Festival"
 > entries in the Events menu and on the Events page both go to fredgreek.org,
@@ -356,6 +381,15 @@ resource tree) and replace the placeholder with EVO's link syntax:
 
 ```html
 <a href="[~12~]">Plan your first visit</a>
+```
+
+A link into a *section* of another page keeps its anchor, so the placeholder
+looks like this and the fragment goes back on the end of the EVO link:
+
+```html
+<a href="#ntgoc-children" data-ntgoc-link="parish-life">Children in parish life</a>
+<!-- becomes -->
+<a href="[~18~]#ntgoc-children">Children in parish life</a>
 ```
 
 **`dist/chunks/_link-map.md` is the worksheet for this step.** It lists every
@@ -580,11 +614,12 @@ so the next person knows those files are **generated from the pages** and must
 never be edited directly.
 
 ```sh
-npm run chunks   # the 15 HTML pages -> dist/chunks/
+npm run parish   # calendar + announcements JSON -> the BUILD blocks (three pages)
+npm run chunks   # the 17 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The fifteen `.html` files at the repo root are the source and are edited by hand.
+The seventeen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 twelve pages from the old design file. See `CONTRIBUTING.md`.

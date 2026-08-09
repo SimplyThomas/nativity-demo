@@ -64,6 +64,7 @@
           <a href="parish-life.html" aria-current="page" class="ntgoc-inherit ntgoc-nav-link ntgoc-navgroup__top">Parish Life<span class="ntgoc-navgroup__caret" aria-hidden="true"></span></a>
           <div class="ntgoc-navgroup__menu">
             <a href="parish-life.html" aria-current="page" class="ntgoc-inherit ntgoc-navgroup__item ntgoc-navgroup__item--overview">Parish Life</a>
+            <a href="for-our-parish.html" class="ntgoc-inherit ntgoc-navgroup__item">For Our Parish</a>
             <a href="ministries.html" class="ntgoc-inherit ntgoc-navgroup__item">Ministries</a>
             <a href="committees.html" class="ntgoc-inherit ntgoc-navgroup__item">Parish Council Committees</a>
             <a href="bookstore.html" class="ntgoc-inherit ntgoc-navgroup__item">Parish Bookstore</a>
@@ -86,7 +87,7 @@
     </div>
   </header>
 
-  
+
 <!-- /CHUNK:ntgocSiteHeader -->
 
   <main id="ntgoc-main">
@@ -343,51 +344,68 @@
           </div>
           <a href="calendar.html" class="ntgoc-inherit ntgoc-parish-life-cta--quiet">View full parish calendar →</a>
         </div>
-        <!-- These five entries are copied from the August grid on calendar.html.
-             They are the one thing on this page that goes stale: when the
-             calendar month changes, this list has to change with it, or delete
-             it and leave the link to the calendar above. -->
+        <!-- Rendered by `npm run parish` from data/parish-calendar.json, the
+             same source as the month grid on calendar.html and This Week on
+             for-our-parish.html. It used to be five hand-copied entries, and
+             they had drifted: the Sunday Liturgy was shown at 9:00 when the
+             parish had confirmed 10:00, and two dates had the wrong weekday. -->
         <div class="ntgoc-parish-life-agenda">
+        <!-- BUILD:nextFewWeeks -->
           <div class="ntgoc-parish-life-agenda__row">
             <div class="ntgoc-parish-life-agenda__when">Sunday 9 August</div>
             <div>
-              <div class="ntgoc-parish-life-agenda__name">Divine Liturgy</div>
-              <div class="ntgoc-parish-life-agenda__note">Orthros beforehand; the Agape Meal afterwards.</div>
+              <div class="ntgoc-parish-life-agenda__name">Orthros</div>
             </div>
             <div class="ntgoc-parish-life-agenda__time">9:00 a.m.</div>
           </div>
           <div class="ntgoc-parish-life-agenda__row">
-            <div class="ntgoc-parish-life-agenda__when">Thursday 14 August</div>
+            <div class="ntgoc-parish-life-agenda__when"></div>
             <div>
-              <div class="ntgoc-parish-life-agenda__name">Great Vespers</div>
+              <div class="ntgoc-parish-life-agenda__name">Divine Liturgy</div>
+              <div class="ntgoc-parish-life-agenda__note">The Agape Meal follows in the hall.</div>
+            </div>
+            <div class="ntgoc-parish-life-agenda__time">10:00 a.m.</div>
+          </div>
+          <div class="ntgoc-parish-life-agenda__row">
+            <div class="ntgoc-parish-life-agenda__when">Friday 14 August</div>
+            <div>
+              <div class="ntgoc-parish-life-agenda__name">Great Vespers<!-- TODO: verify --></div>
               <div class="ntgoc-parish-life-agenda__note">The eve of the Dormition of the Theotokos.</div>
             </div>
             <div class="ntgoc-parish-life-agenda__time">6:00 p.m.</div>
           </div>
           <div class="ntgoc-parish-life-agenda__row">
-            <div class="ntgoc-parish-life-agenda__when">Friday 15 August</div>
+            <div class="ntgoc-parish-life-agenda__when">Saturday 15 August</div>
             <div>
-              <div class="ntgoc-parish-life-agenda__name">Dormition of the Theotokos</div>
-              <div class="ntgoc-parish-life-agenda__note">A Great Feast of the Church.</div>
+              <div class="ntgoc-parish-life-agenda__name">Dormition of the Theotokos<!-- TODO: verify --></div>
+              <div class="ntgoc-parish-life-agenda__note">Divine Liturgy &middot; A Great Feast of the Church.</div>
             </div>
             <div class="ntgoc-parish-life-agenda__time">9:00 a.m.</div>
           </div>
           <div class="ntgoc-parish-life-agenda__row">
             <div class="ntgoc-parish-life-agenda__when">Sunday 16 August</div>
             <div>
-              <div class="ntgoc-parish-life-agenda__name">Divine Liturgy</div>
-              <div class="ntgoc-parish-life-agenda__note">Orthros beforehand; the Agape Meal afterwards.</div>
+              <div class="ntgoc-parish-life-agenda__name">Orthros</div>
             </div>
             <div class="ntgoc-parish-life-agenda__time">9:00 a.m.</div>
           </div>
           <div class="ntgoc-parish-life-agenda__row">
+            <div class="ntgoc-parish-life-agenda__when"></div>
+            <div>
+              <div class="ntgoc-parish-life-agenda__name">Divine Liturgy</div>
+              <div class="ntgoc-parish-life-agenda__note">The Agape Meal follows in the hall.</div>
+            </div>
+            <div class="ntgoc-parish-life-agenda__time">10:00 a.m.</div>
+          </div>
+          <div class="ntgoc-parish-life-agenda__row">
             <div class="ntgoc-parish-life-agenda__when">Wednesday 19 August</div>
             <div>
-              <div class="ntgoc-parish-life-agenda__name">Paraklesis</div>
-              <div class="ntgoc-parish-life-agenda__note">In season.<!-- TODO: verify --></div>
+              <div class="ntgoc-parish-life-agenda__name">Paraklesis<!-- TODO: verify --></div>
+              <div class="ntgoc-parish-life-agenda__note">In season.</div>
             </div>
             <div class="ntgoc-parish-life-agenda__time">6:30 p.m.</div>
           </div>
+<!-- /BUILD:nextFewWeeks -->
         </div>
       </div>
     </section>
@@ -420,6 +438,7 @@
           <div class="ntgoc-footer-heading">Parish</div>
           <div class="ntgoc-stack ntgoc-grid">
             <a href="parish-life.html" aria-current="page" class="ntgoc-inherit ntgoc-footer-link">Parish life</a>
+            <a href="for-our-parish.html" class="ntgoc-inherit ntgoc-footer-link">For our parish</a>
             <a href="about.html" class="ntgoc-inherit ntgoc-footer-link">Clergy &amp; history</a>
             <a href="ministries.html" class="ntgoc-inherit ntgoc-footer-link">Ministries</a>
             <a href="committees.html" class="ntgoc-inherit ntgoc-footer-link">Parish Council Committees</a>
