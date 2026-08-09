@@ -475,7 +475,12 @@ function linkify(html, currentPage) {
           .replace(/\sonClick="[^"]*"/i, '')
           .replace(/cursor:pointer;\s*/g, '');
         const current = route === currentPage ? ' aria-current="page"' : '';
-        out += `<a href="${PAGE_FILE[route]}"${current}${rest}>${inner}</a>`;
+        // These were <span>/<div> in the design and had no colour of their own —
+        // they inherited it from a parent (light text on the dark top bar and
+        // footer). Becoming a real <a> makes the stylesheet's bare `a` colour
+        // apply, which destroys contrast there. ntgoc-inherit restores
+        // inheritance without touching links that DO set their own colour.
+        out += `<a href="${PAGE_FILE[route]}"${current} class="ntgoc-inherit"${rest}>${inner}</a>`;
       } else {
         out += openTag + inner + `</${tag}>`;
       }
@@ -841,6 +846,20 @@ writeFileSync(join(ROOT, 'assets/css/components.css'), `/* =====================
   line-height: 1.5;
 }
 .ntgoc-draft-banner__link { color: #ffd98a; text-decoration: underline; }
+
+/* --- link colour inheritance ----------------------------------------
+   The design expressed most navigation as clickable <span>/<div> with no
+   colour of their own; the renderer promotes them to real <a> for keyboard
+   access. Without this rule they would pick up the ambient bare-element link
+   colour — from this site's own reset, or from Bootstrap once inside EVO — and
+   the top bar and footer links would sit at about 1.6:1 against their dark
+   background. Inheriting restores them to roughly 8.7:1 and 11:1.
+
+   Specificity is deliberately a single class (0,1,0) and this rule is placed
+   BEFORE the generated rules, so any link that DOES declare its own colour
+   still wins on source order, and :hover (0,1,1) always wins.
+   ------------------------------------------------------------------ */
+.ntgoc-inherit { color: inherit; }
 
 /* --- interactive bits ---------------------------------------------- */
 .ntgoc-filter-btn {

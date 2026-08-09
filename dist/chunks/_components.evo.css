@@ -64,6 +64,20 @@
 }
 .ntgoc-draft-banner__link { color: #ffd98a; text-decoration: underline; }
 
+/* --- link colour inheritance ----------------------------------------
+   The design expressed most navigation as clickable <span>/<div> with no
+   colour of their own; the renderer promotes them to real <a> for keyboard
+   access. Without this rule they would pick up the ambient bare-element link
+   colour — from this site's own reset, or from Bootstrap once inside EVO — and
+   the top bar and footer links would sit at about 1.6:1 against their dark
+   background. Inheriting restores them to roughly 8.7:1 and 11:1.
+
+   Specificity is deliberately a single class (0,1,0) and this rule is placed
+   BEFORE the generated rules, so any link that DOES declare its own colour
+   still wins on source order, and :hover (0,1,1) always wins.
+   ------------------------------------------------------------------ */
+.ntgoc-inherit { color: inherit; }
+
 /* --- interactive bits ---------------------------------------------- */
 .ntgoc-filter-btn {
   font: inherit;
