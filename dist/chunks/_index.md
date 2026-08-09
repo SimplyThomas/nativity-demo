@@ -20,12 +20,12 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocFaithIntro` | 886 b | 1 page |
 | `ntgocFaithTopics` | 1950 b | 1 page |
 | `ntgocFaithWatchRead` | 1965 b | 1 page |
-| `ntgocFestivalDetails` | 1692 b | 1 page |
+| `ntgocFestivalDetails` | 1693 b | 1 page |
 | `ntgocFestivalHero` | 576 b | 1 page |
 | `ntgocGiveProjects` | 645 b | 1 page |
 | `ntgocGiveWays` | 1420 b | 1 page |
 | `ntgocHallRental` | 1755 b | 1 page |
-| `ntgocHomeFestivalPromo` | 1035 b | 1 page |
+| `ntgocHomeFestivalPromo` | 1066 b | 1 page |
 | `ntgocHomeFirstSunday` | 3148 b | 1 page |
 | `ntgocHomeHero` | 1122 b | 1 page |
 | `ntgocHomeMinistriesPromo` | 1372 b | 1 page |
@@ -35,9 +35,9 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocMinistriesGrid` | 2964 b | 1 page |
 | `ntgocMinistriesHero` | 440 b | 1 page |
 | `ntgocMobileViews` | 3523 b | 1 page |
-| `ntgocSiteFooter` | 3036 b | 12 pages |
+| `ntgocSiteFooter` | 3067 b | 12 pages |
 | `ntgocSiteHeader` | 1219 b | 12 pages |
-| `ntgocTopBar` | 656 b | 12 pages |
+| `ntgocTopBar` | 687 b | 12 pages |
 | `ntgocVisitorChildren` | 2325 b | 1 page |
 | `ntgocVisitorDirections` | 1537 b | 1 page |
 | `ntgocVisitorFirstSunday` | 6141 b | 1 page |

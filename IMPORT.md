@@ -196,9 +196,22 @@ Then the page content, grouped by page:
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil`, `ntgocAboutNewsletter` |
 | **Giving** | `ntgocGiveWays`, `ntgocGiveProjects` |
 | **Contact** | `ntgocContactCard` |
-| **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` |
+| **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` — *nothing links to this page, see below* |
 | **Hall Rental** | `ntgocHallRental` |
 | **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
+
+> **Nothing links to the Greek Festival page any more.** On 8 August 2026 the
+> parish asked that every "Greek Festival" link go to the festival's own site,
+> <https://www.fredgreek.org/> — so all 25 of them do: the top bar and the
+> footer on every page, and the "Festival details" button on the home page.
+> `festival.html` still exists and its two chunks are still extracted, but a
+> visitor has no way to reach it.
+>
+> **Decide before importing:** either skip `ntgocFestivalHero` and
+> `ntgocFestivalDetails` entirely, or give the page a link from somewhere. Note
+> that its dates and the "two-hour volunteer shifts" line were never verified
+> (see below), so the festival's own site is the more reliable destination
+> regardless.
 
 `ntgocMobileViews` is **not a real page.** It is a design reference showing what
 the site looks like on a phone. Do not import it.
@@ -318,7 +331,9 @@ should survive to a live parish site.** Each is a claim we could not source.
   never confirmed; only the Sunday pattern was. Still flagged.
 - **Hall rental specifics** — "≈ 200 seated", "full commercial kitchen", free
   on-site parking. The live hall-rental page states none of these.
-- **Greek Festival** — the dates and "two-hour volunteer shifts" appear nowhere
+- **Greek Festival** — now moot for visitors, since every festival link goes to
+  fredgreek.org, but if `festival.html` is ever relinked: the dates and
+  "two-hour volunteer shifts" appear nowhere
   on the live site or fredgreek.org.
 - **Ministries** — the design lists a **Choir & Chanters** ministry that the live
   site does not have, and omits **JOY**, which it does.
