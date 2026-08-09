@@ -2,7 +2,9 @@
 
 **Date:** 2026-08-09
 **Branch:** `feat/evo-sandbox`
-**Status:** approved, implementing
+**Status:** implemented and verified — 524 assertions passing on both versions
+from a cold boot. Findings marked **found during implementation** below correct
+what this document originally claimed.
 
 ## Why
 
@@ -27,13 +29,13 @@ referenced by the published site.
 ## Scope
 
 **In:** two Evolution CMS instances (1.4.18 and 3.5.7) on one MariaDB, installed
-non-interactively, seeded on first boot with all chunks, a template and 15
+non-interactively, seeded on first boot with all chunks, a template and 16
 resources, plus a verification harness that asserts the rendered output matches
 `dist/chunks/`.
 
 **Out:** email, HTTPS, production hardening, multi-user permissions, browser
 automation of the manager UI, and any attempt to reproduce the parish's real
-resource tree or menu structure beyond the 15 pages in the link map.
+resource tree or menu structure beyond the 16 source pages.
 
 ## Findings that shaped the design
 
@@ -43,12 +45,19 @@ the design was fixed. They are recorded because several are counter-intuitive.
 | Finding | Consequence |
 |---|---|
 | No official EVO 1.4 Docker image exists. `dmi3yy/evolution-cms` carries only `nightly` and `arm64`, both 3.x. | Both images are built from the GitHub source tarballs. |
-| Both 1.4.18 and 3.5.7 commit their `vendor/` directory to the tag. | No Composer step in either build. |
+| ~~Both 1.4.18 and 3.5.7 commit their `vendor/` directory to the tag, so no Composer step is needed.~~ **Wrong for 3.x, found during implementation.** 3.5.7's installer calls `composer update --working-dir=core` itself (`cli-install.php:400`). | The 3.x image pre-runs Composer at build time so the runtime step is a fast no-op and a network-less boot still installs (the installer treats a Composer failure as a warning). |
+| **3.5.7's source tarball is not a working tree.** Its `.gitattributes` contains `LICENSE export-ignore`, and that pattern matches *every* path component named LICENSE — so GitHub's archive omits `core/vendor/composer/composer/LICENSE`, which the bundled Composer opens on startup. The install dies in `composer update`. | The 3.x image `git clone`s the tag instead. `export-ignore` does not apply to clones. 1.4.18 is unaffected and still uses the tarball. |
+| **3.5.7's installer must run with `install/` as the working directory** — `initEvo()` does `include '../index.php'`, a relative path. | The entrypoint `cd`s into `install/` for 3.x. 1.4's installer resolves its own path and does not care. |
 | Both ship `install/cli-install.php`. | Installation is non-interactive; no web wizard on every boot. |
+| **1.4.18's `--installData=n` installs the demo site.** `cli-install.php:110` reads `if ($installData == 'y') { $installData = 1; }` and everything downstream tests `if ($installData)`. The string `'n'` is truthy. | Pass `--installData=0`, which is falsy. The file's own usage comment shows `=n` and is wrong. |
+| **EVO ships `ht.access`, not `.htaccess`,** and both versions install with friendly URLs on, 301-ing `index.php?id=N` to an alias. | The entrypoint copies `ht.access` to `.htaccess`, and both Dockerfiles change Apache's `AllowOverride None` to `All`. Without both, every page is a 404. |
+| **A config file does not prove an install succeeded.** Both versions write their config before running migrations, so a failed install leaves the marker behind. | The "already installed?" check queries the database for `<prefix>site_templates` instead. A file check made the container skip the installer forever and crash-loop in the seeder. |
+| **PHP's `ext-readline` will not build on `php:8.3`** — its configure insists on libedit, and `readline.c` then fails on the GNU-only `rl_mark` and `rl_pending_input`. | Not built. Nothing needs it, and its absence turns a bad installer argument into an immediate error rather than a hang. |
 | The installers take **completely different arguments**. 1.4.18: `--database_server --database_user --table_prefix --cmsadmin --mode=new --installData=n`. 3.5.7: `--typeInstall --databaseType --databaseServer --databaseUser --tablePrefix --cmsAdmin --cmsPassword`, with no `--mode` or `--installData`. | The install step is per-version. There is no shared invocation. |
 | 3.5.7's installer falls back to interactive `readline()` when an argument is missing or invalid (`install/cli-install.php:245`, `:301`). | The entrypoint must run it with stdin from `/dev/null` under `timeout`, so a bad argument fails fast instead of hanging the container forever. |
 | Both versions store chunks in `site_htmlsnippets`, templates in `site_templates`, resources in `site_content`, with compatible columns (`name`/`description`/`snippet`, `templatename`/`content`) and defaults on every column. | One seeder, plain INSERTs, no version-specific column lists. |
-| 3.5.7 adds `site_content_closure`, a hierarchy table 1.4.18 does not have. | The seeder must write closure rows on 3.x or the manager's resource tree comes up empty even though pages render. |
+| 3.5.7 adds `site_content_closure`, a hierarchy table 1.4.18 does not have. | The seeder writes closure rows on 3.x, mirroring the shape of the installer's own default document rather than guessing the convention. |
+| **3.x keeps its cache in `core/storage/bootstrap/`, not `core/storage/cache/`.** Clearing the wrong directory leaves `siteCache.idx.php` holding a pre-seed alias listing. | Every seeded page 404s while the CMS quietly serves the default document, and nothing logs it. Cost an hour; the seeder now clears both locations. |
 | 3.5.7 still implements `{{ }}`, `[* *]`, `[( )]` and `[~ ~]` (`core/src/Core.php:1717`, `:1460`, `:1656`, `:2707`). | The same 58 chunks and the same resource bodies work unmodified on both versions. `IMPORT.md`'s 3.x warning is about the manager's handling of elements, not about tag syntax. |
 | `tools/lint.mjs:46` applies the EVO reserved-sequence rule only to the root pages, `assets/css/components.css` and `dist/chunks/`. | Files under `tools/evo-sandbox/` may contain `{{chunkName}}` and `[~id~]`, which they must, since resource bodies are made of them. |
 | `tools/lint.mjs` scans `.md` files at the repo root and in `design-src/`, `content/` and `data/`. | This spec and `tools/evo-sandbox/README.md` are outside every doc rule, including `stale-count`. |
@@ -68,9 +77,13 @@ schemas be compared from a single `docker compose exec db mysql`. The PHP
 versions are forced apart by the CMSes: 3.5.7's `composer.json` requires
 `^8.3`, and 1.4.18 is a PHP 5.6-era codebase that should not run under 8.3.
 
-Each Dockerfile installs the needed PHP extensions (`mysqli`, `pdo_mysql`, `gd`,
-`zip`), downloads the version's source tarball, untars it into `/var/www/html`,
-and enables `mod_rewrite`.
+Each Dockerfile installs the PHP extensions that version needs, obtains the
+source, enables `mod_rewrite` and loosens `AllowOverride` so EVO's `.htaccess`
+takes effect. The two diverge in how they get the source and what they build:
+1.4.18 takes the release tarball and needs only `mysqli` and `pdo_mysql` — no
+`apt-get` at all, which matters because its Debian bullseye base is heading for
+archive. 3.5.7 is cloned (see the findings table), adds `zip`, and pre-runs
+Composer at build time.
 
 The webroot of each EVO service is a **named volume**, so manager edits survive
 `docker compose restart`. `npm run evo:reset` (`docker compose down -v`) is the
@@ -105,9 +118,13 @@ It writes three things, mirroring `IMPORT.md` steps 4–6:
   from the header comment; body is everything after that comment.
 - **One template** into `site_templates`, carrying the vendored GOARCH `<head>`,
   the header chunk calls, `[*content*]`, and the footer chunk call.
-- **15 resources** into `site_content`, one per page in `_link-map.md`, each body
-  a list of `{{chunkName}}` calls taken from `IMPORT.md`'s per-page table. On
-  3.5.7 it also writes the `site_content_closure` rows.
+- **16 resources** into `site_content`, one per source page, each body a list of
+  `{{chunkName}}` calls. The page-to-chunk order is read from the
+  `<!-- CHUNK:name -->` markers in the source pages rather than from IMPORT.md's
+  table, so it cannot drift; that also means `festival.html` is seeded even
+  though nothing links to it. Resources are written with `richtext = 0`, so
+  opening one in the manager cannot let TinyMCE rewrite its own body. On 3.5.7
+  the `site_content_closure` rows are written too.
 
 Then the part that earns the exercise. The chunks carry 60 internal links as
 `<a href="#" data-ntgoc-link="about">` placeholders across 23 chunks, and
@@ -117,16 +134,18 @@ every placeholder to `[~<id>~]`. If a placeholder names a page with no resource,
 it aborts and says which chunk. The ids differ between the two versions, which
 is itself worth seeing — the link map is per-installation, not a constant.
 
-Its last step is to empty EVO's cache directory (`assets/cache/`, and
-`core/storage/cache/` on 3.x), because writing to the tables behind the CMS's
-back leaves stale cached pages.
+Its last step is to clear EVO's page and alias caches — `assets/cache/` on 1.4,
+`core/storage/bootstrap/` on 3.x — because writing to the tables behind the
+CMS's back leaves stale cached pages. It also writes `seed-manifest.json` into
+the webroot: the alias-to-id mapping, served over HTTP, which the host-side
+verifier needs and which doubles as the filled-in `_link-map.md`.
 
 ## Verification
 
 `npm run evo:verify` runs on the host and fetches every seeded page from both
 `:8014` and `:8035`, asserting:
 
-- **HTTP 200** on all 15 pages on both versions.
+- **HTTP 200** on all 16 pages on both versions.
 - **No unresolved tags in the output.** A literal `{{`, `[~` or `[*` in rendered
   HTML means the parser did not consume it. This is the most valuable assertion,
   because it catches EVO silently eating markup — the failure mode CLAUDE.md
@@ -196,10 +215,15 @@ tools/evo-sandbox/
   verify.mjs
   template/ntgoc.tpl
   vendor-assets/
+  db-init/01-databases.sh
 docs/superpowers/specs/2026-08-09-evo-sandbox-design.md
 ```
 
-New npm scripts: `evo:up`, `evo:down`, `evo:seed`, `evo:verify`, `evo:reset`.
+New npm scripts: `evo:up`, `evo:down`, `evo:seed`, `evo:verify`, `evo:reset`,
+`evo:logs`.
+
+At the time of writing the verifier reports **524 assertions passed, 0 failed**,
+from a cold boot on empty volumes.
 
 `npm run check` is **not** modified. The sandbox must not become a CI
 dependency; CI has no Docker daemon.

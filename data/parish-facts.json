@@ -372,5 +372,35 @@
       "why": "hero-anastasis-icon.jpg was the original home hero before the nave photograph replaced it; parish-nave-panorama.jpg is the wide nave shot kept as the alternative hero. faith-resurrection.jpg was the Our Faith hero until 9 August 2026, when every page named in the navigation took the shared nave photograph; it is the obvious image to restore if that decision is reversed. All three are parish-owned and already provenance-checked, so reinstating any of them needs no fresh harvest."
     }
   },
-  "_updated": "2026-08-09"
+  "_updated": "2026-08-09",
+  "templateAssetProvenance": {
+    "_note": "The live parish template's own CSS and JS, fetched 2026-08-09 and committed to tools/evo-sandbox/vendor-assets/ so the local Evolution CMS sandbox renders like the real site. LOCAL SANDBOX ONLY: these files are not referenced by any page in this repo, are not served by GitHub Pages, and are not part of dist/chunks/. Four of the five are Archdiocese-owned shared template files rather than the parish's, so redistributing them in a public repository is an open question for the Department of Internet Ministries \u2014 the same question already recorded for the GOA seal images in assetProvenance. Raised before committing and accepted deliberately; if DIM objects, delete the directory and have the Dockerfile fetch them at build time instead.",
+    "_fetchDate": "2026-08-09",
+    "_usedBy": "tools/evo-sandbox/template/ntgoc.tpl",
+    "common/css/template.css": {
+      "from": "nativity.va.goarch.org/assets/templates/common/css/template.css",
+      "bytes": 8971,
+      "owner": "GOARCH shared template \u2014 NOT parish-owned"
+    },
+    "common/css/content.css": {
+      "from": "nativity.va.goarch.org/assets/templates/common/css/content.css",
+      "bytes": 14922,
+      "owner": "GOARCH shared template \u2014 NOT parish-owned"
+    },
+    "common/js/main.js": {
+      "from": "nativity.va.goarch.org/assets/templates/common/js/main.js",
+      "bytes": 4741,
+      "owner": "GOARCH shared template \u2014 NOT parish-owned"
+    },
+    "t05.css": {
+      "from": "nativity.va.goarch.org/assets/templates/t05.css",
+      "bytes": 1247,
+      "owner": "GOARCH shared template \u2014 NOT parish-owned"
+    },
+    "custom.css": {
+      "from": "nativity.va.goarch.org/assets/templates/custom.css",
+      "bytes": 155,
+      "owner": "parish"
+    }
+  }
 }
