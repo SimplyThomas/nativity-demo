@@ -122,6 +122,12 @@ const CORRECTIONS = [
   // Never republish the priest's personal mobile number.
   { find: /\(540\) 645-1427/g, repl: '(540) 548-2665' },
 
+  // The single most consequential unresolved fact. The live site says
+  // "9 am Orthros & Divine Liturgy" (one 9:00 start); the design's Visit
+  // timeline puts the Liturgy at 10:00. Both readings are plausible for a
+  // parish, so neither is silently chosen — every 10:00 claim is flagged.
+  { find: /10:00 AM/g, repl: '10:00 AM' + TODO },
+
   // A ministry the design invented — flag rather than delete.
   { find: /Choir &amp; Chanters/g, repl: 'Choir &amp; Chanters' + TODO },
 
@@ -637,7 +643,9 @@ for (const page of PAGES) {
   const scope = scopeFor(page.key);
 
   // The outer page-wrapper <div> is already stripped; this is topbar + header.
-  let head = resolveAll(headerSrc, scope);
+  // Tag the top bar so the responsive layer can release its fixed 38px height,
+  // which otherwise clips the secondary links once they wrap on a phone.
+  let head = resolveAll(headerSrc, scope).replace('<div', '<div class="ntgoc-topbar"');
   head = head.replace(/<header/, '<!-- /CHUNK:ntgocTopBar -->\n<!-- CHUNK:ntgocSiteHeader -->\n<header');
   head = `<!-- CHUNK:ntgocTopBar -->\n${head}\n<!-- /CHUNK:ntgocSiteHeader -->\n`;
 
@@ -767,6 +775,18 @@ ${rules.join('\n')}
   .ntgoc-sticky { position: static !important; }
   .ntgoc-gutter { padding-left: 16px !important; padding-right: 16px !important; }
   .ntgoc-tall { min-height: 50vh; }
+
+  /* The top bar is a fixed-height 38px row in the design; let it grow so the
+     secondary links are not clipped once they wrap. */
+  .ntgoc-topbar {
+    height: auto !important;
+    flex-direction: column;
+    gap: 8px !important;
+    padding: 10px 16px !important;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .ntgoc-topbar > div { flex-wrap: wrap; justify-content: center; gap: 14px !important; }
 
   /* The header nav is a single fixed row in the design. Rather than build a
      drawer (which the design shows only as a static mock on the Mobile views

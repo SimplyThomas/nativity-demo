@@ -476,6 +476,18 @@
   .ntgoc-gutter { padding-left: 16px !important; padding-right: 16px !important; }
   .ntgoc-tall { min-height: 50vh; }
 
+  /* The top bar is a fixed-height 38px row in the design; let it grow so the
+     secondary links are not clipped once they wrap. */
+  .ntgoc-topbar {
+    height: auto !important;
+    flex-direction: column;
+    gap: 8px !important;
+    padding: 10px 16px !important;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .ntgoc-topbar > div { flex-wrap: wrap; justify-content: center; gap: 14px !important; }
+
   /* The header nav is a single fixed row in the design. Rather than build a
      drawer (which the design shows only as a static mock on the Mobile views
      page), let it wrap — every link stays reachable with no JavaScript. */

@@ -26,7 +26,7 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocGiveWays` | 1420 b | 1 page |
 | `ntgocHallRental` | 1741 b | 1 page |
 | `ntgocHomeFestivalPromo` | 1007 b | 1 page |
-| `ntgocHomeFirstSunday` | 3112 b | 1 page |
+| `ntgocHomeFirstSunday` | 3154 b | 1 page |
 | `ntgocHomeHero` | 1094 b | 1 page |
 | `ntgocHomeMinistriesPromo` | 1302 b | 1 page |
 | `ntgocHomeServiceTimes` | 1171 b | 1 page |
@@ -37,6 +37,6 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocMobileViews` | 3511 b | 1 page |
 | `ntgocSiteFooter` | 2578 b | 12 pages |
 | `ntgocSiteHeader` | 1223 b | 12 pages |
-| `ntgocTopBar` | 528 b | 12 pages |
-| `ntgocVisitorFirstSunday` | 5880 b | 1 page |
+| `ntgocTopBar` | 541 b | 12 pages |
+| `ntgocVisitorFirstSunday` | 5922 b | 1 page |
 | `ntgocVisitorHero` | 422 b | 1 page |
