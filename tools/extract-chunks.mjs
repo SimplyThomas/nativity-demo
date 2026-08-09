@@ -50,12 +50,11 @@ const RESERVED = [
   ['[+', '+]', 'placeholder'],
 ];
 
-/* Page file -> a human note for the volunteer replacing the link in EVO. */
-const PAGE_LINKS = [
-  'index.html', 'visit.html', 'faith.html', 'calendar.html', 'ministries.html',
-  'about.html', 'give.html', 'contact.html', 'festival.html', 'hall.html',
-  'bookstore.html', 'mobile-views.html',
-];
+/* Page file -> a human note for the volunteer replacing the link in EVO.
+   Read off disk rather than hand-listed: this list had silently fallen three
+   pages behind the site, so links to them were left as .html hrefs in the
+   extracted chunks instead of becoming EVO link placeholders. */
+const PAGE_LINKS = readdirSync(ROOT).filter(f => f.endsWith('.html')).sort();
 
 /* ------------------------------------------------------------------ */
 

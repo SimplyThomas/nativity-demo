@@ -131,6 +131,10 @@
 a.ntgoc-faith-card__more:hover,
 a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 
+/* --- Events page ----------------------------------------------------- */
+.ntgoc-events-note { margin-top: 56px; max-width: 62ch; }
+.ntgoc-events-note__link { margin: 18px 0 0; }
+
 /* --- Visit page hero and essentials ----------------------------------
    The hero used to be a title alone in a large parchment band, and the
    practical facts a visitor needs — when, where, which door — were spread

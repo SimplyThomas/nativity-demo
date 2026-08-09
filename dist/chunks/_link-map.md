@@ -12,23 +12,29 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `about` | _________ |
 | `bookstore` | _________ |
 | `calendar` | _________ |
+| `committees` | _________ |
 | `contact` | _________ |
+| `events` | _________ |
 | `faith` | _________ |
 | `give` | _________ |
 | `hall` | _________ |
 | `index` | _________ |
 | `ministries` | _________ |
 | `mobile-views` | _________ |
+| `newsletter` | _________ |
+| `parish-life` | _________ |
 | `visit` | _________ |
 
 ## 2. Then work through the chunks
 
-46 links across 20 chunks.
+60 links across 23 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
+| `ntgocAboutParishCouncil` | committees ×2 | ☐ |
 | `ntgocBookstoreNotes` | contact | ☐ |
 | `ntgocCommitteesList` | about | ☐ |
+| `ntgocEventsList` | calendar, hall, contact | ☐ |
 | `ntgocFaithTopics` | about, contact | ☐ |
 | `ntgocHallRental` | contact | ☐ |
 | `ntgocHomeFestivalPromo` | ministries | ☐ |
@@ -37,11 +43,12 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocHomeUpcomingServices` | calendar | ☐ |
 | `ntgocHomeWelcome` | faith, about | ☐ |
 | `ntgocMinistriesGrid` | give | ☐ |
+| `ntgocNewsletterArchive` | parish-life | ☐ |
 | `ntgocParishLifeBookstore` | bookstore | ☐ |
 | `ntgocParishLifeGallery` | contact | ☐ |
 | `ntgocParishLifeUpcoming` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, calendar, contact, hall, about, ministries, bookstore, give ×3 | ☐ |
-| `ntgocSiteHeader` | index, faith, ministries, bookstore, calendar ×2, hall, about, contact, visit | ☐ |
+| `ntgocSiteFooter` | visit, calendar, contact, hall, parish-life, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteHeader` | index, faith, parish-life ×2, ministries, committees, bookstore, newsletter, calendar, events ×2, hall, about, contact, visit | ☐ |
 | `ntgocTopBar` | mobile-views | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |

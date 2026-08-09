@@ -21,7 +21,7 @@ compete with the real site in search, and not to be mistaken for it.
 | `content/` | Reference copy of the eight parish-authored Visit sections. **No longer an input** — edit `visit.html`, then mirror the copy here. |
 | `tools/lint.mjs` | Enforces the rules that used to be guaranteed by the renderer. Run by CI. |
 | `tools/extract-chunks.mjs` | Turns those pages into paste-ready Evolution CMS chunks. |
-| `dist/chunks/` | **Generated.** 56 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
+| `dist/chunks/` | **Generated.** 58 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
 | `data/parish-facts.json` | Every parish fact, its source URL, and whether it is verified, corrected, or withheld. |
 | `IMPORT.md` | Step-by-step import instructions for a volunteer with no command line. |
 | `CONTRIBUTING.md` | How to make changes, and the rules that must not break. |

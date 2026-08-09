@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 56 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 58 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -111,7 +111,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 56 files.
+   are corrected together. Do **not** hand-edit paths in 58 files.
 
 The thirteen images to upload:
 
@@ -231,6 +231,7 @@ Then the page content, grouped by page:
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
+| **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil` |
@@ -241,7 +242,9 @@ Then the page content, grouped by page:
 | **Hall Rental** | `ntgocHallRental` |
 | **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
 
-> **Nothing links to the Greek Festival page any more.** On 8 August 2026 the
+> **Nothing links to the Greek Festival *page* any more** — the "Greek Festival"
+> entries in the Events menu and on the Events page both go to fredgreek.org,
+> not to `festival.html`. On 8 August 2026 the
 > parish asked that every "Greek Festival" link go to the festival's own site,
 > <https://www.fredgreek.org/> — so all 29 of them do: the top bar and the
 > footer on every page, the "Festival details" button on the home page, and the

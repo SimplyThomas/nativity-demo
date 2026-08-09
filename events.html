@@ -1,36 +1,12 @@
 <!DOCTYPE html>
-<!--
-  ============================================================
-  GENERATED FILE — DO NOT EDIT.
-
-  Rebuilt from design-src/ by tools/render.mjs. Any change made
-  directly to this file is destroyed by the next build.
-
-  Where to make the change instead:
-    layout / copy / colour ....  the Claude Design project, then re-import
-    a wrong parish fact .......  CORRECTIONS in tools/render.mjs
-    reorder or hide a block ...  applyLocalEdits() in tools/render.mjs
-    responsive behaviour ......  the responsive layer in tools/render.mjs
-    page list / chunk names ...  PAGES / CHUNK_NAMES in tools/render.mjs
-
-  Full guide: CONTRIBUTING.md      Preview locally: npm run dev
-  ============================================================
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<title>Hall Rental — Nativity of the Theotokos</title>
+<title>Events — Nativity of the Theotokos</title>
 <!-- Deliberately no Open Graph or Twitter card tags: a shared link must not render
      a preview that could be mistaken for the real parish website. -->
-<!-- The Archdiocese seal, taken from the live parish site. DEMO ONLY: in Evolution
-     CMS the active template already serves these icons from
-     /assets/templates/common/icons/ — do not re-upload them. See IMPORT.md. -->
-<link rel="icon" type="image/png" sizes="196x196" href="assets/img/goa-seal.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/goa-seal-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/goa-seal-16.png">
-<link rel="apple-touch-icon" sizes="152x152" href="assets/img/goa-seal-apple-touch.png">
 <!-- DEMO ONLY: Google Fonts. See IMPORT.md — confirm with the Department of Internet
      Ministries whether external font loading is permitted before relying on this. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,11 +65,11 @@
         </div>
         <a href="calendar.html" class="ntgoc-inherit ntgoc-nav-link">Calendar</a>
         <div class="ntgoc-navgroup">
-          <a href="events.html" class="ntgoc-inherit ntgoc-nav-link ntgoc-navgroup__top">Events<span class="ntgoc-navgroup__caret" aria-hidden="true"></span></a>
+          <a href="events.html" aria-current="page" class="ntgoc-inherit ntgoc-nav-link ntgoc-navgroup__top">Events<span class="ntgoc-navgroup__caret" aria-hidden="true"></span></a>
           <div class="ntgoc-navgroup__menu">
-            <a href="events.html" class="ntgoc-inherit ntgoc-navgroup__item ntgoc-navgroup__item--overview">Events</a>
+            <a href="events.html" aria-current="page" class="ntgoc-inherit ntgoc-navgroup__item ntgoc-navgroup__item--overview">Events</a>
             <a href="https://www.fredgreek.org/" target="_blank" rel="noreferrer" class="ntgoc-inherit ntgoc-navgroup__item">Greek Festival</a>
-            <a href="hall.html" aria-current="page" class="ntgoc-inherit ntgoc-navgroup__item">Hall Rental</a>
+            <a href="hall.html" class="ntgoc-inherit ntgoc-navgroup__item">Hall Rental</a>
           </div>
         </div>
         <a href="about.html" class="ntgoc-inherit ntgoc-nav-link">About</a>
@@ -107,34 +83,52 @@
 <!-- /CHUNK:ntgocSiteHeader -->
 
   <main id="ntgoc-main">
-    
-<!-- CHUNK:ntgocHallRental -->
-<section class="ntgoc-s75df7c ntgoc-gutter ntgoc-shell">
-      <div class="ntgoc-s512195">Hall rental</div>
-      <h1 class="ntgoc-s42e152">The parish hall is available to the community</h1>
-      <div class="ntgoc-s1fdd04 ntgoc-grid">
-        <div class="ntgoc-se04ad4">
-          <p class="ntgoc-sabf7da">Our hall seats roughly 200 and is used for baptisms, memorials, receptions, meetings and community gatherings. It has a full commercial kitchen, tables and chairs, a sound system and its own parking.</p>
-          <p class="ntgoc-sb6eb8c">Rental is open to parishioners and to the wider Fredericksburg community. Rates differ for the two, and a refundable deposit is required.</p>
-          <div class="ntgoc-sfdb85c ntgoc-grid">
-            <div class="ntgoc-s1a6197 ntgoc-grid"><span>Capacity</span><span class="ntgoc-ink">≈ 200 seated<!-- TODO: verify --></span></div>
-            <div class="ntgoc-s1a6197 ntgoc-grid"><span>Kitchen</span><span class="ntgoc-ink">Full commercial<!-- TODO: verify --></span></div>
-            <div class="ntgoc-s1a6197 ntgoc-grid"><span>Parking</span><span class="ntgoc-ink">On-site, free</span></div>
-            <div class="ntgoc-s1a6197 ntgoc-grid"><span>Booking</span><span class="ntgoc-ink">Through the parish office</span></div>
-          </div>
-        </div>
-        <div class="ntgoc-sf7b06c">
-          <h2 class="ntgoc-sae9e27">Enquire</h2>
-          <p class="ntgoc-sc064c2">Tell us the date, the occasion and rough numbers, and the office will send rates and the rental agreement.</p>
-          <a href="contact.html" class="ntgoc-inherit ntgoc-sbd3f88">Check availability</a>
-          <div class="ntgoc-sa72701">or call (540) 548-2665</div>
-        </div>
+
+<!-- CHUNK:ntgocEventsHero -->
+<section class="ntgoc-s8f2c70">
+      <div class="ntgoc-s484491 ntgoc-gutter ntgoc-shell">
+        <div class="ntgoc-s512195">Parish</div>
+        <h1 class="ntgoc-s0fa7a6">Events</h1>
+        <p class="ntgoc-sb9d47b">Beyond the round of services, the parish gathers through the year — for the festival, for feast days, and for the events our ministries host. What is coming up is always on the parish calendar.</p>
       </div>
     </section>
-<!-- /CHUNK:ntgocHallRental -->
+<!-- /CHUNK:ntgocEventsHero -->
 
-  </main>
-  
+<!-- CHUNK:ntgocEventsList -->
+<section class="ntgoc-s544329 ntgoc-gutter ntgoc-shell">
+      <div class="ntgoc-s088952 ntgoc-grid">
+        <a href="calendar.html" class="ntgoc-inherit ntgoc-card ntgoc-faith-card">
+          <h2 class="ntgoc-h3">Parish Calendar</h2>
+          <p class="ntgoc-body">Services, feast days and parish events, week by week. The calendar is the place to check before you come.</p>
+          <span class="ntgoc-faith-card__more">Read more →</span>
+        </a>
+        <a href="https://www.fredgreek.org/" target="_blank" rel="noreferrer" class="ntgoc-inherit ntgoc-card ntgoc-faith-card">
+          <h2 class="ntgoc-h3">Fredericksburg Greek Festival</h2>
+          <p class="ntgoc-body">The parish's largest gathering of the year, and the one most of Fredericksburg knows us by. The festival keeps its own website.</p>
+          <span class="ntgoc-faith-card__more">fredgreek.org →</span>
+        </a>
+        <a href="hall.html" class="ntgoc-inherit ntgoc-card ntgoc-faith-card">
+          <h2 class="ntgoc-h3">Hall Rental</h2>
+          <p class="ntgoc-body">The parish hall is available to rent for family celebrations and community gatherings.</p>
+          <span class="ntgoc-faith-card__more">Read more →</span>
+        </a>
+      </div>
+
+      <!-- Room to grow: this page exists so parish events have a home of their own
+           rather than living in the navigation. Add a section here as events are
+           confirmed — a festival countdown, a feast-day supper, a ministry night.
+           Anything with a date or a claim attached needs a source or a
+           TODO: verify marker, the same as everywhere else. -->
+
+      <div class="ntgoc-events-note">
+        <h2 class="ntgoc-h3">Hosting something at the parish?</h2>
+        <p class="ntgoc-body">Ministry leaders and parishioners can have an event listed on the calendar and on this page. Speak to the parish office, or send the details by email.</p>
+        <p class="ntgoc-events-note__link"><a href="contact.html" class="ntgoc-faith-card__more">Contact the parish office →</a></p>
+      </div>
+    </section>
+<!-- /CHUNK:ntgocEventsList -->
+
+</main>
 <!-- CHUNK:ntgocSiteFooter -->
 <footer class="ntgoc-footer">
     <div class="ntgoc-footer-inner ntgoc-gutter ntgoc-shell">
@@ -153,7 +147,7 @@
             <a href="visit.html" class="ntgoc-inherit ntgoc-footer-link">First-time visitors</a>
             <a href="calendar.html" class="ntgoc-inherit ntgoc-footer-link">Service times</a>
             <a href="contact.html" class="ntgoc-inherit ntgoc-footer-link">Directions</a>
-            <a href="hall.html" aria-current="page" class="ntgoc-inherit ntgoc-footer-link">Hall rental</a>
+            <a href="hall.html" class="ntgoc-inherit ntgoc-footer-link">Hall rental</a>
           </div>
         </div>
         <div>
