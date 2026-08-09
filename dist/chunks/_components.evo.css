@@ -382,7 +382,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-festival-promo-eyebrow:hover, .ntgoc-home-festival-promo-eyebrow:focus-visible { background:#f0cd91; }
 .ntgoc-home-festival-promo-small-caps { border:1px solid rgba(240,230,214,.45); color:#f0e6d6; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-home-festival-promo-small-caps:hover, .ntgoc-home-festival-promo-small-caps:focus-visible { border-color:#e0b673; color:#e0b673; }
-.ntgoc-home-festival-promo-media { height:300px; background-image:url('/assets/templates/ntgoc/img/festival-banquet.png'); background-size:cover; background-position:center; border:1px solid rgba(224,182,115,.35); }
 .ntgoc-home-ministries-promo-row { display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:44px; flex-wrap:wrap; }
 .ntgoc-home-ministries-promo-heading { font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0; color:#3a1414; }
 .ntgoc-home-ministries-promo-eyebrow { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; }
@@ -791,6 +790,66 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    so this layer is the ONE place where layout was authored rather than
    transcribed from the design. It stays last to win on source order.
    ------------------------------------------------------------------ */
+/* --- Two-slide carousel (home page, Greek Festival) -------------------
+   No JavaScript, like everything else here: a scroll-snap track with an
+   anchor per slide. It scrolls by trackpad, by dragging, by the arrow
+   keys once focused, and by clicking a label underneath.
+
+   The track takes a tab stop and a name of its own. A scroll container
+   holding nothing focusable cannot be scrolled from the keyboard at all,
+   which is the same fault the greeter row had — axe calls it
+   scrollable-region-focusable.
+   -------------------------------------------------------------------- */
+.ntgoc-carousel { display: flex; flex-direction: column; gap: 14px; }
+.ntgoc-carousel__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.ntgoc-carousel__slide { flex: 0 0 100%; scroll-snap-align: start; margin: 0; }
+.ntgoc-carousel__media {
+  height: 300px;
+  border: 1px solid rgba(224,182,115,.35);
+  background-size: cover;
+  background-position: center;
+}
+/* The emblem is a mark on a white ground, not a photograph: contained and
+   centred on a light panel, the way the hand-drawn directions map is
+   handled, so it is never cropped through the lettering. */
+.ntgoc-carousel__media--emblem {
+  background-color: #f6f1e8;
+  background-image: url('/assets/templates/ntgoc/img/festival-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/* Also a graphic rather than a photograph — a poster, with lettering that
+   `cover` slices straight through. Contained, on a dark panel that suits its
+   navy ground. */
+.ntgoc-carousel__media--banquet {
+  background-color: #2a1414;
+  background-image: url('/assets/templates/ntgoc/img/festival-banquet.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.ntgoc-carousel__caption {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e8d9c4;
+  margin-top: 10px;
+}
+.ntgoc-carousel__dots { display: flex; gap: 18px; }
+.ntgoc-carousel__dot {
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #e0b673;
+  border-bottom: 1px solid rgba(224,182,115,.4);
+  padding-bottom: 3px;
+}
+.ntgoc-carousel__dot:hover, .ntgoc-carousel__dot:focus-visible { border-color: #e0b673; }
+
 /* --- Shared photograph hero ------------------------------------------
    Every page named in the main navigation carries the same header image
    as the home page and Parish Life: the nave, looking down the centre

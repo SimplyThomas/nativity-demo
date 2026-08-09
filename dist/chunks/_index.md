@@ -28,11 +28,11 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
 | ☐ | `ntgocFestivalDetails` | 1959 b | 1 page | — |
-| ☐ | `ntgocFestivalHero` | 652 b | 1 page | — |
+| ☐ | `ntgocFestivalHero` | 647 b | 1 page | — |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 1559 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 1933 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeFestivalPromo` | 1229 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeFestivalPromo` | 2412 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1208 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1626 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1456 b | 1 page | — |

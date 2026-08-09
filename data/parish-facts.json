@@ -186,9 +186,16 @@
       "from": "onlinechapel.goarch.org/images/clark/transfiguration.jpg",
       "owner": "GOARCH Online Chapel \u2014 NOT parish-owned; check reuse terms before import"
     },
+    "festival-logo.png": {
+      "from": "facebook.com — the parish's Greek Festival page, CDN copy fetched 2026-08-09",
+      "owner": "parish",
+      "status": "UNVERIFIED",
+      "note": "The festival's emblem, supplied by the parish. It is a mark rather than a photograph, so it is shown contained on a light panel rather than cropped. TODO: confirm the parish holds it and is happy for it to appear here \u2014 the source was a signed Facebook CDN link that expires, so it cannot be re-fetched from the same URL later."
+    },
     "festival-banquet.png": {
       "from": "nativity.va.goarch.org/assets/images/Banquet 2.png",
-      "owner": "parish"
+      "owner": "parish",
+      "note": "Not a photograph: it is the poster for the parish's 35th Anniversary Banquet, lettering and all. It was described site-wide as \u0027Parishioners gathered at a banquet in the parish hall\u0027 until 9 August 2026 \u2014 a description of a picture that does not exist, which is worse than none for anyone relying on it. Shown contained rather than cropped, because `cover` cuts through the words."
     },
     "faith-resurrection.jpg": {
       "from": "nativity.va.goarch.org/assets/images/resurrection.jpg",
