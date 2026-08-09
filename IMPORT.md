@@ -380,12 +380,22 @@ visitor's message is worse than no form at all.
 
 ### Step 6 — The JavaScript (optional)
 
-One file: `assets/js/ntgoc-enhance.js`. It does exactly one thing — filters the
-bookstore catalogue by category.
+One file: `assets/js/ntgoc-enhance.js`. It does two things — filters the
+bookstore catalogue by category, and advances the home page's festival cards on
+their own.
 
 **It is optional.** With JavaScript off, every bookstore item is already visible
-and the category buttons simply do nothing. Nothing else on the site needs
-JavaScript at all. If in doubt, skip it.
+and the category buttons simply do nothing; the festival carousel keeps working
+too, because its dots are ordinary links to each card and the strip scrolls by
+trackpad, drag or arrow key. All the script adds there is the automatic
+advance, the filled dot showing which card you are on, and the Pause button —
+which stays hidden without it, since there would be nothing to pause. Nothing
+on the site *needs* JavaScript. If in doubt, skip it.
+
+If you do take it, the autoplay is built to the accessibility rule that matters
+here (WCAG 2.2.2): it stops on hover, on keyboard focus, while the tab is in the
+background, and for good on a click of Pause — and it never starts at all for a
+visitor whose system asks for reduced motion.
 
 If you want it: upload to `/assets/templates/ntgoc/js/ntgoc-enhance.js` and add
 before `</body>` in the template:

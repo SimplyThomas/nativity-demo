@@ -32,7 +32,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 2018 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 1933 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeFestivalPromo` | 3227 b | 1 page | yes (3) |
+| ☐ | `ntgocHomeFestivalPromo` | 3609 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1202 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
