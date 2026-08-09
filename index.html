@@ -264,8 +264,12 @@
 
           </div>
           <div class="ntgoc-carousel__nav">
-            <a href="#ntgoc-promo-festival" class="ntgoc-inherit ntgoc-carousel__step">Greek Festival</a>
-            <a href="#ntgoc-promo-banquet" class="ntgoc-inherit ntgoc-carousel__step">35th Anniversary Banquet</a>
+            <a href="#ntgoc-promo-festival" class="ntgoc-carousel__dot"><span class="ntgoc-visually-hidden">The Greek Festival</span></a>
+            <a href="#ntgoc-promo-banquet" class="ntgoc-carousel__dot"><span class="ntgoc-visually-hidden">The 35th Anniversary Banquet</span></a>
+            <!-- Revealed by ntgoc-enhance.js, which is what makes the cards advance
+                 on their own. With no JavaScript there is nothing to pause, so the
+                 button stays hidden. -->
+            <button type="button" class="ntgoc-carousel__pause" aria-pressed="false" hidden>Pause</button>
           </div>
         </div>
       </div>

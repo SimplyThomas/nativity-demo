@@ -967,16 +967,33 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   background-repeat: no-repeat;
 }
 
-.ntgoc-carousel__nav { display: flex; gap: 26px; flex-wrap: wrap; }
-.ntgoc-carousel__step {
-  font-size: 11px;
+.ntgoc-carousel__nav { display: flex; align-items: center; gap: 4px; }
+/* The dot is drawn by ::before so the clickable box can stay 24px — a 10px
+   target is too small to hit reliably, especially on a phone. */
+.ntgoc-carousel__dot { width: 24px; height: 24px; display: grid; place-items: center; }
+.ntgoc-carousel__dot::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(224,182,115,.65);
+}
+.ntgoc-carousel__dot[aria-current="true"]::before { background: #e0b673; border-color: #e0b673; }
+.ntgoc-carousel__dot:hover::before, .ntgoc-carousel__dot:focus-visible::before { border-color: #e0b673; }
+
+.ntgoc-carousel__pause {
+  margin-left: 10px;
+  padding: 4px 2px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 10.5px;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: #e0b673;
-  border-bottom: 1px solid rgba(224,182,115,.4);
-  padding-bottom: 4px;
+  cursor: pointer;
 }
-.ntgoc-carousel__step:hover, .ntgoc-carousel__step:focus-visible { border-color: #e0b673; }
+.ntgoc-carousel__pause:hover, .ntgoc-carousel__pause:focus-visible { text-decoration: underline; }
 
 /* A jump to a slide must not drag the page sideways or land under the sticky
    header. */
