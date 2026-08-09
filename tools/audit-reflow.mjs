@@ -16,8 +16,11 @@ if (!CHROME) {
   console.error('No Chrome/Chromium found. Set CHROME_PATH to a browser binary.');
   process.exit(2);
 }
-const PAGES=['index.html','visit.html','faith.html','calendar.html','ministries.html','about.html',
-  'give.html','contact.html','festival.html','hall.html','bookstore.html','mobile-views.html'];
+/* Read the pages off disk rather than listing them, the way lint.mjs does.
+   This list used to be hard-coded, which meant a page added to the repo was
+   silently never audited — the run still said every page passed. */
+import { readdirSync } from 'node:fs';
+const PAGES = readdirSync(REPO).filter(f => f.endsWith('.html')).sort();
 const b=await puppeteer.launch({executablePath:CHROME,headless:true,args:['--no-sandbox','--disable-gpu']});
 console.log('WCAG 1.4.10 Reflow — viewport 320x800, no horizontal scrolling allowed\n');
 let bad=0;

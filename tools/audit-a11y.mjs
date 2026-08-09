@@ -23,11 +23,11 @@ import { fileURLToPath } from 'node:url';
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = process.env.SITE_URL || `file://${REPO}`;
 const SITE = process.argv[2] || BASE;
-const PAGES = [
-  'index.html', 'visit.html', 'faith.html', 'calendar.html', 'ministries.html',
-  'about.html', 'give.html', 'contact.html', 'festival.html', 'hall.html',
-  'bookstore.html', 'mobile-views.html',
-];
+/* Read the pages off disk rather than listing them, the way lint.mjs does.
+   This list used to be hard-coded, which meant a page added to the repo was
+   silently never audited — the run still said every page passed. */
+import { readdirSync } from 'node:fs';
+const PAGES = readdirSync(REPO).filter(f => f.endsWith('.html')).sort();
 const VIEWPORTS = [
   { name: 'desktop', width: 1440, height: 900 },
   { name: 'mobile', width: 390, height: 844 },
