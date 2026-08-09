@@ -96,6 +96,36 @@
    ------------------------------------------------------------------ */
 .ntgoc-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
+/* --- Our Faith topic cards ------------------------------------------
+   Each card is a whole link, the same pattern the home page uses for its
+   ministry cards. The destinations are the parish's own Our Faith pages,
+   which already exist on nativity.va.goarch.org — see IMPORT.md: they should
+   become internal resource links once the site is in Evolution CMS.
+   -------------------------------------------------------------------- */
+.ntgoc-faith-card { display: block; }
+.ntgoc-faith-card__more {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #7d2b2b;
+  border-bottom: 1px solid #d9c6a8;
+  padding-bottom: 3px;
+}
+.ntgoc-faith-card:hover .ntgoc-faith-card__more,
+.ntgoc-faith-card:focus-visible .ntgoc-faith-card__more { border-color: #7d2b2b; }
+.ntgoc-faith-card:hover { background: #f1e9dc; }
+
+/* The last cell spans the row: an invitation to talk to someone, not another
+   topic to read about, so it is deliberately not a whole-card link — it offers
+   two different next steps. */
+.ntgoc-faith-invite { grid-column: 1 / -1; }
+.ntgoc-faith-invite__links { display: flex; flex-wrap: wrap; gap: 14px 32px; margin-top: 18px; }
+.ntgoc-faith-invite__links .ntgoc-faith-card__more { margin-top: 0; }
+a.ntgoc-faith-card__more:hover,
+a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
+
 /* --- "On this page" jump list (Visit) -------------------------------
    The Visit page runs to eleven sections. Rather than hide any of them
    behind a disclosure — a visitor only opens what they already thought

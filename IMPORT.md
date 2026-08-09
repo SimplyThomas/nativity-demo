@@ -380,10 +380,13 @@ else on the site, and the parish may want them back somewhere:
   introduce themselves. Come, watch, leave whenever you like."** For a visitor
   whose fear is being conspicuous, this is one of the more reassuring lines the
   page had.
-- *"I'm interested in becoming Orthodox."* — **"Speak with Fr. John — no
-  commitment implied. Inquirers' conversations happen quietly and at your own
-  pace, often over many months."** This was the page's only next step for
-  someone ready to take one.
+- *"I'm interested in becoming Orthodox."* — **re-homed.** It is now the last
+  block of `ntgocFaithTopics` on the Our Faith page, spanning the width of the
+  topic grid, with two next steps: the parish's own
+  `/our-faith/the_church` page ("Procedures for Becoming a Member of the
+  Orthodox Christian Church") and the contact page. The Visit page still has no
+  next step for an inquirer, which may or may not be right — that is a judgement
+  for Father.
 
 A third, *"Is there somewhere to sit?"*, is now covered by "When You Arrive".
 

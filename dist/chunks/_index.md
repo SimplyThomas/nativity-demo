@@ -18,7 +18,7 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocDraftBanner` | 488 b | 12 pages |
 | `ntgocFaithHero` | 398 b | 1 page |
 | `ntgocFaithIntro` | 886 b | 1 page |
-| `ntgocFaithTopics` | 1950 b | 1 page |
+| `ntgocFaithTopics` | 4308 b | 1 page |
 | `ntgocFaithWatchRead` | 1965 b | 1 page |
 | `ntgocFestivalDetails` | 1693 b | 1 page |
 | `ntgocFestivalHero` | 576 b | 1 page |
