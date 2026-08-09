@@ -22,7 +22,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocContactHero` | 454 b | 1 page | — |
 | ☐ | `ntgocDraftBanner` | 488 b | 16 pages | — |
 | ☐ | `ntgocEventsHero` | 683 b | 1 page | — |
-| ☐ | `ntgocEventsList` | 2144 b | 1 page | yes (3) |
+| ☐ | `ntgocEventsList` | 2180 b | 1 page | yes (3) |
 | ☐ | `ntgocFaithHero` | 479 b | 1 page | — |
 | ☐ | `ntgocFaithIntro` | 952 b | 1 page | — |
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |

@@ -486,6 +486,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-clergy-body-muted { font-size:16.5px; line-height:1.75; color:#5b5449; }
 .ntgoc-about-clergy-text { margin:0 0 18px; text-wrap:pretty; }
 .ntgoc-events-list-shell { max-width:1240px; margin:0 auto; padding:20px 40px 96px; }
+/* On Events the same block sits directly under the photograph hero, with no
+   intro section between, so it needs the full gap the other pages use. */
+.ntgoc-events-list-shell--under-hero { padding-top: 84px; }
 .ntgoc-events-list-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; }
 .ntgoc-card { background:#f6f1e8; padding:36px 30px; }
 .ntgoc-h3 { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414; }
@@ -534,7 +537,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-ministries-grid-row { background:#ece3d5; padding:40px 32px; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-ministries-grid-small-caps { align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-ministries-grid-small-caps:hover, .ntgoc-ministries-grid-small-caps:focus-visible { background:#5e1f1f; }
-.ntgoc-about-clergy-shell { max-width:1240px; margin:0 auto; padding:0 40px 90px; }
+.ntgoc-about-clergy-shell { max-width:1240px; margin:0 auto; padding:84px 40px 90px; }
 .ntgoc-about-clergy-media { height:420px; background-image:url('../img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-about-clergy-box { margin-top:22px; }
 .ntgoc-about-clergy-lede { font-family:Newsreader, serif; font-size:24px; color:#3a1414; line-height:1.25; }
