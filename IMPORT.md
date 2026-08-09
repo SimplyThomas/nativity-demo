@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 58 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 59 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -111,7 +111,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 58 files.
+   are corrected together. Do **not** hand-edit paths in 59 files.
 
 The thirteen images to upload:
 
@@ -237,7 +237,7 @@ Then the page content, grouped by page:
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil` |
 | **The Light (newsletter)** | `ntgocNewsletterHero`, `ntgocNewsletterArchive` |
 | **Giving** | `ntgocGiveWays`, `ntgocGiveProjects` |
-| **Contact** | `ntgocContactCard` |
+| **Contact** | `ntgocContactHero`, `ntgocContactCard` |
 | **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` — *nothing links to this page, see below* |
 | **Hall Rental** | `ntgocHallRental` |
 | **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |

@@ -9,20 +9,21 @@ match the filename exactly — that is how pages call it.
 | Done | Chunk | Size | Appears on | Has links to repoint |
 |:--:|---|---:|---:|:--:|
 | ☐ | `ntgocAboutClergy` | 2754 b | 1 page | — |
-| ☐ | `ntgocAboutHero` | 213 b | 1 page | — |
+| ☐ | `ntgocAboutHero` | 473 b | 1 page | — |
 | ☐ | `ntgocAboutParishCouncil` | 5511 b | 1 page | yes (2) |
 | ☐ | `ntgocBookstoreCatalog` | 14620 b | 1 page | — |
 | ☐ | `ntgocBookstoreHero` | 1295 b | 1 page | — |
 | ☐ | `ntgocBookstoreNotes` | 1137 b | 1 page | yes (1) |
 | ☐ | `ntgocCalendarGrid` | 9664 b | 1 page | — |
-| ☐ | `ntgocCalendarHero` | 631 b | 1 page | — |
+| ☐ | `ntgocCalendarHero` | 883 b | 1 page | — |
 | ☐ | `ntgocCommitteesHero` | 528 b | 1 page | — |
 | ☐ | `ntgocCommitteesList` | 3822 b | 1 page | yes (1) |
-| ☐ | `ntgocContactCard` | 3090 b | 1 page | — |
+| ☐ | `ntgocContactCard` | 2974 b | 1 page | — |
+| ☐ | `ntgocContactHero` | 454 b | 1 page | — |
 | ☐ | `ntgocDraftBanner` | 488 b | 16 pages | — |
-| ☐ | `ntgocEventsHero` | 489 b | 1 page | — |
+| ☐ | `ntgocEventsHero` | 683 b | 1 page | — |
 | ☐ | `ntgocEventsList` | 2144 b | 1 page | yes (3) |
-| ☐ | `ntgocFaithHero` | 451 b | 1 page | — |
+| ☐ | `ntgocFaithHero` | 479 b | 1 page | — |
 | ☐ | `ntgocFaithIntro` | 952 b | 1 page | — |
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
@@ -59,7 +60,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocVisitorEssentials` | 1268 b | 1 page | — |
 | ☐ | `ntgocVisitorFirstSunday` | 6446 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorGreeters` | 3313 b | 1 page | — |
-| ☐ | `ntgocVisitorHero` | 942 b | 1 page | yes (2) |
+| ☐ | `ntgocVisitorHero` | 1121 b | 1 page | yes (2) |
 | ☐ | `ntgocVisitorLanguage` | 7114 b | 1 page | — |
 | ☐ | `ntgocVisitorSundaySchool` | 1730 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorVideos` | 3778 b | 1 page | — |

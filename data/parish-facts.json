@@ -256,9 +256,10 @@
       "_note": "Harvested and kept on purpose, but referenced by no page right now. Listed here so `npm run lint` treats them as deliberate rather than forgotten. Delete the entry if you delete the file.",
       "files": [
         "hero-anastasis-icon.jpg",
-        "parish-nave-panorama.jpg"
+        "parish-nave-panorama.jpg",
+        "faith-resurrection.jpg"
       ],
-      "why": "hero-anastasis-icon.jpg was the original home hero before the nave photograph replaced it; parish-nave-panorama.jpg is the wide nave shot kept as the alternative hero. Both are parish-owned and already provenance-checked, so reinstating either needs no fresh harvest."
+      "why": "hero-anastasis-icon.jpg was the original home hero before the nave photograph replaced it; parish-nave-panorama.jpg is the wide nave shot kept as the alternative hero. faith-resurrection.jpg was the Our Faith hero until 9 August 2026, when every page named in the navigation took the shared nave photograph; it is the obvious image to restore if that decision is reversed. All three are parish-owned and already provenance-checked, so reinstating any of them needs no fresh harvest."
     }
   }
 }

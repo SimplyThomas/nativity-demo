@@ -142,18 +142,31 @@ harmless.
 ### The 95 "needs review" items
 
 **Contrast over a background image.** axe cannot compute contrast for text over
-an image, so it defers. Most of these are the gold `#e0b673` eyebrow labels over
-the hero images. Measured by sampling the brightest pixel actually rendered
-behind each label and computing the ratio against it:
+an image, so it defers. These are the hero eyebrows, headlines and ledes over
+the nave photograph, which is now the header of every page named in the
+navigation.
 
-| Hero | Ratio | Needs |
-|---|---:|---:|
-| Home — nave photograph at 42% under the gradient | **6.62:1** | 4.5 |
-| Parish Life — same photograph at full strength under its two-layer scrim | **5.07:1** | 4.5 |
-| Over solid oxblood, no image | 8.61:1 | 4.5 |
+Measured on 9 August 2026 by sampling the brightest pixel actually rendered
+behind each **glyph run** — not behind the element box. That distinction
+matters: an eyebrow is a full-width block whose box runs a thousand pixels past
+the text, across the brightest part of the photograph. Measured that way, six
+pages appeared to fail at 2.8–3.4:1. Measured against the glyphs, every string
+passes:
 
-The home hero's headline (11.07:1) and lede (10.52:1) are far clear of their
-thresholds.
+| Page | Eyebrow (needs 4.5) | Headline (needs 3) | Lede (needs 4.5) |
+|---|---:|---:|---:|
+| Home | 7.04:1 | 12.74:1 | 9.54:1 |
+| Parish Life | 7.47:1 | 12.12:1 | 8.04:1 |
+| Our Faith | 8.07:1 | 12.02:1 | — |
+| Calendar | 7.86:1 | 12.55:1 | — |
+| About | 7.85:1 | 12.55:1 | — |
+| Events | 8.08:1 | 13.19:1 | 10.86:1 |
+| Contact | 8.16:1 | 12.55:1 | — |
+| Plan a visit | 8.20:1 | 11.65:1 | 9.34:1 |
+
+The worst of the twenty clears its threshold by 56%. The six pages that took
+the shared `.ntgoc-page-hero` component score better than the two that came
+first, because its scrim is denser than the home hero's.
 
 **This is why the home hero keeps its 42% opacity.** The photograph was changed
 to match Parish Life's; matching that page's *treatment* as well — the image at

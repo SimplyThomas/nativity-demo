@@ -143,15 +143,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    facts sit directly under it, so the answers are visible before anything
    has to be opened.
    -------------------------------------------------------------------- */
-.ntgoc-visit-lede {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #4a443c;
-  margin: 0;
-  max-width: 60ch;
-  text-wrap: pretty;
-}
-.ntgoc-visit-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
 
 .ntgoc-essentials__grid {
   max-width: 1240px;
@@ -356,7 +347,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-welcome-link:hover, .ntgoc-home-welcome-link:focus-visible { border-color:#7d2b2b; }
 .ntgoc-band { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
 .ntgoc-visitor-directions-shell { max-width:1240px; margin:0 auto; padding:88px 40px; }
-.ntgoc-visitor-hero-micro-caps { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:22px; }
 .ntgoc-festival-details-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:12px; }
 .ntgoc-step-heading { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 14px; color:#3a1414; }
 .ntgoc-body { font-size:15px; line-height:1.7; color:#5b5449; margin:0; }
@@ -420,13 +410,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-colophon__seal { width:80px; height:80px; flex:none; box-sizing:border-box; padding:6px; background:#faf5ec; border-radius:50%; }
 .ntgoc-footer-colophon-row { flex:1; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; font-size:12px; letter-spacing:.08em; opacity:.6; }
 .ntgoc-hero-band { background:#ece3d5; border-bottom:1px solid #ded2be; }
-.ntgoc-visitor-hero-shell { max-width:1240px; margin:0 auto; padding:82px 40px 74px; }
-.ntgoc-visitor-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.1; margin:0 0 22px; color:#3a1414; max-width:15ch; }
 .ntgoc-visitor-first-sunday-card { border:1px solid #ccbda4; background:#ece3d5; padding:30px 28px; }
-.ntgoc-visitor-hero-small-caps { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-visitor-hero-small-caps:hover, .ntgoc-visitor-hero-small-caps:focus-visible { background:#5e1f1f; }
-.ntgoc-visitor-hero-eyebrow { border:1px solid #ccbda4; color:#5b5449; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-visitor-hero-eyebrow:hover, .ntgoc-visitor-hero-eyebrow:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-visitor-first-sunday-micro-caps { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:20px 0; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; margin-bottom:12px; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#6c6458; }
 .ntgoc-visitor-first-sunday-brick { color:#7d2b2b; }
 .ntgoc-visitor-first-sunday-text { color:#c9b795; }
@@ -499,12 +483,8 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-directions-eyebrow { display:inline-block; margin-top:32px; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-visitor-directions-eyebrow:hover, .ntgoc-visitor-directions-eyebrow:focus-visible { background:#5e1f1f; }
 .ntgoc-visitor-directions-media { height:400px; border:1px solid #ded2be; background-color:#e6ddcd; background-image:url('/assets/templates/ntgoc/img/directions-map.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; }
-.ntgoc-faith-hero-on-ink { position:relative; background:#3a1414; height:380px; overflow:hidden; }
-.ntgoc-faith-hero-media { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/faith-resurrection.jpg'); background-size:cover; background-position:center 30%; opacity:.4; }
-.ntgoc-faith-hero-box { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.95), rgba(58,20,20,.5)); }
 .ntgoc-faith-hero-row { position:relative; max-width:1240px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-faith-hero-eyebrow { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:20px; }
-.ntgoc-faith-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0; color:#faf5ec; max-width:16ch; }
 .ntgoc-faith-intro-shell { max-width:1240px; margin:0 auto; padding:84px 40px 60px; }
 .ntgoc-faith-intro-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-faith-intro-text { font-family:Newsreader, serif; font-size:27px; line-height:1.5; font-weight:300; color:#3a1414; margin:0; text-wrap:pretty; }
@@ -527,9 +507,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-faith-watch-read-media { height:150px; background-image:url('/assets/templates/ntgoc/img/faith-ascension.jpg'); background-size:cover; background-position:center; }
 .ntgoc-faith-watch-read-media-4 { height:150px; background-image:url('/assets/templates/ntgoc/img/faith-holy-sites.jpg'); background-size:cover; background-position:center; }
 .ntgoc-faith-watch-read-media-5 { height:150px; background-image:url('/assets/templates/ntgoc/img/faith-elders.jpg'); background-size:cover; background-position:center; }
-.ntgoc-calendar-hero-shell { max-width:1240px; margin:0 auto; padding:76px 40px 64px; }
-.ntgoc-calendar-hero-row { display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap; }
-.ntgoc-calendar-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1; margin:0; color:#3a1414; }
 .ntgoc-calendar-hero-row-3 { display:flex; gap:10px; }
 .ntgoc-calendar-hero-eyebrow { cursor:pointer; border:1px solid #ccbda4; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#5b5449; }
 .ntgoc-calendar-hero-eyebrow:hover, .ntgoc-calendar-hero-eyebrow:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
@@ -562,8 +539,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-ministries-grid-row { background:#ece3d5; padding:40px 32px; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-ministries-grid-small-caps { align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-ministries-grid-small-caps:hover, .ntgoc-ministries-grid-small-caps:focus-visible { background:#5e1f1f; }
-.ntgoc-about-hero-shell { max-width:1240px; margin:0 auto; padding:80px 40px 60px; }
-.ntgoc-about-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0; color:#3a1414; max-width:16ch; }
 .ntgoc-about-clergy-shell { max-width:1240px; margin:0 auto; padding:0 40px 90px; }
 .ntgoc-about-clergy-media { height:420px; background-image:url('/assets/templates/ntgoc/img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-about-clergy-box { margin-top:22px; }
@@ -613,7 +588,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-give-projects-text { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
 .ntgoc-give-projects-media { display:block; height:180px; background-image:url('/assets/templates/ntgoc/img/give-building-projects.png'); background-size:cover; background-position:center; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-contact-card-shell { max-width:1240px; margin:0 auto; padding:84px 40px 90px; }
-.ntgoc-contact-card-title { font-family:Newsreader, serif; font-weight:300; font-size:50px; line-height:1.12; margin:0 0 50px; color:#3a1414; }
 .ntgoc-contact-card-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:80px; align-items:start; }
 .ntgoc-contact-card-grid-ruled { display:grid; gap:26px; border-top:1px solid #ded2be; padding-top:28px; }
 .ntgoc-contact-card-micro-caps { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7f5f30; margin-bottom:8px; }
@@ -814,6 +788,72 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    so this layer is the ONE place where layout was authored rather than
    transcribed from the design. It stays last to win on source order.
    ------------------------------------------------------------------ */
+/* --- Shared photograph hero ------------------------------------------
+   Every page named in the main navigation carries the same header image
+   as the home page and Parish Life: the nave, looking down the centre
+   aisle. One component rather than six near-copies, so the scrim — the
+   thing the text's legibility depends on — is defined and measured once.
+
+   The scrim is Parish Life's two-layer version with the horizontal pass
+   darkened where the text sits. Every hero string was measured against
+   the pixels actually behind its glyphs; the table is in ACCESSIBILITY.md.
+   -------------------------------------------------------------------- */
+.ntgoc-page-hero { position: relative; min-height: 400px; display: flex; background: #3a1414; overflow: hidden; }
+.ntgoc-page-hero__photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/templates/ntgoc/img/parish-nave-aisle.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.ntgoc-page-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(58,20,20,.5) 0%, rgba(58,20,20,0) 50%),
+    linear-gradient(75deg, rgba(58,20,20,.96) 0%, rgba(58,20,20,.9) 45%, rgba(58,20,20,.6) 72%, rgba(58,20,20,.28) 100%);
+  pointer-events: none;
+}
+.ntgoc-page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 72px 40px;
+  align-self: center;
+}
+.ntgoc-page-hero__eyebrow {
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #e0b673;
+  margin-bottom: 22px;
+}
+.ntgoc-page-hero__title {
+  font-family: Newsreader, serif;
+  font-weight: 300;
+  font-size: 54px;
+  line-height: 1.08;
+  margin: 0;
+  color: #f6f1e8;
+  max-width: 18ch;
+  text-wrap: pretty;
+}
+.ntgoc-page-hero__lede {
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: #ede4d3;
+  margin: 24px 0 0;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+.ntgoc-page-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+
+/* The calendar's month controls sat inside its hero; they stay on parchment
+   now that the hero is a photograph. */
+.ntgoc-calendar-controls { max-width: 1240px; margin: 0 auto; padding: 24px 40px; }
+
 @media (max-width: 900px) {
   .ntgoc-grid { grid-template-columns: 1fr !important; }
   .ntgoc-gutter { padding-left: 20px !important; padding-right: 20px !important; }
@@ -948,4 +988,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* The three essentials stack rather than squeeze. */
 @media (max-width: 900px) {
   .ntgoc-essentials__grid { grid-template-columns: 1fr !important; gap: 30px !important; padding-top: 32px; padding-bottom: 34px; }
+}
+
+@media (max-width: 640px) {
+  .ntgoc-page-hero { min-height: 320px; }
+  .ntgoc-page-hero__inner { padding: 52px 20px; }
+  .ntgoc-page-hero__title { font-size: 38px; }
 }
