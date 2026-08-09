@@ -237,6 +237,35 @@ for (const f of chunkFiles) {
  * 6. Class prefixing in the markup
  * ------------------------------------------------------------------ */
 const ALLOWED = new Set(['ntgoc']);   // everything custom must start ntgoc-
+
+/**
+ * The house naming convention, enforced so it cannot drift again:
+ *
+ *     ntgoc-<block>[__<element>][--<modifier>]
+ *
+ * every part lowercase kebab-case. Documented under "Naming CSS classes" in
+ * CONTRIBUTING.md and summarised in CLAUDE.md. This repo previously ran two
+ * conventions at once and ended up with `ntgoc-pl-kicker` and
+ * `ntgoc-page-eyebrow` as two names for one identical rule.
+ */
+const CLASS_GRAMMAR =
+  /^ntgoc-[a-z0-9]+(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$/;
+
+{
+  const css = read('assets/css/components.css');
+  const declared = new Set([...css.matchAll(/^\.(ntgoc-[\w-]+)/gm)].map(m => m[1]));
+  for (const cls of declared) {
+    if (!CLASS_GRAMMAR.test(cls)) {
+      err('class-grammar', 'assets/css/components.css',
+        `"${cls}" does not match ntgoc-<block>[__<element>][--<modifier>]`);
+    }
+    // Abbreviated area prefixes read as noise next to the spelled-out ones.
+    if (/^ntgoc-(pl|nav|hdr|ftr|btn-|img)-/.test(cls) && !/^ntgoc-(nav|btn)-/.test(cls)) {
+      warn('class-abbrev', 'assets/css/components.css',
+        `"${cls}" uses an abbreviated prefix; spell the area out (ntgoc-parish-life-…)`);
+    }
+  }
+}
 for (const rel of PAGES) {
   for (const m of read(rel).matchAll(/\sclass="([^"]+)"/g)) {
     for (const cls of m[1].split(/\s+/).filter(Boolean)) {

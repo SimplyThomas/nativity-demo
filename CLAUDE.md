@@ -70,8 +70,13 @@ something that should not be published.
    empty frames, deliberately. Fr. John's personal mobile is on the live site and
    is deliberately *not* here.
 4. **Every page keeps `noindex`, the draft banner, and no Open Graph tags.**
-5. **Every custom class is `ntgoc-` prefixed**; `components.css` carries no reset
-   and no bare element selectors (the live site runs Bootstrap 4.1.3).
+5. **Class names follow one convention**, enforced by lint:
+   `ntgoc-<block>[__<element>][--<modifier>]`, every part lowercase kebab-case —
+   `ntgoc-accordion__summary`, `ntgoc-photoslot--dark`, `ntgoc-parish-life-hero`.
+   Spell the area out (never `ntgoc-pl-`), and no bare numeric suffixes
+   (`ntgoc-clergy-body-muted`, not `ntgoc-clergy-text-6`). `components.css`
+   carries no reset and no bare element selectors — the live site runs
+   Bootstrap 4.1.3, and anything unscoped would restyle the parish template.
 6. **Reusable blocks stay wrapped** in `<!-- CHUNK:ntgocName -->` … `<!-- /CHUNK:ntgocName -->`.
    That is the entire import mechanism.
 
@@ -88,11 +93,11 @@ something that should not be published.
 - **Dropping a closing tag.** Browsers hide it; the extracted chunk is broken and
   that is what gets pasted into the CMS. Lint checks tag balance.
 - **Editing `dist/chunks/`.** Generated. Regenerate from the pages instead.
-- **Class names are all semantic now** (`ntgoc-council-name`, `ntgoc-footer-address`).
-  The old `.ntgoc-s504123` content hashes are gone. Keep new ones descriptive;
-  `npm run rename -- <old> <new>` rewrites pages, CSS and JS together, and
-  `npm run snap` can prove a rename moved nothing — verify with it rather than
-  by eye, since you cannot see the page.
+- **Adding a class without checking for an existing one.** Lint warns when two
+  classes end up with identical rules and prints the exact
+  `npm run rename -- --merge` command. Merging compares media queries and
+  `:hover` too — matching base declarations are not enough, and ignoring that
+  once shrank the Visit directions section by 48px on mobile.
 
 ---
 

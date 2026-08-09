@@ -8,63 +8,63 @@ match the filename exactly — that is how pages call it.
 
 | Done | Chunk | Size | Appears on | Has links to repoint |
 |:--:|---|---:|---:|:--:|
-| ☐ | `ntgocAboutClergy` | 2717 b | 1 page | — |
+| ☐ | `ntgocAboutClergy` | 2754 b | 1 page | — |
 | ☐ | `ntgocAboutHero` | 213 b | 1 page | — |
-| ☐ | `ntgocAboutParishCouncil` | 5508 b | 1 page | yes (2) |
-| ☐ | `ntgocBookstoreCatalog` | 14611 b | 1 page | — |
-| ☐ | `ntgocBookstoreHero` | 1291 b | 1 page | — |
+| ☐ | `ntgocAboutParishCouncil` | 5511 b | 1 page | yes (2) |
+| ☐ | `ntgocBookstoreCatalog` | 14620 b | 1 page | — |
+| ☐ | `ntgocBookstoreHero` | 1295 b | 1 page | — |
 | ☐ | `ntgocBookstoreNotes` | 1137 b | 1 page | yes (1) |
-| ☐ | `ntgocCalendarGrid` | 9648 b | 1 page | — |
-| ☐ | `ntgocCalendarHero` | 630 b | 1 page | — |
+| ☐ | `ntgocCalendarGrid` | 9664 b | 1 page | — |
+| ☐ | `ntgocCalendarHero` | 631 b | 1 page | — |
 | ☐ | `ntgocCommitteesHero` | 528 b | 1 page | — |
-| ☐ | `ntgocCommitteesList` | 3818 b | 1 page | yes (1) |
-| ☐ | `ntgocContactCard` | 3073 b | 1 page | — |
+| ☐ | `ntgocCommitteesList` | 3822 b | 1 page | yes (1) |
+| ☐ | `ntgocContactCard` | 3090 b | 1 page | — |
 | ☐ | `ntgocDraftBanner` | 488 b | 16 pages | — |
 | ☐ | `ntgocEventsHero` | 489 b | 1 page | — |
 | ☐ | `ntgocEventsList` | 2144 b | 1 page | yes (3) |
-| ☐ | `ntgocFaithHero` | 450 b | 1 page | — |
-| ☐ | `ntgocFaithIntro` | 948 b | 1 page | — |
+| ☐ | `ntgocFaithHero` | 451 b | 1 page | — |
+| ☐ | `ntgocFaithIntro` | 952 b | 1 page | — |
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
-| ☐ | `ntgocFestivalDetails` | 1948 b | 1 page | — |
-| ☐ | `ntgocFestivalHero` | 651 b | 1 page | — |
+| ☐ | `ntgocFestivalDetails` | 1959 b | 1 page | — |
+| ☐ | `ntgocFestivalHero` | 652 b | 1 page | — |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
-| ☐ | `ntgocGiveWays` | 1548 b | 1 page | — |
-| ☐ | `ntgocHallRental` | 1925 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeFestivalPromo` | 1227 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeHero` | 1202 b | 1 page | yes (2) |
+| ☐ | `ntgocGiveWays` | 1559 b | 1 page | — |
+| ☐ | `ntgocHallRental` | 1933 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeFestivalPromo` | 1229 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeHero` | 1208 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1626 b | 1 page | yes (5) |
-| ☐ | `ntgocHomeServiceTimes` | 1454 b | 1 page | — |
-| ☐ | `ntgocHomeUpcomingServices` | 3697 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeWelcome` | 1363 b | 1 page | yes (2) |
-| ☐ | `ntgocMinistriesGrid` | 3109 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeServiceTimes` | 1456 b | 1 page | — |
+| ☐ | `ntgocHomeUpcomingServices` | 3719 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
+| ☐ | `ntgocMinistriesGrid` | 3114 b | 1 page | yes (1) |
 | ☐ | `ntgocMinistriesHero` | 486 b | 1 page | — |
-| ☐ | `ntgocMobileViews` | 4344 b | 1 page | — |
-| ☐ | `ntgocNewsletterArchive` | 1889 b | 1 page | yes (1) |
+| ☐ | `ntgocMobileViews` | 4419 b | 1 page | — |
+| ☐ | `ntgocNewsletterArchive` | 1893 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 414 b | 1 page | — |
-| ☐ | `ntgocParishLifeBookstore` | 1481 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeEvents` | 1049 b | 1 page | — |
-| ☐ | `ntgocParishLifeFellowship` | 847 b | 1 page | — |
-| ☐ | `ntgocParishLifeFormation` | 1781 b | 1 page | — |
-| ☐ | `ntgocParishLifeGallery` | 3110 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeHero` | 868 b | 1 page | — |
-| ☐ | `ntgocParishLifeService` | 652 b | 1 page | — |
-| ☐ | `ntgocParishLifeUpcoming` | 2843 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeWorship` | 1257 b | 1 page | — |
+| ☐ | `ntgocParishLifeBookstore` | 1589 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeEvents` | 1148 b | 1 page | — |
+| ☐ | `ntgocParishLifeFellowship` | 919 b | 1 page | — |
+| ☐ | `ntgocParishLifeFormation` | 1916 b | 1 page | — |
+| ☐ | `ntgocParishLifeGallery` | 3263 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeHero` | 949 b | 1 page | — |
+| ☐ | `ntgocParishLifeService` | 706 b | 1 page | — |
+| ☐ | `ntgocParishLifeUpcoming` | 3131 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeWorship` | 1347 b | 1 page | — |
 | ☐ | `ntgocSiteFooter` | 3348 b | 16 pages | yes (13) |
 | ☐ | `ntgocSiteHeader` | 2718 b | 16 pages | yes (15) |
 | ☐ | `ntgocTopBar` | 373 b | 16 pages | yes (1) |
-| ☐ | `ntgocVisitorChildren` | 2543 b | 1 page | — |
-| ☐ | `ntgocVisitorDirections` | 1664 b | 1 page | yes (1) |
+| ☐ | `ntgocVisitorChildren` | 2547 b | 1 page | — |
+| ☐ | `ntgocVisitorDirections` | 1667 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorEssentials` | 1268 b | 1 page | — |
-| ☐ | `ntgocVisitorFirstSunday` | 6410 b | 1 page | yes (1) |
-| ☐ | `ntgocVisitorGreeters` | 3299 b | 1 page | — |
-| ☐ | `ntgocVisitorHero` | 940 b | 1 page | yes (2) |
-| ☐ | `ntgocVisitorLanguage` | 7048 b | 1 page | — |
-| ☐ | `ntgocVisitorSundaySchool` | 1726 b | 1 page | yes (1) |
-| ☐ | `ntgocVisitorVideos` | 3777 b | 1 page | — |
-| ☐ | `ntgocVisitorWhatToBring` | 1900 b | 1 page | — |
-| ☐ | `ntgocVisitorWhatToWear` | 2512 b | 1 page | — |
+| ☐ | `ntgocVisitorFirstSunday` | 6446 b | 1 page | yes (1) |
+| ☐ | `ntgocVisitorGreeters` | 3313 b | 1 page | — |
+| ☐ | `ntgocVisitorHero` | 942 b | 1 page | yes (2) |
+| ☐ | `ntgocVisitorLanguage` | 7114 b | 1 page | — |
+| ☐ | `ntgocVisitorSundaySchool` | 1730 b | 1 page | yes (1) |
+| ☐ | `ntgocVisitorVideos` | 3778 b | 1 page | — |
+| ☐ | `ntgocVisitorWhatToBring` | 1904 b | 1 page | — |
+| ☐ | `ntgocVisitorWhatToWear` | 2516 b | 1 page | — |
 | ☐ | `ntgocVisitorWhenYouArrive` | 2555 b | 1 page | — |
 
 See `_link-map.md` for the links, and `_components.evo.css` for the stylesheet.

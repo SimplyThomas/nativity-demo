@@ -7,15 +7,15 @@
  *   node tools/rename-class.mjs --suggest [n]        # the worst offenders, with context
  *   node tools/rename-class.mjs --dry <old> <new>    # show the damage, change nothing
  *
- * Most of this stylesheet is named `.ntgoc-s504123` — content hashes left over
- * from when the pages were generated from a Claude Design import. The hashes
- * bought stable diffs across re-imports; that upstream is gone, so now they
- * just make the CSS unreadable.
+ * Every name must match the house convention:
  *
- * Do NOT mass-rename. A 400-class diff is unreviewable and layout breakage
- * would be invisible in it. Rename the classes in a block when you are already
- * editing that block, one commit at a time. This tool makes each rename a
- * five-second operation instead of a careful find-and-replace across 13 files.
+ *     ntgoc-<block>[__<element>][--<modifier>]
+ *
+ * Enforced here and by tools/lint.mjs, documented in CONTRIBUTING.md.
+ *
+ * Bulk renames are safe because `npm run snap` can prove one moved nothing —
+ * that is how the original 338 content-hash names were replaced. Run the
+ * snapshot either side of anything large.
  *
  * Touches: every *.html, assets/css/components.css, assets/js/*.js.
  * Then re-extracts chunks and runs lint, so a bad rename fails immediately.
@@ -41,6 +41,15 @@ const write = (rel, s) => writeFileSync(join(ROOT, rel), s);
 
 /* A class name may only be replaced when it is a whole token — otherwise
    `ntgoc-s5` would also rewrite the middle of `ntgoc-s504123`. */
+/**
+ * The house naming convention: ntgoc-<block>[__<element>][--<modifier>], every
+ * part lowercase kebab-case. Enforced here and in tools/lint.mjs; documented in
+ * CONTRIBUTING.md. Two conventions drifting apart is how this repo ended up
+ * with both `ntgoc-pl-kicker` and `ntgoc-page-eyebrow` for the same rule.
+ */
+const CLASS_GRAMMAR =
+  /^ntgoc-[a-z0-9]+(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$/;
+
 const tokenRe = name => new RegExp(`(?<![\\w-])${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\w-])`, 'g');
 
 /* ---------------- inspect ---------------- */
@@ -93,8 +102,10 @@ function rename(pairs) {
   const css = read('assets/css/components.css');
 
   for (const [from, to] of pairs) {
-    if (!/^ntgoc-[a-z0-9-]+$/.test(to)) {
-      console.error(`  ✗ "${to}" must be lowercase, ntgoc- prefixed, letters/digits/hyphens only.`);
+    if (!CLASS_GRAMMAR.test(to)) {
+      console.error(`  ✗ "${to}" does not match the naming convention:\n` +
+        `      ntgoc-<block>[__<element>][--<modifier>], each part lowercase kebab-case.\n` +
+        `      See "Naming CSS classes" in CONTRIBUTING.md.`);
       process.exit(1);
     }
     if (from === to) { console.error(`  ✗ "${from}" and "${to}" are the same.`); process.exit(1); }

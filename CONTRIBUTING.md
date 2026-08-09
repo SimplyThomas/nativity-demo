@@ -109,6 +109,36 @@ the link to the page you are on, so it is stripped from the source and
 re-applied per page. Do not hand-copy the shell between files — CI fails if
 fourteen pages agree and one does not.
 
+### Naming CSS classes
+
+```
+ntgoc-<block>[__<element>][--<modifier>]
+```
+
+Every part lowercase kebab-case. `npm run lint` rejects anything else, and
+`npm run rename` refuses to create it.
+
+| | Example |
+|---|---|
+| Block | `.ntgoc-accordion`, `.ntgoc-footer`, `.ntgoc-parish-life-hero` |
+| Element of a block | `.ntgoc-accordion__summary`, `.ntgoc-footer__address` |
+| Variant of either | `.ntgoc-photoslot--dark`, `.ntgoc-band--dark` |
+
+Two further rules, both from mistakes this repo actually made:
+
+- **Spell the area out.** `ntgoc-parish-life-hero`, never `ntgoc-pl-hero`. The
+  abbreviated prefix ran alongside the spelled-out ones for a while and produced
+  `ntgoc-pl-kicker` and `ntgoc-page-eyebrow` as two names for one identical rule.
+  Lint warns on abbreviated prefixes.
+- **No bare numeric suffixes.** `ntgoc-clergy-body-muted` tells you what it is;
+  `ntgoc-clergy-text-6` does not, and six of those in one block is a sign the
+  rules should be merged. A handful survive from an automated pass; replace one
+  whenever you touch it.
+
+Before adding a class, check whether an existing one already does the job —
+`npm run lint` warns when two classes end up with identical rules and tells you
+the exact `--merge` command.
+
 ### Renaming a class — `npm run rename`
 
 Every class now has a descriptive name; the `.ntgoc-s504123` content hashes
@@ -119,7 +149,14 @@ npm run rename -- --suggest              # any hashes that creep back in
 npm run rename -- --where ntgoc-card     # what does it style? which pages?
 npm run rename -- ntgoc-card ntgoc-panel
 npm run rename -- --from-file map.json   # batch, {"old":"new"}
+npm run rename -- --merge <from> <into>  # fold a duplicate into an existing class
 ```
+
+`--merge` compares *every* rule each class carries, media queries and `:hover`
+included, and refuses if they differ. Matching base declarations are not enough:
+merging `ntgoc-pl-section` into the Visit directions shell once shrank that
+section by 48px on mobile, because only one of them had a mobile padding
+override. The snapshot caught it; the merge check now prevents it.
 
 It rewrites every page, `components.css` and the JS together, re-extracts the
 chunks and runs lint, so a rename that breaks something fails immediately.

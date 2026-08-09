@@ -133,10 +133,45 @@ await browser.close();
 
 const count = Object.values(snapshot).reduce((a, s) => a + Object.keys(s).length, 0);
 
+/**
+ * One line per element, as a positional array:
+ *   [x, y, w, h, colour, background, font-size, display, first-class]
+ *
+ * The obvious JSON.stringify(…, null, 1) spends eleven lines on every element,
+ * which made this file 51k lines and near a megabyte. One line each is both
+ * smaller and a better diff: an element that moves shows up as exactly one
+ * changed line instead of a shifting block.
+ */
+const ORDER = ['x', 'y', 'w', 'h', 'c', 'bg', 'fs', 'd', 'cls'];
+
+function serialise(tree) {
+  const scenes = Object.entries(tree).map(([scene, els]) => {
+    const rows = Object.entries(els).map(([k, e]) =>
+      `  ${JSON.stringify(k)}: ${JSON.stringify(ORDER.map(f => e[f]))}`);
+    return ` ${JSON.stringify(scene)}: {\n${rows.join(',\n')}\n }`;
+  });
+  return `{\n${scenes.join(',\n')}\n}\n`;
+}
+
+/* Accepts either form, so an older baseline still reads. */
+function deserialise(text) {
+  const raw = JSON.parse(text);
+  const out = {};
+  for (const [scene, els] of Object.entries(raw)) {
+    out[scene] = {};
+    for (const [k, v] of Object.entries(els)) {
+      out[scene][k] = Array.isArray(v)
+        ? Object.fromEntries(ORDER.map((f, i) => [f, v[i]]))
+        : v;
+    }
+  }
+  return out;
+}
+
 if (UPDATE || !existsSync(BASELINE)) {
   const fresh = !existsSync(BASELINE);
   mkdirSync(dirname(BASELINE), { recursive: true });
-  writeFileSync(BASELINE, JSON.stringify(snapshot, null, 1) + '\n');
+  writeFileSync(BASELINE, serialise(snapshot));
   console.log(`\n  baseline ${fresh ? 'created' : 'updated'}: ` +
     `${Object.keys(snapshot).length} scenes, ${count} elements\n`);
   process.exit(0);
@@ -144,7 +179,7 @@ if (UPDATE || !existsSync(BASELINE)) {
 
 /* ---------------- compare ---------------- */
 
-const base = JSON.parse(readFileSync(BASELINE, 'utf8'));
+const base = deserialise(readFileSync(BASELINE, 'utf8'));
 const problems = [];
 
 for (const scene of new Set([...Object.keys(base), ...Object.keys(snapshot)])) {
