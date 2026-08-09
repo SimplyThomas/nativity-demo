@@ -491,6 +491,32 @@ function localiseImages(src) {
     });
 }
 
+/**
+ * Close gaps in the heading hierarchy. Several views jump straight from <h1> to
+ * <h3> because the design picked heading levels for their default size rather
+ * than their rank. Now that every heading is styled by class, re-ranking them
+ * changes the document outline for screen readers and changes nothing visually.
+ */
+function normalizeHeadings(html) {
+  let prevSrc = 1, prevTgt = 1;
+  const open = [];
+  return html.replace(/<(\/?)h([1-6])(?=[\s>])/g, (m, slash, levelStr) => {
+    if (slash) return `</h${open.pop() ?? levelStr}`;
+
+    const src = +levelStr;
+    let tgt;
+    if (src === 1) { tgt = 1; }
+    else if (src > prevSrc) { tgt = Math.min(prevTgt + 1, 6); }   // deeper: one step only
+    else if (src === prevSrc) { tgt = prevTgt; }                   // sibling: same rank
+    else { tgt = Math.max(2, prevTgt - (prevSrc - src)); }         // shallower: climb back
+
+    prevSrc = src;
+    prevTgt = tgt;
+    open.push(tgt);
+    return `<h${tgt}`;
+  });
+}
+
 function applyCorrections(src) {
   let out = src.replace(YEAR_FIX.find, YEAR_FIX.repl);
   for (const { find, repl } of CORRECTIONS) out = out.replace(find, repl);
@@ -622,15 +648,52 @@ const footerSrc = template.slice(footerAt, template.indexOf('</footer>') + '</fo
  * between top-level blocks is intentionally dropped, so the design's stray
  * </div> never reaches a rendered page.
  */
-function viewFor(scope) {
+/** Concatenate only the balanced top-level elements in a fragment, dropping
+ *  stray opening/closing tags around them. */
+function balancedBlocks(text) {
   let out = '', cursor = 0;
   for (;;) {
+    const t = nextTag(text, cursor);
+    if (!t) return out;
+    const m = matchTag(text, t.tag, t.at);
+    if (!m) return out;
+    out += text.slice(t.at, m.end);
+    cursor = m.end;
+  }
+}
+
+/**
+ * Select the one <sc-if> view that matches this page and resolve it.
+ *
+ * The design's stray </div> (line 360) also closes the Visit view early, which
+ * orphans roughly sixty lines — the closing call-to-action, the map, the "questions
+ * people ask" FAQ and the directions — outside every <sc-if>. Under the dc-runtime
+ * that content is unconditional, so it renders on all twelve pages; dropping it
+ * outright would lose a third of the most important page. Neither is right, so
+ * orphaned content is re-attached to the view it follows, which is plainly where
+ * the author meant it to sit.
+ */
+function viewFor(scope) {
+  let out = '', cursor = 0, matchedPrevious = false;
+  for (;;) {
     const i = findOpen(viewsSrc, 'sc-if', cursor);
+
+    // Text between this block and the previous one belongs to the previous view.
+    const gap = balancedBlocks(viewsSrc.slice(cursor, i === -1 ? viewsSrc.length : i));
+    if (matchedPrevious && gap.trim()) {
+      const recovered = `<section>${resolveAll(gap, scope)}</section>`;
+      out = out.includes('</main>')
+        ? out.replace(/<\/main>(?![\s\S]*<\/main>)/, `${recovered}</main>`)
+        : out + recovered;
+    }
+
     if (i === -1) return out;
     const m = matchTag(viewsSrc, 'sc-if', i);
     if (!m) return out;
+
     const expr = (attr(viewsSrc.slice(i, m.openEnd), 'value') || '').replace(/[{}\s]/g, '');
-    if (lookup(expr, scope)) out += resolveAll(viewsSrc.slice(m.openEnd, m.innerEnd), scope);
+    matchedPrevious = !!lookup(expr, scope);
+    if (matchedPrevious) out += resolveAll(viewsSrc.slice(m.openEnd, m.innerEnd), scope);
     cursor = m.end;
   }
 }
@@ -658,6 +721,7 @@ for (const page of PAGES) {
   body = localiseImages(body);
   body = linkify(body, page.key);
   body = classify(body);
+  body = normalizeHeadings(body);
   body = body
     .replace(/\shint-placeholder-(?:val|count)="[^"]*"/g, '')
     .replace(/\sonClick="[^"]*"/gi, '')

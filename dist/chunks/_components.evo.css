@@ -81,7 +81,7 @@
   border: 0;
 }
 
-/* --- generated component rules (380 rules) --------------------- */
+/* --- generated component rules (395 rules) --------------------- */
 .ntgoc-sd952ed { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:0 40px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
 .ntgoc-s94462a { opacity:.75; }
 .ntgoc-sd0dbcc { display:flex; gap:26px; align-items:center; }
@@ -236,6 +236,25 @@
 .ntgoc-s5639c3 { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 22px; max-width:62ch; text-wrap:pretty; }
 .ntgoc-s3e141a { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
 .ntgoc-s3e141a:hover, .ntgoc-s3e141a:focus-visible { border-color:#7d2b2b; }
+.ntgoc-sa35931 { border-top:1px solid #ded2be; margin-top:20px; padding-top:52px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:60px; align-items:center; }
+.ntgoc-s1b565b { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.45; color:#3a1414; margin:0; max-width:24ch; text-wrap:pretty; }
+.ntgoc-s9d514c { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.ntgoc-s9d514c:hover, .ntgoc-s9d514c:focus-visible { background:#5e1f1f; }
+.ntgoc-s27f26e { border:1px solid #ccbda4; color:#5b5449; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.ntgoc-s27f26e:hover, .ntgoc-s27f26e:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
+.ntgoc-s79d672 { max-width:1240px; margin:0 auto; padding:84px 40px; }
+.ntgoc-sf33ab5 { font-family:Newsreader, serif; font-weight:400; font-size:38px; margin:0 0 44px; color:#3a1414; }
+.ntgoc-sdec085 { display:grid; grid-template-columns:repeat(2, 1fr); gap:44px 70px; }
+.ntgoc-body-lg { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0; }
+.ntgoc-sa06efe { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:70px; align-items:center; }
+.ntgoc-s512195 { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px; }
+.ntgoc-s71f981 { font-family:Newsreader, serif; font-weight:400; font-size:36px; margin:0 0 20px; color:#3a1414; }
+.ntgoc-sf3a926 { font-size:17px; line-height:1.7; color:#5b5449; margin:0 0 28px; }
+.ntgoc-see4864 { display:grid; gap:16px; font-size:15.5px; line-height:1.6; color:#5b5449; border-top:1px solid #e4dac8; padding-top:26px; }
+.ntgoc-ink { color:#3a1414; }
+.ntgoc-s541763 { display:inline-block; margin-top:32px; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.ntgoc-s541763:hover, .ntgoc-s541763:focus-visible { background:#5e1f1f; }
+.ntgoc-sd6c7c8 { height:400px; border:1px solid #ded2be; background:#e6ddcd; display:flex; align-items:center; justify-content:center; color:#9c9182; font-size:13px; letter-spacing:.16em; text-transform:uppercase; }
 .ntgoc-sca35f9 { position:relative; background:#3a1414; height:380px; overflow:hidden; }
 .ntgoc-s809ac0 { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/faith-resurrection.jpg'); background-size:cover; background-position:center 30%; opacity:.4; }
 .ntgoc-s80a5b7 { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.95), rgba(58,20,20,.5)); }
@@ -265,7 +284,6 @@
 .ntgoc-s384787 { height:150px; background-image:url('/assets/templates/ntgoc/img/faith-holy-sites.jpg'); background-size:cover; background-position:center; }
 .ntgoc-s87b1ad { height:150px; background-image:url('/assets/templates/ntgoc/img/faith-elders.jpg'); background-size:cover; background-position:center; }
 .ntgoc-s9f115d { max-width:1240px; margin:0 auto; padding:76px 40px 64px; }
-.ntgoc-s512195 { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#a08a6a; margin-bottom:20px; }
 .ntgoc-s70e0d6 { display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap; }
 .ntgoc-s5c2f09 { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1; margin:0; color:#3a1414; }
 .ntgoc-sed27d3 { display:flex; gap:10px; }
@@ -378,10 +396,8 @@
 .ntgoc-s7bf429 { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.94), rgba(58,20,20,.45)); }
 .ntgoc-sa29d42 { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.08; margin:0 0 20px; color:#faf5ec; max-width:14ch; }
 .ntgoc-s8e0243 { font-size:17.5px; line-height:1.7; color:#dcccb4; margin:0; max-width:560px; }
-.ntgoc-s79d672 { max-width:1240px; margin:0 auto; padding:84px 40px; }
 .ntgoc-sc14cdf { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-bottom:60px; }
 .ntgoc-sbaaa79 { background:#f6f1e8; padding:34px 28px; }
-.ntgoc-body-lg { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0; }
 .ntgoc-sc5855f { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; }
 .ntgoc-s19d3a5 { font-family:Newsreader, serif; font-weight:400; font-size:34px; margin:0 0 20px; color:#3a1414; }
 .ntgoc-s886a0d { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 16px; text-wrap:pretty; }
@@ -393,7 +409,6 @@
 .ntgoc-s1fdd04 { display:grid; grid-template-columns:minmax(0,1fr) 400px; gap:70px; align-items:start; }
 .ntgoc-sb6eb8c { margin:0 0 30px; text-wrap:pretty; }
 .ntgoc-s1a6197 { display:grid; grid-template-columns:1fr auto; padding:16px 0; border-bottom:1px solid #ded2be; }
-.ntgoc-ink { color:#3a1414; }
 .ntgoc-sf7b06c { border:1px solid #ded2be; background:#fbf8f2; padding:34px 30px; }
 .ntgoc-sae9e27 { font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 14px; color:#3a1414; }
 .ntgoc-sc064c2 { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 22px; }
