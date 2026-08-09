@@ -115,9 +115,11 @@ both now live under Events. The drawer mirrors the *current* nav:
 - Plan a visit
 
 The mock's *visual grammar* is what carries over: serif ledes for top-level
-entries, indented children on `.ntgoc-drawer-sub`. That class already exists in
-`components.css` (line 697) and is currently used only by the mock, so it
-survives the deletion by acquiring a real consumer.
+entries, indented children on `.ntgoc-drawer__sub`. That class already exists as
+`.ntgoc-drawer-sub` (`components.css:697`) and is currently used only by the
+mock, so it survives the deletion by acquiring a real consumer — renamed via
+`npm run rename` to match the `__element` convention the rest of the drawer
+follows.
 
 The submenu parent links stay plain links, not nested `<details>`. Every parent
 in the current nav is itself a real page, and nesting disclosures inside a
@@ -215,8 +217,10 @@ confirmed not presumed:
 Delete:
 
 - `mobile-views.html`
-- its 36 rules in `components.css` — **keeping `.ntgoc-drawer-sub`**, which the
-  drawer now uses
+- its 36 rules in `components.css` — **keeping `.ntgoc-drawer__sub`**, which the
+  drawer now uses — plus `.ntgoc-scroll-x`, `.ntgoc-topbar-links` and
+  `.ntgoc-topbar-link`, which the mock and its top-bar entry were the only
+  consumers of
 - `dist/chunks/ntgocMobileViews.html` (via `npm run chunks`)
 - the top bar's `.ntgoc-topbar-links` div, across all 17 pages via `npm run shell`
 - its rows in `tests/layout-baseline.json` (102 references)
