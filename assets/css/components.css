@@ -183,9 +183,10 @@
 .ntgoc-s095753 { position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be; }
 .ntgoc-s75a29e { display:flex; align-items:center; justify-content:space-between; gap:40px; padding:0 40px; height:84px; max-width:1440px; margin:0 auto; }
 .ntgoc-s83b59c { display:flex; align-items:center; gap:16px; }
-.ntgoc-s060cd2 { width:40px; height:52px; border:1.5px solid #7d2b2b; border-radius:20px 20px 3px 3px; display:flex; align-items:center; justify-content:center; }
-.ntgoc-s565d8f { width:2px; height:20px; background:#7d2b2b; position:relative; }
-.ntgoc-s6b2c45 { position:absolute; top:5px; left:-7px; width:16px; height:2px; background:#7d2b2b; }
+/* The Archdiocese seal, from the live parish site. The 196px favicon art is
+   used here rather than the full logo: the ring text on the full logo is
+   unreadable below about 90px and just reads as noise at header size. */
+.ntgoc-site-mark { width:44px; height:44px; flex:none; }
 .ntgoc-s21e7e5 { line-height:1.15; }
 .ntgoc-s5a9448 { font-family:Newsreader, serif; font-size:20px; font-weight:500; color:#3a1414; letter-spacing:.01em; }
 .ntgoc-sa8574b { font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#6c6458; margin-top:3px; }
@@ -304,7 +305,12 @@
 .ntgoc-footer-link { opacity:.85; }
 .ntgoc-footer-link:hover, .ntgoc-footer-link:focus-visible { color:#e0b673; opacity:1; }
 .ntgoc-sce3b1e { height:1px; background:rgba(224,182,115,.22); margin:44px 0 22px; }
-.ntgoc-s57e4c2 { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; font-size:12px; letter-spacing:.08em; opacity:.6; }
+.ntgoc-colophon { display:flex; align-items:center; gap:22px; }
+/* The full ring-text logo. The PNG has a transparent background and its ring
+   text is dark maroon, which all but vanishes against this footer — so the
+   seal sits on a cream disc, which is how it is set on the live site. */
+.ntgoc-colophon__seal { width:80px; height:80px; flex:none; background:#faf5ec; border-radius:50%; }
+.ntgoc-s57e4c2 { flex:1; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; font-size:12px; letter-spacing:.08em; opacity:.6; }
 .ntgoc-s8f2c70 { background:#ece3d5; border-bottom:1px solid #ded2be; }
 .ntgoc-s60afb9 { max-width:1240px; margin:0 auto; padding:82px 40px 74px; }
 .ntgoc-s00593a { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.1; margin:0 0 22px; color:#3a1414; max-width:15ch; }

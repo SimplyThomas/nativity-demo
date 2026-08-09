@@ -349,9 +349,10 @@ voice. None of it can be checked against a source; Father has to read it.
   Space* — was supplied by the parish and is confirmed. The other three ids were
   found by title search, not by someone watching them. **Play each one before
   this goes live**: a wrong id plays the wrong episode and no visitor will report
-  it. Ids are in one table, `VISIT_VIDEOS` in `tools/render.mjs`; add
-  `confirmed: true` to an entry once somebody has watched it and the marker
-  disappears.
+  it. The four ids are in the `ntgocVisitorVideos` block of `visit.html`, as
+  plain `youtube-nocookie.com/embed/<id>` URLs. Each unconfirmed one carries a
+  `<!-- TODO: verify -->` marker — delete the marker once somebody has actually
+  watched that video.
 
 ### Removed, and not said anywhere else
 
@@ -383,8 +384,9 @@ that person's permission.** Before this section is imported —
    addresses, ever.
 3. Use a warm, natural photograph of them — not a corporate headshot — and put it
    in `assets/img/`.
-4. Fill in `VISIT_GREETERS` in `tools/render.mjs` and rebuild. The placeholder
-   note under the row disappears by itself once every card has a name and photo.
+4. Fill in the cards in the `ntgocVisitorGreeters` block of `visit.html` —
+   first name and photo per card — then run `npm run chunks`. Remove the
+   placeholder note under the row once every card is filled.
 
 If nobody has been asked yet, skip this chunk. The section is a kindness to
 nervous visitors; it is not worth publishing a parishioner's face without asking.
@@ -419,8 +421,9 @@ Ask all of these **before** starting. Any "no" changes the plan.
 8. **May we embed YouTube videos?** The Visit page embeds four. They use
    `youtube-nocookie.com` and `loading="lazy"`, which is the least intrusive form
    of a YouTube embed, but it is still a third-party frame on a parish page. If
-   embeds are refused, the fix is one line per video in `videoEmbed()` —
-   `tools/render.mjs` — turning each frame into a plain link out to YouTube.
+   embeds are refused, replace each `<iframe>` in the `ntgocVisitorVideos`
+   block of `visit.html` with a plain link out to YouTube, then run
+   `npm run chunks`.
 
 ### If fonts are refused
 
@@ -432,20 +435,21 @@ Self-hosting both families in the asset folder is the fallback.
 
 ---
 
-## Rebuilding, if the design changes
+## Regenerating the chunk files
 
-You do not need this to import. It is here so the next person knows the files in
-`dist/chunks/` are generated, not hand-written — never edit them directly, because
-the next rebuild overwrites them.
+You do not need this to import — `dist/chunks/` is already committed. It is here
+so the next person knows those files are **generated from the pages** and must
+never be edited directly.
 
 ```sh
-node tools/render.mjs          # design-src/ + content/ -> the 12 HTML pages + CSS
-node tools/extract-chunks.mjs  # the HTML pages -> dist/chunks/
+npm run chunks   # the 12 HTML pages -> dist/chunks/
+npm run lint     # checks everything this guide depends on
 ```
 
-Most of the site is generated from `design-src/`. The eight middle Visit sections
-are the exception: they are parish copy and live in `content/visit-sections.html`,
-which a re-import of the design does not touch. See `content/README.md`.
+The twelve `.html` files at the repo root are the source and are edited by hand.
+They were generated from a Claude Design import until 8 August 2026; that link
+has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
+twelve pages from the old design file. See `CONTRIBUTING.md`.
 
 The extraction step refuses to write any chunk containing an EVO reserved
 sequence (`[[ ]]`, `[! !]`, `{{ }}`, `[* *]`, `[( )]`, `[~ ~]`, `[+ +]`) and exits

@@ -146,7 +146,7 @@ it verifies the draft banner, `noindex`, the heading structure and the links.
 ## What changed, and why
 
 Until 8 August 2026 the twelve pages were **generated** from a Claude Design
-import by `tools/render.mjs`. Editing a page directly did nothing — the next
+import by `tools/archive/render.mjs`. Editing a page directly did nothing — the next
 build erased it.
 
 That made sense while the design was still arriving from upstream. Once the

@@ -35,8 +35,8 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocMinistriesGrid` | 2964 b | 1 page |
 | `ntgocMinistriesHero` | 440 b | 1 page |
 | `ntgocMobileViews` | 3523 b | 1 page |
-| `ntgocSiteFooter` | 2827 b | 12 pages |
-| `ntgocSiteHeader` | 1250 b | 12 pages |
+| `ntgocSiteFooter` | 3036 b | 12 pages |
+| `ntgocSiteHeader` | 1219 b | 12 pages |
 | `ntgocTopBar` | 656 b | 12 pages |
 | `ntgocVisitorChildren` | 2325 b | 1 page |
 | `ntgocVisitorDirections` | 1537 b | 1 page |

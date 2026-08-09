@@ -290,6 +290,33 @@ for (const rel of PAGES) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 8b. Documentation must not point at the retired renderer
+ *
+ * The docs told a volunteer to run `node tools/render.mjs` for months after it
+ * was archived. Following that instruction would overwrite all twelve pages
+ * from the old design file. Doc rot with teeth, so it is checked.
+ * ------------------------------------------------------------------ */
+{
+  const docs = readdirSync(ROOT).filter(f => f.endsWith('.md'));
+  for (const dir of ['design-src', 'content', 'data']) {
+    if (existsSync(join(ROOT, dir))) {
+      for (const f of readdirSync(join(ROOT, dir)).filter(f => f.endsWith('.md'))) docs.push(`${dir}/${f}`);
+    }
+  }
+  for (const rel of docs) {
+    const body = read(rel);
+    // `tools/render.mjs` no longer exists; the archived copy must be named in full.
+    for (const m of body.matchAll(/tools\/render\.mjs/g)) {
+      const line = body.slice(0, m.index).split('\n').length;
+      err('stale-doc', rel, `line ${line}: refers to tools/render.mjs, which was archived — say tools/archive/render.mjs`);
+    }
+    if (/^\s*node tools\/archive\/render\.mjs\s*$/m.test(body) && !/SCRATCH|scratch|do not run|Do not run/i.test(body)) {
+      err('stale-doc', rel, 'shows a bare `node tools/archive/render.mjs` command without warning that it overwrites every page');
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * 9. dist/chunks must match the pages it was extracted from
  * ------------------------------------------------------------------ */
 if (malformed) {

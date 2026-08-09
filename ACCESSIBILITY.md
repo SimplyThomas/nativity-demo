@@ -59,8 +59,9 @@ to the minimum that satisfies it:
 - **Large text keeps the original colour.** Text ≥24px (or ≥18.66px bold) needs
   only 3:1 and already passed, so it was left alone.
 
-The map lives in `CONTRAST_FIX` in `tools/render.mjs`, one line per colour with
-the before/after ratio. Deleting that map reverts the palette exactly.
+The corrected values are baked into `assets/css/components.css`. The original
+`CONTRAST_FIX` map, with the before/after ratio per colour, is preserved in
+`tools/archive/render.mjs` for reference.
 
 One further case had no colour to fix: the footer column headings
 ("Visit", "Parish", "Support the parish") are 10.5px uppercase at `opacity:.55`,

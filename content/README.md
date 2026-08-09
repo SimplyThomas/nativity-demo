@@ -22,7 +22,7 @@ alone.
 
 ## How it gets onto the page
 
-`tools/render.mjs` reads this file, fills its `<!-- SLOT:... -->` placeholders from
+The archived renderer read this file, filled its `<!-- SLOT:... -->` placeholders from
 the `VISIT_GREETERS` and `VISIT_VIDEOS` tables in that script, and splices the
 result into the Visit page's `<main>` after the second top-level block. Each
 `<section>` then becomes its own EVO chunk, exactly like the design-derived ones.
@@ -44,6 +44,6 @@ Two rules carried over from the rest of the project:
 Rebuild after editing:
 
 ```sh
-node tools/render.mjs
+npm run chunks
 node tools/extract-chunks.mjs
 ```

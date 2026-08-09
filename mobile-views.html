@@ -7,6 +7,13 @@
 <title>Mobile views (design reference) — Nativity of the Theotokos</title>
 <!-- Deliberately no Open Graph or Twitter card tags: a shared link must not render
      a preview that could be mistaken for the real parish website. -->
+<!-- The Archdiocese seal, taken from the live parish site. DEMO ONLY: in Evolution
+     CMS the active template already serves these icons from
+     /assets/templates/common/icons/ — do not re-upload them. See IMPORT.md. -->
+<link rel="icon" type="image/png" sizes="196x196" href="assets/img/goa-seal.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/goa-seal-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/goa-seal-16.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/img/goa-seal-apple-touch.png">
 <!-- DEMO ONLY: Google Fonts. See IMPORT.md — confirm with the Department of Internet
      Ministries whether external font loading is permitted before relying on this. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,11 +55,7 @@
 <header class="ntgoc-s095753 ntgoc-sticky">
     <div class="ntgoc-s75a29e ntgoc-flex ntgoc-gutter ntgoc-shell">
       <a href="index.html" class="ntgoc-inherit ntgoc-s83b59c ntgoc-flex">
-        <div class="ntgoc-s060cd2 ntgoc-flex">
-          <div class="ntgoc-s565d8f">
-            <div class="ntgoc-s6b2c45"></div>
-          </div>
-        </div>
+        <img class="ntgoc-site-mark" src="assets/img/goa-seal.png" alt="" width="44" height="44" decoding="async">
         <div class="ntgoc-s21e7e5">
           <div class="ntgoc-s5a9448">Nativity of the Theotokos</div>
           <div class="ntgoc-sa8574b">Greek Orthodox Church &nbsp;·&nbsp; Fredericksburg, VA</div>
@@ -186,9 +189,12 @@
         </div>
       </div>
       <div class="ntgoc-sce3b1e"></div>
-      <div class="ntgoc-s57e4c2 ntgoc-flex">
-        <span>A parish of the Greek Orthodox Metropolis of New Jersey · Greek Orthodox Archdiocese of America</span>
-        <span>Ecumenical Patriarchate of Constantinople</span>
+      <div class="ntgoc-colophon ntgoc-flex">
+        <img class="ntgoc-colophon__seal" src="assets/img/goa-seal-full.png" alt="" width="80" height="80" decoding="async">
+        <div class="ntgoc-s57e4c2 ntgoc-flex">
+          <span>A parish of the Greek Orthodox Metropolis of New Jersey · Greek Orthodox Archdiocese of America</span>
+          <span>Ecumenical Patriarchate of Constantinople</span>
+        </div>
       </div>
     </div>
   </footer>

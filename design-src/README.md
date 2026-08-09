@@ -10,7 +10,8 @@
 > for how to do that without destroying the current site.
 
 **Never edit anything in this folder.** These files are the record of what Claude
-Design produced. The site is generated *from* them by `tools/render.mjs`. If you
+Design produced. The site *was* generated from them by the renderer now in
+`tools/archive/`. If you
 change them by hand, the next re-import silently overwrites your work and the
 diff becomes meaningless.
 
@@ -85,8 +86,8 @@ It implements a small template language used by the design:
 | `style-hover="…"` | inline hover state |
 | `<helmet>` | head injection |
 
-**None of this ships.** `tools/render.mjs` resolves every construct at build time
-and emits plain HTML. That is deliberate: a client-side-rendered shell cannot be
+**None of this ships.** The archived renderer resolved every construct at build
+time and emitted plain HTML. That is deliberate: a client-side-rendered shell cannot be
 imported into EVO, because the import depends on being able to read finished
 markup.
 
@@ -153,8 +154,8 @@ the only part of the CSS that is not a verbatim copy of the design.**
 3. `git diff design-src/` — this is the report of what changed in Design.
 4. Re-run the build:
    ```sh
-   node tools/render.mjs
-   node tools/extract-chunks.mjs
+   node tools/archive/render.mjs   # into a SCRATCH dir — see tools/archive/README.md
+   npm run chunks
    ```
 5. `git diff` the generated pages and `assets/css/components.css`.
 
@@ -167,11 +168,9 @@ rather than numbering.
 
 - **Do merge**: copy, layout, colour, spacing, new sections, new views.
 - **Do not merge back into `design-src/`**: portability fixes. Those belong in
-  `tools/render.mjs`, in the `CORRECTIONS` table or the responsive layer, so they
-  survive the next re-import automatically.
+  the committed HTML and CSS directly. They are no longer re-applied by a build.
 - **If a new view appears**, add it to `PAGES` and `CHUNK_NAMES` in
-  `tools/render.mjs`. The renderer will not invent a filename for a route it has
-  never been told about.
+  the page list by hand — there is no renderer to generate it any more.
 - **The Visit view now has parish copy spliced into it** from
   `content/visit-sections.html` (see `content/README.md`), and three of its FAQ
   answers are rewritten to point at those sections. If a re-import changes that
