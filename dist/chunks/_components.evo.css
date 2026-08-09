@@ -314,7 +314,7 @@
 /* The full ring-text logo. The PNG has a transparent background and its ring
    text is dark maroon, which all but vanishes against this footer — so the
    seal sits on a cream disc, which is how it is set on the live site. */
-.ntgoc-colophon__seal { width:80px; height:80px; flex:none; background:#faf5ec; border-radius:50%; }
+.ntgoc-colophon__seal { width:80px; height:80px; flex:none; box-sizing:border-box; padding:6px; background:#faf5ec; border-radius:50%; }
 .ntgoc-s57e4c2 { flex:1; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; font-size:12px; letter-spacing:.08em; opacity:.6; }
 .ntgoc-s8f2c70 { background:#ece3d5; border-bottom:1px solid #ded2be; }
 .ntgoc-s60afb9 { max-width:1240px; margin:0 auto; padding:82px 40px 74px; }

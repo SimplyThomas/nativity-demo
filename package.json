@@ -11,7 +11,8 @@
     "rename": "node tools/rename-class.mjs",
     "audit:a11y": "node tools/audit-a11y.mjs",
     "audit:reflow": "node tools/audit-reflow.mjs",
-    "check": "npm run lint && npm run audit:a11y && npm run audit:reflow"
+    "check": "npm run lint && npm run snap && npm run audit:a11y && npm run audit:reflow",
+    "snap": "node tools/snapshot.mjs"
   },
   "devDependencies": {
     "axe-core": "^4.13.0",

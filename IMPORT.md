@@ -94,7 +94,8 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload all nine files from this repo's `assets/img/` folder.
+4. Upload the twelve files listed below from this repo's `assets/img/` folder.
+   The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
 
@@ -112,7 +113,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 45 files.
 
-The nine images:
+The twelve images to upload:
 
 | File | Used on |
 |---|---|
@@ -123,13 +124,40 @@ The nine images:
 | `feast-transfiguration.jpg` | Home — upcoming services |
 | `festival-banquet.png` | Home, Greek Festival |
 | `give-building-projects.png` | Giving — building projects |
+| `directions-map.jpg` | Visit, Contact — the parish's own directions map |
+| `goa-seal.png` | Site header, every page |
+| `goa-seal-full.png` | Site footer colophon, every page |
+
+And the four you can skip:
+
+| File | Why not |
+|---|---|
+| `goa-seal-16.png`, `goa-seal-32.png`, `goa-seal-apple-touch.png` | Favicons, for the demo only. The live template already serves these from `/assets/templates/common/icons/` — see the note below. |
+| `parish-nave-panorama.jpg` | Harvested but unused; kept as an alternative hero. |
 
 > **Provenance:** these were taken from the parish's own live site on 2026-08-08,
-> with two caveats recorded in `data/parish-facts.json`:
+> with three caveats recorded in `data/parish-facts.json`:
 > `feast-transfiguration.jpg` comes from **onlinechapel.goarch.org** and is
 > Archdiocese-owned, not parish-owned — check reuse terms. `clergy-fr-john.jpg`
 > is a photograph of a named person; confirm Fr. John is content for it to be
-> used before it goes anywhere public.
+> used before it goes anywhere public. The two `goa-seal-*` files are the seal
+> of the **Greek Orthodox Archdiocese of America**, also not parish-owned —
+> confirm with DIM before this goes anywhere public.
+
+> **The parish has no logo of its own.** Both the header logo and the favicons
+> on the live site are the Archdiocese seal, served from the shared GOARCH
+> template folders. That is why the draft uses it too, and why nothing here is a
+> parish-specific mark.
+
+#### A note on the favicons
+
+Each page's `<head>` in this repo carries four icon `<link>`s pointing at the
+`goa-seal-*` files. **Do not copy them into the EVO template.** The live site
+already serves the same seal from `/assets/templates/common/icons/`, so the
+favicon is correct the moment the chunks go in. Those `<link>`s exist only so
+the demo shows the right icon when opened from disk or from GitHub Pages — they
+sit in the `<head>`, which is not part of any chunk, so nothing in
+`dist/chunks/` references them.
 
 ### Step 3 — Add the stylesheet
 

@@ -220,6 +220,29 @@
       "from": "nativity.va.goarch.org/assets/images/17355A5E-14DE-425A-996C44A332FF622E.jpg",
       "owner": "parish",
       "note": "Panorama of the parish nave and iconostasis, decorated for a feast. Harvested and available but NOT currently used \u2014 kept as the alternative hero image if the Anastasis icon is ever reconsidered."
+    },
+    "_sealNote": "Harvested 2026-08-08. The parish has no logo or mark of its own: the live site's header logo and its favicons are both the seal of the Greek Orthodox Archdiocese of America, served from the shared GOARCH template directories rather than the parish's own asset folder. So every file below is Archdiocese-owned, not parish-owned \u2014 the same caveat as feast-transfiguration.jpg. For a draft shown to the Parish Council this is ordinary use of the parish's own jurisdiction's emblem; confirm reuse terms with the Department of Internet Ministries before anything goes public.",
+    "goa-seal.png": {
+      "from": "nativity.va.goarch.org/assets/templates/common/icons/favicon-196x196.png",
+      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import",
+      "note": "Site header mark and the largest favicon. This is the favicon art rather than the full logo: it carries no ring text, which is illegible below about 90px."
+    },
+    "goa-seal-32.png": {
+      "from": "nativity.va.goarch.org/assets/templates/common/icons/favicon-32x32.png",
+      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import"
+    },
+    "goa-seal-16.png": {
+      "from": "nativity.va.goarch.org/assets/templates/common/icons/favicon-16x16.png",
+      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import"
+    },
+    "goa-seal-apple-touch.png": {
+      "from": "nativity.va.goarch.org/assets/templates/common/icons/apple-touch-icon-152x152.png",
+      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import"
+    },
+    "goa-seal-full.png": {
+      "from": "nativity.va.goarch.org/assets/template-elements/logos/goa-logo-color.png",
+      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import",
+      "note": "Footer colophon. The full seal, with the 'Ecumenical Patriarchate \u00b7 Greek Orthodox Archdiocese of America' ring text. Its background is transparent and the ring text is dark maroon, so the CSS sets it on a cream disc \u2014 on the dark footer it would otherwise be unreadable."
     }
   }
 }

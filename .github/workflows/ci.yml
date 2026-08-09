@@ -65,6 +65,12 @@ jobs:
       - name: Locate a browser
         run: echo "CHROME_PATH=$(which google-chrome || which chromium-browser || which chromium)" >> "$GITHUB_ENV"
 
+      # lint and axe check structure and semantics; neither notices a collapsed
+      # grid or a hero pushed off-screen. This compares the geometry and key
+      # computed styles of every element against tests/layout-baseline.json.
+      - name: Layout and colour unchanged
+        run: npm run snap
+
       - name: axe-core — 12 pages x 2 viewports
         run: npm run audit:a11y
 
