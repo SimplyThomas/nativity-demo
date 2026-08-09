@@ -148,6 +148,31 @@ for (const rel of PAGES) {
     err('opengraph', rel, 'has Open Graph/Twitter tags — a shared link must not preview as the real parish site');
   }
 }
+/* ------------------------------------------------------------------ *
+ * 3b. Favicon links — the one part of the shell sync-shell cannot carry
+ *
+ * The header and footer travel between pages as chunks, so `npm run shell`
+ * keeps them identical. The <head> is not chunked and never will be — in EVO
+ * the template owns it — so the icon <link>s are the one shared thing that a
+ * new page silently misses. That is exactly what happened to the four pages
+ * added on 2026-08-09: they had the seal in the header and footer and no
+ * favicon at all. Nothing else here would have caught it.
+ * ------------------------------------------------------------------ */
+const ICONS = [
+  ['assets/img/goa-seal.png', '196x196'],
+  ['assets/img/goa-seal-32.png', '32x32'],
+  ['assets/img/goa-seal-16.png', '16x16'],
+  ['assets/img/goa-seal-apple-touch.png', '152x152'],
+];
+for (const rel of PAGES) {
+  const head = read(rel).split(/<\/head>/i)[0];
+  for (const [href, sizes] of ICONS) {
+    if (!head.includes(href)) {
+      err('favicon', rel, `<head> is missing the ${sizes} icon link to ${href}`);
+    }
+  }
+}
+
 if (!existsSync(join(ROOT, 'robots.txt'))) err('robots', 'robots.txt', 'missing');
 else if (!/Disallow:\s*\/\s*$/m.test(read('robots.txt'))) err('robots', 'robots.txt', 'does not disallow all crawlers');
 if (!existsSync(join(ROOT, '.nojekyll'))) err('nojekyll', '.nojekyll', 'missing — GitHub Pages will not serve files verbatim');
