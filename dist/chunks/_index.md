@@ -10,7 +10,7 @@ match the filename exactly — that is how pages call it.
 |:--:|---|---:|---:|:--:|
 | ☐ | `ntgocAboutClergy` | 2717 b | 1 page | — |
 | ☐ | `ntgocAboutHero` | 213 b | 1 page | — |
-| ☐ | `ntgocAboutParishCouncil` | 5529 b | 1 page | yes (2) |
+| ☐ | `ntgocAboutParishCouncil` | 5508 b | 1 page | yes (2) |
 | ☐ | `ntgocBookstoreCatalog` | 14611 b | 1 page | — |
 | ☐ | `ntgocBookstoreHero` | 1291 b | 1 page | — |
 | ☐ | `ntgocBookstoreNotes` | 1137 b | 1 page | yes (1) |
@@ -28,10 +28,10 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
 | ☐ | `ntgocFestivalDetails` | 1948 b | 1 page | — |
 | ☐ | `ntgocFestivalHero` | 651 b | 1 page | — |
-| ☐ | `ntgocGiveProjects` | 723 b | 1 page | — |
+| ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 1548 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 1925 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeFestivalPromo` | 1244 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeFestivalPromo` | 1227 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1202 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1626 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1454 b | 1 page | — |
@@ -42,15 +42,15 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocMobileViews` | 4344 b | 1 page | — |
 | ☐ | `ntgocNewsletterArchive` | 1889 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 414 b | 1 page | — |
-| ☐ | `ntgocParishLifeBookstore` | 1478 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeEvents` | 1053 b | 1 page | — |
+| ☐ | `ntgocParishLifeBookstore` | 1481 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeEvents` | 1049 b | 1 page | — |
 | ☐ | `ntgocParishLifeFellowship` | 847 b | 1 page | — |
-| ☐ | `ntgocParishLifeFormation` | 1784 b | 1 page | — |
+| ☐ | `ntgocParishLifeFormation` | 1781 b | 1 page | — |
 | ☐ | `ntgocParishLifeGallery` | 3110 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeHero` | 868 b | 1 page | — |
 | ☐ | `ntgocParishLifeService` | 652 b | 1 page | — |
-| ☐ | `ntgocParishLifeUpcoming` | 2847 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeWorship` | 1254 b | 1 page | — |
+| ☐ | `ntgocParishLifeUpcoming` | 2843 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeWorship` | 1257 b | 1 page | — |
 | ☐ | `ntgocSiteFooter` | 3348 b | 16 pages | yes (13) |
 | ☐ | `ntgocSiteHeader` | 2718 b | 16 pages | yes (15) |
 | ☐ | `ntgocTopBar` | 373 b | 16 pages | yes (1) |

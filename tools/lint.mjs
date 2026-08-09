@@ -391,6 +391,99 @@ for (const rel of PAGES) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 8d. Counts quoted in the docs must still be true
+ *
+ * "12 pages" and "42 chunks" are all over the documentation and go stale every
+ * time a page is added — ACCESSIBILITY.md spent a while claiming an audit
+ * covered 12 pages when it covered 16. A number in prose that nobody rechecks
+ * is worse than no number.
+ * ------------------------------------------------------------------ */
+{
+  const docs = readdirSync(ROOT).filter(f => f.endsWith('.md'));
+  const realChunks = chunkFiles.filter(f => f.endsWith('.html')).length;
+  for (const rel of docs) {
+    const body = read(rel);
+    for (const m of body.matchAll(/(\d+)\s+(?:plain text chunk files|chunk files|chunks)\b/g)) {
+      if (+m[1] !== realChunks) {
+        err('stale-count', rel, `says "${m[0]}" but there are ${realChunks}`);
+      }
+    }
+    for (const m of body.matchAll(/(\d+)\s+pages\b/g)) {
+      if (+m[1] !== PAGES.length) err('stale-count', rel, `says "${m[0]}" but there are ${PAGES.length}`);
+    }
+    for (const m of body.matchAll(/(\d+)\s+pages?\s*(?:x|×)\s*2\s+viewports?\s*=\s*(\d+)/gi)) {
+      if (+m[1] !== PAGES.length || +m[2] !== PAGES.length * 2) {
+        err('stale-count', rel, `says "${m[0]}" but it is ${PAGES.length} × 2 = ${PAGES.length * 2}`);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * 8e. Assets that nothing references
+ *
+ * The reverse of the missing-asset check. An image left behind after a redesign
+ * still gets uploaded to the parish CMS by a volunteer working from the folder.
+ * A warning, not an error — some are kept deliberately, and the reason belongs
+ * in data/parish-facts.json.
+ * ------------------------------------------------------------------ */
+{
+  const haystack = [...PAGES, 'assets/css/components.css', 'assets/css/provisional.css']
+    .map(read).join('\n');
+  // Files kept on purpose are declared in data/parish-facts.json, so this only
+  // ever fires for something genuinely forgotten.
+  let retained = [];
+  try {
+    retained = JSON.parse(read('data/parish-facts.json'))
+      .assetProvenance?._retainedUnused?.files ?? [];
+  } catch { /* the facts file is validated separately */ }
+
+  const imgDir = join(ROOT, 'assets/img');
+  for (const f of existsSync(imgDir) ? readdirSync(imgDir) : []) {
+    if (!haystack.includes(f) && !retained.includes(f)) {
+      warn('unused-asset', `assets/img/${f}`,
+        'referenced by no page or stylesheet. Delete it, or add it to ' +
+        'assetProvenance._retainedUnused in data/parish-facts.json with a reason.');
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * 8f. Two classes with byte-identical declarations
+ *
+ * Usually means a new page re-declared a rule that already existed under
+ * another name. Harmless to render, but it doubles what has to be kept in step.
+ * ------------------------------------------------------------------ */
+{
+  const css = read('assets/css/components.css').replace(/\/\*[\s\S]*?\*\//g, '');
+
+  // Compare EVERY rule a class carries, not just its base one. Two classes with
+  // matching base declarations are not interchangeable if one also has a media
+  // query or :hover the other lacks — merging those changes behaviour. This is
+  // the same equivalence test `npm run rename -- --merge` enforces.
+  const allRules = new Map();
+  for (const m of css.matchAll(/\.(ntgoc-[\w-]+)(?![\w-])([^{]*)\{([^}]*)\}/g)) {
+    if (!allRules.has(m[1])) allRules.set(m[1], []);
+    allRules.get(m[1]).push(`${m[2].trim()}{${m[3].split(/\s+/).join(' ').trim()}}`);
+  }
+
+  const byShape = new Map();
+  for (const [name, rules] of allRules) {
+    const shape = rules.slice().sort().join('|');
+    if (shape.length < 40) continue;                // one-liners are not worth merging
+    if (!byShape.has(shape)) byShape.set(shape, []);
+    byShape.get(shape).push(name);
+  }
+  for (const [shape, names] of byShape) {
+    if (names.length > 1) {
+      warn('duplicate-rule', 'assets/css/components.css',
+        `${names.join(' and ')} are equivalent — merge with ` +
+        `\`npm run rename -- --merge ${names[1]} ${names[0]}\` (${shape.slice(0, 40)}…)`);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * 9. dist/chunks must match the pages it was extracted from
  * ------------------------------------------------------------------ */
 if (malformed) {

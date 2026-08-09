@@ -36,7 +36,7 @@ The only generated artefact is `dist/chunks/` (`npm run chunks`).
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 15 pages
+npm run shell    # propagate header/footer to all 16 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
@@ -103,7 +103,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 15 pages × 2 viewports, reflow 15/15 at 320px.
+0 axe violations across 16 pages × 2 viewports, reflow 16/16 at 320px.
 
 ---
 

@@ -19,7 +19,7 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 
 | File / folder | What it is |
 |---|---|
-| `*.html` (15 pages) | **Source.** Edit directly. |
+| `*.html` (16 pages) | **Source.** Edit directly. |
 | `assets/css/components.css` | **Source.** Ships to the parish CMS. |
 | `assets/css/provisional.css` | **Source.** Demo only — contains a reset, never import it. |
 | `assets/js/ntgoc-enhance.js` | **Source.** Progressive enhancement only. |
@@ -59,7 +59,7 @@ Two further checks run in CI and are worth running locally before a big change:
 
 ```sh
 npm run snap           # layout + colour regression (the only check that sees layout)
-npm run audit:a11y     # axe-core, WCAG 2.1 AA, 15 pages x 2 viewports
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 16 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)

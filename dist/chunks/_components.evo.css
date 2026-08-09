@@ -354,7 +354,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-welcome-row { display:flex; gap:28px; margin-top:34px; flex-wrap:wrap; }
 .ntgoc-home-welcome-link { font-size:13.5px; letter-spacing:.06em; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
 .ntgoc-home-welcome-link:hover, .ntgoc-home-welcome-link:focus-visible { border-color:#7d2b2b; }
-.ntgoc-about-parish-council-rule { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
+.ntgoc-band { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
 .ntgoc-visitor-directions-shell { max-width:1240px; margin:0 auto; padding:88px 40px; }
 .ntgoc-visitor-hero-eyebrow-3 { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:22px; }
 .ntgoc-festival-details-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:12px; }
@@ -383,7 +383,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-upcoming-services-row { display:flex; flex-direction:column; gap:7px; font-size:15px; line-height:1.5; }
 .ntgoc-home-upcoming-services-rule { height:1px; background:#e4dac8; margin:24px 0; }
 .ntgoc-home-ministries-promo-text { font-size:14.5px; line-height:1.65; color:#5b5449; margin:0; }
-.ntgoc-home-festival-promo-text-2 { background:#3a1414; color:#f0e6d6; }
+.ntgoc-band-dark { background:#3a1414; color:#f0e6d6; }
 .ntgoc-home-festival-promo-grid { display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:70px; align-items:center; min-height:400px; padding:70px 0; }
 .ntgoc-home-festival-promo-eyebrow-3 { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:22px; }
 .ntgoc-home-festival-promo-heading { font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.12; margin:0 0 20px; color:#faf5ec; }
@@ -756,13 +756,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-pl-lede--serif { font-family:Newsreader, serif; font-style:italic; font-weight:300; font-size:24px; line-height:1.5; color:#e0b673; margin:0; }
 
 .ntgoc-pl-section { max-width:1240px; margin:0 auto; padding:88px 40px; }
-.ntgoc-pl-band { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
-.ntgoc-pl-band--dark { background:#3a1414; color:#f0e6d6; }
 .ntgoc-pl-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; align-items:center; }
 .ntgoc-pl-split--left { grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); }
 .ntgoc-pl-split--right { grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); }
 .ntgoc-pl-split--top { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); align-items:start; }
-.ntgoc-pl-kicker { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:20px; }
 .ntgoc-pl-h2 { font-family:Newsreader, serif; font-weight:300; font-size:46px; line-height:1.12; margin:0 0 22px; color:#3a1414; }
 .ntgoc-pl-h2--light { color:#faf5ec; }
 .ntgoc-pl-body { font-size:17.5px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }

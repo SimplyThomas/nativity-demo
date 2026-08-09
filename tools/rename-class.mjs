@@ -139,7 +139,70 @@ function rename(pairs) {
 
 /* ---------------- dispatch ---------------- */
 
-if (args[0] === '--from-file') {
+/**
+ * Merge one class into another that has identical declarations: every use of
+ * `from` becomes `to`, and `from`'s now-redundant rule is deleted. Refuses if
+ * the declarations differ, because that would silently restyle something.
+ */
+function merge(from, to) {
+  const cssPath = 'assets/css/components.css';
+  let css = read(cssPath);
+  /**
+   * Every rule for the class, not just the top-level one. Comparing only the
+   * base rule is not enough: two classes can carry identical declarations and
+   * still behave differently, because one of them has a media-query or :hover
+   * override the other lacks. Merging those silently applies one block's
+   * responsive behaviour to the other — which is exactly what happened when
+   * ntgoc-pl-section, carrying a mobile `padding: 64px !important`, was merged
+   * into the Visit directions shell and shrank that section by 48px.
+   */
+  const rulesFor = name => [...css.matchAll(
+    new RegExp(`\\.${name}(?![\\w-])([^{]*)\\{([^}]*)\\}`, 'g'))]
+    .map(m => `${m[1].trim()}{${m[2].split(/\s+/).join(' ').trim()}}`)
+    .sort();
+
+  const a = rulesFor(from);
+  const b = rulesFor(to);
+  if (!a.length) { console.error(`  ✗ "${from}" has no rule.`); process.exit(1); }
+  if (!b.length) { console.error(`  ✗ "${to}" has no rule.`); process.exit(1); }
+  if (a.length !== b.length || a.some((r, i) => r !== b[i])) {
+    console.error(`  ✗ refusing to merge "${from}" into "${to}" — they are not equivalent.`);
+    console.error(`      ${from} has ${a.length} rule(s), ${to} has ${b.length}:`);
+    for (const r of a) if (!b.includes(r)) console.error(`      only on ${from}: ${r.slice(0, 84)}`);
+    for (const r of b) if (!a.includes(r)) console.error(`      only on ${to}:   ${r.slice(0, 84)}`);
+    console.error(`      A difference in a media query or :hover means the two blocks\n` +
+                  `      behave differently even where the base declarations match.\n`);
+    process.exit(1);
+  }
+
+  for (const rel of targets()) {
+    if (rel === cssPath) continue;
+    const before = read(rel);
+    const after = before.replace(tokenRe(from), to);
+    if (after !== before && !DRY) write(rel, after);
+  }
+  // Drop the redundant rule, and any :hover/:focus pair that came with it.
+  css = css.replace(new RegExp(`^\\.${from}(?![\\w-])[^{]*\\{[^}]*\\}\\n?`, 'gm'), '');
+  css = css.replace(tokenRe(from), to);
+  if (!DRY) write(cssPath, css);
+  console.log(`  ${DRY ? '[dry] ' : ''}merged ${from} -> ${to} (rule removed)`);
+}
+
+if (args[0] === '--merge') {
+  if (args.length < 3 || args.length % 2 !== 1) {
+    console.error('  usage: --merge <from> <into> [<from2> <into2> …]'); process.exit(1);
+  }
+  for (let i = 1; i < args.length; i += 2) merge(args[i].replace(/^\./, ''), args[i + 1].replace(/^\./, ''));
+  if (!DRY) {
+    execFileSync(process.execPath, [join(ROOT, 'tools', 'extract-chunks.mjs')], { cwd: ROOT, stdio: 'pipe' });
+    try {
+      execFileSync(process.execPath, [join(ROOT, 'tools', 'lint.mjs')], { cwd: ROOT, stdio: 'inherit' });
+    } catch {
+      console.error('  ✗ lint failed after the merge — `git checkout .` to undo.\n');
+      process.exit(1);
+    }
+  }
+} else if (args[0] === '--from-file') {
   // Batch mode. Only worth using with `npm run snap` either side of it: a large
   // rename is safe precisely because the snapshot can prove nothing moved.
   if (!args[1]) { console.error('  usage: --from-file <old-to-new.json>'); process.exit(1); }
