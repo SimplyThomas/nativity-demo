@@ -54,7 +54,7 @@ The site works if you open `index.html` from disk.
   4.1.3 template the live site runs on.
 - **Class names are content-hashed and stable,** so re-importing from Claude
   Design produces a readable diff rather than renaming all 359 classes.
-- **No unsourced parish fact goes unflagged.** 36 `<!-- TODO: verify -->` markers
+- **No unsourced parish fact goes unflagged.** 33 `<!-- TODO: verify -->` markers
   remain. See "What still has to be verified" in `IMPORT.md`.
 - **Nobody's face or name goes up without asking.** The Visit page's "Faces You
   Might See" row ships as empty frames; the Parish Council block ships without

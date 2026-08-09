@@ -10,7 +10,12 @@
 |---|---:|---:|
 | Distinct rule violations | 4 | **0** |
 | Failing nodes | 492 | **0** |
-| Needing manual review | 25 | 25 *(all verified by hand — see below)* |
+| Needing manual review | 25 | 37 *(all verified by hand — see below)* |
+
+**Re-run on 8 August 2026** after six parish-authored sections were added to the
+Visit page. One new violation appeared and was fixed (below); the manual-review
+count rose from 25 to 37 because that page now carries four video embeds and a
+scrolling row of portraits. Still **0 violations, 12 of 12 pages passing reflow.**
 
 Reproduce it yourself:
 
@@ -116,16 +121,29 @@ task for the EVO import** — noted in `IMPORT.md`.
   level. Because styling is class-based, this changed the document outline and
   nothing visual.
 
+### 5. Found by the re-run — the greeter row could not be scrolled by keyboard
+
+`scrollable-region-focusable`, serious, one node. Below 640px the "Faces You
+Might See" portraits become a horizontal scroller. Nothing inside it is
+focusable — they are photographs and names, not links — so a keyboard user
+could reach the first card and no further; the rest of the greeters were
+simply unreachable without a mouse or a touchscreen.
+
+Fixed the same way the Mobile views frames were: the row takes `tabindex="0"`,
+`role="group"` and a name of its own, so it is one tab stop that arrow keys can
+scroll. At desktop width it is a plain four-column grid and the tab stop is
+harmless.
+
 ---
 
 ## Verified by hand
 
-### The 25 "needs review" items
+### The 37 "needs review" items
 
-axe cannot compute contrast for text over a background *image*, so it defers.
-All 25 are the gold `#e0b673` eyebrow labels over the hero images. Measured
-manually against the actual composite (base `#3a1414`, image at 42% opacity,
-gradient overlay):
+**25 of them: contrast over a background image.** axe cannot compute contrast
+for text over an image, so it defers. All 25 are the gold `#e0b673` eyebrow
+labels over the hero images. Measured manually against the actual composite
+(base `#3a1414`, image at 42% opacity, gradient overlay):
 
 | Situation | Ratio |
 |---|---:|
@@ -134,6 +152,19 @@ gradient overlay):
 | Worst case: gradient at .72 over the brightest part of the image | **6.14:1** |
 
 All pass comfortably. No change needed.
+
+**4 more: the greeter names, mobile viewport only.** axe defers on the cards
+that sit outside the 390px viewport in the scrolling row. The text is the
+greeter's first name, `#3a1414` on `#f6f1e8` — **14.47:1**, the highest-contrast
+pairing on the site. Nothing to fix.
+
+**8: `frame-tested`, the YouTube embeds.** axe cannot audit inside a
+cross-origin iframe, so it reports that it could not test them (4 videos × 2
+viewports). This is a statement about YouTube's player, not about this site, and
+nothing here can change it. What *is* ours — the frame's accessible name — is
+set: every embed carries a `title` naming the episode and the presenter. If DIM
+refuses third-party embeds at import (see `IMPORT.md`), the frames become plain
+links and this disappears.
 
 ### Reflow — WCAG 1.4.10
 

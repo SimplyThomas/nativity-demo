@@ -821,7 +821,12 @@ function greetersSlot() {
     <p style="font-family:Newsreader, serif; font-style:italic; font-size:15px; line-height:1.7; color:#8a7f70; margin:22px 0 0; max-width:62ch;">Placeholder — photographs and first names are supplied by the parish, with each person’s permission before anything is published.</p>`
     : '';
 
-  return `<div class="ntgoc-faces" style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px;">
+  // Below 640px the row becomes a horizontal scroller (see the responsive
+  // layer). A scroll container whose contents hold no focusable element cannot
+  // be scrolled from the keyboard at all — axe: "scrollable-region-focusable" —
+  // so it takes a tab stop and a name of its own, the same fix the Mobile views
+  // frames got. Harmless at desktop width, where it is a plain grid.
+  return `<div class="ntgoc-faces" tabindex="0" role="group" aria-label="Greeters you may meet in the narthex" style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px;">
       ${VISIT_GREETERS.map(greeterCard).join('\n      ')}
     </div>${note}`;
 }
