@@ -16,7 +16,8 @@
  *   6. Turns style-hover="" into real :hover / :focus-visible rules.
  *   7. Repoints the harvested images at assets/img/.
  *   8. Applies the verified fact corrections recorded in data/parish-facts.json.
- *   9. Wraps reusable blocks in <!-- CHUNK:ntgoc... --> delimiters for EVO extraction.
+ *   9. Splices in the parish-authored sections from content/ (see content/README.md).
+ *  10. Wraps reusable blocks in <!-- CHUNK:ntgoc... --> delimiters for EVO extraction.
  *
  * Class naming is deliberately STABLE across runs: a one-off style hashes to the same
  * .ntgoc-s<hash> name every build, so re-importing from Claude Design yields a readable
@@ -30,6 +31,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'design-src', 'Nativity Website.dc.html');
+const VISIT_SECTIONS_SRC = join(ROOT, 'content', 'visit-sections.html');
 
 /* ------------------------------------------------------------------ *
  * Page definitions
@@ -211,6 +213,73 @@ const FLAG_ONCE = [
   'Shifts are two hours. Sign-ups open in late summer.',
   'Three days. Everyone invited.',
 ];
+
+/**
+ * Visit-page FAQ, reconciled with the parish-authored sections in content/.
+ *
+ * Three of the design's one-line FAQ answers now sit below full sections that
+ * answer the same question at length, and one of them contradicted its section
+ * outright ("mostly in English" vs. "both English and Greek"). Rather than delete
+ * the short answers — a visitor scanning the FAQ should still get an answer — each
+ * is kept short and pointed at the section above it. Editorial, not factual, so
+ * these are deliberately separate from CORRECTIONS.
+ */
+const VISIT_FAQ_EDITS = [
+  { find: /Modest and reasonably neat\. Many wear what they'd wear to a nice dinner\. Shorts and jeans appear too\. Nobody is checking\./,
+    repl: "Modest and reasonably neat. Many wear what they'd wear to a nice dinner. You do not need to buy anything before visiting — see " +
+          '<a href="#ntgoc-wear">What Should I Wear?</a> above.' },
+
+  { find: /No\. A growing share of our parish is not, including converts and families from other Orthodox traditions\. The services are mostly in English\./,
+    repl: 'No. A growing share of our parish is not, including converts and families from other Orthodox traditions. You will hear both English and Greek, and you do not need to know Greek to follow along — see ' +
+          '<a href="#ntgoc-language">What Language Is the Service In?</a> above.' },
+
+  // The cry room is a claim about the building that the live parish site does not
+  // make, so it is flagged here rather than repeated unexamined.
+  { find: /Bring them\. Orthodox services are noisy at the edges and always have been\. There is a cry room if you want one, but no obligation to use it\./,
+    repl: 'Bring them. Orthodox services are noisy at the edges and always have been. There is a cry room if you want one' + TODO +
+          ', but no obligation to use it — see <a href="#ntgoc-children">What About Bringing Children?</a> above.' },
+];
+
+/* ------------------------------------------------------------------ *
+ * Parish-authored Visit sections — the data the two SLOTs need.
+ * The prose itself lives in content/visit-sections.html.
+ * ------------------------------------------------------------------ */
+
+/**
+ * The greeters a visitor is likely to meet in the narthex.
+ *
+ * Shipped empty on purpose. Publishing a parishioner's photograph and name is
+ * that person's decision, not a volunteer's — the same rule that emptied the
+ * Parish Council block. To fill it in: ask each greeter, add their FIRST name
+ * only, drop a photo in assets/img/, and re-run the build. Never add a surname,
+ * a phone number or an email address here.
+ */
+const VISIT_GREETERS = [
+  { name: null, role: 'Greeter', line: 'Come find me if you have any questions!', photo: null, alt: null },
+  { name: null, role: 'Greeter', line: null, photo: null, alt: null },
+  { name: null, role: 'Greeter', line: null, photo: null, alt: null },
+  { name: null, role: 'Greeter', line: null, photo: null, alt: null },
+];
+
+/**
+ * "Welcome to the Orthodox Church" with Frederica Mathewes-Green — the four
+ * episodes most useful before a first visit.
+ *
+ * `confirmed: true` means a person supplied or checked that link. Everything
+ * else was found by title search on 2026-08-08 and is tagged for verification: a
+ * wrong id plays the wrong episode, and no visitor would ever report it.
+ */
+const VISIT_SERIES_URL = 'https://www.youtube.com/playlist?list=PLxcntdlvObPgDGgBg1mYsUxnfGcyTBKcc';
+
+const VISIT_VIDEOS = {
+  // Supplied by the parish, 2026-08-08: youtube.com/watch?v=YimgCkBbH7c
+  featured: { id: 'YimgCkBbH7c', title: 'An Introduction to the Orthodox Worship Space', confirmed: true },
+  more: [
+    { id: 'XDUMf7oFt2s', title: 'An Overview of the Orthodox Divine Liturgy' },
+    { id: 'derjqczKV5E', title: 'The Sign of the Cross, Icons, and Tradition in the Orthodox Church' },
+    { id: '0Ye_QDBA5Ps', title: 'A Little More About the Orthodox Worship Space' },
+  ],
+};
 
 /* ------------------------------------------------------------------ *
  * Contrast corrections
@@ -710,6 +779,118 @@ function applyCorrections(src) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 4b. Parish-authored sections (content/)
+ *
+ * Copy the design does not contain, spliced into the Visit page. It is authored
+ * in the design's own idiom — inline style="" attributes, reusing style strings
+ * the design already uses — so classify() folds it into the same generated
+ * classes and it costs almost no new CSS.
+ * ------------------------------------------------------------------ */
+
+const VIDEO_TODO = `<!-- TODO: verify — video id found by title search on 2026-08-08.
+       Play it once and confirm it is the intended episode before this goes live. -->`;
+
+/** One 16:9 YouTube embed. youtube-nocookie so a visitor is not tracked for reading a church page. */
+function videoEmbed({ id, title, confirmed }) {
+  return `${confirmed ? '' : VIDEO_TODO + '\n      '}<div class="ntgoc-video" style="border:1px solid #ccbda4; background:#ece3d5;">
+        <iframe src="https://www.youtube-nocookie.com/embed/${esc(id)}" title="${esc(title)} — Frederica Mathewes-Green" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>`;
+}
+
+/** One greeter portrait, or a clearly-marked empty frame while consent is pending. */
+function greeterCard({ name, role, line, photo, alt }) {
+  const portrait = photo
+    ? `<img src="assets/img/${esc(photo)}" alt="${esc(alt || name || 'A greeter at the parish')}" style="display:block; width:100%; height:230px; object-fit:cover;">`
+    : `<div style="height:230px; display:flex; align-items:center; justify-content:center; background:#ece3d5; border:1px solid #ccbda4; color:#8a7f70; font-size:11px; letter-spacing:.16em; text-transform:uppercase;">Photo to come</div>`;
+
+  return `<figure style="margin:0;">
+        ${portrait}
+        <figcaption style="padding-top:16px;">
+          <div style="font-family:Newsreader, serif; font-size:22px; color:#3a1414; line-height:1.2; margin-bottom:6px;">${esc(name || 'First name')}</div>
+          <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#a08a6a;">${esc(role)}</div>
+          ${line ? `<p style="font-family:Newsreader, serif; font-style:italic; font-size:15.5px; line-height:1.6; color:#8a7f70; margin:10px 0 0;">“${esc(line)}”</p>` : ''}
+        </figcaption>
+      </figure>`;
+}
+
+function greetersSlot() {
+  const pending = VISIT_GREETERS.some(g => !g.name || !g.photo);
+  const note = pending
+    ? `\n    <!-- TODO: verify — real first names and photographs, with each greeter's permission.
+         See VISIT_GREETERS in tools/render.mjs. -->
+    <p style="font-family:Newsreader, serif; font-style:italic; font-size:15px; line-height:1.7; color:#8a7f70; margin:22px 0 0; max-width:62ch;">Placeholder — photographs and first names are supplied by the parish, with each person’s permission before anything is published.</p>`
+    : '';
+
+  return `<div class="ntgoc-faces" style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px;">
+      ${VISIT_GREETERS.map(greeterCard).join('\n      ')}
+    </div>${note}`;
+}
+
+function videosSlot() {
+  return `<div style="margin:0 0 44px;">
+      <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:28px; margin:0 0 18px; color:#3a1414;">${VISIT_VIDEOS.featured.title}</h3>
+      ${videoEmbed(VISIT_VIDEOS.featured)}
+    </div>
+
+    <div class="ntgoc-videos" style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:32px;">
+      ${VISIT_VIDEOS.more.map(v => `<div>
+        ${videoEmbed(v)}
+        <h3 style="font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:14px 0 0; color:#3a1414;">${v.title}</h3>
+      </div>`).join('\n      ')}
+    </div>
+
+    <p style="margin:40px 0 0;"><a href="${VISIT_SERIES_URL}" target="_blank" rel="noreferrer" style="cursor:pointer; display:inline-block; background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px;" style-hover="background:#5e1f1f;">Watch the full series</a></p>`;
+}
+
+/** The authored Visit sections, with both SLOTs filled. */
+function visitSections() {
+  let out = readFileSync(VISIT_SECTIONS_SRC, 'utf8');
+  for (const [slot, fill] of [['greeters', greetersSlot], ['videos', videosSlot]]) {
+    const marker = `<!-- SLOT:${slot} -->`;
+    if (!out.includes(marker)) throw new Error(`content/visit-sections.html is missing ${marker}`);
+    out = out.replace(marker, fill());
+  }
+  return out;
+}
+
+/**
+ * Splice a fragment into <main> after `afterBlocks` top-level elements — the
+ * same block boundaries markChunks() uses, so the inserted sections line up
+ * with CHUNK_NAMES instead of landing mid-chunk. Throws rather than guessing if
+ * the page does not have that many blocks, which is how a re-import that moves
+ * the Visit view announces itself.
+ */
+function insertIntoMain(mainHtml, afterBlocks, fragment) {
+  const mainAt = findOpen(mainHtml, 'main', 0);
+  const main = mainAt === -1 ? null : matchTag(mainHtml, 'main', mainAt);
+  if (!main) throw new Error('cannot splice authored sections: no <main> in the rendered view');
+
+  const body = mainHtml.slice(main.openEnd, main.innerEnd);
+  let cursor = 0;
+  for (let n = 0; n < afterBlocks; n++) {
+    const t = nextTag(body, cursor);
+    const el = t && matchTag(body, t.tag, t.at);
+    if (!el) throw new Error(`cannot splice authored sections: expected ${afterBlocks} top-level blocks, found ${n}`);
+    cursor = el.end;
+  }
+
+  return mainHtml.slice(0, main.openEnd) + body.slice(0, cursor) +
+    `\n${fragment}\n` + body.slice(cursor) + mainHtml.slice(main.innerEnd);
+}
+
+/** Reconcile the design's FAQ with the sections now sitting above it. */
+function applyVisitFaqEdits(html) {
+  let out = html;
+  for (const { find, repl } of VISIT_FAQ_EDITS) {
+    if (!find.test(out)) {
+      throw new Error(`Visit FAQ edit no longer matches — the design copy changed:\n  ${find}`);
+    }
+    out = out.replace(find, repl);
+  }
+  return out;
+}
+
+/* ------------------------------------------------------------------ *
  * 5. Chunk delimiters
  * ------------------------------------------------------------------ */
 
@@ -718,9 +899,13 @@ function applyCorrections(src) {
 const CHUNK_NAMES = {
   home: ['ntgocHomeHero', 'ntgocHomeServiceTimes', 'ntgocHomeWelcome', 'ntgocHomeFirstSunday',
          'ntgocHomeUpcomingServices', 'ntgocHomeFestivalPromo', 'ntgocHomeMinistriesPromo'],
-  // The third Visit block is content the design orphaned outside every view
+  // Blocks 3-8 are parish-authored, not from the design — see content/README.md.
+  // The last Visit block is content the design orphaned outside every view
   // (see viewFor) and the renderer re-attached: FAQ, closing CTA, directions.
-  visit: ['ntgocVisitorHero', 'ntgocVisitorFirstSunday', 'ntgocVisitorFaqAndDirections'],
+  visit: ['ntgocVisitorHero', 'ntgocVisitorFirstSunday',
+          'ntgocVisitorLanguage', 'ntgocVisitorWhatToWear', 'ntgocVisitorWhatToBring',
+          'ntgocVisitorChildren', 'ntgocVisitorGreeters', 'ntgocVisitorVideos',
+          'ntgocVisitorFaqAndDirections'],
   faith: ['ntgocFaithHero', 'ntgocFaithIntro', 'ntgocFaithTopics', 'ntgocFaithWatchRead'],
   calendar: ['ntgocCalendarHero', 'ntgocCalendarGrid'],
   ministries: ['ntgocMinistriesHero', 'ntgocMinistriesGrid'],
@@ -733,10 +918,25 @@ const CHUNK_NAMES = {
   mobile: ['ntgocMobileViews'],
 };
 
-/** Next element start at/after `from`, skipping comments and text. */
+/**
+ * Next element start at/after `from`, skipping text and stepping over comments.
+ *
+ * The comment-skipping matters: authored content (content/) carries explanatory
+ * comments, and a comment that merely mentions a tag — "each <section> becomes a
+ * chunk" — would otherwise be read as a real element start, and every block after
+ * it would be dropped from the page without any error.
+ */
 function nextTag(src, from) {
-  const m = src.slice(from).match(/<([a-zA-Z][\w-]*)(?=[\s>])/);
-  return m ? { tag: m[1], at: from + m.index } : null;
+  let i = from;
+  for (;;) {
+    const m = src.slice(i).match(/<(!--|[a-zA-Z][\w-]*(?=[\s>]))/);
+    if (!m) return null;
+    const at = i + m.index;
+    if (m[1] !== '!--') return { tag: m[1], at };
+    const close = src.indexOf('-->', at);
+    if (close === -1) return null;
+    i = close + 3;
+  }
 }
 
 /**
@@ -765,6 +965,15 @@ function markChunks(mainHtml, pageKey) {
       `\n<!-- CHUNK:${name} -->\n${body.slice(t.at, el.end)}\n<!-- /CHUNK:${name} -->\n`;
     cursor = el.end;
   }
+
+  // Every named chunk must have found its block. Fewer blocks than names means
+  // the markup went unbalanced somewhere and the tail of the page was silently
+  // dropped — fail the build rather than ship a page that is missing sections.
+  if (n < names.length) {
+    throw new Error(`markChunks(${pageKey}): expected at least ${names.length} top-level ` +
+      `blocks in <main>, found ${n}. Unbalanced markup, or CHUNK_NAMES is out of date.`);
+  }
+
   return mainHtml.slice(0, main.openEnd) + out + body.slice(cursor) + mainHtml.slice(main.innerEnd);
 }
 
@@ -919,7 +1128,15 @@ for (const page of PAGES) {
     '</nav>\n<!-- /CHUNK:ntgocTopBar -->\n<!-- CHUNK:ntgocSiteHeader -->\n<header');
   head = `<!-- CHUNK:ntgocTopBar -->\n<nav aria-label="Secondary">\n${head}\n<!-- /CHUNK:ntgocSiteHeader -->\n`;
 
-  let main = markChunks(viewFor(scope), page.key)
+  let view = viewFor(scope);
+  if (page.key === 'visit') {
+    // After the hero and the Sunday-morning timeline, before the closing call to
+    // action and the FAQ that the renderer re-attached at the end of <main>.
+    view = insertIntoMain(view, 2, visitSections());
+    view = applyVisitFaqEdits(view);
+  }
+
+  let main = markChunks(view, page.key)
     .replace(/<main(\s|>)/, '<main id="ntgoc-main"$1');
 
   // The Mobile views reference page draws phone frames at their true 375px
@@ -1071,6 +1288,24 @@ writeFileSync(join(ROOT, 'assets/css/components.css'), `/* =====================
   -webkit-appearance: none;
   appearance: none;
 }
+/* Expandable text (the Creed, the Lord's Prayer). Works with no JavaScript;
+   the arrow is the only thing the browser's default marker gave us, and it
+   sits inconsistently across browsers, so it is replaced with a + / −. */
+.ntgoc-disclosure > summary { list-style: none; }
+.ntgoc-disclosure > summary::-webkit-details-marker { display: none; }
+.ntgoc-disclosure > summary::after { content: "  +"; white-space: pre; }
+.ntgoc-disclosure[open] > summary::after { content: "  −"; white-space: pre; }
+
+/* Responsive 16:9 frame for the video embeds. */
+.ntgoc-video { position: relative; aspect-ratio: 16 / 9; }
+.ntgoc-video > iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .ntgoc-visually-hidden {
   position: absolute;
   width: 1px; height: 1px;
@@ -1128,6 +1363,30 @@ ${rules.join('\n')}
     height: auto !important;
     gap: 12px;
     padding-top: 14px;
+  }
+}
+
+/* The two authored grids on the Visit page. These come last so they win over
+   the blanket .ntgoc-grid { grid-template-columns: 1fr } rule above: a column
+   of four full-width portraits is a long scroll past the thing they are meant
+   to make easier, and three stacked video players is worse. */
+@media (max-width: 900px) {
+  .ntgoc-faces { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .ntgoc-videos { grid-template-columns: 1fr !important; gap: 40px !important; }
+}
+@media (max-width: 640px) {
+  /* Portraits become a swipeable row rather than a stack. */
+  .ntgoc-faces {
+    display: flex !important;
+    gap: 16px !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ntgoc-faces > figure {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
   }
 }
 

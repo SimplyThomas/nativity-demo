@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 35 plain text files.
+`dist/chunks/` — 42 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -103,7 +103,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 35 files.
+   are corrected together. Do **not** hand-edit paths in 42 files.
 
 The nine images:
 
@@ -182,7 +182,7 @@ Then the page content, grouped by page:
 | Page | Chunks, in order |
 |---|---|
 | **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeFirstSunday`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo` |
-| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday`, `ntgocVisitorFaqAndDirections` |
+| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorGreeters`, `ntgocVisitorVideos`, `ntgocVisitorFaqAndDirections` |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
@@ -195,6 +195,19 @@ Then the page content, grouped by page:
 
 `ntgocMobileViews` is **not a real page.** It is a design reference showing what
 the site looks like on a phone. Do not import it.
+
+> **The six middle Visit chunks are parish copy, not design copy.** `…Language`,
+> `…WhatToWear`, `…WhatToBring`, `…Children`, `…Greeters` and `…Videos` were
+> written by the parish rather than imported from Claude Design; they live in
+> `content/visit-sections.html`. They import exactly like the others, but they
+> carry the most unverified statements on the site — see below — and
+> `ntgocVisitorGreeters` must not be imported at all until real photographs and
+> permissions exist.
+>
+> They must be imported **in the order listed above**: the three short answers in
+> `ntgocVisitorFaqAndDirections` now say "see … above" and link to `#ntgoc-wear`,
+> `#ntgoc-language` and `#ntgoc-children`, which are anchors on those sections.
+> Import the FAQ without them and three links point at nothing.
 
 ### Step 5 — Fix the internal links
 
@@ -258,9 +271,9 @@ template.
 
 ## What still has to be verified
 
-Search the built HTML for `TODO: verify` — there are 22 markers. They are HTML
-comments, so visitors never see them, but **none should survive to a live parish
-site.** Each is a claim we could not source.
+Search the built HTML for `TODO: verify` — there are 36 markers, 13 of them on
+the Visit page. They are HTML comments, so visitors never see them, but **none
+should survive to a live parish site.** Each is a claim we could not source.
 
 ### Corrected during the build (from the parish's own live site)
 
@@ -290,6 +303,54 @@ site.** Each is a claim we could not source.
   on the live site or fredgreek.org.
 - **Ministries** — the design lists a **Choir & Chanters** ministry that the live
   site does not have, and omits **JOY**, which it does.
+- **A cry room.** The design's FAQ says the church has one. The live parish site
+  never mentions it. Flagged.
+
+### Still unresolved — the new Visit sections
+
+Every one of these is a statement about *our* worship, made in the parish's own
+voice. None of it can be checked against a source; Father has to read it.
+
+- **What language the service is in.** The new section says both English and
+  Greek. The design's FAQ said *"mostly in English"* — a straight contradiction,
+  now resolved in favour of "both" and flagged. Confirm what is true of a normal
+  Sunday, and that greeters really do hand out a bilingual Divine Liturgy book.
+- **The Creed and the Lord's Prayer.** The texts shown are the Archdiocese's
+  English translations. Check them word for word against the parish's own Divine
+  Liturgy book, and confirm the Lord's Prayer really is prayed in more than one
+  language here before the page says so.
+- **Head coverings.** The section describes what a visitor will see — some women
+  veiled, many not. That is a description of this parish, and only Father or a
+  parishioner can confirm it.
+- **The daily readings link** points at the Archdiocese Online Chapel
+  (`goarch.org/chapel`) because the parish site has no readings page yet. Repoint
+  it if one is added.
+- **Three of the four videos.** "Welcome to the Orthodox Church" with Frederica
+  Mathewes-Green. The featured one — *An Introduction to the Orthodox Worship
+  Space* — was supplied by the parish and is confirmed. The other three ids were
+  found by title search, not by someone watching them. **Play each one before
+  this goes live**: a wrong id plays the wrong episode and no visitor will report
+  it. Ids are in one table, `VISIT_VIDEOS` in `tools/render.mjs`; add
+  `confirmed: true` to an entry once somebody has watched it and the marker
+  disappears.
+
+### Blocking — `ntgocVisitorGreeters` cannot be imported as it stands
+
+The "Faces You Might See" section ships with four empty frames reading *Photo to
+come*. That is deliberate, and it is the same rule that emptied the Parish
+Council block: **a photograph of a parishioner and their name go online only with
+that person's permission.** Before this section is imported —
+
+1. Ask each greeter, individually, and take yes or no as the whole answer.
+2. Add their **first name only**. No surnames, no phone numbers, no email
+   addresses, ever.
+3. Use a warm, natural photograph of them — not a corporate headshot — and put it
+   in `assets/img/`.
+4. Fill in `VISIT_GREETERS` in `tools/render.mjs` and rebuild. The placeholder
+   note under the row disappears by itself once every card has a name and photo.
+
+If nobody has been asked yet, skip this chunk. The section is a kindness to
+nervous visitors; it is not worth publishing a parishioner's face without asking.
 
 ### Deliberately withheld
 
@@ -318,6 +379,11 @@ Ask all of these **before** starting. Any "no" changes the plan.
    and **Karla**. If not, they must be self-hosted or substituted — see below.
 6. **Is there a staging site**, or does editing happen on the live parish site?
 7. **Who can create resources** (new pages), as opposed to editing existing ones?
+8. **May we embed YouTube videos?** The Visit page embeds four. They use
+   `youtube-nocookie.com` and `loading="lazy"`, which is the least intrusive form
+   of a YouTube embed, but it is still a third-party frame on a parish page. If
+   embeds are refused, the fix is one line per video in `videoEmbed()` —
+   `tools/render.mjs` — turning each frame into a plain link out to YouTube.
 
 ### If fonts are refused
 
@@ -336,9 +402,13 @@ You do not need this to import. It is here so the next person knows the files in
 the next rebuild overwrites them.
 
 ```sh
-node tools/render.mjs          # design-src/ -> the 12 HTML pages + CSS
+node tools/render.mjs          # design-src/ + content/ -> the 12 HTML pages + CSS
 node tools/extract-chunks.mjs  # the HTML pages -> dist/chunks/
 ```
+
+Most of the site is generated from `design-src/`. The six middle Visit sections
+are the exception: they are parish copy and live in `content/visit-sections.html`,
+which a re-import of the design does not touch. See `content/README.md`.
 
 The extraction step refuses to write any chunk containing an EVO reserved
 sequence (`[[ ]]`, `[! !]`, `{{ }}`, `[* *]`, `[( )]`, `[~ ~]`, `[+ +]`) and exits
