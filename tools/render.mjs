@@ -138,6 +138,24 @@ const CORRECTIONS = [
   { find: /Vespers the evening before, Liturgy at 9:00 a\.m\./g,
     repl: 'Vespers the evening before, Liturgy at 9:00 a.m.' + TODO },
 
+  // The design left two grey "Map embed" placeholders. The parish draws its own
+  // directions map, so use that rather than a third-party embed: no tracking, no
+  // API key, works offline, and it corroborates the corrected directions above
+  // (Route 3 / Plank Road, Riverbend High School, the Home Depot landmark).
+  // background-size:contain, not cover — it is a diagram and must stay legible.
+  { find: /<div style="height:400px;[^"]*">Map embed — Spotswood Furnace Rd<\/div>/,
+    repl: '<div role="img" aria-label="Parish directions map: the church sits on Spotswood ' +
+          'Furnace Road just off Route 3 (Plank Road), past Riverbend High School" ' +
+          'style="height:400px; border:1px solid #ded2be; background-color:#e6ddcd; ' +
+          "background-image:url('assets/img/directions-map.jpg'); background-size:contain; " +
+          'background-repeat:no-repeat; background-position:center;"></div>' },
+  { find: /<div style="margin-top:40px; height:260px;[^"]*">Map embed<\/div>/,
+    repl: '<div role="img" aria-label="Parish directions map: the church sits on Spotswood ' +
+          'Furnace Road just off Route 3 (Plank Road), past Riverbend High School" ' +
+          'style="margin-top:40px; height:260px; border:1px solid #ded2be; background-color:#e6ddcd; ' +
+          "background-image:url('assets/img/directions-map.jpg'); background-size:contain; " +
+          'background-repeat:no-repeat; background-position:center;"></div>' },
+
   // A ministry the design invented — flag rather than delete.
   { find: /Choir &amp; Chanters/g, repl: 'Choir &amp; Chanters' + TODO },
 

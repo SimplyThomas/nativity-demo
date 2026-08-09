@@ -249,7 +249,7 @@
 .ntgoc-ink { color:#3a1414; }
 .ntgoc-s541763 { display:inline-block; margin-top:32px; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-s541763:hover, .ntgoc-s541763:focus-visible { background:#5e1f1f; }
-.ntgoc-sd6c7c8 { height:400px; border:1px solid #ded2be; background:#e6ddcd; display:flex; align-items:center; justify-content:center; color:#9c9182; font-size:13px; letter-spacing:.16em; text-transform:uppercase; }
+.ntgoc-s4fd0ed { height:400px; border:1px solid #ded2be; background-color:#e6ddcd; background-image:url('../img/directions-map.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; }
 .ntgoc-sca35f9 { position:relative; background:#3a1414; height:380px; overflow:hidden; }
 .ntgoc-s809ac0 { position:absolute; inset:0; background-image:url('../img/faith-resurrection.jpg'); background-size:cover; background-position:center 30%; opacity:.4; }
 .ntgoc-s80a5b7 { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.95), rgba(58,20,20,.5)); }
@@ -375,7 +375,7 @@
 .ntgoc-s3440ab { font-size:17px; line-height:1.6; color:#3a1414; }
 .ntgoc-s5a988a { font-size:17px; color:#3a1414; }
 .ntgoc-sb519f6 { font-size:16px; display:flex; gap:20px; }
-.ntgoc-s19e494 { margin-top:40px; height:260px; border:1px solid #ded2be; background:#e6ddcd; display:flex; align-items:center; justify-content:center; color:#9c9182; font-size:13px; letter-spacing:.16em; text-transform:uppercase; }
+.ntgoc-s4fd9f1 { margin-top:40px; height:260px; border:1px solid #ded2be; background-color:#e6ddcd; background-image:url('../img/directions-map.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; }
 .ntgoc-s2213f2 { border:1px solid #ded2be; background:#fbf8f2; padding:40px 36px; }
 .ntgoc-s8a9542 { font-family:Newsreader, serif; font-weight:500; font-size:26px; margin:0 0 8px; color:#3a1414; }
 .ntgoc-se8d8b3 { font-size:14.5px; line-height:1.65; color:#8a7f70; margin:0 0 28px; }

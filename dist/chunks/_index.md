@@ -14,7 +14,7 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocBookstoreNotes` | 1070 b | 1 page |
 | `ntgocCalendarGrid` | 8715 b | 1 page |
 | `ntgocCalendarHero` | 533 b | 1 page |
-| `ntgocContactCard` | 1883 b | 1 page |
+| `ntgocContactCard` | 2010 b | 1 page |
 | `ntgocDraftBanner` | 488 b | 12 pages |
 | `ntgocFaithHero` | 398 b | 1 page |
 | `ntgocFaithIntro` | 886 b | 1 page |
@@ -38,6 +38,6 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocSiteFooter` | 2578 b | 12 pages |
 | `ntgocSiteHeader` | 1223 b | 12 pages |
 | `ntgocTopBar` | 541 b | 12 pages |
-| `ntgocVisitorFaqAndDirections` | 3949 b | 1 page |
+| `ntgocVisitorFaqAndDirections` | 4053 b | 1 page |
 | `ntgocVisitorFirstSunday` | 5880 b | 1 page |
 | `ntgocVisitorHero` | 422 b | 1 page |

@@ -154,6 +154,8 @@
     "faith-holy-sites.jpg": {"from": "nativity.va.goarch.org/assets/images/Holy-sites.jpg", "owner": "parish"},
     "faith-elders.jpg": {"from": "nativity.va.goarch.org/assets/images/Elders.jpg", "owner": "parish"},
     "clergy-fr-john.jpg": {"from": "nativity.va.goarch.org/assets/images/Father's pic.jpg", "owner": "parish — photograph of a named individual; confirm Fr. John is content for it to appear in the draft"},
-    "give-building-projects.png": {"from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png", "owner": "parish"}
+    "give-building-projects.png": {"from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png", "owner": "parish"},
+    "directions-map.jpg": {"from": "nativity.va.goarch.org/assets/images/C91011EC-927D-4AAD-AF40C69E8522BF1D.jpg", "owner": "parish", "note": "The parish's own hand-drawn directions map. Now fills the 'Map embed' placeholders on the Visit and Contact pages, replacing what would otherwise be a third-party map embed. It independently corroborates the corrected directions: Route 3 / Plank Road, Riverbend High School, Home Depot."},
+    "parish-nave-panorama.jpg": {"from": "nativity.va.goarch.org/assets/images/17355A5E-14DE-425A-996C44A332FF622E.jpg", "owner": "parish", "note": "Panorama of the parish nave and iconostasis, decorated for a feast. Harvested and available but NOT currently used — kept as the alternative hero image if the Anastasis icon is ever reconsidered."}
   }
 }
