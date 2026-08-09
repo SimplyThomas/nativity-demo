@@ -39,11 +39,12 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocSiteHeader` | 1245 b | 12 pages |
 | `ntgocTopBar` | 640 b | 12 pages |
 | `ntgocVisitorChildren` | 2331 b | 1 page |
-| `ntgocVisitorDirections` | 1515 b | 1 page |
-| `ntgocVisitorFirstSunday` | 6123 b | 1 page |
+| `ntgocVisitorDirections` | 1537 b | 1 page |
+| `ntgocVisitorFirstSunday` | 6149 b | 1 page |
 | `ntgocVisitorGreeters` | 2728 b | 1 page |
 | `ntgocVisitorHero` | 236 b | 1 page |
 | `ntgocVisitorLanguage` | 6499 b | 1 page |
+| `ntgocVisitorOnThisPage` | 1060 b | 1 page |
 | `ntgocVisitorSundaySchool` | 1505 b | 1 page |
 | `ntgocVisitorVideos` | 3406 b | 1 page |
 | `ntgocVisitorWhatToBring` | 1673 b | 1 page |

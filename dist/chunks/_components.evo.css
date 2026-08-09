@@ -101,6 +101,49 @@
    ------------------------------------------------------------------ */
 .ntgoc-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
+/* --- "On this page" jump list (Visit) -------------------------------
+   The Visit page runs to eleven sections. Rather than hide any of them
+   behind a disclosure — a visitor only opens what they already thought
+   to ask, and the reassurance is the point — the sections stay open and
+   this gives a scanner a map. No JavaScript: they are plain anchors.
+   -------------------------------------------------------------------- */
+.ntgoc-jumpnav { border-bottom: 1px solid #ded2be; }
+/* .ntgoc-shell and .ntgoc-grid are hooks the responsive layer targets, not the
+   desktop layout — that came from each element's own generated class. So the
+   shell width and the two columns are declared here. */
+.ntgoc-jumpnav__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 34px 40px 36px;
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 70px;
+  align-items: start;
+}
+.ntgoc-jumpnav__label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #736249; }
+.ntgoc-jumplist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 40px;
+}
+.ntgoc-jumplist a {
+  font-family: Newsreader, serif;
+  font-size: 17px;
+  line-height: 1.35;
+  color: #3a1414;
+  border-bottom: 1px solid #ded2be;
+  padding-bottom: 3px;
+}
+.ntgoc-jumplist a:hover,
+.ntgoc-jumplist a:focus-visible { color: #7d2b2b; border-color: #7d2b2b; }
+
+/* The header is sticky, so an anchor jump would otherwise land with the
+   section's first line tucked underneath it. */
+.ntgoc-page section[id] { scroll-margin-top: 96px; }
+
 /* --- interactive bits ---------------------------------------------- */
 .ntgoc-filter-btn {
   font: inherit;
@@ -643,6 +686,17 @@
     flex: 0 0 62%;
     scroll-snap-align: start;
   }
+}
+
+/* Stacked, the label sits directly above its list — the 70px column gap the
+   sections use is far too much as a row gap. */
+@media (max-width: 900px) {
+  .ntgoc-jumpnav__inner { gap: 16px !important; padding-top: 26px; padding-bottom: 28px; }
+}
+
+/* The jump list drops to one column when two would wrap mid-question. */
+@media (max-width: 640px) {
+  .ntgoc-jumplist { grid-template-columns: 1fr !important; }
 }
 
 /* --- accessibility floor ------------------------------------------ */
