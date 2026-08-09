@@ -97,7 +97,7 @@
 .ntgoc-sb31694 { background:#7d2b2b; color:#f6f1e8; padding:11px 22px; border-radius:2px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap; }
 .ntgoc-sb31694:hover, .ntgoc-sb31694:focus-visible { background:#5e1f1f; }
 .ntgoc-s162d12 { position:relative; height:640px; background:#3a1414; overflow:hidden; }
-.ntgoc-s504123 { position:absolute; inset:0; background-image:url('assets/img/hero-anastasis-icon.jpg'); background-size:cover; background-position:center; opacity:.42; }
+.ntgoc-s504123 { position:absolute; inset:0; background-image:url('../img/hero-anastasis-icon.jpg'); background-size:cover; background-position:center; opacity:.42; }
 .ntgoc-s75653a { position:absolute; inset:0; background:linear-gradient(100deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.72) 46%, rgba(58,20,20,.25) 100%); }
 .ntgoc-s15cf29 { position:relative; max-width:1440px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; max-width:1440px; }
 .ntgoc-sbde964 { max-width:620px; }
@@ -167,7 +167,7 @@
 .ntgoc-sac3bc9 { display:inline-block; margin-top:30px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
 .ntgoc-sac3bc9:hover, .ntgoc-sac3bc9:focus-visible { border-color:#7d2b2b; }
 .ntgoc-sdf663d { border:1px solid #ded2be; background:#fbf8f2; }
-.ntgoc-s3f9c56 { height:190px; background-image:url('assets/img/feast-transfiguration.jpg'); background-size:cover; background-position:center; border-bottom:1px solid #ded2be; }
+.ntgoc-s3f9c56 { height:190px; background-image:url('../img/feast-transfiguration.jpg'); background-size:cover; background-position:center; border-bottom:1px solid #ded2be; }
 .ntgoc-sd521a8 { padding:30px 30px 34px; }
 .ntgoc-sf761e0 { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#b08442; margin-bottom:14px; }
 .ntgoc-s4aa37a { font-family:Newsreader, serif; font-weight:400; font-size:23px; margin:0 0 6px; color:#3a1414; }
@@ -185,7 +185,7 @@
 .ntgoc-s6b0d1d:hover, .ntgoc-s6b0d1d:focus-visible { background:#f0cd91; }
 .ntgoc-scca787 { border:1px solid rgba(240,230,214,.45); color:#f0e6d6; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-scca787:hover, .ntgoc-scca787:focus-visible { border-color:#e0b673; color:#e0b673; }
-.ntgoc-s50bda9 { height:300px; background-image:url('assets/img/festival-banquet.png'); background-size:cover; background-position:center; border:1px solid rgba(224,182,115,.35); }
+.ntgoc-s50bda9 { height:300px; background-image:url('../img/festival-banquet.png'); background-size:cover; background-position:center; border:1px solid rgba(224,182,115,.35); }
 .ntgoc-se92525 { display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:44px; flex-wrap:wrap; }
 .ntgoc-s7ed196 { font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0; color:#3a1414; }
 .ntgoc-s3a107c { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; }
@@ -251,7 +251,7 @@
 .ntgoc-s541763:hover, .ntgoc-s541763:focus-visible { background:#5e1f1f; }
 .ntgoc-sd6c7c8 { height:400px; border:1px solid #ded2be; background:#e6ddcd; display:flex; align-items:center; justify-content:center; color:#9c9182; font-size:13px; letter-spacing:.16em; text-transform:uppercase; }
 .ntgoc-sca35f9 { position:relative; background:#3a1414; height:380px; overflow:hidden; }
-.ntgoc-s809ac0 { position:absolute; inset:0; background-image:url('assets/img/faith-resurrection.jpg'); background-size:cover; background-position:center 30%; opacity:.4; }
+.ntgoc-s809ac0 { position:absolute; inset:0; background-image:url('../img/faith-resurrection.jpg'); background-size:cover; background-position:center 30%; opacity:.4; }
 .ntgoc-s80a5b7 { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.95), rgba(58,20,20,.5)); }
 .ntgoc-sfc8037 { position:relative; max-width:1240px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-sb37e0b { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:20px; }
@@ -275,9 +275,9 @@
 .ntgoc-s29c3f0 { font-family:Newsreader, serif; font-weight:300; font-size:22px; line-height:1.25; color:#faf5ec; }
 .ntgoc-s345879 { padding:24px; }
 .ntgoc-sff7880 { font-size:13px; color:#8a7f70; margin-top:8px; }
-.ntgoc-s06b7b1 { height:150px; background-image:url('assets/img/faith-ascension.jpg'); background-size:cover; background-position:center; }
-.ntgoc-s384787 { height:150px; background-image:url('assets/img/faith-holy-sites.jpg'); background-size:cover; background-position:center; }
-.ntgoc-s87b1ad { height:150px; background-image:url('assets/img/faith-elders.jpg'); background-size:cover; background-position:center; }
+.ntgoc-s06b7b1 { height:150px; background-image:url('../img/faith-ascension.jpg'); background-size:cover; background-position:center; }
+.ntgoc-s384787 { height:150px; background-image:url('../img/faith-holy-sites.jpg'); background-size:cover; background-position:center; }
+.ntgoc-s87b1ad { height:150px; background-image:url('../img/faith-elders.jpg'); background-size:cover; background-position:center; }
 .ntgoc-s9f115d { max-width:1240px; margin:0 auto; padding:76px 40px 64px; }
 .ntgoc-s70e0d6 { display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap; }
 .ntgoc-s5c2f09 { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1; margin:0; color:#3a1414; }
@@ -318,7 +318,7 @@
 .ntgoc-s64ccd1 { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0; color:#3a1414; max-width:16ch; }
 .ntgoc-s4454c7 { max-width:1240px; margin:0 auto; padding:0 40px 90px; }
 .ntgoc-s1b9065 { display:grid; grid-template-columns:380px minmax(0,1fr); gap:70px; align-items:start; }
-.ntgoc-s4cfd05 { height:420px; background-image:url('assets/img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
+.ntgoc-s4cfd05 { height:420px; background-image:url('../img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-s42fab8 { margin-top:22px; }
 .ntgoc-sb08c7c { font-family:Newsreader, serif; font-size:24px; color:#3a1414; line-height:1.25; }
 .ntgoc-sd39a9d { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#b08442; margin-top:8px; }
@@ -366,7 +366,7 @@
 .ntgoc-s68a80a { font-family:Newsreader, serif; font-weight:400; font-size:32px; margin:0 0 34px; color:#3a1414; }
 .ntgoc-s72fc10 { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:60px; align-items:center; }
 .ntgoc-s3b8220 { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
-.ntgoc-s630e39 { display:block; height:180px; background-image:url('assets/img/give-building-projects.png'); background-size:cover; background-position:center; border:1px solid #ded2be; background-color:#e6ddcd; }
+.ntgoc-s630e39 { display:block; height:180px; background-image:url('../img/give-building-projects.png'); background-size:cover; background-position:center; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-s75df7c { max-width:1240px; margin:0 auto; padding:84px 40px 90px; }
 .ntgoc-s2f696b { font-family:Newsreader, serif; font-weight:300; font-size:50px; line-height:1.12; margin:0 0 50px; color:#3a1414; }
 .ntgoc-s483ba3 { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:80px; align-items:start; }
@@ -387,7 +387,7 @@
 .ntgoc-sb984dd { background:#7d2b2b; color:#f6f1e8; padding:16px; text-align:center; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; }
 .ntgoc-sb984dd:hover, .ntgoc-sb984dd:focus-visible { background:#5e1f1f; }
 .ntgoc-s942d48 { position:relative; height:460px; background:#3a1414; overflow:hidden; }
-.ntgoc-sf28ce9 { position:absolute; inset:0; background-image:url('assets/img/festival-banquet.png'); background-size:cover; background-position:center; opacity:.45; }
+.ntgoc-sf28ce9 { position:absolute; inset:0; background-image:url('../img/festival-banquet.png'); background-size:cover; background-position:center; opacity:.45; }
 .ntgoc-s7bf429 { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.94), rgba(58,20,20,.45)); }
 .ntgoc-sa29d42 { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.08; margin:0 0 20px; color:#faf5ec; max-width:14ch; }
 .ntgoc-s8e0243 { font-size:17.5px; line-height:1.7; color:#dcccb4; margin:0; max-width:560px; }

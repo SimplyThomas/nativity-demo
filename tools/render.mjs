@@ -122,11 +122,21 @@ const CORRECTIONS = [
   // Never republish the priest's personal mobile number.
   { find: /\(540\) 645-1427/g, repl: '(540) 548-2665' },
 
-  // The single most consequential unresolved fact. The live site says
-  // "9 am Orthros & Divine Liturgy" (one 9:00 start); the design's Visit
-  // timeline puts the Liturgy at 10:00. Both readings are plausible for a
-  // parish, so neither is silently chosen — every 10:00 claim is flagged.
-  { find: /10:00 AM/g, repl: '10:00 AM' + TODO },
+  // Sunday times, CONFIRMED by the parish 2026-08-08: Orthros 9:00 a.m.,
+  // Divine Liturgy 10:00 a.m. The design's Visit timeline was right; the live
+  // site's "9 am Orthros & Divine Liturgy" compresses the two into one line.
+  // Wherever a single 9:00 start was shown against both services, show both —
+  // but only there. Feast-day Liturgies (Dormition, 15 Aug) stay at 9:00.
+  { find: /(Every Sunday<\/div>\s*<div[^>]*>)9:00 a\.m\.(<\/div>)/g,
+    repl: '$19:00 &amp; 10:00 a.m.$2' },
+  { find: /(Orthros &amp; Divine Liturgy<\/div>[\s\S]{0,300}?<div[^>]*>)9:00 a\.m\.(<\/div>)/g,
+    repl: '$19:00 &amp; 10:00 a.m.$2' },
+  { find: /9:00 a\.m\. Orthros &amp; Divine Liturgy/g,
+    repl: '9:00 a.m. Orthros &middot; 10:00 a.m. Divine Liturgy' },
+
+  // Great Feast times were never confirmed — only the Sunday pattern was.
+  { find: /Vespers the evening before, Liturgy at 9:00 a\.m\./g,
+    repl: 'Vespers the evening before, Liturgy at 9:00 a.m.' + TODO },
 
   // A ministry the design invented — flag rather than delete.
   { find: /Choir &amp; Chanters/g, repl: 'Choir &amp; Chanters' + TODO },
@@ -737,10 +747,20 @@ for (const page of PAGES) {
  * 8. Stylesheets
  * ------------------------------------------------------------------ */
 
+/**
+ * URLs inside a stylesheet resolve against the STYLESHEET, not the document.
+ * The design carried these as inline background-image declarations, where
+ * `assets/img/x.jpg` was correct; once lifted into assets/css/components.css
+ * the same string points at assets/css/assets/img/x.jpg and every image 404s.
+ * Rewrite to be relative to the stylesheet — which also keeps the site working
+ * when opened from disk, unlike a root-relative path.
+ */
+const cssUrl = decl => decl.replace(/url\('assets\/img\//g, "url('../img/");
+
 const rules = [];
 for (const { cls, style, hover } of styleRegistry.values()) {
-  if (style) rules.push(`.${cls} { ${style} }`);
-  if (hover) rules.push(`.${cls}:hover, .${cls}:focus-visible { ${hover.trim()} }`);
+  if (style) rules.push(`.${cls} { ${cssUrl(style)} }`);
+  if (hover) rules.push(`.${cls}:hover, .${cls}:focus-visible { ${cssUrl(hover.trim())} }`);
 }
 
 writeFileSync(join(ROOT, 'assets/css/components.css'), `/* ============================================================

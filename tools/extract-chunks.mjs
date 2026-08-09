@@ -152,7 +152,10 @@ for (const [name, { body, sources }] of [...chunks].sort()) {
  * ------------------------------------------------------------------ */
 
 const css = readFileSync(join(ROOT, 'assets/css/components.css'), 'utf8');
-const cssOut = css.replace(/(["'(])assets\/(img|css|js)\//g, `$1${ASSET_ROOT}$2/`);
+const cssOut = css
+  // Paths in the stylesheet are relative to assets/css/ (see render.mjs).
+  .replace(/(["'(])\.\.\/(img|js)\//g, `$1${ASSET_ROOT}$2/`)
+  .replace(/(["'(])assets\/(img|css|js)\//g, `$1${ASSET_ROOT}$2/`);
 const cssBad = scanReserved(cssOut);
 
 if (cssBad.length) {

@@ -47,10 +47,11 @@
       "note": "Design was an hour short. Live site: 'Normal office hours at the church are Tuesday through Friday from 9:00 - 3:00.'"
     },
     "sundayServices": {
-      "value": "9:00 a.m. — Orthros & Divine Liturgy",
-      "status": "VERIFIED",
-      "source": "/",
-      "note": "Live site states '9 am Orthros & Divine Liturgy' as a single 9:00 start. This RESOLVES the design's internal contradiction: the home page (9:00 for both) was right; the Visit timeline (Orthros 9:00, Liturgy 10:00) was wrong. Corrected to a single 9:00 start, but flagged for Father because a 9:00 Orthros with a 10:00 Liturgy is the more common parish pattern and the live site may simply be compressing it."
+      "value": "Orthros 9:00 a.m.; Divine Liturgy 10:00 a.m.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-08.",
+      "note": "The design's Visit timeline was right and the live site is misleading: nativity.va.goarch.org shows '9 am Orthros & Divine Liturgy', compressing two distinct services into one 9:00 start. Every place the draft showed a single 9:00 against both services now shows both times. Feast-day Liturgies are NOT covered by this confirmation — the Dormition Liturgy (15 Aug) remains 9:00 a.m. as the design had it, and the 'Great Feasts' line stays tagged TODO: verify.",
+      "actionForTheRealSite": "The live parish site's own homepage is arguably wrong here. Worth raising separately from this draft — it is the single fact a first-time visitor acts on."
     },
     "emails": {
       "office": "office@ntgoc.org",

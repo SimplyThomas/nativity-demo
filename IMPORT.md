@@ -255,12 +255,20 @@ site.** Each is a claim we could not source.
 | Directions | "ten minutes west of I-95, exit **130**" | exit **130B**, west on Route 3 just over 4 miles |
 | Founding | **1963** | First Liturgy **9 April 1989**; charter 1991; building completed March 2000 |
 
+### Resolved by the parish
+
+- **The Sunday service time — confirmed: Orthros 9:00 a.m., Divine Liturgy
+  10:00 a.m.** The design's Visit timeline was right. Everywhere the draft
+  previously showed one 9:00 start against both services now shows both times.
+  > **Worth raising separately:** the *live* parish site currently says
+  > "9 am Orthros & Divine Liturgy", which compresses two services into one
+  > start time. That is the single fact a first-time visitor acts on, and it is
+  > wrong on the real site today — independent of whether this draft ever ships.
+
 ### Still unresolved — needs Father
 
-- **The Sunday service time.** The live site says *"9 am Orthros & Divine
-  Liturgy"*. The design's Visit timeline says Orthros 9:00, Divine Liturgy
-  **10:00**. This is the one fact a first-time visitor actually acts on. Every
-  `10:00 AM` in the draft is flagged. **Somebody must confirm which is right.**
+- **Great Feast times.** "Vespers the evening before, Liturgy at 9:00 a.m." was
+  never confirmed; only the Sunday pattern was. Still flagged.
 - **Hall rental specifics** — "≈ 200 seated", "full commercial kitchen", free
   on-site parking. The live hall-rental page states none of these.
 - **Greek Festival** — the dates and "two-hour volunteer shifts" appear nowhere
