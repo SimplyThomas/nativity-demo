@@ -156,6 +156,45 @@ const CORRECTIONS = [
           "background-image:url('assets/img/directions-map.jpg'); background-size:contain; " +
           'background-repeat:no-repeat; background-position:center;"></div>' },
 
+  // The contact "form" was drawn, not built: empty <div>s styled to look like
+  // inputs and a <div> that says Send. Nothing was focusable, nothing had a
+  // label, and the button was not a button — invisible to keyboard and screen
+  // reader users. An automated audit cannot catch this, because there are no
+  // form controls present to fail. Rebuilt with real controls and real labels,
+  // reusing the design's own inline styles so it looks identical.
+  { find: /<div style="display:grid; gap:18px;">\s*<div><div style="font-size:11px[\s\S]*?>Send<\/div>\s*<\/div>/,
+    repl: [
+      '<form class="ntgoc-contact-form" action="mailto:office@ntgoc.org" method="post" enctype="text/plain" style="display:grid; gap:18px;">',
+      '<p class="ntgoc-linked-text" style="font-size:13px; line-height:1.6; color:#8a7f70; margin:0; border-left:2px solid #b08442; padding-left:12px;">',
+      '<strong>Draft preview:</strong> this form is not connected to the parish office. ',
+      'Please email <a href="mailto:office@ntgoc.org">office@ntgoc.org</a> or call ',
+      '<a href="tel:+15405482665">(540) 548-2665</a>.</p>',
+
+      '<div><label for="ntgoc-name" style="display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">Your name</label>',
+      '<input id="ntgoc-name" name="name" type="text" autocomplete="name" style="border:1px solid #d5c8b1; background:#f6f1e8; height:46px; width:100%; padding:0 14px; font-family:inherit; font-size:15px; color:#5b5449;"></div>',
+
+      '<div><label for="ntgoc-email" style="display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">Email</label>',
+      '<input id="ntgoc-email" name="email" type="email" autocomplete="email" style="border:1px solid #d5c8b1; background:#f6f1e8; height:46px; width:100%; padding:0 14px; font-family:inherit; font-size:15px; color:#5b5449;"></div>',
+
+      '<div><label for="ntgoc-topic" style="display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">This is about</label>',
+      '<select id="ntgoc-topic" name="topic" style="border:1px solid #d5c8b1; background:#f6f1e8; height:46px; width:100%; padding:0 14px; font-family:inherit; font-size:15px; color:#5b5449;">',
+      '<option>Visiting for the first time</option><option>Becoming Orthodox</option>',
+      '<option>Baptism, marriage or a memorial</option><option>Hall rental</option>',
+      '<option>Stewardship and giving</option><option>Something else</option></select></div>',
+
+      '<div><label for="ntgoc-message" style="display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a7f70; margin-bottom:7px;">Message</label>',
+      '<textarea id="ntgoc-message" name="message" rows="5" style="border:1px solid #d5c8b1; background:#f6f1e8; height:130px; width:100%; padding:12px 14px; font-family:inherit; font-size:15px; color:#5b5449; resize:vertical;"></textarea></div>',
+
+      '<button type="submit" style="background:#7d2b2b; color:#f6f1e8; padding:16px; text-align:center; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; border:0; font-family:inherit;" style-hover="background:#5e1f1f;">Send</button>',
+      '</form>',
+    ].join('') },
+
+  // The building-projects tile is an image-only link with no text at all, so
+  // it was announced as an unlabelled link and was a dead end for screen
+  // readers and for anyone tabbing through (axe: "link-name").
+  { find: /(<a href="https:\/\/sites\.google\.com\/ntgoc\.org\/projects\/home")/,
+    repl: '$1 aria-label="Parish building projects (opens in a new tab)"' },
+
   // A ministry the design invented — flag rather than delete.
   { find: /Choir &amp; Chanters/g, repl: 'Choir &amp; Chanters' + TODO },
 
@@ -172,6 +211,54 @@ const FLAG_ONCE = [
   'Shifts are two hours. Sign-ups open in late summer.',
   'Three days. Everyone invited.',
 ];
+
+/* ------------------------------------------------------------------ *
+ * Contrast corrections
+ *
+ * An axe-core audit (WCAG 2.1 AA, 12 pages x 2 viewports) found six of the
+ * design's muted text colours below the 4.5:1 minimum for body-size text —
+ * as low as 2.14:1. These replacements are the SMALLEST hue- and
+ * saturation-preserving luminance shift that reaches 4.6:1 against the worst
+ * background each colour actually appears on. Hue and saturation are
+ * untouched, so the palette still reads as the design's.
+ *
+ * Applied only to `color:` on text that genuinely needs 4.5:1 — large display
+ * text (>=24px, or >=18.66px bold) needs only 3:1 and keeps the original, and
+ * borders, outlines and backgrounds are never touched. That keeps the gold
+ * #b08442 intact everywhere it is decoration rather than small text.
+ * ------------------------------------------------------------------ */
+const CONTRAST_FIX = {
+  '#8a7f70': '#6c6458',   // 3.09:1 -> 4.61:1  muted grey-brown subtitles
+  '#b08442': '#7f5f30',   // 2.65:1 -> 4.62:1  gold eyebrow labels
+  '#a08a6a': '#736249',   // 2.61:1 -> 4.62:1  warm grey labels
+  '#a0968a': '#6d6358',   // 2.29:1 -> 4.60:1  faint captions
+  '#a89b88': '#6f6351',   // 2.14:1 -> 4.61:1  faintest captions
+  '#957d71': '#9a8478',   // 4.22:1 -> 4.60:1  on dark oxblood: lightened
+};
+
+/**
+ * A few rules fail contrast without naming a colour at all — they fade
+ * inherited light text with `opacity`. Keyed on the exact declaration so the
+ * change cannot leak to other elements that legitimately use the same opacity.
+ */
+const DECLARATION_FIX = new Map([[
+  // Footer column headings ("Visit", "Parish", "Support the parish"): 10.5px
+  // uppercase at opacity .55 renders as #957d71 on #3a1414 = 4.22:1.
+  // .59 gives 4.67:1 — a change of 0.04, visually imperceptible.
+  'font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.55; margin-bottom:16px;',
+  'font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.59; margin-bottom:16px;',
+]]);
+
+function fixContrast(decl) {
+  const exact = DECLARATION_FIX.get(decl.trim());
+  if (exact) return exact;
+  const size = parseFloat((decl.match(/font-size:\s*([\d.]+)px/) || [])[1] ?? '15');
+  const weight = parseInt((decl.match(/font-weight:\s*(\d+)/) || [])[1] ?? '400', 10);
+  const isLargeText = size >= 24 || (size >= 18.66 && weight >= 700);
+  if (isLargeText) return decl;
+  return decl.replace(/(^|;)(\s*color\s*:\s*)(#[0-9a-fA-F]{6})/g,
+    (m, pre, prop, hex) => (CONTRAST_FIX[hex.toLowerCase()] ? `${pre}${prop}${CONTRAST_FIX[hex.toLowerCase()]}` : m));
+}
 
 /* ------------------------------------------------------------------ *
  * Curated class names for the most repeated style strings.
@@ -550,6 +637,71 @@ function normalizeHeadings(html) {
   });
 }
 
+/* ------------------------------------------------------------------ *
+ * Local edits
+ *
+ * Hand edits made to the GENERATED pages would be destroyed by the next
+ * build, so they are re-expressed here as rules instead. Each one warns if it
+ * stops matching, which is the signal that Claude Design has moved underneath
+ * it. These are design decisions, not portability fixes — the durable home for
+ * them is the Design project; this keeps them alive until then.
+ * ------------------------------------------------------------------ */
+
+/** Run `fn` over the contents of one chunk, leaving the rest of the page alone. */
+function withinChunk(html, name, fn) {
+  const open = `<!-- CHUNK:${name} -->`;
+  const close = `<!-- /CHUNK:${name} -->`;
+  const a = html.indexOf(open);
+  const b = html.indexOf(close);
+  if (a === -1 || b === -1 || b < a) return html;
+  const start = a + open.length;
+  return html.slice(0, start) + fn(html.slice(start, b)) + html.slice(b);
+}
+
+/** Move the card whose label matches `label` to the end of its grid. */
+function moveCardLast(html, label) {
+  const gridAt = html.indexOf('ntgoc-grid');
+  if (gridAt === -1) return null;
+  const start = html.lastIndexOf('<div', gridAt);
+  const grid = matchTag(html, 'div', start);
+  if (!grid) return null;
+
+  const inner = html.slice(grid.openEnd, grid.innerEnd);
+  const cards = [];
+  let cursor = 0;
+  for (;;) {
+    const t = nextTag(inner, cursor);
+    if (!t) break;
+    const el = matchTag(inner, t.tag, t.at);
+    if (!el) break;
+    cards.push(inner.slice(t.at, el.end));
+    cursor = el.end;
+  }
+
+  const i = cards.findIndex(c => c.includes(`>${label}<`));
+  if (i === -1 || cards.length < 2 || i === cards.length - 1) return null;
+  cards.push(cards.splice(i, 1)[0]);
+  return html.slice(0, grid.openEnd) + '\n' + cards.join('\n') + '\n' + html.slice(grid.innerEnd);
+}
+
+function applyLocalEdits(body, pageKey) {
+  if (pageKey !== 'home') return body;
+  // Hand edit, 2026-08-08: on the home service-times row, the Agape Meal card
+  // reads better after the practical details (times, address, parking) rather
+  // than interrupting them.
+  let applied = false;
+  const out = withinChunk(body, 'ntgocHomeServiceTimes', chunk => {
+    const moved = moveCardLast(chunk, 'Afterwards');
+    applied = moved !== null;
+    return moved ?? chunk;
+  });
+  if (!applied) {
+    console.warn('  ! local edit did not apply: home "Afterwards" card reorder.\n' +
+                 '    The design has changed shape — re-check and update applyLocalEdits().');
+  }
+  return out;
+}
+
 function applyCorrections(src) {
   let out = src.replace(YEAR_FIX.find, YEAR_FIX.repl);
   for (const { find, repl } of CORRECTIONS) out = out.replace(find, repl);
@@ -743,12 +895,25 @@ for (const page of PAGES) {
   // The outer page-wrapper <div> is already stripped; this is topbar + header.
   // Tag the top bar so the responsive layer can release its fixed 38px height,
   // which otherwise clips the secondary links once they wrap on a phone.
+  // The top bar sat outside every landmark, so its content was unreachable by
+  // landmark navigation (axe: "region"). It is a row of secondary site links,
+  // so a <nav> is the honest wrapper.
   let head = resolveAll(headerSrc, scope).replace('<div', '<div class="ntgoc-topbar"');
-  head = head.replace(/<header/, '<!-- /CHUNK:ntgocTopBar -->\n<!-- CHUNK:ntgocSiteHeader -->\n<header');
-  head = `<!-- CHUNK:ntgocTopBar -->\n${head}\n<!-- /CHUNK:ntgocSiteHeader -->\n`;
+  head = head.replace(/<header/,
+    '</nav>\n<!-- /CHUNK:ntgocTopBar -->\n<!-- CHUNK:ntgocSiteHeader -->\n<header');
+  head = `<!-- CHUNK:ntgocTopBar -->\n<nav aria-label="Secondary">\n${head}\n<!-- /CHUNK:ntgocSiteHeader -->\n`;
 
-  const main = markChunks(viewFor(scope), page.key)
+  let main = markChunks(viewFor(scope), page.key)
     .replace(/<main(\s|>)/, '<main id="ntgoc-main"$1');
+
+  // The Mobile views reference page draws phone frames at their true 375px
+  // width, so below that the page itself scrolled sideways (WCAG 1.4.10).
+  // Give the frames their own scroll container so the page body never does.
+  if (page.key === 'mobile') {
+    main = main
+      .replace(/(<main[^>]*>)/, '$1<div class="ntgoc-scroll-x" tabindex="0" role="group" aria-label="Mobile layout mock-ups, scrollable sideways">')
+      .replace(/<\/main>/, '</div></main>');
+  }
   const foot = `\n<!-- CHUNK:ntgocSiteFooter -->\n${resolveAll(footerSrc, scope)}\n<!-- /CHUNK:ntgocSiteFooter -->\n`;
 
   let body = head + main + foot;
@@ -757,6 +922,7 @@ for (const page of PAGES) {
   body = linkify(body, page.key);
   body = classify(body);
   body = normalizeHeadings(body);
+  body = applyLocalEdits(body, page.key);
   body = body
     .replace(/\shint-placeholder-(?:val|count)="[^"]*"/g, '')
     .replace(/\sonClick="[^"]*"/gi, '')
@@ -782,8 +948,8 @@ const cssUrl = decl => decl.replace(/url\('assets\/img\//g, "url('../img/");
 
 const rules = [];
 for (const { cls, style, hover } of styleRegistry.values()) {
-  if (style) rules.push(`.${cls} { ${cssUrl(style)} }`);
-  if (hover) rules.push(`.${cls}:hover, .${cls}:focus-visible { ${cssUrl(hover.trim())} }`);
+  if (style) rules.push(`.${cls} { ${fixContrast(cssUrl(style))} }`);
+  if (hover) rules.push(`.${cls}:hover, .${cls}:focus-visible { ${fixContrast(cssUrl(hover.trim()))} }`);
 }
 
 writeFileSync(join(ROOT, 'assets/css/components.css'), `/* ============================================================
@@ -860,6 +1026,27 @@ writeFileSync(join(ROOT, 'assets/css/components.css'), `/* =====================
    still wins on source order, and :hover (0,1,1) always wins.
    ------------------------------------------------------------------ */
 .ntgoc-inherit { color: inherit; }
+
+/* --- links inside running text --------------------------------------
+   The design removes underlines everywhere. Inside a paragraph that leaves
+   colour as the only signal that a word is a link, which fails for anyone who
+   cannot distinguish it (axe: "link-in-text-block" — measured 1.24:1 against
+   the surrounding text). Underline them in body copy only; standalone
+   navigation links keep the design's clean look.
+   ------------------------------------------------------------------ */
+.ntgoc-body a,
+.ntgoc-body-lg a,
+.ntgoc-linked-text a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* --- contained horizontal scrolling ---------------------------------
+   Wide content (the phone mock-ups) scrolls inside its own container so the
+   page body never scrolls sideways. tabindex="0" in the markup makes the
+   scroll region reachable by keyboard, which a bare overflow container is not.
+   ------------------------------------------------------------------ */
+.ntgoc-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 /* --- interactive bits ---------------------------------------------- */
 .ntgoc-filter-btn {

@@ -1,0 +1,15 @@
+{
+  "name": "nativity-demo",
+  "private": true,
+  "type": "module",
+  "description": "Draft website preview for Nativity of the Theotokos Greek Orthodox Church. The site itself has NO dependencies - these are audit tools only.",
+  "scripts": {
+    "build": "node tools/render.mjs && node tools/extract-chunks.mjs",
+    "audit:a11y": "node tools/audit-a11y.mjs",
+    "audit:reflow": "node tools/audit-reflow.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.13.0",
+    "puppeteer-core": "^25.5.0"
+  }
+}

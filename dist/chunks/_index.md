@@ -14,7 +14,7 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocBookstoreNotes` | 1084 b | 1 page |
 | `ntgocCalendarGrid` | 8715 b | 1 page |
 | `ntgocCalendarHero` | 533 b | 1 page |
-| `ntgocContactCard` | 2010 b | 1 page |
+| `ntgocContactCard` | 2773 b | 1 page |
 | `ntgocDraftBanner` | 488 b | 12 pages |
 | `ntgocFaithHero` | 398 b | 1 page |
 | `ntgocFaithIntro` | 886 b | 1 page |
@@ -22,14 +22,14 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocFaithWatchRead` | 1965 b | 1 page |
 | `ntgocFestivalDetails` | 1692 b | 1 page |
 | `ntgocFestivalHero` | 576 b | 1 page |
-| `ntgocGiveProjects` | 586 b | 1 page |
+| `ntgocGiveProjects` | 645 b | 1 page |
 | `ntgocGiveWays` | 1420 b | 1 page |
 | `ntgocHallRental` | 1755 b | 1 page |
 | `ntgocHomeFestivalPromo` | 1035 b | 1 page |
 | `ntgocHomeFirstSunday` | 3140 b | 1 page |
 | `ntgocHomeHero` | 1122 b | 1 page |
 | `ntgocHomeMinistriesPromo` | 1372 b | 1 page |
-| `ntgocHomeServiceTimes` | 1183 b | 1 page |
+| `ntgocHomeServiceTimes` | 1135 b | 1 page |
 | `ntgocHomeUpcomingServices` | 3146 b | 1 page |
 | `ntgocHomeWelcome` | 1240 b | 1 page |
 | `ntgocMinistriesGrid` | 2964 b | 1 page |
@@ -37,7 +37,7 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocMobileViews` | 3523 b | 1 page |
 | `ntgocSiteFooter` | 2746 b | 12 pages |
 | `ntgocSiteHeader` | 1335 b | 12 pages |
-| `ntgocTopBar` | 597 b | 12 pages |
+| `ntgocTopBar` | 640 b | 12 pages |
 | `ntgocVisitorFaqAndDirections` | 4095 b | 1 page |
 | `ntgocVisitorFirstSunday` | 5894 b | 1 page |
 | `ntgocVisitorHero` | 422 b | 1 page |

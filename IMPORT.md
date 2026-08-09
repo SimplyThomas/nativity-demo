@@ -217,6 +217,21 @@ attribute value tells you which page it should point at. External links (the
 Archdiocese, Square giving, the Google registration form, fredgreek.org) are real
 URLs already and need no change.
 
+### Step 6a — Wire up the contact form (needed)
+
+`ntgocContactCard` contains a real, fully labelled `<form>`, but it has **no
+backend**. In the draft it says so plainly and offers an email and phone
+fallback instead of pretending to work.
+
+Before this page goes live, either:
+
+- point the form at whatever mail handler DIM provides (ask them — this is
+  question 3 in the list below), **or**
+- delete the form from the chunk and keep only the email and telephone links.
+
+Do not leave it as-is on a live parish site: a form that silently discards a
+visitor's message is worse than no form at all.
+
 ### Step 6 — The JavaScript (optional)
 
 One file: `assets/js/ntgoc-enhance.js`. It does exactly one thing — filters the
