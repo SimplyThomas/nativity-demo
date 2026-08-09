@@ -9,10 +9,10 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocAboutHero` | 190 b | 1 page |
 | `ntgocAboutNewsletter` | 570 b | 1 page |
 | `ntgocAboutParishCouncil` | 7769 b | 1 page |
-| `ntgocBookstoreCatalog` | 13990 b | 1 page |
+| `ntgocBookstoreCatalog` | 14500 b | 1 page |
 | `ntgocBookstoreHero` | 1191 b | 1 page |
 | `ntgocBookstoreNotes` | 1084 b | 1 page |
-| `ntgocCalendarGrid` | 8925 b | 1 page |
+| `ntgocCalendarGrid` | 9261 b | 1 page |
 | `ntgocCalendarHero` | 533 b | 1 page |
 | `ntgocContactCard` | 2759 b | 1 page |
 | `ntgocDraftBanner` | 488 b | 12 pages |
@@ -34,10 +34,10 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocHomeWelcome` | 1240 b | 1 page |
 | `ntgocMinistriesGrid` | 2964 b | 1 page |
 | `ntgocMinistriesHero` | 440 b | 1 page |
-| `ntgocMobileViews` | 3523 b | 1 page |
-| `ntgocSiteFooter` | 3067 b | 12 pages |
-| `ntgocSiteHeader` | 1219 b | 12 pages |
-| `ntgocTopBar` | 687 b | 12 pages |
+| `ntgocMobileViews` | 3525 b | 1 page |
+| `ntgocSiteFooter` | 3074 b | 12 pages |
+| `ntgocSiteHeader` | 1225 b | 12 pages |
+| `ntgocTopBar` | 705 b | 12 pages |
 | `ntgocVisitorChildren` | 2325 b | 1 page |
 | `ntgocVisitorDirections` | 1537 b | 1 page |
 | `ntgocVisitorFirstSunday` | 6141 b | 1 page |

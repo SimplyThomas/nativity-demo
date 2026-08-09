@@ -77,12 +77,16 @@ function collect() {
     const b = el.getBoundingClientRect();
     if (!b.width && !b.height) continue;                 // hidden or zero-box
     const s = getComputedStyle(el);
+    // The key deliberately excludes the class name. Keying on it would mean a
+    // pure rename invalidated every entry, which is exactly the change this
+    // tool most needs to be able to vouch for. The class is recorded for
+    // readability but is never compared.
     const cls = (el.className || '').toString().split(/\s+/).filter(Boolean)[0] || '';
-    const base = chunkOf(el) + '/' + el.tagName.toLowerCase() + (cls ? '.' + cls : '');
+    const base = chunkOf(el) + '/' + el.tagName.toLowerCase();
     const i = seen.get(base) || 0;
     seen.set(base, i + 1);
     out.push({
-      k: base + '#' + i,
+      k: base + '#' + i, cls,
       x: b.x, y: b.y + window.scrollY, w: b.width, h: b.height,
       c: s.color, bg: s.backgroundColor, fs: s.fontSize, d: s.display,
     });
@@ -108,6 +112,7 @@ for (const vp of VIEWPORTS) {
     await page.evaluate(() => (document.fonts ? document.fonts.ready : null));
     const els = await page.evaluate(collect);
     snapshot[`${file}@${vp.name}`] = Object.fromEntries(els.map(e => [e.k, {
+      cls: e.cls,                                  // recorded, never compared
       x: snap(e.x), y: snap(e.y), w: snap(e.w), h: snap(e.h),
       c: e.c, bg: e.bg, fs: e.fs, d: e.d,
     }]));
