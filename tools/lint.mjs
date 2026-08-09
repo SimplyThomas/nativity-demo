@@ -223,6 +223,47 @@ for (const rel of PAGES) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 6b. Every class used in the markup is actually defined
+ *
+ * With the CSS hand-edited, markup and stylesheet can drift apart silently —
+ * a half-finished rename leaves the HTML asking for a class that no longer
+ * exists, and the page renders unstyled while every other check passes.
+ * Caught here rather than by someone noticing the footer looks wrong.
+ * ------------------------------------------------------------------ */
+{
+  const css = read('assets/css/components.css') + read('assets/css/provisional.css');
+  const defined = new Set([...css.matchAll(/\.(ntgoc-[\w-]+)/g)].map(m => m[1]));
+  const used = new Map();
+  for (const rel of PAGES) {
+    for (const m of read(rel).matchAll(/\sclass="([^"]+)"/g)) {
+      for (const cls of m[1].split(/\s+/).filter(c => c.startsWith('ntgoc-'))) {
+        if (!used.has(cls)) used.set(cls, rel);
+      }
+    }
+  }
+  // Classes applied at runtime exist only in JS. These count as "used" — they
+  // suppress the unused warning — but are NOT required to resolve, since the
+  // same scan also sees data-attribute names like data-ntgoc-cat.
+  const runtime = new Set();
+  const jsDir = join(ROOT, 'assets/js');
+  for (const f of existsSync(jsDir) ? readdirSync(jsDir) : []) {
+    for (const m of read(`assets/js/${f}`).matchAll(/['"`]([\w\s-]*ntgoc-[\w-]+[\w\s-]*)['"`]/g)) {
+      for (const cls of m[1].split(/\s+/).filter(c => c.startsWith('ntgoc-'))) runtime.add(cls);
+    }
+  }
+  for (const [cls, rel] of used) {
+    if (!defined.has(cls)) {
+      err('class-undefined', rel, `class "${cls}" is used but defined in no stylesheet`);
+    }
+  }
+  for (const cls of defined) {
+    if (!used.has(cls) && !runtime.has(cls) && !cls.startsWith('ntgoc-draft-banner') && cls !== 'ntgoc-page') {
+      warn('class-unused', 'assets/css/components.css', `"${cls}" is defined but used on no page`);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * 7. Assets referenced from the markup actually exist
  * ------------------------------------------------------------------ */
 for (const rel of PAGES) {

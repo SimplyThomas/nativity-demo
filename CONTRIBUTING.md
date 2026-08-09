@@ -73,6 +73,50 @@ verified the fact; when you do, record the source in `data/parish-facts.json`.
 
 ---
 
+## Two tools that save you from the two worst chores
+
+### Editing the header, nav or footer — `npm run shell`
+
+Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
+`ntgocSiteFooter`) are the same markup on all twelve pages — about a third of
+all the HTML here. Edit them **once, in one page**, then propagate:
+
+```sh
+npm run shell                      # from index.html to the other eleven
+npm run shell -- --from visit.html # if you edited the shell there instead
+npm run shell -- --check           # report drift, change nothing (CI runs this)
+```
+
+It handles the one thing you cannot copy verbatim: `aria-current="page"` marks
+the link to the page you are on, so it is stripped from the source and
+re-applied per page. Do not hand-copy the shell between files — CI fails if
+eleven pages agree and one does not.
+
+### Renaming a cryptic class — `npm run rename`
+
+Most classes are still named `.ntgoc-s504123`. Those are content hashes left
+over from when the pages were generated; they made re-import diffs stable, and
+that upstream is gone, so now they are just unreadable.
+
+```sh
+npm run rename -- --suggest              # the worst offenders, ranked by use
+npm run rename -- --where ntgoc-s504123  # what does it style? which pages?
+npm run rename -- ntgoc-s504123 ntgoc-hero-icon
+```
+
+It rewrites every page, `components.css` and the JS together, re-extracts the
+chunks and runs lint — so a rename that breaks something fails immediately
+instead of silently unstyling a page.
+
+**Rename opportunistically, never in bulk.** When you are already editing a
+block, rename its classes in the same commit. A 400-class sweep would be an
+unreviewable diff, and layout breakage would be invisible inside it.
+
+> **A trap worth knowing:** `git checkout -- '*.html'` reverts the markup but
+> **not** `components.css`, which leaves the two halves of a rename out of step
+> and every page unstyled. `npm run lint` now catches exactly this (a class used
+> in markup but defined in no stylesheet) — it was added after doing it twice.
+
 ## Editing safely
 
 **Adding a section?** Wrap it in chunk delimiters and give it an `ntgoc`-prefixed

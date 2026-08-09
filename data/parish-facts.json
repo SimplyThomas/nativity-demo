@@ -2,7 +2,6 @@
   "_README": "Facts harvested from the live parish site on 2026-08-08. 'status' is the audit verdict against what the Claude Design file asserts. Nothing here is a guess: every VERIFIED entry has a source URL. Entries marked UNVERIFIED stay tagged <!-- TODO: verify --> in the built HTML.",
   "_harvestDate": "2026-08-08",
   "_source": "https://www.nativity.va.goarch.org/",
-
   "facts": {
     "parishName": {
       "value": "Nativity of the Theotokos Greek Orthodox Church",
@@ -40,18 +39,18 @@
       "note": "Design's wording matches the live site exactly."
     },
     "officeHours": {
-      "value": "Tuesday – Friday, 9:00 a.m. – 3:00 p.m.",
+      "value": "Tuesday \u2013 Friday, 9:00 a.m. \u2013 3:00 p.m.",
       "status": "CORRECTED",
       "source": "/contact-us/",
-      "designSaid": "Tuesday – Friday, 9:00 a.m. – 2:00 p.m.",
+      "designSaid": "Tuesday \u2013 Friday, 9:00 a.m. \u2013 2:00 p.m.",
       "note": "Design was an hour short. Live site: 'Normal office hours at the church are Tuesday through Friday from 9:00 - 3:00.'"
     },
     "sundayServices": {
       "value": "Orthros 9:00 a.m.; Divine Liturgy 10:00 a.m.",
       "status": "CONFIRMED_BY_PARISH",
       "source": "Confirmed directly by the parish, 2026-08-08.",
-      "note": "The design's Visit timeline was right and the live site is misleading: nativity.va.goarch.org shows '9 am Orthros & Divine Liturgy', compressing two distinct services into one 9:00 start. Every place the draft showed a single 9:00 against both services now shows both times. Feast-day Liturgies are NOT covered by this confirmation — the Dormition Liturgy (15 Aug) remains 9:00 a.m. as the design had it, and the 'Great Feasts' line stays tagged TODO: verify.",
-      "actionForTheRealSite": "The live parish site's own homepage is arguably wrong here. Worth raising separately from this draft — it is the single fact a first-time visitor acts on."
+      "note": "The design's Visit timeline was right and the live site is misleading: nativity.va.goarch.org shows '9 am Orthros & Divine Liturgy', compressing two distinct services into one 9:00 start. Every place the draft showed a single 9:00 against both services now shows both times. Feast-day Liturgies are NOT covered by this confirmation \u2014 the Dormition Liturgy (15 Aug) remains 9:00 a.m. as the design had it, and the 'Great Feasts' line stays tagged TODO: verify.",
+      "actionForTheRealSite": "The live parish site's own homepage is arguably wrong here. Worth raising separately from this draft \u2014 it is the single fact a first-time visitor acts on."
     },
     "emails": {
       "office": "office@ntgoc.org",
@@ -59,7 +58,7 @@
       "stewardship": "pctreasurer@ntgoc.org",
       "status": "VERIFIED",
       "source": "/contact-us/, /hall-rental",
-      "note": "Role addresses, not personal ones — safe to publish."
+      "note": "Role addresses, not personal ones \u2014 safe to publish."
     },
     "directions": {
       "value": "From I-95 take exit 130B and go west on Route 3 for just over 4 miles. After passing the Harrison Crossing Shopping Center (Home Depot), turn right at the next traffic light onto Spotswood Furnace Road and proceed approximately two-tenths of a mile. Riverbend High School will be on the right; the church is on the left, just past the high school.",
@@ -75,7 +74,7 @@
       "buildingCompleted": "March 2000; first Liturgy in the new church 12 March 2000",
       "status": "CORRECTED",
       "source": "/about-us/",
-      "designSaid": "1963 — Community founded",
+      "designSaid": "1963 \u2014 Community founded",
       "note": "The design was wrong by 26 years and self-flagged the number as a placeholder. The real history is above. This is the single most valuable correction the harvest produced."
     },
     "metropolis": {
@@ -84,23 +83,40 @@
       "source": "/about-us/clergy"
     },
     "feastDay": {
-      "value": "8 September — the Nativity of the Theotokos",
+      "value": "8 September \u2014 the Nativity of the Theotokos",
       "status": "VERIFIED_EXTERNAL",
       "source": "Fixed date in the Orthodox calendar; also the parish's patronal name.",
       "note": "Not stated as a date on the live site, but it is a fixed feast, not a parish-specific claim."
     },
     "ministries": {
-      "value": ["Parish Council", "Ladies' Philoptochos Society", "Sunday School", "GOYA", "JOY", "Dance Troupe", "AHEPA", "Stewardship"],
+      "value": [
+        "Parish Council",
+        "Ladies' Philoptochos Society",
+        "Sunday School",
+        "GOYA",
+        "JOY",
+        "Dance Troupe",
+        "AHEPA",
+        "Stewardship"
+      ],
       "status": "CORRECTED",
       "source": "/parish-ministries/",
-      "designSaid": ["Sunday School", "GOYA", "Ladies' Philoptochos Society", "Dance Troupe", "AHEPA", "Parish Council", "Choir & Chanters"],
-      "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped — the parish may well have chanters without a ministry page."
+      "designSaid": [
+        "Sunday School",
+        "GOYA",
+        "Ladies' Philoptochos Society",
+        "Dance Troupe",
+        "AHEPA",
+        "Parish Council",
+        "Choir & Chanters"
+      ],
+      "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped \u2014 the parish may well have chanters without a ministry page."
     },
     "hallRental": {
       "status": "UNVERIFIED",
-      "designSaid": "Capacity ≈ 200 seated; full commercial kitchen; on-site free parking",
+      "designSaid": "Capacity \u2248 200 seated; full commercial kitchen; on-site free parking",
       "source": "/hall-rental",
-      "note": "The live hall-rental page gives NO capacity, kitchen, or parking details — only a deposit link and a contract PDF. Every one of the design's three specifics is unsourced. Left in place, each tagged TODO: verify."
+      "note": "The live hall-rental page gives NO capacity, kitchen, or parking details \u2014 only a deposit link and a contract PDF. Every one of the design's three specifics is unsourced. Left in place, each tagged TODO: verify."
     },
     "parishCouncil": {
       "status": "WITHHELD",
@@ -111,7 +127,7 @@
       "value": "fredgreek.org",
       "status": "VERIFIED",
       "source": "/ (footer link to http://www.fredgreek.org/)",
-      "note": "Design's festival dates and 'two-hour shifts' claim are NOT on the live site — tagged TODO: verify."
+      "note": "Design's festival dates and 'two-hour shifts' claim are NOT on the live site \u2014 tagged TODO: verify."
     },
     "externalLinks": {
       "giveOnline": "https://square.link/u/u8cIpGbh",
@@ -123,11 +139,15 @@
       "note": "All present on the live site; the design reproduces them correctly."
     }
   },
-
   "hosting": {
     "cms": "Evolution CMS (EVO), Greek Orthodox Archdiocese Department of Internet Ministries",
     "cssFramework": "Bootstrap 4.1.3",
-    "alsoLoaded": ["jQuery 3.3.1", "Font Awesome 5.2.0", "popper.js 1.12.9", "css-vars-ponyfill@1"],
+    "alsoLoaded": [
+      "jQuery 3.3.1",
+      "Font Awesome 5.2.0",
+      "popper.js 1.12.9",
+      "css-vars-ponyfill@1"
+    ],
     "templateAssetRoot": "/assets/templates/",
     "observedStylesheets": [
       "/assets/templates/common/css/content.css",
@@ -138,24 +158,61 @@
     "status": "VERIFIED",
     "source": "view-source of https://www.nativity.va.goarch.org/",
     "notes": [
-      "custom.css already exists at the template asset root — strong evidence that additional custom stylesheets CAN be added. Confirm with DIM before relying on it.",
+      "custom.css already exists at the template asset root \u2014 strong evidence that additional custom stylesheets CAN be added. Confirm with DIM before relying on it.",
       "css-vars-ponyfill is loaded, which implies the template already expects CSS custom properties and that legacy-browser support was a concern. Our --ntgoc-* tokens should be safe.",
       "Bootstrap 4.1.3 styles bare element selectors (h1-h6, p, a, ul). components.css must set those properties explicitly on .ntgoc-* classes rather than relying on inheritance."
-    ]
+    ],
+    "evoVersion": "1.4.x",
+    "evoVersionStatus": "UNCONFIRMED",
+    "evoVersionNote": "Reported as 'pretty sure 1.4.x' by the project owner, 2026-08-08. Not verified against the manager's About screen or DIM. It matters: the chunk-call syntax this project relies on ({{chunkName}}, [~id~], [*tv*]) is the Evolution 1.x family. Evolution 3.x changes template/element handling, so if it turns out to be 3.x the IMPORT.md syntax needs rechecking. Confirm in the manager footer or Help -> About before importing."
   },
-
   "assetProvenance": {
     "_note": "One-time harvest from the live parish site on 2026-08-08, at the site owner's direction. Parish-owned unless noted.",
-    "hero-anastasis-icon.jpg": {"from": "nativity.va.goarch.org/assets/images/carousel-anastasis-icon use.jpg", "owner": "parish"},
-    "feast-transfiguration.jpg": {"from": "onlinechapel.goarch.org/images/clark/transfiguration.jpg", "owner": "GOARCH Online Chapel — NOT parish-owned; check reuse terms before import"},
-    "festival-banquet.png": {"from": "nativity.va.goarch.org/assets/images/Banquet 2.png", "owner": "parish"},
-    "faith-resurrection.jpg": {"from": "nativity.va.goarch.org/assets/images/resurrection.jpg", "owner": "parish"},
-    "faith-ascension.jpg": {"from": "nativity.va.goarch.org/assets/images/ascension-christ.jpg", "owner": "parish"},
-    "faith-holy-sites.jpg": {"from": "nativity.va.goarch.org/assets/images/Holy-sites.jpg", "owner": "parish"},
-    "faith-elders.jpg": {"from": "nativity.va.goarch.org/assets/images/Elders.jpg", "owner": "parish"},
-    "clergy-fr-john.jpg": {"from": "nativity.va.goarch.org/assets/images/Father's pic.jpg", "owner": "parish — photograph of a named individual; confirm Fr. John is content for it to appear in the draft"},
-    "give-building-projects.png": {"from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png", "owner": "parish"},
-    "directions-map.jpg": {"from": "nativity.va.goarch.org/assets/images/C91011EC-927D-4AAD-AF40C69E8522BF1D.jpg", "owner": "parish", "note": "The parish's own hand-drawn directions map. Now fills the 'Map embed' placeholders on the Visit and Contact pages, replacing what would otherwise be a third-party map embed. It independently corroborates the corrected directions: Route 3 / Plank Road, Riverbend High School, Home Depot."},
-    "parish-nave-panorama.jpg": {"from": "nativity.va.goarch.org/assets/images/17355A5E-14DE-425A-996C44A332FF622E.jpg", "owner": "parish", "note": "Panorama of the parish nave and iconostasis, decorated for a feast. Harvested and available but NOT currently used — kept as the alternative hero image if the Anastasis icon is ever reconsidered."}
+    "hero-anastasis-icon.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/carousel-anastasis-icon use.jpg",
+      "owner": "parish"
+    },
+    "feast-transfiguration.jpg": {
+      "from": "onlinechapel.goarch.org/images/clark/transfiguration.jpg",
+      "owner": "GOARCH Online Chapel \u2014 NOT parish-owned; check reuse terms before import"
+    },
+    "festival-banquet.png": {
+      "from": "nativity.va.goarch.org/assets/images/Banquet 2.png",
+      "owner": "parish"
+    },
+    "faith-resurrection.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/resurrection.jpg",
+      "owner": "parish"
+    },
+    "faith-ascension.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/ascension-christ.jpg",
+      "owner": "parish"
+    },
+    "faith-holy-sites.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/Holy-sites.jpg",
+      "owner": "parish"
+    },
+    "faith-elders.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/Elders.jpg",
+      "owner": "parish"
+    },
+    "clergy-fr-john.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/Father's pic.jpg",
+      "owner": "parish \u2014 photograph of a named individual; confirm Fr. John is content for it to appear in the draft"
+    },
+    "give-building-projects.png": {
+      "from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png",
+      "owner": "parish"
+    },
+    "directions-map.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/C91011EC-927D-4AAD-AF40C69E8522BF1D.jpg",
+      "owner": "parish",
+      "note": "The parish's own hand-drawn directions map. Now fills the 'Map embed' placeholders on the Visit and Contact pages, replacing what would otherwise be a third-party map embed. It independently corroborates the corrected directions: Route 3 / Plank Road, Riverbend High School, Home Depot."
+    },
+    "parish-nave-panorama.jpg": {
+      "from": "nativity.va.goarch.org/assets/images/17355A5E-14DE-425A-996C44A332FF622E.jpg",
+      "owner": "parish",
+      "note": "Panorama of the parish nave and iconostasis, decorated for a feast. Harvested and available but NOT currently used \u2014 kept as the alternative hero image if the Anastasis icon is ever reconsidered."
+    }
   }
 }

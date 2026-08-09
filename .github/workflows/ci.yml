@@ -36,6 +36,12 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # The header, top bar, footer and draft banner are duplicated on all 12
+      # pages. Editing 11 of them is silent until a volunteer pastes the odd
+      # one out into the parish CMS.
+      - name: Shared shell is identical on every page
+        run: npm run shell -- --check
+
       # A stale dist/chunks means a volunteer would paste outdated markup into
       # the parish CMS. lint regenerates it; fail if that produced a diff.
       - name: dist/chunks is committed and current

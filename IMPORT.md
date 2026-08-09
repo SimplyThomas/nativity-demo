@@ -20,6 +20,13 @@ Evolution CMS manager. No command line needed. Everything you paste is in
 
 ## 1. What Evolution CMS is, in four words
 
+> **Version:** reported as **EVO 1.4.x**, but *not confirmed* — check the manager
+> footer or **Help → About** before you start. Everything in this guide uses the
+> Evolution **1.x** syntax (`{{chunkName}}` to call a chunk, `[~id~]` to link to a
+> resource). Evolution **3.x** handles templates and elements differently, so if
+> the About screen says 3.x, stop and re-check this guide against the 3.x docs.
+
+
 EVO organises a site as:
 
 | Thing | What it is | Where you'll find it |

@@ -7,6 +7,8 @@
     "dev": "node tools/dev.mjs",
     "chunks": "node tools/extract-chunks.mjs",
     "lint": "node tools/lint.mjs",
+    "shell": "node tools/sync-shell.mjs",
+    "rename": "node tools/rename-class.mjs",
     "audit:a11y": "node tools/audit-a11y.mjs",
     "audit:reflow": "node tools/audit-reflow.mjs",
     "check": "npm run lint && npm run audit:a11y && npm run audit:reflow"
