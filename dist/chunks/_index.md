@@ -42,7 +42,7 @@ Asset root: `/assets/templates/ntgoc/` — confirm with the Department of Intern
 | `ntgocVisitorDirections` | 1515 b | 1 page |
 | `ntgocVisitorFirstSunday` | 6115 b | 1 page |
 | `ntgocVisitorGreeters` | 2778 b | 1 page |
-| `ntgocVisitorHero` | 422 b | 1 page |
+| `ntgocVisitorHero` | 236 b | 1 page |
 | `ntgocVisitorLanguage` | 6538 b | 1 page |
 | `ntgocVisitorSundaySchool` | 1505 b | 1 page |
 | `ntgocVisitorVideos` | 3406 b | 1 page |
