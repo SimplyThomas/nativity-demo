@@ -182,7 +182,7 @@ Then the page content, grouped by page:
 | Page | Chunks, in order |
 |---|---|
 | **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeFirstSunday`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo` |
-| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday` |
+| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday`, `ntgocVisitorFaqAndDirections` |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |

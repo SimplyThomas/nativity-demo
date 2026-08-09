@@ -533,7 +533,9 @@ function applyCorrections(src) {
 const CHUNK_NAMES = {
   home: ['ntgocHomeHero', 'ntgocHomeServiceTimes', 'ntgocHomeWelcome', 'ntgocHomeFirstSunday',
          'ntgocHomeUpcomingServices', 'ntgocHomeFestivalPromo', 'ntgocHomeMinistriesPromo'],
-  visit: ['ntgocVisitorHero', 'ntgocVisitorFirstSunday'],
+  // The third Visit block is content the design orphaned outside every view
+  // (see viewFor) and the renderer re-attached: FAQ, closing CTA, directions.
+  visit: ['ntgocVisitorHero', 'ntgocVisitorFirstSunday', 'ntgocVisitorFaqAndDirections'],
   faith: ['ntgocFaithHero', 'ntgocFaithIntro', 'ntgocFaithTopics', 'ntgocFaithWatchRead'],
   calendar: ['ntgocCalendarHero', 'ntgocCalendarGrid'],
   ministries: ['ntgocMinistriesHero', 'ntgocMinistriesGrid'],
