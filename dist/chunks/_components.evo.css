@@ -99,13 +99,6 @@
   text-underline-offset: 2px;
 }
 
-/* --- contained horizontal scrolling ---------------------------------
-   Wide content (the phone mock-ups) scrolls inside its own container so the
-   page body never scrolls sideways. tabindex="0" in the markup makes the
-   scroll region reachable by keyboard, which a bare overflow container is not.
-   ------------------------------------------------------------------ */
-.ntgoc-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
 /* --- Our Faith topic cards ------------------------------------------
    Each card is a whole link, the same pattern the home page uses for its
    ministry cards. The destinations are the parish's own Our Faith pages,
@@ -274,9 +267,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* --- generated component rules (437 rules) --------------------- */
 .ntgoc-topbar-row { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:0 40px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
 .ntgoc-topbar-metropolis { opacity:.75; }
-.ntgoc-topbar-links { display:flex; gap:26px; align-items:center; }
-.ntgoc-topbar-link { opacity:.85; }
-.ntgoc-topbar-link:hover, .ntgoc-topbar-link:focus-visible { opacity:1; color:#e6b96a; }
 .ntgoc-header { position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be; }
 .ntgoc-header-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; padding:0 40px; height:84px; max-width:1440px; margin:0 auto; }
 .ntgoc-logo { display:flex; align-items:center; gap:16px; }
@@ -715,42 +705,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-bookstore-notes-shell { max-width:1240px; margin:0 auto; padding:74px 40px; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-bookstore-notes-link { color:#7d2b2b; border-bottom:1px solid #d9c6a8; }
-.ntgoc-mobile-views-shell { max-width:1240px; margin:0 auto; padding:76px 40px 90px; }
-.ntgoc-mobile-views-title { font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.1; margin:0 0 16px; color:#3a1414; }
-.ntgoc-mobile-views-body-loose { font-size:17px; line-height:1.7; color:#4a443c; margin:0 0 56px; max-width:600px; }
-.ntgoc-mobile-views-row-8 { display:flex; gap:56px; flex-wrap:wrap; }
-.ntgoc-mobile-views-ruled-on-parchment { width:390px; border:1px solid #ccbda4; background:#f6f1e8; overflow:hidden; box-shadow:0 18px 44px rgba(58,20,20,.13); }
-.ntgoc-mobile-views-micro-row { height:34px; background:#3a1414; color:#e8d8bd; display:flex; align-items:center; justify-content:space-between; padding:0 18px; font-size:11px; letter-spacing:.06em; }
-.ntgoc-mobile-views-row { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #ded2be; }
-.ntgoc-mobile-views-body-ink { font-family:Newsreader, serif; font-size:16px; color:#3a1414; }
-.ntgoc-mobile-views-micro-caps-5 { font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:#6c6458; margin-top:2px; }
-.ntgoc-mobile-views-grid { display:grid; gap:4px; }
-.ntgoc-mobile-views-box { width:20px; height:1.5px; background:#3a1414; }
-.ntgoc-mobile-views-on-ink { position:relative; height:300px; background:#3a1414; overflow:hidden; }
-.ntgoc-mobile-views-box-9 { position:absolute; inset:0; background:linear-gradient(180deg, rgba(58,20,20,.55), rgba(58,20,20,.95)); }
-.ntgoc-mobile-views-row-7 { position:absolute; inset:0; padding:26px 20px; display:flex; flex-direction:column; justify-content:flex-end; }
-.ntgoc-mobile-views-heading { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.12; color:#faf5ec; margin:0 0 12px; }
-.ntgoc-mobile-views-micro-bold { background:#e0b673; color:#3a1414; padding:14px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; margin-top:8px; }
-.ntgoc-mobile-views-on-brick { background:#7d2b2b; color:#f6ece0; padding:22px 20px; }
-.ntgoc-mobile-views-micro-caps-4 { font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:8px; }
-.ntgoc-mobile-views-display { font-family:Newsreader, serif; font-size:26px; }
-.ntgoc-mobile-views-small-faded { font-size:13.5px; opacity:.88; margin-top:3px; }
-.ntgoc-mobile-views-rule { height:1px; background:rgba(246,241,232,.25); margin:18px 0; }
-.ntgoc-mobile-views-small { font-size:14px; line-height:1.5; }
-.ntgoc-mobile-views-row-6 { display:flex; gap:10px; margin-top:16px; }
-.ntgoc-mobile-views-micro-caps { flex:1; border:1px solid rgba(246,241,232,.45); padding:11px; text-align:center; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
-.ntgoc-mobile-views-box-7 { padding:26px 20px; }
-.ntgoc-mobile-views-lede-italic { font-family:Newsreader, serif; font-style:italic; font-weight:300; font-size:20px; line-height:1.45; color:#3a1414; }
-.ntgoc-mobile-views-micro-caps-2 { font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#6c6458; margin-top:12px; }
-.ntgoc-mobile-views-eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; margin-top:18px; text-align:center; }
-.ntgoc-mobile-views-text { font-size:20px; color:#3a1414; line-height:1; }
-.ntgoc-mobile-views-box-8 { padding:8px 0; }
-.ntgoc-mobile-views-lede { padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414; }
-.ntgoc-mobile-views-small-caps { padding:17px 20px; border-bottom:1px solid #e4dac8; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; }
-.ntgoc-mobile-views-small-caps-2 { padding:17px 20px; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; }
-.ntgoc-mobile-views-card { padding:20px; background:#7d2b2b; color:#f6ece0; }
-.ntgoc-mobile-views-micro-caps-3 { font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:6px; }
-.ntgoc-mobile-views-lede-6 { font-family:Newsreader, serif; font-size:20px; }
 
 /* --- Parish Life ----------------------------------------------------
    Transcribed from the Parish Life page of the Claude Design file. That
@@ -1113,16 +1067,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-tall { min-height: 50vh; }
 
   /* The top bar is a fixed-height 38px row in the design; let it grow so the
-     secondary links are not clipped once they wrap. */
+     Metropolis line can take a second line rather than be clipped. */
   .ntgoc-topbar {
     height: auto !important;
-    flex-direction: column;
-    gap: 8px !important;
     padding: 10px 16px !important;
-    text-align: center;
     line-height: 1.5;
   }
-  .ntgoc-topbar > div { flex-wrap: wrap; justify-content: center; gap: 14px !important; }
 }
 
 /* The two authored grids on the Visit page. These come last so they win over
