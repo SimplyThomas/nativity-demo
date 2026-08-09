@@ -83,6 +83,60 @@ for (const rel of PAGES) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 2b. Well-formed markup
+ *
+ * The single easiest mistake to make now that these pages are hand-edited is
+ * dropping or doubling a closing tag. Browsers paper over it, so the page can
+ * look fine while the extracted chunk is broken — and that chunk is what gets
+ * pasted into the parish CMS. Checked here, and BEFORE chunk extraction, so
+ * the reported error is the real cause rather than "chunks are stale".
+ * ------------------------------------------------------------------ */
+const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr']);
+
+function checkWellFormed(rel) {
+  const src = read(rel)
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '');
+
+  const lineAt = i => src.slice(0, i).split('\n').length;
+  const stack = [];
+  let bad = 0;
+
+  for (const m of src.matchAll(/<(\/?)([a-zA-Z][\w-]*)((?:"[^"]*"|'[^']*'|[^>"'])*?)(\/?)>/g)) {
+    const [, closing, rawTag, attrs, selfClose] = m;
+    const tag = rawTag.toLowerCase();
+    if (VOID.has(tag) || selfClose) continue;
+
+    if (!closing) { stack.push({ tag, line: lineAt(m.index) }); continue; }
+
+    if (!stack.length) {
+      err('html-malformed', rel, `stray </${tag}> at line ${lineAt(m.index)}`); bad++; continue;
+    }
+    if (stack[stack.length - 1].tag === tag) { stack.pop(); continue; }
+
+    const at = stack.map(f => f.tag).lastIndexOf(tag);
+    if (at === -1) {
+      err('html-malformed', rel, `stray </${tag}> at line ${lineAt(m.index)}`); bad++;
+    } else {
+      for (const f of stack.slice(at + 1)) {
+        err('html-malformed', rel, `<${f.tag}> opened at line ${f.line} is never closed`); bad++;
+      }
+      stack.length = at;
+    }
+    if (bad > 6) return true;          // enough to diagnose; stop the noise
+  }
+  for (const f of stack) {
+    err('html-malformed', rel, `<${f.tag}> opened at line ${f.line} is never closed`); bad++;
+  }
+  return bad > 0;
+}
+
+let malformed = false;
+for (const rel of PAGES) malformed = checkWellFormed(rel) || malformed;
+
+/* ------------------------------------------------------------------ *
  * 3. Draft-preview safety — this must never be mistaken for the real site
  * ------------------------------------------------------------------ */
 for (const rel of PAGES) {
@@ -197,7 +251,10 @@ for (const rel of PAGES) {
 /* ------------------------------------------------------------------ *
  * 9. dist/chunks must match the pages it was extracted from
  * ------------------------------------------------------------------ */
-{
+if (malformed) {
+  warn('chunks-skipped', 'dist/chunks',
+    'not re-extracted — fix the malformed markup first, or the chunks will be broken too');
+} else {
   const before = new Map(chunkFiles.map(f => [f, read(`dist/chunks/${f}`)]));
   try {
     execFileSync(process.execPath, [join(ROOT, 'tools', 'extract-chunks.mjs')], { cwd: ROOT, stdio: 'pipe' });
