@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 16 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 24 runs
+**Scope:** all 17 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 34 runs
 
 ## Result
 
@@ -15,13 +15,13 @@
 **Re-run on 8 August 2026** after six parish-authored sections were added to the
 Visit page. One new violation appeared and was fixed (below); the manual-review
 count rose from 25 to 37 because that page now carries four video embeds and a
-scrolling row of portraits. Still **0 violations, 12 of 16 pages passing reflow.**
+scrolling row of portraits. Still **0 violations, and every page passing reflow.**
 
 Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 16 pages x 2 viewports
+npm run audit:a11y   # 17 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
 ```
 
@@ -114,7 +114,7 @@ task for the EVO import** — noted in `IMPORT.md`.
   1.24:1 against surrounding text. Underlined in body copy only
   (`.ntgoc-body`, `.ntgoc-body-lg`, `.ntgoc-linked-text`); standalone navigation
   links keep the design's clean look.
-- **Content outside landmarks** (`region`, all 16 pages): the top bar sat
+- **Content outside landmarks** (`region`, every page): the top bar sat
   outside every landmark, so landmark navigation skipped it. Wrapped in
   `<nav aria-label="Secondary">`.
 - **Heading hierarchy**: the design picked heading levels by visual size rather

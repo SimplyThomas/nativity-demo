@@ -26,10 +26,10 @@
       "source": "/contact-us/"
     },
     "priestCell": {
-      "value": "REDACTED \u2014 not recorded here",
+      "value": "REDACTED — not recorded here",
       "status": "WITHHELD",
       "source": "/contact-us/",
-      "note": "Fr. John's personal mobile. It is published on the live parish site and was never rendered into this draft. On 2026-08-09 the parish asked that it be removed from the project completely, so the digits are no longer written down here either \u2014 this repository is public, and a number sitting in a data file is published whether or not a page displays it. If the number is ever needed, take it from the parish office, not from this file. NOTE: it remains in this repository's git history; see IMPORT.md."
+      "note": "Fr. John's personal mobile. It is published on the live parish site and was never rendered into this draft. On 2026-08-09 the parish asked that it be removed from the project completely, so the digits are no longer written down here either — this repository is public, and a number sitting in a data file is published whether or not a page displays it. If the number is ever needed, take it from the parish office, not from this file. NOTE: it remains in this repository's git history; see IMPORT.md."
     },
     "clergy": {
       "value": "Rev. Protopresbyter John C. Katsoulis",
@@ -39,17 +39,17 @@
       "note": "Design's wording matches the live site exactly."
     },
     "officeHours": {
-      "value": "Tuesday \u2013 Friday, 9:00 a.m. \u2013 3:00 p.m.",
+      "value": "Tuesday – Friday, 9:00 a.m. – 3:00 p.m.",
       "status": "CORRECTED",
       "source": "/contact-us/",
-      "designSaid": "Tuesday \u2013 Friday, 9:00 a.m. \u2013 2:00 p.m.",
+      "designSaid": "Tuesday – Friday, 9:00 a.m. – 2:00 p.m.",
       "note": "Design was an hour short. Live site: 'Normal office hours at the church are Tuesday through Friday from 9:00 - 3:00.'"
     },
     "divineLiturgyBook": {
-      "value": "The Divine Liturgy book is in the pews. Greeters do not hand one out.",
+      "value": "A Greek-English Divine Liturgy book is available — from a greeter, or in the pew. It is not a gift and may not be taken home.",
       "status": "CORRECTED_BY_PARISH",
-      "source": "Corrected directly by the parish, 2026-08-08.",
-      "note": "The draft said in six places that a greeter would give a visitor a complimentary prayer book \u2014 in the design's own 'Your First Sunday' copy (Home and Visit), and in the parish-authored Language, What Should I Bring, Faces You Might See and When You Arrive sections. All six now say the book is waiting in the pew. Worth re-checking after any copy change: it is the kind of small, friendly-sounding detail that gets reintroduced by accident.",
+      "source": "Corrected directly by the parish, 2026-08-08; refined 2026-08-09.",
+      "note": "Two corrections, in sequence. The draft first said in six places that a greeter would give a visitor a COMPLIMENTARY prayer book to keep; that was wrong and was changed to 'waiting in the pew'. The parish then clarified that a greeter may well hand one out — what is wrong is the suggestion that it is a gift. Current wording: 'A Greek-English Divine Liturgy book will be available to help you follow the service. One of our greeters will be happy to help you find one.' Both wrong versions are now forbidden patterns in data/site.json, so neither can come back quietly.",
       "affects": [
         "index.html",
         "visit.html"
@@ -59,8 +59,8 @@
       "value": "Orthros 9:00 a.m.; Divine Liturgy 10:00 a.m.",
       "status": "CONFIRMED_BY_PARISH",
       "source": "Confirmed directly by the parish, 2026-08-08.",
-      "note": "The design's Visit timeline was right and the live site is misleading: nativity.va.goarch.org shows '9 am Orthros & Divine Liturgy', compressing two distinct services into one 9:00 start. Every place the draft showed a single 9:00 against both services now shows both times. Feast-day Liturgies are NOT covered by this confirmation \u2014 the Dormition Liturgy (15 Aug) remains 9:00 a.m. as the design had it, and the 'Great Feasts' line stays tagged TODO: verify.",
-      "actionForTheRealSite": "The live parish site's own homepage is arguably wrong here. Worth raising separately from this draft \u2014 it is the single fact a first-time visitor acts on."
+      "note": "The design's Visit timeline was right and the live site is misleading: nativity.va.goarch.org shows '9 am Orthros & Divine Liturgy', compressing two distinct services into one 9:00 start. Every place the draft showed a single 9:00 against both services now shows both times. Feast-day Liturgies are NOT covered by this confirmation — the Dormition Liturgy (15 Aug) remains 9:00 a.m. as the design had it, and the 'Great Feasts' line stays tagged TODO: verify.",
+      "actionForTheRealSite": "The live parish site's own homepage is arguably wrong here. Worth raising separately from this draft — it is the single fact a first-time visitor acts on."
     },
     "emails": {
       "office": "office@ntgoc.org",
@@ -68,7 +68,7 @@
       "stewardship": "pctreasurer@ntgoc.org",
       "status": "VERIFIED",
       "source": "/contact-us/, /hall-rental",
-      "note": "Role addresses, not personal ones \u2014 safe to publish."
+      "note": "Role addresses, not personal ones — safe to publish."
     },
     "directions": {
       "value": "From I-95 take exit 130B and go west on Route 3 for just over 4 miles. After passing the Harrison Crossing Shopping Center (Home Depot), turn right at the next traffic light onto Spotswood Furnace Road and proceed approximately two-tenths of a mile. Riverbend High School will be on the right; the church is on the left, just past the high school.",
@@ -84,7 +84,7 @@
       "buildingCompleted": "March 2000; first Liturgy in the new church 12 March 2000",
       "status": "CORRECTED",
       "source": "/about-us/",
-      "designSaid": "1963 \u2014 Community founded",
+      "designSaid": "1963 — Community founded",
       "note": "The design was wrong by 26 years and self-flagged the number as a placeholder. The real history is above. This is the single most valuable correction the harvest produced."
     },
     "metropolis": {
@@ -93,7 +93,7 @@
       "source": "/about-us/clergy"
     },
     "feastDay": {
-      "value": "8 September \u2014 the Nativity of the Theotokos",
+      "value": "8 September — the Nativity of the Theotokos",
       "status": "VERIFIED_EXTERNAL",
       "source": "Fixed date in the Orthodox calendar; also the parish's patronal name.",
       "note": "Not stated as a date on the live site, but it is a fixed feast, not a parish-specific claim."
@@ -120,13 +120,13 @@
         "Parish Council",
         "Choir & Chanters"
       ],
-      "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped \u2014 the parish may well have chanters without a ministry page."
+      "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped — the parish may well have chanters without a ministry page. 2026-08-09: the LIST is settled for this presentation, but the DESCRIPTIONS carried a great deal that was never sourced — meeting frequencies, grade ranges, basketball, retreats, the Metropolis summer camp, named charitable programmes, and September-to-May term dates. All of it is now removed from ministries.html and index.html. Accurate and brief beats polished and invented; see _ministriesNote in data/site.json."
     },
     "hallRental": {
       "status": "UNVERIFIED",
-      "designSaid": "Capacity \u2248 200 seated; full commercial kitchen; on-site free parking",
+      "designSaid": "Capacity ≈ 200 seated; full commercial kitchen; on-site free parking",
       "source": "/hall-rental",
-      "note": "The live hall-rental page gives NO capacity, kitchen, or parking details \u2014 only a deposit link and a contract PDF. Every one of the design's three specifics is unsourced. Left in place, each tagged TODO: verify."
+      "note": "The live hall-rental page gives NO capacity, kitchen, or parking details — only a deposit link and a contract PDF. Every one of the design's three specifics is unsourced. Left in place, each tagged TODO: verify."
     },
     "parishCouncil": {
       "status": "WITHHELD",
@@ -137,7 +137,7 @@
       "value": "fredgreek.org",
       "status": "VERIFIED",
       "source": "/ (footer link to http://www.fredgreek.org/)",
-      "note": "Design's festival dates and 'two-hour shifts' claim are NOT on the live site \u2014 tagged TODO: verify. On 2026-08-08 the parish asked that every \"Greek Festival\" link go to https://www.fredgreek.org/ rather than to this draft's own festival page, so all 25 of them (top bar and footer on every page, plus the home promo) now point there. festival.html still exists but nothing links to it \u2014 a decision for the parish."
+      "note": "Design's festival dates and 'two-hour shifts' claim are NOT on the live site — tagged TODO: verify. On 2026-08-08 the parish asked that every \"Greek Festival\" link go to https://www.fredgreek.org/ rather than to this draft's own festival page, so all 25 of them (top bar and footer on every page, plus the home promo) now point there. festival.html still exists but nothing links to it — a decision for the parish."
     },
     "externalLinks": {
       "giveOnline": "https://square.link/u/u8cIpGbh",
@@ -147,6 +147,109 @@
       "status": "VERIFIED",
       "source": "/",
       "note": "All present on the live site; the design reproduces them correctly."
+    },
+    "languages": {
+      "value": "Approximately 50% Greek and 50% English.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "Settles a contradiction the draft carried: the design's FAQ said services were 'mostly in English' while the parish-authored Language section said both. Neither was right. Congregational portions — the Creed, the Lord's Prayer — are offered in more than one language. 'mostly in English' is now a forbidden pattern in data/site.json."
+    },
+    "communionAndAntidoron": {
+      "value": "Holy Communion is received by Orthodox Christians who are properly prepared to receive the Eucharist. Antidoron is blessed bread anyone may receive, given by the priest as the Liturgy concludes and people leave for the social hall.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "The draft said 'baptized and chrismated', which is narrower than what the parish asked for, and mentioned antidoron only in passing inside the Communion paragraph. Antidoron is now its own step in the Sunday timeline, immediately after Communion, so a non-Orthodox visitor reads that they cannot receive the Eucharist and that there is blessed bread for them, in that order."
+    },
+    "greeters": {
+      "value": "The parish already has greeters in the narthex on a Sunday morning.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "A visitor can be told with confidence that someone will be there. What is NOT current practice, and is presented on visit.html as a proposal: named and pictured greeters ('Faces You Might See'), and a trained Welcome Ministry behind them. No greeter's name or photograph has been invented, and none may be published without that person's own permission."
+    },
+    "enteringDuringWorship": {
+      "value": "Visitors are asked to wait quietly in the narthex during key moments of the service — the Little and Great Entrances, the Epistle and the Gospel among them.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "Deliberately NOT published as a list for a visitor to memorise. The page says a greeter will guide them, which is both kinder and what actually happens."
+    },
+    "dress": {
+      "value": "Dress like you are meeting someone important.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Fr. John, via the parish, 2026-08-09.",
+      "note": "Fr. John's own words, and now the foundation of the What Should I Wear section. The draft's paragraph cataloguing what men and women in the parish wear has gone: it read as a dress code and none of it was sourced. Veiling: many women in the parish veil, many do not, and either is comfortable — visitors must never be led to think they need to buy one."
+    },
+    "seating": {
+      "value": "There is no reserved seating.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09."
+    },
+    "parking": {
+      "value": "Free, on site.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "There is NO visitor-specific parking and NO overflow arrangement. The draft's Visit page claimed 'additional overflow parking on the grass at feast days and the festival' — invented, and now removed and forbidden in data/site.json."
+    },
+    "accessibility": {
+      "value": "Nothing is claimed.",
+      "status": "UNVERIFIED",
+      "source": "Raised with the parish 2026-08-09; no answer yet.",
+      "designSaid": "Step-free entrance on the north side; the hall is reachable by lift.",
+      "note": "Both specifics were unsourced and are removed. The Visit page now asks anyone with a question about getting into the church or the hall to call the office. An accessibility promise that turns out to be wrong strands the person who relied on it, so 'wheelchair', 'step-free', 'accessible entrance' and 'reachable by lift' are forbidden patterns until the parish confirms something."
+    },
+    "doorsOpen": {
+      "value": "Not published.",
+      "status": "UNVERIFIED",
+      "designSaid": "Doors open from 8:30 a.m.",
+      "source": "The design's claim; on no parish source.",
+      "note": "Removed from the Visit page's three essentials, where it sat directly beneath the service times and read as confirmed. Replaced by the coffee hour, which is confirmed."
+    },
+    "fellowshipMeal": {
+      "value": "Coffee hour.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "The parish calls the post-Liturgy fellowship 'coffee hour'. The draft used 'the Agape Meal' as the primary label on the home, Visit and Parish Life pages — a term the parish does not use for it. It is potluck-style, visitors are welcome, and visitors need bring nothing. It may still be explained in passing as an agape meal, which is why the forbidden pattern is case-sensitive."
+    },
+    "bookstore": {
+      "value": "Open every Sunday after Divine Liturgy.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "Stock: Orthodox books, pamphlets, prayer books, icons, prayer ropes, incense, crosses, candles and other devotional items. Visitors are welcome to browse. The draft additionally claimed the table was in the narthex and open during the festival and on feast days — none of that is sourced, and it has been removed."
+    },
+    "sundaySchool": {
+      "value": "During the school year, parish children attending Sunday School leave for class after Holy Communion has been served, and remain in class until coffee hour.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "Whether a VISITING child may join a class the same day is NOT settled — visiting parents are told to ask a greeter, and no answer is invented. Grade and age ranges are unsourced: the draft's 'ages 4 through high school', 'grades 7-12' and 'grades 3-6' have been removed from the home page and the Ministries page and must not come back."
+    },
+    "newsletter": {
+      "value": "The Light, published monthly.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "The frequency is now stated on newsletter.html and in the For Our Parish resource directory. There is still no archive to link to, and no issue URL has been invented. The copy deadline and the editor remain unknown."
+    },
+    "stewardshipDestination": {
+      "value": "Not available.",
+      "status": "UNVERIFIED",
+      "source": "Raised with the parish 2026-08-09.",
+      "note": "The parish has stewardship information, but the destination for the annual pledge on the redesigned site is not known. give.html and for-our-parish.html carry a labelled placeholder saying so. The two bare href=\"#\" buttons that sat among three live ones on give.html are gone: one is now the verified family-registration form, the other is a sentence. Online giving, memorial donations, building projects and family registration all have verified URLs (see externalLinks)."
+    },
+    "visitorFollowUp": {
+      "value": "The parish collects no visitor information and has no follow-up of any kind.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "Shown on visit.html as a PROPOSAL, because the gap is the point. The form there is inert: no action, no method, every field disabled, no submit handler and no JavaScript. Nothing is collected or transmitted. Whether the parish should collect anything at all is Fr. John's decision, not this draft's."
+    },
+    "parishCommunity": {
+      "value": "There is no private parish Facebook group, Discord, GroupMe or other parish chat, and no parish mailing list.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "for-our-parish.html shows both as proposals with inert <span> buttons rather than links, so there is nothing to click through to a destination that does not exist."
+    },
+    "photographyPolicy": {
+      "value": "There is no formal parish photography or permission policy.",
+      "status": "UNVERIFIED",
+      "source": "Confirmed directly by the parish, 2026-08-09.",
+      "note": "Until there is one, the draft applies the strictest reading: no identifiable parishioner or child is published to fill a placeholder, the Parish Life gallery ships as labelled empty frames, and the greeter portraits stay empty. Developing a policy is a recommendation for a future phase."
     }
   },
   "hosting": {
@@ -168,7 +271,7 @@
     "status": "VERIFIED",
     "source": "view-source of https://www.nativity.va.goarch.org/",
     "notes": [
-      "custom.css already exists at the template asset root \u2014 strong evidence that additional custom stylesheets CAN be added. Confirm with DIM before relying on it.",
+      "custom.css already exists at the template asset root — strong evidence that additional custom stylesheets CAN be added. Confirm with DIM before relying on it.",
       "css-vars-ponyfill is loaded, which implies the template already expects CSS custom properties and that legacy-browser support was a concern. Our --ntgoc-* tokens should be safe.",
       "Bootstrap 4.1.3 styles bare element selectors (h1-h6, p, a, ul). components.css must set those properties explicitly on .ntgoc-* classes rather than relying on inheritance."
     ],
@@ -184,7 +287,7 @@
     },
     "feast-transfiguration.jpg": {
       "from": "onlinechapel.goarch.org/images/clark/transfiguration.jpg",
-      "owner": "GOARCH Online Chapel \u2014 NOT parish-owned; check reuse terms before import"
+      "owner": "GOARCH Online Chapel — NOT parish-owned; check reuse terms before import"
     },
     "festival-logo.png": {
       "from": "facebook.com — the parish's Greek Festival page, CDN copy fetched 2026-08-09",
@@ -215,7 +318,7 @@
     },
     "clergy-fr-john.jpg": {
       "from": "nativity.va.goarch.org/assets/images/Father's pic.jpg",
-      "owner": "parish \u2014 photograph of a named individual; confirm Fr. John is content for it to appear in the draft"
+      "owner": "parish — photograph of a named individual; confirm Fr. John is content for it to appear in the draft"
     },
     "give-building-projects.png": {
       "from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png",
@@ -229,35 +332,35 @@
     "parish-nave-panorama.jpg": {
       "from": "nativity.va.goarch.org/assets/images/17355A5E-14DE-425A-996C44A332FF622E.jpg",
       "owner": "parish",
-      "note": "Panorama of the parish nave and iconostasis, decorated for a feast. Harvested and available but NOT currently used \u2014 kept as the alternative hero image if the Anastasis icon is ever reconsidered."
+      "note": "Panorama of the parish nave and iconostasis, decorated for a feast. Harvested and available but NOT currently used — kept as the alternative hero image if the Anastasis icon is ever reconsidered."
     },
     "parish-nave-aisle.jpg": {
       "from": "static.wixstatic.com/media/05af8f_20e92bb917d446ed853aff290f3500ed~mv2.jpg",
-      "owner": "parish \u2014 confirmed by the site owner on 2026-08-08 as the church's own photograph, from the church website",
-      "note": "The nave looking down the centre aisle. Hero of the Parish Life page. CROPPED BEFORE USE: the full frame has a parishioner standing at the chanter's stand on the right, and the parish publishes photographs only with the permission of those pictured. Fetched via the CDN focal-point crop fp_0.40_0.50 at 1280x1067, which ends the frame to his left. The uncropped original is 3000x2000 at the URL above \u2014 use it only if he has agreed to appear."
+      "owner": "parish — confirmed by the site owner on 2026-08-08 as the church's own photograph, from the church website",
+      "note": "The nave looking down the centre aisle. Hero of the Parish Life page. CROPPED BEFORE USE: the full frame has a parishioner standing at the chanter's stand on the right, and the parish publishes photographs only with the permission of those pictured. Fetched via the CDN focal-point crop fp_0.40_0.50 at 1280x1067, which ends the frame to his left. The uncropped original is 3000x2000 at the URL above — use it only if he has agreed to appear."
     },
-    "_sealNote": "Harvested 2026-08-08. The parish has no logo or mark of its own: the live site's header logo and its favicons are both the seal of the Greek Orthodox Archdiocese of America, served from the shared GOARCH template directories rather than the parish's own asset folder. So every file below is Archdiocese-owned, not parish-owned \u2014 the same caveat as feast-transfiguration.jpg. For a draft shown to the Parish Council this is ordinary use of the parish's own jurisdiction's emblem; confirm reuse terms with the Department of Internet Ministries before anything goes public.",
+    "_sealNote": "Harvested 2026-08-08. The parish has no logo or mark of its own: the live site's header logo and its favicons are both the seal of the Greek Orthodox Archdiocese of America, served from the shared GOARCH template directories rather than the parish's own asset folder. So every file below is Archdiocese-owned, not parish-owned — the same caveat as feast-transfiguration.jpg. For a draft shown to the Parish Council this is ordinary use of the parish's own jurisdiction's emblem; confirm reuse terms with the Department of Internet Ministries before anything goes public.",
     "goa-seal.png": {
       "from": "nativity.va.goarch.org/assets/templates/common/icons/favicon-196x196.png",
-      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import",
+      "owner": "Greek Orthodox Archdiocese of America — NOT parish-owned; check reuse terms before import",
       "note": "Site header mark and the largest favicon. This is the favicon art rather than the full logo: it carries no ring text, which is illegible below about 90px."
     },
     "goa-seal-32.png": {
       "from": "nativity.va.goarch.org/assets/templates/common/icons/favicon-32x32.png",
-      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import"
+      "owner": "Greek Orthodox Archdiocese of America — NOT parish-owned; check reuse terms before import"
     },
     "goa-seal-16.png": {
       "from": "nativity.va.goarch.org/assets/templates/common/icons/favicon-16x16.png",
-      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import"
+      "owner": "Greek Orthodox Archdiocese of America — NOT parish-owned; check reuse terms before import"
     },
     "goa-seal-apple-touch.png": {
       "from": "nativity.va.goarch.org/assets/templates/common/icons/apple-touch-icon-152x152.png",
-      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import"
+      "owner": "Greek Orthodox Archdiocese of America — NOT parish-owned; check reuse terms before import"
     },
     "goa-seal-full.png": {
       "from": "nativity.va.goarch.org/assets/template-elements/logos/goa-logo-color.png",
-      "owner": "Greek Orthodox Archdiocese of America \u2014 NOT parish-owned; check reuse terms before import",
-      "note": "Footer colophon. The full seal, with the 'Ecumenical Patriarchate \u00b7 Greek Orthodox Archdiocese of America' ring text. Its background is transparent and the ring text is dark maroon, so the CSS sets it on a cream disc \u2014 on the dark footer it would otherwise be unreadable."
+      "owner": "Greek Orthodox Archdiocese of America — NOT parish-owned; check reuse terms before import",
+      "note": "Footer colophon. The full seal, with the 'Ecumenical Patriarchate · Greek Orthodox Archdiocese of America' ring text. Its background is transparent and the ring text is dark maroon, so the CSS sets it on a cream disc — on the dark footer it would otherwise be unreadable."
     },
     "_retainedUnused": {
       "_note": "Harvested and kept on purpose, but referenced by no page right now. Listed here so `npm run lint` treats them as deliberate rather than forgotten. Delete the entry if you delete the file.",
@@ -268,5 +371,6 @@
       ],
       "why": "hero-anastasis-icon.jpg was the original home hero before the nave photograph replaced it; parish-nave-panorama.jpg is the wide nave shot kept as the alternative hero. faith-resurrection.jpg was the Our Faith hero until 9 August 2026, when every page named in the navigation took the shared nave photograph; it is the obvious image to restore if that decision is reversed. All three are parish-owned and already provenance-checked, so reinstating any of them needs no fresh harvest."
     }
-  }
+  },
+  "_updated": "2026-08-09"
 }

@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 59 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 73 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -584,10 +584,10 @@ npm run chunks   # the 15 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The fifteen `.html` files at the repo root are the source and are edited by hand.
+The seventeen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
-twelve pages from the old design file. See `CONTRIBUTING.md`.
+every page from the old design file. See `CONTRIBUTING.md`.
 
 The extraction step refuses to write any chunk containing an EVO reserved
 sequence (`[[ ]]`, `[! !]`, `{{ }}`, `[* *]`, `[( )]`, `[~ ~]`, `[+ +]`) and exits
