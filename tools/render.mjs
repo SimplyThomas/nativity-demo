@@ -927,6 +927,58 @@ function relocateVisitCta(view) {
   return out.slice(0, strip.index) + row + '\n\n        ' + out.slice(strip.index);
 }
 
+/**
+ * Drop the recovery shell once nothing recovered still needs it.
+ *
+ * viewFor wraps the orphaned block in a width shell (see shellStyleFrom) so the
+ * call to action does not span the viewport while its siblings sit in a 1240px
+ * column. With that block moved up into the timeline, everything left in the
+ * wrapper is a full-width <section> that already carries its own shell — the
+ * FAQ band and the directions block — and the wrapper insets them instead:
+ * measured at 1440px, the FAQ's parchment band started 140px in and its text
+ * column came out 80px narrower than every other section on the page.
+ *
+ * So the shell is removed exactly when the wrapper holds nothing but sections.
+ * Leave it alone in every other case, which is the case shellStyleFrom exists
+ * for.
+ */
+function unshellRecovered(view) {
+  const mainAt = findOpen(view, 'main', 0);
+  const main = mainAt === -1 ? null : matchTag(view, 'main', mainAt);
+  if (!main) return view;
+
+  const body = view.slice(main.openEnd, main.innerEnd);
+
+  let last = null, cursor = 0;
+  for (;;) {
+    const t = nextTag(body, cursor);
+    const el = t && matchTag(body, t.tag, t.at);
+    if (!el) break;
+    last = { tag: t.tag, at: t.at, ...el };
+    cursor = el.end;
+  }
+  if (!last || last.tag !== 'section') return view;
+
+  const open = body.slice(last.at, last.openEnd);
+  if (!/\sstyle="/.test(open)) return view;
+
+  const inner = body.slice(last.openEnd, last.innerEnd);
+  let c = 0, children = 0;
+  for (;;) {
+    const t = nextTag(inner, c);
+    const el = t && matchTag(inner, t.tag, t.at);
+    if (!el) break;
+    if (t.tag !== 'section') return view;   // something still needs the shell
+    children++;
+    c = el.end;
+  }
+  if (!children) return view;
+
+  return view.slice(0, main.openEnd) + body.slice(0, last.at) +
+    open.replace(/\sstyle="[^"]*"/, '') + body.slice(last.openEnd) +
+    view.slice(main.innerEnd);
+}
+
 /** Reconcile the design's FAQ with the sections now sitting above it. */
 function applyVisitFaqEdits(html) {
   let out = html;
@@ -1181,6 +1233,7 @@ for (const page of PAGES) {
   let view = viewFor(scope);
   if (page.key === 'visit') {
     view = relocateVisitCta(view);
+    view = unshellRecovered(view);
     // After the hero and the Sunday-morning timeline, before the FAQ and
     // directions that the renderer re-attached at the end of <main>.
     view = insertIntoMain(view, 2, visitSections());
