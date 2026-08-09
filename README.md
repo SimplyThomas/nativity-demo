@@ -18,10 +18,10 @@ compete with the real site in search, and not to be mistaken for it.
 | Path | What it is |
 |---|---|
 | `design-src/` | Archive of the original Claude Design import. **No longer an input** — the upstream link was cut on 2026-08-08. |
-| `content/` | Parish-authored copy the design does not contain — currently the six middle sections of the Visit page. Survives a design re-import. |
+| `content/` | Reference copy of the eight parish-authored Visit sections. **No longer an input** — edit `visit.html`, then mirror the copy here. |
 | `tools/lint.mjs` | Enforces the rules that used to be guaranteed by the renderer. Run by CI. |
 | `tools/extract-chunks.mjs` | Turns those pages into paste-ready Evolution CMS chunks. |
-| `dist/chunks/` | **Generated.** 42 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
+| `dist/chunks/` | **Generated.** 44 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
 | `data/parish-facts.json` | Every parish fact, its source URL, and whether it is verified, corrected, or withheld. |
 | `IMPORT.md` | Step-by-step import instructions for a volunteer with no command line. |
 | `CONTRIBUTING.md` | How to make changes, and the rules that must not break. |
@@ -62,7 +62,7 @@ break and why, all of which CI enforces on every push.
   4.1.3 template the live site runs on.
 - **Class names are content-hashed and stable,** so re-importing from Claude
   Design produces a readable diff rather than renaming all 359 classes.
-- **No unsourced parish fact goes unflagged.** 33 `<!-- TODO: verify -->` markers
+- **No unsourced parish fact goes unflagged.** 34 `<!-- TODO: verify -->` markers
   remain. See "What still has to be verified" in `IMPORT.md`.
 - **Nobody's face or name goes up without asking.** The Visit page's "Faces You
   Might See" row ships as empty frames; the Parish Council block ships without

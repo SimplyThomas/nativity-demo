@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 42 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 44 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -103,7 +103,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 42 files.
+   are corrected together. Do **not** hand-edit paths in 44 files.
 
 The nine images:
 
@@ -182,7 +182,7 @@ Then the page content, grouped by page:
 | Page | Chunks, in order |
 |---|---|
 | **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeFirstSunday`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo` |
-| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorGreeters`, `ntgocVisitorVideos`, `ntgocVisitorFaqAndDirections` |
+| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
@@ -196,18 +196,23 @@ Then the page content, grouped by page:
 `ntgocMobileViews` is **not a real page.** It is a design reference showing what
 the site looks like on a phone. Do not import it.
 
-> **The six middle Visit chunks are parish copy, not design copy.** `…Language`,
-> `…WhatToWear`, `…WhatToBring`, `…Children`, `…Greeters` and `…Videos` were
-> written by the parish rather than imported from Claude Design; they live in
-> `content/visit-sections.html`. They import exactly like the others, but they
-> carry the most unverified statements on the site — see below — and
-> `ntgocVisitorGreeters` must not be imported at all until real photographs and
-> permissions exist.
+> **The eight middle Visit chunks are parish copy, not design copy.**
+> `…Language`, `…WhatToWear`, `…WhatToBring`, `…Children`, `…SundaySchool`,
+> `…Greeters`, `…WhenYouArrive` and `…Videos` were written by the parish rather
+> than imported from Claude Design; they live in `content/visit-sections.html`.
+> They import exactly like the others, but they carry the most unverified
+> statements on the site — see below — and `ntgocVisitorGreeters` must not be
+> imported at all until real photographs and permissions exist.
 >
-> They must be imported **in the order listed above**: the three short answers in
-> `ntgocVisitorFaqAndDirections` now say "see … above" and link to `#ntgoc-wear`,
-> `#ntgoc-language` and `#ntgoc-children`, which are anchors on those sections.
-> Import the FAQ without them and three links point at nothing.
+> Import them **in the order listed above**. `ntgocVisitorChildren` links to
+> `#ntgoc-sunday-school`, an anchor on `ntgocVisitorSundaySchool`; import the one
+> without the other and that link points at nothing.
+
+> **`ntgocVisitorFaqAndDirections` no longer exists.** It has been split: the
+> FAQ card was removed and the block is now `ntgocVisitorDirections`. **If you
+> already created the old chunk in EVO, delete it and create the new one** —
+> otherwise the page keeps a "Questions people ask before coming" card that
+> contradicts the sections above it.
 
 ### Step 5 — Fix the internal links
 
@@ -271,7 +276,7 @@ template.
 
 ## What still has to be verified
 
-Search the built HTML for `TODO: verify` — there are 33 markers, 11 of them on
+Search the built HTML for `TODO: verify` — there are 34 markers, 12 of them on
 the Visit page. They are HTML comments, so visitors never see them, but **none
 should survive to a live parish site.** Each is a claim we could not source.
 
@@ -333,6 +338,24 @@ voice. None of it can be checked against a source; Father has to read it.
   it. Ids are in one table, `VISIT_VIDEOS` in `tools/render.mjs`; add
   `confirmed: true` to an entry once somebody has watched it and the marker
   disappears.
+
+### Removed, and not said anywhere else
+
+The design's "Questions people ask before coming" card was removed: the sections
+above it now answer the same questions at length, and its one-line answers had
+started to contradict them. Two of its six answers are **not** repeated anywhere
+else on the site, and the parish may want them back somewhere:
+
+- *"Will I be singled out?"* — **"No. Visitors are never asked to stand or
+  introduce themselves. Come, watch, leave whenever you like."** For a visitor
+  whose fear is being conspicuous, this is one of the more reassuring lines the
+  page had.
+- *"I'm interested in becoming Orthodox."* — **"Speak with Fr. John — no
+  commitment implied. Inquirers' conversations happen quietly and at your own
+  pace, often over many months."** This was the page's only next step for
+  someone ready to take one.
+
+A third, *"Is there somewhere to sit?"*, is now covered by "When You Arrive".
 
 ### Blocking — `ntgocVisitorGreeters` cannot be imported as it stands
 
@@ -406,7 +429,7 @@ node tools/render.mjs          # design-src/ + content/ -> the 12 HTML pages + C
 node tools/extract-chunks.mjs  # the HTML pages -> dist/chunks/
 ```
 
-Most of the site is generated from `design-src/`. The six middle Visit sections
+Most of the site is generated from `design-src/`. The eight middle Visit sections
 are the exception: they are parish copy and live in `content/visit-sections.html`,
 which a re-import of the design does not touch. See `content/README.md`.
 
