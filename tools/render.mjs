@@ -878,6 +878,50 @@ function insertIntoMain(mainHtml, afterBlocks, fragment) {
     `\n${fragment}\n` + body.slice(cursor) + mainHtml.slice(main.innerEnd);
 }
 
+/**
+ * Move the two calls to action up under the "Your First Sunday" copy, and drop
+ * the line they sat beside.
+ *
+ * The design put "Get directions" and "View the parish calendar" at the very
+ * bottom of the page, under "You don't need to have everything figured out
+ * before you visit." A visitor reading about when to arrive is exactly the
+ * person who wants those two links, and by the design's placement they were
+ * eleven screens further down — past six sections that did not exist when the
+ * design was drawn. The buttons now sit directly above the schedule; the line
+ * is dropped, since the page says the same thing in several other places.
+ *
+ * Anchored on the design's own style strings, and throws if any of them stops
+ * matching, so a re-import that restyles these blocks fails loudly instead of
+ * quietly dropping the parish's two most useful links.
+ */
+const CTA_BLOCK = /<div style="border-top:1px solid #ded2be; margin-top:20px; padding-top:52px;[^"]*">/;
+const CTA_LINKS = /<div style="display:flex; gap:14px; flex-wrap:wrap;">/;
+const TIMELINE_STRIP = /<div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:20px 0;[^"]*">/;
+
+function relocateVisitCta(view) {
+  const found = view.match(CTA_BLOCK);
+  if (!found) throw new Error('Visit CTA block not found — the design changed. See relocateVisitCta.');
+  const block = matchTag(view, 'div', found.index);
+  if (!block) throw new Error('Visit CTA block is unbalanced in the design source.');
+
+  const inner = view.slice(block.openEnd, block.innerEnd);
+  const linksAt = inner.match(CTA_LINKS);
+  if (!linksAt) throw new Error('Visit CTA links row not found inside the CTA block.');
+  const links = matchTag(inner, 'div', linksAt.index);
+  if (!links) throw new Error('Visit CTA links row is unbalanced in the design source.');
+
+  // The row's own style is the first in the fragment, so this spaces the row
+  // and not one of the buttons inside it.
+  const row = inner.slice(linksAt.index, links.end)
+    .replace('flex-wrap:wrap;', 'flex-wrap:wrap; margin:0 0 44px;');
+
+  const out = view.slice(0, found.index) + view.slice(block.end);
+
+  const strip = out.match(TIMELINE_STRIP);
+  if (!strip) throw new Error('Visit timeline strip not found — nowhere to put the CTA links.');
+  return out.slice(0, strip.index) + row + '\n\n        ' + out.slice(strip.index);
+}
+
 /** Reconcile the design's FAQ with the sections now sitting above it. */
 function applyVisitFaqEdits(html) {
   let out = html;
@@ -901,7 +945,8 @@ const CHUNK_NAMES = {
          'ntgocHomeUpcomingServices', 'ntgocHomeFestivalPromo', 'ntgocHomeMinistriesPromo'],
   // Blocks 3-8 are parish-authored, not from the design — see content/README.md.
   // The last Visit block is content the design orphaned outside every view
-  // (see viewFor) and the renderer re-attached: FAQ, closing CTA, directions.
+  // (see viewFor) and the renderer re-attached: the FAQ and the directions.
+  // Its call to action moved up into the timeline — see relocateVisitCta.
   visit: ['ntgocVisitorHero', 'ntgocVisitorFirstSunday',
           'ntgocVisitorLanguage', 'ntgocVisitorWhatToWear', 'ntgocVisitorWhatToBring',
           'ntgocVisitorChildren', 'ntgocVisitorGreeters', 'ntgocVisitorVideos',
@@ -1130,8 +1175,9 @@ for (const page of PAGES) {
 
   let view = viewFor(scope);
   if (page.key === 'visit') {
-    // After the hero and the Sunday-morning timeline, before the closing call to
-    // action and the FAQ that the renderer re-attached at the end of <main>.
+    view = relocateVisitCta(view);
+    // After the hero and the Sunday-morning timeline, before the FAQ and
+    // directions that the renderer re-attached at the end of <main>.
     view = insertIntoMain(view, 2, visitSections());
     view = applyVisitFaqEdits(view);
   }

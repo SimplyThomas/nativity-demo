@@ -6,7 +6,7 @@ the Claude Design source does not cover.
 
 | File | Injected into |
 |---|---|
-| `visit-sections.html` | `visit.html`, between the Sunday-morning timeline and the closing call to action |
+| `visit-sections.html` | `visit.html`, between the Sunday-morning timeline and the FAQ |
 
 ## Why it is not in `design-src/`
 

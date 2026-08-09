@@ -273,6 +273,11 @@
 .ntgoc-s2ab6d1 { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:70px; align-items:start; margin-bottom:56px; }
 .ntgoc-sc5139b { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.1; margin:0 0 22px; color:#3a1414; }
 .ntgoc-s2ee8c9 { border:1px solid #ccbda4; background:#ece3d5; padding:30px 28px; }
+.ntgoc-s8dc162 { display:flex; gap:14px; flex-wrap:wrap; margin:0 0 44px; }
+.ntgoc-s9d514c { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.ntgoc-s9d514c:hover, .ntgoc-s9d514c:focus-visible { background:#5e1f1f; }
+.ntgoc-s27f26e { border:1px solid #ccbda4; color:#5b5449; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.ntgoc-s27f26e:hover, .ntgoc-s27f26e:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-s547d6f { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:20px 0; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; margin-bottom:12px; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#6c6458; }
 .ntgoc-s44b492 { color:#7d2b2b; }
 .ntgoc-s9fdca6 { color:#c9b795; }
@@ -335,11 +340,6 @@
 .ntgoc-s1c8822:hover, .ntgoc-s1c8822:focus-visible { background:#5e1f1f; }
 .ntgoc-s31095f { font-size:16px; line-height:1.75; color:#5b5449; margin:46px 0 0; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty; }
 .ntgoc-s2df69a { max-width:1240px; margin:0 auto; padding:0 40px 40px; }
-.ntgoc-sa35931 { border-top:1px solid #ded2be; margin-top:20px; padding-top:52px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:60px; align-items:center; }
-.ntgoc-s9d514c { background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-s9d514c:hover, .ntgoc-s9d514c:focus-visible { background:#5e1f1f; }
-.ntgoc-s27f26e { border:1px solid #ccbda4; color:#5b5449; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-s27f26e:hover, .ntgoc-s27f26e:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-s79d672 { max-width:1240px; margin:0 auto; padding:84px 40px; }
 .ntgoc-sf33ab5 { font-family:Newsreader, serif; font-weight:400; font-size:38px; margin:0 0 44px; color:#3a1414; }
 .ntgoc-sdec085 { display:grid; grid-template-columns:repeat(2, 1fr); gap:44px 70px; }
