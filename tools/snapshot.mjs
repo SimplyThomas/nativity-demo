@@ -27,7 +27,17 @@ import puppeteer from 'puppeteer-core';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASELINE = join(ROOT, 'tests', 'layout-baseline.json');
 const UPDATE = process.argv.includes('--update');
-const TOLERANCE = 2;
+/* Geometry tolerance in px.
+ *
+ * Text metrics differ slightly between machines — the same string measured on a
+ * developer laptop and on a CI runner can differ by a few px even with the same
+ * webfont, which showed up as 5 spurious diffs out of 3616 on the first CI run.
+ * 12px absorbs that while staying far below real breakage: collapsing the page
+ * shell from 1240px to 900px moved 144-252 elements per page, by hundreds of px.
+ *
+ * Colour, background, font-size and display are compared EXACTLY and are not
+ * subject to this tolerance, so a styling regression is caught regardless. */
+const TOLERANCE = 12;
 
 const CHROME = [
   process.env.CHROME_PATH,
