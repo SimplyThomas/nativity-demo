@@ -78,19 +78,24 @@
   var toggle = drawer.querySelector('summary');
   if (!toggle) return;
 
+  var panel = drawer.querySelector('.ntgoc-drawer__panel');
+  if (!panel) return;
+
   drawer.addEventListener('toggle', function () {
     if (drawer.open) {
-      /* The panel hangs off the bottom of the header, and the header is only
-         84px from the top of the screen once the page has been scrolled at
-         all. Opened at the very top — with the draft banner and top bar still
-         above it — the panel's last rows sit below the fold, and the scroll
-         lock on the next line would leave them unreachable. So bring the
-         header up to its sticky position first. Without JavaScript there is
-         no lock, and scrolling the page does the same thing by hand. */
-      var top = window.pageYOffset + drawer.getBoundingClientRect().top - 20;
-      if (top > window.pageYOffset) window.scrollTo(0, top);
+      /* The stylesheet caps the panel at 100vh minus the header, which assumes
+         the header is pinned to the top of the screen. On a page that has not
+         been scrolled it is not — the draft banner and top bar are still above
+         it — so that cap is too tall and the last rows fall below the fold,
+         where the scroll lock on the next line would strand them. Measure
+         where the panel actually starts instead. Moving the page to make the
+         stylesheet's assumption true would scroll the visitor somewhere they
+         did not ask to go, and leave them there after the drawer closed. */
+      panel.style.maxHeight =
+        (window.innerHeight - toggle.getBoundingClientRect().bottom - 16) + 'px';
       document.body.className += ' ntgoc-scroll-locked';
     } else {
+      panel.style.maxHeight = '';
       document.body.className = document.body.className
         .replace(/\s*ntgoc-scroll-locked/g, '');
     }
