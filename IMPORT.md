@@ -94,7 +94,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the twelve files listed below from this repo's `assets/img/` folder.
+4. Upload the thirteen files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -113,7 +113,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 57 files.
 
-The twelve images to upload:
+The thirteen images to upload:
 
 | File | Used on |
 |---|---|
@@ -127,6 +127,7 @@ The twelve images to upload:
 | `directions-map.jpg` | Visit, Contact — the parish's own directions map |
 | `goa-seal.png` | Site header, every page |
 | `goa-seal-full.png` | Site footer colophon, every page |
+| `parish-nave-aisle.jpg` | Parish Life hero — **cropped**, see the note below |
 
 And the four you can skip:
 
@@ -143,6 +144,15 @@ And the four you can skip:
 > used before it goes anywhere public. The two `goa-seal-*` files are the seal
 > of the **Greek Orthodox Archdiocese of America**, also not parish-owned —
 > confirm with DIM before this goes anywhere public.
+
+> **`parish-nave-aisle.jpg` is cropped, and the crop is the point.** It came
+> later, from the church website, and the parish confirmed it owns it. The full
+> frame has a parishioner standing at the chanter's stand on the right, so the
+> version in this repo stops short of him. Owning a photograph and having the
+> agreement of the person in it are two different things, and the parish's own
+> rule — printed on the Parish Life page — is that photographs go up only with
+> the permission of those pictured. The uncropped 3000×2000 original is recorded
+> in `data/parish-facts.json`; use it only if he has agreed to appear.
 
 > **The parish has no logo of its own.** Both the header logo and the favicons
 > on the live site are the Archdiocese seal, served from the shared GOARCH
@@ -274,11 +284,12 @@ Then the page content, grouped by page:
 > could be sourced, so all three are flagged rather than guessed.
 
 > **The Parish Life page is mostly empty photo frames, on purpose.** The design
-> builds that page out of twenty-six photographs the parish has not supplied, so
-> every one of them is a labelled placeholder saying what belongs there — "the
-> Agape Meal in the parish hall", "a Bible study or catechism class". That is
-> the point: the page is a request for photographs, and it should be shown to
-> the Parish Council in that state rather than filled with stock images.
+> builds that page out of twenty-six photographs. The parish has supplied one —
+> the nave, in the hero. The other twenty-five are labelled placeholders saying
+> what belongs there: "the Agape Meal in the parish hall", "a Bible study or
+> catechism class". That is the point: the page is a request for photographs,
+> and it should be shown to the Parish Council in that state rather than filled
+> with stock images.
 >
 > **Do not import it as it stands.** Either wait until there are photographs, or
 > import it and accept that visitors see the frames. `ntgocParishLifeGallery`

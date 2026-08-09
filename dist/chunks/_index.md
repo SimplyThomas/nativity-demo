@@ -46,7 +46,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishLifeFellowship` | 847 b | 1 page | — |
 | ☐ | `ntgocParishLifeFormation` | 1784 b | 1 page | — |
 | ☐ | `ntgocParishLifeGallery` | 3110 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeHero` | 1029 b | 1 page | — |
+| ☐ | `ntgocParishLifeHero` | 868 b | 1 page | — |
 | ☐ | `ntgocParishLifeService` | 652 b | 1 page | — |
 | ☐ | `ntgocParishLifeUpcoming` | 2847 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeWorship` | 1254 b | 1 page | — |

@@ -691,8 +691,14 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
 
 .ntgoc-pl-hero { position:relative; height:660px; background:#3a1414; overflow:hidden; }
-.ntgoc-pl-hero__photo { position:absolute; inset:0; }
-.ntgoc-pl-hero__scrim { position:absolute; inset:0; background:linear-gradient(75deg, rgba(58,20,20,.92) 0%, rgba(58,20,20,.62) 52%, rgba(58,20,20,.12) 100%); pointer-events:none; }
+.ntgoc-pl-hero__photo { position:absolute; inset:0; background-image:url('../img/parish-nave-aisle.jpg'); background-size:cover; background-position:center; }
+/* Two layers, because one is not enough for a real photograph. The design's
+   single 75deg wash was tuned against a dark placeholder; over the lit nave the
+   lede ran across sunlit pews at roughly 3.7:1. The wash is now heavier through
+   the text column (about 6.7:1 on the brightest pixel under it), and the bottom
+   band holds that up if the parish swaps in a lighter photograph later — the
+   text sits at the bottom, so that is where the floor has to be. */
+.ntgoc-pl-hero__scrim { position:absolute; inset:0; background:linear-gradient(to top, rgba(58,20,20,.45) 0%, rgba(58,20,20,0) 45%), linear-gradient(75deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.86) 45%, rgba(58,20,20,.55) 72%, rgba(58,20,20,.25) 100%); pointer-events:none; }
 .ntgoc-pl-hero__inner { position:relative; max-width:1240px; margin:0 auto; padding:0 40px 76px; height:100%; display:flex; flex-direction:column; justify-content:flex-end; }
 .ntgoc-pl-hero__body { max-width:660px; }
 .ntgoc-pl-eyebrow { font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:22px; }

@@ -19178,39 +19178,6 @@
    "d": "block"
   },
   "ntgocParishLifeHero/div#1": {
-   "cls": "ntgoc-photoslot",
-   "x": 0,
-   "y": 180,
-   "w": 1440,
-   "h": 660,
-   "c": "rgb(34, 32, 29)",
-   "bg": "rgb(74, 28, 28)",
-   "fs": "16px",
-   "d": "flex"
-  },
-  "ntgocParishLifeHero/span#0": {
-   "cls": "ntgoc-photoslot__label",
-   "x": 648,
-   "y": 480,
-   "w": 144,
-   "h": 12,
-   "c": "rgb(224, 182, 115)",
-   "bg": "rgba(0, 0, 0, 0)",
-   "fs": "10px",
-   "d": "block"
-  },
-  "ntgocParishLifeHero/span#1": {
-   "cls": "ntgoc-photoslot__hint",
-   "x": 588,
-   "y": 504,
-   "w": 264,
-   "h": 36,
-   "c": "rgb(195, 178, 153)",
-   "bg": "rgba(0, 0, 0, 0)",
-   "fs": "13px",
-   "d": "block"
-  },
-  "ntgocParishLifeHero/div#2": {
    "cls": "ntgoc-pl-hero__scrim",
    "x": 0,
    "y": 180,
@@ -19221,7 +19188,7 @@
    "fs": "16px",
    "d": "block"
   },
-  "ntgocParishLifeHero/div#3": {
+  "ntgocParishLifeHero/div#2": {
    "cls": "ntgoc-pl-hero__inner",
    "x": 96,
    "y": 180,
@@ -19232,7 +19199,7 @@
    "fs": "16px",
    "d": "flex"
   },
-  "ntgocParishLifeHero/div#4": {
+  "ntgocParishLifeHero/div#3": {
    "cls": "ntgoc-pl-hero__body",
    "x": 144,
    "y": 480,
@@ -19243,7 +19210,7 @@
    "fs": "16px",
    "d": "block"
   },
-  "ntgocParishLifeHero/div#5": {
+  "ntgocParishLifeHero/div#4": {
    "cls": "ntgoc-pl-eyebrow",
    "x": 144,
    "y": 480,
@@ -43914,39 +43881,6 @@
    "d": "block"
   },
   "ntgocParishLifeHero/div#1": {
-   "cls": "ntgoc-photoslot",
-   "x": 0,
-   "y": 456,
-   "w": 396,
-   "h": 420,
-   "c": "rgb(34, 32, 29)",
-   "bg": "rgb(74, 28, 28)",
-   "fs": "16px",
-   "d": "flex"
-  },
-  "ntgocParishLifeHero/span#0": {
-   "cls": "ntgoc-photoslot__label",
-   "x": 120,
-   "y": 636,
-   "w": 144,
-   "h": 12,
-   "c": "rgb(224, 182, 115)",
-   "bg": "rgba(0, 0, 0, 0)",
-   "fs": "10px",
-   "d": "block"
-  },
-  "ntgocParishLifeHero/span#1": {
-   "cls": "ntgoc-photoslot__hint",
-   "x": 60,
-   "y": 648,
-   "w": 264,
-   "h": 36,
-   "c": "rgb(195, 178, 153)",
-   "bg": "rgba(0, 0, 0, 0)",
-   "fs": "13px",
-   "d": "block"
-  },
-  "ntgocParishLifeHero/div#2": {
    "cls": "ntgoc-pl-hero__scrim",
    "x": 0,
    "y": 456,
@@ -43957,7 +43891,7 @@
    "fs": "16px",
    "d": "block"
   },
-  "ntgocParishLifeHero/div#3": {
+  "ntgocParishLifeHero/div#2": {
    "cls": "ntgoc-pl-hero__inner",
    "x": 0,
    "y": 456,
@@ -43968,7 +43902,7 @@
    "fs": "16px",
    "d": "flex"
   },
-  "ntgocParishLifeHero/div#4": {
+  "ntgocParishLifeHero/div#3": {
    "cls": "ntgoc-pl-hero__body",
    "x": 12,
    "y": 456,
@@ -43979,7 +43913,7 @@
    "fs": "16px",
    "d": "block"
   },
-  "ntgocParishLifeHero/div#5": {
+  "ntgocParishLifeHero/div#4": {
    "cls": "ntgoc-pl-eyebrow",
    "x": 12,
    "y": 456,
