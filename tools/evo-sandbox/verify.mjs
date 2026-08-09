@@ -52,6 +52,7 @@ const RESERVED = [
 
 let failures = 0;
 let checks = 0;
+let skipped = 0;
 
 const fail = (where, msg) => { failures++; console.error(`  FAIL  ${where}\n        ${msg}`); };
 const pass = () => { checks++; };
@@ -97,7 +98,16 @@ async function verifyInstance({ label, port }) {
     if (res.status !== 200) throw new Error(`HTTP ${res.status}`);
     manifest = JSON.parse(res.body);
   } catch (e) {
-    fail(label, `cannot read seed-manifest.json (${e.message}). Is the stack up and seeded?`);
+    // A stopped instance is a choice, not a failure. Once the parish's version
+    // is settled there is little reason to keep the other one running, and
+    // `docker compose stop evo35` should not turn this check red. A refused
+    // connection means "not running"; anything else means it is up and broken.
+    if (e.cause?.code === 'ECONNREFUSED' || e.message.includes('fetch failed')) {
+      console.log(`  SKIP  not running (${base}) — start it with \`npm run evo:up\``);
+      skipped++;
+      return;
+    }
+    fail(label, `is running but cannot serve seed-manifest.json (${e.message}). Re-run \`npm run evo:seed\`.`);
     return;
   }
 
@@ -148,5 +158,11 @@ for (const instance of INSTANCES) {
   await verifyInstance(instance);
 }
 
-console.log(`\n  ${checks} assertions passed, ${failures} failed\n`);
+const tail = skipped > 0 ? `, ${skipped} instance(s) skipped` : '';
+console.log(`\n  ${checks} assertions passed, ${failures} failed${tail}\n`);
+
+if (checks === 0 && failures === 0) {
+  console.error('  Nothing was verified — no instance was reachable. `npm run evo:up` first.\n');
+  process.exit(1);
+}
 process.exit(failures > 0 ? 1 : 0);

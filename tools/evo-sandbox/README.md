@@ -34,16 +34,19 @@ daemon — and nothing here is published.
 
 Each instance boots empty, installs itself with no web wizard, then seeds:
 
-- **58 chunks** in Elements → Chunks, one per `dist/chunks/*.html`
+- **every chunk** in `dist/chunks/*.html`, into Elements → Chunks
 - **one template**, `NTGOC Draft`, holding the `<head>`, the four shell chunks
   and `[*content*]`
-- **16 resources**, one per source page, each body a list of `{{chunkName}}`
-  calls
+- **one resource per source page**, each body a list of `{{chunkName}}` calls
+
+Counts are deliberately not written down here — the seeder reads whatever is in
+the repo, so a number in this file would only rot. It prints what it did, and
+`seed-manifest.json` records it.
 
 The page → chunk order is read from the `<!-- CHUNK:name -->` markers in the
 repo's source pages, not from IMPORT.md's table, so it cannot drift.
 
-**The internal links are resolved.** The chunks ship 60 links as
+**The internal links are resolved.** The chunks ship their internal links as
 `<a href="#" data-ntgoc-link="about">` placeholders and `_link-map.md` is a
 worksheet for filling them in by hand. The seeder knows each page's real
 resource id and rewrites them to `[~id~]`. The finished mapping is served at
@@ -53,7 +56,7 @@ is the point: the link map is per-installation, not a constant.
 
 ## What `npm run evo:verify` proves
 
-For all 16 pages on both versions:
+For every seeded page, on each running version:
 
 1. HTTP 200.
 2. No unresolved `{{ }}`, `[~ ~]`, `[* *]`, `[( )]`, `[[ ]]` or `[! !]` in the
@@ -64,7 +67,10 @@ For all 16 pages on both versions:
    in the rendered page.
 4. No `href="#"` placeholder left unresolved.
 
-At the time of writing that is 524 assertions, all passing.
+On 9 August 2026 that was 290 assertions across 17 pages and 73 chunks, all
+passing on 1.4.18. An instance that is not running is reported as skipped rather
+than failed, so stopping `evo35` once the parish's version is settled does not
+turn the check red.
 
 ## What it does not prove, and what you should do by hand
 
@@ -121,6 +127,13 @@ lose the same afternoon.
   and no log line, any request that arrives without an `Accept-Language` header.
   It is a crude bot guard, and every browser sends one. Add
   `-H 'Accept-Language: en'` when testing the manager from the command line.
+- **After a rebase or branch switch, re-create the containers.** Git replaces
+  the `dist/chunks` directory rather than editing it in place, which leaves the
+  bind mount pointing at an inode that no longer exists. The container then sees
+  an empty directory and the seeder aborts with "no chunks found" while the host
+  directory is plainly full. `npm run evo:up` passes `--force-recreate` for exactly this
+  reason, so re-running it fixes the mount; the named volumes persist, so
+  nothing is lost and nothing needs rebuilding.
 - **`ext-readline` is deliberately not built** into the 3.x image. On PHP 8.3 its
   configure insists on libedit, which then fails to compile. Nothing here needs
   it, and its absence turns a bad installer argument into an immediate error

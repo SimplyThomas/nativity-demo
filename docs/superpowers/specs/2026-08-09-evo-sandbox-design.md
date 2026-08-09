@@ -2,8 +2,9 @@
 
 **Date:** 2026-08-09
 **Branch:** `feat/evo-sandbox`
-**Status:** implemented and verified — 524 assertions passing on both versions
-from a cold boot. Findings marked **found during implementation** below correct
+**Status:** implemented and verified — 524 assertions on both versions from a
+cold boot on 2026-08-09, and 290 again after rebasing onto main's audience split
+(17 pages, 73 chunks), which the sandbox picked up with no changes. Findings marked **found during implementation** below correct
 what this document originally claimed.
 
 ## Why
@@ -145,7 +146,9 @@ verifier needs and which doubles as the filled-in `_link-map.md`.
 `npm run evo:verify` runs on the host and fetches every seeded page from both
 `:8014` and `:8035`, asserting:
 
-- **HTTP 200** on all 16 pages on both versions.
+- **HTTP 200** on every seeded page, on each running version. An instance that
+  is not running is skipped rather than failed, so stopping one once the parish's
+  version is settled does not turn the check red.
 - **No unresolved tags in the output.** A literal `{{`, `[~` or `[*` in rendered
   HTML means the parser did not consume it. This is the most valuable assertion,
   because it catches EVO silently eating markup — the failure mode CLAUDE.md
@@ -222,8 +225,8 @@ docs/superpowers/specs/2026-08-09-evo-sandbox-design.md
 New npm scripts: `evo:up`, `evo:down`, `evo:seed`, `evo:verify`, `evo:reset`,
 `evo:logs`.
 
-At the time of writing the verifier reports **524 assertions passed, 0 failed**,
-from a cold boot on empty volumes.
+The verifier reported **524 assertions passed, 0 failed** from a cold boot on
+empty volumes, and **290 passed, 0 failed** after the rebase onto main.
 
 `npm run check` is **not** modified. The sandbox must not become a CI
 dependency; CI has no Docker daemon.
