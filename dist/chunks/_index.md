@@ -8,7 +8,7 @@ match the filename exactly — that is how pages call it.
 
 | Done | Chunk | Size | Appears on | Has links to repoint |
 |:--:|---|---:|---:|:--:|
-| ☐ | `ntgocAboutClergy` | 2876 b | 1 page | yes (1) |
+| ☐ | `ntgocAboutClergy` | 2871 b | 1 page | yes (1) |
 | ☐ | `ntgocAboutHero` | 473 b | 1 page | — |
 | ☐ | `ntgocAboutParishCouncil` | 5511 b | 1 page | yes (2) |
 | ☐ | `ntgocBookstoreCatalog` | 14640 b | 1 page | — |
@@ -20,7 +20,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocCalendarHero` | 883 b | 1 page | — |
 | ☐ | `ntgocCommitteesHero` | 528 b | 1 page | — |
 | ☐ | `ntgocCommitteesList` | 3822 b | 1 page | yes (1) |
-| ☐ | `ntgocContactCard` | 3029 b | 1 page | — |
+| ☐ | `ntgocContactCard` | 3024 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 454 b | 1 page | — |
 | ☐ | `ntgocDraftBanner` | 488 b | 17 pages | — |
 | ☐ | `ntgocEventsHero` | 683 b | 1 page | — |
@@ -33,17 +33,16 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFestivalHero` | 647 b | 1 page | — |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 2018 b | 1 page | — |
-| ☐ | `ntgocHallRental` | 1933 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeFestivalPromo` | 3609 b | 1 page | yes (3) |
+| ☐ | `ntgocHallRental` | 1928 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeFestivalPromo` | 3578 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1202 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
-| ☐ | `ntgocHomeServiceTimes` | 1467 b | 1 page | — |
+| ☐ | `ntgocHomeServiceTimes` | 1739 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeUpcomingServices` | 3737 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3203 b | 1 page | — |
 | ☐ | `ntgocMinistriesHero` | 597 b | 1 page | — |
-| ☐ | `ntgocMobileViews` | 4551 b | 1 page | — |
 | ☐ | `ntgocNewsletterArchive` | 1898 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |
 | ☐ | `ntgocParishAnnouncements` | 2651 b | 1 page | — |
@@ -66,22 +65,32 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3822 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3464 b | 17 pages | yes (14) |
-| ☐ | `ntgocSiteHeader` | 2837 b | 17 pages | yes (16) |
-| ☐ | `ntgocTopBar` | 373 b | 17 pages | yes (1) |
+| ☐ | `ntgocSiteFooter` | 3575 b | 17 pages | yes (15) |
+| ☐ | `ntgocSiteHeader` | 5393 b | 17 pages | yes (30) |
+| ☐ | `ntgocTopBar` | 208 b | 17 pages | — |
 | ☐ | `ntgocVisitorChildren` | 2573 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1856 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorEssentials` | 1144 b | 1 page | — |
 | ☐ | `ntgocVisitorFirstSunday` | 8036 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorGreeters` | 3379 b | 1 page | — |
 | ☐ | `ntgocVisitorHero` | 1127 b | 1 page | yes (2) |
-| ☐ | `ntgocVisitorLanguage` | 6775 b | 1 page | — |
+| ☐ | `ntgocVisitorLanguage` | 6753 b | 1 page | — |
 | ☐ | `ntgocVisitorNextSteps` | 5187 b | 1 page | yes (4) |
 | ☐ | `ntgocVisitorStageBefore` | 370 b | 1 page | — |
-| ☐ | `ntgocVisitorVideos` | 3729 b | 1 page | — |
+| ☐ | `ntgocVisitorVideos` | 3707 b | 1 page | — |
 | ☐ | `ntgocVisitorWelcome` | 878 b | 1 page | — |
-| ☐ | `ntgocVisitorWhatToBring` | 1943 b | 1 page | — |
-| ☐ | `ntgocVisitorWhatToWear` | 2021 b | 1 page | — |
+| ☐ | `ntgocVisitorWhatToBring` | 1921 b | 1 page | — |
+| ☐ | `ntgocVisitorWhatToWear` | 1999 b | 1 page | — |
 | ☐ | `ntgocVisitorWhenYouArrive` | 2392 b | 1 page | — |
+| ☐ | `ntgocWelcomeAsk` | 4119 b | 1 page | — |
+| ☐ | `ntgocWelcomeClosing` | 833 b | 1 page | yes (2) |
+| ☐ | `ntgocWelcomeConnected` | 4278 b | 1 page | yes (4) |
+| ☐ | `ntgocWelcomeExperience` | 24977 b | 1 page | yes (6) |
+| ☐ | `ntgocWelcomeHero` | 697 b | 1 page | — |
+| ☐ | `ntgocWelcomeIntro` | 531 b | 1 page | — |
+| ☐ | `ntgocWelcomeLearn` | 5749 b | 1 page | yes (1) |
+| ☐ | `ntgocWelcomeNav` | 750 b | 1 page | — |
+| ☐ | `ntgocWelcomeStay` | 1602 b | 1 page | — |
+| ☐ | `ntgocWelcomeSurvey` | 9939 b | 1 page | — |
 
 See `_link-map.md` for the links, and `_components.evo.css` for the stylesheet.

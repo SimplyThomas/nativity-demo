@@ -102,15 +102,15 @@ Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
 all the HTML here. Edit them **once, in one page**, then propagate:
 
 ```sh
-npm run shell                      # from index.html to the other fourteen
+npm run shell                      # from index.html to the other sixteen
 npm run shell -- --from visit.html # if you edited the shell there instead
 npm run shell -- --check           # report drift, change nothing (CI runs this)
 ```
 
 It handles the one thing you cannot copy verbatim: `aria-current="page"` marks
 the link to the page you are on, so it is stripped from the source and
-re-applied per page. Do not hand-copy the shell between files — CI fails if
-fourteen pages agree and one does not.
+re-applied per page. Do not hand-copy the shell between files — CI fails the
+moment one page disagrees with the rest.
 
 ### Naming CSS classes
 
