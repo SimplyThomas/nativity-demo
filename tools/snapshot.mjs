@@ -114,12 +114,47 @@ const browser = await puppeteer.launch({
 const snap = (n) => Math.round(n / TOLERANCE) * TOLERANCE;
 const snapshot = {};
 
+/* Newsreader and Karla come from Google Fonts with `display=swap`, and awaiting
+   `document.fonts.ready` alone is not enough to know they arrived: it resolves
+   for the fonts loading at that moment, and a swap font that has not been
+   requested yet leaves it resolving early against the fallback. The page then
+   reflows once the real face lands.
+
+   That made this tool non-deterministic in exactly the way that matters. A
+   headline set in fallback Times measures 492px where Newsreader measures 564,
+   so a run that lost the race recorded fallback metrics into the baseline and
+   every later run reported ~1700 spurious changes across pages nobody had
+   touched. Both states are self-consistent, so re-running looked like the
+   answer flapping at random rather than a font problem.
+
+   Ask the font set directly instead, and fail loudly rather than silently
+   baselining the wrong thing. */
+const FACES = ['300 54px Newsreader', '400 17px Karla'];
+async function waitForWebfonts(page, file) {
+  const ok = await page.evaluate(async (faces) => {
+    await document.fonts.ready;
+    const deadline = Date.now() + 10000;
+    while (Date.now() < deadline) {
+      if (faces.every(f => document.fonts.check(f))) return true;
+      await new Promise(r => setTimeout(r, 50));
+    }
+    return faces.every(f => document.fonts.check(f));
+  }, FACES);
+  if (!ok) {
+    console.error(`\n  ✗ webfonts never loaded for ${file}.`);
+    console.error('    Every measurement would be fallback metrics. Refusing to');
+    console.error('    record or compare a baseline against the wrong fonts.\n');
+    await browser.close();
+    process.exit(2);
+  }
+}
+
 for (const vp of VIEWPORTS) {
   for (const file of PAGES) {
     const page = await browser.newPage();
     await page.setViewport({ width: vp.width, height: vp.height });
     await page.goto(`file://${ROOT}/${file}`, { waitUntil: 'networkidle0', timeout: 45000 });
-    await page.evaluate(() => (document.fonts ? document.fonts.ready : null));
+    await waitForWebfonts(page, file);
     const els = await page.evaluate(collect);
     snapshot[`${file}@${vp.name}`] = Object.fromEntries(els.map(e => [e.k, {
       cls: e.cls,                                  // recorded, never compared
