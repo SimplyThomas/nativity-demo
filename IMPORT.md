@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 72 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 82 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -231,6 +231,7 @@ Then the page content, grouped by page:
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
+| **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
@@ -241,6 +242,38 @@ Then the page content, grouped by page:
 | **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` — *nothing links to this page, see below* |
 | **Hall Rental** | `ntgocHallRental` |
 | **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
+| **Welcome** *(the QR-code page)* | `ntgocWelcomeHero`, `ntgocWelcomeIntro`, `ntgocWelcomeNav`, `ntgocWelcomeExperience`, `ntgocWelcomeAsk`, `ntgocWelcomeSurvey`, `ntgocWelcomeLearn`, `ntgocWelcomeConnected`, `ntgocWelcomeStay`, `ntgocWelcomeClosing` — *three of these contain forms with no handler; see Step 6a* |
+
+> **`ntgocWelcomeNav` has to be a direct child of the page's main content area**,
+> in the position shown — not nested inside another block. It is the sticky
+> section switcher, and a sticky element only sticks within its own parent: drop
+> it one level deeper and it stops following the reader after two swipes, which
+> is the entire reason it exists. Nothing will look broken, so nothing will tell
+> you. Scroll the page once after importing it.
+
+> **For Our Parish is the one page that goes stale on its own.** Two of its
+> chunks — `ntgocParishWeek` and `ntgocParishAnnouncements`
+> — are rendered from `data/parish-calendar.json` and
+> `data/parish-announcements.json` by `npm run parish`. In this repo that means
+> one place to edit. Once the page is in Evolution CMS there is no build step,
+> so the parish has to decide which of these it wants:
+>
+> 1. **Edit the chunk in the EVO manager.** No tooling, but the announcement
+>    markup has to be copied by hand each time, and the week list is only as
+>    right as whoever last retyped it. This is what most parishes end up doing.
+> 2. **Keep editing the JSON here, run `npm run parish`, and paste the two
+>    chunks in again.** Correct by construction, but it needs somebody who can
+>    run a command.
+> 3. **Replace them with an EVO snippet** that reads the parish calendar
+>    directly. The right answer long-term, and the one to ask the Department of
+>    Internet Ministries about — see the questions at the foot of this file.
+>    Note that a snippet call is written `[[snippetName]]`, which is exactly the
+>    sequence nothing in this repo is allowed to contain, so it has to be added
+>    in the manager after import, never pasted in from here.
+>
+> Until one of those is chosen, the page carries an "as of" line saying which
+> date its list was built from, and its JavaScript hides days and announcements
+> that have gone past. It ages honestly rather than lying quietly.
 
 > **Nothing links to the Greek Festival *page* any more** — the "Greek Festival"
 > entries in the Events menu and on the Events page both go to fredgreek.org,
@@ -355,6 +388,15 @@ resource tree) and replace the placeholder with EVO's link syntax:
 <a href="[~12~]">Plan your first visit</a>
 ```
 
+A link into a *section* of another page keeps its anchor, so the placeholder
+looks like this and the fragment goes back on the end of the EVO link:
+
+```html
+<a href="#ntgoc-children" data-ntgoc-link="parish-life">Children in parish life</a>
+<!-- becomes -->
+<a href="[~18~]#ntgoc-children">Children in parish life</a>
+```
+
 **`dist/chunks/_link-map.md` is the worksheet for this step.** It lists every
 page whose resource id you need, then every chunk containing a link and what it
 points at, with a tick box per chunk. `dist/chunks/_index.md` is the same idea
@@ -363,34 +405,66 @@ through the markup. External links (the
 Archdiocese, Square giving, the Google registration form, fredgreek.org) are real
 URLs already and need no change.
 
-### Step 6a — Wire up the contact form (needed)
+### Step 6a — Wire up the forms (needed)
 
-`ntgocContactCard` contains a real, fully labelled `<form>`, but it has **no
-backend**. In the draft it says so plainly and offers an email and phone
-fallback instead of pretending to work.
+There are **four** forms in these chunks and **none of them has a backend**. Each
+one says so on the page and offers a route that works instead of pretending.
 
-Before this page goes live, either:
+| Chunk | Form | What it would need |
+|---|---|---|
+| `ntgocContactCard` | Send a message | A mail handler |
+| `ntgocWelcomeAsk` | Ask your question | A mail handler, and someone who answers |
+| `ntgocWelcomeSurvey` | Visitor survey | Somewhere for answers to go, and someone who reads them |
+| `ntgocWelcomeConnected` | Join the parish email list | An email list, which the parish does not have |
 
-- point the form at whatever mail handler DIM provides (ask them — this is
-  question 3 in the list below), **or**
-- delete the form from the chunk and keep only the email and telephone links.
+Before any of these pages goes live, for **each** form either:
 
-Do not leave it as-is on a live parish site: a form that silently discards a
+- point it at whatever mail handler DIM provides (ask them — this is question 3
+  in the list below), **or**
+- delete the form from the chunk and keep only the email and telephone links
+  printed beside it.
+
+Do not leave one as-is on a live parish site: a form that silently discards a
 visitor's message is worse than no form at all.
+
+Three further things about the Welcome forms specifically:
+
+- **Keep them separate.** Asking a question and answering the survey must never
+  add anyone to the mailing list. That is why they are three `<form>` elements
+  with three buttons, and why the only consent tick on the page is on the list
+  form. If you merge them for convenience, you have changed what the visitor
+  agreed to.
+- **The survey can be answered anonymously**, and is only worth having if it
+  stays that way. It asks for a name and an email at the end, and only if the
+  visitor asks to be contacted.
+- **The survey's field names are the answer keys.** `firstVisit`, `greeted`,
+  `foundBook`, `comfortableAsking`, `knewCoffeeHour`, `introduced`, and the three
+  written answers. Whatever form tool is chosen, keep these names: they are what
+  a later summary — how many visitors were greeted, how many found a service
+  book — would be counted under.
 
 ### Step 6 — The JavaScript (optional)
 
-One file: `assets/js/ntgoc-enhance.js`. It does two things — filters the
-bookstore catalogue by category, and advances the home page's festival cards on
-their own.
+One file: `assets/js/ntgoc-enhance.js`. It does four things — filters the
+bookstore catalogue by category, advances the home page's festival cards on
+their own, drops days and notices that have already passed on For Our Parish,
+and handles the three Welcome forms.
 
 **It is optional.** With JavaScript off, every bookstore item is already visible
 and the category buttons simply do nothing; the festival carousel keeps working
 too, because its dots are ordinary links to each card and the strip scrolls by
 trackpad, drag or arrow key. All the script adds there is the automatic
 advance, the filled dot showing which card you are on, and the Pause button —
-which stays hidden without it, since there would be nothing to pause. Nothing
-on the site *needs* JavaScript. If in doubt, skip it.
+which stays hidden without it, since there would be nothing to pause. For Our
+Parish shows exactly what it showed when it was last built, which the page
+states in words. The Welcome forms stay complete and labelled; the panel asking
+for contact details is simply visible from the start rather than appearing when
+it becomes relevant. Nothing on the site *needs* JavaScript. If in doubt, skip
+it.
+
+Note that the Welcome form script deliberately **does not send anything** — it
+intercepts the submit and shows the reply a visitor would get. Once a real
+handler exists (Step 6a), that interception is the part to remove.
 
 If you do take it, the autoplay is built to the accessibility rule that matters
 here (WCAG 2.2.2): it stops on hover, on keyboard focus, while the tab is in the
@@ -479,6 +553,59 @@ voice. None of it can be checked against a source; Father has to read it.
   plain `youtube-nocookie.com/embed/<id>` URLs. Each unconfirmed one carries a
   `<!-- TODO: verify -->` marker — delete the marker once somebody has actually
   watched that video.
+
+### Still unresolved — the Welcome page
+
+`welcome.html` is written as the page a QR code on the *Understanding the Divine
+Liturgy* pew card and in the Welcome Packet would lead to. It is a proposal in
+the same sense the visitor follow-up block on the Visit page is: nothing on it
+exists today.
+
+- **The pew card and the Welcome Packet.** Neither has been seen by this
+  project, and no wording from the printed card has been reproduced. Confirm
+  they exist, confirm a QR code is wanted on them, and decide what the URL
+  should be before anything is printed.
+- **"Understanding the Divine Liturgy".** The card of that name has no page on
+  this site. Its entry links to the Visit page's *Sunday morning, step by step*
+  — the nearest thing that does exist. Decide whether it should become a page of
+  its own, and whether the printed card's text may be reused for it.
+- **The explanations themselves.** Each question carries two or three sentences
+  of plain Church teaching, written short on purpose. None of it is presented as
+  a parish statement, and the deeper reading each one links to is either the
+  parish's own Our Faith pages or the Archdiocese. Father should read the
+  nineteen answers; several touch on why a visitor may not receive Communion,
+  which is the one thing on the page it would be worst to get slightly wrong.
+
+  They were checked against Archdiocese sources on 2026-08-10 and four were
+  corrected: the Divine Liturgy is no longer described as having been prayed in
+  its present form for sixteen centuries (the Archdiocese's own account is that
+  its core is apostolic and its framework settled by about the ninth century);
+  the congregation is no longer said to stand through the consecration, since
+  kneeling there is expressly permitted; the iconostasis now names the icons in
+  the order the Archdiocese gives them; and "the shortest prayer the Church
+  prays" became "among the shortest", which is what can be supported.
+- **Five links to goarch.org** — the Kyrie Eleison article, the Nativity of the
+  Theotokos, fasting, and the Archdiocese's visitor guide. Each was found by
+  search rather than by clicking, and **`npm run links` cannot check them**:
+  goarch.org returns 403 to any automated request, which is why the existing
+  goarch.org links have always reported as unverifiable too. Open each one by
+  hand before this goes live. Each carries a `<!-- TODO: verify -->` marker
+  saying exactly this.
+- **Fasting** links to an Archdiocese article, not to parish guidance. How a
+  fast is actually kept is settled with a priest, and the card says so. Confirm
+  Father is content with that as a starting point.
+- **Children's activity boxes** outside the parish bookstore. Reported by a
+  parishioner, not confirmed by the office. Flagged.
+- **Touching the priest's vestment at the Great Entrance.** The practice is well
+  attested and other Archdiocese parishes describe it in the same words, down to
+  the etiquette — reach, but do not tug, do not step into the procession, do not
+  move anyone aside. It is expressly *not* universal, though: it varies parish by
+  parish. The card is written conditionally ("if you saw this") for that reason.
+  Confirm it is the habit here.
+- **Where the page belongs.** It is linked from the footer as *After your
+  visit*, and from nowhere else — it is not in the main navigation, on the
+  assumption that people reach it by scanning rather than by browsing. If the
+  Council wants it discoverable, it needs a home in the navigation too.
 
 ### Removed, and not said anywhere else
 
@@ -587,11 +714,12 @@ so the next person knows those files are **generated from the pages** and must
 never be edited directly.
 
 ```sh
-npm run chunks   # the 15 HTML pages -> dist/chunks/
+npm run parish   # calendar + announcements JSON -> the BUILD blocks (three pages)
+npm run chunks   # the 17 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The sixteen `.html` files at the repo root are the source and are edited by hand.
+The seventeen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 every page from the old design file. See `CONTRIBUTING.md`.

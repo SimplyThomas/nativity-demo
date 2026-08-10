@@ -75,6 +75,15 @@
    ------------------------------------------------------------------ */
 .ntgoc-inherit { color: inherit; }
 
+/* The page measure and the page gutter. Both classes were carried on every
+   section in the markup but only ever declared inside the media queries at the
+   foot of this file — so at desktop width they did nothing, and all twenty
+   -shell rules re-declared the same max-width, centring and 40px side padding
+   for themselves. Declared once here, the -shell rules keep only what actually
+   differs between sections: their vertical rhythm. */
+.ntgoc-shell { max-width: 1240px; margin: 0 auto; }
+.ntgoc-gutter { padding-left: 40px; padding-right: 40px; }
+
 /* --- links inside running text --------------------------------------
    The design removes underlines everywhere. Inside a paragraph that leaves
    colour as the only signal that a word is a link, which fails for anyone who
@@ -87,8 +96,12 @@
 .ntgoc-linked-text a,
 .ntgoc-parish-text a,
 .ntgoc-proposal__text a,
+.ntgoc-proposal__note a,
 .ntgoc-members__text a,
 .ntgoc-step-note a,
+.ntgoc-welcome-intro__text a,
+.ntgoc-welcome-hint a,
+.ntgoc-question__preview a,
 .ntgoc-prose a {
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -180,7 +193,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    -------------------------------------------------------------------- */
 .ntgoc-accordion-section { border-top: 1px solid #ded2be; }
 .ntgoc-accordion-section:last-of-type { border-bottom: 1px solid #ded2be; }
-.ntgoc-accordion-shell { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 
 .ntgoc-accordion__summary {
   list-style: none;
@@ -260,10 +272,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 
 /* --- generated component rules (437 rules) --------------------- */
-.ntgoc-topbar-row { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:0 40px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
+.ntgoc-topbar-row { display:flex; justify-content:space-between; align-items:center; gap:24px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
 .ntgoc-topbar-metropolis { opacity:.75; }
 .ntgoc-header { position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be; }
-.ntgoc-header-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; padding:0 40px; height:84px; max-width:1440px; margin:0 auto; }
+.ntgoc-header-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; height:84px; max-width:1440px; }
 .ntgoc-logo { display:flex; align-items:center; gap:16px; }
 /* The Archdiocese seal, from the live parish site. The 196px favicon art is
    used here rather than the full logo: the ring text on the full logo is
@@ -376,7 +388,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-page-hero__action--secondary { border:1px solid rgba(232,217,196,.5); color:#f0e6d6; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-page-hero__action--secondary:hover, .ntgoc-page-hero__action--secondary:focus-visible { border-color:#e0b673; color:#e0b673; }
 .ntgoc-home-service-times-on-brick { background:#7d2b2b; color:#f6ece0; }
-.ntgoc-home-service-times-shell { max-width:1240px; margin:0 auto; padding:0 40px; }
 .ntgoc-home-service-times-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:rgba(246,241,232,.18); }
 .ntgoc-home-service-times-card { background:#7d2b2b; padding:30px 28px; }
 .ntgoc-home-service-times-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:10px; }
@@ -389,7 +400,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-service-times-actions { display:none; gap:10px; margin-top:16px; }
 .ntgoc-home-service-times-action { display:block; flex:1; padding:13px 10px; border:1px solid rgba(246,241,232,.4); text-align:center; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
 .ntgoc-home-service-times-action:hover, .ntgoc-home-service-times-action:focus-visible { border-color:#e6b96a; color:#e6b96a; }
-.ntgoc-home-welcome-shell { max-width:1240px; margin:0 auto; padding:104px 40px 88px; }
+.ntgoc-home-welcome-shell { padding-top:104px; padding-bottom:88px; }
 .ntgoc-home-welcome-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:88px; align-items:start; }
 .ntgoc-home-welcome-micro-caps { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:26px; }
 .ntgoc-home-welcome-quote { font-family:Newsreader, serif; font-size:34px; line-height:1.34; font-weight:300; font-style:italic; color:#3a1414; margin:0 0 22px; text-wrap:pretty; }
@@ -401,13 +412,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-welcome-link { font-size:13.5px; letter-spacing:.06em; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
 .ntgoc-home-welcome-link:hover, .ntgoc-home-welcome-link:focus-visible { border-color:#7d2b2b; }
 .ntgoc-band { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
-.ntgoc-visitor-directions-shell { max-width:1240px; margin:0 auto; padding:88px 40px; }
+.ntgoc-visitor-directions-shell { padding-top:88px; padding-bottom:88px; }
 .ntgoc-festival-details-eyebrow,
 .ntgoc-announce__kind { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:12px; }
 .ntgoc-step-heading { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 14px; color:#3a1414; }
 .ntgoc-body { font-size:15px; line-height:1.7; color:#5b5449; margin:0; }
 .ntgoc-newsletter-archive-row { display:flex; gap:12px; flex-wrap:wrap; }
-.ntgoc-home-upcoming-services-shell { max-width:1240px; margin:0 auto; padding:96px 40px; }
+.ntgoc-home-upcoming-services-shell { padding-top:96px; padding-bottom:96px; }
 .ntgoc-home-upcoming-services-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-home-upcoming-services-heading { font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0 0 8px; color:#3a1414; }
 .ntgoc-home-upcoming-services-small-grey-2 { font-size:13px; color:#6c6458; margin-bottom:36px; }
@@ -455,7 +466,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-ministries-promo-link:hover, .ntgoc-home-ministries-promo-link:focus-visible { background:#fbf8f2; }
 .ntgoc-h3-sm { font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414; }
 .ntgoc-footer { background:#3a1414; color:#e0d3bd; }
-.ntgoc-footer-inner { max-width:1240px; margin:0 auto; padding:70px 40px 34px; }
+.ntgoc-footer-inner { padding-top:70px; padding-bottom:34px; }
 .ntgoc-footer-grid { display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-footer-title { font-family:Newsreader, serif; font-size:22px; color:#faf5ec; line-height:1.3; margin-bottom:14px; }
 .ntgoc-footer-address { font-size:15px; line-height:1.7; opacity:.8; }
@@ -543,12 +554,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-directions-eyebrow { display:inline-block; margin-top:32px; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-visitor-directions-eyebrow:hover, .ntgoc-visitor-directions-eyebrow:focus-visible { background:#5e1f1f; }
 .ntgoc-visitor-directions-media { height:400px; border:1px solid #ded2be; background-color:#e6ddcd; background-image:url('../img/directions-map.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; }
-.ntgoc-faith-intro-shell { max-width:1240px; margin:0 auto; padding:84px 40px 60px; }
+.ntgoc-faith-intro-shell { padding-top:84px; padding-bottom:60px; }
 .ntgoc-faith-intro-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-faith-intro-text { font-family:Newsreader, serif; font-size:27px; line-height:1.5; font-weight:300; color:#3a1414; margin:0; text-wrap:pretty; }
 .ntgoc-about-clergy-body-muted { font-size:16.5px; line-height:1.75; color:#5b5449; }
 .ntgoc-about-clergy-text { margin:0 0 18px; text-wrap:pretty; }
-.ntgoc-events-list-shell { max-width:1240px; margin:0 auto; padding:20px 40px 96px; }
+.ntgoc-events-list-shell { padding-top:20px; padding-bottom:96px; }
 /* On Events the same block sits directly under the photograph hero, with no
    intro section between, so it needs the full gap the other pages use. */
 .ntgoc-events-list-shell--under-hero { padding-top: 84px; }
@@ -557,7 +568,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-h3 { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414; }
 .ntgoc-bookstore-notes-rule { background:#ece3d5; border-top:1px solid #ded2be; }
 .ntgoc-faith-watch-read-shell,
-.ntgoc-parish-section { max-width:1240px; margin:0 auto; padding:76px 40px; }
+.ntgoc-parish-section { padding-top:76px; padding-bottom:76px; }
 .ntgoc-faith-watch-read-heading { font-family:Newsreader, serif; font-weight:400; font-size:34px; margin:0 0 34px; color:#3a1414; }
 .ntgoc-faith-watch-read-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:26px; }
 .ntgoc-faith-watch-read-link { display:block; border:1px solid #ded2be; background:#f6f1e8; }
@@ -574,13 +585,23 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-calendar-hero-eyebrow:hover, .ntgoc-calendar-hero-eyebrow:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-calendar-hero-small-caps { cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
 .ntgoc-calendar-hero-small-caps:hover, .ntgoc-calendar-hero-small-caps:focus-visible { background:#5e1f1f; }
-.ntgoc-calendar-grid-shell { max-width:1240px; margin:0 auto; padding:70px 40px 96px; }
+.ntgoc-calendar-grid-shell { padding-top:70px; padding-bottom:96px; }
 .ntgoc-calendar-grid-grid-4 { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:70px; align-items:start; }
 .ntgoc-calendar-grid-grid-ruled { display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:1px; background:#ded2be; border:1px solid #ded2be; }
 .ntgoc-calendar-weekday { background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; text-align:center; }
 .ntgoc-calendar-day { background:#f6f1e8; min-height:104px; padding:9px 10px; min-width:0; overflow:hidden; }
 .ntgoc-calendar-daynum { font-size:13px; color:#6c6458; margin-bottom:6px; }
 .ntgoc-calendar-event { background:#f2e5dd; border-left:2px solid #7d2b2b; padding:5px 7px; font-size:11.5px; line-height:1.35; color:#5e1f1f; }
+/* A day can hold more than one entry now that Sunday shows both Orthros and the
+   Liturgy, so they need separating. */
+.ntgoc-calendar-day__events { display:grid; gap:4px; }
+/* Divine service or other parish activity. Styled off the data attribute the
+   build writes, rather than a modifier class, so adding the parish's first
+   meeting or class to data/parish-calendar.json needs no CSS at all. In the
+   grid the colour is a hint; the week list on for-our-parish.html carries the
+   written label, and a parish entry here also announces itself to a screen
+   reader, so nothing is said by colour alone. */
+.ntgoc-calendar-event[data-ntgoc-kind="parish"] { background:#f3ecdc; border-left-color:#b08442; color:#5d4a20; }
 .ntgoc-calendar-grid-micro-caps { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:18px; }
 .ntgoc-calendar-grid-grid { display:grid; gap:0; border-top:1px solid #ded2be; }
 .ntgoc-calendar-grid-rule { padding:16px 0; border-bottom:1px solid #ded2be; }
@@ -590,10 +611,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-calendar-grid-lede-ink { font-family:Newsreader, serif; font-size:20px; color:#3a1414; margin-bottom:10px; }
 .ntgoc-calendar-grid-small-muted { font-size:14.5px; line-height:1.65; color:#5b5449; margin:0 0 14px; }
 .ntgoc-calendar-grid-body-brick { font-size:15px; color:#7d2b2b; }
-.ntgoc-bookstore-hero-shell { max-width:1240px; margin:0 auto; padding:76px 40px 66px; }
+.ntgoc-bookstore-hero-shell { padding-top:76px; padding-bottom:66px; }
 .ntgoc-bookstore-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0 0 20px; color:#3a1414; max-width:18ch; }
 .ntgoc-committees-hero-text { font-size:17.5px; line-height:1.7; color:#4a443c; margin:0; max-width:640px; text-wrap:pretty; }
-.ntgoc-committees-list-shell { max-width:1240px; margin:0 auto; padding:80px 40px 96px; }
+.ntgoc-committees-list-shell { padding-top:80px; padding-bottom:96px; }
 .ntgoc-ministries-grid-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; }
 .ntgoc-card-lg { background:#f6f1e8; padding:40px 32px; }
 .ntgoc-ministry-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
@@ -601,7 +622,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-ministries-grid-row { background:#ece3d5; padding:40px 32px; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-ministries-grid-small-caps { align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-ministries-grid-small-caps:hover, .ntgoc-ministries-grid-small-caps:focus-visible { background:#5e1f1f; }
-.ntgoc-about-clergy-shell { max-width:1240px; margin:0 auto; padding:84px 40px 90px; }
+.ntgoc-section-shell { padding-top:84px; padding-bottom:90px; }
 .ntgoc-about-clergy-media { height:420px; background-image:url('../img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-about-clergy-box { margin-top:22px; }
 .ntgoc-about-clergy-lede { font-family:Newsreader, serif; font-size:24px; color:#3a1414; line-height:1.25; }
@@ -613,7 +634,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-clergy-display { font-family:Newsreader, serif; font-size:30px; color:#7d2b2b; }
 .ntgoc-about-clergy-small-grey { font-size:13.5px; color:#6c6458; margin-top:6px; }
 .ntgoc-about-clergy-small-italic { font-size:12.5px; color:#6d6358; margin-top:14px; font-style:italic; }
-.ntgoc-about-parish-council-shell { max-width:1240px; margin:0 auto; padding:80px 40px; }
+.ntgoc-about-parish-council-shell { padding-top:80px; padding-bottom:80px; }
 .ntgoc-about-parish-council-box-3 { max-width:70ch; margin-bottom:50px; }
 .ntgoc-about-parish-council-display-ink { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.12; margin:0 0 20px; color:#3a1414; }
 .ntgoc-about-parish-council-body-loose { font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
@@ -631,10 +652,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-committee-name { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414; }
 .ntgoc-committee-leads { font-size:14px; color:#6c6458; }
 .ntgoc-committee-text { font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
-.ntgoc-give-projects-shell { max-width:1240px; margin:0 auto; padding:70px 40px; }
+.ntgoc-give-projects-shell { padding-top:70px; padding-bottom:70px; }
 .ntgoc-newsletter-archive-heading { font-family:Newsreader, serif; font-weight:400; font-size:32px; margin:0 0 30px; color:#3a1414; }
 .ntgoc-newsletter-archive-link { border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449; }
-.ntgoc-give-ways-shell { max-width:1240px; margin:0 auto; padding:84px 40px 70px; }
+.ntgoc-give-ways-shell { padding-top:84px; padding-bottom:70px; }
 .ntgoc-give-ways-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; align-items:start; }
 .ntgoc-give-ways-title { font-family:Newsreader, serif; font-weight:300; font-size:50px; line-height:1.12; margin:0 0 24px; color:#3a1414; }
 .ntgoc-give-ways-body-muted { font-size:17px; line-height:1.75; color:#5b5449; margin:0 0 18px; text-wrap:pretty; }
@@ -650,7 +671,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-give-projects-grid { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:60px; align-items:center; }
 .ntgoc-give-projects-text { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
 .ntgoc-give-projects-media { display:block; height:180px; background-image:url('../img/give-building-projects.png'); background-size:cover; background-position:center; border:1px solid #ded2be; background-color:#e6ddcd; }
-.ntgoc-contact-card-shell { max-width:1240px; margin:0 auto; padding:84px 40px 90px; }
 .ntgoc-contact-card-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:80px; align-items:start; }
 .ntgoc-contact-card-grid-ruled { display:grid; gap:26px; border-top:1px solid #ded2be; padding-top:28px; }
 .ntgoc-contact-card-micro-caps { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7f5f30; margin-bottom:8px; }
@@ -670,7 +690,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-contact-card-body-ruled { border:1px solid #d5c8b1; background:#f6f1e8; height:130px; width:100%; padding:12px 14px; font-family:inherit; font-size:15px; color:#5b5449; resize:vertical; }
 .ntgoc-contact-card-button { background:#7d2b2b; color:#f6f1e8; padding:16px; text-align:center; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; border:0; font-family:inherit; }
 .ntgoc-contact-card-button:hover, .ntgoc-contact-card-button:focus-visible { background:#5e1f1f; }
-.ntgoc-festival-details-shell { max-width:1240px; margin:0 auto; padding:84px 40px; }
+.ntgoc-festival-details-shell { padding-top:84px; padding-bottom:84px; }
 .ntgoc-festival-details-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-bottom:60px; }
 .ntgoc-festival-details-card { background:#f6f1e8; padding:34px 28px; }
 .ntgoc-body-lg { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0; }
@@ -695,7 +715,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-bookstore-hero-text { font-size:17.5px; line-height:1.7; color:#4a443c; margin:0; max-width:620px; text-wrap:pretty; }
 .ntgoc-bookstore-hero-card { border:1px solid #ccbda4; background:#fbf8f2; padding:28px 26px; }
 .ntgoc-bookstore-hero-small-grid { display:grid; gap:12px; font-size:14.5px; line-height:1.6; color:#5b5449; }
-.ntgoc-bookstore-catalog-shell { max-width:1240px; margin:0 auto; padding:56px 40px 96px; }
+.ntgoc-bookstore-catalog-shell { padding-top:56px; padding-bottom:96px; }
 .ntgoc-bookstore-catalog-row-3 { display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:40px; }
 .ntgoc-bookstore-catalog-row { display:flex; gap:10px; flex-wrap:wrap; }
 .ntgoc-bookstore-catalog-button-small-caps { cursor:pointer; white-space:nowrap; padding:11px 20px; border:1px solid #7d2b2b; background:#7d2b2b; color:#f6f1e8; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
@@ -714,7 +734,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-book-reserve { cursor:pointer; margin-top:16px; border:1px solid #ccbda4; padding:12px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#5b5449; }
 .ntgoc-book-reserve:hover, .ntgoc-book-reserve:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-bookstore-catalog-text { font-size:12.5px; color:#6d6358; margin-top:20px; font-style:italic; }
-.ntgoc-bookstore-notes-shell { max-width:1240px; margin:0 auto; padding:74px 40px; }
+.ntgoc-bookstore-notes-shell { padding-top:74px; padding-bottom:74px; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-bookstore-notes-link { color:#7d2b2b; border-bottom:1px solid #d9c6a8; }
 
@@ -799,7 +819,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    photograph, one link. A parishioner is looking for it; a first-time
    visitor should be able to scroll past it without being recruited.
    ------------------------------------------------------------------ */
-.ntgoc-members-shell { max-width:1240px; margin:0 auto; padding:64px 40px; }
+.ntgoc-members-shell { padding-top:64px; padding-bottom:64px; }
 .ntgoc-members { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:56px; align-items:start; }
 .ntgoc-members__heading { font-family:Newsreader, serif; font-weight:400; font-size:34px; line-height:1.15; margin:0 0 10px; color:#3a1414; }
 .ntgoc-members__lede { font-family:Newsreader, serif; font-style:italic; font-size:20px; line-height:1.5; color:#6c6458; margin:0; }
@@ -888,7 +908,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    proposed, and inventing three fake notices would be the one thing on this
    page a parishioner could catch out. --urgent is the variant the parish
    would use for a closure or a schedule change. */
-.ntgoc-announce { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; background:#ded2be; border:1px solid #ded2be; }
+/* auto-fit, not repeat(3): the cards are rendered from
+   data/parish-announcements.json now, so there may be one of them or seven.
+   A fixed three-column track leaves the container's hairline colour showing
+   through as a bare grey block wherever a card is missing. auto-fit collapses
+   the empty tracks instead, so two announcements fill the row. */
+.ntgoc-announce { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap:1px; background:#ded2be; border:1px solid #ded2be; }
 .ntgoc-announce__card { background:#f6f1e8; padding:30px 26px; display:flex; flex-direction:column; }
 .ntgoc-announce__card--urgent { border-top:3px solid #7d2b2b; }
 .ntgoc-announce__kind--urgent { color:#7d2b2b; }
@@ -917,6 +942,320 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-resource { border-top:1px solid #ded2be; padding-top:20px; }
 .ntgoc-resource__name { font-family:Newsreader, serif; font-size:21px; color:#3a1414; margin:0 0 8px; }
 .ntgoc-resource__text { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 14px; }
+
+/* --- Welcome — the page behind the QR code ---------------------------
+   Reached from the "Understanding the Divine Liturgy" pew card, almost
+   always on a phone and often while still sitting in church. So it is
+   built as short cards rather than prose: the answer to each question is
+   readable without opening anything, and opening one is a 100px-tall tap
+   target rather than a 16px chevron.
+
+   It borrows the page's existing parts wherever they fit — the shared
+   photograph hero, the stage headers, the ruled directory, the proposal
+   block, the demo form — and authors only what is genuinely new: the
+   question tiles, the jump row, and the closing panel.
+   ------------------------------------------------------------------ */
+.ntgoc-welcome-hero__lede {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.45;
+  color: #e0b673;
+  margin: 22px 0 0;
+}
+
+.ntgoc-welcome-intro { max-width: 1240px; margin: 0 auto; padding: 64px 40px 34px; }
+.ntgoc-welcome-intro__text {
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: #4a443c;
+  margin: 0 0 20px;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+/* "Come and see." — the invitation the whole page is built around, so it is
+   set as a line of its own rather than tucked into a paragraph. Brick rather
+   than gold: gold at this size sits at about 3.5:1 on parchment. */
+.ntgoc-welcome-motif {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.4;
+  color: #7d2b2b;
+  margin: 30px 0 0;
+  padding-left: 22px;
+  border-left: 2px solid #b08442;
+}
+
+/* The section switcher. A phone reaches this page cold, part-way through a
+   Sunday, and the page is long by nature — eighteen questions, three forms and a
+   reading list. So the switcher sticks: wherever you are, every section is one
+   tap away and you can never be stranded in the middle.
+
+   It sticks BELOW the sticky site header on a pointer (the header is 84px and
+   sits at z-index 40), and at the very top on a phone, where the responsive
+   layer makes the header static so it has scrolled away by then.
+
+   One row that scrolls sideways inside itself, rather than three wrapped rows:
+   six chips wrapped would eat 150px of a 640px-tall screen, permanently. The
+   row scrolls, the page does not — which is also what keeps the 320px reflow
+   check passing. */
+.ntgoc-welcome-jump {
+  position: sticky;
+  top: 84px;
+  z-index: 30;
+  background: rgba(246,241,232,.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #ded2be;
+}
+.ntgoc-welcome-jump__row {
+  display: flex;
+  gap: 10px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 11px 40px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.ntgoc-welcome-jump__row::-webkit-scrollbar { display: none; }
+.ntgoc-welcome-jump__link {
+  flex: 0 0 auto;
+  display: inline-block;
+  border: 1px solid #ccbda4;
+  border-radius: 2px;
+  padding: 12px 16px;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #5b5449;
+  background: #fbf8f2;
+  white-space: nowrap;
+}
+.ntgoc-welcome-jump__link:hover, .ntgoc-welcome-jump__link:focus-visible { border-color: #7d2b2b; color: #7d2b2b; }
+/* An anchor jump has to clear the site header AND the switcher, so this is
+   larger than the site-wide 96px. Scoped to the sections that follow the
+   switcher, which is exactly the ones it can cover. */
+.ntgoc-welcome-jump ~ section[id] { scroll-margin-top: 150px; }
+
+/* A long optional thing, folded away. The survey is ten questions of radio
+   buttons — the single longest block on the site — and the page says in its own
+   words that answering is optional, so it opens on a tap rather than standing
+   between the visitor and everything below it. The summary is styled as the
+   button it behaves like. */
+.ntgoc-welcome-open { margin-top: 22px; }
+.ntgoc-welcome-open__summary {
+  list-style: none;
+  cursor: pointer;
+  display: block;
+  background: #7d2b2b;
+  color: #f6f1e8;
+  padding: 16px;
+  text-align: center;
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.ntgoc-welcome-open__summary::-webkit-details-marker { display: none; }
+.ntgoc-welcome-open__summary:hover { background: #5e1f1f; }
+.ntgoc-welcome-open[open] .ntgoc-welcome-open__summary { background: #5e1f1f; }
+.ntgoc-welcome-open__body { padding-top: 4px; }
+/* The reading list folds the same way but asks more quietly: it is not a form,
+   and a second solid brick button here would compete with the one thing on the
+   page that should look like a button — "Plan your next visit". */
+.ntgoc-welcome-open--plain .ntgoc-welcome-open__summary { background: transparent; border: 1px solid #ccbda4; color: #5b5449; }
+.ntgoc-welcome-open--plain .ntgoc-welcome-open__summary:hover { background: #f1e9dc; border-color: #7d2b2b; color: #7d2b2b; }
+.ntgoc-welcome-open--plain[open] .ntgoc-welcome-open__summary { background: #f1e9dc; color: #7d2b2b; }
+.ntgoc-welcome-open--plain .ntgoc-welcome-open__body { padding-top: 26px; }
+
+/* The five groups fold too. Nineteen open cards were five screens of a phone
+   before anything else on the page could be reached; folded, the whole of "What
+   did I just experience?" is one screen.
+
+   The cost is that the previews — the thing that made the list scannable — are
+   no longer visible, so each closed group carries its topics on its own line
+   instead. You can still find "why did they kiss the icons" without opening
+   anything; you just read four words rather than a sentence.
+
+   Ruled rows rather than boxes, matching the Visit page accordion, because the
+   cards inside are boxes already and a box inside a box reads as clutter. */
+.ntgoc-welcome-group { border-top: 1px solid #ccbda4; }
+.ntgoc-welcome-group:last-of-type { border-bottom: 1px solid #ccbda4; }
+.ntgoc-welcome-group__summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+}
+.ntgoc-welcome-group__summary::-webkit-details-marker { display: none; }
+.ntgoc-welcome-group__title {
+  font-family: Newsreader, serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 0;
+  color: #3a1414;
+}
+.ntgoc-welcome-group__topics { font-size: 13.5px; line-height: 1.6; color: #6c6458; margin: 7px 0 0; text-wrap: pretty; }
+.ntgoc-welcome-group__summary:hover .ntgoc-welcome-group__title { color: #7d2b2b; }
+/* Same drawn marker as the Visit page accordion: a + that loses its upright
+   stroke when the row opens. */
+.ntgoc-welcome-group__summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  background:
+    linear-gradient(#7d2b2b, #7d2b2b) center/16px 1px no-repeat,
+    linear-gradient(#7d2b2b, #7d2b2b) center/1px 16px no-repeat;
+}
+.ntgoc-welcome-group[open] .ntgoc-welcome-group__summary::after {
+  background: linear-gradient(#7d2b2b, #7d2b2b) center/16px 1px no-repeat;
+}
+.ntgoc-welcome-group[open] .ntgoc-questions { padding-bottom: 30px; }
+
+/* The question tiles. Plain <details>: no JavaScript, keyboard-operable, and
+   announced as expandable by the browser itself — the same reasoning as the
+   Visit page accordion, and the same thing survives the move into EVO. */
+.ntgoc-questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+/* A card can be an anchor target in its own right — "The Great Entrance →"
+   points at one — so it needs the same clearance from the header and the sticky
+   switcher that the sections get, or it lands underneath them. */
+.ntgoc-question { background: #f6f1e8; border: 1px solid #ded2be; border-left: 3px solid #b08442; scroll-margin-top: 148px; }
+.ntgoc-question[open] { background: #fbf8f2; border-left-color: #7d2b2b; }
+.ntgoc-question__summary { list-style: none; cursor: pointer; padding: 20px 22px; }
+.ntgoc-question__summary::-webkit-details-marker { display: none; }
+.ntgoc-question__title {
+  font-family: Newsreader, serif;
+  font-weight: 500;
+  font-size: 19.5px;
+  line-height: 1.32;
+  margin: 0 0 9px;
+  color: #3a1414;
+  text-wrap: pretty;
+}
+.ntgoc-question__preview { font-size: 14.5px; line-height: 1.65; color: #5b5449; margin: 0; text-wrap: pretty; }
+/* Decorative: <details> already announces its own state, so this is only the
+   visible affordance that the card opens. */
+.ntgoc-question__summary::after {
+  content: "Read more  +";
+  display: block;
+  margin-top: 13px;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #7d2b2b;
+}
+.ntgoc-question[open] .ntgoc-question__summary::after { content: "Close  −"; }
+.ntgoc-question__summary:hover .ntgoc-question__title { color: #7d2b2b; }
+.ntgoc-question__body { padding: 0 22px 24px; }
+.ntgoc-question__body .ntgoc-body { margin-bottom: 14px; }
+.ntgoc-question__term { font-family: Newsreader, serif; font-size: 20px; color: #7d2b2b; margin-bottom: 12px; }
+.ntgoc-question__more { margin: 4px 0 0; }
+
+/* The pew card itself, given a card of its own at the foot of the section. */
+.ntgoc-welcome-card { display: block; background: #3a1414; padding: 34px 32px; border-left: 3px solid #b08442; }
+.ntgoc-welcome-card:hover, .ntgoc-welcome-card:focus-visible { background: #4a1c1c; }
+.ntgoc-welcome-card__label { font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: #e0b673; margin-bottom: 14px; }
+.ntgoc-welcome-card__name { font-family: Newsreader, serif; font-weight: 300; font-size: 32px; line-height: 1.15; color: #faf5ec; }
+.ntgoc-welcome-card__text { font-size: 16px; line-height: 1.7; color: #dcccb4; margin: 10px 0 20px; max-width: 52ch; }
+.ntgoc-welcome-card .ntgoc-faith-card__more { color: #e0b673; border-bottom-color: rgba(224,182,115,.5); margin-top: 0; }
+.ntgoc-welcome-card:hover .ntgoc-faith-card__more { border-bottom-color: #e0b673; }
+
+.ntgoc-welcome-lede {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #6c6458;
+  margin: 0 0 20px;
+  max-width: 40ch;
+}
+
+/* --- the three forms ------------------------------------------------
+   Kept separate on purpose: asking a question and answering the survey
+   must never subscribe anyone to anything, so there are three <form>
+   elements, three submit buttons and one consent tick — on the mailing
+   list only. None of the three has a handler behind it; each says so.
+
+   .ntgoc-welcome-form only scopes the touch-target and rule treatment to
+   this page, so the Visit page's demo form is left exactly as it was.
+   ------------------------------------------------------------------ */
+.ntgoc-welcome-form { margin-top: 20px; }
+.ntgoc-welcome-form .ntgoc-demoform__group { border-top: 1px solid #e4dac8; padding-top: 18px; }
+/* A finger, on a phone, in a pew. 8px either side takes each choice past the
+   44px target the rest of the page already clears. */
+.ntgoc-welcome-form .ntgoc-demoform__check { padding: 8px 0; margin-bottom: 0; }
+.ntgoc-welcome-hint { font-size: 13px; line-height: 1.6; color: #6c6458; margin: 7px 0 0; }
+.ntgoc-welcome-reveal { display: grid; gap: 16px; border-top: 1px solid #e4dac8; padding-top: 18px; }
+
+.ntgoc-welcome-status {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #3a1414;
+  margin: 0;
+  background: #efe2c8;
+  border-left: 3px solid #b08442;
+  padding: 16px 18px;
+}
+.ntgoc-welcome-status--error { background: #f2e5dd; border-left-color: #7d2b2b; color: #5e1f1f; }
+
+.ntgoc-welcome-schedule { border: 1px solid #ccbda4; background: #fbf8f2; padding: 30px 28px; margin-bottom: 26px; }
+.ntgoc-welcome-schedule__label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7f5f30; margin-bottom: 18px; }
+.ntgoc-welcome-schedule__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: baseline;
+  font-family: Newsreader, serif;
+  font-size: 23px;
+  color: #3a1414;
+  padding: 10px 0;
+  border-bottom: 1px solid #e4dac8;
+  margin-bottom: 0;
+}
+.ntgoc-welcome-schedule .ntgoc-body { margin-top: 18px; }
+
+/* The last thing on the page, and the one people photograph. */
+.ntgoc-welcome-closing { max-width: 1240px; margin: 0 auto; padding: 96px 40px; }
+.ntgoc-welcome-closing__display {
+  font-family: Newsreader, serif;
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1.12;
+  color: #faf5ec;
+  margin: 0 0 28px;
+  max-width: 20ch;
+  text-wrap: pretty;
+}
+.ntgoc-welcome-closing__text { font-size: 17.5px; line-height: 1.8; color: #dcccb4; margin: 0 0 34px; max-width: 60ch; text-wrap: pretty; }
+.ntgoc-welcome-closing__call {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #e0b673;
+  margin: 0 0 40px;
+}
+.ntgoc-welcome-closing__row { display: flex; gap: 14px; flex-wrap: wrap; }
+.ntgoc-welcome-closing__cta {
+  display: inline-block;
+  background: #e0b673;
+  color: #3a1414;
+  padding: 16px 30px;
+  border-radius: 2px;
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.ntgoc-welcome-closing__cta:hover, .ntgoc-welcome-closing__cta:focus-visible { background: #f0cd91; color: #3a1414; }
 
 /* --- responsive layer ----------------------------------------------
    The design is fixed-desktop and carries no media queries of its own,
@@ -1045,13 +1384,14 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
     linear-gradient(75deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.86) 45%, rgba(58,20,20,.55) 72%, rgba(58,20,20,.25) 100%);
   pointer-events: none;
 }
+/* The measure and the side padding come from .ntgoc-shell and .ntgoc-gutter,
+   which every hero inner carries. Only the vertical rhythm is this block's. */
 .ntgoc-page-hero__inner {
   position: relative;
   z-index: 1;
-  max-width: 1240px;
-  margin: 0 auto;
   width: 100%;
-  padding: 96px 40px 76px;
+  padding-top: 96px;
+  padding-bottom: 76px;
   align-self: flex-end;
 }
 .ntgoc-page-hero__body { max-width: 660px; }
@@ -1213,8 +1553,16 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 
 /* --- accessibility floor ------------------------------------------ */
+/* summary and the form controls were relying on whatever ring the browser
+   happens to draw, which on some is a 1px dotted line that all but vanishes on
+   parchment. The Welcome page is eighteen <summary> elements and three forms,
+   so they are named here alongside the links. */
 .ntgoc-page a:focus-visible,
 .ntgoc-page button:focus-visible,
+.ntgoc-page summary:focus-visible,
+.ntgoc-page input:focus-visible,
+.ntgoc-page select:focus-visible,
+.ntgoc-page textarea:focus-visible,
 .ntgoc-page [tabindex]:focus-visible {
   outline: 3px solid #b08442;
   outline-offset: 2px;
@@ -1236,12 +1584,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 @media (max-width: 640px) {
   .ntgoc-page-hero { min-height: 320px; }
   .ntgoc-page-hero--tall { min-height: 400px; }
-  .ntgoc-page-hero__inner { padding: 52px 20px 44px; }
+  .ntgoc-page-hero__inner { padding-top: 52px; padding-bottom: 44px; }
   .ntgoc-page-hero__title { font-size: 38px; }
   .ntgoc-page-hero--tall .ntgoc-page-hero__title { font-size: 44px; }
   .ntgoc-page-hero__lede { font-size: 16.5px; }
   .ntgoc-page-hero__lede--serif { font-size: 20px; }
 }
+
 
 /* For Our Parish and the new Visit blocks. The two-column splits carry
    .ntgoc-grid and stack on the blanket rule above; what needs authoring is
@@ -1361,4 +1710,52 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   }
   .ntgoc-calendar-daynum { font-size: 14px; margin-bottom: 0; }
   .ntgoc-calendar-event { grid-column: 2; font-size: 13px; padding: 5px 8px; }
+}
+
+/* Welcome. Almost every visitor arrives here from a QR code, on a phone, so
+   this is the page whose small-screen layout matters most. The question tiles
+   drop to a single column, the display type is set in fixed px and has to
+   scale, and the closing panel loses its desktop padding.
+
+   The sticky switcher needs no breakpoint of its own: the header is 84px at
+   every width now that the drawer keeps it to one row, so `top: 84px` in the
+   base rule holds all the way down, and so does the anchor offset under it. */
+@media (max-width: 900px) {
+  .ntgoc-welcome-intro { padding-top: 48px; }
+  .ntgoc-questions { grid-template-columns: 1fr; }
+  .ntgoc-welcome-closing { padding-top: 68px; padding-bottom: 68px; }
+  .ntgoc-welcome-closing__display { font-size: clamp(32px, 7vw, 52px); }
+  .ntgoc-welcome-closing__call { font-size: clamp(28px, 6vw, 40px); }
+  .ntgoc-welcome-card__name { font-size: clamp(25px, 5vw, 32px); }
+  .ntgoc-welcome-group__title { font-size: clamp(22px, 4.5vw, 26px); }
+}
+@media (max-width: 640px) {
+  .ntgoc-welcome-hero__lede { font-size: 22px; }
+  .ntgoc-welcome-intro__text { font-size: 16.5px; }
+  .ntgoc-welcome-motif { font-size: 25px; padding-left: 16px; margin-top: 24px; }
+  .ntgoc-welcome-jump__row { gap: 8px; padding-top: 9px; padding-bottom: 9px; }
+  .ntgoc-welcome-jump__link { font-size: 11.5px; letter-spacing: .06em; padding: 12px 14px; }
+  /* Nineteen cards, so a few px saved on each one is most of a screen saved
+     overall. Trimmed to the point just before the card stops feeling like a
+     comfortable thing to tap. */
+  .ntgoc-questions { gap: 12px; }
+  .ntgoc-question__summary { padding: 16px 18px; }
+  .ntgoc-question__title { font-size: 18.5px; margin-bottom: 7px; }
+  .ntgoc-question__preview { line-height: 1.55; }
+  .ntgoc-question__summary::after { margin-top: 10px; }
+  .ntgoc-question__body { padding: 0 18px 20px; }
+  .ntgoc-welcome-card { padding: 26px 22px; }
+  .ntgoc-welcome-schedule { padding: 24px 22px; }
+  .ntgoc-welcome-schedule__row { font-size: 20px; }
+  .ntgoc-welcome-closing__cta { display: block; }
+  .ntgoc-welcome-closing__row { display: grid; gap: 12px; text-align: center; }
+
+  /* Nine sections of desktop breathing room is most of a phone screen wasted per
+     section. Scoped to the sections after the switcher, so no other page moves. */
+  .ntgoc-welcome-jump ~ section .ntgoc-parish-section,
+  .ntgoc-welcome-jump ~ section.ntgoc-parish-section { padding-top: 42px !important; padding-bottom: 42px !important; }
+  .ntgoc-welcome-jump ~ section .ntgoc-stage { padding-top: 40px; padding-bottom: 14px; }
+  .ntgoc-welcome-group__summary { padding: 18px 0; gap: 16px; }
+  .ntgoc-welcome-intro { padding-top: 44px; padding-bottom: 28px; }
+  .ntgoc-welcome-closing { padding-top: 58px; padding-bottom: 58px; }
 }

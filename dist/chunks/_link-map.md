@@ -24,10 +24,11 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `newsletter` | _________ |
 | `parish-life` | _________ |
 | `visit` | _________ |
+| `welcome` | _________ |
 
 ## 2. Then work through the chunks
 
-105 links across 34 chunks.
+120 links across 38 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -48,7 +49,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocNewsletterArchive` | parish-life | ☐ |
 | `ntgocParishAsk` | contact | ☐ |
 | `ntgocParishConnected` | newsletter | ☐ |
-| `ntgocParishFamilies` | ministries, contact | ☐ |
+| `ntgocParishFamilies` | ministries, visit, contact | ☐ |
 | `ntgocParishLifeBookstore` | bookstore | ☐ |
 | `ntgocParishLifeGallery` | contact | ☐ |
 | `ntgocParishLifeNext` | ministries, for-our-parish | ☐ |
@@ -59,12 +60,16 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishServe` | ministries, committees | ☐ |
 | `ntgocParishStewardship` | give | ☐ |
 | `ntgocParishWeek` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, calendar, contact, hall, parish-life, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteFooter` | visit, welcome, calendar, contact, hall, parish-life, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
 | `ntgocSiteHeader` | index, faith ×2, parish-life ×3, for-our-parish ×2, ministries ×2, committees ×2, bookstore ×2, newsletter ×2, calendar ×2, events ×3, hall ×2, about ×2, contact ×2, visit ×2, give | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |
 | `ntgocVisitorHero` | contact, calendar | ☐ |
 | `ntgocVisitorNextSteps` | contact ×2, faith, calendar | ☐ |
+| `ntgocWelcomeClosing` | visit, calendar | ☐ |
+| `ntgocWelcomeConnected` | calendar, visit, contact, about | ☐ |
+| `ntgocWelcomeExperience` | visit ×5, contact | ☐ |
+| `ntgocWelcomeLearn` | faith | ☐ |
 
 > Search each chunk for `data-ntgoc-link`. External links (the Archdiocese,
 > Square, the Google form, fredgreek.org) are real URLs already — leave them.

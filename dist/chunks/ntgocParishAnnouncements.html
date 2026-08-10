@@ -11,47 +11,25 @@
         <div class="ntgoc-parish-head ntgoc-flex">
           <div>
             <h2 class="ntgoc-parish-h2">Parish announcements</h2>
-            <p class="ntgoc-parish-sub">Notices from the office, the Council and our ministries. Nothing is posted here yet — these frames show what the section is built to hold.</p>
+            <p class="ntgoc-parish-sub">Notices from the office, the Council and our ministries — Sunday School news, a specific ask for volunteers, a parish event, ordinary parish business. Each one can carry a date after which it comes down on its own.</p>
           </div>
         </div>
 
         <div class="ntgoc-announce">
-          <div class="ntgoc-announce__card ntgoc-announce__card--urgent">
-            <div class="ntgoc-announce__kind ntgoc-announce__kind--urgent">Urgent notice</div>
-            <h3 class="ntgoc-h3-sm">A closure or a change of schedule</h3>
-            <p class="ntgoc-announce__text">The variant the office would use for weather, a cancelled service or a change of time — set apart so it is not read as an ordinary notice.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
+        <!-- BUILD:announcements -->
+          <div class="ntgoc-announce__card ntgoc-announce__card--urgent" data-ntgoc-expires="2026-12-31">
+            <div class="ntgoc-announce__kind ntgoc-announce__kind--urgent">Urgent notice &middot; sample</div>
+            <h3 class="ntgoc-h3-sm">Sample — this is how an urgent notice appears</h3>
+            <p class="ntgoc-announce__text">An urgent announcement sorts to the front of this grid and takes the red rule, so it is not read as ordinary parish business. It is meant for a weather closure, a service moved at short notice, or a death in the parish family. Set &quot;urgent&quot;: true on an entry in data/parish-announcements.json.</p>
+            <div class="ntgoc-announce__meta">Posted 9 August &middot; until 31 December</div>
           </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Sunday School</div>
-            <h3 class="ntgoc-h3-sm">Registration and class news</h3>
-            <p class="ntgoc-announce__text">Term dates, registration, and what parents need to know for the weeks ahead.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
+          <div class="ntgoc-announce__card" data-ntgoc-expires="2026-12-31">
+            <div class="ntgoc-announce__kind">From the office &middot; sample</div>
+            <h3 class="ntgoc-h3-sm">Sample — this is how an ordinary announcement appears</h3>
+            <p class="ntgoc-announce__text">Announcements run newest first, each under a label saying what kind of notice it is, and each one can carry a date after which it comes down by itself rather than piling up. Nothing on this page is a real parish announcement yet; these two entries exist to show the Parish Council the shape of the thing.</p>
+            <div class="ntgoc-announce__meta">Posted 9 August &middot; until 31 December</div>
           </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Volunteers needed</div>
-            <h3 class="ntgoc-h3-sm">A specific ask, with a name attached</h3>
-            <p class="ntgoc-announce__text">Where a ministry can ask for the help it actually needs this month, rather than in general.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Ministry update</div>
-            <h3 class="ntgoc-h3-sm">News from a parish ministry</h3>
-            <p class="ntgoc-announce__text">Philoptochos, GOYA, JOY, the Dance Troupe, AHEPA and the rest, in their own words.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Parish event</div>
-            <h3 class="ntgoc-h3-sm">Something happening at the church</h3>
-            <p class="ntgoc-announce__text">A feast-day supper, a work day, a ministry night — anything that also belongs on the calendar.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">From the office</div>
-            <h3 class="ntgoc-h3-sm">Ordinary parish business</h3>
-            <p class="ntgoc-announce__text">Assembly notices, stewardship reminders, forms, and the routine business of the parish.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
+<!-- /BUILD:announcements -->
         </div>
 
         <div class="ntgoc-proposal ntgoc-proposal--spaced">

@@ -107,6 +107,7 @@ const HERO_PAGES = [
   ['visit.html', 'Plan a visit'],
   ['festival.html', 'Festival'],
   ['for-our-parish.html', 'For Our Parish'],
+  ['welcome.html', 'Welcome'],
 ];
 const LABELS = new Map(HERO_PAGES);
 const PAGES = pageArgs.length ? pageArgs : HERO_PAGES.map(([f]) => f);
@@ -129,6 +130,11 @@ const STRINGS = [
   { sel: '.ntgoc-page-hero__title', name: 'title', need: 3.0 },
   { sel: '.ntgoc-page-hero__lede', name: 'lede', need: 4.5 },
   { sel: '.ntgoc-page-hero__lede--serif', name: 'lede--serif', need: 4.5 },
+  /* Welcome sets its opening line in its own class rather than the component's,
+     and it is gold on the photograph like every eyebrow here, so it needs
+     measuring too. A hero string that no selector here names is a string
+     nothing checks. */
+  { sel: '.ntgoc-welcome-hero__lede', name: 'welcome-lede', need: 4.5 },
 ];
 
 /* ------------------------------------------------------------------ */

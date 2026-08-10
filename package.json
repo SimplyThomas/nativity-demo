@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node tools/dev.mjs",
     "chunks": "node tools/extract-chunks.mjs",
+    "parish": "node tools/build-parish.mjs",
     "lint": "node tools/lint.mjs",
     "shell": "node tools/sync-shell.mjs",
     "rename": "node tools/rename-class.mjs",
