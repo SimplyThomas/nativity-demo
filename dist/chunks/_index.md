@@ -34,7 +34,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHallRental` | 1933 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeFestivalPromo` | 3609 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeHero` | 1202 b | 1 page | yes (2) |
+| ☐ | `ntgocHomeHero` | 1219 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1770 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeUpcomingServices` | 3737 b | 1 page | yes (1) |
@@ -71,7 +71,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocVisitorEssentials` | 1144 b | 1 page | — |
 | ☐ | `ntgocVisitorFirstSunday` | 8036 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorGreeters` | 3379 b | 1 page | — |
-| ☐ | `ntgocVisitorHero` | 1127 b | 1 page | yes (2) |
+| ☐ | `ntgocVisitorHero` | 1144 b | 1 page | yes (2) |
 | ☐ | `ntgocVisitorLanguage` | 6775 b | 1 page | — |
 | ☐ | `ntgocVisitorNextSteps` | 5187 b | 1 page | yes (4) |
 | ☐ | `ntgocVisitorStageBefore` | 370 b | 1 page | — |

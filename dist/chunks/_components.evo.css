@@ -385,10 +385,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:66px; line-height:1.08; color:#faf5ec; margin:0 0 26px; letter-spacing:-.015em; text-wrap:balance; }
 .ntgoc-home-hero-text { font-size:17.5px; line-height:1.65; color:#e8d9c4; margin:0 0 38px; max-width:520px; text-wrap:pretty; }
 .ntgoc-home-hero-row { display:flex; gap:14px; flex-wrap:wrap; }
-.ntgoc-home-hero-small-bold { background:#e0b673; color:#3a1414; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; }
-.ntgoc-home-hero-small-bold:hover, .ntgoc-home-hero-small-bold:focus-visible { background:#f0cd91; }
-.ntgoc-home-hero-eyebrow { border:1px solid rgba(232,217,196,.5); color:#f0e6d6; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
-.ntgoc-home-hero-eyebrow:hover, .ntgoc-home-hero-eyebrow:focus-visible { border-color:#e0b673; color:#e0b673; }
+.ntgoc-page-hero__action--primary { background:#e0b673; color:#3a1414; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; }
+.ntgoc-page-hero__action--primary:hover, .ntgoc-page-hero__action--primary:focus-visible { background:#f0cd91; }
+.ntgoc-page-hero__action--secondary { border:1px solid rgba(232,217,196,.5); color:#f0e6d6; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
+.ntgoc-page-hero__action--secondary:hover, .ntgoc-page-hero__action--secondary:focus-visible { border-color:#e0b673; color:#e0b673; }
 .ntgoc-home-service-times-on-brick { background:#7d2b2b; color:#f6ece0; }
 .ntgoc-home-service-times-shell { max-width:1240px; margin:0 auto; padding:0 40px; }
 .ntgoc-home-service-times-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:rgba(246,241,232,.18); }
