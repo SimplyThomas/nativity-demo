@@ -21,7 +21,7 @@ upstream was cut. But 10 of 26 commit messages still say "generated", and
 `design-src/` and `tools/archive/` document the old model. If you infer the
 workflow from git history or those folders, you will get it backwards.
 
-**Never run `tools/archive/render.mjs`.** It regenerates all twelve pages and
+**Never run `tools/archive/render.mjs`.** It regenerates all sixteen pages and
 `components.css` from the retired design file and would destroy every hand edit
 since the switch. It is archived so that running it is deliberate, not
 accidental.
@@ -41,6 +41,8 @@ npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
 npm run links    # do the outbound links still resolve? (monthly in CI)
+npm run evo:up   # a real Evolution CMS on localhost, pre-loaded with the site
+npm run evo:verify  # prove the chunks still render correctly inside EVO
 ```
 
 `npm run snap` is the only check that sees *layout*. You cannot look at the
@@ -48,7 +50,11 @@ page; lint and axe check structure and semantics, not whether a grid collapsed.
 Run it after any CSS change. If a change is intended:
 `npm run snap -- --update`, then commit `tests/layout-baseline.json`.
 
-`npm run lint` needs no dependencies. The audits need `npm install`.
+`npm run lint` needs no dependencies. The audits need `npm install`. The `evo:*`
+commands need Docker and are **not** part of `npm run check` — CI has no Docker
+daemon. They are the only way to see the chunks inside a real Evolution CMS
+rather than inferring that they would work; `tools/evo-sandbox/README.md`
+records the gotchas, several of which are unguessable.
 
 ---
 
@@ -132,6 +138,7 @@ Expected clean state: lint passes, snapshot reports no layout or colour change,
 | What must every page agree on? | `data/site.json` |
 | What was the accessibility work? | `ACCESSIBILITY.md` |
 | What did the old renderer guarantee? | `tools/archive/README.md` |
+| How do I run a real EVO and test an import? | `tools/evo-sandbox/README.md` |
 
 ## Tone
 

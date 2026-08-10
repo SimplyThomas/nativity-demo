@@ -107,8 +107,8 @@ npm run shell -- --check           # report drift, change nothing (CI runs this)
 
 It handles the one thing you cannot copy verbatim: `aria-current="page"` marks
 the link to the page you are on, so it is stripped from the source and
-re-applied per page. Do not hand-copy the shell between files — CI fails if
-fourteen pages agree and one does not.
+re-applied per page. Do not hand-copy the shell between files — CI fails the
+moment one page disagrees with the rest.
 
 ### Naming CSS classes
 

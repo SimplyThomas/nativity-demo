@@ -1,0 +1,98 @@
+# A disposable Evolution CMS sandbox for rehearsing the import in IMPORT.md.
+#
+# Two Evolution CMS instances share one MariaDB: 1.4.18, the version the parish
+# reportedly runs, and 3.5.7, the current release. Both come up pre-loaded with
+# the whole draft site.
+#
+# This is a development aid. It is not part of `npm run check`, CI has no Docker
+# daemon, and nothing here is published. Ports bind to localhost only.
+#
+#   npm run evo:up       bring it up (first run builds; several minutes)
+#   npm run evo:verify   prove the chunks render correctly on both versions
+#   npm run evo:reset    destroy everything, including the databases
+
+name: ntgoc-evo-sandbox
+
+x-evo-common: &evo-common
+  restart: unless-stopped
+  depends_on:
+    db:
+      condition: service_healthy
+  environment: &evo-env
+    DB_HOST: db
+    DB_USER: ${DB_USER:-ntgoc}
+    DB_PASS: ${DB_PASSWORD:-ntgoc}
+    DB_PREFIX: ${DB_PREFIX:-evo_}
+    EVO_ADMIN: ${EVO_ADMIN:-admin}
+    EVO_ADMIN_EMAIL: ${EVO_ADMIN_EMAIL:-admin@example.invalid}
+    EVO_ADMIN_PASSWORD: ${EVO_ADMIN_PASSWORD:-ntgoc-sandbox}
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-ntgoc-root}
+      MARIADB_USER: ${DB_USER:-ntgoc}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-ntgoc}
+      # Both databases are created by db-init/01-databases.sql, which runs after
+      # the user above exists.
+      MARIADB_DATABASE: evo14
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  evo14:
+    <<: *evo-common
+    build:
+      context: .
+      dockerfile: evo14/Dockerfile
+    environment:
+      <<: *evo-env
+      DB_NAME: evo14
+    ports:
+      - "127.0.0.1:${PORT_EVO14:-8014}:80"
+    volumes:
+      - evo14_www:/var/www/html
+      # Read-only inputs. dist/chunks is what gets imported; the repo root is
+      # read so the seeder can derive each page's chunk order from the
+      # <!-- CHUNK:name --> markers in the source pages, rather than duplicating
+      # IMPORT.md's table and letting it rot.
+      - ../../dist/chunks:/opt/ntgoc/chunks:ro
+      - ../..:/opt/ntgoc/site:ro
+      # The parish's own images, at the path IMPORT.md step 2 specifies.
+      - ../../assets/img:/var/www/html/assets/templates/ntgoc/img:ro
+      # Vendored GOARCH template assets, at their real live-site paths.
+      - ./vendor-assets/common:/var/www/html/assets/templates/common:ro
+      - ./vendor-assets/t05.css:/var/www/html/assets/templates/t05.css:ro
+      - ./vendor-assets/custom.css:/var/www/html/assets/templates/custom.css:ro
+
+  evo35:
+    <<: *evo-common
+    build:
+      context: .
+      dockerfile: evo35/Dockerfile
+    environment:
+      <<: *evo-env
+      DB_NAME: evo35
+    ports:
+      - "127.0.0.1:${PORT_EVO35:-8035}:80"
+    volumes:
+      - evo35_www:/var/www/html
+      - ../../dist/chunks:/opt/ntgoc/chunks:ro
+      - ../..:/opt/ntgoc/site:ro
+      - ../../assets/img:/var/www/html/assets/templates/ntgoc/img:ro
+      - ./vendor-assets/common:/var/www/html/assets/templates/common:ro
+      - ./vendor-assets/t05.css:/var/www/html/assets/templates/t05.css:ro
+      - ./vendor-assets/custom.css:/var/www/html/assets/templates/custom.css:ro
+
+volumes:
+  db_data:
+  evo14_www:
+  evo35_www:

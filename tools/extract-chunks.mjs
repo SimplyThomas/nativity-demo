@@ -88,8 +88,14 @@ function scanReserved(html) {
 
 /* ------------------------------------------------------------------ */
 
-rmSync(OUT, { recursive: true, force: true });
+/* Empty the directory without replacing it. Deleting and recreating gives the
+   folder a new inode, which silently breaks any bind mount already pointing at
+   the old one — tools/evo-sandbox mounts this directory into both running
+   containers, so `npm run chunks && npm run evo:seed`, the sequence the sandbox
+   README prescribes, would find an empty folder until the containers restarted.
+   Removing the files leaves the directory itself, and the mount, intact. */
 mkdirSync(OUT, { recursive: true });
+for (const f of readdirSync(OUT)) rmSync(join(OUT, f), { recursive: true, force: true });
 
 const pages = readdirSync(ROOT).filter(f => f.endsWith('.html'));
 const chunks = new Map();   // name -> { body, sources: [] }
