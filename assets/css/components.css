@@ -94,13 +94,6 @@
   text-underline-offset: 2px;
 }
 
-/* --- contained horizontal scrolling ---------------------------------
-   Wide content (the phone mock-ups) scrolls inside its own container so the
-   page body never scrolls sideways. tabindex="0" in the markup makes the
-   scroll region reachable by keyboard, which a bare overflow container is not.
-   ------------------------------------------------------------------ */
-.ntgoc-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
 /* --- Our Faith topic cards ------------------------------------------
    Each card is a whole link, the same pattern the home page uses for its
    ministry cards. The destinations are the parish's own Our Faith pages,
@@ -269,9 +262,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* --- generated component rules (437 rules) --------------------- */
 .ntgoc-topbar-row { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:0 40px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
 .ntgoc-topbar-metropolis { opacity:.75; }
-.ntgoc-topbar-links { display:flex; gap:26px; align-items:center; }
-.ntgoc-topbar-link { opacity:.85; }
-.ntgoc-topbar-link:hover, .ntgoc-topbar-link:focus-visible { opacity:1; color:#e6b96a; }
 .ntgoc-header { position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be; }
 .ntgoc-header-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; padding:0 40px; height:84px; max-width:1440px; margin:0 auto; }
 .ntgoc-logo { display:flex; align-items:center; gap:16px; }
@@ -282,6 +272,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-logo-text { line-height:1.15; }
 .ntgoc-logo-name { font-family:Newsreader, serif; font-size:20px; font-weight:500; color:#3a1414; letter-spacing:.01em; }
 .ntgoc-logo-sub { font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:#6c6458; margin-top:3px; }
+/* Split out so the phone header can drop the jurisdiction and keep the town.
+   The mobile design shows "Fredericksburg, VA" under the parish name, and it
+   is the half a visitor is actually checking. */
+.ntgoc-logo-sub__jurisdiction { white-space:nowrap; }
 .ntgoc-nav { display:flex; align-items:center; gap:24px; font-size:13.5px; letter-spacing:.05em; white-space:nowrap; }
 .ntgoc-nav-link { padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap; }
 .ntgoc-nav-link:hover, .ntgoc-nav-link:focus-visible { color:#7d2b2b; }
@@ -300,8 +294,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    the links inside it tabbable. Moving the parent link out of the group,
    or the panel above it, silently strips the submenu from the tab order.
 
-   Below 640px the whole thing flattens into the wrapped nav — see the
-   responsive layer at the foot of this file.
+   Below 900px the whole nav is hidden and the drawer takes over, so this
+   never has to work on a touch screen — see the responsive layer at the
+   foot of this file.
    ------------------------------------------------------------------ */
 .ntgoc-navgroup { position:relative; display:flex; align-items:center; }
 .ntgoc-navgroup__top { display:inline-flex; align-items:center; gap:7px; }
@@ -311,6 +306,71 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-navgroup:focus-within .ntgoc-navgroup__menu { display:block; }
 .ntgoc-navgroup__item { display:block; padding:10px 20px; color:#3a1414; white-space:nowrap; }
 .ntgoc-navgroup__item:hover, .ntgoc-navgroup__item:focus-visible { background:#ece3d5; color:#7d2b2b; }
+
+/* The phone navigation drawer. A native <details>, so it opens and closes with
+   no JavaScript at all — here, and in Evolution CMS, whose template loads
+   Bootstrap and jQuery that this deliberately does not depend on (they are
+   absent from this demo, so anything built on them would look broken in the
+   very preview the Parish Council is shown). ntgoc-enhance.js adds Escape,
+   outside-click and scroll lock on top, and is optional.
+   Hidden above 900px — see the responsive layer at the end of this file. */
+.ntgoc-drawer { display:none; position:relative; }
+.ntgoc-drawer__toggle { display:flex; align-items:center; justify-content:center; width:44px; height:44px; margin-right:-10px; cursor:pointer; list-style:none; color:#3a1414; }
+.ntgoc-drawer__toggle::-webkit-details-marker { display:none; }
+.ntgoc-drawer__bars { position:relative; width:24px; height:2px; background:currentColor; }
+.ntgoc-drawer__bars::before, .ntgoc-drawer__bars::after { content:""; position:absolute; left:0; width:24px; height:2px; background:currentColor; transition:transform .18s ease, top .18s ease; }
+.ntgoc-drawer__bars::before { top:-7px; }
+.ntgoc-drawer__bars::after { top:7px; }
+.ntgoc-drawer[open] .ntgoc-drawer__bars { background:transparent; }
+.ntgoc-drawer[open] .ntgoc-drawer__bars::before { top:0; transform:rotate(45deg); }
+.ntgoc-drawer[open] .ntgoc-drawer__bars::after { top:0; transform:rotate(-45deg); }
+/* Once open, the hamburger is the ✕ on the full-screen panel, so it has to
+   float above it — z-index one higher than the panel, aligned with the title
+   row inside. Being the <summary>, it still closes the panel with no script. */
+.ntgoc-drawer[open] .ntgoc-drawer__toggle { position:fixed; top:10px; right:14px; z-index:71; margin-right:0; }
+/* Full screen, fixed to the viewport rather than hung off the header. The
+   header is sticky, so on an unscrolled page it sits about 220px down, below
+   the draft banner and the top bar — a panel anchored to it either falls off
+   the bottom of the screen or has to be capped short to avoid it. Covering
+   the viewport removes the question. 100dvh, not 100vh, so a phone's URL bar
+   does not clip the last row. */
+.ntgoc-drawer__panel {
+  position:fixed; inset:0; z-index:70;
+  display:flex; flex-direction:column;
+  height:100vh; height:100dvh;
+  overflow:hidden;
+  background:#f6f1e8;
+}
+/* Browsers hide a closed <details> by their own means — Chrome skips painting
+   the content rather than removing its box, which left this fixed panel with a
+   34x844 phantom box down the side of every page. Not painted and not
+   clickable, but not something to leave to engine behaviour either. */
+.ntgoc-drawer:not([open]) .ntgoc-drawer__panel { display:none; }
+/* The panel covers the site header, so it carries its own: the parish name,
+   and the ✕ — which is the <summary>, floated over this row when open, so
+   that closing needs no JavaScript. */
+.ntgoc-drawer__head { display:flex; align-items:center; flex:none; height:64px; padding:0 20px; border-bottom:1px solid #ded2be; font-family:Newsreader, serif; font-size:17px; color:#3a1414; }
+/* Only the links scroll. The Give row and the service card stay put against
+   the bottom edge, the way the two buttons do on the site this follows. */
+.ntgoc-drawer__list { flex:1 1 auto; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+.ntgoc-drawer__utility { flex:none; border-top:1px solid #ded2be; }
+.ntgoc-drawer__cta { display:block; padding:18px 20px; background:#7d2b2b; color:#f6f1e8; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
+.ntgoc-drawer__cta:hover, .ntgoc-drawer__cta:focus-visible { background:#5e1f1f; }
+.ntgoc-drawer__link { display:block; padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414; }
+.ntgoc-drawer__sub { display:block; padding:14px 20px 14px 38px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:19px; color:#5b5449; }
+.ntgoc-drawer__link:hover, .ntgoc-drawer__link:focus-visible,
+.ntgoc-drawer__sub:hover, .ntgoc-drawer__sub:focus-visible { background:#ece3d5; color:#7d2b2b; }
+.ntgoc-drawer__utility-link { display:block; padding:17px 20px; border-bottom:1px solid #e4dac8; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; }
+.ntgoc-drawer__utility-link:hover, .ntgoc-drawer__utility-link:focus-visible { color:#7d2b2b; }
+.ntgoc-drawer__service { padding:20px; background:#7d2b2b; color:#f6ece0; }
+.ntgoc-drawer__service-label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:6px; }
+.ntgoc-drawer__service-time { font-family:Newsreader, serif; font-size:19px; line-height:1.4; }
+
+/* Set on <body> by ntgoc-enhance.js while the drawer is open, so the page
+   behind it does not scroll. Nothing references it in the markup; lint knows
+   it is real because the JS names it. */
+.ntgoc-scroll-locked { overflow:hidden; }
+
 .ntgoc-home-hero-box { position:relative; height:640px; background:#3a1414; overflow:hidden; }
 .ntgoc-home-hero-media { position:absolute; inset:0; background-image:url('../img/parish-nave-aisle.jpg'); background-size:cover; background-position:center; opacity:.42; }
 .ntgoc-home-hero-box-4 { position:absolute; inset:0; background:linear-gradient(100deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.72) 46%, rgba(58,20,20,.25) 100%); }
@@ -331,6 +391,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-service-times-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:10px; }
 .ntgoc-home-service-times-lede { font-family:Newsreader, serif; font-size:25px; font-weight:400; }
 .ntgoc-home-service-times-text { font-size:13.5px; opacity:.85; margin-top:4px; }
+/* Phone-only. On a phone the address is something you act on — a visitor is
+   standing outside, or in a car. On desktop the hero already carries
+   "Directions & contact" a few hundred pixels above, so this stays hidden
+   rather than repeating it. Shown by the responsive layer. */
+.ntgoc-home-service-times-actions { display:none; gap:10px; margin-top:16px; }
+.ntgoc-home-service-times-action { display:block; flex:1; padding:13px 10px; border:1px solid rgba(246,241,232,.4); text-align:center; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+.ntgoc-home-service-times-action:hover, .ntgoc-home-service-times-action:focus-visible { border-color:#e6b96a; color:#e6b96a; }
 .ntgoc-home-welcome-shell { max-width:1240px; margin:0 auto; padding:104px 40px 88px; }
 .ntgoc-home-welcome-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:88px; align-items:start; }
 .ntgoc-home-welcome-micro-caps { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:26px; }
@@ -658,46 +725,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-bookstore-notes-shell { max-width:1240px; margin:0 auto; padding:74px 40px; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-bookstore-notes-link { color:#7d2b2b; border-bottom:1px solid #d9c6a8; }
-.ntgoc-mobile-views-shell { max-width:1240px; margin:0 auto; padding:76px 40px 90px; }
-.ntgoc-mobile-views-title { font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.1; margin:0 0 16px; color:#3a1414; }
-.ntgoc-mobile-views-body-loose { font-size:17px; line-height:1.7; color:#4a443c; margin:0 0 56px; max-width:600px; }
-.ntgoc-mobile-views-row-8 { display:flex; gap:56px; flex-wrap:wrap; }
-.ntgoc-mobile-views-ruled-on-parchment { width:390px; border:1px solid #ccbda4; background:#f6f1e8; overflow:hidden; box-shadow:0 18px 44px rgba(58,20,20,.13); }
-.ntgoc-mobile-views-micro-row { height:34px; background:#3a1414; color:#e8d8bd; display:flex; align-items:center; justify-content:space-between; padding:0 18px; font-size:11px; letter-spacing:.06em; }
-.ntgoc-mobile-views-row { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #ded2be; }
-.ntgoc-mobile-views-body-ink { font-family:Newsreader, serif; font-size:16px; color:#3a1414; }
-.ntgoc-mobile-views-micro-caps-5 { font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:#6c6458; margin-top:2px; }
-.ntgoc-mobile-views-grid { display:grid; gap:4px; }
-.ntgoc-mobile-views-box { width:20px; height:1.5px; background:#3a1414; }
-.ntgoc-mobile-views-on-ink { position:relative; height:300px; background:#3a1414; overflow:hidden; }
-.ntgoc-mobile-views-box-9 { position:absolute; inset:0; background:linear-gradient(180deg, rgba(58,20,20,.55), rgba(58,20,20,.95)); }
-.ntgoc-mobile-views-row-7 { position:absolute; inset:0; padding:26px 20px; display:flex; flex-direction:column; justify-content:flex-end; }
-.ntgoc-mobile-views-heading { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.12; color:#faf5ec; margin:0 0 12px; }
-.ntgoc-mobile-views-micro-bold { background:#e0b673; color:#3a1414; padding:14px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; margin-top:8px; }
-.ntgoc-mobile-views-on-brick { background:#7d2b2b; color:#f6ece0; padding:22px 20px; }
-.ntgoc-mobile-views-micro-caps-4 { font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:8px; }
-.ntgoc-mobile-views-display { font-family:Newsreader, serif; font-size:26px; }
-.ntgoc-mobile-views-small-faded { font-size:13.5px; opacity:.88; margin-top:3px; }
-.ntgoc-mobile-views-rule { height:1px; background:rgba(246,241,232,.25); margin:18px 0; }
-.ntgoc-mobile-views-small { font-size:14px; line-height:1.5; }
-.ntgoc-mobile-views-row-6 { display:flex; gap:10px; margin-top:16px; }
-.ntgoc-mobile-views-micro-caps { flex:1; border:1px solid rgba(246,241,232,.45); padding:11px; text-align:center; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
-.ntgoc-mobile-views-box-7 { padding:26px 20px; }
-.ntgoc-mobile-views-lede-italic { font-family:Newsreader, serif; font-style:italic; font-weight:300; font-size:20px; line-height:1.45; color:#3a1414; }
-.ntgoc-mobile-views-micro-caps-2 { font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#6c6458; margin-top:12px; }
-.ntgoc-mobile-views-eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; margin-top:18px; text-align:center; }
-.ntgoc-mobile-views-text { font-size:20px; color:#3a1414; line-height:1; }
-.ntgoc-mobile-views-box-8 { padding:8px 0; }
-.ntgoc-mobile-views-lede { padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414; }
-.ntgoc-mobile-views-small-caps { padding:17px 20px; border-bottom:1px solid #e4dac8; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; }
-.ntgoc-mobile-views-small-caps-2 { padding:17px 20px; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; }
-
-/* Indented child row in the Mobile views drawer mock — the flattened
-   Parish Life group. Authored, not from the design. */
-.ntgoc-drawer-sub { padding:14px 20px 14px 38px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:19px; color:#5b5449; }
-.ntgoc-mobile-views-card { padding:20px; background:#7d2b2b; color:#f6ece0; }
-.ntgoc-mobile-views-micro-caps-3 { font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:.72; margin-bottom:6px; }
-.ntgoc-mobile-views-lede-6 { font-family:Newsreader, serif; font-size:20px; }
 
 /* --- Parish Life ----------------------------------------------------
    Transcribed from the Parish Life page of the Claude Design file. That
@@ -1073,55 +1100,16 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 @media (max-width: 640px) {
   .ntgoc-flex { flex-wrap: wrap; }
-  .ntgoc-sticky { position: static !important; }
   .ntgoc-gutter { padding-left: 16px !important; padding-right: 16px !important; }
   .ntgoc-tall { min-height: 50vh; }
 
   /* The top bar is a fixed-height 38px row in the design; let it grow so the
-     secondary links are not clipped once they wrap. */
+     Metropolis line can take a second line rather than be clipped. */
   .ntgoc-topbar {
     height: auto !important;
-    flex-direction: column;
-    gap: 8px !important;
     padding: 10px 16px !important;
-    text-align: center;
     line-height: 1.5;
   }
-  .ntgoc-topbar > div { flex-wrap: wrap; justify-content: center; gap: 14px !important; }
-
-  /* The header nav is a single fixed row in the design. Rather than build a
-     drawer (which the design shows only as a static mock on the Mobile views
-     page), let it wrap — every link stays reachable with no JavaScript. */
-  .ntgoc-page nav.ntgoc-flex {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px 18px;
-    padding-bottom: 14px;
-  }
-  .ntgoc-page header.ntgoc-sticky > .ntgoc-flex {
-    flex-direction: column;
-    height: auto !important;
-    gap: 12px;
-    padding-top: 14px;
-  }
-
-  /* A hover-opened panel is no use on a touch screen, so the Parish Life
-     group dissolves into the wrapped nav and its children sit inline
-     alongside the other links. display:contents does that without moving
-     any markup. The three selectors below repeat the base rule's :hover
-     and :focus-within so they match its specificity — source order then
-     decides, and this block is later. */
-  .ntgoc-navgroup { display: contents; }
-  .ntgoc-navgroup__caret { display: none; }
-  .ntgoc-navgroup__menu,
-  .ntgoc-navgroup:hover .ntgoc-navgroup__menu,
-  .ntgoc-navgroup:focus-within .ntgoc-navgroup__menu {
-    position: static;
-    display: contents;
-  }
-  /* "Parish Life" is already in the nav as the group's own link. */
-  .ntgoc-navgroup__item--overview { display: none; }
-  .ntgoc-navgroup__item { padding: 0 0 3px; border-bottom: 2px solid transparent; }
 }
 
 /* The two authored grids on the Visit page. These come last so they win over
@@ -1219,6 +1207,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-announce,
   .ntgoc-directory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+  /* The directions map is a 721x387 background image drawn with
+     background-size:contain, so at 390px it paints about 209px tall — inside a
+     box .ntgoc-tall has just given a 50-60vh min-height. That is two hundred
+     pixels of empty parchment wrapped around the map. Give the box the shape of
+     the picture it holds instead. */
+  .ntgoc-visitor-directions-media { min-height: 0; aspect-ratio: 721 / 387; }
+
   .ntgoc-stage__heading { font-size: clamp(28px, 6vw, 40px); }
   .ntgoc-nextsteps__heading { font-size: clamp(30px, 6.5vw, 42px); }
   .ntgoc-parish-h2 { font-size: clamp(27px, 5.5vw, 36px); }
@@ -1246,4 +1241,96 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-members__cta { display: block; text-align: center; }
   .ntgoc-nextsteps__row,
   .ntgoc-proposal__row { display: grid; gap: 12px; }
+}
+
+/* The drawer takes over from the horizontal nav. Seven top-level links plus a
+   button do not fit a tablet, and the hover-opened groups are unusable on a
+   touch screen, so the switch happens at 900px rather than 640 — close to the
+   live parish template, whose own toggler appears below Bootstrap's md. */
+@media (max-width: 900px) {
+  .ntgoc-nav { display: none; }
+  .ntgoc-drawer { display: block; }
+  /* Two things about the header have to give way for a full-screen panel that
+     lives inside it.
+
+     A backdrop-filter makes an element the containing block for any fixed
+     descendant, so the blur was quietly anchoring the panel to the header
+     rather than the viewport — it opened 155px down the screen. The header's
+     background is rgba(...,.94), all but opaque, so the blur is no loss here.
+
+     And z-index:40 opens a stacking context, which caps everything inside it
+     — panel and ✕ included — below the draft banner's deliberate z-index:100.
+     The banner stayed on top of the open menu and swallowed taps meant for
+     the ✕. Raising the header above it also means the header now passes over
+     the banner as the page scrolls, rather than under it, which is what a
+     sticky header should do anyway. The banner is untouched and returns the
+     moment the menu closes. */
+  .ntgoc-header { backdrop-filter: none; z-index: 110; }
+  /* The header stays one row: seal, name, hamburger. .ntgoc-header-inner also
+     carries .ntgoc-flex, which wraps below 640px — that drops the hamburger
+     onto a second line at the LEFT of the header, and the panel's right:0
+     anchor goes with it, so the drawer opens off the side of the screen. */
+  .ntgoc-header-inner { gap: 16px !important; flex-wrap: nowrap; }
+  /* .ntgoc-logo carries .ntgoc-flex as well, and it is the same trap one level
+     down. At 390px the seal and the name still fit on a line so nothing wraps;
+     at 320px they do not, the name drops below the seal, and the logo becomes
+     98px of content inside an 84px header. The overflow is not clipped and the
+     header is sticky and translucent, so "Fredericksburg, VA" then sits on top
+     of the page text on all seventeen pages, at every scroll position. */
+  .ntgoc-logo { flex-wrap: nowrap; }
+  /* Two lines of logo text overflow the 84px header once the row cannot wrap.
+     Drop the jurisdiction rather than the whole line: the top bar carries the
+     Metropolis, not this, and the mobile design keeps the town under the name. */
+  .ntgoc-logo-sub__jurisdiction { display: none; }
+  .ntgoc-home-service-times-actions { display: flex; }
+}
+
+/* The three .ntgoc-tall heroes. .ntgoc-tall trades the fixed height for a
+   min-height, and a min-height is not a height: each of these heroes puts its
+   words in a `height:100%` flex column, and a percentage height against an
+   auto-height parent is auto. So justify-content quietly stopped doing
+   anything — centred on the home and festival heroes, bottom-aligned on parish
+   life — and all three settled at the very top of the photograph with six
+   pixels between the eyebrow and the sticky header, where every
+   .ntgoc-page-hero has fifty-two. min-height:inherit gives the column the
+   height it was centring inside again. The padding is the floor for the home
+   hero, whose content is already taller than the min-height and so has nothing
+   left to centre. */
+@media (max-width: 900px) {
+  .ntgoc-home-hero-row-shell,
+  .ntgoc-faith-hero-row,
+  .ntgoc-parish-life-hero__inner {
+    min-height: inherit;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* The month grid. .ntgoc-calendar-grid-grid-ruled carries .ntgoc-grid, so the
+   blanket one-column rule flattened August into forty-two stacked full-width
+   boxes — the first six of them the blank cells that pad the week before the
+   1st — and made a single month seven thousand pixels tall. Seven columns still
+   read down to about 640px. Below that a cell is fifty pixels wide, which will
+   not hold "Orthros 9a · Liturgy 10a" at any size worth reading, so the month
+   becomes a list of days. */
+@media (max-width: 900px) {
+  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: repeat(7, minmax(0, 1fr)) !important; }
+  .ntgoc-calendar-day { min-height: 86px; padding: 7px 6px; }
+  .ntgoc-calendar-event { font-size: 10.5px; padding: 4px 5px; }
+}
+@media (max-width: 640px) {
+  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: 1fr !important; }
+  .ntgoc-calendar-weekday { display: none; }
+  /* The blank cells carry an empty day number. They are the padding a
+     seven-column month needs and a list of days does not. */
+  .ntgoc-calendar-day:has(.ntgoc-calendar-daynum:empty) { display: none; }
+  .ntgoc-calendar-day {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 2.75em 1fr;
+    gap: 4px 10px;
+    padding: 11px 12px;
+  }
+  .ntgoc-calendar-daynum { font-size: 14px; margin-bottom: 0; }
+  .ntgoc-calendar-event { grid-column: 2; font-size: 13px; padding: 5px 8px; }
 }

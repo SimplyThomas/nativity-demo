@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 73 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 72 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -117,7 +117,7 @@ The thirteen images to upload:
 
 | File | Used on |
 |---|---|
-| `hero-anastasis-icon.jpg` | Home hero, Mobile views |
+| `hero-anastasis-icon.jpg` | Home hero |
 | `clergy-fr-john.jpg` | About — clergy |
 | `faith-resurrection.jpg` | Our Faith hero |
 | `faith-ascension.jpg`, `faith-holy-sites.jpg`, `faith-elders.jpg` | Our Faith — further reading |
@@ -304,9 +304,6 @@ Then the page content, grouped by page:
 > `ntgocParishLifeUpcoming` **goes stale.** Its five entries are copied from the
 > August 2026 grid on the Calendar page. Either keep the two in step or drop the
 > chunk and leave the "View full parish calendar" link that sits above it.
-
-`ntgocMobileViews` is **not a real page.** It is a design reference showing what
-the site looks like on a phone. Do not import it.
 
 > **The eight middle Visit chunks are parish copy, not design copy.**
 > `…Language`, `…WhatToWear`, `…WhatToBring`, `…Children`, `…SundaySchool`,
@@ -594,7 +591,7 @@ npm run chunks   # the 15 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The seventeen `.html` files at the repo root are the source and are edited by hand.
+The sixteen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 every page from the old design file. See `CONTRIBUTING.md`.

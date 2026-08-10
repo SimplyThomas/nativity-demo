@@ -20,7 +20,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocCommitteesList` | 3822 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 3029 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 454 b | 1 page | — |
-| ☐ | `ntgocDraftBanner` | 488 b | 17 pages | — |
+| ☐ | `ntgocDraftBanner` | 488 b | 16 pages | — |
 | ☐ | `ntgocEventsHero` | 683 b | 1 page | — |
 | ☐ | `ntgocEventsList` | 2180 b | 1 page | yes (3) |
 | ☐ | `ntgocFaithHero` | 479 b | 1 page | — |
@@ -36,12 +36,11 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1202 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
-| ☐ | `ntgocHomeServiceTimes` | 1467 b | 1 page | — |
+| ☐ | `ntgocHomeServiceTimes` | 1770 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeUpcomingServices` | 3737 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3203 b | 1 page | — |
 | ☐ | `ntgocMinistriesHero` | 597 b | 1 page | — |
-| ☐ | `ntgocMobileViews` | 4484 b | 1 page | — |
 | ☐ | `ntgocNewsletterArchive` | 1898 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |
 | ☐ | `ntgocParishAnnouncements` | 3615 b | 1 page | — |
@@ -64,9 +63,9 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 2415 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3464 b | 17 pages | yes (14) |
-| ☐ | `ntgocSiteHeader` | 2837 b | 17 pages | yes (16) |
-| ☐ | `ntgocTopBar` | 373 b | 17 pages | yes (1) |
+| ☐ | `ntgocSiteFooter` | 3464 b | 16 pages | yes (14) |
+| ☐ | `ntgocSiteHeader` | 5393 b | 16 pages | yes (30) |
+| ☐ | `ntgocTopBar` | 208 b | 16 pages | — |
 | ☐ | `ntgocVisitorChildren` | 2573 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1856 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorEssentials` | 1144 b | 1 page | — |
