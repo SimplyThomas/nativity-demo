@@ -208,3 +208,168 @@
     notices[j].hidden = notices[j].getAttribute('data-ntgoc-expires') < today;
   }
 }());
+
+/*
+ * Welcome — the three forms on the page behind the QR code.
+ *
+ * Enhancement only, like everything else here. With JavaScript off all three
+ * forms are still complete, labelled and readable; the panel that asks for a
+ * name and an email is simply visible from the start instead of appearing when
+ * it becomes relevant, and pressing a button reloads the page. Nothing is lost,
+ * because nothing is transmitted either way.
+ *
+ * That last point is the important one. None of these forms has a handler
+ * behind it: the parish has no system to receive a question, a survey answer or
+ * a mailing-list sign-up, and inventing one would be worse than the gap. Each
+ * form sits inside a block that says so and gives the address that does work
+ * today. What the script adds is the shape of the exchange — validation, an
+ * error the visitor can act on, and the reply they would receive — so that the
+ * Council can see the whole thing before deciding whether to build it.
+ *
+ * Three separate forms, three separate buttons. Asking a question or answering
+ * the survey must never add anyone to the mailing list, so there is no shared
+ * state between them and the only consent tick on the page is on the list form.
+ */
+(function () {
+  'use strict';
+
+  var forms = document.querySelectorAll('[data-ntgoc-form]');
+  if (!forms.length) return;
+
+  /* --- ask for contact details only once they are wanted ------------- */
+  var reveals = document.querySelectorAll('[data-ntgoc-reveal]');
+  var panels = {};
+  for (var i = 0; i < reveals.length; i++) {
+    var id = reveals[i].getAttribute('data-ntgoc-reveal');
+    var panel = document.getElementById(id);
+    if (!panel) continue;
+    panels[id] = panel;
+    panel.hidden = true;
+    reveals[i].addEventListener('change', syncReveal);
+  }
+
+  function syncReveal() {
+    for (var r = 0; r < reveals.length; r++) {
+      var p = panels[reveals[r].getAttribute('data-ntgoc-reveal')];
+      if (!p || !reveals[r].checked) continue;
+      p.hidden = reveals[r].getAttribute('data-ntgoc-reveal-when') !== 'on';
+    }
+  }
+  syncReveal();
+
+  /* --- a field that becomes required because a box was ticked -------- */
+  var conditional = document.querySelectorAll('[data-ntgoc-requires]');
+  function syncRequired() {
+    var wanted = {};
+    for (var c = 0; c < conditional.length; c++) {
+      var name = conditional[c].getAttribute('data-ntgoc-requires');
+      wanted[name] = wanted[name] || conditional[c].checked;
+    }
+    for (var key in wanted) {
+      if (!Object.prototype.hasOwnProperty.call(wanted, key)) continue;
+      var field = document.getElementById(key);
+      if (field) field.required = wanted[key];
+    }
+  }
+  for (var q = 0; q < conditional.length; q++) {
+    conditional[q].addEventListener('change', syncRequired);
+  }
+  syncRequired();
+
+  /* --- submitting ---------------------------------------------------- */
+  function status(form, kind) {
+    return form.querySelector('[data-ntgoc-status="' + kind + '"]');
+  }
+
+  /* form.reportValidity() is affected by the form's own novalidate; the same
+     method on a single control is not, so the first bad field reports itself. */
+  function firstInvalid(form) {
+    for (var e = 0; e < form.elements.length; e++) {
+      var el = form.elements[e];
+      if (el.willValidate && !el.checkValidity()) return el;
+    }
+    return null;
+  }
+
+  function complaint(el) {
+    if (el.type === 'email') return 'Please add an email address so that we can write back to you.';
+    if (el.type === 'checkbox') return 'Please tick the box to confirm you would like to be added.';
+    return 'Please write your question before sending it.';
+  }
+
+  function onSubmit(event) {
+    event.preventDefault();
+    var form = event.currentTarget;
+    var ok = status(form, 'ok');
+    var bad = status(form, 'error');
+    var offender = firstInvalid(form);
+
+    if (offender) {
+      if (bad) { bad.textContent = complaint(offender); bad.hidden = false; }
+      offender.reportValidity();
+      return;
+    }
+
+    if (bad) bad.hidden = true;
+    /* Nothing leaves the page. The fields are locked so the state reads as
+       finished rather than as a button that did nothing. */
+    for (var f = 0; f < form.elements.length; f++) form.elements[f].disabled = true;
+    if (ok) ok.hidden = false;
+  }
+
+  for (var n = 0; n < forms.length; n++) {
+    forms[n].addEventListener('submit', onSubmit);
+  }
+}());
+
+/*
+ * Open whatever an in-page link points into.
+ *
+ * Now that the question groups fold, a link like "The Great Entrance →" points
+ * at a card inside a closed group, inside a closed section. Newer browsers open
+ * the ancestors of a link target for you; older ones scroll to something that is
+ * not on screen, which reads as a broken link. So it is done here explicitly,
+ * for the target itself as well as its ancestors — the target is a <details> in
+ * its own right, and no browser opens that for you.
+ *
+ * Enhancement, like everything else in this file: with JavaScript off the link
+ * still moves the page to the right place, and the reader taps the card open.
+ * It is scoped to nothing in particular, so it costs the other pages one event
+ * listener that never matches.
+ */
+(function () {
+  'use strict';
+
+  function reveal(target) {
+    if (!target) return;
+    if (target.tagName === 'DETAILS') target.open = true;
+    for (var el = target.parentNode; el && el.tagName; el = el.parentNode) {
+      if (el.tagName === 'DETAILS') el.open = true;
+    }
+  }
+
+  function targetOf(hash) {
+    if (!hash || hash.length < 2) return null;
+    try { return document.getElementById(decodeURIComponent(hash.slice(1))); }
+    catch (e) { return null; }
+  }
+
+  document.addEventListener('click', function (event) {
+    var el = event.target;
+    while (el && el !== document && el.tagName !== 'A') el = el.parentNode;
+    if (!el || el.tagName !== 'A') return;
+    var href = el.getAttribute('href');
+    if (!href || href.charAt(0) !== '#') return;
+    reveal(targetOf(href));
+  });
+
+  function fromHash() {
+    var t = targetOf(window.location.hash);
+    if (!t) return;
+    reveal(t);
+    t.scrollIntoView();
+  }
+
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+}());

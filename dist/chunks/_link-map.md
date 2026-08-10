@@ -25,10 +25,11 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `newsletter` | _________ |
 | `parish-life` | _________ |
 | `visit` | _________ |
+| `welcome` | _________ |
 
 ## 2. Then work through the chunks
 
-92 links across 34 chunks.
+106 links across 38 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -59,13 +60,17 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishServe` | ministries, committees | ☐ |
 | `ntgocParishStewardship` | give | ☐ |
 | `ntgocParishWeek` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, calendar, contact, hall, parish-life, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteFooter` | visit, welcome, calendar, contact, hall, parish-life, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
 | `ntgocSiteHeader` | index, faith, parish-life ×2, for-our-parish, ministries, committees, bookstore, newsletter, calendar, events ×2, hall, about, contact, visit | ☐ |
 | `ntgocTopBar` | mobile-views | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |
 | `ntgocVisitorHero` | contact, calendar | ☐ |
 | `ntgocVisitorNextSteps` | contact ×2, faith, calendar | ☐ |
+| `ntgocWelcomeClosing` | visit, calendar | ☐ |
+| `ntgocWelcomeConnected` | calendar, visit, contact, about | ☐ |
+| `ntgocWelcomeExperience` | visit ×5, contact | ☐ |
+| `ntgocWelcomeLearn` | faith | ☐ |
 
 > Search each chunk for `data-ntgoc-link`. External links (the Archdiocese,
 > Square, the Google form, fredgreek.org) are real URLs already — leave them.

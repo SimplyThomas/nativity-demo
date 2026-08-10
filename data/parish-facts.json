@@ -161,7 +161,7 @@
     },
     "parishEmailList": {
       "status": "DOES_NOT_EXIST_YET",
-      "note": "'Receive parish updates' is a placeholder for the same reason: no parish email list or sign-up form has been named. The Light newsletter exists and is linked; a list for short-notice news does not."
+      "note": "'Receive parish updates' is a placeholder for the same reason: no parish email list or sign-up form has been named. The Light newsletter exists and is linked; a list for short-notice news does not. There is also no way for anyone to subscribe themselves to The Light — it is done by asking, and a parishioner reported having to contact several people and finally email Fr. John before being added, months after joining. That is the barrier the sign-up block on welcome.html proposes removing. Until an email system is chosen, newsletter@ntgoc.org is the address that works, and welcome.html prints it next to the proposed form rather than behind it."
     },
     "stewardshipPledgeForm": {
       "status": "DOES_NOT_EXIST_YET",
@@ -264,7 +264,36 @@
       "value": "The parish collects no visitor information and has no follow-up of any kind.",
       "status": "CONFIRMED_BY_PARISH",
       "source": "Confirmed directly by the parish, 2026-08-09.",
-      "note": "Shown on visit.html as a PROPOSAL, because the gap is the point. The form there is inert: no action, no method, every field disabled, no submit handler and no JavaScript. Nothing is collected or transmitted. Whether the parish should collect anything at all is Fr. John's decision, not this draft's."
+      "note": "Shown on visit.html as a PROPOSAL, because the gap is the point. The form there is inert: no action, no method, every field disabled, no submit handler and no JavaScript. Nothing is collected or transmitted. Whether the parish should collect anything at all is Fr. John's decision, not this draft's. welcome.html (added 2026-08-10) proposes the same thing from the other end of a visit and carries three separate forms — a question, a survey and a mailing-list sign-up. Those three ARE interactive, so that the Council can see the exchange a visitor would have, but none of them has a handler: the submit is intercepted in assets/js/ntgoc-enhance.js, nothing is transmitted or stored, and each block says so and prints the parish address that works today."
+    },
+    "visitorSurvey": {
+      "status": "DOES_NOT_EXIST_YET",
+      "note": "No visitor survey of any kind is run today, and there is nowhere for answers to go. The survey on welcome.html is a proposal. Its field names — firstVisit, greeted, foundBook, comfortableAsking, knewCoffeeHour, introduced, confusedBy, couldImprove, wantToKnowMore, contactMe — are fixed now so that the shape of any future summary does not depend on whichever form tool is eventually chosen. No summary or reporting screen has been built, and none should be until the parish decides it wants the survey at all."
+    },
+    "welcomePageDoctrinalContent": {
+      "value": "The nineteen explanations on welcome.html, checked against Archdiocese sources.",
+      "status": "CHECKED_AGAINST_GOARCH",
+      "source": "Checked 2026-08-10 against the Archdiocese's Our Faith content (mirrored at nativity.va.goarch.org/our-faith/worship, /liturgy, /house_of_god), the parish's own FAQ at nativity.va.goarch.org/about-us/faq, and goarch.org articles on the Sign of the Cross, Kyrie Eleison, the Nativity of the Theotokos, and visiting an Orthodox church.",
+      "note": "Confirmed: the Sign of the Cross finger positions; Kyrie Eleison and the eleos/olive-oil root, which is the Archdiocese's own gloss and not a homiletic flourish; Theotokos and the Council of Ephesus in 431; the feast on 8 September; the Little and Great Entrances; antidoron open to all including non-Orthodox; Communion for Orthodox Christians only; icons venerated and not worshipped; standing as the preferred posture. Corrected four things: the Divine Liturgy was described as prayed in substantially its present form for sixteen centuries, which contradicts the Archdiocese's account that its core is apostolic and its framework settled by about the ninth century; the congregation was said to stand for the anaphora, when kneeling at the consecration is expressly permitted; the iconostasis description was vague where the Archdiocese is specific (right: Christ and St. John the Baptist; left: the Theotokos and the church's patron); and 'the shortest prayer the Church prays' was an unsourced superlative. None of this replaces Fr. John reading the page.",
+      "alsoFound": "The parish's own live FAQ page states the Communion practice, the invitation to non-Orthodox to receive antidoron, and 'there is often as much Greek as English in the service'. All three were previously recorded here as confirmed only by direct conversation with the parish; they now have a published parish source as well."
+    },
+    "pewCard": {
+      "value": "An 'Understanding the Divine Liturgy' pew card and a physical Welcome Packet.",
+      "status": "UNVERIFIED",
+      "source": "Described in the brief for welcome.html, 2026-08-10; not confirmed with the parish office.",
+      "note": "welcome.html is written as the page a QR code on that card and in that packet would lead to. Neither the card, the packet nor any QR code has been seen by this project, and no wording from the printed card has been reproduced. The card's entry on welcome.html links to the Visit page's 'Sunday morning, step by step' — the nearest thing that exists on this site — rather than to a guide that has not been written."
+    },
+    "touchingVestmentsAtGreatEntrance": {
+      "value": "Reaching out to touch the priest's vestment as he passes with the gifts at the Great Entrance.",
+      "status": "UNVERIFIED",
+      "source": "Reported by a parishioner, 2026-08-10. The practice itself is well attested and is described in the same terms by other parishes of the Archdiocese, which trace it to Matthew 9:20-22 — the woman healed by touching the hem of Christ's garment — and add the etiquette: do not step into the procession, do not tug at the vestments, do not push anyone aside.",
+      "note": "It is expressly NOT a universal Orthodox practice; it is most common among Greek and Middle Eastern Christians and varies parish by parish. The card on welcome.html is therefore written conditionally — 'if you saw this' — rather than telling a visitor they will have seen it, and carries a TODO: verify. Fr. John should confirm it is the habit here before the marker comes off."
+    },
+    "childrenActivityBoxes": {
+      "value": "Children's activity boxes are available outside the parish bookstore.",
+      "status": "UNVERIFIED",
+      "source": "Reported by a parishioner in the brief for welcome.html, 2026-08-10.",
+      "note": "Stated on welcome.html with a TODO: verify marker. Plausible and specific, but it comes from one parishioner rather than the parish office, and a visitor sent to look for something that is not there is exactly the small failure this page exists to catch. Confirm the boxes exist and where they are kept before the marker is removed."
     },
     "parishCommunity": {
       "value": "There is no private parish Facebook group, Discord, GroupMe or other parish chat, and no parish mailing list.",

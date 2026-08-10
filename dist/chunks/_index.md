@@ -20,7 +20,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocCommitteesList` | 3822 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 3029 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 454 b | 1 page | — |
-| ☐ | `ntgocDraftBanner` | 488 b | 17 pages | — |
+| ☐ | `ntgocDraftBanner` | 488 b | 18 pages | — |
 | ☐ | `ntgocEventsHero` | 683 b | 1 page | — |
 | ☐ | `ntgocEventsList` | 2180 b | 1 page | yes (3) |
 | ☐ | `ntgocFaithHero` | 479 b | 1 page | — |
@@ -64,9 +64,9 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3822 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3464 b | 17 pages | yes (14) |
-| ☐ | `ntgocSiteHeader` | 2837 b | 17 pages | yes (16) |
-| ☐ | `ntgocTopBar` | 373 b | 17 pages | yes (1) |
+| ☐ | `ntgocSiteFooter` | 3575 b | 18 pages | yes (15) |
+| ☐ | `ntgocSiteHeader` | 2837 b | 18 pages | yes (16) |
+| ☐ | `ntgocTopBar` | 373 b | 18 pages | yes (1) |
 | ☐ | `ntgocVisitorChildren` | 2573 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1856 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorEssentials` | 1144 b | 1 page | — |
@@ -81,5 +81,15 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocVisitorWhatToBring` | 1943 b | 1 page | — |
 | ☐ | `ntgocVisitorWhatToWear` | 2021 b | 1 page | — |
 | ☐ | `ntgocVisitorWhenYouArrive` | 2392 b | 1 page | — |
+| ☐ | `ntgocWelcomeAsk` | 4119 b | 1 page | — |
+| ☐ | `ntgocWelcomeClosing` | 833 b | 1 page | yes (2) |
+| ☐ | `ntgocWelcomeConnected` | 4278 b | 1 page | yes (4) |
+| ☐ | `ntgocWelcomeExperience` | 24977 b | 1 page | yes (6) |
+| ☐ | `ntgocWelcomeHero` | 697 b | 1 page | — |
+| ☐ | `ntgocWelcomeIntro` | 531 b | 1 page | — |
+| ☐ | `ntgocWelcomeLearn` | 5749 b | 1 page | yes (1) |
+| ☐ | `ntgocWelcomeNav` | 750 b | 1 page | — |
+| ☐ | `ntgocWelcomeStay` | 1602 b | 1 page | — |
+| ☐ | `ntgocWelcomeSurvey` | 9939 b | 1 page | — |
 
 See `_link-map.md` for the links, and `_components.evo.css` for the stylesheet.
