@@ -121,13 +121,13 @@ Every part lowercase kebab-case. `npm run lint` rejects anything else, and
 
 | | Example |
 |---|---|
-| Block | `.ntgoc-accordion`, `.ntgoc-footer`, `.ntgoc-parish-life-hero` |
+| Block | `.ntgoc-accordion`, `.ntgoc-footer`, `.ntgoc-parish-life-gallery` |
 | Element of a block | `.ntgoc-accordion__summary`, `.ntgoc-footer__address` |
 | Variant of either | `.ntgoc-photoslot--dark`, `.ntgoc-band--dark` |
 
 Two further rules, both from mistakes this repo actually made:
 
-- **Spell the area out.** `ntgoc-parish-life-hero`, never `ntgoc-pl-hero`. The
+- **Spell the area out.** `ntgoc-parish-life-gallery`, never `ntgoc-pl-gallery`. The
   abbreviated prefix ran alongside the spelled-out ones for a while and produced
   `ntgoc-pl-kicker` and `ntgoc-page-eyebrow` as two names for one identical rule.
   Lint warns on abbreviated prefixes.

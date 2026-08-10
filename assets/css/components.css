@@ -1107,7 +1107,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    viewport drags the text INTO the bright part of the scrim rather than out of
    it, which is the opposite of what the stops read as. Measured with
    `npm run measure:hero`, that put eight strings below WCAG at 390px — the
-   Home eyebrow at 1.47:1 against a 4.5 bar — while all 26 desktop strings
+   Home eyebrow at 1.47:1 against a 4.5 bar — while all 27 desktop strings
    passed. Three of those failures pre-date the shared component; nothing could
    see them because axe declines to judge text over a background image.
 

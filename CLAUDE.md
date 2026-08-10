@@ -78,7 +78,7 @@ something that should not be published.
 4. **Every page keeps `noindex`, the draft banner, and no Open Graph tags.**
 5. **Class names follow one convention**, enforced by lint:
    `ntgoc-<block>[__<element>][--<modifier>]`, every part lowercase kebab-case —
-   `ntgoc-accordion__summary`, `ntgoc-photoslot--dark`, `ntgoc-parish-life-hero`.
+   `ntgoc-accordion__summary`, `ntgoc-photoslot--dark`, `ntgoc-page-hero__scrim`.
    Spell the area out (never `ntgoc-pl-`), and no bare numeric suffixes
    (`ntgoc-clergy-body-muted`, not `ntgoc-clergy-text-6`). `components.css`
    carries no reset and no bare element selectors — the live site runs
