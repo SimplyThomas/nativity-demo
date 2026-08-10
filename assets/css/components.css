@@ -740,21 +740,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__label { color:#e0b673; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
 
-.ntgoc-parish-life-hero { position:relative; height:660px; background:#3a1414; overflow:hidden; }
-.ntgoc-parish-life-hero__photo { position:absolute; inset:0; background-image:url('../img/parish-nave-aisle.jpg'); background-size:cover; background-position:center; }
-/* Two layers, because one is not enough for a real photograph. The design's
-   single 75deg wash was tuned against a dark placeholder; over the lit nave the
-   lede ran across sunlit pews at roughly 3.7:1. The wash is now heavier through
-   the text column (about 6.7:1 on the brightest pixel under it), and the bottom
-   band holds that up if the parish swaps in a lighter photograph later — the
-   text sits at the bottom, so that is where the floor has to be. */
-.ntgoc-parish-life-hero__scrim { position:absolute; inset:0; background:linear-gradient(to top, rgba(58,20,20,.45) 0%, rgba(58,20,20,0) 45%), linear-gradient(75deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.86) 45%, rgba(58,20,20,.55) 72%, rgba(58,20,20,.25) 100%); pointer-events:none; }
-.ntgoc-parish-life-hero__inner { position:relative; max-width:1240px; margin:0 auto; padding:0 40px 76px; height:100%; display:flex; flex-direction:column; justify-content:flex-end; }
-.ntgoc-parish-life-hero__body { max-width:660px; }
+/* The hero is on .ntgoc-page-hero. This eyebrow is not part of it: the
+   "Coming up at Nativity" block further down the page uses it too. */
 .ntgoc-parish-life-eyebrow { font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:22px; }
-.ntgoc-parish-life-h1 { font-family:Newsreader, serif; font-weight:300; font-size:72px; line-height:1.05; color:#faf5ec; margin:0 0 26px; letter-spacing:-.015em; }
-.ntgoc-parish-life-lede { font-size:18.5px; line-height:1.7; color:#eaddc7; margin:0 0 18px; text-wrap:pretty; }
-.ntgoc-parish-life-lede--serif { font-family:Newsreader, serif; font-style:italic; font-weight:300; font-size:24px; line-height:1.5; color:#e0b673; margin:0; }
 
 .ntgoc-parish-life-section { max-width:1240px; margin:0 auto; padding:88px 40px; }
 .ntgoc-parish-life-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; align-items:center; }
@@ -1166,7 +1154,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    fixed frame heights, which are far too tall once stacked. */
 @media (max-width: 900px) {
   .ntgoc-parish-life-section { padding-top: 64px !important; padding-bottom: 64px !important; }
-  .ntgoc-parish-life-hero__inner { padding-bottom: 52px !important; }
   .ntgoc-parish-life-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; grid-auto-rows: 170px; }
   .ntgoc-parish-life-gallery__w3 { grid-column: span 2; }
   .ntgoc-parish-life-h520, .ntgoc-parish-life-h460, .ntgoc-parish-life-h440, .ntgoc-parish-life-h420 { height: 320px; }
@@ -1174,9 +1161,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 @media (max-width: 640px) {
   .ntgoc-photoslot { padding: 12px; gap: 6px; }
-  .ntgoc-parish-life-h1 { margin-bottom: 18px; }
-  .ntgoc-parish-life-lede { font-size: 16.5px; }
-  .ntgoc-parish-life-lede--serif { font-size: 20px; }
   .ntgoc-parish-life-h2 { font-size: clamp(28px, 8vw, 38px); }
   .ntgoc-parish-life-body { font-size: 16.5px; }
   .ntgoc-parish-life-split { gap: 34px !important; }
@@ -1312,20 +1296,18 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-home-service-times-actions { display: flex; }
 }
 
-/* The .ntgoc-tall heroes that are still on their own markup rather than on
-   .ntgoc-page-hero. .ntgoc-tall trades the fixed height for a min-height, and
-   a min-height is not a height: each of these heroes puts its words in a
-   `height:100%` flex column, and a percentage height against an auto-height
-   parent is auto. So justify-content quietly stopped doing anything — centred
-   on the festival hero, bottom-aligned on parish life — and both settled at
-   the very top of the photograph with six pixels between the eyebrow and the
-   sticky header, where every .ntgoc-page-hero has fifty-two. min-height:inherit
-   gives the column the height it was centring inside again, and the padding is
-   the floor where the content is already taller than the min-height and so has
-   nothing left to centre. */
+/* The festival hero, still on its own markup rather than on .ntgoc-page-hero.
+   .ntgoc-tall trades the fixed height for a min-height, and a min-height is not
+   a height: this hero puts its words in a `height:100%` flex column, and a
+   percentage height against an auto-height parent is auto. So justify-content
+   quietly stopped centring anything and the words settled at the very top of
+   the photograph with six pixels between the eyebrow and the sticky header,
+   where every .ntgoc-page-hero has fifty-two. min-height:inherit gives the
+   column the height it was centring inside again, and the padding is the floor
+   where the content is already taller than the min-height and so has nothing
+   left to centre. */
 @media (max-width: 900px) {
-  .ntgoc-faith-hero-row,
-  .ntgoc-parish-life-hero__inner {
+  .ntgoc-faith-hero-row {
     min-height: inherit;
     padding-top: 40px;
     padding-bottom: 40px;
