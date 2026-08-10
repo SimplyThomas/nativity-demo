@@ -673,6 +673,27 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-bookstore-notes-shell { max-width:1240px; margin:0 auto; padding:74px 40px; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-bookstore-notes-link { color:#7d2b2b; border-bottom:1px solid #d9c6a8; }
+
+/* The two reading sections above the bookstore catalogue — what Fr. John reads
+   with catechumens, and what recent converts recommend. One block serves both:
+   the second is wrapped in .ntgoc-band so the pair alternates against the hero
+   and the catalogue. The card is a horizontal pair, cover beside text, which
+   distinguishes a handful of featured titles from the stacked grid of stock
+   below without a second set of type sizes. It reuses .ntgoc-book-cat,
+   .ntgoc-book-author and .ntgoc-book-reserve from the catalogue rather than
+   restating them. */
+.ntgoc-reading { max-width:1240px; margin:0 auto; padding:72px 40px 78px; }
+.ntgoc-reading__head { max-width:760px; margin-bottom:42px; }
+.ntgoc-reading__title { font-family:Newsreader, serif; font-weight:400; font-size:36px; line-height:1.2; margin:0 0 16px; color:#3a1414; }
+.ntgoc-reading__lede { font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
+.ntgoc-reading__grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:32px; align-items:stretch; }
+.ntgoc-reading__card { display:flex; gap:26px; align-items:flex-start; border:1px solid #ded2be; background:#fbf8f2; padding:28px 26px; min-width:0; }
+.ntgoc-reading__cover { flex:0 0 104px; aspect-ratio:4/5; background:#ece3d5; border:1px solid #ded2be; display:flex; align-items:center; justify-content:center; padding:10px; }
+.ntgoc-reading__body { display:flex; flex-direction:column; flex:1; min-width:0; }
+.ntgoc-reading__book { font-family:Newsreader, serif; font-weight:500; font-size:23px; line-height:1.25; margin:0 0 4px; color:#3a1414; }
+.ntgoc-reading__subtitle { font-family:Newsreader, serif; font-style:italic; font-size:16.5px; line-height:1.4; color:#6c6458; margin-bottom:10px; }
+.ntgoc-reading__text { font-size:14.5px; line-height:1.7; color:#5b5449; margin:0 0 18px; text-wrap:pretty; }
+.ntgoc-reading__foot { margin-top:auto; }
 .ntgoc-mobile-views-shell { max-width:1240px; margin:0 auto; padding:76px 40px 90px; }
 .ntgoc-mobile-views-title { font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.1; margin:0 0 16px; color:#3a1414; }
 .ntgoc-mobile-views-body-loose { font-size:17px; line-height:1.7; color:#4a443c; margin:0 0 56px; max-width:600px; }
@@ -1197,6 +1218,19 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-parish-life-permission { grid-template-columns: 1fr; gap: 12px; }
   .ntgoc-parish-life-agenda__row { grid-template-columns: 1fr; gap: 6px; }
   .ntgoc-parish-life-h520, .ntgoc-parish-life-h460, .ntgoc-parish-life-h440, .ntgoc-parish-life-h420 { height: 240px; }
+}
+
+/* The bookstore reading sections. The 900px rule above already drops the pair
+   of cards to one column. What is left is the card itself: below 640px a
+   104px cover plus a 26px gap leaves the title about 100px to wrap inside, so
+   the cover goes above the text and shrinks. */
+@media (max-width: 640px) {
+  .ntgoc-reading { padding-top: 52px; padding-bottom: 56px; }
+  .ntgoc-reading__head { margin-bottom: 32px; }
+  .ntgoc-reading__title { font-size: clamp(27px, 7vw, 36px); }
+  .ntgoc-reading__lede { font-size: 16.5px; }
+  .ntgoc-reading__card { flex-direction: column; gap: 18px; padding: 24px 22px; }
+  .ntgoc-reading__cover { flex: 0 0 auto; width: 88px; }
 }
 
 /* --- accessibility floor ------------------------------------------ */

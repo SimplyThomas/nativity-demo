@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 73 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 75 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -241,7 +241,7 @@ Then the page content, grouped by page:
 | **Contact** | `ntgocContactHero`, `ntgocContactCard` |
 | **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` — *nothing links to this page, see below* |
 | **Hall Rental** | `ntgocHallRental` |
-| **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
+| **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatechism`, `ntgocBookstoreConverts`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
 
 > **For Our Parish is the one page that goes stale on its own.** Two of its
 > chunks — `ntgocParishWeek` and `ntgocParishAnnouncements`
