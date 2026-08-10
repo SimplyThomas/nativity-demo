@@ -1098,6 +1098,50 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 .ntgoc-page-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
 
+/* The scrim is re-weighted below 900px, and the reason is geometry, not taste.
+   Do not "simplify" this back into the one gradient above: the two look like
+   duplicates and are not.
+
+   The stops in `linear-gradient(75deg, …)` are percentages along the GRADIENT
+   LINE, and that line's length is W·sin75 + H·cos75 — it depends on the box's
+   aspect ratio. On a 1440x560 hero the line is about 1500px long, the text
+   column ends around x=800, and the words therefore sit in the first half of
+   it, under the dense .94-.86 end. Narrow the same hero to 390px and the line
+   is only ~505px long while the text still runs to x=375: the identical words
+   are now 75-85% of the way along, out in the light .55-.25 end. Narrowing the
+   viewport drags the text INTO the bright part of the scrim rather than out of
+   it, which is the opposite of what the stops read as. Measured with
+   `npm run measure:hero`, that put eight strings below WCAG at 390px — the
+   Home eyebrow at 1.47:1 against a 4.5 bar — while all 26 desktop strings
+   passed. Three of those failures pre-date the shared component; nothing could
+   see them because axe declines to judge text over a background image.
+
+   So mobile gets its own weights, and the horizontal pass is `to right`, not an
+   angle: on a horizontal gradient the line is exactly the box width, so a stop
+   percentage means the same fraction of the text column at every viewport and
+   cannot rotate out from under the words again. The stops are nearly flat
+   because on a 390px hero the text really is the whole frame — the eyebrow
+   alone reaches 81% of the width — so there is no room left to grade across.
+   What remains of the grade lives in the last ~15%, which is the sliver of
+   picture the design opens up on the far side, and in the `to top` foot pass,
+   which is unchanged.
+
+   900px, not 640px: heroes keep the desktop 40px gutter and desktop type down
+   to 641px, so at 720px the lede runs to x=677 on an 804px gradient line —
+   85% along, further into the light end than 390px manages. Sampled at 720 and
+   899 with the old scrim, three ledes failed there (Home 4.25, Plan a visit
+   4.06 and 4.13). That band is the worst case, not the narrowest one, and
+   `npm run measure:hero` only samples 390 and 1440, so nothing in CI would
+   have caught it. Capping this at 640px would have left those three failing.
+   -------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .ntgoc-page-hero__scrim {
+    background:
+      linear-gradient(to top, rgba(58,20,20,.45) 0%, rgba(58,20,20,0) 45%),
+      linear-gradient(to right, rgba(58,20,20,.94) 0%, rgba(58,20,20,.88) 50%, rgba(58,20,20,.86) 86%, rgba(58,20,20,.72) 100%);
+  }
+}
+
 /* The calendar's month controls sat inside its hero; they stay on parchment
    now that the hero is a photograph. */
 .ntgoc-calendar-controls { max-width: 1240px; margin: 0 auto; padding: 24px 40px; }
