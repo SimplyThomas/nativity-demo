@@ -1026,16 +1026,16 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 
 /* --- The photograph hero ---------------------------------------------
-   Every page with a hero uses this one component: the seven named in the
-   main navigation plus the home page, Parish Life and the Festival. Four
+   All ten pages that open on a photograph use this one component. Four
    near-copies became one, so the scrim — the thing the text's legibility
    depends on — is defined and measured once.
 
    The scrim is two passes. The 75deg pass grades the picture from the
-   text side; the `to top` pass darkens the foot of the frame. The second
-   one is why the content bottom-aligns rather than centres: at full photo
-   strength the gold eyebrow measures 4.32:1 over the middle of this
-   picture and 7.47:1 over the foot of it. Alignment is a legibility
+   text side; the `to top` pass darkens the foot of the frame. The two
+   together are why the content bottom-aligns rather than centres: at full
+   photo strength the gold eyebrow measures 4.32:1 over the middle of this
+   picture and 7.47:1 over the foot of it, and it takes both the second
+   pass and the lower position to get there. Alignment is a legibility
    requirement here, not a preference. The table is in ACCESSIBILITY.md.
 
    Heights are min-height, never height. Three of these heroes used a
