@@ -23,18 +23,18 @@ passing** at 320px, and axe still reports 0 violations across 32 page-runs. The
 "Expected clean state" has said 16/16 for a while, so this line read as a
 regression that was not one.
 
-**Re-checked 10 August 2026**, after the ten photograph heroes were collapsed
-onto one component. Still **0 violations across 32 page-runs.** Two counts moved
+**Re-checked 10 August 2026**, after the eleven photograph heroes were collapsed
+onto one component. Still **0 violations across 34 page-runs.** Two counts moved
 and neither is a regression:
 
-- Reflow is now **16 of 16**, not 17 of 17, because the Mobile views mock-up page
-  was retired once the site itself used the mobile layout. Sixteen pages, all
-  passing.
-- The manual-review count is now **136 nodes**, not 37. That number tracks how
+- Reflow is **17 of 17**. The Mobile views mock-up page was retired once the site
+  itself used the mobile layout, taking the count to 16 of 16; the Welcome page
+  then brought it back to seventeen.
+- The manual-review count is now **143 nodes**, not 37. That number tracks how
   much of a page axe can resolve, not how much is wrong: it rises when a
   gradient, a placeholder frame or a carousel puts text somewhere axe declines to
-  judge. Every one of the 136 is accounted for below, and the ten heroes are now
-  measured by a tool rather than by hand.
+  judge. Every one of the 143 is accounted for below, and the eleven heroes are
+  now measured by a tool rather than by hand.
 
 Reproduce it yourself:
 
@@ -42,7 +42,7 @@ Reproduce it yourself:
 npm install          # axe-core + puppeteer-core, dev only
 npm run audit:a11y   # 17 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
-npm run measure:hero # the ten photograph heroes, which axe declines to judge
+npm run measure:hero # the eleven photograph heroes, which axe declines to judge
 ```
 
 The **site itself has no dependencies.** These two packages are for auditing only
@@ -159,20 +159,20 @@ harmless.
 
 ## Verified by hand
 
-### The 136 "needs review" items
+### The 143 "needs review" items
 
-One rule is flagged for review: `color-contrast`, 136 nodes across 20 of the 32
+One rule is flagged for review: `color-contrast`, 143 nodes across 22 of the 34
 page-runs. axe defers whenever it cannot resolve what is behind the text. For
-120 of these nodes the reason it gives is a background gradient; for the other
-16 it is that the element is partly out of view. None is a violation. All four
+128 of these nodes the reason it gives is a background gradient; for the other
+15 it is that the element is partly out of view. None is a violation. All three
 groups are accounted for below.
 
-#### Contrast over a background image — 58 nodes
+#### Contrast over a background image — 66 nodes
 
-These are the ten photograph heroes: the eyebrow, the headline, the lede, the
-outlined hero button on the pages that carry one, and on Parish Life a second
-serif lede. axe has no way to know what colour is under the glyphs, so it
-declines to judge them.
+These are the eleven photograph heroes: the eyebrow, the headline, the lede, the
+outlined hero button on the two pages that carry one, on Parish Life a second
+serif lede, and on Welcome a gold italic opening line of its own. axe has no way
+to know what colour is under the glyphs, so it declines to judge them.
 
 **How they are measured.** `npm run measure:hero` samples the brightest pixel
 actually rendered behind each **glyph run** — not behind the element box. That
@@ -190,12 +190,21 @@ real fonts and the photographs, and its numbers want a human judgement about
 what to trade — a darker scrim, a lighter gold, a different crop. It still exits
 non-zero on a failure, so it can be used as a gate when someone means to.
 
-**Where they stand.** All ten heroes are one component now: one scrim, the
+**Every hero string has a selector here, and that is the point.** The tool
+measures what it is told to measure, so a hero string no selector names is a
+string nothing checks — which is the failure mode the tool exists to prevent.
+Welcome sets its opening line, "We're so glad you came.", in its own
+`.ntgoc-welcome-hero__lede` rather than the component's classes. It is gold on
+the photograph like every eyebrow here, and until the Welcome page was merged
+nothing measured it. It is now the fifth selector in the list. Anyone adding a
+hero string in a class of its own should add it there too.
+
+**Where they stand.** All eleven heroes are one component now: one scrim, the
 photograph at full strength, two heights, the text aligned to the bottom.
 Headlines are held to 3:1, being large text at both viewports; everything else
-to 4.5:1. Measured 10 August 2026, 54 strings, all passing:
+to 4.5:1. Measured 10 August 2026, 62 strings, all passing:
 
-| Page | Viewport | Eyebrow (4.5) | Headline (3) | Lede (4.5) | Serif lede (4.5) |
+| Page | Viewport | Eyebrow (4.5) | Headline (3) | Lede (4.5) | Second lede (4.5) † |
 |---|---|---:|---:|---:|---:|
 | Home | desktop | 6.78:1 | 11.32:1 | 9.74:1 | — |
 | Home | mobile | 5.71:1 | 9.83:1 | 9.38:1 | — |
@@ -217,10 +226,19 @@ to 4.5:1. Measured 10 August 2026, 54 strings, all passing:
 | Festival | mobile | 6.14:1 | 10.76:1 | 9.37:1 | — |
 | For Our Parish | desktop | 7.53:1 | 11.70:1 | 9.05:1 | — |
 | For Our Parish | mobile | 6.57:1 | 10.67:1 | 8.66:1 | — |
+| Welcome | desktop | 7.76:1 | 11.14:1 | 9.84:1 | 7.57:1 |
+| Welcome | mobile | 6.75:1 | 9.99:1 | 9.71:1 | 7.27:1 |
 
-The closest of the 54 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
-four outlined hero buttons axe also defers on are not in the table because the
-tool does not track them; measured the same way they are 11.39:1 at worst.
+† Two different strings share that column, because only two pages carry a second
+line in the hero and a column each would leave twenty rows of dashes. On Parish
+Life it is `.ntgoc-page-hero__lede--serif`; on Welcome it is the gold italic
+`.ntgoc-welcome-hero__lede`. Both are held to 4.5:1 and both are reported by
+`npm run measure:hero` under their own names, `lede--serif` and `welcome-lede`.
+
+The closest of the 62 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
+outlined hero buttons on Home and Plan a visit are not in the table because the
+tool does not track them — they are two buttons, and so four of the 66 nodes
+axe defers on. Measured the same way they are 11.39:1 at worst.
 
 **Below 900px the scrim is re-weighted, and the reason is geometry rather than
 taste.** The stops in `linear-gradient(75deg, …)` are percentages along the
@@ -243,8 +261,16 @@ ever manages. Sampled at 720px and 899px against the old scrim, three lede
 measurements failed there: Home at 899px (4.25:1), and Plan a visit at both
 720px (4.06:1) and 899px (4.13:1). That band is the worst case, not the
 narrowest one. `npm run measure:hero` samples 390 and 1440 only, so nothing
-would have caught it; re-sampled at 720 and 899 with the scrim as it now stands,
-all 54 pass, the closest at 6.44:1.
+would have caught it.
+
+That band was re-sampled again on 10 August 2026, after the Welcome page was
+merged, so the figure covers all eleven heroes rather than the ten it was first
+taken from: **all 62 strings pass, the closest at 6.44:1** — the home eyebrow at
+720px, the same string and the same number as before. The tool takes no viewport
+argument, so the re-sample is done by copying it outside the repo and changing
+the two entries in `VIEWPORTS` to 720 and 899. Nothing else about it changes,
+and the copy is thrown away afterwards; keeping a second viewport list in the
+tool would imply CI samples that band, and it does not.
 
 **Mobile had never been measured before this.** The table above used to be
 desktop-only. Measured at the point this work started, **three strings were
@@ -259,9 +285,10 @@ on — the home hero at 42% opacity and the Festival hero at 45% — and the sha
 scrim alone was not a substitute at 390px. The home eyebrow fell to **1.47:1**
 and the Festival eyebrow to 2.68:1; the home and Festival ledes fell with them;
 and the Events lede, already at 4.72:1 with 0.22 to spare, tipped to 3.56:1
-under the slightly lighter scrim. All 27 desktop strings passed throughout,
-which is exactly why a desktop-only table was not enough. The re-weighted mobile
-scrim fixed all eight — the five this work broke and the three that predated it.
+under the slightly lighter scrim. All 27 desktop strings of the ten heroes then
+in place passed throughout, which is exactly why a desktop-only table was not
+enough. The re-weighted mobile scrim fixed all eight — the five this work broke
+and the three that predated it.
 
 **The paragraph this replaces called it.** It read: *"This is why the home hero
 keeps its 42% opacity … matching that page's treatment as well — the image at
@@ -302,10 +329,14 @@ Their visible siblings — the same classes, the same colours, the same
 backgrounds, one slide or one card along — axe resolves without complaint and
 passes. There is nothing different about the ones it cannot see.
 
-#### One calendar entry — 1 node
+#### One calendar entry — no longer appears
 
-A single event chip on the August grid, `#5e1f1f` on `#f2e5dd`, which axe
-reports as partly obscured by another element. Measured: 11.03:1.
+Earlier runs reported one more obscured node: a single event chip on the August
+grid, `#5e1f1f` on `#f2e5dd`, which axe said was partly covered by another
+element. It was measured at the time and came out at 11.03:1. Today's run does
+not report it: the chip is still on the page, and axe now resolves it without
+deferring. That is why the obscured count is 15 rather than 16. If it returns,
+the measurement above still stands and the answer is unchanged.
 
 #### `frame-tested` no longer appears
 
@@ -320,23 +351,24 @@ disappears.
 
 ### Reflow — WCAG 1.4.10
 
-At a 320px viewport, no page scrolls horizontally. **16 of 16 pass.**
+At a 320px viewport, no page scrolls horizontally. **17 of 17 pass**, Welcome
+included.
 
 The Mobile views reference page initially failed (406px wide) because it drew
 phone frames at their true 375px width. Rather than shrink the mock-ups — which
 would have defeated their purpose — the frames were given their own scroll
 container with `tabindex="0"` and a label, so it was reachable by keyboard and
 the page body never scrolled sideways. That page has since been retired, which
-is why the count is 16 rather than 17.
+took the count to 16 of 16; the Welcome page then took it back to 17.
 
 ### Keyboard
 
-60 focusable elements on the contact page. The check reports **15 without a
+61 focusable elements on the contact page. The check reports **15 without a
 visible focus indicator**, and all 15 are the links inside the mobile navigation
 drawer. The drawer is a closed `<details>` at the 1440px width the check runs
 at, so `el.focus()` does nothing, no `:focus-visible` rule can match, and the
 check counts them as bare. Opened at 390px they take the same 3px gold outline
-at 2px offset as everything else. The other 45 pass where they stand.
+at 2px offset as everything else. The other 46 pass where they stand.
 
 The bookstore category filters were
 `<div>`s in the design and are now real `<button>`s with `aria-pressed`, so the
