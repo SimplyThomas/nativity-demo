@@ -66,11 +66,16 @@ function rewriteAssets(html) {
 
   // Internal page links become an obvious placeholder rather than a broken href:
   // a volunteer swaps each for EVO's link-by-id syntax once resources exist.
+  //
+  // The fragment is kept and carried through. A link to another page's section
+  // — parish-life.html#ntgoc-children — used not to match at all, so it left the
+  // chunk as a raw .html href: silently broken once imported, and invisible
+  // because every other link on the page had been rewritten around it.
   for (const page of PAGE_LINKS) {
     const name = page.replace(/\.html$/, '');
     out = out.replace(
-      new RegExp(`href="${page.replace('.', '\\.')}"`, 'g'),
-      `href="#" data-ntgoc-link="${name}"`);
+      new RegExp(`href="${page.replace('.', '\\.')}(#[^"]*)?"`, 'g'),
+      (_, frag) => `href="${frag || '#'}" data-ntgoc-link="${name}"`);
   }
 
   return out;

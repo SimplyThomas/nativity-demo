@@ -118,7 +118,7 @@
     </div>
   </header>
 
-  
+
 <!-- /CHUNK:ntgocSiteHeader -->
 
   <main id="ntgoc-main">
@@ -135,11 +135,11 @@
 <!-- /CHUNK:ntgocParishHero -->
 
 <!-- This Week at Nativity.
-     These entries come from the SAME source as the home page list and the
-     Parish Calendar grid: data/site.json records the canonical service times,
-     and calendar.html is the month. When the month turns, all three change
-     together — or this block is deleted and the calendar link left to do the
-     work. It is the one part of this page that goes stale on its own. -->
+     Rendered by `npm run parish` from data/parish-calendar.json — the same
+     file the month grid on calendar.html and "The next few weeks" on
+     parish-life.html are rendered from. Edit the calendar there, not here:
+     everything between the BUILD markers is overwritten on every build.
+     Each row carries its date, so the browser drops a day once it has gone. -->
 <!-- CHUNK:ntgocParishWeek -->
 <section id="ntgoc-this-week" class="ntgoc-parish-section ntgoc-gutter ntgoc-shell">
       <div class="ntgoc-parish-head ntgoc-flex">
@@ -151,102 +151,103 @@
       </div>
 
       <div class="ntgoc-week">
-        <div class="ntgoc-week__row">
+      <!-- BUILD:thisWeek -->
+        <div class="ntgoc-week__row" data-ntgoc-date="2026-08-09">
           <div class="ntgoc-service-date">Sun 9 August</div>
           <div>
-            <div class="ntgoc-h4">Orthros &amp; Divine Liturgy</div>
+            <div class="ntgoc-h4">Orthros<span class="ntgoc-visually-hidden"> — Divine service</span></div>
+          </div>
+          <div class="ntgoc-week__time">9:00 a.m.</div>
+        </div>
+        <div class="ntgoc-week__row" data-ntgoc-date="2026-08-09">
+          <div class="ntgoc-service-date"></div>
+          <div>
+            <div class="ntgoc-h4">Divine Liturgy<span class="ntgoc-visually-hidden"> — Divine service</span></div>
             <div class="ntgoc-week__note">Coffee hour in the parish hall afterwards.</div>
           </div>
-          <div class="ntgoc-week__time">9:00 &amp; 10:00 a.m.</div>
+          <div class="ntgoc-week__time">10:00 a.m.</div>
         </div>
-        <div class="ntgoc-week__row">
+        <div class="ntgoc-week__row" data-ntgoc-date="2026-08-14">
           <div class="ntgoc-service-date">Fri 14 August</div>
           <div>
-            <div class="ntgoc-h4">Great Vespers</div>
+            <div class="ntgoc-h4">Great Vespers<!-- TODO: verify --><span class="ntgoc-visually-hidden"> — Divine service</span></div>
             <div class="ntgoc-week__note">The eve of the Dormition of the Theotokos.</div>
           </div>
           <div class="ntgoc-week__time">6:00 p.m.</div>
         </div>
-        <div class="ntgoc-week__row">
+        <div class="ntgoc-week__row" data-ntgoc-date="2026-08-15">
           <div class="ntgoc-service-date">Sat 15 August</div>
           <div>
-            <div class="ntgoc-h4">Dormition of the Theotokos</div>
-            <div class="ntgoc-week__note">One of the twelve Great Feasts of the Church.</div>
+            <div class="ntgoc-h4">Dormition of the Theotokos<!-- TODO: verify --><span class="ntgoc-visually-hidden"> — Divine service</span></div>
+            <div class="ntgoc-week__note">Divine Liturgy &middot; A Great Feast of the Church.</div>
           </div>
-          <div class="ntgoc-week__time">9:00 a.m.<!-- TODO: verify --></div>
+          <div class="ntgoc-week__time">9:00 a.m.</div>
         </div>
-        <div class="ntgoc-week__row">
+        <div class="ntgoc-week__row" data-ntgoc-date="2026-08-16">
           <div class="ntgoc-service-date">Sun 16 August</div>
           <div>
-            <div class="ntgoc-h4">Orthros &amp; Divine Liturgy</div>
-            <div class="ntgoc-week__note">Philoptochos hosting coffee hour.<!-- TODO: verify --></div>
+            <div class="ntgoc-h4">Orthros<span class="ntgoc-visually-hidden"> — Divine service</span></div>
           </div>
-          <div class="ntgoc-week__time">9:00 &amp; 10:00 a.m.</div>
+          <div class="ntgoc-week__time">9:00 a.m.</div>
         </div>
-        <div class="ntgoc-week__row">
+        <div class="ntgoc-week__row" data-ntgoc-date="2026-08-16">
+          <div class="ntgoc-service-date"></div>
+          <div>
+            <div class="ntgoc-h4">Divine Liturgy<span class="ntgoc-visually-hidden"> — Divine service</span></div>
+            <div class="ntgoc-week__note">Coffee hour in the parish hall afterwards.</div>
+          </div>
+          <div class="ntgoc-week__time">10:00 a.m.</div>
+        </div>
+        <div class="ntgoc-week__row" data-ntgoc-date="2026-08-19">
           <div class="ntgoc-service-date">Wed 19 August</div>
           <div>
-            <div class="ntgoc-h4">Paraklesis</div>
-            <div class="ntgoc-week__note">In season.<!-- TODO: verify --></div>
+            <div class="ntgoc-h4">Paraklesis<!-- TODO: verify --><span class="ntgoc-visually-hidden"> — Divine service</span></div>
+            <div class="ntgoc-week__note">In season.</div>
           </div>
           <div class="ntgoc-week__time">6:30 p.m.</div>
         </div>
+        <p class="ntgoc-parish-sub" data-ntgoc-week-empty hidden>Everything listed here has now passed. The parish calendar has what is coming next.</p>
+        <p class="ntgoc-parish-sub">Taken from the parish calendar on 9 August 2026. The next 7 of 13 still to come this month.</p>
+<!-- /BUILD:thisWeek -->
       </div>
     </section>
 <!-- /CHUNK:ntgocParishWeek -->
 
-<!-- Parish announcements. The cards below carry NO content, deliberately: the
-     parish has not supplied any announcements, and three invented ones are the
-     easiest thing on this page for a parishioner to catch out. What is being
-     shown is the shape — the kinds of notice the section is built to carry,
-     including the urgent variant, and where a "posted / until" date would sit. -->
+<!-- Parish announcements, rendered by `npm run parish` from
+     data/parish-announcements.json. That file is the whole editing surface: the
+     office adds an entry, runs the build, and the cards below are rewritten —
+     no markup to break. An entry past its expiry date is left out of the build
+     AND hidden in the browser, so a page nobody has rebuilt for a fortnight
+     still does not show a fortnight-old notice.
+
+     Nothing real is posted yet. The two entries present are tagged "Sample" on
+     the card, because an invented parish announcement is the easiest thing on
+     this page for a parishioner to catch out. -->
 <!-- CHUNK:ntgocParishAnnouncements -->
 <section id="ntgoc-announcements" class="ntgoc-band">
       <div class="ntgoc-parish-section ntgoc-gutter ntgoc-shell">
         <div class="ntgoc-parish-head ntgoc-flex">
           <div>
             <h2 class="ntgoc-parish-h2">Parish announcements</h2>
-            <p class="ntgoc-parish-sub">Notices from the office, the Council and our ministries. Nothing is posted here yet — these frames show what the section is built to hold.</p>
+            <p class="ntgoc-parish-sub">Notices from the office, the Council and our ministries — Sunday School news, a specific ask for volunteers, a parish event, ordinary parish business. Each one can carry a date after which it comes down on its own.</p>
           </div>
         </div>
 
         <div class="ntgoc-announce">
-          <div class="ntgoc-announce__card ntgoc-announce__card--urgent">
-            <div class="ntgoc-announce__kind ntgoc-announce__kind--urgent">Urgent notice</div>
-            <h3 class="ntgoc-h3-sm">A closure or a change of schedule</h3>
-            <p class="ntgoc-announce__text">The variant the office would use for weather, a cancelled service or a change of time — set apart so it is not read as an ordinary notice.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
+        <!-- BUILD:announcements -->
+          <div class="ntgoc-announce__card ntgoc-announce__card--urgent" data-ntgoc-expires="2026-12-31">
+            <div class="ntgoc-announce__kind ntgoc-announce__kind--urgent">Urgent notice &middot; sample</div>
+            <h3 class="ntgoc-h3-sm">Sample — this is how an urgent notice appears</h3>
+            <p class="ntgoc-announce__text">An urgent announcement sorts to the front of this grid and takes the red rule, so it is not read as ordinary parish business. It is meant for a weather closure, a service moved at short notice, or a death in the parish family. Set &quot;urgent&quot;: true on an entry in data/parish-announcements.json.</p>
+            <div class="ntgoc-announce__meta">Posted 9 August &middot; until 31 December</div>
           </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Sunday School</div>
-            <h3 class="ntgoc-h3-sm">Registration and class news</h3>
-            <p class="ntgoc-announce__text">Term dates, registration, and what parents need to know for the weeks ahead.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
+          <div class="ntgoc-announce__card" data-ntgoc-expires="2026-12-31">
+            <div class="ntgoc-announce__kind">From the office &middot; sample</div>
+            <h3 class="ntgoc-h3-sm">Sample — this is how an ordinary announcement appears</h3>
+            <p class="ntgoc-announce__text">Announcements run newest first, each under a label saying what kind of notice it is, and each one can carry a date after which it comes down by itself rather than piling up. Nothing on this page is a real parish announcement yet; these two entries exist to show the Parish Council the shape of the thing.</p>
+            <div class="ntgoc-announce__meta">Posted 9 August &middot; until 31 December</div>
           </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Volunteers needed</div>
-            <h3 class="ntgoc-h3-sm">A specific ask, with a name attached</h3>
-            <p class="ntgoc-announce__text">Where a ministry can ask for the help it actually needs this month, rather than in general.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Ministry update</div>
-            <h3 class="ntgoc-h3-sm">News from a parish ministry</h3>
-            <p class="ntgoc-announce__text">Philoptochos, GOYA, JOY, the Dance Troupe, AHEPA and the rest, in their own words.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">Parish event</div>
-            <h3 class="ntgoc-h3-sm">Something happening at the church</h3>
-            <p class="ntgoc-announce__text">A feast-day supper, a work day, a ministry night — anything that also belongs on the calendar.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
-          <div class="ntgoc-announce__card">
-            <div class="ntgoc-announce__kind">From the office</div>
-            <h3 class="ntgoc-h3-sm">Ordinary parish business</h3>
-            <p class="ntgoc-announce__text">Assembly notices, stewardship reminders, forms, and the routine business of the parish.</p>
-            <div class="ntgoc-announce__meta">Posted · until a set date</div>
-          </div>
+<!-- /BUILD:announcements -->
         </div>
 
         <div class="ntgoc-proposal ntgoc-proposal--spaced">
@@ -499,6 +500,7 @@
           <div class="ntgoc-footer-heading">Visit</div>
           <div class="ntgoc-stack ntgoc-grid">
             <a href="visit.html" class="ntgoc-inherit ntgoc-footer-link">First-time visitors</a>
+            <a href="welcome.html" class="ntgoc-inherit ntgoc-footer-link">After your visit</a>
             <a href="calendar.html" class="ntgoc-inherit ntgoc-footer-link">Service times</a>
             <a href="contact.html" class="ntgoc-inherit ntgoc-footer-link">Directions</a>
             <a href="hall.html" class="ntgoc-inherit ntgoc-footer-link">Hall rental</a>

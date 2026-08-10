@@ -14,14 +14,14 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The sixteen `.html` files at the repo root are SOURCE. Edit them directly.**
+**The seventeen `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
 `design-src/` and `tools/archive/` document the old model. If you infer the
 workflow from git history or those folders, you will get it backwards.
 
-**Never run `tools/archive/render.mjs`.** It regenerates all sixteen pages and
+**Never run `tools/archive/render.mjs`.** It regenerates every page it knows and
 `components.css` from the retired design file and would destroy every hand edit
 since the switch. It is archived so that running it is deliberate, not
 accidental.
@@ -36,9 +36,10 @@ The only generated artefact is `dist/chunks/` (`npm run chunks`).
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 16 pages
+npm run shell    # propagate header/footer to all 17 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
+npm run parish   # render the calendar + announcements into the pages
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
 npm run links    # do the outbound links still resolve? (monthly in CI)
 npm run evo:up   # a real Evolution CMS on localhost, pre-loaded with the site
@@ -55,6 +56,25 @@ commands need Docker and are **not** part of `npm run check` — CI has no Docke
 daemon. They are the only way to see the chunks inside a real Evolution CMS
 rather than inferring that they would work; `tools/evo-sandbox/README.md`
 records the gotchas, several of which are unguessable.
+
+### The one thing that IS generated from data
+
+`npm run parish` renders `data/parish-calendar.json` and
+`data/parish-announcements.json` into the blocks marked
+`<!-- BUILD:name -->` … `<!-- /BUILD:name -->` on `calendar.html`,
+`parish-life.html` and `for-our-parish.html`. It touches nothing outside those
+markers, and it is not the retired renderer — it owns four blocks, not twelve
+files.
+
+Edit the JSON, not the markup between the markers. The same list of services
+used to be hand-written into three pages, and the copies had drifted: 14 and 15
+August were dated to the wrong weekdays on Parish Life. That is what this exists
+to stop. It is deliberately **not** gated by CI: "upcoming" depends on today's
+date, so a CI check would fail every morning.
+
+`data/site.json` is the other half of the same idea, from the opposite
+direction: it lists what a page must NOT say, and lint fails when one says it.
+Use that for a fact stated in prose, and this for a list rendered from data.
 
 ---
 
@@ -124,7 +144,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 16 pages × 2 viewports, reflow 16/16 at 320px.
+0 axe violations across 17 pages × 2 viewports, reflow 17/17 at 320px.
 
 ---
 

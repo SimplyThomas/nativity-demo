@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 16 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 32 runs
+**Scope:** all 17 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 34 runs
 
 ## Result
 
@@ -27,7 +27,7 @@ Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 16 pages x 2 viewports
+npm run audit:a11y   # 17 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
 ```
 
