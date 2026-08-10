@@ -740,8 +740,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__label { color:#e0b673; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
 
-/* The hero is on .ntgoc-page-hero. This eyebrow is not part of it: the
-   "Coming up at Nativity" block further down the page uses it too. */
+/* The hero is on .ntgoc-page-hero. This eyebrow is not part of it, and is not
+   dead: the "Coming up at Nativity" block further down the page is now its only
+   user. Gold on a dark band, so it is not the same thing as .ntgoc-page-eyebrow,
+   which is muted brown for light ones. */
 .ntgoc-parish-life-eyebrow { font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:22px; }
 
 .ntgoc-parish-life-section { max-width:1240px; margin:0 auto; padding:88px 40px; }
