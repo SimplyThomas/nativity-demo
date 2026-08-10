@@ -11,7 +11,9 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocAboutClergy` | 2871 b | 1 page | yes (1) |
 | ☐ | `ntgocAboutHero` | 536 b | 1 page | — |
 | ☐ | `ntgocAboutParishCouncil` | 5511 b | 1 page | yes (2) |
-| ☐ | `ntgocBookstoreCatalog` | 14620 b | 1 page | — |
+| ☐ | `ntgocBookstoreCatalog` | 14640 b | 1 page | — |
+| ☐ | `ntgocBookstoreCatechism` | 2996 b | 1 page | — |
+| ☐ | `ntgocBookstoreConverts` | 2805 b | 1 page | — |
 | ☐ | `ntgocBookstoreHero` | 1295 b | 1 page | — |
 | ☐ | `ntgocBookstoreNotes` | 1110 b | 1 page | yes (1) |
 | ☐ | `ntgocCalendarGrid` | 10047 b | 1 page | — |

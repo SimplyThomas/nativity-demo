@@ -242,6 +242,24 @@
       "source": "Confirmed directly by the parish, 2026-08-09.",
       "note": "Stock: Orthodox books, pamphlets, prayer books, icons, prayer ropes, incense, crosses, candles and other devotional items. Visitors are welcome to browse. The draft additionally claimed the table was in the narthex and open during the festival and on feast days — none of that is sourced, and it has been removed."
     },
+    "catechismBooks": {
+      "value": "Fr. John reads two books with those preparing to be received into the Church: 'Know the Faith: A Handbook for Orthodox Christians and Inquirers' (Fr. Michael Shanbour, Ancient Faith Publishing) and 'The Orthodox Church: An Introduction to Eastern Christianity' (Timothy Ware, later Metropolitan Kallistos Ware, Penguin).",
+      "status": "UNVERIFIED",
+      "source": "Reported by a parish volunteer, 2026-08-10. Not confirmed with Fr. John.",
+      "note": "The AUTHORSHIP is settled; what remains unverified is the parish's use of the books. The original report named 'Know the Faith and The Orthodox Church by Timothy Ware', which reads as though Ware wrote both. He did not — Know the Faith is Fr. Michael Shanbour's — and the reporting volunteer confirmed the split attribution on 2026-08-10. Do not let a later edit collapse the two bylines back into one. What is still open is whether Fr. John wants the page to name him at all, or would rather it described the preparation without him. The BOOKS themselves are published works and their titles, authors and publishers are checkable facts; what is unsourced is the claim that this parish uses them. No prices or stock counts have been invented for either — the featured cards carry a Reserve control and no figure. bookstore.html carries the TODO marker.",
+      "affects": [
+        "bookstore.html"
+      ]
+    },
+    "convertRecommendations": {
+      "value": "Parishioners received into the Church in recent years recommend 'Toolkit for Spiritual Growth: A Practical Guide to Prayer, Fasting, and Almsgiving' (Fr. Evan Armatas, Ancient Faith Publishing).",
+      "status": "UNVERIFIED",
+      "source": "Reported by a parish volunteer, 2026-08-10. Not confirmed with Fr. John.",
+      "note": "One title was supplied and one title is shown. Nothing was added to make the section look fuller — the second cell of the grid is a labelled proposal saying the list is short on purpose, which is the same treatment the greeter portraits and the Parish Life gallery get. Recommendations are published WITHOUT names, per the parish's photography and permission position: see photographyPolicy. Open questions for Fr. John: whether the parish is content to publish a reading list it has not vetted, and how a parishioner adds to it.",
+      "affects": [
+        "bookstore.html"
+      ]
+    },
     "sundaySchool": {
       "value": "During the school year, parish children attending Sunday School leave for class after Holy Communion has been served, and remain in class until coffee hour.",
       "status": "CONFIRMED_BY_PARISH",
