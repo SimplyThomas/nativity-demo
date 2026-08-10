@@ -28,7 +28,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
 | ☐ | `ntgocFestivalDetails` | 1959 b | 1 page | — |
-| ☐ | `ntgocFestivalHero` | 647 b | 1 page | — |
+| ☐ | `ntgocFestivalHero` | 704 b | 1 page | — |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 2018 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 1933 b | 1 page | yes (1) |
