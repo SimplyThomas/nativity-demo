@@ -318,6 +318,64 @@ for (const rel of PAGES) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 6c. The drawer and the desktop nav must offer the same links
+ *
+ * Below 900px the horizontal nav is hidden and the <details> drawer is the
+ * whole navigation. The two lists are the same links written twice, and
+ * nothing but this check stops one being updated while the other quietly
+ * rots — which on a phone means a page nobody can reach.
+ *
+ * Sets, not sequences: the drawer leads with "Plan a visit" the way the
+ * mobile design does, and that is deliberate. .ntgoc-drawer__utility and
+ * .ntgoc-drawer__service are drawer-only and are not compared.
+ * ------------------------------------------------------------------ */
+{
+  /* Pull the hrefs out of the element carrying `cls`, by walking from its
+     opening tag to the matching close and counting nesting on the way. A
+     plain non-greedy match would stop at the first </div> instead. */
+  const hrefsIn = (body, cls) => {
+    const opener = new RegExp(
+      `<(\\w+)[^>]*\\sclass="[^"]*(?<![\\w-])${cls}(?![\\w-])[^"]*"[^>]*>`);
+    const m = body.match(opener);
+    if (!m) return null;
+
+    const start = m.index;
+    let depth = 0, end = -1;
+    for (const t of body.matchAll(new RegExp(`<(/?)${m[1]}\\b[^>]*>`, 'g'))) {
+      if (t.index < start) continue;
+      depth += t[1] ? -1 : 1;
+      if (depth === 0) { end = t.index; break; }
+    }
+    if (end === -1) return null;
+
+    return new Set([...body.slice(start, end).matchAll(/<a\s+href="([^"]+)"/g)]
+      .map(x => x[1]));
+  };
+
+  for (const rel of PAGES) {
+    const body = read(rel);
+    const nav = hrefsIn(body, 'ntgoc-nav');
+    const drawer = hrefsIn(body, 'ntgoc-drawer__list');
+    if (!nav && !drawer) continue;
+    if (!drawer) {
+      err('nav-drawer-parity', rel,
+        'has a desktop nav but no .ntgoc-drawer__list — below 900px there is no navigation at all');
+      continue;
+    }
+    if (!nav) {
+      err('nav-drawer-parity', rel, 'has a .ntgoc-drawer__list but no .ntgoc-nav');
+      continue;
+    }
+    for (const h of [...nav].filter(h => !drawer.has(h))) {
+      err('nav-drawer-parity', rel, `"${h}" is in the desktop nav but missing from the drawer`);
+    }
+    for (const h of [...drawer].filter(h => !nav.has(h))) {
+      err('nav-drawer-parity', rel, `"${h}" is in the drawer but missing from the desktop nav`);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * 7. Assets referenced from the markup actually exist
  * ------------------------------------------------------------------ */
 for (const rel of PAGES) {
@@ -465,19 +523,63 @@ for (const rel of PAGES) {
  * time a page is added — ACCESSIBILITY.md spent a while claiming an audit
  * covered 12 pages when it covered 16. A number in prose that nobody rechecks
  * is worse than no number.
+ *
+ * Spelled-out numerals count too, but only in phrasings that can mean nothing
+ * except the whole set. This rule matched digits only, and CLAUDE.md — the file
+ * carrying the warning above — sat saying "the fifteen `.html` files at the repo
+ * root" and "regenerates all twelve pages" when there were sixteen of each,
+ * invisible to a /\d+/ check.
+ *
+ * Matching every "<word> pages" was tried and abandoned: the docs are full of
+ * legitimate subset counts ("three or four pages", "the six pages that took the
+ * shared hero component", "its two chunks"), and "the twelve pages were
+ * generated" — real rot — is grammatically identical to "the four pages added
+ * on 2026-08-09" — not rot. No pattern separates those.
+ *
+ * So word numerals are only read after "all", or in "<n> `.html` files", which
+ * is only ever said of the whole repo root. Prose that means a total should say
+ * "all" or give no number; both of those are better sentences anyway.
  * ------------------------------------------------------------------ */
 {
   const docs = readdirSync(ROOT).filter(f => f.endsWith('.md'));
   const realChunks = chunkFiles.filter(f => f.endsWith('.html')).length;
+
+  const WORD_NUMBERS = {
+    one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,
+    nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14,
+    fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19,
+    twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70,
+  };
+  const NUMERAL = `\\d+|${Object.keys(WORD_NUMBERS).join('|')}`;
+  const valueOf = t => WORD_NUMBERS[t.toLowerCase()] ?? +t;
+
+  const CHUNK_NOUNS = 'plain text chunk files|chunk files|chunks';
+  const HTML_FILES = '`\\.html` files|\\.html files';
+
   for (const rel of docs) {
     const body = read(rel);
-    for (const m of body.matchAll(/(\d+)\s+(?:plain text chunk files|chunk files|chunks)\b/g)) {
+
+    // Unambiguous totals: "all <n> pages", "all <n> chunks", "<n> .html files".
+    for (const m of body.matchAll(new RegExp(`\\ball\\s+(${NUMERAL})\\s+(?:${CHUNK_NOUNS})\\b`, 'gi'))) {
+      if (valueOf(m[1]) !== realChunks) err('stale-count', rel, `says "${m[0]}" but there are ${realChunks}`);
+    }
+    for (const m of body.matchAll(new RegExp(`\\ball\\s+(${NUMERAL})\\s+pages\\b`, 'gi'))) {
+      if (valueOf(m[1]) !== PAGES.length) err('stale-count', rel, `says "${m[0]}" but there are ${PAGES.length}`);
+    }
+    for (const m of body.matchAll(new RegExp(`(${NUMERAL})\\s+(?:${HTML_FILES})\\b`, 'gi'))) {
+      if (valueOf(m[1]) !== PAGES.length) err('stale-count', rel, `says "${m[0]}" but there are ${PAGES.length}`);
+    }
+
+    // Digits keep the original, looser treatment; they were never the problem.
+    for (const m of body.matchAll(new RegExp(`(\\d+)\\s+(?:${CHUNK_NOUNS})\\b`, 'g'))) {
       if (+m[1] !== realChunks) {
         err('stale-count', rel, `says "${m[0]}" but there are ${realChunks}`);
       }
     }
     for (const m of body.matchAll(/(\d+)\s+pages\b/g)) {
-      if (+m[1] !== PAGES.length) err('stale-count', rel, `says "${m[0]}" but there are ${PAGES.length}`);
+      if (+m[1] !== PAGES.length) {
+        err('stale-count', rel, `says "${m[0]}" but there are ${PAGES.length}`);
+      }
     }
     for (const m of body.matchAll(/(\d+)\s+pages?\s*(?:x|×)\s*2\s+viewports?\s*=\s*(\d+)/gi)) {
       if (+m[1] !== PAGES.length || +m[2] !== PAGES.length * 2) {

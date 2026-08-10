@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 18 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 36 runs
+**Scope:** all 17 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 34 runs
 
 ## Result
 
@@ -17,11 +17,17 @@ Visit page. One new violation appeared and was fixed (below); the manual-review
 count rose from 25 to 37 because that page now carries four video embeds and a
 scrolling row of portraits. Still **0 violations, and every page passing reflow.**
 
+**Re-checked 9 August 2026.** `npm run audit:reflow` now reports **17 of 17
+passing** at 320px, and axe still reports 0 violations across 32 page-runs. The
+"12 of 16" above is the 8 August state, kept as the record of it — CLAUDE.md's
+"Expected clean state" has said 16/16 for a while, so this line read as a
+regression that was not one.
+
 Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 18 pages x 2 viewports
+npm run audit:a11y   # 17 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
 ```
 

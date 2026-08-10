@@ -14,7 +14,13 @@
     "audit:reflow": "node tools/audit-reflow.mjs",
     "check": "npm run lint && npm run snap && npm run audit:a11y && npm run audit:reflow",
     "snap": "node tools/snapshot.mjs",
-    "links": "node tools/check-links.mjs"
+    "links": "node tools/check-links.mjs",
+    "evo:up": "docker compose -f tools/evo-sandbox/docker-compose.yml up -d --build --force-recreate",
+    "evo:down": "docker compose -f tools/evo-sandbox/docker-compose.yml down",
+    "evo:reset": "docker compose -f tools/evo-sandbox/docker-compose.yml down -v",
+    "evo:logs": "docker compose -f tools/evo-sandbox/docker-compose.yml logs -f",
+    "evo:seed": "docker compose -f tools/evo-sandbox/docker-compose.yml exec evo14 php /opt/ntgoc/seed.php && docker compose -f tools/evo-sandbox/docker-compose.yml exec evo35 php /opt/ntgoc/seed.php",
+    "evo:verify": "node tools/evo-sandbox/verify.mjs"
   },
   "devDependencies": {
     "axe-core": "^4.13.0",

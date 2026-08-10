@@ -8,3 +8,6 @@ axe-results.json
 
 # The implementation brief is Thomas's working document, not a repo artefact.
 nativity_website_claude_implementation_brief.md
+
+# Sandbox credentials override; the defaults live in .env.example.
+tools/evo-sandbox/.env
