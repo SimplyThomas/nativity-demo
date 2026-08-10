@@ -435,7 +435,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-festival-promo-heading { font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.12; margin:0 0 20px; color:#faf5ec; }
 .ntgoc-home-festival-promo-text { font-size:17px; line-height:1.7; color:#dcccb4; margin:0 0 32px; max-width:520px; text-wrap:pretty; }
 /* The promo's two buttons sat on the home hero's row class, which went when the
-   hero moved onto .ntgoc-page-hero. Same declarations, its own name. */
+   hero moved onto .ntgoc-page-hero. Same declarations, its own name — and not a
+   reuse of either look-alike, which is the first thing to check here. Both
+   .ntgoc-nextsteps__row and .ntgoc-proposal__row match on the base declarations
+   and then turn into a grid at 900px, which would stack these two buttons on
+   mobile; .ntgoc-page-hero__actions adds a 34px top margin and belongs to a
+   hero. That is why lint's duplicate-rule check compares media queries too. */
 .ntgoc-home-festival-promo-row { display:flex; gap:14px; flex-wrap:wrap; }
 .ntgoc-home-festival-promo-eyebrow { background:#e0b673; color:#3a1414; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; border-radius:2px; }
 .ntgoc-home-festival-promo-eyebrow:hover, .ntgoc-home-festival-promo-eyebrow:focus-visible { background:#f0cd91; }
