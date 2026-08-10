@@ -80,6 +80,15 @@
    ------------------------------------------------------------------ */
 .ntgoc-inherit { color: inherit; }
 
+/* The page measure and the page gutter. Both classes were carried on every
+   section in the markup but only ever declared inside the media queries at the
+   foot of this file — so at desktop width they did nothing, and all twenty
+   -shell rules re-declared the same max-width, centring and 40px side padding
+   for themselves. Declared once here, the -shell rules keep only what actually
+   differs between sections: their vertical rhythm. */
+.ntgoc-shell { max-width: 1240px; margin: 0 auto; }
+.ntgoc-gutter { padding-left: 40px; padding-right: 40px; }
+
 /* --- links inside running text --------------------------------------
    The design removes underlines everywhere. Inside a paragraph that leaves
    colour as the only signal that a word is a link, which fails for anyone who
@@ -185,7 +194,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    -------------------------------------------------------------------- */
 .ntgoc-accordion-section { border-top: 1px solid #ded2be; }
 .ntgoc-accordion-section:last-of-type { border-bottom: 1px solid #ded2be; }
-.ntgoc-accordion-shell { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 
 .ntgoc-accordion__summary {
   list-style: none;
@@ -265,10 +273,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 
 /* --- generated component rules (437 rules) --------------------- */
-.ntgoc-topbar-row { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:0 40px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
+.ntgoc-topbar-row { display:flex; justify-content:space-between; align-items:center; gap:24px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
 .ntgoc-topbar-metropolis { opacity:.75; }
 .ntgoc-header { position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be; }
-.ntgoc-header-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; padding:0 40px; height:84px; max-width:1440px; margin:0 auto; }
+.ntgoc-header-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; height:84px; max-width:1440px; }
 .ntgoc-logo { display:flex; align-items:center; gap:16px; }
 /* The Archdiocese seal, from the live parish site. The 196px favicon art is
    used here rather than the full logo: the ring text on the full logo is
@@ -379,7 +387,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-hero-box { position:relative; height:640px; background:#3a1414; overflow:hidden; }
 .ntgoc-home-hero-media { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/parish-nave-aisle.jpg'); background-size:cover; background-position:center; opacity:.42; }
 .ntgoc-home-hero-box-4 { position:absolute; inset:0; background:linear-gradient(100deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.72) 46%, rgba(58,20,20,.25) 100%); }
-.ntgoc-home-hero-row-shell { position:relative; max-width:1440px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; max-width:1440px; }
+.ntgoc-home-hero-row-shell { position:relative; max-width:1440px; height:100%; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-home-hero-box-5 { max-width:620px; }
 .ntgoc-home-hero-micro-caps { font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:26px; }
 .ntgoc-home-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:66px; line-height:1.08; color:#faf5ec; margin:0 0 26px; letter-spacing:-.015em; text-wrap:balance; }
@@ -390,7 +398,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-hero-eyebrow { border:1px solid rgba(232,217,196,.5); color:#f0e6d6; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-home-hero-eyebrow:hover, .ntgoc-home-hero-eyebrow:focus-visible { border-color:#e0b673; color:#e0b673; }
 .ntgoc-home-service-times-on-brick { background:#7d2b2b; color:#f6ece0; }
-.ntgoc-home-service-times-shell { max-width:1240px; margin:0 auto; padding:0 40px; }
 .ntgoc-home-service-times-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:rgba(246,241,232,.18); }
 .ntgoc-home-service-times-card { background:#7d2b2b; padding:30px 28px; }
 .ntgoc-home-service-times-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:10px; }
@@ -403,7 +410,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-service-times-actions { display:none; gap:10px; margin-top:16px; }
 .ntgoc-home-service-times-action { display:block; flex:1; padding:13px 10px; border:1px solid rgba(246,241,232,.4); text-align:center; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
 .ntgoc-home-service-times-action:hover, .ntgoc-home-service-times-action:focus-visible { border-color:#e6b96a; color:#e6b96a; }
-.ntgoc-home-welcome-shell { max-width:1240px; margin:0 auto; padding:104px 40px 88px; }
+.ntgoc-home-welcome-shell { padding-top:104px; padding-bottom:88px; }
 .ntgoc-home-welcome-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:88px; align-items:start; }
 .ntgoc-home-welcome-micro-caps { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:26px; }
 .ntgoc-home-welcome-quote { font-family:Newsreader, serif; font-size:34px; line-height:1.34; font-weight:300; font-style:italic; color:#3a1414; margin:0 0 22px; text-wrap:pretty; }
@@ -415,13 +422,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-welcome-link { font-size:13.5px; letter-spacing:.06em; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
 .ntgoc-home-welcome-link:hover, .ntgoc-home-welcome-link:focus-visible { border-color:#7d2b2b; }
 .ntgoc-band { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
-.ntgoc-visitor-directions-shell { max-width:1240px; margin:0 auto; padding:88px 40px; }
+.ntgoc-visitor-directions-shell { padding-top:88px; padding-bottom:88px; }
 .ntgoc-festival-details-eyebrow,
 .ntgoc-announce__kind { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:12px; }
 .ntgoc-step-heading { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 14px; color:#3a1414; }
 .ntgoc-body { font-size:15px; line-height:1.7; color:#5b5449; margin:0; }
 .ntgoc-newsletter-archive-row { display:flex; gap:12px; flex-wrap:wrap; }
-.ntgoc-home-upcoming-services-shell { max-width:1240px; margin:0 auto; padding:96px 40px; }
+.ntgoc-home-upcoming-services-shell { padding-top:96px; padding-bottom:96px; }
 .ntgoc-home-upcoming-services-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-home-upcoming-services-heading { font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0 0 8px; color:#3a1414; }
 .ntgoc-home-upcoming-services-small-grey-2 { font-size:13px; color:#6c6458; margin-bottom:36px; }
@@ -461,7 +468,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-ministries-promo-link:hover, .ntgoc-home-ministries-promo-link:focus-visible { background:#fbf8f2; }
 .ntgoc-h3-sm { font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414; }
 .ntgoc-footer { background:#3a1414; color:#e0d3bd; }
-.ntgoc-footer-inner { max-width:1240px; margin:0 auto; padding:70px 40px 34px; }
+.ntgoc-footer-inner { padding-top:70px; padding-bottom:34px; }
 .ntgoc-footer-grid { display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-footer-title { font-family:Newsreader, serif; font-size:22px; color:#faf5ec; line-height:1.3; margin-bottom:14px; }
 .ntgoc-footer-address { font-size:15px; line-height:1.7; opacity:.8; }
@@ -551,12 +558,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-directions-media { height:400px; border:1px solid #ded2be; background-color:#e6ddcd; background-image:url('/assets/templates/ntgoc/img/directions-map.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; }
 .ntgoc-faith-hero-row { position:relative; max-width:1240px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-faith-hero-eyebrow { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:20px; }
-.ntgoc-faith-intro-shell { max-width:1240px; margin:0 auto; padding:84px 40px 60px; }
+.ntgoc-faith-intro-shell { padding-top:84px; padding-bottom:60px; }
 .ntgoc-faith-intro-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-faith-intro-text { font-family:Newsreader, serif; font-size:27px; line-height:1.5; font-weight:300; color:#3a1414; margin:0; text-wrap:pretty; }
 .ntgoc-about-clergy-body-muted { font-size:16.5px; line-height:1.75; color:#5b5449; }
 .ntgoc-about-clergy-text { margin:0 0 18px; text-wrap:pretty; }
-.ntgoc-events-list-shell { max-width:1240px; margin:0 auto; padding:20px 40px 96px; }
+.ntgoc-events-list-shell { padding-top:20px; padding-bottom:96px; }
 /* On Events the same block sits directly under the photograph hero, with no
    intro section between, so it needs the full gap the other pages use. */
 .ntgoc-events-list-shell--under-hero { padding-top: 84px; }
@@ -565,7 +572,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-h3 { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 12px; color:#3a1414; }
 .ntgoc-bookstore-notes-rule { background:#ece3d5; border-top:1px solid #ded2be; }
 .ntgoc-faith-watch-read-shell,
-.ntgoc-parish-section { max-width:1240px; margin:0 auto; padding:76px 40px; }
+.ntgoc-parish-section { padding-top:76px; padding-bottom:76px; }
 .ntgoc-faith-watch-read-heading { font-family:Newsreader, serif; font-weight:400; font-size:34px; margin:0 0 34px; color:#3a1414; }
 .ntgoc-faith-watch-read-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:26px; }
 .ntgoc-faith-watch-read-link { display:block; border:1px solid #ded2be; background:#f6f1e8; }
@@ -582,7 +589,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-calendar-hero-eyebrow:hover, .ntgoc-calendar-hero-eyebrow:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-calendar-hero-small-caps { cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
 .ntgoc-calendar-hero-small-caps:hover, .ntgoc-calendar-hero-small-caps:focus-visible { background:#5e1f1f; }
-.ntgoc-calendar-grid-shell { max-width:1240px; margin:0 auto; padding:70px 40px 96px; }
+.ntgoc-calendar-grid-shell { padding-top:70px; padding-bottom:96px; }
 .ntgoc-calendar-grid-grid-4 { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:70px; align-items:start; }
 .ntgoc-calendar-grid-grid-ruled { display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:1px; background:#ded2be; border:1px solid #ded2be; }
 .ntgoc-calendar-weekday { background:#ece3d5; padding:12px 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6c6458; text-align:center; }
@@ -598,10 +605,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-calendar-grid-lede-ink { font-family:Newsreader, serif; font-size:20px; color:#3a1414; margin-bottom:10px; }
 .ntgoc-calendar-grid-small-muted { font-size:14.5px; line-height:1.65; color:#5b5449; margin:0 0 14px; }
 .ntgoc-calendar-grid-body-brick { font-size:15px; color:#7d2b2b; }
-.ntgoc-bookstore-hero-shell { max-width:1240px; margin:0 auto; padding:76px 40px 66px; }
+.ntgoc-bookstore-hero-shell { padding-top:76px; padding-bottom:66px; }
 .ntgoc-bookstore-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:54px; line-height:1.1; margin:0 0 20px; color:#3a1414; max-width:18ch; }
 .ntgoc-committees-hero-text { font-size:17.5px; line-height:1.7; color:#4a443c; margin:0; max-width:640px; text-wrap:pretty; }
-.ntgoc-committees-list-shell { max-width:1240px; margin:0 auto; padding:80px 40px 96px; }
+.ntgoc-committees-list-shell { padding-top:80px; padding-bottom:96px; }
 .ntgoc-ministries-grid-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; }
 .ntgoc-card-lg { background:#f6f1e8; padding:40px 32px; }
 .ntgoc-ministry-eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
@@ -609,7 +616,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-ministries-grid-row { background:#ece3d5; padding:40px 32px; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-ministries-grid-small-caps { align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-ministries-grid-small-caps:hover, .ntgoc-ministries-grid-small-caps:focus-visible { background:#5e1f1f; }
-.ntgoc-about-clergy-shell { max-width:1240px; margin:0 auto; padding:84px 40px 90px; }
+.ntgoc-section-shell { padding-top:84px; padding-bottom:90px; }
 .ntgoc-about-clergy-media { height:420px; background-image:url('/assets/templates/ntgoc/img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-about-clergy-box { margin-top:22px; }
 .ntgoc-about-clergy-lede { font-family:Newsreader, serif; font-size:24px; color:#3a1414; line-height:1.25; }
@@ -621,7 +628,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-clergy-display { font-family:Newsreader, serif; font-size:30px; color:#7d2b2b; }
 .ntgoc-about-clergy-small-grey { font-size:13.5px; color:#6c6458; margin-top:6px; }
 .ntgoc-about-clergy-small-italic { font-size:12.5px; color:#6d6358; margin-top:14px; font-style:italic; }
-.ntgoc-about-parish-council-shell { max-width:1240px; margin:0 auto; padding:80px 40px; }
+.ntgoc-about-parish-council-shell { padding-top:80px; padding-bottom:80px; }
 .ntgoc-about-parish-council-box-3 { max-width:70ch; margin-bottom:50px; }
 .ntgoc-about-parish-council-display-ink { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.12; margin:0 0 20px; color:#3a1414; }
 .ntgoc-about-parish-council-body-loose { font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
@@ -639,10 +646,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-committee-name { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414; }
 .ntgoc-committee-leads { font-size:14px; color:#6c6458; }
 .ntgoc-committee-text { font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
-.ntgoc-give-projects-shell { max-width:1240px; margin:0 auto; padding:70px 40px; }
+.ntgoc-give-projects-shell { padding-top:70px; padding-bottom:70px; }
 .ntgoc-newsletter-archive-heading { font-family:Newsreader, serif; font-weight:400; font-size:32px; margin:0 0 30px; color:#3a1414; }
 .ntgoc-newsletter-archive-link { border:1px solid #ccbda4; padding:14px 24px; font-size:14px; color:#5b5449; }
-.ntgoc-give-ways-shell { max-width:1240px; margin:0 auto; padding:84px 40px 70px; }
+.ntgoc-give-ways-shell { padding-top:84px; padding-bottom:70px; }
 .ntgoc-give-ways-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; align-items:start; }
 .ntgoc-give-ways-title { font-family:Newsreader, serif; font-weight:300; font-size:50px; line-height:1.12; margin:0 0 24px; color:#3a1414; }
 .ntgoc-give-ways-body-muted { font-size:17px; line-height:1.75; color:#5b5449; margin:0 0 18px; text-wrap:pretty; }
@@ -658,7 +665,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-give-projects-grid { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:60px; align-items:center; }
 .ntgoc-give-projects-text { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
 .ntgoc-give-projects-media { display:block; height:180px; background-image:url('/assets/templates/ntgoc/img/give-building-projects.png'); background-size:cover; background-position:center; border:1px solid #ded2be; background-color:#e6ddcd; }
-.ntgoc-contact-card-shell { max-width:1240px; margin:0 auto; padding:84px 40px 90px; }
 .ntgoc-contact-card-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:80px; align-items:start; }
 .ntgoc-contact-card-grid-ruled { display:grid; gap:26px; border-top:1px solid #ded2be; padding-top:28px; }
 .ntgoc-contact-card-micro-caps { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7f5f30; margin-bottom:8px; }
@@ -683,7 +689,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-festival-hero-box { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.94), rgba(58,20,20,.45)); }
 .ntgoc-festival-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.08; margin:0 0 20px; color:#faf5ec; max-width:14ch; }
 .ntgoc-festival-hero-text { font-size:17.5px; line-height:1.7; color:#dcccb4; margin:0; max-width:560px; }
-.ntgoc-festival-details-shell { max-width:1240px; margin:0 auto; padding:84px 40px; }
+.ntgoc-festival-details-shell { padding-top:84px; padding-bottom:84px; }
 .ntgoc-festival-details-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-bottom:60px; }
 .ntgoc-festival-details-card { background:#f6f1e8; padding:34px 28px; }
 .ntgoc-body-lg { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0; }
@@ -708,7 +714,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-bookstore-hero-text { font-size:17.5px; line-height:1.7; color:#4a443c; margin:0; max-width:620px; text-wrap:pretty; }
 .ntgoc-bookstore-hero-card { border:1px solid #ccbda4; background:#fbf8f2; padding:28px 26px; }
 .ntgoc-bookstore-hero-small-grid { display:grid; gap:12px; font-size:14.5px; line-height:1.6; color:#5b5449; }
-.ntgoc-bookstore-catalog-shell { max-width:1240px; margin:0 auto; padding:56px 40px 96px; }
+.ntgoc-bookstore-catalog-shell { padding-top:56px; padding-bottom:96px; }
 .ntgoc-bookstore-catalog-row-3 { display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:40px; }
 .ntgoc-bookstore-catalog-row { display:flex; gap:10px; flex-wrap:wrap; }
 .ntgoc-bookstore-catalog-button-small-caps { cursor:pointer; white-space:nowrap; padding:11px 20px; border:1px solid #7d2b2b; background:#7d2b2b; color:#f6f1e8; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
@@ -727,7 +733,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-book-reserve { cursor:pointer; margin-top:16px; border:1px solid #ccbda4; padding:12px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#5b5449; }
 .ntgoc-book-reserve:hover, .ntgoc-book-reserve:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-bookstore-catalog-text { font-size:12.5px; color:#6d6358; margin-top:20px; font-style:italic; }
-.ntgoc-bookstore-notes-shell { max-width:1240px; margin:0 auto; padding:74px 40px; }
+.ntgoc-bookstore-notes-shell { padding-top:74px; padding-bottom:74px; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-bookstore-notes-link { color:#7d2b2b; border-bottom:1px solid #d9c6a8; }
 
@@ -822,7 +828,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    photograph, one link. A parishioner is looking for it; a first-time
    visitor should be able to scroll past it without being recruited.
    ------------------------------------------------------------------ */
-.ntgoc-members-shell { max-width:1240px; margin:0 auto; padding:64px 40px; }
+.ntgoc-members-shell { padding-top:64px; padding-bottom:64px; }
 .ntgoc-members { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:56px; align-items:start; }
 .ntgoc-members__heading { font-family:Newsreader, serif; font-weight:400; font-size:34px; line-height:1.15; margin:0 0 10px; color:#3a1414; }
 .ntgoc-members__lede { font-family:Newsreader, serif; font-style:italic; font-size:20px; line-height:1.5; color:#6c6458; margin:0; }
