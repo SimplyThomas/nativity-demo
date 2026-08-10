@@ -104,7 +104,7 @@ baseline in the same commit as the change that caused it.
 
 ### About the TODO markers
 
-There are 30-odd `<!-- TODO: verify -->` comments in the pages. They are
+There are 63 `<!-- TODO: verify -->` comments in the pages. They are
 invisible to visitors and they are **the point of this project** — each one
 marks a claim nobody has confirmed. Do not delete one unless you have actually
 verified the fact; when you do, record the source in `data/parish-facts.json`.

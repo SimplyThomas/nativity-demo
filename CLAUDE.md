@@ -42,6 +42,7 @@ npm run chunks   # regenerate dist/chunks/
 npm run parish   # render the calendar + announcements into the pages
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
 npm run links    # do the outbound links still resolve? (monthly in CI)
+npm run measure:hero # hero text contrast over the photograph (not in CI)
 npm run evo:up   # a real Evolution CMS on localhost, pre-loaded with the site
 npm run evo:verify  # prove the chunks still render correctly inside EVO
 ```
@@ -89,7 +90,7 @@ something that should not be published.
    markup. This is unguessable and the most damaging rule to break.
 2. **Never invent a parish fact.** No service times, clergy names, phone numbers,
    capacities or dates unless sourced. Unsourced claims get
-   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. ~34 markers
+   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. 63 markers
    exist; they are the point of the project, not clutter.
 3. **Never publish a parishioner's name or face without recorded permission.**
    The Parish Council block ships with placeholders and the greeter row ships as
