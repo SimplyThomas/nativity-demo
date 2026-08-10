@@ -1030,17 +1030,27 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-carousel__track { scroll-behavior: auto; }
 }
 
-/* --- Shared photograph hero ------------------------------------------
-   Every page named in the main navigation carries the same header image
-   as the home page and Parish Life: the nave, looking down the centre
-   aisle. One component rather than six near-copies, so the scrim — the
-   thing the text's legibility depends on — is defined and measured once.
+/* --- The photograph hero ---------------------------------------------
+   Every page with a hero uses this one component: the seven named in the
+   main navigation plus the home page, Parish Life and the Festival. Four
+   near-copies became one, so the scrim — the thing the text's legibility
+   depends on — is defined and measured once.
 
-   The scrim is Parish Life's two-layer version with the horizontal pass
-   darkened where the text sits. Every hero string was measured against
-   the pixels actually behind its glyphs; the table is in ACCESSIBILITY.md.
+   The scrim is two passes. The 75deg pass grades the picture from the
+   text side; the `to top` pass darkens the foot of the frame. The second
+   one is why the content bottom-aligns rather than centres: at full photo
+   strength the gold eyebrow measures 4.32:1 over the middle of this
+   picture and 7.47:1 over the foot of it. Alignment is a legibility
+   requirement here, not a preference. The table is in ACCESSIBILITY.md.
+
+   Heights are min-height, never height. Three of these heroes used a
+   fixed height, put their words in a height:100% column, and lost their
+   alignment entirely below 900px where the height became auto — a
+   percentage height against an auto parent is auto. min-height cannot
+   have that bug.
    -------------------------------------------------------------------- */
-.ntgoc-page-hero { position: relative; min-height: 400px; display: flex; background: #3a1414; overflow: hidden; }
+.ntgoc-page-hero { position: relative; min-height: 420px; display: flex; background: #3a1414; overflow: hidden; }
+.ntgoc-page-hero--tall { min-height: 560px; }
 .ntgoc-page-hero__photo {
   position: absolute;
   inset: 0;
@@ -1048,12 +1058,14 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   background-size: cover;
   background-position: center;
 }
+/* The Festival is the one hero that is not the nave. */
+.ntgoc-page-hero__photo--festival { background-image: url('/assets/templates/ntgoc/img/festival-banquet.png'); }
 .ntgoc-page-hero__scrim {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(58,20,20,.5) 0%, rgba(58,20,20,0) 50%),
-    linear-gradient(75deg, rgba(58,20,20,.96) 0%, rgba(58,20,20,.9) 45%, rgba(58,20,20,.6) 72%, rgba(58,20,20,.28) 100%);
+    linear-gradient(to top, rgba(58,20,20,.45) 0%, rgba(58,20,20,0) 45%),
+    linear-gradient(75deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.86) 45%, rgba(58,20,20,.55) 72%, rgba(58,20,20,.25) 100%);
   pointer-events: none;
 }
 .ntgoc-page-hero__inner {
@@ -1062,9 +1074,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   max-width: 1240px;
   margin: 0 auto;
   width: 100%;
-  padding: 72px 40px;
-  align-self: center;
+  padding: 96px 40px 76px;
+  align-self: flex-end;
 }
+.ntgoc-page-hero__body { max-width: 660px; }
 .ntgoc-page-hero__eyebrow {
   font-size: 11px;
   letter-spacing: .28em;
@@ -1079,15 +1092,26 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   line-height: 1.08;
   margin: 0;
   color: #f6f1e8;
-  max-width: 18ch;
+  letter-spacing: -.015em;
   text-wrap: pretty;
 }
+.ntgoc-page-hero--tall .ntgoc-page-hero__title { font-size: 66px; }
 .ntgoc-page-hero__lede {
   font-size: 17.5px;
   line-height: 1.7;
   color: #ede4d3;
   margin: 24px 0 0;
-  max-width: 58ch;
+  text-wrap: pretty;
+}
+/* Parish Life closes its hero with a second, quieter line. */
+.ntgoc-page-hero__lede--serif {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #e0b673;
+  margin: 18px 0 0;
   text-wrap: pretty;
 }
 .ntgoc-page-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
@@ -1195,8 +1219,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 
 @media (max-width: 640px) {
   .ntgoc-page-hero { min-height: 320px; }
-  .ntgoc-page-hero__inner { padding: 52px 20px; }
+  .ntgoc-page-hero--tall { min-height: 400px; }
+  .ntgoc-page-hero__inner { padding: 52px 20px 44px; }
   .ntgoc-page-hero__title { font-size: 38px; }
+  .ntgoc-page-hero--tall .ntgoc-page-hero__title { font-size: 44px; }
+  .ntgoc-page-hero__lede { font-size: 16.5px; }
+  .ntgoc-page-hero__lede--serif { font-size: 20px; }
 }
 
 /* For Our Parish and the new Visit blocks. The two-column splits carry
