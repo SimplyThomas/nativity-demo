@@ -388,19 +388,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    it is real because the JS names it. */
 .ntgoc-scroll-locked { overflow:hidden; }
 
-.ntgoc-home-hero-box { position:relative; height:640px; background:#3a1414; overflow:hidden; }
-.ntgoc-home-hero-media { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/parish-nave-aisle.jpg'); background-size:cover; background-position:center; opacity:.42; }
-.ntgoc-home-hero-box-4 { position:absolute; inset:0; background:linear-gradient(100deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.72) 46%, rgba(58,20,20,.25) 100%); }
-.ntgoc-home-hero-row-shell { position:relative; max-width:1440px; height:100%; display:flex; flex-direction:column; justify-content:center; }
-.ntgoc-home-hero-box-5 { max-width:620px; }
-.ntgoc-home-hero-micro-caps { font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:26px; }
-.ntgoc-home-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:66px; line-height:1.08; color:#faf5ec; margin:0 0 26px; letter-spacing:-.015em; text-wrap:balance; }
-.ntgoc-home-hero-text { font-size:17.5px; line-height:1.65; color:#e8d9c4; margin:0 0 38px; max-width:520px; text-wrap:pretty; }
-.ntgoc-home-hero-row { display:flex; gap:14px; flex-wrap:wrap; }
-.ntgoc-home-hero-small-bold { background:#e0b673; color:#3a1414; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; }
-.ntgoc-home-hero-small-bold:hover, .ntgoc-home-hero-small-bold:focus-visible { background:#f0cd91; }
-.ntgoc-home-hero-eyebrow { border:1px solid rgba(232,217,196,.5); color:#f0e6d6; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
-.ntgoc-home-hero-eyebrow:hover, .ntgoc-home-hero-eyebrow:focus-visible { border-color:#e0b673; color:#e0b673; }
+.ntgoc-page-hero__action--primary { background:#e0b673; color:#3a1414; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; }
+.ntgoc-page-hero__action--primary:hover, .ntgoc-page-hero__action--primary:focus-visible { background:#f0cd91; }
+.ntgoc-page-hero__action--secondary { border:1px solid rgba(232,217,196,.5); color:#f0e6d6; padding:16px 30px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
+.ntgoc-page-hero__action--secondary:hover, .ntgoc-page-hero__action--secondary:focus-visible { border-color:#e0b673; color:#e0b673; }
 .ntgoc-home-service-times-on-brick { background:#7d2b2b; color:#f6ece0; }
 .ntgoc-home-service-times-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:rgba(246,241,232,.18); }
 .ntgoc-home-service-times-card { background:#7d2b2b; padding:30px 28px; }
@@ -459,6 +450,14 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-festival-promo-micro-caps { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:22px; }
 .ntgoc-home-festival-promo-heading { font-family:Newsreader, serif; font-weight:300; font-size:48px; line-height:1.12; margin:0 0 20px; color:#faf5ec; }
 .ntgoc-home-festival-promo-text { font-size:17px; line-height:1.7; color:#dcccb4; margin:0 0 32px; max-width:520px; text-wrap:pretty; }
+/* The promo's two buttons sat on the home hero's row class, which went when the
+   hero moved onto .ntgoc-page-hero. Same declarations, its own name — and not a
+   reuse of either look-alike, which is the first thing to check here. Both
+   .ntgoc-nextsteps__row and .ntgoc-proposal__row match on the base declarations
+   and then turn into a grid at 900px, which would stack these two buttons on
+   mobile; .ntgoc-page-hero__actions adds a 34px top margin and belongs to a
+   hero. That is why lint's duplicate-rule check compares media queries too. */
+.ntgoc-home-festival-promo-row { display:flex; gap:14px; flex-wrap:wrap; }
 .ntgoc-home-festival-promo-eyebrow { background:#e0b673; color:#3a1414; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; border-radius:2px; }
 .ntgoc-home-festival-promo-eyebrow:hover, .ntgoc-home-festival-promo-eyebrow:focus-visible { background:#f0cd91; }
 .ntgoc-home-festival-promo-small-caps { border:1px solid rgba(240,230,214,.45); color:#f0e6d6; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
@@ -560,8 +559,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-directions-eyebrow { display:inline-block; margin-top:32px; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-visitor-directions-eyebrow:hover, .ntgoc-visitor-directions-eyebrow:focus-visible { background:#5e1f1f; }
 .ntgoc-visitor-directions-media { height:400px; border:1px solid #ded2be; background-color:#e6ddcd; background-image:url('/assets/templates/ntgoc/img/directions-map.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; }
-.ntgoc-faith-hero-row { position:relative; max-width:1240px; margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; }
-.ntgoc-faith-hero-eyebrow { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#e0b673; margin-bottom:20px; }
 .ntgoc-faith-intro-shell { padding-top:84px; padding-bottom:60px; }
 .ntgoc-faith-intro-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-faith-intro-text { font-family:Newsreader, serif; font-size:27px; line-height:1.5; font-weight:300; color:#3a1414; margin:0; text-wrap:pretty; }
@@ -698,11 +695,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-contact-card-body-ruled { border:1px solid #d5c8b1; background:#f6f1e8; height:130px; width:100%; padding:12px 14px; font-family:inherit; font-size:15px; color:#5b5449; resize:vertical; }
 .ntgoc-contact-card-button { background:#7d2b2b; color:#f6f1e8; padding:16px; text-align:center; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; border:0; font-family:inherit; }
 .ntgoc-contact-card-button:hover, .ntgoc-contact-card-button:focus-visible { background:#5e1f1f; }
-.ntgoc-festival-hero-on-ink { position:relative; height:460px; background:#3a1414; overflow:hidden; }
-.ntgoc-festival-hero-media { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/festival-banquet.png'); background-size:cover; background-position:center; opacity:.45; }
-.ntgoc-festival-hero-box { position:absolute; inset:0; background:linear-gradient(90deg, rgba(58,20,20,.94), rgba(58,20,20,.45)); }
-.ntgoc-festival-hero-title { font-family:Newsreader, serif; font-weight:300; font-size:58px; line-height:1.08; margin:0 0 20px; color:#faf5ec; max-width:14ch; }
-.ntgoc-festival-hero-text { font-size:17.5px; line-height:1.7; color:#dcccb4; margin:0; max-width:560px; }
 .ntgoc-festival-details-shell { padding-top:84px; padding-bottom:84px; }
 .ntgoc-festival-details-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-bottom:60px; }
 .ntgoc-festival-details-card { background:#f6f1e8; padding:34px 28px; }
@@ -751,6 +743,27 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-bookstore-notes-link { color:#7d2b2b; border-bottom:1px solid #d9c6a8; }
 
+/* The two reading sections above the bookstore catalogue — what Fr. John reads
+   with catechumens, and what recent converts recommend. One block serves both:
+   the second is wrapped in .ntgoc-band so the pair alternates against the hero
+   and the catalogue. The card is a horizontal pair, cover beside text, which
+   distinguishes a handful of featured titles from the stacked grid of stock
+   below without a second set of type sizes. It reuses .ntgoc-book-cat,
+   .ntgoc-book-author and .ntgoc-book-reserve from the catalogue rather than
+   restating them. */
+.ntgoc-reading { padding-top:72px; padding-bottom:78px; }
+.ntgoc-reading__head { max-width:760px; margin-bottom:42px; }
+.ntgoc-reading__title { font-family:Newsreader, serif; font-weight:400; font-size:36px; line-height:1.2; margin:0 0 16px; color:#3a1414; }
+.ntgoc-reading__lede { font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
+.ntgoc-reading__grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:32px; align-items:stretch; }
+.ntgoc-reading__card { display:flex; gap:26px; align-items:flex-start; border:1px solid #ded2be; background:#fbf8f2; padding:28px 26px; min-width:0; }
+.ntgoc-reading__cover { flex:0 0 104px; aspect-ratio:4/5; background:#ece3d5; border:1px solid #ded2be; display:flex; align-items:center; justify-content:center; padding:10px; }
+.ntgoc-reading__body { display:flex; flex-direction:column; flex:1; min-width:0; }
+.ntgoc-reading__book { font-family:Newsreader, serif; font-weight:500; font-size:23px; line-height:1.25; margin:0 0 4px; color:#3a1414; }
+.ntgoc-reading__subtitle { font-family:Newsreader, serif; font-style:italic; font-size:16.5px; line-height:1.4; color:#6c6458; margin-bottom:10px; }
+.ntgoc-reading__text { font-size:14.5px; line-height:1.7; color:#5b5449; margin:0 0 18px; text-wrap:pretty; }
+.ntgoc-reading__foot { margin-top:auto; }
+
 /* --- Parish Life ----------------------------------------------------
    Transcribed from the Parish Life page of the Claude Design file. That
    page is built almost entirely from image slots, so nearly every frame
@@ -766,21 +779,11 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__label { color:#e0b673; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
 
-.ntgoc-parish-life-hero { position:relative; height:660px; background:#3a1414; overflow:hidden; }
-.ntgoc-parish-life-hero__photo { position:absolute; inset:0; background-image:url('/assets/templates/ntgoc/img/parish-nave-aisle.jpg'); background-size:cover; background-position:center; }
-/* Two layers, because one is not enough for a real photograph. The design's
-   single 75deg wash was tuned against a dark placeholder; over the lit nave the
-   lede ran across sunlit pews at roughly 3.7:1. The wash is now heavier through
-   the text column (about 6.7:1 on the brightest pixel under it), and the bottom
-   band holds that up if the parish swaps in a lighter photograph later — the
-   text sits at the bottom, so that is where the floor has to be. */
-.ntgoc-parish-life-hero__scrim { position:absolute; inset:0; background:linear-gradient(to top, rgba(58,20,20,.45) 0%, rgba(58,20,20,0) 45%), linear-gradient(75deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.86) 45%, rgba(58,20,20,.55) 72%, rgba(58,20,20,.25) 100%); pointer-events:none; }
-.ntgoc-parish-life-hero__inner { position:relative; max-width:1240px; margin:0 auto; padding:0 40px 76px; height:100%; display:flex; flex-direction:column; justify-content:flex-end; }
-.ntgoc-parish-life-hero__body { max-width:660px; }
+/* The hero is on .ntgoc-page-hero. This eyebrow is not part of it, and is not
+   dead: the "Coming up at Nativity" block further down the page is now its only
+   user. Gold on a dark band, so it is not the same thing as .ntgoc-page-eyebrow,
+   which is muted brown for light ones. */
 .ntgoc-parish-life-eyebrow { font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#e0b673; margin-bottom:22px; }
-.ntgoc-parish-life-h1 { font-family:Newsreader, serif; font-weight:300; font-size:72px; line-height:1.05; color:#faf5ec; margin:0 0 26px; letter-spacing:-.015em; }
-.ntgoc-parish-life-lede { font-size:18.5px; line-height:1.7; color:#eaddc7; margin:0 0 18px; text-wrap:pretty; }
-.ntgoc-parish-life-lede--serif { font-family:Newsreader, serif; font-style:italic; font-weight:300; font-size:24px; line-height:1.5; color:#e0b673; margin:0; }
 
 .ntgoc-parish-life-section { max-width:1240px; margin:0 auto; padding:88px 40px; }
 .ntgoc-parish-life-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; align-items:center; }
@@ -1392,17 +1395,27 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-carousel__track { scroll-behavior: auto; }
 }
 
-/* --- Shared photograph hero ------------------------------------------
-   Every page named in the main navigation carries the same header image
-   as the home page and Parish Life: the nave, looking down the centre
-   aisle. One component rather than six near-copies, so the scrim — the
-   thing the text's legibility depends on — is defined and measured once.
+/* --- The photograph hero ---------------------------------------------
+   All ten pages that open on a photograph use this one component. Four
+   near-copies became one, so the scrim — the thing the text's legibility
+   depends on — is defined and measured once.
 
-   The scrim is Parish Life's two-layer version with the horizontal pass
-   darkened where the text sits. Every hero string was measured against
-   the pixels actually behind its glyphs; the table is in ACCESSIBILITY.md.
+   The scrim is two passes. The 75deg pass grades the picture from the
+   text side; the `to top` pass darkens the foot of the frame. The two
+   together are why the content bottom-aligns rather than centres: at full
+   photo strength the gold eyebrow measures 4.32:1 over the middle of this
+   picture and 7.47:1 over the foot of it, and it takes both the second
+   pass and the lower position to get there. Alignment is a legibility
+   requirement here, not a preference. The table is in ACCESSIBILITY.md.
+
+   Heights are min-height, never height. Three of these heroes used a
+   fixed height, put their words in a height:100% column, and lost their
+   alignment entirely below 900px where the height became auto — a
+   percentage height against an auto parent is auto. min-height cannot
+   have that bug.
    -------------------------------------------------------------------- */
-.ntgoc-page-hero { position: relative; min-height: 400px; display: flex; background: #3a1414; overflow: hidden; }
+.ntgoc-page-hero { position: relative; min-height: 420px; display: flex; background: #3a1414; overflow: hidden; }
+.ntgoc-page-hero--tall { min-height: 560px; }
 .ntgoc-page-hero__photo {
   position: absolute;
   inset: 0;
@@ -1410,23 +1423,27 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   background-size: cover;
   background-position: center;
 }
+/* The Festival is the one hero that is not the nave. */
+.ntgoc-page-hero__photo--festival { background-image: url('/assets/templates/ntgoc/img/festival-banquet.png'); }
 .ntgoc-page-hero__scrim {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(58,20,20,.5) 0%, rgba(58,20,20,0) 50%),
-    linear-gradient(75deg, rgba(58,20,20,.96) 0%, rgba(58,20,20,.9) 45%, rgba(58,20,20,.6) 72%, rgba(58,20,20,.28) 100%);
+    linear-gradient(to top, rgba(58,20,20,.45) 0%, rgba(58,20,20,0) 45%),
+    linear-gradient(75deg, rgba(58,20,20,.94) 0%, rgba(58,20,20,.86) 45%, rgba(58,20,20,.55) 72%, rgba(58,20,20,.25) 100%);
   pointer-events: none;
 }
+/* The measure and the side padding come from .ntgoc-shell and .ntgoc-gutter,
+   which every hero inner carries. Only the vertical rhythm is this block's. */
 .ntgoc-page-hero__inner {
   position: relative;
   z-index: 1;
-  max-width: 1240px;
-  margin: 0 auto;
   width: 100%;
-  padding: 72px 40px;
-  align-self: center;
+  padding-top: 96px;
+  padding-bottom: 76px;
+  align-self: flex-end;
 }
+.ntgoc-page-hero__body { max-width: 660px; }
 .ntgoc-page-hero__eyebrow {
   font-size: 11px;
   letter-spacing: .28em;
@@ -1441,18 +1458,73 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   line-height: 1.08;
   margin: 0;
   color: #f6f1e8;
-  max-width: 18ch;
+  letter-spacing: -.015em;
   text-wrap: pretty;
 }
+.ntgoc-page-hero--tall .ntgoc-page-hero__title { font-size: 66px; }
 .ntgoc-page-hero__lede {
   font-size: 17.5px;
   line-height: 1.7;
   color: #ede4d3;
   margin: 24px 0 0;
-  max-width: 58ch;
+  text-wrap: pretty;
+}
+/* Parish Life closes its hero with a second, quieter line. */
+.ntgoc-page-hero__lede--serif {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #e0b673;
+  margin: 18px 0 0;
   text-wrap: pretty;
 }
 .ntgoc-page-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+
+/* The scrim is re-weighted below 900px, and the reason is geometry, not taste.
+   Do not "simplify" this back into the one gradient above: the two look like
+   duplicates and are not.
+
+   The stops in `linear-gradient(75deg, …)` are percentages along the GRADIENT
+   LINE, and that line's length is W·sin75 + H·cos75 — it depends on the box's
+   aspect ratio. On a 1440x560 hero the line is about 1500px long, the text
+   column ends around x=800, and the words therefore sit in the first half of
+   it, under the dense .94-.86 end. Narrow the same hero to 390px and the line
+   is only ~505px long while the text still runs to x=375: the identical words
+   are now 75-85% of the way along, out in the light .55-.25 end. Narrowing the
+   viewport drags the text INTO the bright part of the scrim rather than out of
+   it, which is the opposite of what the stops read as. Measured with
+   `npm run measure:hero`, that put eight strings below WCAG at 390px — the
+   Home eyebrow at 1.47:1 against a 4.5 bar — while all 27 desktop strings
+   passed. Three of those failures pre-date the shared component; nothing could
+   see them because axe declines to judge text over a background image.
+
+   So mobile gets its own weights, and the horizontal pass is `to right`, not an
+   angle: on a horizontal gradient the line is exactly the box width, so a stop
+   percentage means the same fraction of the text column at every viewport and
+   cannot rotate out from under the words again. The stops are nearly flat
+   because on a 390px hero the text really is the whole frame — the eyebrow
+   alone reaches 81% of the width — so there is no room left to grade across.
+   What remains of the grade lives in the last ~15%, which is the sliver of
+   picture the design opens up on the far side, and in the `to top` foot pass,
+   which is unchanged.
+
+   900px, not 640px: heroes keep the desktop 40px gutter and desktop type down
+   to 641px, so at 720px the lede runs to x=677 on an 804px gradient line —
+   85% along, further into the light end than 390px manages. Sampled at 720 and
+   899 with the old scrim, three ledes failed there (Home 4.25, Plan a visit
+   4.06 and 4.13). That band is the worst case, not the narrowest one, and
+   `npm run measure:hero` only samples 390 and 1440, so nothing in CI would
+   have caught it. Capping this at 640px would have left those three failing.
+   -------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .ntgoc-page-hero__scrim {
+    background:
+      linear-gradient(to top, rgba(58,20,20,.45) 0%, rgba(58,20,20,0) 45%),
+      linear-gradient(to right, rgba(58,20,20,.94) 0%, rgba(58,20,20,.88) 50%, rgba(58,20,20,.86) 86%, rgba(58,20,20,.72) 100%);
+  }
+}
 
 /* The calendar's month controls sat inside its hero; they stay on parchment
    now that the hero is a photograph. */
@@ -1462,7 +1534,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-grid { grid-template-columns: 1fr !important; }
   .ntgoc-gutter { padding-left: 20px !important; padding-right: 20px !important; }
   .ntgoc-tall { height: auto !important; min-height: 60vh; }
-  .ntgoc-display-type { font-size: clamp(30px, 8vw, 54px) !important; line-height: 1.15 !important; }
   .ntgoc-shell { max-width: 100% !important; }
 }
 @media (max-width: 640px) {
@@ -1510,7 +1581,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    fixed frame heights, which are far too tall once stacked. */
 @media (max-width: 900px) {
   .ntgoc-parish-life-section { padding-top: 64px !important; padding-bottom: 64px !important; }
-  .ntgoc-parish-life-hero__inner { padding-bottom: 52px !important; }
   .ntgoc-parish-life-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; grid-auto-rows: 170px; }
   .ntgoc-parish-life-gallery__w3 { grid-column: span 2; }
   .ntgoc-parish-life-h520, .ntgoc-parish-life-h460, .ntgoc-parish-life-h440, .ntgoc-parish-life-h420 { height: 320px; }
@@ -1518,9 +1588,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 @media (max-width: 640px) {
   .ntgoc-photoslot { padding: 12px; gap: 6px; }
-  .ntgoc-parish-life-h1 { margin-bottom: 18px; }
-  .ntgoc-parish-life-lede { font-size: 16.5px; }
-  .ntgoc-parish-life-lede--serif { font-size: 20px; }
   .ntgoc-parish-life-h2 { font-size: clamp(28px, 8vw, 38px); }
   .ntgoc-parish-life-body { font-size: 16.5px; }
   .ntgoc-parish-life-split { gap: 34px !important; }
@@ -1532,6 +1599,19 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-parish-life-permission { grid-template-columns: 1fr; gap: 12px; }
   .ntgoc-parish-life-agenda__row { grid-template-columns: 1fr; gap: 6px; }
   .ntgoc-parish-life-h520, .ntgoc-parish-life-h460, .ntgoc-parish-life-h440, .ntgoc-parish-life-h420 { height: 240px; }
+}
+
+/* The bookstore reading sections. The 900px rule above already drops the pair
+   of cards to one column. What is left is the card itself: below 640px a
+   104px cover plus a 26px gap leaves the title about 100px to wrap inside, so
+   the cover goes above the text and shrinks. */
+@media (max-width: 640px) {
+  .ntgoc-reading { padding-top: 52px; padding-bottom: 56px; }
+  .ntgoc-reading__head { margin-bottom: 32px; }
+  .ntgoc-reading__title { font-size: clamp(27px, 7vw, 36px); }
+  .ntgoc-reading__lede { font-size: 16.5px; }
+  .ntgoc-reading__card { flex-direction: column; gap: 18px; padding: 24px 22px; }
+  .ntgoc-reading__cover { flex: 0 0 auto; width: 88px; }
 }
 
 /* --- accessibility floor ------------------------------------------ */
@@ -1565,8 +1645,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 
 @media (max-width: 640px) {
   .ntgoc-page-hero { min-height: 320px; }
-  .ntgoc-page-hero__inner { padding: 52px 20px; }
+  .ntgoc-page-hero--tall { min-height: 400px; }
+  .ntgoc-page-hero__inner { padding-top: 52px; padding-bottom: 44px; }
   .ntgoc-page-hero__title { font-size: 38px; }
+  .ntgoc-page-hero--tall .ntgoc-page-hero__title { font-size: 44px; }
+  .ntgoc-page-hero__lede { font-size: 16.5px; }
+  .ntgoc-page-hero__lede--serif { font-size: 20px; }
 }
 
 
@@ -1659,27 +1743,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
      Metropolis, not this, and the mobile design keeps the town under the name. */
   .ntgoc-logo-sub__jurisdiction { display: none; }
   .ntgoc-home-service-times-actions { display: flex; }
-}
-
-/* The three .ntgoc-tall heroes. .ntgoc-tall trades the fixed height for a
-   min-height, and a min-height is not a height: each of these heroes puts its
-   words in a `height:100%` flex column, and a percentage height against an
-   auto-height parent is auto. So justify-content quietly stopped doing
-   anything — centred on the home and festival heroes, bottom-aligned on parish
-   life — and all three settled at the very top of the photograph with six
-   pixels between the eyebrow and the sticky header, where every
-   .ntgoc-page-hero has fifty-two. min-height:inherit gives the column the
-   height it was centring inside again. The padding is the floor for the home
-   hero, whose content is already taller than the min-height and so has nothing
-   left to centre. */
-@media (max-width: 900px) {
-  .ntgoc-home-hero-row-shell,
-  .ntgoc-faith-hero-row,
-  .ntgoc-parish-life-hero__inner {
-    min-height: inherit;
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
 }
 
 /* The month grid. .ntgoc-calendar-grid-grid-ruled carries .ntgoc-grid, so the

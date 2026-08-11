@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 89 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 91 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -242,7 +242,7 @@ Then the page content, grouped by page:
 | **Contact** | `ntgocContactHero`, `ntgocContactCard` |
 | **Greek Festival** | `ntgocFestivalHero`, `ntgocFestivalDetails` — *nothing links to this page, see below* |
 | **Hall Rental** | `ntgocHallRental` |
-| **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
+| **Bookstore** | `ntgocBookstoreHero`, `ntgocBookstoreCatechism`, `ntgocBookstoreConverts`, `ntgocBookstoreCatalog`, `ntgocBookstoreNotes` |
 | **Welcome** *(the QR-code page)* | `ntgocWelcomeHero`, `ntgocWelcomeIntro`, `ntgocWelcomeNav`, `ntgocWelcomeExperience`, `ntgocWelcomeAsk`, `ntgocWelcomeSurvey`, `ntgocWelcomeLearn`, `ntgocWelcomeConnected`, `ntgocWelcomeStay`, `ntgocWelcomeClosing` — *three of these contain forms with no handler; see Step 6a* |
 
 > **`ntgocWelcomeNav` has to be a direct child of the page's main content area**,
