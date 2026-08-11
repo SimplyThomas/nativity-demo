@@ -987,6 +987,51 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-fellowship-detail__label { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; }
 .ntgoc-fellowship-detail__value { font-family:Newsreader, serif; font-size:20px; line-height:1.4; color:#3a1414; }
 
+/* The monthly Agape Meal. It has to read as more substantial than the coffee
+   hour section above it without becoming a different website, so the weight
+   comes from proportion rather than from new colour: a long low photograph
+   across the full measure, one dark panel, and more air between the parts.
+
+   The table is the motif, so the frame that opens the section is wide and
+   short — the shape of a table seen down its length, not a portrait. */
+.ntgoc-agape-table { height:280px; margin-bottom:44px; }
+
+/* The one dark element on a parchment page, which is what makes it the thing
+   the eye lands on. Gold rule, serif, and the attribution set small underneath
+   rather than beside it — a two-line source next to a two-line quote reads as
+   a caption competing with the words. */
+.ntgoc-agape-quote { background:#3a1414; border-left:3px solid #b08442; padding:34px 32px; margin:0 0 26px; }
+.ntgoc-agape-quote__text { font-family:Newsreader, serif; font-weight:300; font-style:italic; font-size:26px; line-height:1.45; color:#faf5ec; margin:0 0 20px; text-wrap:pretty; }
+.ntgoc-agape-quote__cite { font-size:13.5px; line-height:1.6; color:#e0b673; font-style:normal; }
+.ntgoc-agape-quote__where { display:block; color:#c3b299; margin-top:5px; }
+
+/* "Bring a favourite dish. Bring your family." Five short lines that are a
+   list in everything but markup — they are sentences, so they stay paragraphs
+   and take their rhythm from a gold rule and a tighter measure instead. */
+.ntgoc-agape-invite { margin:26px 0; padding-left:22px; border-left:2px solid #b08442; }
+.ntgoc-agape-invite__line { font-family:Newsreader, serif; font-size:21px; line-height:1.5; color:#3a1414; margin:0 0 6px; }
+.ntgoc-agape-invite__line:last-child { margin-bottom:0; }
+
+/* The sign-up block, set apart from the explanation above it by a rule rather
+   than by another card: there are already two cards in this section and a
+   third would flatten all three. */
+.ntgoc-agape-next { margin-top:48px; padding-top:40px; border-top:1px solid #ccbda4; }
+.ntgoc-agape-open { font-family:Newsreader, serif; font-style:italic; font-size:22px; line-height:1.4; color:#7d2b2b; margin:24px 0 0; }
+
+/* What the sheet will ask for. Chips rather than a bulleted column: nine
+   bullets read as a rota to be filled, and the point of the paragraph beneath
+   is that none of it is owed by anyone. */
+.ntgoc-agape-bring { display:flex; flex-wrap:wrap; gap:9px; list-style:none; margin:0 0 22px; padding:0; }
+.ntgoc-agape-bring__item { border:1px solid #ccbda4; background:#fbf8f2; border-radius:2px; padding:9px 15px; font-size:13.5px; color:#5b5449; }
+
+.ntgoc-agape-note { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0 0 14px; max-width:52ch; }
+
+/* Attribution without a footnote apparatus. The sources are named in a
+   sentence, small and quiet, because two academic citations in the middle of
+   an invitation to supper would be the wrong register entirely. */
+.ntgoc-agape-source { font-size:13.5px; line-height:1.7; color:#6d6358; margin:22px 0 0; max-width:62ch; }
+.ntgoc-agape-source__key { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12.5px; color:#5b5449; }
+
 /* --- Welcome — the page behind the QR code ---------------------------
    Reached from the "Understanding the Divine Liturgy" pew card, almost
    always on a phone and often while still sitting in church. So it is
@@ -1772,8 +1817,20 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* Fellowship & Care. Everything on the page stacks on the blanket rules above;
    what needs authoring is the label column of the next-meal card, which at
    150px leaves "What we still need" about a third of the card's width. */
+@media (max-width: 900px) {
+  /* The long table keeps its shape but not its desktop height — 280px of
+     placeholder above the words is most of a phone screen spent on a frame
+     that has no photograph in it yet. */
+  .ntgoc-agape-table { height: 200px; margin-bottom: 32px; }
+  .ntgoc-agape-next { margin-top: 36px; padding-top: 32px; }
+}
 @media (max-width: 640px) {
   .ntgoc-fellowship-detail { grid-template-columns: 1fr; gap: 4px; }
+  .ntgoc-agape-table { height: 160px; }
+  .ntgoc-agape-quote { padding: 26px 22px; }
+  .ntgoc-agape-quote__text { font-size: 22px; }
+  .ntgoc-agape-invite__line { font-size: 19px; }
+  .ntgoc-agape-open { font-size: 20px; }
 }
 
 /* Welcome. Almost every visitor arrives here from a QR code, on a phone, so

@@ -231,7 +231,7 @@ Then the page content, grouped by page:
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
-| **Fellowship &amp; Care** | `ntgocFellowshipHero`, `ntgocFellowshipCoffee`, `ntgocFellowshipPotluck`, `ntgocFellowshipCare`, `ntgocFellowshipHelp`, `ntgocFellowshipAsk`, `ntgocFellowshipClosing` — *sits under Parish Life in the menu; four external destinations and one form are still unconfigured, see below* |
+| **Fellowship &amp; Care** | `ntgocFellowshipHero`, `ntgocFellowshipCoffee`, `ntgocFellowshipAgape`, `ntgocFellowshipCare`, `ntgocFellowshipHelp`, `ntgocFellowshipAsk`, `ntgocFellowshipClosing` — *sits under Parish Life in the menu; four external destinations and one form are still unconfigured, and `ntgocFellowshipAgape` carries a theological constraint — see below* |
 | **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
@@ -277,18 +277,44 @@ Then the page content, grouped by page:
 > that have gone past. It ages honestly rather than lying quietly.
 
 > **Fellowship & Care ships with four destinations that do not exist.** Hosting a
-> coffee hour, signing up for a potluck, viewing current meal trains and
-> requesting meal support are all rendered as labelled inert buttons, each with a
-> `TODO` comment in the markup naming the key to fill in: `coffeeHourSignup`,
-> `potluckSignup`, `mealTrain` and `mealSupportRequest` under `links` in
-> `data/site.json`. The parish intends SignUpGenius for the first two and Meal
-> Train for the third. No account, link or ID has been invented for any of them.
+> coffee hour, bringing something to the Agape Meal, viewing current meal trains
+> and requesting meal support are all rendered as labelled inert buttons, each
+> with a `TODO` comment in the markup naming the key to fill in:
+> `coffeeHourSignup`, `agapeSignup`, `mealTrain` and `mealSupportRequest` under
+> `links` in `data/site.json`. The parish intends SignUpGenius for the first two
+> and Meal Train for the third. No account, link or ID has been invented for any
+> of them.
 >
 > Two things to keep when they are wired up. **The buttons stay parish-facing** —
 > "Host a coffee hour", not "Go to SignUpGenius"; which tool handles the sign-up
-> is the parish's business, not the parishioner's. And **the "next parish
-> potluck" card ships with three empty rows** rather than an invented date, which
-> is the one thing on that page a parishioner could catch out.
+> is the parish's business, not the parishioner's. And **the "next Agape Meal"
+> card ships with its rows empty** rather than an invented date, which is the one
+> thing on that page a parishioner could catch out.
+
+> **`ntgocFellowshipAgape` is the one chunk on this site with a theological
+> constraint, and it is easy to break by improving the prose.** The monthly Agape
+> Meal is a parish supper that remembers an early Christian habit. The chunk may
+> say that the Eucharist was first celebrated in the setting of a community meal
+> called the agape, that the two became distinct very early — by the end of the
+> first century or the beginning of the second — and that Christians have gone on
+> sharing a table since.
+>
+> It may **not** say, in any wording, that the meal completes or extends the
+> Eucharist, that it is any part of the sacrament, or that anyone is expected to
+> stay and eat after the Divine Liturgy. A sentence that does any of those will
+> sound more devout than the one it replaced, which is exactly the risk. The
+> constraint is repeated in a comment above the chunk in `fellowship-care.html`
+> and recorded under `agapeMeal` in `data/parish-facts.json`; keep the comment
+> when you paste, or the next person to edit the chunk in the EVO manager will
+> not know.
+>
+> **Two sources are named in prose and neither is linked**, because no URL for
+> either is recorded in this project: the Archdiocese's account of the
+> sacramental life of the Church, and Archbishop Elpidophoros's remarks at Holy
+> Trinity Cathedral, New Orleans, on 16 March 2025, which the pull quote is taken
+> from. **Verify the quotation against the published text before this page goes
+> to the Council** — it puts words in the mouth of a named living hierarch. If it
+> cannot be sourced, delete the quotation rather than soften the attribution.
 
 > **Nothing links to the Greek Festival *page* any more** — the "Greek Festival"
 > entries in the Events menu and on the Events page both go to fredgreek.org,

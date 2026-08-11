@@ -28,7 +28,10 @@
     "fellowshipMealNote": "The parish calls the post-Liturgy fellowship 'coffee hour'. It may be described as an agape/shared meal in passing, but 'the Agape Meal' must not be the primary label.",
     "liturgyBook": "Greek-English Divine Liturgy book",
     "liturgyBookNote": "Available from a greeter or in the pew. NOT a gift and not taken home — never call it complimentary, free or a take-home prayer book.",
+    "agapeMeal": "the Agape Meal",
+    "agapeMealNote": "PROPOSED, monthly, and NOT another name for coffee hour — the two are different things and the site must keep them apart. Coffee hour is weekly and sponsored by a household; the Agape Meal would be monthly and brought by everyone. The theological line is the part that matters: the Eucharist was first celebrated in the setting of a community meal called the agape, the two became distinct by the end of the first century or the beginning of the second, and the parish meal is a recovery of the habit of eating together — not of a rite, not part of the sacrament, and never a thing anyone is expected to stay for. Grounding is in data/parish-facts.json under agapeMeal.",
     "hall": "the parish hall",
+    "hallConfirmed": "Confirmed by Thomas, 2026-08-11: 'the parish hall' stands, and the Fellowship & Care brief's 'Community Hall' was not adopted.",
     "hallNote": "Every page says 'the parish hall', and hall.html is titled that way. 'Community Hall' arrived with the Fellowship & Care brief on 2026-08-10 and was not used, because one building with two names across eighteen pages is how a site starts contradicting itself. NOT confirmed with the parish: if they call it the Community Hall, change this line and the forbidden pattern below FIRST, then fix the pages lint names."
   },
 
@@ -81,10 +84,12 @@
     "parishUpdates": null,
     "newsletterArchive": null,
     "coffeeHourSignup": null,
-    "potluckSignup": null,
+    "agapeSignup": null,
     "mealTrain": null,
     "mealSupportRequest": null,
-    "_fellowshipNote": "The four destinations Fellowship & Care is built around. The parish plans to use SignUpGenius for coffee-hour hosting and potluck sign-ups, and Meal Train for meals to an individual household; mealSupportRequest is the PRIVATE route by which someone asks for help, and it must never be a public Meal Train page. None of the four exists yet, so all four are null and the page renders labelled inert buttons — each one marked with a TODO comment naming the key to fill in here. The button wording stays parish-facing ('Host a coffee hour'), not service-facing ('Go to SignUpGenius'): which tool handles the sign-up is our business, not the parishioner's.",
+    "agapeSource": null,
+    "_agapeSourceNote": "Two reading references the Agape Meal section names in prose but does not link, because neither URL is recorded in this project and inventing one is worse than the gap: the Archdiocese's account of the sacramental life of the Church, for the agape and its early separation from the Eucharist; and Archbishop Elpidophoros's remarks after the Divine Liturgy at Holy Trinity Greek Orthodox Cathedral, New Orleans, 16 March 2025, which the pull quote is taken from. Fill this in with the Archdiocese page once someone has the real address, and the section can carry a quiet 'Learn about the Agape Meal' link instead of the sentence.",
+    "_fellowshipNote": "The four destinations Fellowship & Care is built around. The parish plans to use SignUpGenius for coffee-hour hosting and the monthly Agape Meal, and Meal Train for meals to an individual household; mealSupportRequest is the PRIVATE route by which someone asks for help, and it must never be a public Meal Train page. None of the four exists yet, so all four are null and the page renders labelled inert buttons — each one marked with a TODO comment naming the key to fill in here. The button wording stays parish-facing ('Host a coffee hour'), not service-facing ('Go to SignUpGenius'): which tool handles the sign-up is our business, not the parishioner's.",
     "_nullNote": "null means the destination does not exist yet. Render it as a clearly-labelled proposed placeholder — never invent a URL, and never leave a bare href=\"#\" that looks live."
   },
 
@@ -103,7 +108,8 @@
       "Current volunteer needs",
       "Parish announcement cards",
       "Coffee-hour hosting sign-up",
-      "Parish potluck sign-up",
+      "The monthly Agape Meal, and its sign-up",
+      "A Kids' Corner during fellowship",
       "Meal trains for a parish household",
       "A private request for meal support, and a coordinator to read it",
       "Setup & cleanup, Children's corner and Missions as named ministries"
@@ -116,7 +122,8 @@
       {
         "pattern": "Agape Meal",
         "caseSensitive": true,
-        "why": "The parish calls it coffee hour. Use that as the primary label. Lower-case 'an agape meal', explaining the term in passing, is fine."
+        "allowIn": ["fellowship-care.html"],
+        "why": "The WEEKLY post-Liturgy fellowship is coffee hour, and calling it the Agape Meal is the error this rule was added to stop. It is still an error. What changed on 2026-08-11 is that a MONTHLY parish meal called the Agape Meal was proposed as a separate thing, so fellowship-care.html is exempt — see terminology.agapeMeal. The exemption is per-page and covers that page's coffee hour section too, which nothing but review will catch: if the section headed 'Sunday coffee hour' ever starts calling itself the Agape Meal, this rule will not save you. Lower-case 'an agape meal', explaining the term in passing, remains fine everywhere."
       },
       {
         "pattern": "complimentary (prayer|Divine Liturgy) book",

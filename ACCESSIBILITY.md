@@ -30,10 +30,10 @@ across 36 page-runs.** Two counts moved and neither is a regression:
 - Reflow is **18 of 18**. The Mobile views mock-up page was retired once the site
   itself used the mobile layout, taking the count to 16 of 16; the Welcome page
   brought it back to seventeen, and Fellowship & Care makes eighteen.
-- The manual-review count is now **160 nodes**, not 37. That number tracks how
+- The manual-review count is now **164 nodes**, not 37. That number tracks how
   much of a page axe can resolve, not how much is wrong: it rises when a
   gradient, a placeholder frame or a carousel puts text somewhere axe declines to
-  judge. Every one of the 160 is accounted for below, and the twelve heroes are
+  judge. Every one of the 164 is accounted for below, and the twelve heroes are
   now measured by a tool rather than by hand.
 
 Reproduce it yourself:
@@ -159,11 +159,11 @@ harmless.
 
 ## Verified by hand
 
-### The 160 "needs review" items
+### The 164 "needs review" items
 
-One rule is flagged for review: `color-contrast`, 160 nodes across 25 of the 36
+One rule is flagged for review: `color-contrast`, 164 nodes across 25 of the 36
 page-runs. axe defers whenever it cannot resolve what is behind the text. For
-144 of these nodes the reason it gives is a background gradient; for the other
+148 of these nodes the reason it gives is a background gradient; for the other
 16 it is that the element is partly out of view. None is a violation. All three
 groups are accounted for below.
 
@@ -308,9 +308,9 @@ paragraph had no way to check, since nothing measured mobile then — the same
 eyebrow fell to 1.47:1. The remedy was the first of the two it named: a darker
 scrim, below 900px only, so the gold is unchanged everywhere.
 
-#### Placeholder photo frames — 70 nodes
+#### Placeholder photo frames — 74 nodes
 
-The empty frames on the Parish Life page, and the two on Fellowship & Care, each
+The empty frames on the Parish Life page, and the four on Fellowship & Care, each
 carry a label ("Photograph to come") and a hint naming what belongs there ("Holy
 Week", "Coffee hour in the parish hall"), over a placeholder fill: `#efe7d9` with
 a 10%-opacity gold stripe ruled across it at 135°. axe sees the stripe as a
