@@ -29,13 +29,13 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFaithIntro` | 952 b | 1 page | — |
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
+| ☐ | `ntgocFellowshipAgape` | 8935 b | 1 page | yes (1) |
 | ☐ | `ntgocFellowshipAsk` | 1581 b | 1 page | yes (2) |
 | ☐ | `ntgocFellowshipCare` | 7484 b | 1 page | yes (1) |
 | ☐ | `ntgocFellowshipClosing` | 847 b | 1 page | yes (1) |
-| ☐ | `ntgocFellowshipCoffee` | 3685 b | 1 page | yes (1) |
-| ☐ | `ntgocFellowshipHelp` | 3236 b | 1 page | yes (3) |
-| ☐ | `ntgocFellowshipHero` | 1304 b | 1 page | — |
-| ☐ | `ntgocFellowshipPotluck` | 3290 b | 1 page | yes (2) |
+| ☐ | `ntgocFellowshipCoffee` | 3802 b | 1 page | yes (1) |
+| ☐ | `ntgocFellowshipHelp` | 3308 b | 1 page | yes (3) |
+| ☐ | `ntgocFellowshipHero` | 1310 b | 1 page | — |
 | ☐ | `ntgocFestivalDetails` | 1959 b | 1 page | — |
 | ☐ | `ntgocFestivalHero` | 704 b | 1 page | — |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |

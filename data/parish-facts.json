@@ -132,11 +132,36 @@
         "fellowship-care.html"
       ]
     },
-    "parishPotlucks": {
-      "value": "On selected Sundays through the year the parish gathers for a potluck to which everyone contributes.",
-      "status": "UNVERIFIED",
-      "source": "Described in the Fellowship & Care brief, 2026-08-10.",
-      "note": "Distinct from coffee hour, which is already described site-wide as potluck-style. No dates, themes or frequency are published here: the 'next parish potluck' card ships with three empty rows rather than a plausible invented date, which is the one thing on that page a parishioner could catch out.",
+    "agapeMeal": {
+      "value": "A monthly parish Agape Meal after the Divine Liturgy, brought by everyone who is able, in place of that Sunday's household-sponsored coffee hour.",
+      "status": "PROPOSED",
+      "source": "Proposed in the Fellowship & Care brief, 2026-08-11. It replaced an earlier and vaguer 'parish potluck on selected Sundays' from the 2026-08-10 brief; neither has been agreed by the parish.",
+      "note": "Not another name for coffee hour. Coffee hour is weekly and sponsored by one household; this would be monthly and brought by the whole parish. Keeping the two apart is why 'Agape Meal' stays a forbidden pattern everywhere except fellowship-care.html — see canonical.forbidden in data/site.json. No date, feast or frequency is published: the card ships with empty rows rather than an invented meal.",
+      "theology": {
+        "mayState": "The Eucharist was, at the beginning, celebrated in the setting of a community meal called the agape or love feast; the two became distinct very early, by the end of the first century or the beginning of the second; Christians have gone on sharing a table since, as fellowship and hospitality.",
+        "mayNotState": "That the Agape Meal completes, extends or forms any part of the Eucharist or the sacrament; or that anyone is expected to eat after the Divine Liturgy. It is a parish supper that remembers an old habit, not a rite, and nobody leaving after Liturgy is leaving early.",
+        "grounding": "The Archdiocese's account of the sacramental life of the Orthodox Church, as summarised in the brief of 2026-08-11. The specific page URL is NOT recorded in this project and has not been invented; the section names the source in prose instead of linking it. See links.agapeSource in data/site.json.",
+        "status": "UNVERIFIED",
+        "note": "The history is standard and uncontroversial, but it is stated on a parish page over the parish's name, so it stays tagged until someone with the Archdiocese text in front of them confirms the wording. The failure mode is not getting a date wrong — it is a sentence that sounds devout and quietly makes the meal part of the sacrament."
+      },
+      "quotation": {
+        "text": "Like our spiritual ancestors in the Church of the First Century, we now come to an Agape Meal.",
+        "speaker": "His Eminence Archbishop Elpidophoros of America",
+        "occasion": "Remarks following the Divine Liturgy at Holy Trinity Greek Orthodox Cathedral, New Orleans",
+        "date": "2025-03-16",
+        "status": "UNVERIFIED",
+        "source": "Supplied in the Fellowship & Care brief, 2026-08-11. No URL is recorded in this project and none has been invented.",
+        "note": "A named living hierarch is quoted on a parish page. Of everything on this page it is the item most worth checking against the published text before the draft goes anywhere near the Council: the wording, the occasion and the date. If it cannot be sourced, remove the quotation rather than soften the attribution."
+      },
+      "affects": [
+        "fellowship-care.html"
+      ]
+    },
+    "kidsCorner": {
+      "value": "A Kids' Corner during fellowship — books, colouring, quiet play, and occasional activities connected with the saints and feasts.",
+      "status": "PROPOSED",
+      "source": "Described in the Fellowship & Care brief of 2026-08-11 as though it already existed; confirmed by Thomas on 2026-08-11 that it does not.",
+      "note": "Written as a proposal on the page for that reason, and matched to the 'Kids' Corner' entry under 'There is a place for you', which is the ministry it would need in order to exist. The page also states that parents remain responsible for their own children and that the corner is not childcare — worth keeping in any rewrite, because an unattended-children expectation is a safeguarding question, not a copy question.",
       "affects": [
         "fellowship-care.html"
       ]
