@@ -29,15 +29,20 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFaithIntro` | 952 b | 1 page | — |
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
-| ☐ | `ntgocFellowshipAgape` | 8935 b | 1 page | yes (1) |
-| ☐ | `ntgocFellowshipAsk` | 1581 b | 1 page | yes (2) |
-| ☐ | `ntgocFellowshipCare` | 7484 b | 1 page | yes (1) |
-| ☐ | `ntgocFellowshipClosing` | 847 b | 1 page | yes (1) |
-| ☐ | `ntgocFellowshipCoffee` | 3802 b | 1 page | yes (1) |
-| ☐ | `ntgocFellowshipHelp` | 3308 b | 1 page | yes (3) |
-| ☐ | `ntgocFellowshipHero` | 1310 b | 1 page | — |
 | ☐ | `ntgocFestivalDetails` | 1959 b | 1 page | — |
 | ☐ | `ntgocFestivalHero` | 704 b | 1 page | — |
+| ☐ | `ntgocGetInvolvedAgape` | 8952 b | 1 page | yes (1) |
+| ☐ | `ntgocGetInvolvedAsk` | 1581 b | 1 page | yes (2) |
+| ☐ | `ntgocGetInvolvedCare` | 7484 b | 1 page | yes (1) |
+| ☐ | `ntgocGetInvolvedClosing` | 1364 b | 1 page | yes (1) |
+| ☐ | `ntgocGetInvolvedCoffee` | 4018 b | 1 page | yes (1) |
+| ☐ | `ntgocGetInvolvedHero` | 1743 b | 1 page | — |
+| ☐ | `ntgocGetInvolvedLearn` | 4049 b | 1 page | yes (4) |
+| ☐ | `ntgocGetInvolvedOffering` | 7531 b | 1 page | yes (3) |
+| ☐ | `ntgocGetInvolvedPathways` | 2073 b | 1 page | — |
+| ☐ | `ntgocGetInvolvedPrepare` | 6796 b | 1 page | — |
+| ☐ | `ntgocGetInvolvedProsphora` | 4215 b | 1 page | yes (1) |
+| ☐ | `ntgocGetInvolvedServe` | 4423 b | 1 page | yes (4) |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 2018 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 1928 b | 1 page | yes (1) |
@@ -59,7 +64,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishHero` | 800 b | 1 page | — |
 | ☐ | `ntgocParishLifeBookstore` | 1624 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeEvents` | 1148 b | 1 page | — |
-| ☐ | `ntgocParishLifeFellowship` | 1241 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeFellowship` | 1229 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeFormation` | 1916 b | 1 page | — |
 | ☐ | `ntgocParishLifeGallery` | 3263 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeHero` | 905 b | 1 page | — |
@@ -72,8 +77,8 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3822 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3818 b | 19 pages | yes (17) |
-| ☐ | `ntgocSiteHeader` | 5889 b | 19 pages | yes (34) |
+| ☐ | `ntgocSiteFooter` | 3806 b | 19 pages | yes (17) |
+| ☐ | `ntgocSiteHeader` | 5865 b | 19 pages | yes (34) |
 | ☐ | `ntgocTopBar` | 208 b | 19 pages | — |
 | ☐ | `ntgocTraditionsClasses` | 33308 b | 1 page | — |
 | ☐ | `ntgocTraditionsClosing` | 956 b | 1 page | — |
