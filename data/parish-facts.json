@@ -123,6 +123,17 @@
       ],
       "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped — the parish may well have chanters without a ministry page. 2026-08-09: the LIST is settled for this presentation, but the DESCRIPTIONS carried a great deal that was never sourced — meeting frequencies, grade ranges, basketball, retreats, the Metropolis summer camp, named charitable programmes, and September-to-May term dates. All of it is now removed from ministries.html and index.html. Accurate and brief beats polished and invented; see _ministriesNote in data/site.json."
     },
+    "prosphoraClass": {
+      "value": "The parish already offers a prosphora baking class.",
+      "status": "UNVERIFIED",
+      "source": "Reported by the volunteer who drafted traditions.html, 2026-08-10. Not on the live parish site, not in the newsletter, not otherwise confirmed.",
+      "note": "The single parish claim on traditions.html. Everything else on that page is either a proposal or general Orthodox practice, but this one says the parish DOES something today, and a reader would act on it. Rendered as 'Reported: the parish already offers this class.' with a TODO: verify marker rather than as a plain statement. If the parish confirms it, drop the 'Reported:' framing and the marker together; if it turns out to be a class someone once ran rather than one that runs now, delete the line — 'we used to' is not what the card would be telling people."
+    },
+    "traditionsSeries": {
+      "value": "There is no Living the Traditions series.",
+      "status": "DOES_NOT_EXIST_YET",
+      "note": "traditions.html is an interest survey put together for the Parish Council: twenty-four possible classes, none of them scheduled, approved or staffed. The page carries the same 'Proposed' labelling as welcome.html and states in four separate places that nothing is booked and no form is connected. The class descriptions themselves describe general Orthodox practice (koliva, Vasilopita, palm crosses, Artoklasia) rather than anything specific to this parish, which is why they need no source; where a topic needs authoritative teaching the page says Father would lead or approve it, and names no volunteer as a teacher. Aggregate counts — 'N parishioners are interested in this class' — were requested and deliberately left out: with no form handler, any number displayed would be invented."
+    },
     "hallRental": {
       "status": "UNVERIFIED",
       "designSaid": "Capacity ≈ 200 seated; full commercial kitchen; on-site free parking",

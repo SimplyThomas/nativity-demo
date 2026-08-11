@@ -107,6 +107,7 @@
 .ntgoc-welcome-intro__text a,
 .ntgoc-welcome-hint a,
 .ntgoc-question__preview a,
+.ntgoc-traditions-lede a,
 .ntgoc-prose a {
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -937,6 +938,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-parish-section--tight { padding-top:56px; padding-bottom:56px; }
 .ntgoc-parish-head { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:32px; }
 .ntgoc-parish-h2 { font-family:Newsreader, serif; font-weight:400; font-size:36px; line-height:1.15; margin:0; color:#3a1414; }
+/* The bare heading carries no bottom margin because most of the places it is
+   used follow it with a lede that brings its own top margin. Where the next
+   thing is body copy, it needs one. */
+.ntgoc-parish-h2--spaced { margin-bottom: 20px; }
 .ntgoc-parish-sub { font-size:15px; line-height:1.65; color:#6c6458; margin:8px 0 0; max-width:62ch; }
 .ntgoc-parish-link { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; white-space:nowrap; }
 .ntgoc-parish-link:hover, .ntgoc-parish-link:focus-visible { border-color:#7d2b2b; }
@@ -1237,6 +1242,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-welcome-form .ntgoc-demoform__check { padding: 8px 0; margin-bottom: 0; }
 .ntgoc-welcome-hint { font-size: 13px; line-height: 1.6; color: #6c6458; margin: 7px 0 0; }
 .ntgoc-welcome-reveal { display: grid; gap: 16px; border-top: 1px solid #e4dac8; padding-top: 18px; }
+/* The script hides this panel by setting the `hidden` property, but `hidden` is
+   only display:none in the USER-AGENT stylesheet, and any author rule beats it.
+   The declaration above was therefore keeping the panel on screen whatever the
+   script did: the Welcome survey has been asking every visitor for their name,
+   email and phone number from the moment the page loaded, which is the opposite
+   of what both that page and this one say they do. Restore the intent. */
+.ntgoc-welcome-reveal[hidden] { display: none; }
 
 .ntgoc-welcome-status {
   font-size: 15px;
@@ -1455,6 +1467,147 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* The calendar's month controls sat inside its hero; they stay on parchment
    now that the hero is a photograph. */
 .ntgoc-calendar-controls { max-width: 1240px; margin: 0 auto; padding: 24px 40px; }
+
+/* --- Living the Traditions -------------------------------------------
+   An interest survey: twenty-four possible classes, each one a card with
+   two independent ticks — would attend, could help teach. Nothing here is
+   a schedule, so nothing is styled to look like one; there are no dates,
+   no times and no booking affordances anywhere on the page.
+
+   The card is the only genuinely new component. Everything else borrows
+   what the Welcome page already established for a proposed form
+   (.ntgoc-proposal, .ntgoc-demoform, .ntgoc-welcome-open), because a
+   parishioner should recognise "this is an idea, not an announcement"
+   from the same visual language wherever it appears.
+   -------------------------------------------------------------------- */
+
+/* The guiding idea, set once under the hero. The gold rule above it is the
+   only ornament on the page — restraint is the house style, and a quotation
+   about standing beside someone does not want decorating. */
+.ntgoc-traditions-idea { padding-top: 56px; padding-bottom: 56px; }
+.ntgoc-traditions-idea__quote {
+  font-family: Newsreader, serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 29px;
+  line-height: 1.42;
+  color: #3a1414;
+  margin: 0 auto;
+  max-width: 34ch;
+  text-align: center;
+  text-wrap: pretty;
+}
+.ntgoc-traditions-idea__quote::before {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 1px;
+  background: #b08442;
+  margin: 0 auto 26px;
+}
+
+.ntgoc-traditions-quote { margin: 0 0 30px; padding-left: 22px; border-left: 2px solid #b08442; }
+.ntgoc-traditions-quote__text {
+  font-family: Newsreader, serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 25px;
+  line-height: 1.45;
+  color: #3a1414;
+  margin: 0;
+  text-wrap: pretty;
+}
+.ntgoc-traditions-quote--band { margin: 0; }
+.ntgoc-traditions-quote--band .ntgoc-traditions-quote__text { font-size: 27px; }
+
+.ntgoc-traditions-lede { font-size: 17px; line-height: 1.7; color: #4a443c; margin: 18px 0 0; max-width: 64ch; text-wrap: pretty; }
+.ntgoc-traditions-lede--note { font-size: 15px; color: #6c6458; margin-top: 12px; }
+
+/* .ntgoc-demoform caps itself at 520px, which is right for a column of
+   fields and wrong for a form that contains the whole class grid. */
+.ntgoc-traditions-form { max-width: none; gap: 0; margin-top: 8px; }
+
+.ntgoc-traditions-group { margin-top: 52px; border-top: 1px solid #ded2be; padding-top: 26px; }
+.ntgoc-traditions-group__heading { font-family: Newsreader, serif; font-weight: 400; font-size: 26px; line-height: 1.2; margin: 0; color: #3a1414; }
+.ntgoc-traditions-group__note { font-size: 14.5px; line-height: 1.65; color: #6c6458; margin: 8px 0 24px; max-width: 62ch; }
+
+.ntgoc-traditions-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+
+/* The card is a flex column so that the two ticks sit on the bottom edge of
+   every card in a row, however long the description above them runs. A row
+   of ticks at four different heights reads as four different kinds of thing. */
+.ntgoc-traditions-card {
+  display: flex;
+  flex-direction: column;
+  background: #fbf8f2;
+  border: 1px solid #e2d7c3;
+  border-top: 2px solid #b08442;
+  padding: 26px 24px 22px;
+}
+.ntgoc-traditions-card__title { font-family: Newsreader, serif; font-weight: 500; font-size: 21px; line-height: 1.25; margin: 0 0 10px; color: #3a1414; }
+.ntgoc-traditions-card__text { font-size: 15px; line-height: 1.65; color: #5b5449; margin: 0; }
+.ntgoc-traditions-card__when { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #7f5f30; margin: 14px 0 0; }
+.ntgoc-traditions-card__note { font-size: 13.5px; line-height: 1.6; font-style: italic; color: #6d6358; margin: 12px 0 0; }
+.ntgoc-traditions-card__choices { display: grid; gap: 8px; margin-top: auto; padding-top: 20px; }
+
+.ntgoc-traditions-choice {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border: 1px solid #ded2be;
+  background: #f6f1e8;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.ntgoc-traditions-choice input { margin-top: 3px; flex: none; }
+.ntgoc-traditions-choice__label { font-size: 13px; line-height: 1.45; color: #5b5449; }
+.ntgoc-traditions-choice:hover { border-color: #b08442; background: #f1e9dc; }
+/* Ticked state carries on the whole chip, not just the box: on a phone the
+   box is small and the answer to "what have I already chosen?" should be
+   readable at arm's length. */
+.ntgoc-traditions-choice:has(input:checked) { border-color: #7d2b2b; background: #f2e6da; }
+.ntgoc-traditions-choice input:checked + .ntgoc-traditions-choice__label { color: #5e1f1f; }
+
+.ntgoc-traditions-summary { margin-top: 56px; border-top: 1px solid #ded2be; padding-top: 34px; max-width: 620px; display: grid; gap: 22px; }
+/* The shared legend is a field label in small caps, which is right above a row
+   of radio buttons and wrong above three questions someone is being asked. Set
+   the questions in the body serif so they read as questions; the small caps
+   stay on the labels underneath them, where they mark the fields. */
+.ntgoc-traditions-summary .ntgoc-demoform__legend {
+  font-family: Newsreader, serif;
+  font-size: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #3a1414;
+  margin-bottom: 14px;
+}
+.ntgoc-traditions-summary__heading { font-family: Newsreader, serif; font-weight: 400; font-size: 30px; line-height: 1.2; margin: 0; color: #3a1414; }
+.ntgoc-traditions-summary__text { font-size: 16px; line-height: 1.7; color: #5b5449; margin: 0; max-width: 62ch; }
+.ntgoc-traditions-picks { display: grid; gap: 14px; }
+.ntgoc-traditions-teachlist { margin-top: 4px; }
+
+.ntgoc-traditions-passing {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  padding-top: 76px;
+  padding-bottom: 76px;
+}
+.ntgoc-traditions-passing__body { max-width: 62ch; }
+
+.ntgoc-traditions-guidance { border: 1px solid #d9c6a8; border-left: 3px solid #b08442; background: #fbf8f2; padding: 34px 36px; max-width: 76ch; }
+
+.ntgoc-traditions-closing { border-top: 1px solid #5e2a2a; }
+.ntgoc-traditions-closing__inner { padding-top: 84px; padding-bottom: 84px; }
+.ntgoc-traditions-closing__display { font-family: Newsreader, serif; font-weight: 300; font-size: 44px; line-height: 1.12; margin: 0; color: #f6f1e8; max-width: 20ch; text-wrap: pretty; }
+.ntgoc-traditions-closing__text { font-size: 17px; line-height: 1.75; color: #e6d8c2; margin: 22px 0 0; max-width: 60ch; text-wrap: pretty; }
+.ntgoc-traditions-closing__call { font-family: Newsreader, serif; font-weight: 300; font-style: italic; font-size: 32px; line-height: 1.3; color: #e0b673; margin: 34px 0 0; }
+.ntgoc-traditions-closing__row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 36px; }
+.ntgoc-traditions-closing__cta { display: inline-block; background: #e0b673; color: #3a1414; padding: 16px 30px; border-radius: 2px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+.ntgoc-traditions-closing__cta:hover, .ntgoc-traditions-closing__cta:focus-visible { background: #f0cf94; color: #2a1010; }
+.ntgoc-traditions-closing__link { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #e6d8c2; border-bottom: 1px solid rgba(224,182,115,.5); padding-bottom: 4px; }
+.ntgoc-traditions-closing__link:hover, .ntgoc-traditions-closing__link:focus-visible { color: #e0b673; border-color: #e0b673; }
 
 @media (max-width: 900px) {
   .ntgoc-grid { grid-template-columns: 1fr !important; }
@@ -1768,4 +1921,38 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-welcome-group__summary { padding: 18px 0; gap: 16px; }
   .ntgoc-welcome-intro { padding-top: 44px; padding-bottom: 28px; }
   .ntgoc-welcome-closing { padding-top: 58px; padding-bottom: 58px; }
+}
+
+/* Living the Traditions. The class grid thins by degrees rather than dropping
+   from three columns straight to one — a card is small enough that two fit
+   comfortably at tablet width, and twenty-four of them in a single column is a
+   very long scroll. Below 900px the blanket .ntgoc-grid rule takes over, which
+   is why the two-column step is written as a min-width band: it must not
+   compete with an !important rule it would otherwise have to repeat.
+
+   The closing band's display type is set in fixed px, like every other display
+   string in this file, so it needs a clamp of its own on a phone. */
+@media (min-width: 901px) and (max-width: 1120px) {
+  .ntgoc-traditions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .ntgoc-traditions-idea { padding-top: 44px; padding-bottom: 44px; }
+  .ntgoc-traditions-idea__quote { font-size: clamp(21px, 5vw, 29px); }
+  .ntgoc-traditions-quote__text { font-size: clamp(20px, 4.6vw, 25px); }
+  .ntgoc-traditions-quote--band .ntgoc-traditions-quote__text { font-size: clamp(21px, 5vw, 27px); }
+  .ntgoc-traditions-passing { padding-top: 56px; padding-bottom: 56px; gap: 34px; }
+  .ntgoc-traditions-summary__heading { font-size: clamp(24px, 5.5vw, 30px); }
+  .ntgoc-traditions-closing__inner { padding-top: 62px; padding-bottom: 62px; }
+  .ntgoc-traditions-closing__display { font-size: clamp(28px, 6.5vw, 44px); }
+  .ntgoc-traditions-closing__call { font-size: clamp(24px, 5.5vw, 32px); }
+}
+@media (max-width: 640px) {
+  .ntgoc-traditions-group { margin-top: 40px; padding-top: 22px; }
+  .ntgoc-traditions-group__heading { font-size: 23px; }
+  .ntgoc-traditions-card { padding: 22px 18px 20px; }
+  .ntgoc-traditions-card__choices { padding-top: 16px; }
+  .ntgoc-traditions-guidance { padding: 26px 22px; }
+  .ntgoc-traditions-summary { margin-top: 42px; padding-top: 28px; }
+  .ntgoc-traditions-closing__row { display: grid; gap: 12px; }
+  .ntgoc-traditions-closing__cta { text-align: center; }
 }

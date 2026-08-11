@@ -343,7 +343,13 @@
     return null;
   }
 
+  /* The default wording below was written for the Welcome page's three forms and
+     reads as nonsense anywhere else — a blank name on the teach-a-tradition form
+     was being answered with "Please write your question before sending it." A
+     field may carry its own sentence instead; the fallbacks are unchanged. */
   function complaint(el) {
+    var own = el.getAttribute('data-ntgoc-complaint');
+    if (own) return own;
     if (el.type === 'email') return 'Please add an email address so that we can write back to you.';
     if (el.type === 'checkbox') return 'Please tick the box to confirm you would like to be added.';
     return 'Please write your question before sending it.';
