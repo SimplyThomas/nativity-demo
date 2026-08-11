@@ -93,12 +93,17 @@ const args = process.argv.slice(2);
 const BOX_MODE = args.includes('--box');
 const pageArgs = args.filter(a => !a.startsWith('--'));
 
-/* The ten pages carrying .ntgoc-page-hero, with the labels ACCESSIBILITY.md
+/* The pages carrying .ntgoc-page-hero, with the labels ACCESSIBILITY.md
    uses. Any page named on the command line wins instead, so a single hero can
-   be re-measured in a few seconds while it is being adjusted. */
+   be re-measured in a few seconds while it is being adjusted.
+
+   A new page with a hero has to be added here. Nothing else will notice: the
+   component guarantees the scrim, not the strings set against it, and an
+   unmeasured hero is one nobody has checked. */
 const HERO_PAGES = [
   ['index.html', 'Home'],
   ['parish-life.html', 'Parish Life'],
+  ['fellowship-care.html', 'Fellowship & Care'],
   ['faith.html', 'Our Faith'],
   ['calendar.html', 'Calendar'],
   ['about.html', 'About'],

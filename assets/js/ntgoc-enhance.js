@@ -344,6 +344,14 @@
   }
 
   function complaint(el) {
+    /* A field may carry its own wording. The three Welcome forms ask for a
+       question and an email address, so the defaults below fit them; the meal
+       support request on Fellowship & Care asks for other things, and a form
+       that answers "please write your question" to a missing name reads as
+       broken. Set data-ntgoc-complaint on the field rather than adding another
+       branch here for every new form. */
+    var own = el.getAttribute('data-ntgoc-complaint');
+    if (own) return own;
     if (el.type === 'email') return 'Please add an email address so that we can write back to you.';
     if (el.type === 'checkbox') return 'Please tick the box to confirm you would like to be added.';
     return 'Please write your question before sending it.';

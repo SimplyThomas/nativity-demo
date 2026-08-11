@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 17 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 34 runs
+**Scope:** all 18 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 36 runs
 
 ## Result
 
@@ -23,26 +23,26 @@ passing** at 320px, and axe still reports 0 violations across 32 page-runs. The
 "Expected clean state" has said 16/16 for a while, so this line read as a
 regression that was not one.
 
-**Re-checked 10 August 2026**, after the eleven photograph heroes were collapsed
-onto one component. Still **0 violations across 34 page-runs.** Two counts moved
-and neither is a regression:
+**Re-checked 10 August 2026**, after the photograph heroes were collapsed onto
+one component and again after Fellowship & Care was added. Still **0 violations
+across 36 page-runs.** Two counts moved and neither is a regression:
 
-- Reflow is **17 of 17**. The Mobile views mock-up page was retired once the site
+- Reflow is **18 of 18**. The Mobile views mock-up page was retired once the site
   itself used the mobile layout, taking the count to 16 of 16; the Welcome page
-  then brought it back to seventeen.
-- The manual-review count is now **143 nodes**, not 37. That number tracks how
+  brought it back to seventeen, and Fellowship & Care makes eighteen.
+- The manual-review count is now **160 nodes**, not 37. That number tracks how
   much of a page axe can resolve, not how much is wrong: it rises when a
   gradient, a placeholder frame or a carousel puts text somewhere axe declines to
-  judge. Every one of the 143 is accounted for below, and the eleven heroes are
+  judge. Every one of the 160 is accounted for below, and the twelve heroes are
   now measured by a tool rather than by hand.
 
 Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 17 pages x 2 viewports
+npm run audit:a11y   # 18 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
-npm run measure:hero # the eleven photograph heroes, which axe declines to judge
+npm run measure:hero # the twelve photograph heroes, which axe declines to judge
 ```
 
 The **site itself has no dependencies.** These two packages are for auditing only
@@ -159,18 +159,18 @@ harmless.
 
 ## Verified by hand
 
-### The 143 "needs review" items
+### The 160 "needs review" items
 
-One rule is flagged for review: `color-contrast`, 143 nodes across 22 of the 34
+One rule is flagged for review: `color-contrast`, 160 nodes across 25 of the 36
 page-runs. axe defers whenever it cannot resolve what is behind the text. For
-128 of these nodes the reason it gives is a background gradient; for the other
-15 it is that the element is partly out of view. None is a violation. All three
+144 of these nodes the reason it gives is a background gradient; for the other
+16 it is that the element is partly out of view. None is a violation. All three
 groups are accounted for below.
 
-#### Contrast over a background image — 66 nodes
+#### Contrast over a background image — 74 nodes
 
-These are the eleven photograph heroes: the eyebrow, the headline, the lede, the
-outlined hero button on the two pages that carry one, on Parish Life a second
+These are the twelve photograph heroes: the eyebrow, the headline, the lede, the
+outlined hero button on the three pages that carry one, on Parish Life a second
 serif lede, and on Welcome a gold italic opening line of its own. axe has no way
 to know what colour is under the glyphs, so it declines to judge them.
 
@@ -199,10 +199,10 @@ the photograph like every eyebrow here, and until the Welcome page was merged
 nothing measured it. It is now the fifth selector in the list. Anyone adding a
 hero string in a class of its own should add it there too.
 
-**Where they stand.** All eleven heroes are one component now: one scrim, the
+**Where they stand.** All twelve heroes are one component now: one scrim, the
 photograph at full strength, two heights, the text aligned to the bottom.
 Headlines are held to 3:1, being large text at both viewports; everything else
-to 4.5:1. Measured 10 August 2026, 62 strings, all passing:
+to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
 
 | Page | Viewport | Eyebrow (4.5) | Headline (3) | Lede (4.5) | Second lede (4.5) † |
 |---|---|---:|---:|---:|---:|
@@ -210,6 +210,8 @@ to 4.5:1. Measured 10 August 2026, 62 strings, all passing:
 | Home | mobile | 5.71:1 | 9.83:1 | 9.38:1 | — |
 | Parish Life | desktop | 7.57:1 | 11.69:1 | 9.74:1 | 7.51:1 |
 | Parish Life | mobile | 7.13:1 | 10.26:1 | 8.97:1 | 7.85:1 |
+| Fellowship &amp; Care | desktop | 7.66:1 | 10.66:1 | 7.88:1 | — |
+| Fellowship &amp; Care | mobile | 7.44:1 | 9.83:1 | 8.45:1 | — |
 | Our Faith | desktop | 7.79:1 | 11.23:1 | — | — |
 | Our Faith | mobile | 7.76:1 | 10.37:1 | — | — |
 | Calendar | desktop | 7.77:1 | 12.23:1 | — | — |
@@ -235,10 +237,10 @@ Life it is `.ntgoc-page-hero__lede--serif`; on Welcome it is the gold italic
 `.ntgoc-welcome-hero__lede`. Both are held to 4.5:1 and both are reported by
 `npm run measure:hero` under their own names, `lede--serif` and `welcome-lede`.
 
-The closest of the 62 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
-outlined hero buttons on Home and Plan a visit are not in the table because the
-tool does not track them — they are two buttons, and so four of the 66 nodes
-axe defers on. Measured the same way they are 11.39:1 at worst.
+The closest of the 68 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
+outlined hero buttons on Home, Plan a visit and Fellowship & Care are not in the
+table because the tool does not track them — they are three buttons, and so six
+of the 74 nodes axe defers on. Measured the same way they are 11.39:1 at worst.
 
 **Below 900px the scrim is re-weighted, and the reason is geometry rather than
 taste.** The stops in `linear-gradient(75deg, …)` are percentages along the
@@ -263,10 +265,13 @@ measurements failed there: Home at 899px (4.25:1), and Plan a visit at both
 narrowest one. `npm run measure:hero` samples 390 and 1440 only, so nothing
 would have caught it.
 
-That band was re-sampled again on 10 August 2026, after the Welcome page was
-merged, so the figure covers all eleven heroes rather than the ten it was first
-taken from: **all 62 strings pass, the closest at 6.44:1** — the home eyebrow at
-720px, the same string and the same number as before. The tool takes no viewport
+That band was re-sampled again on 10 August 2026, after the Welcome page and then
+Fellowship & Care were merged, so the figure covers all twelve heroes rather than
+the ten it was first taken from: **all 68 strings pass, the closest at 6.44:1** —
+the home eyebrow at 720px, the same string and the same number through all three
+re-samples. Fellowship & Care's own worst is its eyebrow at 899px, 7.17:1. It
+inherits the component untouched, which is the point of there being a component:
+a new page gets the measured scrim rather than a fresh guess. The tool takes no viewport
 argument, so the re-sample is done by copying it outside the repo and changing
 the two entries in `VIEWPORTS` to 720 and 899. Nothing else about it changes,
 and the copy is thrown away afterwards; keeping a second viewport list in the
@@ -303,12 +308,13 @@ paragraph had no way to check, since nothing measured mobile then — the same
 eyebrow fell to 1.47:1. The remedy was the first of the two it named: a darker
 scrim, below 900px only, so the gold is unchanged everywhere.
 
-#### Placeholder photo frames — 62 nodes
+#### Placeholder photo frames — 70 nodes
 
-The empty frames on the Parish Life page each carry a label ("Photograph to
-come") and a hint naming what belongs there ("Holy Week", "Coffee hour in the
-parish hall"), over a placeholder fill: `#efe7d9` with a 10%-opacity gold stripe
-ruled across it at 135°. axe sees the stripe as a gradient and defers.
+The empty frames on the Parish Life page, and the two on Fellowship & Care, each
+carry a label ("Photograph to come") and a hint naming what belongs there ("Holy
+Week", "Coffee hour in the parish hall"), over a placeholder fill: `#efe7d9` with
+a 10%-opacity gold stripe ruled across it at 135°. axe sees the stripe as a
+gradient and defers.
 
 Measured behind the glyphs, the label is 4.33:1 at worst and the hint 4.31:1.
 Against `#efe7d9` alone both clear the bar — 4.78:1 and 4.75:1 — and it is the
@@ -318,13 +324,15 @@ these frames is waiting to be replaced by a photograph, at which point the
 label, the hint and the stripe all go. Worth closing while the frames are still
 here — a slightly darker hint colour, or a fainter stripe, is enough.
 
-#### Copies that are scrolled out of view — 15 nodes
+#### Copies that are scrolled out of view — 16 nodes
 
 Eight on the home page: the four strings on the banquet slide, which is the
 second slide of the promo carousel and so sits off to the side at both
 viewports. Seven on the Visit page: the text on greeter cards two, three and
-four, which at 390px are the cards past the edge of the scrolling row. In both
-cases the pixels are never painted, so axe reports the nodes as partly obscured.
+four, which at 390px are the cards past the edge of the scrolling row. One on
+the Bookstore page, at 390px: a category label on a reading-list cover past the
+edge of its row. In all three cases the pixels are never painted, so axe reports
+the nodes as partly obscured.
 Their visible siblings — the same classes, the same colours, the same
 backgrounds, one slide or one card along — axe resolves without complaint and
 passes. There is nothing different about the ones it cannot see.
@@ -351,8 +359,8 @@ disappears.
 
 ### Reflow — WCAG 1.4.10
 
-At a 320px viewport, no page scrolls horizontally. **17 of 17 pass**, Welcome
-included.
+At a 320px viewport, no page scrolls horizontally. **18 of 18 pass**, Welcome and
+Fellowship & Care included.
 
 The Mobile views reference page initially failed (406px wide) because it drew
 phone frames at their true 375px width. Rather than shrink the mock-ups — which

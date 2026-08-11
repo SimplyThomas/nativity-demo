@@ -1,6 +1,6 @@
 {
   "_README": "One source of truth for the facts that appear on more than one page. This project is static hand-edited HTML with no build step, so this file cannot inject values — instead `npm run lint` reads it and FAILS when a page contradicts it (see 'canonical facts' in tools/lint.mjs). Change a shared fact here first, then fix the pages lint names. Provenance for each fact lives in data/parish-facts.json; this file is about keeping the pages consistent with it.",
-  "_updated": "2026-08-09",
+  "_updated": "2026-08-10",
 
   "serviceTimes": {
     "orthros": "9:00 a.m.",
@@ -27,7 +27,9 @@
     "fellowshipMeal": "coffee hour",
     "fellowshipMealNote": "The parish calls the post-Liturgy fellowship 'coffee hour'. It may be described as an agape/shared meal in passing, but 'the Agape Meal' must not be the primary label.",
     "liturgyBook": "Greek-English Divine Liturgy book",
-    "liturgyBookNote": "Available from a greeter or in the pew. NOT a gift and not taken home — never call it complimentary, free or a take-home prayer book."
+    "liturgyBookNote": "Available from a greeter or in the pew. NOT a gift and not taken home — never call it complimentary, free or a take-home prayer book.",
+    "hall": "the parish hall",
+    "hallNote": "Every page says 'the parish hall', and hall.html is titled that way. 'Community Hall' arrived with the Fellowship & Care brief on 2026-08-10 and was not used, because one building with two names across eighteen pages is how a site starts contradicting itself. NOT confirmed with the parish: if they call it the Community Hall, change this line and the forbidden pattern below FIRST, then fix the pages lint names."
   },
 
   "worship": {
@@ -78,6 +80,11 @@
     "parishCommunity": null,
     "parishUpdates": null,
     "newsletterArchive": null,
+    "coffeeHourSignup": null,
+    "potluckSignup": null,
+    "mealTrain": null,
+    "mealSupportRequest": null,
+    "_fellowshipNote": "The four destinations Fellowship & Care is built around. The parish plans to use SignUpGenius for coffee-hour hosting and potluck sign-ups, and Meal Train for meals to an individual household; mealSupportRequest is the PRIVATE route by which someone asks for help, and it must never be a public Meal Train page. None of the four exists yet, so all four are null and the page renders labelled inert buttons — each one marked with a TODO comment naming the key to fill in here. The button wording stays parish-facing ('Host a coffee hour'), not service-facing ('Go to SignUpGenius'): which tool handles the sign-up is our business, not the parishioner's.",
     "_nullNote": "null means the destination does not exist yet. Render it as a clearly-labelled proposed placeholder — never invent a URL, and never leave a bare href=\"#\" that looks live."
   },
 
@@ -94,7 +101,12 @@
       "Private parish community",
       "Parish update emails",
       "Current volunteer needs",
-      "Parish announcement cards"
+      "Parish announcement cards",
+      "Coffee-hour hosting sign-up",
+      "Parish potluck sign-up",
+      "Meal trains for a parish household",
+      "A private request for meal support, and a coordinator to read it",
+      "Setup & cleanup, Children's corner and Missions as named ministries"
     ]
   },
 
@@ -113,6 +125,11 @@
       {
         "pattern": "(take|takes|taken) home[^.]{0,30}(prayer|Divine Liturgy) book",
         "why": "The Divine Liturgy book stays in the church."
+      },
+      {
+        "pattern": "Community Hall",
+        "caseSensitive": true,
+        "why": "The building is called the parish hall on every page and in hall.html's own heading. Pick one name. See terminology.hall — if the parish confirms 'Community Hall', change it there and here before changing any page."
       },
       {
         "pattern": "overflow parking",

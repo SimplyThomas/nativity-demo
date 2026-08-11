@@ -21,7 +21,7 @@ compete with the real site in search, and not to be mistaken for it.
 | `content/` | Reference copy of the eight parish-authored Visit sections. **No longer an input** — edit `visit.html`, then mirror the copy here. |
 | `tools/lint.mjs` | Enforces the rules that used to be guaranteed by the renderer. Run by CI. |
 | `tools/extract-chunks.mjs` | Turns those pages into paste-ready Evolution CMS chunks. |
-| `dist/chunks/` | **Generated.** 84 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
+| `dist/chunks/` | **Generated.** 91 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
 | `data/parish-facts.json` | Every parish fact, its source URL, and whether it is verified, corrected, or withheld. |
 | `data/parish-calendar.json` | The parish calendar, once. Rendered into three pages by `npm run parish`. |
 | `data/parish-announcements.json` | Parish announcements, with optional expiry dates. Same build. |
@@ -30,7 +30,7 @@ compete with the real site in search, and not to be mistaken for it.
 | `assets/css/components.css` | **Generated.** Ships to EVO. |
 | `assets/css/provisional.css` | Demo only. Contains a reset — never import it. |
 
-The seventeen `.html` files at the repo root are the **source** — edit them
+The eighteen `.html` files at the repo root are the **source** — edit them
 directly, with one exception: the four blocks between `<!-- BUILD:… -->` markers
 that `npm run parish` renders from the calendar and announcement data files.
 `dist/chunks/` is generated too.

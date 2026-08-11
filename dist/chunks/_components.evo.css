@@ -969,6 +969,29 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-resource__name { font-family:Newsreader, serif; font-size:21px; color:#3a1414; margin:0 0 8px; }
 .ntgoc-resource__text { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 14px; }
 
+/* --- Fellowship & Care ----------------------------------------------
+   Built almost entirely from parts that already existed — the shared
+   photograph hero, the parish sections and cards, the ruled directory,
+   the proposal block, the accordion, the demo form and the closing panel.
+   Three things are authored here, and only three.
+
+   The band modifier is the "care for one another" section. That block is
+   a different kind of thing from the two above it: it is not an
+   invitation to an event, and somebody reading it may be having a hard
+   week. It is set apart by a slightly deeper parchment and a firmer rule
+   rather than by anything louder, which is as far as "visually distinct"
+   should go on a page about asking for help.
+   ------------------------------------------------------------------ */
+.ntgoc-band--warm { background:#f1e9dc; border-color:#ccbda4; }
+
+/* The next parish meal: date, theme, and what is still needed. A ruled
+   label/value pair rather than the essentials grid, which is a page-wide
+   three-column band and sets its value at 23px — too large inside a card,
+   and it puts 16px between a label and the line it labels. */
+.ntgoc-fellowship-detail { display:grid; grid-template-columns:150px minmax(0,1fr); gap:6px 20px; align-items:baseline; padding:13px 0; border-bottom:1px solid #e4dac8; }
+.ntgoc-fellowship-detail__label { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; }
+.ntgoc-fellowship-detail__value { font-family:Newsreader, serif; font-size:20px; line-height:1.4; color:#3a1414; }
+
 /* --- Welcome — the page behind the QR code ---------------------------
    Reached from the "Understanding the Divine Liturgy" pew card, almost
    always on a phone and often while still sitting in church. So it is
@@ -1749,6 +1772,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   }
   .ntgoc-calendar-daynum { font-size: 14px; margin-bottom: 0; }
   .ntgoc-calendar-event { grid-column: 2; font-size: 13px; padding: 5px 8px; }
+}
+
+/* Fellowship & Care. Everything on the page stacks on the blanket rules above;
+   what needs authoring is the label column of the next-meal card, which at
+   150px leaves "What we still need" about a third of the card's width. */
+@media (max-width: 640px) {
+  .ntgoc-fellowship-detail { grid-template-columns: 1fr; gap: 4px; }
 }
 
 /* Welcome. Almost every visitor arrives here from a QR code, on a phone, so

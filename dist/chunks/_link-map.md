@@ -16,6 +16,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `contact` | _________ |
 | `events` | _________ |
 | `faith` | _________ |
+| `fellowship-care` | _________ |
 | `for-our-parish` | _________ |
 | `give` | _________ |
 | `hall` | _________ |
@@ -28,7 +29,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-120 links across 38 chunks.
+134 links across 45 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -38,6 +39,12 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocCommitteesList` | about | ☐ |
 | `ntgocEventsList` | calendar, hall, contact | ☐ |
 | `ntgocFaithTopics` | about, contact | ☐ |
+| `ntgocFellowshipAsk` | contact ×2 | ☐ |
+| `ntgocFellowshipCare` | contact | ☐ |
+| `ntgocFellowshipClosing` | parish-life | ☐ |
+| `ntgocFellowshipCoffee` | contact | ☐ |
+| `ntgocFellowshipHelp` | ministries ×2, events | ☐ |
+| `ntgocFellowshipPotluck` | calendar ×2 | ☐ |
 | `ntgocHallRental` | contact | ☐ |
 | `ntgocHomeFestivalPromo` | ministries, calendar, about | ☐ |
 | `ntgocHomeForOurParish` | for-our-parish | ☐ |
@@ -51,6 +58,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishConnected` | newsletter | ☐ |
 | `ntgocParishFamilies` | ministries, visit, contact | ☐ |
 | `ntgocParishLifeBookstore` | bookstore | ☐ |
+| `ntgocParishLifeFellowship` | fellowship-care | ☐ |
 | `ntgocParishLifeGallery` | contact | ☐ |
 | `ntgocParishLifeNext` | ministries, for-our-parish | ☐ |
 | `ntgocParishLifeService` | ministries | ☐ |
@@ -60,8 +68,8 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishServe` | ministries, committees | ☐ |
 | `ntgocParishStewardship` | give | ☐ |
 | `ntgocParishWeek` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, welcome, calendar, contact, hall, parish-life, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
-| `ntgocSiteHeader` | index, faith ×2, parish-life ×3, for-our-parish ×2, ministries ×2, committees ×2, bookstore ×2, newsletter ×2, calendar ×2, events ×3, hall ×2, about ×2, contact ×2, visit ×2, give | ☐ |
+| `ntgocSiteFooter` | visit, welcome, calendar, contact, hall, parish-life, fellowship-care, for-our-parish, about, ministries, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteHeader` | index, faith ×2, parish-life ×3, fellowship-care ×2, for-our-parish ×2, ministries ×2, committees ×2, bookstore ×2, newsletter ×2, calendar ×2, events ×3, hall ×2, about ×2, contact ×2, visit ×2, give | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |
 | `ntgocVisitorHero` | contact, calendar | ☐ |

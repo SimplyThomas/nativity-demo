@@ -123,6 +123,33 @@
       ],
       "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped — the parish may well have chanters without a ministry page. 2026-08-09: the LIST is settled for this presentation, but the DESCRIPTIONS carried a great deal that was never sourced — meeting frequencies, grade ranges, basketball, retreats, the Metropolis summer camp, named charitable programmes, and September-to-May term dates. All of it is now removed from ministries.html and index.html. Accurate and brief beats polished and invented; see _ministriesNote in data/site.json."
     },
+    "coffeeHourHosting": {
+      "value": "Parish households take turns to sponsor the Sunday coffee hour.",
+      "status": "UNVERIFIED",
+      "source": "Described in the Fellowship & Care brief, 2026-08-10. Nothing on the live parish site and nothing confirmed by the parish.",
+      "note": "Plausible — it is what most parishes do — which is exactly why it is tagged rather than assumed. What a host is asked to provide, what the kitchen already has, and what it costs are ALL unsourced, so fellowship-care.html states none of them and says so in the accordion instead. Those three details are what decides whether somebody who has never hosted feels able to offer, so they are the first thing to get from the parish.",
+      "affects": [
+        "fellowship-care.html"
+      ]
+    },
+    "parishPotlucks": {
+      "value": "On selected Sundays through the year the parish gathers for a potluck to which everyone contributes.",
+      "status": "UNVERIFIED",
+      "source": "Described in the Fellowship & Care brief, 2026-08-10.",
+      "note": "Distinct from coffee hour, which is already described site-wide as potluck-style. No dates, themes or frequency are published here: the 'next parish potluck' card ships with three empty rows rather than a plausible invented date, which is the one thing on that page a parishioner could catch out.",
+      "affects": [
+        "fellowship-care.html"
+      ]
+    },
+    "mealMinistry": {
+      "value": "Meals coordinated for a parish household after a birth, illness, surgery or bereavement — offered through a meal train, and requested privately through a parish ministry coordinator.",
+      "status": "UNVERIFIED",
+      "source": "Proposed in the Fellowship & Care brief, 2026-08-10. No such ministry is named on the live parish site.",
+      "note": "Two halves, and the second one carries the risk. OFFERING to cook is public and harmless. ASKING for meals is not: it discloses a birth, an illness, a surgery or a death, so the request route must be private, must reach one named coordinator, and must never create a public Meal Train page by itself. fellowship-care.html builds the interface and states in the page's own words that nothing is transmitted; it publishes no list of people who have asked, and it must not acquire one. Needs from the parish: who the coordinator is, and a private destination Fr. John has approved.",
+      "affects": [
+        "fellowship-care.html"
+      ]
+    },
     "hallRental": {
       "status": "UNVERIFIED",
       "designSaid": "Capacity ≈ 200 seated; full commercial kitchen; on-site free parking",
