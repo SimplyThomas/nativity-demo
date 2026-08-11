@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 82 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 89 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -231,6 +231,7 @@ Then the page content, grouped by page:
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
+| **Fellowship &amp; Care** | `ntgocFellowshipHero`, `ntgocFellowshipCoffee`, `ntgocFellowshipPotluck`, `ntgocFellowshipCare`, `ntgocFellowshipHelp`, `ntgocFellowshipAsk`, `ntgocFellowshipClosing` — *sits under Parish Life in the menu; four external destinations and one form are still unconfigured, see below* |
 | **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
@@ -274,6 +275,20 @@ Then the page content, grouped by page:
 > Until one of those is chosen, the page carries an "as of" line saying which
 > date its list was built from, and its JavaScript hides days and announcements
 > that have gone past. It ages honestly rather than lying quietly.
+
+> **Fellowship & Care ships with four destinations that do not exist.** Hosting a
+> coffee hour, signing up for a potluck, viewing current meal trains and
+> requesting meal support are all rendered as labelled inert buttons, each with a
+> `TODO` comment in the markup naming the key to fill in: `coffeeHourSignup`,
+> `potluckSignup`, `mealTrain` and `mealSupportRequest` under `links` in
+> `data/site.json`. The parish intends SignUpGenius for the first two and Meal
+> Train for the third. No account, link or ID has been invented for any of them.
+>
+> Two things to keep when they are wired up. **The buttons stay parish-facing** —
+> "Host a coffee hour", not "Go to SignUpGenius"; which tool handles the sign-up
+> is the parish's business, not the parishioner's. And **the "next parish
+> potluck" card ships with three empty rows** rather than an invented date, which
+> is the one thing on that page a parishioner could catch out.
 
 > **Nothing links to the Greek Festival *page* any more** — the "Greek Festival"
 > entries in the Events menu and on the Events page both go to fredgreek.org,
@@ -407,7 +422,7 @@ URLs already and need no change.
 
 ### Step 6a — Wire up the forms (needed)
 
-There are **four** forms in these chunks and **none of them has a backend**. Each
+There are **five** forms in these chunks and **none of them has a backend**. Each
 one says so on the page and offers a route that works instead of pretending.
 
 | Chunk | Form | What it would need |
@@ -416,6 +431,25 @@ one says so on the page and offers a route that works instead of pretending.
 | `ntgocWelcomeAsk` | Ask your question | A mail handler, and someone who answers |
 | `ntgocWelcomeSurvey` | Visitor survey | Somewhere for answers to go, and someone who reads them |
 | `ntgocWelcomeConnected` | Join the parish email list | An email list, which the parish does not have |
+| `ntgocFellowshipCare` | Request meal support | A **private** destination and a named coordinator — see the warning below |
+
+> **The meal support request is the one form on this site that carries a
+> confidence.** Everything the other four collect is ordinary: a question, a
+> survey answer, an email address. This one discloses a birth, an illness, an
+> operation or a death, from a named household, before anyone has agreed that
+> the parish should know. Three things follow, and none of them is optional:
+>
+> - **It goes to one person, privately.** Not a shared office inbox that several
+>   volunteers read, not a mailing list, not a Parish Council thread.
+> - **It never creates a public Meal Train by itself.** Someone speaks to the
+>   household first and asks what may be shared. A meal train page names the
+>   family to everyone who opens it.
+> - **No list of requests is ever published**, on this site or anywhere else.
+>   The page has no such list today and must not acquire one.
+>
+> If a private destination cannot be arranged, delete the form and leave the
+> parish office telephone number and address printed beside it. That is a worse
+> page and a safe one.
 
 Before any of these pages goes live, for **each** form either:
 
@@ -448,7 +482,8 @@ Three further things about the Welcome forms specifically:
 One file: `assets/js/ntgoc-enhance.js`. It does four things — filters the
 bookstore catalogue by category, advances the home page's festival cards on
 their own, drops days and notices that have already passed on For Our Parish,
-and handles the three Welcome forms.
+and handles the three Welcome forms and the meal support request on
+Fellowship & Care.
 
 **It is optional.** With JavaScript off, every bookstore item is already visible
 and the category buttons simply do nothing; the festival carousel keeps working
@@ -719,7 +754,7 @@ npm run chunks   # the 17 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The seventeen `.html` files at the repo root are the source and are edited by hand.
+The eighteen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 every page from the old design file. See `CONTRIBUTING.md`.

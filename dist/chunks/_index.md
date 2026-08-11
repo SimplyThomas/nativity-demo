@@ -20,13 +20,20 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocCommitteesList` | 3822 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 3024 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 454 b | 1 page | — |
-| ☐ | `ntgocDraftBanner` | 488 b | 17 pages | — |
+| ☐ | `ntgocDraftBanner` | 488 b | 18 pages | — |
 | ☐ | `ntgocEventsHero` | 683 b | 1 page | — |
 | ☐ | `ntgocEventsList` | 2180 b | 1 page | yes (3) |
 | ☐ | `ntgocFaithHero` | 479 b | 1 page | — |
 | ☐ | `ntgocFaithIntro` | 952 b | 1 page | — |
 | ☐ | `ntgocFaithTopics` | 4327 b | 1 page | yes (2) |
 | ☐ | `ntgocFaithWatchRead` | 2281 b | 1 page | — |
+| ☐ | `ntgocFellowshipAsk` | 1581 b | 1 page | yes (2) |
+| ☐ | `ntgocFellowshipCare` | 7484 b | 1 page | yes (1) |
+| ☐ | `ntgocFellowshipClosing` | 847 b | 1 page | yes (1) |
+| ☐ | `ntgocFellowshipCoffee` | 3685 b | 1 page | yes (1) |
+| ☐ | `ntgocFellowshipHelp` | 3236 b | 1 page | yes (3) |
+| ☐ | `ntgocFellowshipHero` | 1214 b | 1 page | — |
+| ☐ | `ntgocFellowshipPotluck` | 3290 b | 1 page | yes (2) |
 | ☐ | `ntgocFestivalDetails` | 1959 b | 1 page | — |
 | ☐ | `ntgocFestivalHero` | 647 b | 1 page | — |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
@@ -50,7 +57,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishHero` | 735 b | 1 page | — |
 | ☐ | `ntgocParishLifeBookstore` | 1624 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeEvents` | 1148 b | 1 page | — |
-| ☐ | `ntgocParishLifeFellowship` | 1040 b | 1 page | — |
+| ☐ | `ntgocParishLifeFellowship` | 1241 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeFormation` | 1916 b | 1 page | — |
 | ☐ | `ntgocParishLifeGallery` | 3263 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeHero` | 949 b | 1 page | — |
@@ -63,9 +70,9 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3822 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3575 b | 17 pages | yes (15) |
-| ☐ | `ntgocSiteHeader` | 5393 b | 17 pages | yes (30) |
-| ☐ | `ntgocTopBar` | 208 b | 17 pages | — |
+| ☐ | `ntgocSiteFooter` | 3699 b | 18 pages | yes (16) |
+| ☐ | `ntgocSiteHeader` | 5646 b | 18 pages | yes (32) |
+| ☐ | `ntgocTopBar` | 208 b | 18 pages | — |
 | ☐ | `ntgocVisitorChildren` | 2573 b | 1 page | — |
 | ☐ | `ntgocVisitorDirections` | 1856 b | 1 page | yes (1) |
 | ☐ | `ntgocVisitorEssentials` | 1144 b | 1 page | — |

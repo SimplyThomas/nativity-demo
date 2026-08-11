@@ -19,7 +19,7 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 
 | File / folder | What it is |
 |---|---|
-| `*.html` (17 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
+| `*.html` (18 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
 | `data/site.json` | **Source of truth** for any fact stated on more than one page. Lint enforces it. |
 | `data/parish-calendar.json` | **Source of truth** for the calendar. Rendered into three pages by `npm run parish`. |
 | `data/parish-announcements.json` | **Source of truth** for parish announcements. Same build. |
@@ -62,7 +62,7 @@ Two further checks run in CI and are worth running locally before a big change:
 
 ```sh
 npm run snap           # layout + colour regression (the only check that sees layout)
-npm run audit:a11y     # axe-core, WCAG 2.1 AA, 17 pages x 2 viewports
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 18 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)
@@ -98,11 +98,11 @@ verified the fact; when you do, record the source in `data/parish-facts.json`.
 ### Editing the header, nav or footer — `npm run shell`
 
 Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
-`ntgocSiteFooter`) are the same markup on all seventeen pages — about a third of
+`ntgocSiteFooter`) are the same markup on all eighteen pages — about a third of
 all the HTML here. Edit them **once, in one page**, then propagate:
 
 ```sh
-npm run shell                      # from index.html to the other sixteen
+npm run shell                      # from index.html to the other seventeen
 npm run shell -- --from visit.html # if you edited the shell there instead
 npm run shell -- --check           # report drift, change nothing (CI runs this)
 ```
@@ -224,7 +224,7 @@ the responsive layer at the bottom of the file last so it still wins on source
 order.
 
 **Touching the header or footer?** Edit one page and run `npm run shell` — see
-above. Do not make the change seventeen times by hand; `npm run shell -- --check`
+above. Do not make the change eighteen times by hand; `npm run shell -- --check`
 runs in CI and will fail if you miss one.
 
 **Adding an item to the Parish Life dropdown?** One more
