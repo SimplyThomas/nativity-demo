@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 91 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 105 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -231,7 +231,7 @@ Then the page content, grouped by page:
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
-| **Fellowship &amp; Care** | `ntgocFellowshipHero`, `ntgocFellowshipCoffee`, `ntgocFellowshipAgape`, `ntgocFellowshipCare`, `ntgocFellowshipHelp`, `ntgocFellowshipAsk`, `ntgocFellowshipClosing` — *sits under Parish Life in the menu; four external destinations and one form are still unconfigured, and `ntgocFellowshipAgape` carries a theological constraint — see below* |
+| **Get Involved** | `ntgocGetInvolvedHero`, `ntgocGetInvolvedPathways`, `ntgocGetInvolvedCoffee`, `ntgocGetInvolvedAgape`, `ntgocGetInvolvedCare`, `ntgocGetInvolvedServe`, `ntgocGetInvolvedPrepare`, `ntgocGetInvolvedOffering`, `ntgocGetInvolvedProsphora`, `ntgocGetInvolvedLearn`, `ntgocGetInvolvedAsk`, `ntgocGetInvolvedClosing` — *sits under Parish Life in the menu; ten external destinations and one form are still unconfigured, and `ntgocGetInvolvedAgape` carries a theological constraint — see below* |
 | **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
@@ -276,14 +276,29 @@ Then the page content, grouped by page:
 > date its list was built from, and its JavaScript hides days and announcements
 > that have gone past. It ages honestly rather than lying quietly.
 
-> **Fellowship & Care ships with four destinations that do not exist.** Hosting a
-> coffee hour, bringing something to the Agape Meal, viewing current meal trains
-> and requesting meal support are all rendered as labelled inert buttons, each
-> with a `TODO` comment in the markup naming the key to fill in:
-> `coffeeHourSignup`, `agapeSignup`, `mealTrain` and `mealSupportRequest` under
-> `links` in `data/site.json`. The parish intends SignUpGenius for the first two
-> and Meal Train for the third. No account, link or ID has been invented for any
-> of them.
+> **Get Involved ships with ten destinations that do not exist.** Hosting a
+> coffee hour, bringing something to the Agape Meal, viewing current meal trains,
+> requesting meal support, sponsoring flowers, helping arrange them, decorating
+> for the Nativity, the current feast-day needs, the prosphora rota and the
+> prosphora class are all rendered as labelled inert buttons, each with a `TODO`
+> comment in the markup naming the key to fill in — `coffeeHourSignup`,
+> `agapeSignup`, `mealTrain`, `mealSupportRequest`, `flowerSponsorship`,
+> `flowerHelpers`, `decoratingSignup`, `feastDayNeeds`, `prosphoraRota` and
+> `prosphoraClassSignup` under `links` in `data/site.json`. The parish intends
+> SignUpGenius for the sign-up sheets and Meal Train for meals to a household.
+> No account, link or ID has been invented for any of them.
+>
+> **`flowerSponsorship` and `flowerHelpers` are a pair and must stay two
+> destinations.** Paying for an arrangement and arranging one are different
+> offers, and a parishioner can very often make one and not the other. A single
+> "help with flowers" link asks each of them for the thing they cannot give.
+>
+> **`prosphoraRota` is not an open sign-up.** If the parish teaches its own
+> practice before somebody bakes for the Liturgy, a public join button routes
+> around the teaching, and the first anyone knows of it is a loaf that cannot be
+> used. Whatever fills that key must admit only bakers the parish has approved,
+> and the schedule it shows is for those bakers to coordinate with — not a public
+> directory of who is in whose kitchen on a Saturday.
 >
 > Two things to keep when they are wired up. **The buttons stay parish-facing** —
 > "Host a coffee hour", not "Go to SignUpGenius"; which tool handles the sign-up
@@ -291,7 +306,7 @@ Then the page content, grouped by page:
 > card ships with its rows empty** rather than an invented date, which is the one
 > thing on that page a parishioner could catch out.
 
-> **`ntgocFellowshipAgape` is the one chunk on this site with a theological
+> **`ntgocGetInvolvedAgape` is the one chunk on this site with a theological
 > constraint, and it is easy to break by improving the prose.** The monthly Agape
 > Meal is a parish supper that remembers an early Christian habit. The chunk may
 > say that the Eucharist was first celebrated in the setting of a community meal
@@ -303,7 +318,7 @@ Then the page content, grouped by page:
 > Eucharist, that it is any part of the sacrament, or that anyone is expected to
 > stay and eat after the Divine Liturgy. A sentence that does any of those will
 > sound more devout than the one it replaced, which is exactly the risk. The
-> constraint is repeated in a comment above the chunk in `fellowship-care.html`
+> constraint is repeated in a comment above the chunk in `get-involved.html`
 > and recorded under `agapeMeal` in `data/parish-facts.json`; keep the comment
 > when you paste, or the next person to edit the chunk in the EVO manager will
 > not know.
@@ -448,7 +463,7 @@ URLs already and need no change.
 
 ### Step 6a — Wire up the forms (needed)
 
-There are **five** forms in these chunks and **none of them has a backend**. Each
+There are **eight** forms in these chunks and **none of them has a backend**. Each
 one says so on the page and offers a route that works instead of pretending.
 
 | Chunk | Form | What it would need |
@@ -457,10 +472,13 @@ one says so on the page and offers a route that works instead of pretending.
 | `ntgocWelcomeAsk` | Ask your question | A mail handler, and someone who answers |
 | `ntgocWelcomeSurvey` | Visitor survey | Somewhere for answers to go, and someone who reads them |
 | `ntgocWelcomeConnected` | Join the parish email list | An email list, which the parish does not have |
-| `ntgocFellowshipCare` | Request meal support | A **private** destination and a named coordinator — see the warning below |
+| `ntgocTraditionsClasses` | Living the Traditions interest survey | Somewhere for answers to go, and someone to count them |
+| `ntgocTraditionsTeach` | Offer to teach a tradition | A mail handler, and someone who follows the offer up |
+| `ntgocTraditionsSuggest` | Suggest a tradition | A mail handler |
+| `ntgocGetInvolvedCare` | Request meal support | A **private** destination and a named coordinator — see the warning below |
 
 > **The meal support request is the one form on this site that carries a
-> confidence.** Everything the other four collect is ordinary: a question, a
+> confidence.** Everything the other seven collect is ordinary: a question, a
 > survey answer, an email address. This one discloses a birth, an illness, an
 > operation or a death, from a named household, before anyone has agreed that
 > the parish should know. Three things follow, and none of them is optional:
@@ -503,13 +521,32 @@ Three further things about the Welcome forms specifically:
   a later summary — how many visitors were greeted, how many found a service
   book — would be counted under.
 
+And three about the Living the Traditions forms:
+
+- **The class slugs are the answer keys**, and the same twenty-four are used by
+  every control on the page: `attend` and `teach` on the cards, `topChoice1`,
+  `topChoice2` and `topChoice3` on the three drop-downs, and `teachClass` on the
+  teach-a-tradition form. Keep them and the four counts the Council asked for
+  fall out of the data without any further work — how many would attend each
+  class, the three most requested, how many could help teach each one, and
+  which age groups would come (`ages`).
+- **Interest is answered anonymously.** The interest form asks for no name and
+  no email; the single email field appears only if someone ticks *Yes, please
+  let me know*, and it says on the page that it would not add them to the
+  newsletter. Keep it that way — a voting form that demands a name collects
+  something other than what people think it collects.
+- **Teaching offers are not public.** `teachName`, `teachEmail` and `teachPhone`
+  exist so somebody can follow up an offer, and the page promises twice that
+  they will not be published or shared. Whatever tool receives them must not
+  display them, and the offer itself commits nobody to teaching.
+
 ### Step 6 — The JavaScript (optional)
 
 One file: `assets/js/ntgoc-enhance.js`. It does four things — filters the
 bookstore catalogue by category, advances the home page's festival cards on
 their own, drops days and notices that have already passed on For Our Parish,
-and handles the three Welcome forms and the meal support request on
-Fellowship & Care.
+and handles the three Welcome forms, the three Living the Traditions forms and
+the meal support request on Get Involved.
 
 **It is optional.** With JavaScript off, every bookstore item is already visible
 and the category buttons simply do nothing; the festival carousel keeps working
@@ -668,6 +705,91 @@ exists today.
   assumption that people reach it by scanning rather than by browsing. If the
   Council wants it discoverable, it needs a home in the navigation too.
 
+### Still unresolved — Get Involved
+
+The page was rewritten on 2026-08-11 from *Fellowship & Care* into the single
+place that answers "I would like to take part in parish life — how?". The old
+material is all still there; what was added is everything a newcomer currently
+has to learn by word of mouth. That addition is also where nearly all of the
+missing information now sits.
+
+- **Make an Offering is a section of empty rows, and that is the point.** What
+  prosphora must be made of, which wine the parish uses, which oil, when any of
+  it is wanted and where it should be left are LOCAL decisions. Not one of them
+  is recorded anywhere in this project. Every row reads "To be confirmed by the
+  parish" and carries a `TODO: verify` marker. **Do not fill these in from
+  general Orthodox practice.** "A good-quality dry red wine" is what most
+  parishes use and would read here as an instruction from The Nativity; a
+  parishioner would follow it to the shop and buy the wrong thing. See
+  `liturgicalOfferings` in `data/parish-facts.json`.
+- **Prepare & Beautify has the same shape and the same gap.** When the church is
+  decorated, who does it now, what help is wanted and what may be brought are all
+  unknown here. One question matters more than the rest and is Father's alone:
+  which of these tasks any parishioner may simply turn up and do, and which are
+  arranged with him because they happen inside the church or around things set
+  apart for worship. The page says that line exists; it does not draw it.
+- **Two claims about prosphora come from the brief and nowhere else** — that the
+  parish offers the classes, and that **Presbytera** teaches them. Both carry
+  `TODO: verify`. The second is a statement about a named person's role: no
+  surname is printed, but "Presbytera" identifies exactly one person in this
+  parish, so her agreement to be named is part of what has to be confirmed, not
+  only the fact. If she would rather not be named, "the parish offers
+  prosphora-baking classes" loses nothing.
+- **The baking rota ships as a table with headings and no rows.** A specimen row
+  would be read as the real schedule and would publish a parishioner's name
+  against a date. Both decisions behind it should survive review: the rotation is
+  *asked about* rather than joined, and the schedule is for approved bakers to
+  coordinate with rather than a public listing.
+- **Learn the Traditions is a doorway, not a second copy.** The class list, the
+  offer-to-teach form and the suggest-a-class form all live on `traditions.html`;
+  this section names a few classes and links there. If the two pages ever both
+  grow a class list, they will drift, and the drift will be a parishioner told
+  two different things about the same workshop.
+- **The page was `fellowship-care.html` until 2026-08-11.** The old URL is gone
+  rather than redirected — it was one day old and linked only from this draft's
+  own navigation. One consequence is easy to miss: `"Agape Meal"` is a forbidden
+  pattern in `data/site.json` with a per-page exemption, and that exemption names
+  the file. It was moved to `get-involved.html` with the rename. If the page is
+  ever renamed again, move it again, or lint will fail on the Agape Meal section
+  the moment anyone touches it.
+
+### Still unresolved — Living the Traditions
+
+`traditions.html` is an interest survey, not a programme. Twenty-four possible
+classes, none of them scheduled, approved or staffed. The page says so in the
+hero card, above the class grid, in the closing panel of every form and in a
+section of its own — but it is the page on this site most likely to be read as
+an announcement, so nothing about it should be softened.
+
+- **The whole series needs Father's approval before anything is offered.** Not
+  only the topics that touch doctrine: whether the parish wants this at all is
+  his and the Council's decision, and the page is addressed to them.
+- **"The parish already offers this class"** on the *Prosphora baking* card is
+  the only claim about the parish on the page. It was reported by the volunteer
+  who drafted it, is on neither the live site nor in the newsletter, and carries
+  a `<!-- TODO: verify -->` marker. Confirm it, or delete the line. If it is a
+  class someone once ran rather than one that runs now, delete it — a card that
+  says "already offers" will be read as "sign up".
+- **Four classes are conditional and say so on their own cards.** *Incense at
+  home* only with Father's approval; *Building a home prayer corner* with any
+  pastoral guidance under his direction; *Orthodox memorial and funeral
+  traditions* with him leading or approving the pastoral and theological parts;
+  *Prayer rope knotting* only if someone qualified is available to teach it.
+  *Iconography demonstration* names a qualified iconographer, and is deliberately
+  not a paint-your-own-icon session. Keep those notes on the cards.
+- **No teacher is named**, and no parishioner appears on the page at all — the
+  same rule as the Parish Council block and the greeter row. Anyone who offers
+  to help does so through the form, privately.
+- **Aggregate counts were asked for and left out.** "18 parishioners are
+  interested in this class" would be a number about the parish, and with no form
+  handler it could only be invented. Once responses actually exist, the field
+  names above are what a count would run on; adding the numbers to the cards is
+  a separate decision, and a public leaderboard is not proposed.
+- **Where the page belongs.** It sits under *Events* in the navigation, and in
+  the *Parish* column of the footer. If the Council would rather it lived under
+  *Parish Life*, that is a two-line change in the shell followed by
+  `npm run shell`.
+
 ### Removed, and not said anywhere else
 
 The design's "Questions people ask before coming" card was removed: the sections
@@ -780,7 +902,7 @@ npm run chunks   # the 17 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The eighteen `.html` files at the repo root are the source and are edited by hand.
+The nineteen `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 every page from the old design file. See `CONTRIBUTING.md`.

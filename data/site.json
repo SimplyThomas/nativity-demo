@@ -1,7 +1,6 @@
 {
   "_README": "One source of truth for the facts that appear on more than one page. This project is static hand-edited HTML with no build step, so this file cannot inject values — instead `npm run lint` reads it and FAILS when a page contradicts it (see 'canonical facts' in tools/lint.mjs). Change a shared fact here first, then fix the pages lint names. Provenance for each fact lives in data/parish-facts.json; this file is about keeping the pages consistent with it.",
   "_updated": "2026-08-10",
-
   "serviceTimes": {
     "orthros": "9:00 a.m.",
     "divineLiturgy": "10:00 a.m.",
@@ -9,7 +8,6 @@
     "status": "CONFIRMED_BY_PARISH",
     "note": "Two distinct services. A single 9:00 start against both is the error the live parish site makes; never reproduce it. Feast-day Liturgy times are NOT covered by this confirmation and stay tagged TODO: verify."
   },
-
   "contact": {
     "address": "12326 Spotswood Furnace Rd",
     "cityStateZip": "Fredericksburg, VA 22407",
@@ -22,7 +20,6 @@
     "priestRoute": "Contact the parish office to arrange a conversation with Fr. John.",
     "note": "The parish office is the ONLY published route to Fr. John. Do not promise he is available immediately after Liturgy, and never publish his personal mobile."
   },
-
   "terminology": {
     "fellowshipMeal": "coffee hour",
     "fellowshipMealNote": "The parish calls the post-Liturgy fellowship 'coffee hour'. It may be described as an agape/shared meal in passing, but 'the Agape Meal' must not be the primary label.",
@@ -31,10 +28,9 @@
     "agapeMeal": "the Agape Meal",
     "agapeMealNote": "PROPOSED, monthly, and NOT another name for coffee hour — the two are different things and the site must keep them apart. Coffee hour is weekly and sponsored by a household; the Agape Meal would be monthly and brought by everyone. The theological line is the part that matters: the Eucharist was first celebrated in the setting of a community meal called the agape, the two became distinct by the end of the first century or the beginning of the second, and the parish meal is a recovery of the habit of eating together — not of a rite, not part of the sacrament, and never a thing anyone is expected to stay for. Grounding is in data/parish-facts.json under agapeMeal.",
     "hall": "the parish hall",
-    "hallConfirmed": "Confirmed by Thomas, 2026-08-11: 'the parish hall' stands, and the Fellowship & Care brief's 'Community Hall' was not adopted.",
-    "hallNote": "Every page says 'the parish hall', and hall.html is titled that way. 'Community Hall' arrived with the Fellowship & Care brief on 2026-08-10 and was not used, because one building with two names across eighteen pages is how a site starts contradicting itself. NOT confirmed with the parish: if they call it the Community Hall, change this line and the forbidden pattern below FIRST, then fix the pages lint names."
+    "hallConfirmed": "Confirmed by Thomas, 2026-08-11: 'the parish hall' stands, and the Get Involved brief's 'Community Hall' was not adopted.",
+    "hallNote": "Every page says 'the parish hall', and hall.html is titled that way. 'Community Hall' arrived with the Get Involved brief on 2026-08-10 and was not used, because one building with two names across eighteen pages is how a site starts contradicting itself. NOT confirmed with the parish: if they call it the Community Hall, change this line and the forbidden pattern below FIRST, then fix the pages lint names."
   },
-
   "worship": {
     "languages": "approximately 50% Greek and 50% English",
     "languagesNote": "Confirmed by the parish. Congregational portions — the Creed, the Lord's Prayer — are offered in more than one language. Earlier drafts said 'mostly in English'; that is wrong.",
@@ -43,22 +39,18 @@
     "seating": "There is no reserved seating.",
     "dress": "Dress like you are meeting someone important. — Fr. John"
   },
-
   "parking": {
     "value": "Free, on site",
     "note": "No visitor-specific parking and no overflow arrangement. Do not describe either."
   },
-
   "bookstore": {
     "hours": "Open every Sunday after Divine Liturgy",
     "stock": "Orthodox books, pamphlets, prayer books, icons, prayer ropes, incense, crosses, candles and other devotional items"
   },
-
   "newsletter": {
     "name": "The Light",
     "frequency": "monthly"
   },
-
   "ministries": [
     "Sunday School",
     "GOYA",
@@ -70,7 +62,6 @@
     "Choir & Chanters"
   ],
   "_ministriesNote": "The list is settled for this presentation. Descriptions stay general: meeting frequencies, age and grade ranges, sports, retreats, camps and named charitable programmes are all unsourced and must not be restored. 'Choir & Chanters' has no ministry page on the live site and stays tagged TODO: verify.",
-
   "links": {
     "giveOnline": "https://square.link/u/u8cIpGbh",
     "memorialDonation": "https://square.link/u/ZlTPph2Q",
@@ -89,10 +80,16 @@
     "mealSupportRequest": null,
     "agapeSource": null,
     "_agapeSourceNote": "Two reading references the Agape Meal section names in prose but does not link, because neither URL is recorded in this project and inventing one is worse than the gap: the Archdiocese's account of the sacramental life of the Church, for the agape and its early separation from the Eucharist; and Archbishop Elpidophoros's remarks after the Divine Liturgy at Holy Trinity Greek Orthodox Cathedral, New Orleans, 16 March 2025, which the pull quote is taken from. Fill this in with the Archdiocese page once someone has the real address, and the section can carry a quiet 'Learn about the Agape Meal' link instead of the sentence.",
-    "_fellowshipNote": "The four destinations Fellowship & Care is built around. The parish plans to use SignUpGenius for coffee-hour hosting and the monthly Agape Meal, and Meal Train for meals to an individual household; mealSupportRequest is the PRIVATE route by which someone asks for help, and it must never be a public Meal Train page. None of the four exists yet, so all four are null and the page renders labelled inert buttons — each one marked with a TODO comment naming the key to fill in here. The button wording stays parish-facing ('Host a coffee hour'), not service-facing ('Go to SignUpGenius'): which tool handles the sign-up is our business, not the parishioner's.",
-    "_nullNote": "null means the destination does not exist yet. Render it as a clearly-labelled proposed placeholder — never invent a URL, and never leave a bare href=\"#\" that looks live."
+    "flowerSponsorship": null,
+    "flowerHelpers": null,
+    "decoratingSignup": null,
+    "feastDayNeeds": null,
+    "prosphoraRota": null,
+    "prosphoraClassSignup": null,
+    "_fellowshipNote": "The ten destinations Get Involved is built around. The parish plans to use SignUpGenius for coffee-hour hosting and the monthly Agape Meal, and Meal Train for meals to an individual household; mealSupportRequest is the PRIVATE route by which someone asks for help, and it must never be a public Meal Train page. None of the ten exists yet, so all ten are null and the page renders labelled inert buttons — each one marked with a TODO comment naming the key to fill in here. The button wording stays parish-facing ('Host a coffee hour'), not service-facing ('Go to SignUpGenius'): which tool handles the sign-up is our business, not the parishioner's.",
+    "_nullNote": "null means the destination does not exist yet. Render it as a clearly-labelled proposed placeholder — never invent a URL, and never leave a bare href=\"#\" that looks live.",
+    "_offeringNote": "The six keys above the fellowship note belong to the Prepare & Beautify and Make an Offering sections. Two of them are deliberately a PAIR: flowerSponsorship is for someone who can pay for an arrangement and flowerHelpers is for someone who can arrange one, and they must stay separate destinations — collapsing them into a single 'help with flowers' link quietly asks each person for the thing they cannot give. prosphoraRota is NOT an open sign-up sheet: if the parish teaches its practice before someone bakes for the Liturgy, a public join button routes around the teaching, so whatever fills this key must only admit bakers the parish has approved, and it must not publish a public directory of who is baking when. Nothing about what to bring — which wine, which oil, what prosphora must be made of, where any of it is left — belongs in this file at all: those are parish instructions, they live in data/parish-facts.json under liturgicalOfferings, and until Fr. John and Presbytera supply them the cards say 'To be confirmed by the parish' rather than repeating what other parishes do."
   },
-
   "proposed": {
     "_note": "Presented in the demo as proposals for Fr. John's review. None of these exists today. Every one of them must carry the visible 'Proposed' label so the Parish Council can tell the difference.",
     "items": [
@@ -115,15 +112,16 @@
       "Setup & cleanup, Children's corner and Missions as named ministries"
     ]
   },
-
   "canonical": {
     "_note": "Enforced by `npm run lint`. Each pattern is something a page must NOT say, because it contradicts a fact above. Adding an entry here is how a correction is made permanent instead of being quietly undone by the next edit.",
     "forbidden": [
       {
         "pattern": "Agape Meal",
         "caseSensitive": true,
-        "allowIn": ["fellowship-care.html"],
-        "why": "The WEEKLY post-Liturgy fellowship is coffee hour, and calling it the Agape Meal is the error this rule was added to stop. It is still an error. What changed on 2026-08-11 is that a MONTHLY parish meal called the Agape Meal was proposed as a separate thing, so fellowship-care.html is exempt — see terminology.agapeMeal. The exemption is per-page and covers that page's coffee hour section too, which nothing but review will catch: if the section headed 'Sunday coffee hour' ever starts calling itself the Agape Meal, this rule will not save you. Lower-case 'an agape meal', explaining the term in passing, remains fine everywhere."
+        "allowIn": [
+          "get-involved.html"
+        ],
+        "why": "The WEEKLY post-Liturgy fellowship is coffee hour, and calling it the Agape Meal is the error this rule was added to stop. It is still an error. What changed on 2026-08-11 is that a MONTHLY parish meal called the Agape Meal was proposed as a separate thing, so get-involved.html is exempt — see terminology.agapeMeal. The exemption is per-page and covers that page's coffee hour section too, which nothing but review will catch: if the section headed 'Sunday coffee hour' ever starts calling itself the Agape Meal, this rule will not save you. Lower-case 'an agape meal', explaining the term in passing, remains fine everywhere."
       },
       {
         "pattern": "complimentary (prayer|Divine Liturgy) book",

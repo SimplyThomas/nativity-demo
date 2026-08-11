@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 18 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 36 runs
+**Scope:** all 19 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 38 runs
 
 ## Result
 
@@ -24,12 +24,12 @@ passing** at 320px, and axe still reports 0 violations across 32 page-runs. The
 regression that was not one.
 
 **Re-checked 10 August 2026**, after the photograph heroes were collapsed onto
-one component and again after Fellowship & Care was added. Still **0 violations
+one component and again after Get Involved was added. Still **0 violations
 across 36 page-runs.** Two counts moved and neither is a regression:
 
 - Reflow is **18 of 18**. The Mobile views mock-up page was retired once the site
   itself used the mobile layout, taking the count to 16 of 16; the Welcome page
-  brought it back to seventeen, and Fellowship & Care makes eighteen.
+  brought it back to seventeen, and Get Involved makes eighteen.
 - The manual-review count is now **164 nodes**, not 37. That number tracks how
   much of a page axe can resolve, not how much is wrong: it rises when a
   gradient, a placeholder frame or a carousel puts text somewhere axe declines to
@@ -40,7 +40,7 @@ Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 18 pages x 2 viewports
+npm run audit:a11y   # 19 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
 npm run measure:hero # the twelve photograph heroes, which axe declines to judge
 ```
@@ -210,8 +210,8 @@ to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
 | Home | mobile | 5.71:1 | 9.83:1 | 9.38:1 | — |
 | Parish Life | desktop | 7.57:1 | 11.69:1 | 9.74:1 | 7.51:1 |
 | Parish Life | mobile | 7.13:1 | 10.26:1 | 8.97:1 | 7.85:1 |
-| Fellowship &amp; Care | desktop | 7.66:1 | 10.66:1 | 7.88:1 | — |
-| Fellowship &amp; Care | mobile | 7.44:1 | 9.83:1 | 8.45:1 | — |
+| Get Involved | desktop | 7.66:1 | 10.66:1 | 7.88:1 | — |
+| Get Involved | mobile | 7.44:1 | 9.83:1 | 8.45:1 | — |
 | Our Faith | desktop | 7.79:1 | 11.23:1 | — | — |
 | Our Faith | mobile | 7.76:1 | 10.37:1 | — | — |
 | Calendar | desktop | 7.77:1 | 12.23:1 | — | — |
@@ -238,7 +238,7 @@ Life it is `.ntgoc-page-hero__lede--serif`; on Welcome it is the gold italic
 `npm run measure:hero` under their own names, `lede--serif` and `welcome-lede`.
 
 The closest of the 68 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
-outlined hero buttons on Home, Plan a visit and Fellowship & Care are not in the
+outlined hero buttons on Home, Plan a visit and Get Involved are not in the
 table because the tool does not track them — they are three buttons, and so six
 of the 74 nodes axe defers on. Measured the same way they are 11.39:1 at worst.
 
@@ -266,10 +266,10 @@ narrowest one. `npm run measure:hero` samples 390 and 1440 only, so nothing
 would have caught it.
 
 That band was re-sampled again on 10 August 2026, after the Welcome page and then
-Fellowship & Care were merged, so the figure covers all twelve heroes rather than
+Get Involved were merged, so the figure covers all twelve heroes rather than
 the ten it was first taken from: **all 68 strings pass, the closest at 6.44:1** —
 the home eyebrow at 720px, the same string and the same number through all three
-re-samples. Fellowship & Care's own worst is its eyebrow at 899px, 7.17:1. It
+re-samples. Get Involved's own worst is its eyebrow at 899px, 7.17:1. It
 inherits the component untouched, which is the point of there being a component:
 a new page gets the measured scrim rather than a fresh guess. The tool takes no viewport
 argument, so the re-sample is done by copying it outside the repo and changing
@@ -310,7 +310,7 @@ scrim, below 900px only, so the gold is unchanged everywhere.
 
 #### Placeholder photo frames — 74 nodes
 
-The empty frames on the Parish Life page, and the four on Fellowship & Care, each
+The empty frames on the Parish Life page, and the four on Get Involved, each
 carry a label ("Photograph to come") and a hint naming what belongs there ("Holy
 Week", "Coffee hour in the parish hall"), over a placeholder fill: `#efe7d9` with
 a 10%-opacity gold stripe ruled across it at 135°. axe sees the stripe as a
@@ -360,7 +360,7 @@ disappears.
 ### Reflow — WCAG 1.4.10
 
 At a 320px viewport, no page scrolls horizontally. **18 of 18 pass**, Welcome and
-Fellowship & Care included.
+Get Involved included.
 
 The Mobile views reference page initially failed (406px wide) because it drew
 phone frames at their true 375px width. Rather than shrink the mock-ups — which
