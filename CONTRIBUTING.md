@@ -19,7 +19,7 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 
 | File / folder | What it is |
 |---|---|
-| `*.html` (18 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
+| `*.html` (19 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
 | `data/site.json` | **Source of truth** for any fact stated on more than one page. Lint enforces it. |
 | `data/parish-calendar.json` | **Source of truth** for the calendar. Rendered into three pages by `npm run parish`. |
 | `data/parish-announcements.json` | **Source of truth** for parish announcements. Same build. |
@@ -58,15 +58,23 @@ every push and pull request.
 | One `<h1>` per page, no skipped heading levels | Accessibility floor |
 | Unverified parish facts tagged `<!-- TODO: verify -->` | Never assert a service time or a name we cannot source |
 
-Two further checks run in CI and are worth running locally before a big change:
+A few further checks are worth running locally before a big change. All but the
+last two gate CI:
 
 ```sh
 npm run snap           # layout + colour regression (the only check that sees layout)
-npm run audit:a11y     # axe-core, WCAG 2.1 AA, 18 pages x 2 viewports
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 19 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)
+npm run measure:hero   # contrast of the eleven photograph heroes (not in CI)
 ```
+
+`measure:hero` is the only check that can see text sitting on a photograph — axe
+declines to judge it. It measures the selectors it is given, so **if you add a
+hero line in a class of its own, add that class to `STRINGS` in
+`tools/measure-hero-contrast.mjs`.** A hero string no selector names is a string
+nothing checks. `ACCESSIBILITY.md` records where all 62 of them stand.
 
 ### `npm run snap` — the one that sees layout
 
@@ -80,12 +88,23 @@ and a CI runner, so pixel baselines would fail constantly. Keys exclude the
 class name, so a pure rename can be *proved* cosmetic: the 28-class rename was
 verified as 0 changes across 3616 elements.
 
+**It waits for the real webfonts, and it has to.** Newsreader and Karla come from
+Google Fonts with `display=swap`, and `document.fonts.ready` alone resolves early
+against the fallback faces — so `snap` polls `document.fonts.check()` until both
+have genuinely arrived, and exits rather than measure without them. Before that
+fix a run could lose the race, record fallback metrics into the baseline, and
+leave every later run reporting ~1700 changes across pages nobody had touched. A
+headline set in fallback Times measures 492px where Newsreader measures 564.
+Both states are self-consistent, so it looked like the tool flapping at random
+rather than a font problem. If `snap` ever reports changes on that scale, suspect
+the baseline before you suspect your edit.
+
 If a layout change is intended: `npm run snap -- --update`, then commit the
 baseline in the same commit as the change that caused it.
 
 ### About the TODO markers
 
-There are 30-odd `<!-- TODO: verify -->` comments in the pages. They are
+There are 63 `<!-- TODO: verify -->` comments in the pages. They are
 invisible to visitors and they are **the point of this project** — each one
 marks a claim nobody has confirmed. Do not delete one unless you have actually
 verified the fact; when you do, record the source in `data/parish-facts.json`.
@@ -98,11 +117,11 @@ verified the fact; when you do, record the source in `data/parish-facts.json`.
 ### Editing the header, nav or footer — `npm run shell`
 
 Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
-`ntgocSiteFooter`) are the same markup on all eighteen pages — about a third of
+`ntgocSiteFooter`) are the same markup on all nineteen pages — about a third of
 all the HTML here. Edit them **once, in one page**, then propagate:
 
 ```sh
-npm run shell                      # from index.html to the other sixteen
+npm run shell                      # from index.html to the other seventeen
 npm run shell -- --from visit.html # if you edited the shell there instead
 npm run shell -- --check           # report drift, change nothing (CI runs this)
 ```
@@ -123,13 +142,13 @@ Every part lowercase kebab-case. `npm run lint` rejects anything else, and
 
 | | Example |
 |---|---|
-| Block | `.ntgoc-accordion`, `.ntgoc-footer`, `.ntgoc-parish-life-hero` |
+| Block | `.ntgoc-accordion`, `.ntgoc-footer`, `.ntgoc-parish-life-gallery` |
 | Element of a block | `.ntgoc-accordion__summary`, `.ntgoc-footer__address` |
 | Variant of either | `.ntgoc-photoslot--dark`, `.ntgoc-band--dark` |
 
 Two further rules, both from mistakes this repo actually made:
 
-- **Spell the area out.** `ntgoc-parish-life-hero`, never `ntgoc-pl-hero`. The
+- **Spell the area out.** `ntgoc-parish-life-gallery`, never `ntgoc-pl-gallery`. The
   abbreviated prefix ran alongside the spelled-out ones for a while and produced
   `ntgoc-pl-kicker` and `ntgoc-page-eyebrow` as two names for one identical rule.
   Lint warns on abbreviated prefixes.
@@ -224,7 +243,7 @@ the responsive layer at the bottom of the file last so it still wins on source
 order.
 
 **Touching the header or footer?** Edit one page and run `npm run shell` — see
-above. Do not make the change eighteen times by hand; `npm run shell -- --check`
+above. Do not make the change nineteen times by hand; `npm run shell -- --check`
 runs in CI and will fail if you miss one.
 
 **Adding an item to the Parish Life dropdown?** One more

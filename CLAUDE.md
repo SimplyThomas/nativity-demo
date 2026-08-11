@@ -14,7 +14,7 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The eighteen `.html` files at the repo root are SOURCE. Edit them directly.**
+**The nineteen `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
@@ -36,12 +36,13 @@ The only generated artefact is `dist/chunks/` (`npm run chunks`).
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 18 pages
+npm run shell    # propagate header/footer to all 19 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run parish   # render the calendar + announcements into the pages
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
 npm run links    # do the outbound links still resolve? (monthly in CI)
+npm run measure:hero # hero text contrast over the photograph (not in CI)
 npm run evo:up   # a real Evolution CMS on localhost, pre-loaded with the site
 npm run evo:verify  # prove the chunks still render correctly inside EVO
 ```
@@ -89,7 +90,7 @@ something that should not be published.
    markup. This is unguessable and the most damaging rule to break.
 2. **Never invent a parish fact.** No service times, clergy names, phone numbers,
    capacities or dates unless sourced. Unsourced claims get
-   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. ~34 markers
+   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. 63 markers
    exist; they are the point of the project, not clutter.
 3. **Never publish a parishioner's name or face without recorded permission.**
    The Parish Council block ships with placeholders and the greeter row ships as
@@ -98,7 +99,7 @@ something that should not be published.
 4. **Every page keeps `noindex`, the draft banner, and no Open Graph tags.**
 5. **Class names follow one convention**, enforced by lint:
    `ntgoc-<block>[__<element>][--<modifier>]`, every part lowercase kebab-case —
-   `ntgoc-accordion__summary`, `ntgoc-photoslot--dark`, `ntgoc-parish-life-hero`.
+   `ntgoc-accordion__summary`, `ntgoc-photoslot--dark`, `ntgoc-page-hero__scrim`.
    Spell the area out (never `ntgoc-pl-`), and no bare numeric suffixes
    (`ntgoc-clergy-body-muted`, not `ntgoc-clergy-text-6`). `components.css`
    carries no reset and no bare element selectors — the live site runs
@@ -144,7 +145,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 18 pages × 2 viewports, reflow 18/18 at 320px.
+0 axe violations across 19 pages × 2 viewports, reflow 19/19 at 320px.
 
 ---
 

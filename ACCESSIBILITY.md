@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 18 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 36 runs
+**Scope:** all 19 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 38 runs
 
 ## Result
 
@@ -23,12 +23,26 @@ passing** at 320px, and axe still reports 0 violations across 32 page-runs. The
 "Expected clean state" has said 16/16 for a while, so this line read as a
 regression that was not one.
 
+**Re-checked 10 August 2026**, after the photograph heroes were collapsed onto
+one component and again after Fellowship & Care was added. Still **0 violations
+across 36 page-runs.** Two counts moved and neither is a regression:
+
+- Reflow is **18 of 18**. The Mobile views mock-up page was retired once the site
+  itself used the mobile layout, taking the count to 16 of 16; the Welcome page
+  brought it back to seventeen, and Fellowship & Care makes eighteen.
+- The manual-review count is now **164 nodes**, not 37. That number tracks how
+  much of a page axe can resolve, not how much is wrong: it rises when a
+  gradient, a placeholder frame or a carousel puts text somewhere axe declines to
+  judge. Every one of the 164 is accounted for below, and the twelve heroes are
+  now measured by a tool rather than by hand.
+
 Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 18 pages x 2 viewports
+npm run audit:a11y   # 19 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
+npm run measure:hero # the twelve photograph heroes, which axe declines to judge
 ```
 
 The **site itself has no dependencies.** These two packages are for auditing only
@@ -145,70 +159,226 @@ harmless.
 
 ## Verified by hand
 
-### The 95 "needs review" items
+### The 164 "needs review" items
 
-**Contrast over a background image.** axe cannot compute contrast for text over
-an image, so it defers. These are the hero eyebrows, headlines and ledes over
-the nave photograph, which is now the header of every page named in the
-navigation.
+One rule is flagged for review: `color-contrast`, 164 nodes across 25 of the 36
+page-runs. axe defers whenever it cannot resolve what is behind the text. For
+148 of these nodes the reason it gives is a background gradient; for the other
+16 it is that the element is partly out of view. None is a violation. All three
+groups are accounted for below.
 
-Measured on 9 August 2026 by sampling the brightest pixel actually rendered
-behind each **glyph run** — not behind the element box. That distinction
-matters: an eyebrow is a full-width block whose box runs a thousand pixels past
-the text, across the brightest part of the photograph. Measured that way, six
-pages appeared to fail at 2.8–3.4:1. Measured against the glyphs, every string
-passes:
+#### Contrast over a background image — 74 nodes
 
-| Page | Eyebrow (needs 4.5) | Headline (needs 3) | Lede (needs 4.5) |
-|---|---:|---:|---:|
-| Home | 7.04:1 | 12.74:1 | 9.54:1 |
-| Parish Life | 7.47:1 | 12.12:1 | 8.04:1 |
-| Our Faith | 8.07:1 | 12.02:1 | — |
-| Calendar | 7.86:1 | 12.55:1 | — |
-| About | 7.85:1 | 12.55:1 | — |
-| Events | 8.08:1 | 13.19:1 | 10.86:1 |
-| Contact | 8.16:1 | 12.55:1 | — |
-| Plan a visit | 8.20:1 | 11.65:1 | 9.34:1 |
+These are the twelve photograph heroes: the eyebrow, the headline, the lede, the
+outlined hero button on the three pages that carry one, on Parish Life a second
+serif lede, and on Welcome a gold italic opening line of its own. axe has no way
+to know what colour is under the glyphs, so it declines to judge them.
 
-The worst of the twenty clears its threshold by 56%. The six pages that took
-the shared `.ntgoc-page-hero` component score better than the two that came
-first, because its scrim is denser than the home hero's.
+**How they are measured.** `npm run measure:hero` samples the brightest pixel
+actually rendered behind each **glyph run** — not behind the element box. That
+distinction matters: an eyebrow is a full-width block whose box runs a thousand
+pixels past the text, across the brightest part of the photograph, where no
+glyph is ever painted. `npm run measure:hero -- --box` does it the wrong way on
+purpose, for comparison. Run against the heroes as they stood before this work,
+the box method invented failures on six pages at 2.82–3.44:1 while every string
+on them was comfortably legible; run against the present scrim it invents one,
+the Festival eyebrow at 4.28:1. The glyph numbers must always be the better of
+the two.
 
-**This is why the home hero keeps its 42% opacity.** The photograph was changed
-to match Parish Life's; matching that page's *treatment* as well — the image at
-full strength — was measured and drops the gold eyebrow to **4.32:1**, under
-the 4.5 minimum for text that size. Parish Life gets away with full strength
-because its scrim has a second bottom gradient and its eyebrow sits lower. If
-the two heroes are ever made identical, the eyebrow needs a darker scrim or a
-lighter gold, and the number above has to be re-measured.
+The tool is deliberately **not** part of `npm run check`. It needs a browser,
+real fonts and the photographs, and its numbers want a human judgement about
+what to trade — a darker scrim, a lighter gold, a different crop. It still exits
+non-zero on a failure, so it can be used as a gate when someone means to.
 
-**4 more: the greeter names, mobile viewport only.** axe defers on the cards
-that sit outside the 390px viewport in the scrolling row. The text is the
-greeter's first name, `#3a1414` on `#f6f1e8` — **14.47:1**, the highest-contrast
-pairing on the site. Nothing to fix.
+**Every hero string has a selector here, and that is the point.** The tool
+measures what it is told to measure, so a hero string no selector names is a
+string nothing checks — which is the failure mode the tool exists to prevent.
+Welcome sets its opening line, "We're so glad you came.", in its own
+`.ntgoc-welcome-hero__lede` rather than the component's classes. It is gold on
+the photograph like every eyebrow here, and until the Welcome page was merged
+nothing measured it. It is now the fifth selector in the list. Anyone adding a
+hero string in a class of its own should add it there too.
 
-**8: `frame-tested`, the YouTube embeds.** axe cannot audit inside a
-cross-origin iframe, so it reports that it could not test them (4 videos × 2
-viewports). This is a statement about YouTube's player, not about this site, and
-nothing here can change it. What *is* ours — the frame's accessible name — is
-set: every embed carries a `title` naming the episode and the presenter. If DIM
-refuses third-party embeds at import (see `IMPORT.md`), the frames become plain
-links and this disappears.
+**Where they stand.** All twelve heroes are one component now: one scrim, the
+photograph at full strength, two heights, the text aligned to the bottom.
+Headlines are held to 3:1, being large text at both viewports; everything else
+to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
+
+| Page | Viewport | Eyebrow (4.5) | Headline (3) | Lede (4.5) | Second lede (4.5) † |
+|---|---|---:|---:|---:|---:|
+| Home | desktop | 6.78:1 | 11.32:1 | 9.74:1 | — |
+| Home | mobile | 5.71:1 | 9.83:1 | 9.38:1 | — |
+| Parish Life | desktop | 7.57:1 | 11.69:1 | 9.74:1 | 7.51:1 |
+| Parish Life | mobile | 7.13:1 | 10.26:1 | 8.97:1 | 7.85:1 |
+| Fellowship &amp; Care | desktop | 7.66:1 | 10.66:1 | 7.88:1 | — |
+| Fellowship &amp; Care | mobile | 7.44:1 | 9.83:1 | 8.45:1 | — |
+| Our Faith | desktop | 7.79:1 | 11.23:1 | — | — |
+| Our Faith | mobile | 7.76:1 | 10.37:1 | — | — |
+| Calendar | desktop | 7.77:1 | 12.23:1 | — | — |
+| Calendar | mobile | 6.63:1 | 12.44:1 | — | — |
+| About | desktop | 7.77:1 | 10.16:1 | — | — |
+| About | mobile | 7.09:1 | 10.37:1 | — | — |
+| Events | desktop | 7.98:1 | 12.55:1 | 10.33:1 | — |
+| Events | mobile | 6.90:1 | 11.01:1 | 9.14:1 | — |
+| Contact | desktop | 7.95:1 | 12.05:1 | — | — |
+| Contact | mobile | 7.68:1 | 12.44:1 | — | — |
+| Plan a visit | desktop | 7.66:1 | 8.85:1 | 7.59:1 | — |
+| Plan a visit | mobile | 7.38:1 | 9.80:1 | 8.15:1 | — |
+| Festival | desktop | 8.51:1 | 8.00:1 | 9.00:1 | — |
+| Festival | mobile | 6.14:1 | 10.76:1 | 9.37:1 | — |
+| For Our Parish | desktop | 7.53:1 | 11.70:1 | 9.05:1 | — |
+| For Our Parish | mobile | 6.57:1 | 10.67:1 | 8.66:1 | — |
+| Welcome | desktop | 7.76:1 | 11.14:1 | 9.84:1 | 7.57:1 |
+| Welcome | mobile | 6.75:1 | 9.99:1 | 9.71:1 | 7.27:1 |
+
+† Two different strings share that column, because only two pages carry a second
+line in the hero and a column each would leave twenty rows of dashes. On Parish
+Life it is `.ntgoc-page-hero__lede--serif`; on Welcome it is the gold italic
+`.ntgoc-welcome-hero__lede`. Both are held to 4.5:1 and both are reported by
+`npm run measure:hero` under their own names, `lede--serif` and `welcome-lede`.
+
+The closest of the 68 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
+outlined hero buttons on Home, Plan a visit and Fellowship & Care are not in the
+table because the tool does not track them — they are three buttons, and so six
+of the 74 nodes axe defers on. Measured the same way they are 11.39:1 at worst.
+
+**Below 900px the scrim is re-weighted, and the reason is geometry rather than
+taste.** The stops in `linear-gradient(75deg, …)` are percentages along the
+gradient line, and that line's length is W·sin75 + H·cos75 — it depends on the
+box's proportions, not on where the words are. On the 1440×560 home hero the
+line is 1536px long and the lede occupies 12–53% of it, under the dense end.
+Narrow the same hero to 390px and the line is only 506px while the text still
+runs nearly the full width: the identical words now span 13–84% of it, out in
+the light end. Narrowing the viewport drags the text *into* the bright part of
+the scrim, which is the opposite of what the stops read as. So below 900px the
+horizontal pass becomes `to right` rather than an angle. On a horizontal
+gradient the line is exactly the box width, so a stop percentage means the same
+fraction of the text column at every viewport and cannot rotate out from under
+the words again. The foot gradient is unchanged.
+
+**900px rather than 640px, and that was measured.** The heroes keep the desktop
+40px gutter and desktop type down to 641px, so at 720px the Plan a visit lede
+reaches 88% along an 822px gradient line — further into the light end than 390px
+ever manages. Sampled at 720px and 899px against the old scrim, three lede
+measurements failed there: Home at 899px (4.25:1), and Plan a visit at both
+720px (4.06:1) and 899px (4.13:1). That band is the worst case, not the
+narrowest one. `npm run measure:hero` samples 390 and 1440 only, so nothing
+would have caught it.
+
+That band was re-sampled again on 10 August 2026, after the Welcome page and then
+Fellowship & Care were merged, so the figure covers all twelve heroes rather than
+the ten it was first taken from: **all 68 strings pass, the closest at 6.44:1** —
+the home eyebrow at 720px, the same string and the same number through all three
+re-samples. Fellowship & Care's own worst is its eyebrow at 899px, 7.17:1. It
+inherits the component untouched, which is the point of there being a component:
+a new page gets the measured scrim rather than a fresh guess. The tool takes no viewport
+argument, so the re-sample is done by copying it outside the repo and changing
+the two entries in `VIEWPORTS` to 720 and 899. Nothing else about it changes,
+and the copy is thrown away afterwards; keeping a second viewport list in the
+tool would imply CI samples that band, and it does not.
+
+**Mobile had never been measured before this.** The table above used to be
+desktop-only. Measured at the point this work started, **three strings were
+already failing** and had been for as long as the mobile layout has existed —
+the ledes on Parish Life (3.68:1), Plan a visit (3.76:1) and For Our Parish
+(4.47:1), all at 390px. Nothing could see them: axe declines to judge text over
+a background image, so `npm run audit:a11y` reported 0 violations throughout.
+
+**Then this branch broke five more before fixing all eight.** Collapsing the
+heroes onto one component dropped the photograph dimming that two of them relied
+on — the home hero at 42% opacity and the Festival hero at 45% — and the shared
+scrim alone was not a substitute at 390px. The home eyebrow fell to **1.47:1**
+and the Festival eyebrow to 2.68:1; the home and Festival ledes fell with them;
+and the Events lede, already at 4.72:1 with 0.22 to spare, tipped to 3.56:1
+under the slightly lighter scrim. All 27 desktop strings of the ten heroes then
+in place passed throughout, which is exactly why a desktop-only table was not
+enough. The re-weighted mobile scrim fixed all eight — the five this work broke
+and the three that predated it.
+
+**The paragraph this replaces called it.** It read: *"This is why the home hero
+keeps its 42% opacity … matching that page's treatment as well — the image at
+full strength — was measured and drops the gold eyebrow to 4.32:1 … If the two
+heroes are ever made identical, the eyebrow needs a darker scrim or a lighter
+gold, and the number above has to be re-measured."* The two heroes have now been
+made identical and the eyebrow has been re-measured. On desktop it came out
+better than predicted, at 6.78:1, because the shared component brought Parish
+Life's second gradient and its lower, bottom-aligned text along with the
+full-strength photograph, not the photograph alone. At 390px — which that
+paragraph had no way to check, since nothing measured mobile then — the same
+eyebrow fell to 1.47:1. The remedy was the first of the two it named: a darker
+scrim, below 900px only, so the gold is unchanged everywhere.
+
+#### Placeholder photo frames — 74 nodes
+
+The empty frames on the Parish Life page, and the four on Fellowship & Care, each
+carry a label ("Photograph to come") and a hint naming what belongs there ("Holy
+Week", "Coffee hour in the parish hall"), over a placeholder fill: `#efe7d9` with
+a 10%-opacity gold stripe ruled across it at 135°. axe sees the stripe as a
+gradient and defers.
+
+Measured behind the glyphs, the label is 4.33:1 at worst and the hint 4.31:1.
+Against `#efe7d9` alone both clear the bar — 4.78:1 and 4.75:1 — and it is the
+stripe crossing a letter that pulls them under it. **This is a real shortfall,
+not a false alarm**, but it is confined to placeholder furniture: every one of
+these frames is waiting to be replaced by a photograph, at which point the
+label, the hint and the stripe all go. Worth closing while the frames are still
+here — a slightly darker hint colour, or a fainter stripe, is enough.
+
+#### Copies that are scrolled out of view — 16 nodes
+
+Eight on the home page: the four strings on the banquet slide, which is the
+second slide of the promo carousel and so sits off to the side at both
+viewports. Seven on the Visit page: the text on greeter cards two, three and
+four, which at 390px are the cards past the edge of the scrolling row. One on
+the Bookstore page, at 390px: a category label on a reading-list cover past the
+edge of its row. In all three cases the pixels are never painted, so axe reports
+the nodes as partly obscured.
+Their visible siblings — the same classes, the same colours, the same
+backgrounds, one slide or one card along — axe resolves without complaint and
+passes. There is nothing different about the ones it cannot see.
+
+#### One calendar entry — no longer appears
+
+Earlier runs reported one more obscured node: a single event chip on the August
+grid, `#5e1f1f` on `#f2e5dd`, which axe said was partly covered by another
+element. It was measured at the time and came out at 11.03:1. Today's run does
+not report it: the chip is still on the page, and axe now resolves it without
+deferring. That is why the obscured count is 15 rather than 16. If it returns,
+the measurement above still stands and the answer is unchanged.
+
+#### `frame-tested` no longer appears
+
+The 8 August run reported 8 of these — axe cannot audit inside a cross-origin
+iframe, so it said it could not test the four YouTube embeds at either viewport.
+Today's run does not report the rule at all, on the same four embeds. If it
+returns, the answer is unchanged: it is a statement about YouTube's player, not
+about this site, and what *is* ours is set — every embed carries a `title`
+naming the episode and the presenter. If DIM refuses third-party embeds at
+import (see `IMPORT.md`), the frames become plain links and the question
+disappears.
 
 ### Reflow — WCAG 1.4.10
 
-At a 320px viewport, no page scrolls horizontally. **12 of 12 pass.**
+At a 320px viewport, no page scrolls horizontally. **18 of 18 pass**, Welcome and
+Fellowship & Care included.
 
-The Mobile views reference page initially failed (406px wide) because it draws
+The Mobile views reference page initially failed (406px wide) because it drew
 phone frames at their true 375px width. Rather than shrink the mock-ups — which
-would defeat their purpose — the frames were given their own scroll container
-with `tabindex="0"` and a label, so it is reachable by keyboard and the page
-body never scrolls sideways.
+would have defeated their purpose — the frames were given their own scroll
+container with `tabindex="0"` and a label, so it was reachable by keyboard and
+the page body never scrolled sideways. That page has since been retired, which
+took the count to 16 of 16; the Welcome page then took it back to 17.
 
 ### Keyboard
 
-36 focusable elements on the contact page; **0 without a visible focus
-indicator** (3px gold outline, 2px offset). The bookstore category filters were
+61 focusable elements on the contact page. The check reports **15 without a
+visible focus indicator**, and all 15 are the links inside the mobile navigation
+drawer. The drawer is a closed `<details>` at the 1440px width the check runs
+at, so `el.focus()` does nothing, no `:focus-visible` rule can match, and the
+check counts them as bare. Opened at 390px they take the same 3px gold outline
+at 2px offset as everything else. The other 46 pass where they stand.
+
+The bookstore category filters were
 `<div>`s in the design and are now real `<button>`s with `aria-pressed`, so the
 filter is fully keyboard-operable — it was not before.
 

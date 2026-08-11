@@ -343,10 +343,12 @@
     return null;
   }
 
-  /* The default wording below was written for the Welcome page's three forms and
-     reads as nonsense anywhere else — a blank name on the teach-a-tradition form
-     was being answered with "Please write your question before sending it." A
-     field may carry its own sentence instead; the fallbacks are unchanged. */
+  /* A field may carry its own wording. The defaults below were written for the
+     Welcome page's three forms, which ask for a question and an email address,
+     and read as nonsense anywhere else: the meal-support request on Get Involved
+     and the teach-a-tradition form both answered a missing NAME with "Please
+     write your question before sending it." Set data-ntgoc-complaint on the
+     field rather than adding another branch here for every new form. */
   function complaint(el) {
     var own = el.getAttribute('data-ntgoc-complaint');
     if (own) return own;
