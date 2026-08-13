@@ -23,7 +23,8 @@
     "fax": {
       "value": "(540) 548-2824",
       "status": "VERIFIED",
-      "source": "/contact-us/"
+      "source": "/contact-us/",
+      "note": "2026-08-11 audit asked whether the fax number is unpublished deliberately. This entry carries no such flag either way — unlike `priestCell`, there is no record of the parish asking for it to be withheld. Left unpublished in this pass anyway: deciding WHERE a fax number belongs on the site (the footer already lists address, phone and email without one; contact.html has its own layout) is an editorial decision, not the mechanical marking/recording this issue's other bullets cover, and it is not required by issue #17's verification criteria. Publishing it is a reasonable small follow-up, but should be its own deliberate change."
     },
     "priestCell": {
       "value": "REDACTED — not recorded here",
@@ -86,7 +87,28 @@
       "status": "CORRECTED",
       "source": "/about-us/",
       "designSaid": "1963 — Community founded",
-      "note": "The design was wrong by 26 years and self-flagged the number as a placeholder. The real history is above. This is the single most valuable correction the harvest produced."
+      "note": "The design was wrong by 26 years and self-flagged the number as a placeholder. The real history is above. This is the single most valuable correction the harvest produced. 2026-08-11 audit: about.html published only the 1989 first-Liturgy date, even though all four dates carry the same CORRECTED/sourced status. 2026-08-13: the charter (1991), land purchase (1992) and building completion including the first Liturgy in the new church (12 March 2000) are now published in the same caption on about.html, alongside 1989.",
+      "affects": [
+        "about.html"
+      ]
+    },
+    "paraklesisSchedule": {
+      "value": "Wednesday, 6:30 p.m. Paraklesis (in season).",
+      "status": "UNVERIFIED",
+      "source": "Carried over from the design import; not confirmed against a parish source.",
+      "note": "2026-08-11 audit: the 'Regular schedule' panel on calendar.html stated this recurring weekly service with no marker, even though every individual Paraklesis occurrence rendered from data/parish-calendar.json carries `verify: true` and its own TODO: verify marker (see tools/build-parish.mjs). The recurring-schedule line is hand-written, not built from that JSON, so it needed its own marker to match. 'In season' itself is also unconfirmed — which weeks Paraklesis is or is not offered is not recorded anywhere in this project.",
+      "affects": [
+        "calendar.html"
+      ]
+    },
+    "confessionSchedule": {
+      "value": "Confession by appointment with Fr. John.",
+      "status": "UNVERIFIED",
+      "source": "Carried over from the design import; not confirmed against a parish source.",
+      "note": "2026-08-11 audit: stated on calendar.html's 'Regular schedule' panel with no marker and no fact entry. 'By appointment' is plausible for a parish this size but has not been confirmed by the parish office, and no other means of arranging confession (e.g. before Saturday Vespers) has been ruled in or out.",
+      "affects": [
+        "calendar.html"
+      ]
     },
     "metropolis": {
       "value": "Greek Orthodox Metropolis of New Jersey",
@@ -123,6 +145,15 @@
       ],
       "note": "Design invented 'Choir & Chanters' (no such ministry page on the live site) and omitted 'JOY' (the younger children's group, which does exist). Both flagged rather than silently swapped — the parish may well have chanters without a ministry page. 2026-08-09: the LIST is settled for this presentation, but the DESCRIPTIONS carried a great deal that was never sourced — meeting frequencies, grade ranges, basketball, retreats, the Metropolis summer camp, named charitable programmes, and September-to-May term dates. All of it is now removed from ministries.html and index.html. Accurate and brief beats polished and invented; see _ministriesNote in data/site.json."
     },
+    "adultEducation": {
+      "value": "Bible studies, catechesis, classes, talks and other opportunities to learn about and grow in the Orthodox faith.",
+      "status": "UNVERIFIED",
+      "source": "Carried over from the design import; not confirmed against a parish source.",
+      "note": "2026-08-11 audit: parish-life.html's 'Learning & Formation' section carries a TODO: verify marker with no matching fact entry. Unlike Sunday School (see `sundaySchool`, CONFIRMED_BY_PARISH), no adult-education programme — a Bible study, a catechism class, a speaker series — has been named or confirmed by the parish. The sentence is generic enough that it may simply be true of most parishes, which is exactly why it needs a source rather than an assumption.",
+      "affects": [
+        "parish-life.html"
+      ]
+    },
     "prosphoraClass": {
       "value": "The parish already offers a prosphora baking class.",
       "status": "UNVERIFIED",
@@ -141,6 +172,15 @@
       "note": "Plausible — it is what most parishes do — which is exactly why it is tagged rather than assumed. What a host is asked to provide, what the kitchen already has, and what it costs are ALL unsourced, so get-involved.html states none of them and says so in the accordion instead. Those three details are what decides whether somebody who has never hosted feels able to offer, so they are the first thing to get from the parish.",
       "affects": [
         "get-involved.html"
+      ]
+    },
+    "philoptochosCoffeeHour": {
+      "value": "Sun · Aug 16: Philoptochos hosting coffee hour.",
+      "status": "UNVERIFIED",
+      "source": "Carried over from the design import; not confirmed against a parish source.",
+      "note": "2026-08-11 audit: index.html's upcoming-services list carries a TODO: verify marker on this line but had no matching entry here. Flagging the contradiction it sits next to: `coffeeHourHosting` (below) says coffee hour is sponsored by parish HOUSEHOLDS taking turns, described in the 2026-08-10 Get Involved brief, while this line says a specific ORGANISATION (the Ladies' Philoptochos Society) is hosting on a specific date. Both could be true — a ministry can take a turn like a household does — but neither statement is sourced, and nothing here confirms they are compatible rather than two different pictures of how hosting works. Do not silently pick one; ask the parish which model is accurate, or whether both are.",
+      "affects": [
+        "index.html"
       ]
     },
     "agapeMeal": {
@@ -190,7 +230,10 @@
       "status": "UNVERIFIED",
       "designSaid": "Capacity ≈ 200 seated; full commercial kitchen; on-site free parking",
       "source": "/hall-rental",
-      "note": "The live hall-rental page gives NO capacity, kitchen, or parking details — only a deposit link and a contract PDF. Every one of the design's three specifics is unsourced. Left in place, each tagged TODO: verify."
+      "note": "The live hall-rental page gives NO capacity, kitchen, or parking details — only a deposit link and a contract PDF. Every one of the design's three specifics is unsourced. Left in place, each tagged TODO: verify. 2026-08-11 audit: hall.html's introductory paragraph also restated capacity and kitchen (now tagged to match the grid rows below) and separately claimed 'tables and chairs' and 'a sound system' — neither of which is in the design's original three specifics or on the live hall-rental page. Both are plausible for a rentable hall and both are now tagged TODO: verify rather than removed or invented further. 'Its own parking' was reworded to 'parking on site': the parking fact is CONFIRMED_BY_PARISH as free, shared, on-site parking for the whole property (see `parking` below and data/site.json parking.note) — 'its own' overstated that as dedicated hall-only parking, which is not confirmed.",
+      "affects": [
+        "hall.html"
+      ]
     },
     "parishCouncil": {
       "status": "WITHHELD",
@@ -228,7 +271,7 @@
     },
     "stewardshipPledgeForm": {
       "status": "DOES_NOT_EXIST_YET",
-      "note": "There is no online stewardship commitment form. give.html has carried a dead '2026 stewardship pledge' link (href=\"#\") since the design import, and For Our Parish shows a placeholder rather than repeating that dead link. Giving online (Square) is a separate thing and does work."
+      "note": "There is no online stewardship commitment form. give.html carried a dead '2026 stewardship pledge' link (href=\"#\") from the design import until it was replaced by a sentence noting the destination is unconfirmed (see stewardshipDestination), and For Our Parish shows a placeholder rather than repeating that dead link. Giving online (Square) is a separate thing and does work."
     },
     "volunteerNeeds": {
       "status": "DOES_NOT_EXIST_YET",
@@ -333,7 +376,13 @@
       "value": "The Light, published monthly.",
       "status": "CONFIRMED_BY_PARISH",
       "source": "Confirmed directly by the parish, 2026-08-09.",
-      "note": "The frequency is now stated on newsletter.html and in the For Our Parish resource directory. There is still no archive to link to, and no issue URL has been invented. The copy deadline and the editor remain unknown."
+      "note": "The frequency is now stated on newsletter.html and in the For Our Parish resource directory. The copy deadline and the editor remain unknown. Distribution is now recorded separately under weeklyBulletin below: The Light itself is emailed monthly as a PDF, with no per-issue web archive, so no issue URL has been invented or linked."
+    },
+    "weeklyBulletin": {
+      "value": "Weekly bulletins are posted at https://bulletinbuilder.org/ntgoc/. Monthly newsletter (\"The Light\") issues are emailed as a link to a PDF, one link per email — there is no stable public URL for a given issue, so no individual issue is linked from the site.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Named directly by the project owner (Thomas), 2026-08-13.",
+      "note": "The bulletinbuilder.org page was checked and does show a current weekly Nativity of the Theotokos bulletin. newsletter.html links to it from the 'Back issues' section, in place of the six dead year-span placeholders' old invitation to 'send the issues' — that invitation is now answered. Whether the six year spans should eventually become a real by-year archive, and whether monthly PDFs would ever be gathered into one, is still open; nothing has been invented to fill that gap."
     },
     "stewardshipDestination": {
       "value": "Not available.",
@@ -357,6 +406,42 @@
       "source": "Checked 2026-08-10 against the Archdiocese's Our Faith content (mirrored at nativity.va.goarch.org/our-faith/worship, /liturgy, /house_of_god), the parish's own FAQ at nativity.va.goarch.org/about-us/faq, and goarch.org articles on the Sign of the Cross, Kyrie Eleison, the Nativity of the Theotokos, and visiting an Orthodox church.",
       "note": "Confirmed: the Sign of the Cross finger positions; Kyrie Eleison and the eleos/olive-oil root, which is the Archdiocese's own gloss and not a homiletic flourish; Theotokos and the Council of Ephesus in 431; the feast on 8 September; the Little and Great Entrances; antidoron open to all including non-Orthodox; Communion for Orthodox Christians only; icons venerated and not worshipped; standing as the preferred posture. Corrected four things: the Divine Liturgy was described as prayed in substantially its present form for sixteen centuries, which contradicts the Archdiocese's account that its core is apostolic and its framework settled by about the ninth century; the congregation was said to stand for the anaphora, when kneeling at the consecration is expressly permitted; the iconostasis description was vague where the Archdiocese is specific (right: Christ and St. John the Baptist; left: the Theotokos and the church's patron); and 'the shortest prayer the Church prays' was an unsourced superlative. None of this replaces Fr. John reading the page.",
       "alsoFound": "The parish's own live FAQ page states the Communion practice, the invitation to non-Orthodox to receive antidoron, and 'there is often as much Greek as English in the service'. All three were previously recorded here as confirmed only by direct conversation with the parish; they now have a published parish source as well."
+    },
+    "visitorSeriesVideos": {
+      "value": "Three additional videos in the Frederica Mathewes-Green orientation series, embedded on visit.html: 'An Overview of the Orthodox Divine Liturgy' (YouTube ID XDUMf7oFt2s), 'The Sign of the Cross, Icons, and Tradition in the Orthodox Church' (derjqczKV5E), and 'A Little More About the Orthodox Worship Space' (0Ye_QDBA5Ps).",
+      "status": "UNVERIFIED",
+      "source": "IDs found by searching video titles on 2026-08-08. Not one of the three has been played to confirm it is the video its title and embed claim.",
+      "note": "2026-08-11 audit: each embed already carried a TODO: verify HTML comment naming the risk, but none had a matching entry here. The risk is concrete: a wrong video ID silently embeds the wrong episode (or someone else's video) under the parish's page. Play all three and confirm title, content and speaker before the markers come off. The first video in the same series ('An Introduction to the Orthodox Worship Space', YimgCkBbH7c) is NOT included in this entry — it carries no TODO: verify marker on the page and was not flagged by the audit.",
+      "affects": [
+        "visit.html"
+      ]
+    },
+    "liturgicalPrayerTexts": {
+      "value": "The English text of the Nicene Creed and the Lord's Prayer printed on visit.html, in the 'Words you may begin to recognise' section.",
+      "status": "UNVERIFIED",
+      "source": "Standard Archdiocese-family English wording, reproduced from memory/reference rather than transcribed from the parish's own Divine Liturgy book.",
+      "note": "2026-08-11 audit: both blocks already carried a TODO: verify HTML comment (Creed at visit.html, and the Lord's Prayer immediately below it, including whether the priest concludes with the doxology here) but neither had a matching entry here. Both need to be checked word for word against the translation actually printed in this parish's pew book before publishing without the marker — Orthodox parishes in the English-speaking world do not all use identical translations.",
+      "affects": [
+        "visit.html"
+      ]
+    },
+    "welcomeGoarchLinks": {
+      "value": "Four goarch.org links on welcome.html: 'Kyrie Eleison, on goarch.org' (https://www.goarch.org/-/kyrie-eleison-lord-have-mercy), the Archdiocese's Nativity of the Theotokos feast page (https://www.goarch.org/nativity-theotokos), 'The true nature of fasting' (https://www.goarch.org/-/the-true-nature-of-fasting), and 'What to expect when visiting an Orthodox Christian church' (https://www.goarch.org/-/what-to-expect-when-visiting-an-orthodox-christian-church).",
+      "status": "UNVERIFIED",
+      "source": "URLs found by search on 2026-08-10; each destination page's content was not independently confirmed to match its linked description.",
+      "note": "2026-08-11 audit: all four already carried a TODO: verify HTML comment on welcome.html noting that goarch.org returns 403 to automated requests, so `npm run links` cannot check them — they must be opened by hand. None had a matching entry here. This entry does not cover the several `nativity.va.goarch.org` (the parish's own site) links elsewhere on welcome.html and other pages, which are a different domain and were not flagged by the audit.",
+      "affects": [
+        "welcome.html"
+      ]
+    },
+    "committeeStructure": {
+      "value": "Six standing Parish Council committees, each with a stated mandate: Building and Grounds / Facilities; Worship / Liturgical; Fellowship / Hospitality; Education / Catechesis; Youth and Family; Fundraising and Events.",
+      "status": "UNVERIFIED",
+      "source": "Carried over from the Get Involved / Committees brief; not confirmed against a parish source. No committees page exists on the live parish site.",
+      "note": "2026-08-11 audit: committees.html had TODO: verify markers only on the placeholder lead names (see `parishCouncil`) and on the hero sentence's committee count — nothing recorded the committee list or descriptions themselves, which is everything else on the page. Both the hero's 'six standing committees' and each committee's mandate paragraph now carry TODO: verify markers pointing at this entry. If the parish's actual committee structure differs — a different count, different names, or a different division of responsibilities — this whole section needs rewriting, not just the leads.",
+      "affects": [
+        "committees.html"
+      ]
     },
     "pewCard": {
       "value": "An 'Understanding the Divine Liturgy' pew card and a physical Welcome Packet.",
@@ -497,8 +582,9 @@
       "owner": "parish"
     },
     "clergy-fr-john.jpg": {
-      "from": "nativity.va.goarch.org/assets/images/Father's pic.jpg",
-      "owner": "parish — photograph of a named individual; confirm Fr. John is content for it to appear in the draft"
+      "from": "personal photograph supplied by the volunteer maintaining this repo, taken at a baptism in the church on 2026-06-20 (camera original 20260620_120606(0).jpeg, 1536x2048); replaced the parish-site portrait on 2026-08-13",
+      "owner": "photographer — confirmed on 2026-08-13 as his own photograph, not the parish's and not the live site's",
+      "note": "CROPPED BEFORE USE, and the crop is the point. The camera original is a group photograph of the baptism party: the parents, godparents, a young boy and the infant being baptised, with Fr. John standing behind them. The crop is the region x790..980, y497..812 of that original — the only window wide enough to be a portrait and still hold nobody but Fr. John. The man in glasses to his left begins at x=1000, which is why the right edge stops at 980. NEITHER the camera original NOR the other frames from that day are in this repo, and they must not be added: assets/img/ is served publicly by GitHub Pages whether or not a page references it, and two of the people in those frames are children. Owning a photograph is not the same as having the agreement of the person in it — the same distinction recorded against parish-nave-aisle.jpg. Fr. John's agreement to appear in THIS photograph is not yet recorded — get it before the draft is shown or imported."
     },
     "bookstore-counter.jpg": {
       "from": "the parish's own social media, confirmed by the volunteer maintaining this repo on 2026-08-13; supplied as 53683040531_38fd8deaf6_b.jpg at 1024x683. NOTE: that filename is Flickr's, not Facebook's — a Flickr photo ID with Flickr's `_b` 1024px suffix — so it reached the parish's Facebook page from somewhere else, or the parish also has a Flickr account. Not worth chasing unless the rights are ever questioned, but it is not the same source as festival-kitchen-volunteers.jpg despite arriving together.",

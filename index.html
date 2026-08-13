@@ -208,32 +208,69 @@
         <div>
           <h2 class="ntgoc-home-upcoming-services-heading">Upcoming services &amp; events</h2>
           <div class="ntgoc-home-upcoming-services-small-grey-2">All services at the church unless noted</div>
-          <div class="ntgoc-committees-list-rule">
+          <!-- Rendered by `npm run parish` from data/parish-calendar.json, the
+               same file the month grid on calendar.html, "This week at
+               Nativity" on for-our-parish.html and "The next few weeks" on
+               parish-life.html are rendered from. This copy used to be
+               hand-written and had drifted: it led with a date two days in
+               the past and stopped short of events already in the calendar. -->
+          <div class="ntgoc-week">
+<!-- BUILD:homeUpcoming -->
             <div class="ntgoc-service-row ntgoc-grid">
-              <div class="ntgoc-service-date">Sun · Aug 9</div>
-              <div><div class="ntgoc-h4">Orthros &amp; Divine Liturgy</div></div>
-              <div class="ntgoc-home-upcoming-services-text">9:00 &amp; 10:00 a.m.</div>
-            </div>
-            <div class="ntgoc-service-row ntgoc-grid">
-              <div class="ntgoc-service-date">Fri · Aug 14</div>
-              <div><div class="ntgoc-h4">Great Vespers — Dormition of the Theotokos</div></div>
+              <div class="ntgoc-service-date">Fri 14 August</div>
+              <div>
+                <div class="ntgoc-h4">Great Vespers<!-- TODO: verify --></div>
+                <div class="ntgoc-home-upcoming-services-small-grey">The eve of the Dormition of the Theotokos.</div>
+              </div>
               <div class="ntgoc-home-upcoming-services-text">6:00 p.m.</div>
             </div>
             <div class="ntgoc-service-row ntgoc-grid">
-              <div class="ntgoc-service-date">Sat · Aug 15</div>
-              <div><div class="ntgoc-h4">Divine Liturgy — Dormition of the Theotokos</div><div class="ntgoc-home-upcoming-services-small-grey">One of the twelve Great Feasts</div></div>
+              <div class="ntgoc-service-date">Sat 15 August</div>
+              <div>
+                <div class="ntgoc-h4">Dormition of the Theotokos<!-- TODO: verify --></div>
+                <div class="ntgoc-home-upcoming-services-small-grey">Divine Liturgy &middot; A Great Feast of the Church.</div>
+              </div>
               <div class="ntgoc-home-upcoming-services-text">9:00 a.m.</div>
             </div>
             <div class="ntgoc-service-row ntgoc-grid">
-              <div class="ntgoc-service-date">Sun · Aug 16</div>
-              <div><div class="ntgoc-h4">Orthros &amp; Divine Liturgy</div><div class="ntgoc-home-upcoming-services-small-grey">Philoptochos hosting coffee hour<!-- TODO: verify --></div></div>
-              <div class="ntgoc-home-upcoming-services-text">9:00 &amp; 10:00 a.m.</div>
+              <div class="ntgoc-service-date">Sun 16 August</div>
+              <div>
+                <div class="ntgoc-h4">Orthros</div>
+              </div>
+              <div class="ntgoc-home-upcoming-services-text">9:00 a.m.</div>
             </div>
             <div class="ntgoc-service-row ntgoc-grid">
-              <div class="ntgoc-service-date">Wed · Aug 19</div>
-              <div><div class="ntgoc-h4">Paraklesis Service</div></div>
+              <div class="ntgoc-service-date"></div>
+              <div>
+                <div class="ntgoc-h4">Divine Liturgy</div>
+                <div class="ntgoc-home-upcoming-services-small-grey">Coffee hour in the parish hall afterwards.</div>
+              </div>
+              <div class="ntgoc-home-upcoming-services-text">10:00 a.m.</div>
+            </div>
+            <div class="ntgoc-service-row ntgoc-grid">
+              <div class="ntgoc-service-date">Wed 19 August</div>
+              <div>
+                <div class="ntgoc-h4">Paraklesis<!-- TODO: verify --></div>
+                <div class="ntgoc-home-upcoming-services-small-grey">In season.</div>
+              </div>
               <div class="ntgoc-home-upcoming-services-text">6:30 p.m.</div>
             </div>
+            <div class="ntgoc-service-row ntgoc-grid">
+              <div class="ntgoc-service-date">Sun 23 August</div>
+              <div>
+                <div class="ntgoc-h4">Orthros</div>
+              </div>
+              <div class="ntgoc-home-upcoming-services-text">9:00 a.m.</div>
+            </div>
+            <div class="ntgoc-service-row ntgoc-grid">
+              <div class="ntgoc-service-date"></div>
+              <div>
+                <div class="ntgoc-h4">Divine Liturgy</div>
+                <div class="ntgoc-home-upcoming-services-small-grey">Coffee hour in the parish hall afterwards.</div>
+              </div>
+              <div class="ntgoc-home-upcoming-services-text">10:00 a.m.</div>
+            </div>
+<!-- /BUILD:homeUpcoming -->
           </div>
           <a href="calendar.html" class="ntgoc-inherit ntgoc-home-upcoming-services-small-caps">View the full parish calendar →</a>
         </div>
@@ -244,15 +281,12 @@
             <div class="ntgoc-home-upcoming-services-box">
               <div class="ntgoc-festival-details-micro-caps">Online Chapel</div>
               <h3 class="ntgoc-home-upcoming-services-subheading">Saints, feasts &amp; readings</h3>
-              <div class="ntgoc-home-upcoming-services-small-grey-3">10th Saturday after Pentecost</div>
-              <div class="ntgoc-home-upcoming-services-micro-caps">Today's readings</div>
+              <p class="ntgoc-home-ministries-promo-text">The Archdiocese's Online Chapel lists each day's commemorations and the appointed Scripture readings.</p>
+              <!-- TODO: verify — points at the Archdiocese Online Chapel. Repoint at the parish's own
+                   daily-readings page once the parish site has one. -->
               <div class="ntgoc-home-upcoming-services-row ntgoc-flex">
-                <a href="https://www.goarch.org/chapel/lectionary" target="_blank" rel="noreferrer">Romans 15:30–33</a>
-                <a href="https://www.goarch.org/chapel/lectionary" target="_blank" rel="noreferrer">Matthew 17:24–27; 18:1–4</a>
+                <a href="https://www.goarch.org/chapel/lectionary" target="_blank" rel="noreferrer">Today's Scripture readings →</a>
               </div>
-              <div class="ntgoc-home-upcoming-services-rule"></div>
-              <div class="ntgoc-home-upcoming-services-micro-caps">Commemorated today</div>
-              <p class="ntgoc-home-ministries-promo-text">Afterfeast of the Transfiguration; Emilian the Confessor, Bishop of Cyzikos; Gregory of Sinai and Mount Athos.</p>
             </div>
           </div>
         </aside>

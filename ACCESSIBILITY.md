@@ -27,14 +27,22 @@ regression that was not one.
 one component and again after Get Involved was added. Still **0 violations
 across 36 page-runs.** Two counts moved and neither is a regression:
 
-- Reflow is **18 of 18**. The Mobile views mock-up page was retired once the site
-  itself used the mobile layout, taking the count to 16 of 16; the Welcome page
-  brought it back to seventeen, and Get Involved makes eighteen.
-- The manual-review count is now **164 nodes**, not 37. That number tracks how
+- Reflow was **18 of 18**. The Mobile views mock-up page was retired once the
+  site itself used the mobile layout, taking the count to 16 of 16; the Welcome
+  page brought it back to seventeen, and Get Involved made eighteen.
+- The manual-review count was **164 nodes**, not 37. That number tracks how
   much of a page axe can resolve, not how much is wrong: it rises when a
   gradient, a placeholder frame or a carousel puts text somewhere axe declines to
-  judge. Every one of the 164 is accounted for below, and the twelve heroes are
-  now measured by a tool rather than by hand.
+  judge. Every one of the 164 was accounted for below, from the twelve heroes
+  that stood at the time.
+
+**Re-checked again 13 August 2026**, after Traditions was added (its own hero
+included) and the Get Involved rename settled. Reflow is **19 of 19**. Still
+**0 violations**, now across **38 page-runs**; the manual-review count is now
+**186 nodes across 27 of the 38 page-runs** (`npm run audit:a11y`). The
+breakdown below is the 10 August split of the 164 and has not been re-run
+against that growth — see the note at "The 164 'needs review' items". The
+thirteen heroes are now measured by a tool rather than by hand.
 
 Reproduce it yourself:
 
@@ -42,7 +50,7 @@ Reproduce it yourself:
 npm install          # axe-core + puppeteer-core, dev only
 npm run audit:a11y   # 19 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
-npm run measure:hero # the twelve photograph heroes, which axe declines to judge
+npm run measure:hero # the thirteen photograph heroes, which axe declines to judge
 ```
 
 The **site itself has no dependencies.** These two packages are for auditing only
@@ -162,10 +170,18 @@ harmless.
 ### The 164 "needs review" items
 
 One rule is flagged for review: `color-contrast`, 164 nodes across 25 of the 36
-page-runs. axe defers whenever it cannot resolve what is behind the text. For
-148 of these nodes the reason it gives is a background gradient; for the other
-16 it is that the element is partly out of view. None is a violation. All three
-groups are accounted for below.
+page-runs, as of the 10 August recheck. axe defers whenever it cannot resolve
+what is behind the text. For 148 of these nodes the reason it gives is a
+background gradient; for the other 16 it is that the element is partly out of
+view. None is a violation. All three groups are accounted for below, as they
+stood on 10 August.
+
+**Traditions and Get Involved's current shape have since pushed the total to
+186 nodes across 27 of the 38 page-runs** (`npm run audit:a11y`, 13 August
+2026). The breakdown has not been re-split by reason since — doing that
+accurately needs the per-node detail the audit script does not currently
+record, not just a rerun. Treat the 164/148/16/74/74/16 figures below as the
+10 August record, not the current total.
 
 #### Contrast over a background image — 74 nodes
 
@@ -199,10 +215,11 @@ the photograph like every eyebrow here, and until the Welcome page was merged
 nothing measured it. It is now the fifth selector in the list. Anyone adding a
 hero string in a class of its own should add it there too.
 
-**Where they stand.** All twelve heroes are one component now: one scrim, the
+**Where they stand.** All thirteen heroes are one component now: one scrim, the
 photograph at full strength, two heights, the text aligned to the bottom.
 Headlines are held to 3:1, being large text at both viewports; everything else
-to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
+to 4.5:1. Measured 13 August 2026 (after the Get Involved rename and the
+Traditions hero were added to `HERO_PAGES`), 74 strings, all passing:
 
 | Page | Viewport | Eyebrow (4.5) | Headline (3) | Lede (4.5) | Second lede (4.5) † |
 |---|---|---:|---:|---:|---:|
@@ -210,8 +227,8 @@ to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
 | Home | mobile | 5.71:1 | 9.83:1 | 9.38:1 | — |
 | Parish Life | desktop | 7.57:1 | 11.69:1 | 9.74:1 | 7.51:1 |
 | Parish Life | mobile | 7.13:1 | 10.26:1 | 8.97:1 | 7.85:1 |
-| Get Involved | desktop | 7.66:1 | 10.66:1 | 7.88:1 | — |
-| Get Involved | mobile | 7.44:1 | 9.83:1 | 8.45:1 | — |
+| Get Involved | desktop | 7.29:1 | 10.47:1 | 7.30:1 | — |
+| Get Involved | mobile | 7.56:1 | 11.91:1 | 7.12:1 | — |
 | Our Faith | desktop | 7.79:1 | 11.23:1 | — | — |
 | Our Faith | mobile | 7.76:1 | 10.37:1 | — | — |
 | Calendar | desktop | 7.77:1 | 12.23:1 | — | — |
@@ -230,6 +247,8 @@ to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
 | For Our Parish | mobile | 6.57:1 | 10.67:1 | 8.66:1 | — |
 | Welcome | desktop | 7.76:1 | 11.14:1 | 9.84:1 | 7.57:1 |
 | Welcome | mobile | 6.75:1 | 9.99:1 | 9.71:1 | 7.27:1 |
+| Traditions | desktop | 7.66:1 | 11.42:1 | 9.45:1 | — |
+| Traditions | mobile | 7.25:1 | 10.68:1 | 10.03:1 | — |
 
 † Two different strings share that column, because only two pages carry a second
 line in the hero and a column each would leave twenty rows of dashes. On Parish
@@ -237,7 +256,7 @@ Life it is `.ntgoc-page-hero__lede--serif`; on Welcome it is the gold italic
 `.ntgoc-welcome-hero__lede`. Both are held to 4.5:1 and both are reported by
 `npm run measure:hero` under their own names, `lede--serif` and `welcome-lede`.
 
-The closest of the 68 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
+The closest of the 74 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
 outlined hero buttons on Home, Plan a visit and Get Involved are not in the
 table because the tool does not track them — they are three buttons, and so six
 of the 74 nodes axe defers on. Measured the same way they are 11.39:1 at worst.
@@ -359,24 +378,25 @@ disappears.
 
 ### Reflow — WCAG 1.4.10
 
-At a 320px viewport, no page scrolls horizontally. **18 of 18 pass**, Welcome and
-Get Involved included.
+At a 320px viewport, no page scrolls horizontally. **19 of 19 pass**, Welcome,
+Get Involved and Traditions included.
 
 The Mobile views reference page initially failed (406px wide) because it drew
 phone frames at their true 375px width. Rather than shrink the mock-ups — which
 would have defeated their purpose — the frames were given their own scroll
 container with `tabindex="0"` and a label, so it was reachable by keyboard and
 the page body never scrolled sideways. That page has since been retired, which
-took the count to 16 of 16; the Welcome page then took it back to 17.
+took the count to 16 of 16; the Welcome page then took it back to 17, Get
+Involved to 18, and Traditions to 19.
 
 ### Keyboard
 
-61 focusable elements on the contact page. The check reports **15 without a
-visible focus indicator**, and all 15 are the links inside the mobile navigation
+67 focusable elements on the contact page. The check reports **17 without a
+visible focus indicator**, and all 17 are the links inside the mobile navigation
 drawer. The drawer is a closed `<details>` at the 1440px width the check runs
 at, so `el.focus()` does nothing, no `:focus-visible` rule can match, and the
 check counts them as bare. Opened at 390px they take the same 3px gold outline
-at 2px offset as everything else. The other 46 pass where they stand.
+at 2px offset as everything else. The other 50 pass where they stand.
 
 The bookstore category filters were
 `<div>`s in the design and are now real `<button>`s with `aria-pressed`, so the
