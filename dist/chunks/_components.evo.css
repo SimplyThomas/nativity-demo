@@ -780,6 +780,23 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__label { color:#e0b673; }
 .ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
 
+/* When a photograph does arrive, the .ntgoc-photoslot inside the frame is
+   replaced by an <img class="ntgoc-photo">, and nothing else changes: the frame
+   keeps its border and its grid cell, and this fills it the same way the
+   placeholder did.
+
+   An <img> rather than a background-image, which is how every photograph on the
+   rest of the site works. Background images cannot carry alt text, cannot be
+   lazy-loaded, and would need a bespoke class per photograph — twenty-odd more
+   near-identical rules in here, which is exactly what lint's duplicate-rule
+   check exists to complain about. One class covers every frame instead.
+
+   The frames are letterboxed and their aspect ratio moves a long way with the
+   viewport — the wide bookstore frame is 548x200 on a desktop and 860x170 at
+   the 900px breakpoint — so `cover` is doing real cropping at every size. Give
+   the file a generous horizontal margin and keep the subject central. */
+.ntgoc-photo { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+
 /* The hero is on .ntgoc-page-hero. This eyebrow is not part of it, and is not
    dead: the "Coming up at Nativity" block further down the page is now its only
    user. Gold on a dark band, so it is not the same thing as .ntgoc-page-eyebrow,

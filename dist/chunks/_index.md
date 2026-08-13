@@ -62,7 +62,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishConnected` | 1954 b | 1 page | yes (1) |
 | ☐ | `ntgocParishFamilies` | 1554 b | 1 page | yes (3) |
 | ☐ | `ntgocParishHero` | 800 b | 1 page | — |
-| ☐ | `ntgocParishLifeBookstore` | 1624 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeBookstore` | 1747 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeEvents` | 1148 b | 1 page | — |
 | ☐ | `ntgocParishLifeFellowship` | 1229 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeFormation` | 1916 b | 1 page | — |
