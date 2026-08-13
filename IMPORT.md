@@ -275,31 +275,32 @@ And the four you can skip:
 > whether or not a page links to it. "Draft only" describes the audience and the
 > intent, not who can reach the file.
 
-> **Twenty-one parishioners are named in this draft, and none of them has agreed
-> to it.** Added 2026-08-13 from the parish newsletter's organisation and officer
-> list, at the request of the volunteer maintaining this repo. Four places:
-> `ntgocAboutParishCouncil` (the nine Council members and their offices),
-> `ntgocPhiloptochosBoard` (the nine board members and theirs),
-> `ntgocMinistriesGrid` (four lead names — Sunday School, GOYA, Philoptochos,
-> Dance Troupe), and one sentence each in `ntgocGiveWays` and
-> `ntgocBookstoreNotes`.
+> **Twenty-one parishioners are named in this draft, and the Parish Council has
+> approved it.** Added 2026-08-13 from the parish newsletter's organisation and
+> officer list. Four places: `ntgocAboutParishCouncil` (the nine Council members
+> and their offices), `ntgocPhiloptochosBoard` (the nine board members and
+> theirs), `ntgocMinistriesGrid` (four lead names — Sunday School, GOYA,
+> Philoptochos, Dance Troupe), and one sentence each in `ntgocGiveWays` and
+> `ntgocBookstoreNotes`. **These are cleared for import.**
 >
-> This is the same standing as the nativity-play photographs above: a decision,
-> not a permission, taken so the Parish Council has something real to review.
-> **Do not import these until the Council has approved publishing the roster.**
-> A newsletter goes to the parish; a website goes to everyone and is indexed and
-> archived. The live parish site's own ministries page carries no names at all,
-> which is at least consistent with that being deliberate — so do not treat "it
-> was in the newsletter" as settling it.
+> The approval was given at a Council meeting before 2026-08-13 and covers both
+> halves: that the names may be published, and that the roster is right as
+> printed. That is why none of the twenty-one carries a `TODO: verify` marker —
+> unlike almost everything else on these pages. Do not add one back without a
+> reason of its own.
 >
 > Names and offices only. No personal email address, telephone number,
-> photograph or biography is published: every Council card shows
-> `office@ntgoc.org`, and both roster sections say in print that personal
-> addresses are not published and mail should go through the office. Every name
-> carries a `TODO: verify` marker, which here means two things at once — the
-> roster is unverified against any source this project can check, *and* nobody
-> has consented. The full reasoning, and what to do if one person objects, is in
-> `data/parish-facts.json` under `facts._rosterPermission`.
+> photograph or biography is published: Council cards show `office@ntgoc.org`
+> and the Treasurer's shows `pctreasurer@ntgoc.org`, both role addresses; the
+> Philoptochos cards carry no address; and both roster sections say in print that
+> personal addresses are not published and mail should go through the office.
+>
+> What the approval does *not* cover: which committee each Council member leads
+> (still unknown — `ntgocCommitteesList` reads "Council Member" throughout), the
+> HOPE/JOY naming question, and any photograph. The full record, including the
+> one caveat about a Council approving a roster that is the Philoptochos's own,
+> and what to do if a member later objects, is in `data/parish-facts.json` under
+> `facts._rosterPermission`.
 
 > **`parish-baptism.jpg` has two children in it, and its permission is
 > recorded.** A family with their newly baptised infant, a young boy in front,
@@ -311,7 +312,7 @@ And the four you can skip:
 > gives that separate permission as their parent; the other adults in the frame
 > have agreed. Recorded 2026-08-13 in `data/parish-facts.json`. Nobody in it is
 > identified by name, and no photograph in this repo identifies anyone — that is
-> a separate decision from the rosters below, and it stands. **This is the only
+> a separate decision from the rosters above, and it stands. **This is the only
 > photograph here whose permission is on the record. The others are not** — see
 > the provenance note above.
 

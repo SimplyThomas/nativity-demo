@@ -10,12 +10,12 @@ match the filename exactly — that is how pages call it.
 |:--:|---|---:|---:|:--:|
 | ☐ | `ntgocAboutClergy` | 2995 b | 1 page | yes (1) |
 | ☐ | `ntgocAboutHero` | 536 b | 1 page | — |
-| ☐ | `ntgocAboutParishCouncil` | 5203 b | 1 page | yes (3) |
+| ☐ | `ntgocAboutParishCouncil` | 4879 b | 1 page | yes (3) |
 | ☐ | `ntgocBookstoreCatalog` | 14640 b | 1 page | — |
 | ☐ | `ntgocBookstoreCatechism` | 2996 b | 1 page | — |
 | ☐ | `ntgocBookstoreConverts` | 2805 b | 1 page | — |
 | ☐ | `ntgocBookstoreHero` | 1295 b | 1 page | — |
-| ☐ | `ntgocBookstoreNotes` | 1178 b | 1 page | yes (1) |
+| ☐ | `ntgocBookstoreNotes` | 1157 b | 1 page | yes (1) |
 | ☐ | `ntgocCalendarGrid` | 10089 b | 1 page | — |
 | ☐ | `ntgocCalendarHero` | 946 b | 1 page | — |
 | ☐ | `ntgocCommitteesHero` | 549 b | 1 page | — |
@@ -44,7 +44,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocGetInvolvedProsphora` | 4215 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedServe` | 4423 b | 1 page | yes (4) |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
-| ☐ | `ntgocGiveWays` | 2137 b | 1 page | — |
+| ☐ | `ntgocGiveWays` | 2116 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 2013 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeFestivalPromo` | 3598 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
@@ -54,7 +54,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeUpcomingServices` | 5017 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3413 b | 1 page | — |
-| ☐ | `ntgocMinistriesHero` | 705 b | 1 page | — |
+| ☐ | `ntgocMinistriesHero` | 673 b | 1 page | — |
 | ☐ | `ntgocNewsletterArchive` | 1963 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |
 | ☐ | `ntgocParishAnnouncements` | 2651 b | 1 page | — |
@@ -77,7 +77,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3824 b | 1 page | yes (1) |
-| ☐ | `ntgocPhiloptochosBoard` | 2847 b | 1 page | — |
+| ☐ | `ntgocPhiloptochosBoard` | 2529 b | 1 page | — |
 | ☐ | `ntgocSiteFooter` | 3806 b | 19 pages | yes (17) |
 | ☐ | `ntgocSiteHeader` | 5865 b | 19 pages | yes (34) |
 | ☐ | `ntgocTopBar` | 208 b | 19 pages | — |
