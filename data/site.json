@@ -70,6 +70,7 @@
     "greekFestival": "https://www.fredgreek.org/",
     "dailyReadings": "https://www.goarch.org/chapel",
     "cloudOfWitnesses": "https://orthodoxsaintfinder.com/",
+    "weeklyBulletin": "https://bulletinbuilder.org/ntgoc/",
     "stewardshipPledge": null,
     "parishCommunity": null,
     "parishUpdates": null,
@@ -143,6 +144,10 @@
       {
         "pattern": "visitor parking",
         "why": "There is no visitor-specific parking."
+      },
+      {
+        "pattern": "its own parking",
+        "why": "Parking is free, on site, and shared across the property — not dedicated or exclusive to any one building. See parking.note. Caught on hall.html in the 2026-08-11 fact-discipline audit."
       },
       {
         "pattern": "(wheelchair|step-free|accessible entrance|reachable by lift)",

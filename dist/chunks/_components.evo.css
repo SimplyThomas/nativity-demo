@@ -81,6 +81,15 @@
    cannot distinguish it (axe: "link-in-text-block" — measured 1.24:1 against
    the surrounding text). Underline them in body copy only; standalone
    navigation links keep the design's clean look.
+
+   Colour is included here too (issue #16). Many anchors carry no class of
+   their own — only their containing paragraph does — so the demo-only
+   reset stylesheet's `a { color: #7d2b2b }` was the only thing painting
+   them brick. That reset is not imported into Evolution CMS, and nothing
+   in this file set colour on a running-text link before, so on the live
+   parish template Bootstrap 4.1.3's reboot would show its own blue
+   (#007bff) instead. Declaring it here, scoped to these containers, keeps
+   the brick colour in both places without classing every anchor by hand.
    ------------------------------------------------------------------ */
 .ntgoc-body a,
 .ntgoc-body-lg a,
@@ -95,8 +104,45 @@
 .ntgoc-question__preview a,
 .ntgoc-traditions-lede a,
 .ntgoc-prose a {
+  color: #7d2b2b;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+.ntgoc-body a:hover, .ntgoc-body a:focus-visible,
+.ntgoc-body-lg a:hover, .ntgoc-body-lg a:focus-visible,
+.ntgoc-linked-text a:hover, .ntgoc-linked-text a:focus-visible,
+.ntgoc-parish-text a:hover, .ntgoc-parish-text a:focus-visible,
+.ntgoc-proposal__text a:hover, .ntgoc-proposal__text a:focus-visible,
+.ntgoc-proposal__note a:hover, .ntgoc-proposal__note a:focus-visible,
+.ntgoc-members__text a:hover, .ntgoc-members__text a:focus-visible,
+.ntgoc-step-note a:hover, .ntgoc-step-note a:focus-visible,
+.ntgoc-welcome-intro__text a:hover, .ntgoc-welcome-intro__text a:focus-visible,
+.ntgoc-welcome-hint a:hover, .ntgoc-welcome-hint a:focus-visible,
+.ntgoc-question__preview a:hover, .ntgoc-question__preview a:focus-visible,
+.ntgoc-traditions-lede a:hover, .ntgoc-traditions-lede a:focus-visible,
+.ntgoc-prose a:hover, .ntgoc-prose a:focus-visible {
+  color: #b08442;
+}
+
+/* --- standalone links that carry no class of their own ---------------
+   A few unclassed anchors sit outside any of the running-text containers
+   above: the seven parish-council contact cards on about.html, a "Follow"
+   row of social links on contact.html, and the day's-reading row on the
+   home page. None is embedded in a sentence, so the no-underline look
+   above is correct for them too — but they still need brick, not
+   Bootstrap blue, once the demo-only reset stylesheet is gone. Scoped to
+   their existing container class; no new class needed on the anchors
+   themselves.
+   ------------------------------------------------------------------ */
+.ntgoc-about-parish-council-small a,
+.ntgoc-contact-card-row a,
+.ntgoc-home-upcoming-services-row a {
+  color: #7d2b2b;
+}
+.ntgoc-about-parish-council-small a:hover, .ntgoc-about-parish-council-small a:focus-visible,
+.ntgoc-contact-card-row a:hover, .ntgoc-contact-card-row a:focus-visible,
+.ntgoc-home-upcoming-services-row a:hover, .ntgoc-home-upcoming-services-row a:focus-visible {
+  color: #b08442;
 }
 
 /* --- Our Faith topic cards ------------------------------------------

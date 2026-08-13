@@ -43,10 +43,27 @@ const chunkFiles = existsSync(join(ROOT, 'dist/chunks'))
   ? readdirSync(join(ROOT, 'dist/chunks')).filter(f => f.endsWith('.html') || f.endsWith('.css'))
   : [];
 
-for (const rel of [...PAGES, 'assets/css/components.css', ...chunkFiles.map(f => `dist/chunks/${f}`)]) {
+// Scans pages, the shipped stylesheets, the shipped JS, and every extracted
+// chunk — anywhere content or a chunk could carry a token EVO's parser acts
+// on. assets/js/ntgoc-enhance.js is exactly where a `[[` or `{{` would appear
+// by accident (nested subscripts, template literals), and provisional.css is
+// demo-only but still gets pasted around, so both are in scope.
+//
+// Only the OPEN half is checked. EVO parses each of these by finding the open
+// token and then scanning forward for the matching close, so an open half
+// left in content is what's actually dangerous — it will consume whatever
+// close comes next, however far away. A bare close half with no open before
+// it is inert: nothing triggers EVO to start looking for it. That distinction
+// matters for JS, where e.g. `)]` (a function call closing right before an
+// array/property index) is ordinary syntax — `panels[reveals[r].getAttribute(
+// 'data-ntgoc-reveal')]` in ntgoc-enhance.js is one — and would otherwise be a
+// permanent false positive for the one reserved pair, `[( )]`, whose close
+// happens to be common JS punctuation.
+for (const rel of [...PAGES, 'assets/css/components.css', 'assets/css/provisional.css',
+  'assets/js/ntgoc-enhance.js', ...chunkFiles.map(f => `dist/chunks/${f}`)]) {
   const body = read(rel);
   for (const [open, close, meaning] of RESERVED) {
-    if (body.includes(open) || body.includes(close)) {
+    if (body.includes(open)) {
       err('evo-reserved', rel, `contains ${open} ${close} (${meaning}) — EVO will corrupt this`);
     }
   }
@@ -251,6 +268,51 @@ const ALLOWED = new Set(['ntgoc']);   // everything custom must start ntgoc-
 const CLASS_GRAMMAR =
   /^ntgoc-[a-z0-9]+(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$/;
 
+/**
+ * CLAUDE.md rule 5 also forbids a bare numeric suffix
+ * (`ntgoc-clergy-body-muted`, not `ntgoc-clergy-text-6`) — CLASS_GRAMMAR above
+ * still allows digits inside any segment (a block genuinely named e.g. "90"
+ * would be fine), so a trailing `-<digits>` run needs its own check.
+ *
+ * 28 classes left over from the retired generated renderer already end this
+ * way — "muted-2", "muted-3" meaning nothing to a reader. Renaming all 28
+ * across 19 pages + dist/chunks is a large cosmetic diff for no behaviour
+ * change, so they are grandfathered by explicit name and will retire as each
+ * is touched. Nothing new may join this list. Re-derive it, don't hand-edit:
+ *   grep -ohE '^\.(ntgoc-[\w-]+)' assets/css/components.css | grep -E '-[0-9]+$'
+ */
+const NUMERIC_SUFFIX = /-[0-9]+$/;
+const GRANDFATHERED_NUMERIC_SUFFIX = new Set([
+  'ntgoc-about-clergy-body-muted-2',
+  'ntgoc-about-clergy-text-8',
+  'ntgoc-about-parish-council-box-3',
+  'ntgoc-bookstore-catalog-row-3',
+  'ntgoc-calendar-grid-grid-4',
+  'ntgoc-calendar-hero-row-3',
+  'ntgoc-faith-watch-read-media-4',
+  'ntgoc-faith-watch-read-media-5',
+  'ntgoc-festival-details-body-muted-2',
+  'ntgoc-festival-details-grid-3',
+  'ntgoc-give-ways-body-muted-2',
+  'ntgoc-give-ways-grid-3',
+  'ntgoc-hall-rental-grid-3',
+  'ntgoc-hall-rental-text-4',
+  'ntgoc-home-upcoming-services-small-grey-2',
+  'ntgoc-home-upcoming-services-small-grey-3',
+  'ntgoc-home-welcome-text-3',
+  'ntgoc-visitor-first-sunday-display-ink-2',
+  'ntgoc-visitor-first-sunday-grid-3',
+  'ntgoc-visitor-greeters-box-3',
+  'ntgoc-visitor-language-body-ink-2',
+  'ntgoc-visitor-language-body-ink-3',
+  'ntgoc-visitor-language-body-muted-2',
+  'ntgoc-visitor-language-body-muted-3',
+  'ntgoc-visitor-language-body-muted-4',
+  'ntgoc-visitor-language-box-3',
+  'ntgoc-visitor-videos-box-3',
+  'ntgoc-visitor-what-to-text-4',
+]);
+
 {
   const css = read('assets/css/components.css');
   const declared = new Set([...css.matchAll(/^\.(ntgoc-[\w-]+)/gm)].map(m => m[1]));
@@ -258,6 +320,9 @@ const CLASS_GRAMMAR =
     if (!CLASS_GRAMMAR.test(cls)) {
       err('class-grammar', 'assets/css/components.css',
         `"${cls}" does not match ntgoc-<block>[__<element>][--<modifier>]`);
+    } else if (NUMERIC_SUFFIX.test(cls) && !GRANDFATHERED_NUMERIC_SUFFIX.has(cls)) {
+      err('class-grammar', 'assets/css/components.css',
+        `"${cls}" ends in a bare numeric suffix — spell out what it means instead of numbering it`);
     }
     // Abbreviated area prefixes read as noise next to the spelled-out ones.
     if (/^ntgoc-(pl|nav|hdr|ftr|btn-|img)-/.test(cls) && !/^ntgoc-(nav|btn)-/.test(cls)) {
@@ -393,7 +458,12 @@ for (const rel of PAGES) {
  * 8. Unverified parish facts must stay flagged
  * ------------------------------------------------------------------ */
 {
-  const todos = PAGES.reduce((n, rel) => n + (read(rel).match(/TODO: verify/g) || []).length, 0);
+  // Match the literal marker opening, not the phrase "TODO: verify" anywhere —
+  // a handful of comments explain the convention in prose ("carries a TODO:
+  // verify marker") without actually placing one, and those must not count.
+  const todoCounts = PAGES.map(rel => (read(rel).match(/<!-- TODO: verify/g) || []).length);
+  const todos = todoCounts.reduce((a, b) => a + b, 0);
+  const todoPages = todoCounts.filter(n => n > 0).length;
   if (todos === 0) {
     warn('todo-flags', '(all pages)',
       'no TODO: verify markers left. If facts were confirmed, record them in data/parish-facts.json; ' +
@@ -414,7 +484,7 @@ for (const rel of PAGES) {
       err('facts-invalid', 'data/parish-facts.json', `is not valid JSON: ${String(e.message).slice(0, 80)}`);
     }
   }
-  console.log(`  ${todos} TODO: verify marker(s) across ${PAGES.length} pages — see IMPORT.md\n`);
+  console.log(`  ${todos} TODO: verify marker(s) across ${todoPages} pages — see IMPORT.md\n`);
 }
 
 /* ------------------------------------------------------------------ *
