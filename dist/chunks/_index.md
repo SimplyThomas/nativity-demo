@@ -19,7 +19,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocCalendarGrid` | 10089 b | 1 page | — |
 | ☐ | `ntgocCalendarHero` | 946 b | 1 page | — |
 | ☐ | `ntgocCommitteesHero` | 549 b | 1 page | — |
-| ☐ | `ntgocCommitteesList` | 3932 b | 1 page | yes (1) |
+| ☐ | `ntgocCommitteesList` | 3948 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 3024 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 517 b | 1 page | — |
 | ☐ | `ntgocDraftBanner` | 488 b | 19 pages | — |
@@ -51,7 +51,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeHero` | 1189 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1739 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeUpcomingServices` | 3721 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeUpcomingServices` | 5033 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3203 b | 1 page | — |
 | ☐ | `ntgocMinistriesHero` | 597 b | 1 page | — |
@@ -70,13 +70,13 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishLifeHero` | 905 b | 1 page | — |
 | ☐ | `ntgocParishLifeNext` | 991 b | 1 page | yes (2) |
 | ☐ | `ntgocParishLifeService` | 978 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeUpcoming` | 3971 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeUpcoming` | 3972 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeWorship` | 1347 b | 1 page | — |
 | ☐ | `ntgocParishOrthodoxResources` | 3138 b | 1 page | yes (2) |
 | ☐ | `ntgocParishResources` | 3984 b | 1 page | yes (10) |
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1861 b | 1 page | yes (1) |
-| ☐ | `ntgocParishWeek` | 3822 b | 1 page | yes (1) |
+| ☐ | `ntgocParishWeek` | 3824 b | 1 page | yes (1) |
 | ☐ | `ntgocSiteFooter` | 3806 b | 19 pages | yes (17) |
 | ☐ | `ntgocSiteHeader` | 5865 b | 19 pages | yes (34) |
 | ☐ | `ntgocTopBar` | 208 b | 19 pages | — |

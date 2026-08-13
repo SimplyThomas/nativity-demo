@@ -36,8 +36,8 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      # The header, top bar, footer and draft banner are duplicated on all 12
-      # pages. Editing 11 of them is silent until a volunteer pastes the odd
+      # The header, top bar, footer and draft banner are duplicated on all 19
+      # pages. Editing 18 of them is silent until a volunteer pastes the odd
       # one out into the parish CMS.
       - name: Shared shell is identical on every page
         run: npm run shell -- --check
@@ -71,7 +71,7 @@ jobs:
       - name: Layout and colour unchanged
         run: npm run snap
 
-      - name: axe-core — 15 pages x 2 viewports
+      - name: axe-core — 19 pages x 2 viewports
         run: npm run audit:a11y
 
       - name: Reflow at 320px and focus indicators

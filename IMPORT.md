@@ -670,7 +670,7 @@ template.
 
 ## What still has to be verified
 
-Search the built HTML for `TODO: verify` — there are 34 markers, 12 of them on
+Search the built HTML for `TODO: verify` — there are 95 markers, 10 of them on
 the Visit page. They are HTML comments, so visitors never see them, but **none
 should survive to a live parish site.** Each is a claim we could not source.
 
@@ -981,7 +981,7 @@ so the next person knows those files are **generated from the pages** and must
 never be edited directly.
 
 ```sh
-npm run parish   # calendar + announcements JSON -> the BUILD blocks (three pages)
+npm run parish   # calendar + announcements JSON -> the BUILD blocks (four pages)
 npm run chunks   # the 19 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
