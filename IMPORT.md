@@ -897,7 +897,7 @@ so the next person knows those files are **generated from the pages** and must
 never be edited directly.
 
 ```sh
-npm run parish   # calendar + announcements JSON -> the BUILD blocks (three pages)
+npm run parish   # calendar + announcements JSON -> the BUILD blocks (four pages)
 npm run chunks   # the 17 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```

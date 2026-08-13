@@ -63,14 +63,15 @@ records the gotchas, several of which are unguessable.
 `npm run parish` renders `data/parish-calendar.json` and
 `data/parish-announcements.json` into the blocks marked
 `<!-- BUILD:name -->` … `<!-- /BUILD:name -->` on `calendar.html`,
-`parish-life.html` and `for-our-parish.html`. It touches nothing outside those
-markers, and it is not the retired renderer — it owns four blocks, not twelve
-files.
+`parish-life.html`, `for-our-parish.html` and `index.html`. It touches nothing
+outside those markers, and it is not the retired renderer — it owns five
+blocks, not twelve files.
 
 Edit the JSON, not the markup between the markers. The same list of services
-used to be hand-written into three pages, and the copies had drifted: 14 and 15
-August were dated to the wrong weekdays on Parish Life. That is what this exists
-to stop. It is deliberately **not** gated by CI: "upcoming" depends on today's
+used to be hand-written into four pages, and the copies had drifted: 14 and 15
+August were dated to the wrong weekdays on Parish Life, and index.html was
+leading with a date already two days in the past. That is what this exists to
+stop. It is deliberately **not** gated by CI: "upcoming" depends on today's
 date, so a CI check would fail every morning.
 
 `data/site.json` is the other half of the same idea, from the opposite

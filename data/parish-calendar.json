@@ -1,5 +1,5 @@
 {
-  "_README": "The parish calendar, once. Every place on this site that shows a service or a parish event is rendered from this file by `npm run parish` — the month grid on calendar.html, 'This week at Nativity' on for-our-parish.html, and 'The next few weeks' on parish-life.html. Before this file existed those three lists were hand-copied, and two of them had already drifted: parish-life.html showed the Sunday Liturgy at 9:00 a.m. (the parish confirmed 10:00) and gave 14 and 15 August the wrong weekday names. Edit the calendar HERE and nowhere else, then run `npm run parish`.",
+  "_README": "The parish calendar, once. Every place on this site that shows a service or a parish event is rendered from this file by `npm run parish` — the month grid on calendar.html, 'This week at Nativity' on for-our-parish.html, 'The next few weeks' on parish-life.html, and 'Upcoming services & events' on index.html. Before this file existed those four lists were hand-copied, and more than one had already drifted: parish-life.html showed the Sunday Liturgy at 9:00 a.m. (the parish confirmed 10:00) and gave 14 and 15 August the wrong weekday names, and index.html was leading with a date already two days in the past. Edit the calendar HERE and nowhere else, then run `npm run parish`.",
 
   "_fields": {
     "date": "REQUIRED. ISO YYYY-MM-DD. Read as a local date, never UTC.",
@@ -51,9 +51,9 @@
     { "date": "2026-08-30", "name": "Divine Liturgy", "time": "10:00 a.m.", "note": "Coffee hour in the parish hall afterwards.", "kind": "service" }
   ],
 
-  "_terminology": "The post-Liturgy fellowship is 'coffee hour'. data/site.json makes that canonical and `npm run lint` fails any page that calls it 'the Agape Meal', so do not reintroduce that wording here — it would be rendered into three pages at once.",
+  "_terminology": "The post-Liturgy fellowship is 'coffee hour'. data/site.json makes that canonical and `npm run lint` fails any page that calls it 'the Agape Meal', so do not reintroduce that wording here — it would be rendered into four pages at once.",
 
-  "_noParishEventsYet": "Every event above is a divine service, because a divine service is all the parish calendar currently records. All three renderings distinguish `kind: \"parish\"` — a meeting, a class, a parish meal, a ministry night: the month grid gives it a gold rule plus a spoken label, and the week lists name it in words. Nothing of that kind has been invented to demonstrate it. Add the real ones and they appear in all three places at once.",
+  "_noParishEventsYet": "Every event above is a divine service, because a divine service is all the parish calendar currently records. All four renderings distinguish `kind: \"parish\"` — a meeting, a class, a parish meal, a ministry night: the month grid gives it a gold rule plus a spoken label, and the week lists name it in words. Nothing of that kind has been invented to demonstrate it. Add the real ones and they appear in all four places at once.",
 
   "_provenance": {
     "monthGrid": "Transcribed from the August 2026 grid that was hand-written into calendar.html, with one correction: the Sunday cells said 'Divine Liturgy 9a'. The parish confirmed on 2026-08-08 that Sunday is Orthros at 9:00 and Divine Liturgy at 10:00 (data/parish-facts.json -> sundayServices), and calendar.html's own sidebar has said so since. The Sunday cells were the last place still showing the compressed single 9:00 service.",

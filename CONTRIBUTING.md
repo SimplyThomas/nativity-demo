@@ -21,7 +21,7 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 |---|---|
 | `*.html` (19 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
 | `data/site.json` | **Source of truth** for any fact stated on more than one page. Lint enforces it. |
-| `data/parish-calendar.json` | **Source of truth** for the calendar. Rendered into three pages by `npm run parish`. |
+| `data/parish-calendar.json` | **Source of truth** for the calendar. Rendered into four pages by `npm run parish`. |
 | `data/parish-announcements.json` | **Source of truth** for parish announcements. Same build. |
 | `assets/css/components.css` | **Source.** Ships to the parish CMS. |
 | `assets/css/provisional.css` | **Source.** Demo only — contains a reset, never import it. |
