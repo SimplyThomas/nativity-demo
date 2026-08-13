@@ -160,6 +160,7 @@ Expected clean state: lint passes, snapshot reports no layout or colour change,
 | What was the accessibility work? | `ACCESSIBILITY.md` |
 | What did the old renderer guarantee? | `tools/archive/README.md` |
 | How do I run a real EVO and test an import? | `tools/evo-sandbox/README.md` |
+| How do we confirm the parish's CMS version and chunk processor? | `EVO-CHECKS.md` |
 
 ## Tone
 
