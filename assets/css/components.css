@@ -216,8 +216,14 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 
 /* The marker is drawn rather than typed: a + that loses its upright stroke
-   when the row opens, so the state reads at a glance. */
-.ntgoc-accordion__summary::after {
+   when the row opens, so the state reads at a glance. Shared byte-for-byte
+   with the Welcome page's question groups (.ntgoc-welcome-group__summary) —
+   grouped here rather than duplicated under both names. The two components
+   keep separate border colour, summary padding and title size, which do
+   genuinely differ, so only the marker and the hover title colour are
+   shared. */
+.ntgoc-accordion__summary::after,
+.ntgoc-welcome-group__summary::after {
   content: "";
   flex: 0 0 auto;
   width: 16px;
@@ -226,10 +232,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
     linear-gradient(#7d2b2b, #7d2b2b) center/16px 1px no-repeat,
     linear-gradient(#7d2b2b, #7d2b2b) center/1px 16px no-repeat;
 }
-.ntgoc-accordion[open] .ntgoc-accordion__summary::after {
+.ntgoc-accordion[open] .ntgoc-accordion__summary::after,
+.ntgoc-welcome-group[open] .ntgoc-welcome-group__summary::after {
   background: linear-gradient(#7d2b2b, #7d2b2b) center/16px 1px no-repeat;
 }
-.ntgoc-accordion__summary:hover .ntgoc-accordion__title { color: #7d2b2b; }
+.ntgoc-accordion__summary:hover .ntgoc-accordion__title,
+.ntgoc-welcome-group__summary:hover .ntgoc-welcome-group__title,
+.ntgoc-question__summary:hover .ntgoc-question__title { color: #7d2b2b; }
 
 .ntgoc-accordion__body { padding: 6px 0 52px; }
 
@@ -1195,21 +1204,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   color: #3a1414;
 }
 .ntgoc-welcome-group__topics { font-size: 13.5px; line-height: 1.6; color: #6c6458; margin: 7px 0 0; text-wrap: pretty; }
-.ntgoc-welcome-group__summary:hover .ntgoc-welcome-group__title { color: #7d2b2b; }
-/* Same drawn marker as the Visit page accordion: a + that loses its upright
-   stroke when the row opens. */
-.ntgoc-welcome-group__summary::after {
-  content: "";
-  flex: 0 0 auto;
-  width: 16px;
-  height: 16px;
-  background:
-    linear-gradient(#7d2b2b, #7d2b2b) center/16px 1px no-repeat,
-    linear-gradient(#7d2b2b, #7d2b2b) center/1px 16px no-repeat;
-}
-.ntgoc-welcome-group[open] .ntgoc-welcome-group__summary::after {
-  background: linear-gradient(#7d2b2b, #7d2b2b) center/16px 1px no-repeat;
-}
+/* The drawn marker and the hover title colour are the same rule as the Visit
+   page accordion — see .ntgoc-accordion__summary::after above, which this
+   selector list is grouped into rather than duplicated. */
 .ntgoc-welcome-group[open] .ntgoc-questions { padding-bottom: 30px; }
 
 /* The question tiles. Plain <details>: no JavaScript, keyboard-operable, and
@@ -1245,7 +1242,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   color: #7d2b2b;
 }
 .ntgoc-question[open] .ntgoc-question__summary::after { content: "Close  −"; }
-.ntgoc-question__summary:hover .ntgoc-question__title { color: #7d2b2b; }
+/* Hover title colour grouped with .ntgoc-accordion__summary:hover above. */
 .ntgoc-question__body { padding: 0 22px 24px; }
 .ntgoc-question__body .ntgoc-body { margin-bottom: 14px; }
 .ntgoc-question__term { font-family: Newsreader, serif; font-size: 20px; color: #7d2b2b; margin-bottom: 12px; }
