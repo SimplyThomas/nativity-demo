@@ -136,14 +136,27 @@ And the four you can skip:
 | `goa-seal-16.png`, `goa-seal-32.png`, `goa-seal-apple-touch.png` | Favicons, for the demo only. The live template already serves these from `/assets/templates/common/icons/` — see the note below. |
 | `parish-nave-panorama.jpg` | Harvested but unused; kept as an alternative hero. |
 
-> **Provenance:** these were taken from the parish's own live site on 2026-08-08,
-> with three caveats recorded in `data/parish-facts.json`:
+> **Provenance:** all but one were taken from the parish's own live site on
+> 2026-08-08, with three caveats recorded in `data/parish-facts.json`:
 > `feast-transfiguration.jpg` comes from **onlinechapel.goarch.org** and is
 > Archdiocese-owned, not parish-owned — check reuse terms. `clergy-fr-john.jpg`
-> is a photograph of a named person; confirm Fr. John is content for it to be
-> used before it goes anywhere public. The two `goa-seal-*` files are the seal
-> of the **Greek Orthodox Archdiocese of America**, also not parish-owned —
-> confirm with DIM before this goes anywhere public.
+> no longer comes from the live site at all; see the note below. The two
+> `goa-seal-*` files are the seal of the **Greek Orthodox Archdiocese of
+> America**, also not parish-owned — confirm with DIM before this goes anywhere
+> public.
+
+> **`clergy-fr-john.jpg` is cropped, and the crop is the point.** Replaced on
+> 2026-08-13 with a personal photograph taken in the church on 2026-06-20 by the
+> volunteer maintaining this repo, who owns it. The camera original is a group
+> photograph of a baptism party — parents, godparents, a young boy and the
+> infant being baptised — and the version here is cropped down to Fr. John
+> alone. The original and the other frames from that day are deliberately **not**
+> in this repo and must not be added: `assets/img/` is served publicly whether or
+> not a page links to it, and two of the people in those frames are children.
+> Owning a photograph and having the agreement of the person in it are two
+> different things — the same distinction as `parish-nave-aisle.jpg` below.
+> **Fr. John has not yet agreed to appear in this particular photograph. Get that
+> before the draft is shown or imported.**
 
 > **`parish-nave-aisle.jpg` is cropped, and the crop is the point.** It came
 > later, from the church website, and the parish confirmed it owns it. The full

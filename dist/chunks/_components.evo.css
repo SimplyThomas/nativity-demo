@@ -629,7 +629,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-ministries-grid-small-caps { align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-ministries-grid-small-caps:hover, .ntgoc-ministries-grid-small-caps:focus-visible { background:#5e1f1f; }
 .ntgoc-section-shell { padding-top:84px; padding-bottom:90px; }
-.ntgoc-about-clergy-media { height:420px; background-image:url('/assets/templates/ntgoc/img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
+/* The photograph is 190x315 and the slot is 380x420, so `cover` scales it 2x and
+   crops 210px off the height. 52% is where that 210px window holds the whole
+   head with a little air above it. It also survives the mobile rule below, where
+   .ntgoc-tall goes full-width and the window narrows to about 148 source pixels
+   — barely more than the head itself. Re-measure this if the photograph
+   changes; the old 20% was framed for a different, wider picture. */
+.ntgoc-about-clergy-media { height:420px; background-image:url('/assets/templates/ntgoc/img/clergy-fr-john.jpg'); background-size:cover; background-position:center 52%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-about-clergy-box { margin-top:22px; }
 .ntgoc-about-clergy-lede { font-family:Newsreader, serif; font-size:24px; color:#3a1414; line-height:1.25; }
 .ntgoc-about-clergy-eyebrow { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-top:8px; }

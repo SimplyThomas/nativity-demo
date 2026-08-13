@@ -497,8 +497,9 @@
       "owner": "parish"
     },
     "clergy-fr-john.jpg": {
-      "from": "nativity.va.goarch.org/assets/images/Father's pic.jpg",
-      "owner": "parish — photograph of a named individual; confirm Fr. John is content for it to appear in the draft"
+      "from": "personal photograph supplied by the volunteer maintaining this repo, taken at a baptism in the church on 2026-06-20 (camera original 20260620_120606(0).jpeg, 1536x2048); replaced the parish-site portrait on 2026-08-13",
+      "owner": "photographer — confirmed on 2026-08-13 as his own photograph, not the parish's and not the live site's",
+      "note": "CROPPED BEFORE USE, and the crop is the point. The camera original is a group photograph of the baptism party: the parents, godparents, a young boy and the infant being baptised, with Fr. John standing behind them. The crop is the region x790..980, y497..812 of that original — the only window wide enough to be a portrait and still hold nobody but Fr. John. The man in glasses to his left begins at x=1000, which is why the right edge stops at 980. NEITHER the camera original NOR the other frames from that day are in this repo, and they must not be added: assets/img/ is served publicly by GitHub Pages whether or not a page references it, and two of the people in those frames are children. Owning a photograph is not the same as having the agreement of the person in it — the same distinction recorded against parish-nave-aisle.jpg. Fr. John's agreement to appear in THIS photograph is not yet recorded — get it before the draft is shown or imported."
     },
     "give-building-projects.png": {
       "from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png",
