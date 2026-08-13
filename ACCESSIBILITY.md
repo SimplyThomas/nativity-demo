@@ -202,7 +202,8 @@ hero string in a class of its own should add it there too.
 **Where they stand.** All twelve heroes are one component now: one scrim, the
 photograph at full strength, two heights, the text aligned to the bottom.
 Headlines are held to 3:1, being large text at both viewports; everything else
-to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
+to 4.5:1. Measured 13 August 2026 (after the Get Involved rename and the
+Traditions hero were added to `HERO_PAGES`), 74 strings, all passing:
 
 | Page | Viewport | Eyebrow (4.5) | Headline (3) | Lede (4.5) | Second lede (4.5) † |
 |---|---|---:|---:|---:|---:|
@@ -210,8 +211,8 @@ to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
 | Home | mobile | 5.71:1 | 9.83:1 | 9.38:1 | — |
 | Parish Life | desktop | 7.57:1 | 11.69:1 | 9.74:1 | 7.51:1 |
 | Parish Life | mobile | 7.13:1 | 10.26:1 | 8.97:1 | 7.85:1 |
-| Get Involved | desktop | 7.66:1 | 10.66:1 | 7.88:1 | — |
-| Get Involved | mobile | 7.44:1 | 9.83:1 | 8.45:1 | — |
+| Get Involved | desktop | 7.29:1 | 10.47:1 | 7.30:1 | — |
+| Get Involved | mobile | 7.56:1 | 11.91:1 | 7.12:1 | — |
 | Our Faith | desktop | 7.79:1 | 11.23:1 | — | — |
 | Our Faith | mobile | 7.76:1 | 10.37:1 | — | — |
 | Calendar | desktop | 7.77:1 | 12.23:1 | — | — |
@@ -230,6 +231,8 @@ to 4.5:1. Measured 10 August 2026, 68 strings, all passing:
 | For Our Parish | mobile | 6.57:1 | 10.67:1 | 8.66:1 | — |
 | Welcome | desktop | 7.76:1 | 11.14:1 | 9.84:1 | 7.57:1 |
 | Welcome | mobile | 6.75:1 | 9.99:1 | 9.71:1 | 7.27:1 |
+| Traditions | desktop | 7.66:1 | 11.42:1 | 9.45:1 | — |
+| Traditions | mobile | 7.25:1 | 10.68:1 | 10.03:1 | — |
 
 † Two different strings share that column, because only two pages carry a second
 line in the hero and a column each would leave twenty rows of dashes. On Parish
@@ -237,7 +240,7 @@ Life it is `.ntgoc-page-hero__lede--serif`; on Welcome it is the gold italic
 `.ntgoc-welcome-hero__lede`. Both are held to 4.5:1 and both are reported by
 `npm run measure:hero` under their own names, `lede--serif` and `welcome-lede`.
 
-The closest of the 68 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
+The closest of the 74 is the home eyebrow on mobile, at 5.71:1 against 4.5. The
 outlined hero buttons on Home, Plan a visit and Get Involved are not in the
 table because the tool does not track them — they are three buttons, and so six
 of the 74 nodes axe defers on. Measured the same way they are 11.39:1 at worst.
