@@ -6,6 +6,9 @@ axe-results.json
 # Another session's git worktrees live here; they are not part of the site.
 .claude/worktrees/
 
+# Local tool permissions — one person's machine, not a repo policy.
+.claude/settings.local.json
+
 # The implementation brief is Thomas's working document, not a repo artefact.
 nativity_website_claude_implementation_brief.md
 
