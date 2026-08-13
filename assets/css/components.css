@@ -588,7 +588,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-what-to-text-4 { margin:0 0 34px; }
 .ntgoc-visitor-what-to-eyebrow { cursor:pointer; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
 .ntgoc-visitor-children-card { border:1px solid #ccbda4; background:#f6f1e8; padding:30px 28px; max-width:62ch; margin:0 0 34px; }
-.ntgoc-council-bio { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px; }
+.ntgoc-person-bio { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px; }
 .ntgoc-visitor-greeters-figure { margin:0; }
 .ntgoc-visitor-greeters-box-3 { max-width:62ch; margin:0 0 46px; }
 .ntgoc-visitor-greeters-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px; }
@@ -701,11 +701,11 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-parish-council-box-3 { max-width:70ch; margin-bottom:50px; }
 .ntgoc-about-parish-council-display-ink { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.12; margin:0 0 20px; color:#3a1414; }
 .ntgoc-about-parish-council-body-loose { font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
-.ntgoc-about-parish-council-grid,
+.ntgoc-person-grid,
 .ntgoc-directory { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; border-top:1px solid #ded2be; border-left:1px solid #ded2be; }
-.ntgoc-council-card { background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
-.ntgoc-council-name { font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414; }
-.ntgoc-council-role { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
+.ntgoc-person-card { background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
+.ntgoc-person-name { font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414; }
+.ntgoc-person-role { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
 .ntgoc-about-parish-council-small { font-size:14px; }
 .ntgoc-newsletter-archive-text { font-size:12.5px; color:#6c6458; margin-top:16px; font-style:italic; }
 .ntgoc-about-parish-council-box { margin-top:76px; }
@@ -713,7 +713,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-parish-council-body-muted { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 40px; max-width:64ch; text-wrap:pretty; }
 .ntgoc-committee-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be; }
 .ntgoc-committee-name { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414; }
-.ntgoc-committee-leads { font-size:14px; color:#6c6458; }
+.ntgoc-leads-line { font-size:14px; color:#6c6458; }
 .ntgoc-committee-text { font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
 .ntgoc-give-projects-shell { padding-top:70px; padding-bottom:70px; }
 .ntgoc-newsletter-archive-heading { font-family:Newsreader, serif; font-weight:400; font-size:32px; margin:0 0 30px; color:#3a1414; }

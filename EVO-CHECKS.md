@@ -115,9 +115,12 @@ logged-in manager session can see the probe page.
 
 ## Appendix: what the two processors mean for a file-based import
 
-Verified in the sandbox on 13 August 2026 by repointing all 105 chunks to
+Verified in the sandbox on 13 August 2026 by repointing every chunk to
 files under each processor in turn; both configurations passed all 696
-rendering assertions, byte-identical to the database-hosted chunks.
+rendering assertions then current, byte-identical to the database-hosted
+chunks. `ntgocPhiloptochosBoard` was added later the same day: it has been
+through `npm run evo:verify` on both versions (698 assertions, 0 failed) but
+not through the file-based repointing above.
 
 |  | DocumentParser (default) | DLTemplate |
 |---|---|---|

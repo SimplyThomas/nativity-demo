@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 105 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 106 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -64,7 +64,7 @@ issue that owns the decision.
    npm run evo:up
    npm run evo:verify
    ```
-   Baseline (2026-08-11): 696 assertions, 19 pages, 105 chunks, passing on
+   Baseline (2026-08-13): 698 assertions, 19 pages, 106 chunks, passing on
    EVO 1.4.18 and 3.5.7.
 
 7. **Decide what replaces the draft fittings.** The draft banner, `noindex`
@@ -275,6 +275,32 @@ And the four you can skip:
 > whether or not a page links to it. "Draft only" describes the audience and the
 > intent, not who can reach the file.
 
+> **Twenty-one parishioners are named in this draft, and none of them has agreed
+> to it.** Added 2026-08-13 from the parish newsletter's organisation and officer
+> list, at the request of the volunteer maintaining this repo. Four places:
+> `ntgocAboutParishCouncil` (the nine Council members and their offices),
+> `ntgocPhiloptochosBoard` (the nine board members and theirs),
+> `ntgocMinistriesGrid` (four lead names — Sunday School, GOYA, Philoptochos,
+> Dance Troupe), and one sentence each in `ntgocGiveWays` and
+> `ntgocBookstoreNotes`.
+>
+> This is the same standing as the nativity-play photographs above: a decision,
+> not a permission, taken so the Parish Council has something real to review.
+> **Do not import these until the Council has approved publishing the roster.**
+> A newsletter goes to the parish; a website goes to everyone and is indexed and
+> archived. The live parish site's own ministries page carries no names at all,
+> which is at least consistent with that being deliberate — so do not treat "it
+> was in the newsletter" as settling it.
+>
+> Names and offices only. No personal email address, telephone number,
+> photograph or biography is published: every Council card shows
+> `office@ntgoc.org`, and both roster sections say in print that personal
+> addresses are not published and mail should go through the office. Every name
+> carries a `TODO: verify` marker, which here means two things at once — the
+> roster is unverified against any source this project can check, *and* nobody
+> has consented. The full reasoning, and what to do if one person objects, is in
+> `data/parish-facts.json` under `facts._rosterPermission`.
+
 > **`parish-baptism.jpg` has two children in it, and its permission is
 > recorded.** A family with their newly baptised infant, a young boy in front,
 > and the priest — a personal photograph from the volunteer maintaining this
@@ -283,11 +309,11 @@ And the four you can skip:
 > from those pictured, and *separate* permission for any photograph that
 > prominently features a child. Both children are the photographer's own and he
 > gives that separate permission as their parent; the other adults in the frame
-> have agreed. Recorded 2026-08-13 in `data/parish-facts.json`. No names appear
-> anywhere in this repository, which is a separate decision and stands: the repo
-> is public, and a name in a data file is published whether or not a page shows
-> it. **This is the only photograph here whose permission is on the record. The
-> others are not** — see the provenance note above.
+> have agreed. Recorded 2026-08-13 in `data/parish-facts.json`. Nobody in it is
+> identified by name, and no photograph in this repo identifies anyone — that is
+> a separate decision from the rosters below, and it stands. **This is the only
+> photograph here whose permission is on the record. The others are not** — see
+> the provenance note above.
 
 > **`parish-nave-aisle.jpg` is cropped, and the crop is the point.** It came
 > later, from the church website, and the parish confirmed it owns it. The full
@@ -379,7 +405,7 @@ Then the page content, grouped by page:
 | **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Living the Traditions** | `ntgocTraditionsHero`, `ntgocTraditionsIdea`, `ntgocTraditionsIntro`, `ntgocTraditionsClasses`, `ntgocTraditionsTeach`, `ntgocTraditionsSuggest`, `ntgocTraditionsPassingOn`, `ntgocTraditionsGuidance`, `ntgocTraditionsClosing` — *sits under Events in the menu; three forms live here, see Step 6a and the note below* |
-| **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
+| **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid`, `ntgocPhiloptochosBoard` — *`ntgocPhiloptochosBoard` names nine parishioners; see the note below before importing it* |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil` |
 | **The Light (newsletter)** | `ntgocNewsletterHero`, `ntgocNewsletterArchive` |
