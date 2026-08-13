@@ -670,7 +670,7 @@ template.
 
 ## What still has to be verified
 
-Search the built HTML for `TODO: verify` — there are 34 markers, 12 of them on
+Search the built HTML for `TODO: verify` — there are 95 markers, 10 of them on
 the Visit page. They are HTML comments, so visitors never see them, but **none
 should survive to a live parish site.** Each is a claim we could not source.
 

@@ -67,14 +67,14 @@ npm run audit:a11y     # axe-core, WCAG 2.1 AA, 19 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)
-npm run measure:hero   # contrast of the eleven photograph heroes (not in CI)
+npm run measure:hero   # contrast of the thirteen photograph heroes (not in CI)
 ```
 
 `measure:hero` is the only check that can see text sitting on a photograph — axe
 declines to judge it. It measures the selectors it is given, so **if you add a
 hero line in a class of its own, add that class to `STRINGS` in
 `tools/measure-hero-contrast.mjs`.** A hero string no selector names is a string
-nothing checks. `ACCESSIBILITY.md` records where all 62 of them stand.
+nothing checks. `ACCESSIBILITY.md` records where all 74 of them stand.
 
 ### `npm run snap` — the one that sees layout
 
@@ -104,7 +104,7 @@ baseline in the same commit as the change that caused it.
 
 ### About the TODO markers
 
-There are 63 `<!-- TODO: verify -->` comments in the pages. They are
+There are 95 `<!-- TODO: verify -->` comments in the pages. They are
 invisible to visitors and they are **the point of this project** — each one
 marks a claim nobody has confirmed. Do not delete one unless you have actually
 verified the fact; when you do, record the source in `data/parish-facts.json`.
@@ -121,7 +121,7 @@ Those four blocks (`ntgocDraftBanner`, `ntgocTopBar`, `ntgocSiteHeader`,
 all the HTML here. Edit them **once, in one page**, then propagate:
 
 ```sh
-npm run shell                      # from index.html to the other seventeen
+npm run shell                      # from index.html to the other eighteen
 npm run shell -- --from visit.html # if you edited the shell there instead
 npm run shell -- --check           # report drift, change nothing (CI runs this)
 ```

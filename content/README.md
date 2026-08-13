@@ -1,49 +1,35 @@
-# content/ — parish-authored sections (REFERENCE)
+# content/ — parish-authored sections (REFERENCE ONLY, stale)
 
-> **No longer spliced in at build time.** These sections are now part of
-> `visit.html` directly, like the rest of the page. This folder is kept as the
-> clean, un-marked-up record of the parish's own copy. See `CONTRIBUTING.md`.
+> **No longer spliced in at build time, and no longer an input at all.** This
+> copy was folded into `visit.html` directly by hand on 8 August 2026, the same
+> day the Claude Design renderer was retired (see `/CLAUDE.md`, "Read this
+> first — the history lies"). `visit.html` is the source now. Nothing reads
+> this folder. Editing it does nothing. If it drifts from `visit.html`, delete
+> it rather than "fix" it — a future contributor could otherwise mistake this
+> for a live input, which is exactly the trap `design-src/` also sets.
 
-Everything else on this site is generated from `design-src/Nativity Website.dc.html`.
-This folder is the exception: it holds copy written **by the parish**, for pages
-the Claude Design source does not cover.
-
-| File | Injected into |
+| File | Was injected into (no longer happens) |
 |---|---|
 | `visit-sections.html` | `visit.html`, between the Sunday-morning timeline and the directions block |
 
-## Why it is not in `design-src/`
+## What this used to be
 
-`design-src/` is the record of what Claude Design produced, and it is overwritten
-verbatim on every re-import (see `design-src/README.md`). Copy written here would
-be silently destroyed the first time somebody re-syncs the design. Keeping it in
-`content/` means a re-import changes the design-derived sections and leaves these
-alone.
+`design-src/` held what Claude Design produced, overwritten on every re-import;
+this folder held copy written **by the parish** for sections the design source
+never covered, so a re-import wouldn't silently destroy it. The now-archived
+`tools/archive/render.mjs` read this file, filled `<!-- SLOT:... -->`
+placeholders from `VISIT_GREETERS` and `VISIT_VIDEOS`, and spliced the result
+into the Visit page at build time.
 
-## How it gets onto the page
+**Do not follow the old instruction to write inline `style=""` attributes
+here.** That told the renderer what to lift into a hashed `.ntgoc-*` class.
+There is no renderer, no lifting, and no hashed classes left (see
+`CONTRIBUTING.md`, "Naming CSS classes"); a page with an inline `style=""`
+fails `npm run lint` (rule 5) and fails CI. If the Visit page needs a change,
+edit `visit.html` directly with an existing `.ntgoc-*` class, or add one to
+`assets/css/components.css` following the naming convention.
 
-The archived renderer read this file, filled its `<!-- SLOT:... -->` placeholders from
-the `VISIT_GREETERS` and `VISIT_VIDEOS` tables in that script, and splices the
-result into the Visit page's `<main>` after the second top-level block. Each
-`<section>` then becomes its own EVO chunk, exactly like the design-derived ones.
-
-Write it the way the design writes markup: **inline `style=""` attributes**, reusing
-style strings that already appear in the design where you can. The renderer lifts
-every inline style into a hashed `.ntgoc-*` class, so an identical style string
-costs nothing — it reuses the class the design already generated.
-
-Two rules carried over from the rest of the project:
-
-1. **No unsourced claim goes in unflagged.** Anything that needs Father, the office,
-   or a parishioner's permission gets `<!-- TODO: verify -->` next to it, and a line
-   in `IMPORT.md` under "What still has to be verified".
-2. **No EVO reserved sequences**: `[[ ]]`, `[! !]`, `{{ }}`, `[* *]`, `[( )]`,
-   `[~ ~]`, `[+ +]`. `tools/extract-chunks.mjs` refuses to write a chunk containing
-   one. This is why placeholders here read `Photo to come` rather than `[PHOTO]`.
-
-Rebuild after editing:
-
-```sh
-npm run chunks
-node tools/extract-chunks.mjs
-```
+The two rules that do still hold anywhere on the site — no unsourced claim
+goes in unflagged, no EVO reserved sequences (`[[ ]]`, `[! !]`, `{{ }}`,
+`[* *]`, `[( )]`, `[~ ~]`, `[+ +]`) — are documented once, in `CLAUDE.md` and
+`CONTRIBUTING.md`. This folder does not need its own copy of them.

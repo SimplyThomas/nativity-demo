@@ -56,17 +56,19 @@ break and why, all of which CI enforces on every push.
 
 ## Design decisions worth knowing
 
-- **Nothing requires JavaScript.** The design ships as a React single-page app;
-  the renderer resolves it all at build time. One small script adds bookstore
-  category filtering as pure enhancement. Everything is readable with JS off —
+- **Nothing requires JavaScript.** One small script adds bookstore category
+  filtering as pure enhancement. Everything else is readable with JS off —
   that is the version that survives the move into Evolution CMS.
-- **No CSS reset ships.** The design's global reset is quarantined in
+- **No CSS reset ships.** The original design's global reset is quarantined in
   `provisional.css`, which is never referenced by any chunk.
 - **Every class is prefixed `ntgoc-`,** so nothing collides with the Bootstrap
   4.1.3 template the live site runs on.
-- **Class names are content-hashed and stable,** so re-importing from Claude
-  Design produces a readable diff rather than renaming all 359 classes.
-- **No unsourced parish fact goes unflagged.** 34 `<!-- TODO: verify -->` markers
+- **Class names are hand-written, not content-hashed.** The `.ntgoc-s503e21`-style
+  hashes left over from the retired Claude Design import are gone — none remain
+  of the 636 classes in `components.css`, each named
+  `ntgoc-<block>[__<element>][--<modifier>]`. `npm run rename` renames one
+  everywhere — see "Naming CSS classes" in `CONTRIBUTING.md`.
+- **No unsourced parish fact goes unflagged.** 95 `<!-- TODO: verify -->` markers
   remain. See "What still has to be verified" in `IMPORT.md`.
 - **Nobody's face or name goes up without asking.** The Visit page's "Faces You
   Might See" row ships as empty frames; the Parish Council block ships without
