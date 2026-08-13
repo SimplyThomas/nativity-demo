@@ -19,20 +19,6 @@
      - Image URLs are ../img/... — relative to THIS file, not the page.
    ============================================================ */
 
-/* --- design tokens ------------------------------------------------ */
-:root {
-  --ntgoc-parchment: #f6f1e8;
-  --ntgoc-oxblood: #3a1414;
-  --ntgoc-brick: #7d2b2b;
-  --ntgoc-brick-dark: #5e1f1f;
-  --ntgoc-gold: #b08442;
-  --ntgoc-gold-light: #e6b96a;
-  --ntgoc-ink: #22201d;
-  --ntgoc-muted: #5b5449;
-  --ntgoc-rule: #ded2be;
-  --ntgoc-rule-strong: #ccbda4;
-}
-
 /* --- skip link ----------------------------------------------------- */
 .ntgoc-skip-link {
   position: absolute;
