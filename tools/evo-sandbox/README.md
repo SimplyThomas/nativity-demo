@@ -67,11 +67,14 @@ For every seeded page, on each running version:
    in the rendered page.
 4. No `href="#"` placeholder left unresolved.
 
-On 9 August 2026, after the mobile layout landed, that was 552 assertions across
-16 pages and 72 chunks, all passing on both 1.4.18 and 3.5.7 — including the
-drawer, whose `<details>` markup survives both parsers untouched. An instance
-that is not running is reported as skipped rather than failed, so stopping
-`evo35` once the parish's version is settled does not turn the check red.
+Run `npm run evo:verify` for the current count — it was passing, on both 1.4.18
+and 3.5.7, the last time this was checked, including the drawer, whose
+`<details>` markup survives both parsers untouched. A number recorded here
+would only rot, same as the "What is already in there" counts above: the
+seeder and the verifier both read whatever is currently in the repo. An
+instance that is not running is reported as skipped rather than failed, so
+stopping `evo35` once the parish's version is settled does not turn the check
+red.
 
 ## What it does not prove, and what you should do by hand
 

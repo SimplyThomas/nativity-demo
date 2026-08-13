@@ -90,7 +90,7 @@ something that should not be published.
    markup. This is unguessable and the most damaging rule to break.
 2. **Never invent a parish fact.** No service times, clergy names, phone numbers,
    capacities or dates unless sourced. Unsourced claims get
-   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. 63 markers
+   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. 95 markers
    exist; they are the point of the project, not clutter.
 3. **Never publish a parishioner's name or face without recorded permission.**
    The Parish Council block ships with placeholders and the greeter row ships as
