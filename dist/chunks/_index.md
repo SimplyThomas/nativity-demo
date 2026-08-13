@@ -33,7 +33,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFestivalHero` | 704 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedAgape` | 8952 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedAsk` | 1581 b | 1 page | yes (2) |
-| ☐ | `ntgocGetInvolvedCare` | 7484 b | 1 page | yes (1) |
+| ☐ | `ntgocGetInvolvedCare` | 7485 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedClosing` | 1364 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedCoffee` | 4018 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedHero` | 1743 b | 1 page | — |
@@ -103,7 +103,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocVisitorWhatToBring` | 1921 b | 1 page | — |
 | ☐ | `ntgocVisitorWhatToWear` | 1999 b | 1 page | — |
 | ☐ | `ntgocVisitorWhenYouArrive` | 2392 b | 1 page | — |
-| ☐ | `ntgocWelcomeAsk` | 4119 b | 1 page | — |
+| ☐ | `ntgocWelcomeAsk` | 4120 b | 1 page | — |
 | ☐ | `ntgocWelcomeClosing` | 833 b | 1 page | yes (2) |
 | ☐ | `ntgocWelcomeConnected` | 4278 b | 1 page | yes (4) |
 | ☐ | `ntgocWelcomeExperience` | 24977 b | 1 page | yes (6) |
