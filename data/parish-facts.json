@@ -228,7 +228,7 @@
     },
     "stewardshipPledgeForm": {
       "status": "DOES_NOT_EXIST_YET",
-      "note": "There is no online stewardship commitment form. give.html has carried a dead '2026 stewardship pledge' link (href=\"#\") since the design import, and For Our Parish shows a placeholder rather than repeating that dead link. Giving online (Square) is a separate thing and does work."
+      "note": "There is no online stewardship commitment form. give.html carried a dead '2026 stewardship pledge' link (href=\"#\") from the design import until it was replaced by a sentence noting the destination is unconfirmed (see stewardshipDestination), and For Our Parish shows a placeholder rather than repeating that dead link. Giving online (Square) is a separate thing and does work."
     },
     "volunteerNeeds": {
       "status": "DOES_NOT_EXIST_YET",
