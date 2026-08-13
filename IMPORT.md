@@ -18,6 +18,70 @@ Evolution CMS manager. No command line needed. Everything you paste is in
 
 ---
 
+## 0. The week of the import
+
+Things in this repo go stale on their own schedule — a date renders as
+"upcoming" only until it isn't. Run this checklist in the days immediately
+before import, top to bottom. Every step is a command to run or a link to the
+issue that owns the decision.
+
+1. **Refresh the calendar and announcements.**
+   ```sh
+   npm run parish
+   ```
+   Commit the result. Run it a second time — it must print
+   `✓ every generated block is already current`. If it doesn't, something
+   touched `data/parish-calendar.json` or `data/parish-announcements.json`
+   after the first run.
+
+2. **Remove the sample announcements.** Delete the two `"sample": true`
+   entries in `data/parish-announcements.json` (they render labelled
+   "· sample" on `for-our-parish.html`), then re-run `npm run parish`. A real
+   first announcement is the parish's to write — going live with none is
+   fine, going live with samples is not.
+
+3. **Confirm the calendar data reaches past the import date.**
+   `data/parish-calendar.json` currently ends **30 August 2026** — see
+   [#24](https://github.com/SimplyThomas/nativity-demo/issues/24). Extend it,
+   or accept that "This week at Nativity" and "The next few weeks" render
+   their empty state from that date on.
+
+4. **Regenerate the chunks and confirm they're current.**
+   ```sh
+   npm run chunks
+   git diff --exit-code -- dist/chunks
+   ```
+   A non-empty diff means a page changed after the last extraction.
+
+5. **Run the full check, green.**
+   ```sh
+   npm run check
+   npm run measure:hero
+   ```
+
+6. **Verify inside a real Evolution CMS.**
+   ```sh
+   npm run evo:up
+   npm run evo:verify
+   ```
+   Baseline (2026-08-11): 696 assertions, 19 pages, 105 chunks, passing on
+   EVO 1.4.18 and 3.5.7.
+
+7. **Decide what replaces the draft fittings.** The draft banner, `noindex`
+   and no Open Graph tags are non-negotiable *for this repo* (rule 4 in
+   `CLAUDE.md`). What the production site carries instead is a human call, not
+   a volunteer's to improvise on import day — see
+   [#27](https://github.com/SimplyThomas/nativity-demo/issues/27), item 6.
+
+Two more open items worth a look the same week, tracked separately because
+they need a person's answer, not a command:
+[#25](https://github.com/SimplyThomas/nativity-demo/issues/25) (26 parish
+facts awaiting verification) and
+[#26](https://github.com/SimplyThomas/nativity-demo/issues/26) (the
+`.ntgoc-page` body-class import contract).
+
+---
+
 ## 1. What Evolution CMS is, in four words
 
 > **Version:** reported as **EVO 1.4.x**, but *not confirmed* — check the manager
@@ -94,7 +158,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the thirteen files listed below from this repo's `assets/img/` folder.
+4. Upload the fourteen files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -111,9 +175,9 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    ```
 
    Change that line, re-run the extraction, and every chunk and the stylesheet
-   are corrected together. Do **not** hand-edit paths in 59 files.
+   are corrected together. Do **not** hand-edit paths in 107 files.
 
-The thirteen images to upload:
+The fourteen images to upload:
 
 | File | Used on |
 |---|---|
@@ -123,6 +187,7 @@ The thirteen images to upload:
 | `faith-ascension.jpg`, `faith-holy-sites.jpg`, `faith-elders.jpg` | Our Faith — further reading |
 | `feast-transfiguration.jpg` | Home — upcoming services |
 | `festival-banquet.png` | Home, Greek Festival |
+| `festival-logo.png` | Home, Greek Festival — the carousel's emblem panel (a CSS `background-image` in the stylesheet, not an `<img>` tag on the page) |
 | `give-building-projects.png` | Giving — building projects |
 | `directions-map.jpg` | Visit, Contact — the parish's own directions map |
 | `goa-seal.png` | Site header, every page |
@@ -226,14 +291,15 @@ Then the page content, grouped by page:
 
 | Page | Chunks, in order |
 |---|---|
-| **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo` |
-| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorEssentials`, `ntgocVisitorFirstSunday`, `ntgocVisitorLanguage`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorChildren`, `ntgocVisitorSundaySchool`, `ntgocVisitorGreeters`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorVideos`, `ntgocVisitorDirections` |
+| **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo`, `ntgocHomeForOurParish` |
+| **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorEssentials`, `ntgocVisitorWelcome`, `ntgocVisitorStageBefore`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorLanguage`, `ntgocVisitorVideos`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorGreeters`, `ntgocVisitorFirstSunday`, `ntgocVisitorChildren`, `ntgocVisitorNextSteps`, `ntgocVisitorDirections` — *`ntgocVisitorNextSteps` carries four internal links and a form, see Step 5 and Step 6a* |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
-| **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming` — *read the note below before importing any of these* |
+| **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming`, `ntgocParishLifeNext` — *read the note below before importing any of these* |
 | **Get Involved** | `ntgocGetInvolvedHero`, `ntgocGetInvolvedPathways`, `ntgocGetInvolvedCoffee`, `ntgocGetInvolvedAgape`, `ntgocGetInvolvedCare`, `ntgocGetInvolvedServe`, `ntgocGetInvolvedPrepare`, `ntgocGetInvolvedOffering`, `ntgocGetInvolvedProsphora`, `ntgocGetInvolvedLearn`, `ntgocGetInvolvedAsk`, `ntgocGetInvolvedClosing` — *sits under Parish Life in the menu; ten external destinations and one form are still unconfigured, and `ntgocGetInvolvedAgape` carries a theological constraint — see below* |
 | **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
+| **Living the Traditions** | `ntgocTraditionsHero`, `ntgocTraditionsIdea`, `ntgocTraditionsIntro`, `ntgocTraditionsClasses`, `ntgocTraditionsTeach`, `ntgocTraditionsSuggest`, `ntgocTraditionsPassingOn`, `ntgocTraditionsGuidance`, `ntgocTraditionsClosing` — *sits under Events in the menu; three forms live here, see Step 6a and the note below* |
 | **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil` |
@@ -335,7 +401,7 @@ Then the page content, grouped by page:
 > entries in the Events menu and on the Events page both go to fredgreek.org,
 > not to `festival.html`. On 8 August 2026 the
 > parish asked that every "Greek Festival" link go to the festival's own site,
-> <https://www.fredgreek.org/> — so all 29 of them do: the top bar and the
+> <https://www.fredgreek.org/> — so all 61 of them do: the top bar and the
 > footer on every page, the "Festival details" button on the home page, and the
 > "The Greek Festival →" button on the Parish Life page.
 > `festival.html` still exists and its two chunks are still extracted, but a
@@ -394,33 +460,39 @@ Then the page content, grouped by page:
 > August 2026 grid on the Calendar page. Either keep the two in step or drop the
 > chunk and leave the "View full parish calendar" link that sits above it.
 
-> **The eight middle Visit chunks are parish copy, not design copy.**
-> `…Language`, `…WhatToWear`, `…WhatToBring`, `…Children`, `…SundaySchool`,
-> `…Greeters`, `…WhenYouArrive` and `…Videos` were written by the parish rather
-> than imported from Claude Design; they live in `content/visit-sections.html`.
-> They import exactly like the others, but they carry the most unverified
+> **Seven of the Visit chunks are parish copy, not design copy.**
+> `…WhatToWear`, `…WhatToBring`, `…Language`, `…Videos`, `…WhenYouArrive`,
+> `…Greeters` and `…Children` were written by the parish rather than imported
+> from Claude Design; they live in `content/visit-sections.html`. Its "What
+> Happens After Communion?" section, about Sunday School, is now folded into
+> `…Children` on the page — there is no separate Sunday School chunk. They
+> import exactly like the others, but they carry the most unverified
 > statements on the site — see below — and `ntgocVisitorGreeters` must not be
 > imported at all until real photographs and permissions exist.
 >
-> Import them **in the order listed above**. They read as a sequence — dress,
-> language, children, Sunday School, the greeters, arriving.
+> Import them **in the page order given in the table above**. They read as a
+> sequence — what to wear, what to bring, the language of the service, the
+> videos, arriving, the greeters, then children.
 >
 > **`ntgocVisitorFirstSunday` is now a collapsed row too**, titled "Sunday
 > Morning, Step by Step". The times a visitor needs are in
 > `ntgocVisitorEssentials` above it, which is why collapsing the schedule does
 > not hide anything essential — import the two together or neither.
 >
-> **Each of the eight is a collapsed accordion row.** The markup is a plain
+> **Four of the seven — `…WhatToWear`, `…WhatToBring`, `…Language` and
+> `…Videos` — are collapsed accordion rows.** The markup is a plain
 > `<details>` / `<summary>` — no JavaScript, so it keeps working in EVO exactly
 > as it does here. Keep the `<summary>` as the first child of the `<details>`
 > when editing; that is what makes the browser announce the row as expandable.
 > Two of them, the Creed and the Lord's Prayer, are disclosures *inside* the
-> Language row, which is legal and intended.
+> Language row, which is legal and intended. `…WhenYouArrive`, `…Greeters` and
+> `…Children` are plain sections, not accordions — nothing in them is
+> collapsed.
 >
 > **A consequence worth knowing before import:** text inside a closed row is
 > not reached by the browser's find-on-page in Firefox or Safari, and the
 > automated accessibility audit cannot see it either — the four YouTube embeds
-> now sit behind a closed row and no longer appear in the axe report.
+> in `…Videos` sit behind a closed row and no longer appear in the axe report.
 
 > **`ntgocVisitorFaqAndDirections` no longer exists.** It has been split: the
 > FAQ card was removed and the block is now `ntgocVisitorDirections`. **If you
@@ -461,13 +533,58 @@ through the markup. External links (the
 Archdiocese, Square giving, the Google registration form, fredgreek.org) are real
 URLs already and need no change.
 
+### Step 6 — The JavaScript (optional)
+
+One file: `assets/js/ntgoc-enhance.js`. It does six things — filters the
+bookstore catalogue by category, opens and closes the phone navigation drawer,
+advances the home page's festival cards on their own, drops days and notices
+that have already passed on For Our Parish, handles the three Welcome forms,
+the three Living the Traditions forms and the meal support request on Get
+Involved, and opens the accordion or details row a link points at when a
+visitor follows it to an anchor.
+
+**It is optional.** With JavaScript off, every bookstore item is already visible
+and the category buttons simply do nothing; the drawer — a native `<details>` —
+still opens and closes; the festival carousel keeps working too, because its
+dots are ordinary links to each card and the strip scrolls by trackpad, drag or
+arrow key. All the script adds there is the automatic advance, the filled dot
+showing which card you are on, and the Pause button — which stays hidden
+without it, since there would be nothing to pause. For Our Parish shows exactly
+what it showed when it was last built, which the page states in words. The
+Welcome forms stay complete and labelled; the panel asking for contact details
+is simply visible from the start rather than appearing when it becomes
+relevant. A link to a collapsed row still lands on the row; it just opens
+already expanded instead of closed. Nothing on the site *needs* JavaScript. If
+in doubt, skip it.
+
+Note that the Welcome form script deliberately **does not send anything** — it
+intercepts the submit and shows the reply a visitor would get. Once a real
+handler exists (Step 6a), that interception is the part to remove.
+
+If you do take it, the autoplay is built to the accessibility rule that matters
+here (WCAG 2.2.2): it stops on hover, on keyboard focus, while the tab is in the
+background, and for good on a click of Pause — and it never starts at all for a
+visitor whose system asks for reduced motion.
+
+If you want it: upload to `/assets/templates/ntgoc/js/ntgoc-enhance.js` and add
+before `</body>` in the template:
+
+```html
+<script src="/assets/templates/ntgoc/js/ntgoc-enhance.js" defer></script>
+```
+
 ### Step 6a — Wire up the forms (needed)
 
-There are **eight** forms in these chunks and **none of them has a backend**. Each
-one says so on the page and offers a route that works instead of pretending.
+There are **nine** forms in these chunks. Eight need a backend they don't have,
+and each of those says so on the page and offers a route that works instead of
+pretending. The ninth, `ntgocVisitorNextSteps`, ships fully `disabled` and
+sends nothing today — it demonstrates a follow-up the parish does not
+currently offer, and the same choice below still applies to it before the page
+goes live.
 
 | Chunk | Form | What it would need |
 |---|---|---|
+| `ntgocVisitorNextSteps` | "We'd love to stay in touch" (demonstration only) | Nothing as it stands — every field and the button are `disabled` and nothing is collected. Before going live, either build the follow-up it proposes or delete the form and keep the surrounding text. |
 | `ntgocContactCard` | Send a message | A mail handler |
 | `ntgocWelcomeAsk` | Ask your question | A mail handler, and someone who answers |
 | `ntgocWelcomeSurvey` | Visitor survey | Somewhere for answers to go, and someone who reads them |
@@ -478,10 +595,11 @@ one says so on the page and offers a route that works instead of pretending.
 | `ntgocGetInvolvedCare` | Request meal support | A **private** destination and a named coordinator — see the warning below |
 
 > **The meal support request is the one form on this site that carries a
-> confidence.** Everything the other seven collect is ordinary: a question, a
-> survey answer, an email address. This one discloses a birth, an illness, an
-> operation or a death, from a named household, before anyone has agreed that
-> the parish should know. Three things follow, and none of them is optional:
+> confidence.** Everything else here is ordinary, or — for
+> `ntgocVisitorNextSteps` — nothing at all: a question, a survey answer, an
+> email address. This one discloses a birth, an illness, an operation or a
+> death, from a named household, before anyone has agreed that the parish
+> should know. Three things follow, and none of them is optional:
 >
 > - **It goes to one person, privately.** Not a shared office inbox that several
 >   volunteers read, not a mailing list, not a Parish Council thread.
@@ -503,7 +621,9 @@ Before any of these pages goes live, for **each** form either:
   printed beside it.
 
 Do not leave one as-is on a live parish site: a form that silently discards a
-visitor's message is worse than no form at all.
+visitor's message is worse than no form at all. `ntgocVisitorNextSteps`
+already takes the second path by shipping `disabled` — decide whether that
+stays the answer or the follow-up gets built, the same as the other eight.
 
 Three further things about the Welcome forms specifically:
 
@@ -539,42 +659,6 @@ And three about the Living the Traditions forms:
   exist so somebody can follow up an offer, and the page promises twice that
   they will not be published or shared. Whatever tool receives them must not
   display them, and the offer itself commits nobody to teaching.
-
-### Step 6 — The JavaScript (optional)
-
-One file: `assets/js/ntgoc-enhance.js`. It does four things — filters the
-bookstore catalogue by category, advances the home page's festival cards on
-their own, drops days and notices that have already passed on For Our Parish,
-and handles the three Welcome forms, the three Living the Traditions forms and
-the meal support request on Get Involved.
-
-**It is optional.** With JavaScript off, every bookstore item is already visible
-and the category buttons simply do nothing; the festival carousel keeps working
-too, because its dots are ordinary links to each card and the strip scrolls by
-trackpad, drag or arrow key. All the script adds there is the automatic
-advance, the filled dot showing which card you are on, and the Pause button —
-which stays hidden without it, since there would be nothing to pause. For Our
-Parish shows exactly what it showed when it was last built, which the page
-states in words. The Welcome forms stay complete and labelled; the panel asking
-for contact details is simply visible from the start rather than appearing when
-it becomes relevant. Nothing on the site *needs* JavaScript. If in doubt, skip
-it.
-
-Note that the Welcome form script deliberately **does not send anything** — it
-intercepts the submit and shows the reply a visitor would get. Once a real
-handler exists (Step 6a), that interception is the part to remove.
-
-If you do take it, the autoplay is built to the accessibility rule that matters
-here (WCAG 2.2.2): it stops on hover, on keyboard focus, while the tab is in the
-background, and for good on a click of Pause — and it never starts at all for a
-visitor whose system asks for reduced motion.
-
-If you want it: upload to `/assets/templates/ntgoc/js/ntgoc-enhance.js` and add
-before `</body>` in the template:
-
-```html
-<script src="/assets/templates/ntgoc/js/ntgoc-enhance.js" defer></script>
-```
 
 ### Step 7 — Remove the draft banner
 
@@ -898,7 +982,7 @@ never be edited directly.
 
 ```sh
 npm run parish   # calendar + announcements JSON -> the BUILD blocks (four pages)
-npm run chunks   # the 17 HTML pages -> dist/chunks/
+npm run chunks   # the 19 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 

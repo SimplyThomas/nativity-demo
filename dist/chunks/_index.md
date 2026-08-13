@@ -8,7 +8,7 @@ match the filename exactly — that is how pages call it.
 
 | Done | Chunk | Size | Appears on | Has links to repoint |
 |:--:|---|---:|---:|:--:|
-| ☐ | `ntgocAboutClergy` | 2871 b | 1 page | yes (1) |
+| ☐ | `ntgocAboutClergy` | 2995 b | 1 page | yes (1) |
 | ☐ | `ntgocAboutHero` | 536 b | 1 page | — |
 | ☐ | `ntgocAboutParishCouncil` | 5511 b | 1 page | yes (2) |
 | ☐ | `ntgocBookstoreCatalog` | 14640 b | 1 page | — |
@@ -16,10 +16,10 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocBookstoreConverts` | 2805 b | 1 page | — |
 | ☐ | `ntgocBookstoreHero` | 1295 b | 1 page | — |
 | ☐ | `ntgocBookstoreNotes` | 1110 b | 1 page | yes (1) |
-| ☐ | `ntgocCalendarGrid` | 10047 b | 1 page | — |
+| ☐ | `ntgocCalendarGrid` | 10089 b | 1 page | — |
 | ☐ | `ntgocCalendarHero` | 946 b | 1 page | — |
-| ☐ | `ntgocCommitteesHero` | 528 b | 1 page | — |
-| ☐ | `ntgocCommitteesList` | 3822 b | 1 page | yes (1) |
+| ☐ | `ntgocCommitteesHero` | 549 b | 1 page | — |
+| ☐ | `ntgocCommitteesList` | 3948 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 3024 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 517 b | 1 page | — |
 | ☐ | `ntgocDraftBanner` | 488 b | 19 pages | — |
@@ -39,13 +39,13 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocGetInvolvedHero` | 1743 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedLearn` | 4049 b | 1 page | yes (4) |
 | ☐ | `ntgocGetInvolvedOffering` | 7531 b | 1 page | yes (3) |
-| ☐ | `ntgocGetInvolvedPathways` | 2073 b | 1 page | — |
+| ☐ | `ntgocGetInvolvedPathways` | 2086 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedPrepare` | 6796 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedProsphora` | 4215 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedServe` | 4423 b | 1 page | yes (4) |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 2018 b | 1 page | — |
-| ☐ | `ntgocHallRental` | 1928 b | 1 page | yes (1) |
+| ☐ | `ntgocHallRental` | 2013 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeFestivalPromo` | 3598 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1189 b | 1 page | yes (2) |
@@ -55,7 +55,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3203 b | 1 page | — |
 | ☐ | `ntgocMinistriesHero` | 597 b | 1 page | — |
-| ☐ | `ntgocNewsletterArchive` | 1898 b | 1 page | yes (1) |
+| ☐ | `ntgocNewsletterArchive` | 1963 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |
 | ☐ | `ntgocParishAnnouncements` | 2651 b | 1 page | — |
 | ☐ | `ntgocParishAsk` | 1141 b | 1 page | yes (1) |
