@@ -159,18 +159,19 @@ And the four you can skip:
 > of the **Greek Orthodox Archdiocese of America**, also not parish-owned —
 > confirm with DIM before this goes anywhere public.
 
-> **`parish-baptism.jpg` has two children in it, and that is the one thing this
-> page promises to ask about separately.** A family with their newly baptised
-> infant, a young boy in front, and the priest — a personal photograph from the
-> volunteer maintaining this repo, of his own family. The Parish Life page
-> carries the parish's photograph rule in print, directly beneath the gallery
-> this picture sits in: permission from those pictured, and *separate* permission
-> for any photograph that prominently features a child. This one prominently
-> features two. Nothing about it being a volunteer's own family removes that —
-> it makes it easy to obtain, not unnecessary. **Get it in writing from the
-> parents and from the other adults in the frame, and record it in
-> `data/parish-facts.json`, before this is imported or the draft is shown
-> outside the Parish Council.**
+> **`parish-baptism.jpg` has two children in it, and its permission is
+> recorded.** A family with their newly baptised infant, a young boy in front,
+> and the priest — a personal photograph from the volunteer maintaining this
+> repo, of his own family. The Parish Life page carries the parish's photograph
+> rule in print, directly beneath the gallery this picture sits in: permission
+> from those pictured, and *separate* permission for any photograph that
+> prominently features a child. Both children are the photographer's own and he
+> gives that separate permission as their parent; the other adults in the frame
+> have agreed. Recorded 2026-08-13 in `data/parish-facts.json`. No names appear
+> anywhere in this repository, which is a separate decision and stands: the repo
+> is public, and a name in a data file is published whether or not a page shows
+> it. **This is the only photograph here whose permission is on the record. The
+> others are not** — see the provenance note above.
 
 > **`parish-nave-aisle.jpg` is cropped, and the crop is the point.** It came
 > later, from the church website, and the parish confirmed it owns it. The full
