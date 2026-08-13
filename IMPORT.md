@@ -158,7 +158,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the thirty-three files listed below from this repo's `assets/img/` folder.
+4. Upload the thirty-five files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -177,7 +177,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 107 files.
 
-The thirty-three images to upload:
+The thirty-five images to upload:
 
 | File | Used on |
 |---|---|
@@ -209,6 +209,7 @@ The thirty-three images to upload:
 | `coffee-hour-hall.jpg` | Parish Life — Fellowship, large frame |
 | `coffee-hour-cups.jpg`, `altar-server.jpg` | Parish Life — the gallery |
 | `festival-tables.jpg`, `festival-volunteers.jpg`, `dance-troupe.jpg` | Parish Life — the gallery |
+| `nativity-play.jpg`, `nativity-play-manger.jpg` | Parish Life — Sunday School — **permission not yet obtained**, see the note below |
 
 And the four you can skip:
 
@@ -256,6 +257,23 @@ And the four you can skip:
 > different things — the same distinction as `parish-nave-aisle.jpg` below.
 > **Fr. John has not yet agreed to appear in this particular photograph, and it
 > is already live on the draft site. Get that agreement.**
+
+> **`nativity-play.jpg` and `nativity-play-manger.jpg` are in the draft WITHOUT
+> permission, on purpose.** Two crops of one photograph of the Sunday School
+> nativity play — about eleven children, faces clear, and they are not the
+> photographer's own. Neither basis elsewhere in this file reaches them: the
+> parish has not published this photograph, and the parent's permission recorded
+> against `parish-baptism.jpg` covers only that photographer's own children.
+>
+> The parish decided on 2026-08-13 to let it stand in the draft for the Parish
+> Council's review and to survey the families for permission before anything is
+> published officially. **These two files must not be imported until that survey
+> comes back.** If it comes back short for any child, delete both files, restore
+> the two placeholders on `parish-life.html`, and re-run `npm run chunks`.
+>
+> Note also that the draft site is itself public: `assets/img/` is served
+> whether or not a page links to it. "Draft only" describes the audience and the
+> intent, not who can reach the file.
 
 > **`parish-baptism.jpg` has two children in it, and its permission is
 > recorded.** A family with their newly baptised infant, a young boy in front,
