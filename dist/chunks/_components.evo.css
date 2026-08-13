@@ -450,7 +450,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-upcoming-services-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:80px; }
 .ntgoc-home-upcoming-services-heading { font-family:Newsreader, serif; font-weight:400; font-size:40px; margin:0 0 8px; color:#3a1414; }
 .ntgoc-home-upcoming-services-small-grey-2 { font-size:13px; color:#6c6458; margin-bottom:36px; }
-.ntgoc-committees-list-rule { border-top:1px solid #ded2be; }
 .ntgoc-service-row { display:grid; grid-template-columns:130px 1fr auto; gap:20px; align-items:baseline; padding:22px 0; border-bottom:1px solid #ded2be; }
 .ntgoc-service-date { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#7f5f30; }
 .ntgoc-h4 { font-family:Newsreader, serif; font-size:20px; color:#3a1414; }
