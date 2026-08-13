@@ -94,7 +94,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the fifteen files listed below from this repo's `assets/img/` folder.
+4. Upload the sixteen files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -113,7 +113,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 59 files.
 
-The fifteen images to upload:
+The sixteen images to upload:
 
 | File | Used on |
 |---|---|
@@ -128,7 +128,8 @@ The fifteen images to upload:
 | `goa-seal.png` | Site header, every page |
 | `goa-seal-full.png` | Site footer colophon, every page |
 | `parish-nave-aisle.jpg` | Parish Life hero — **cropped**, see the note below |
-| `bookstore-interior.jpg` | Parish Life — the bookstore mosaic |
+| `bookstore-counter.jpg` | Parish Life — the bookstore mosaic, wide frame |
+| `bookstore-icons.jpg` | Parish Life — the bookstore mosaic, icons frame |
 | `festival-kitchen-volunteers.jpg` | Parish Life — Parish Events & Traditions |
 
 And the four you can skip:
@@ -139,11 +140,12 @@ And the four you can skip:
 | `parish-nave-panorama.jpg` | Harvested but unused; kept as an alternative hero. |
 
 > **Provenance:** most of these were taken from the parish's own live site on
-> 2026-08-08. Two are newer and came from elsewhere:
-> `bookstore-interior.jpg` is a personal photograph from the volunteer
-> maintaining this repo, and `festival-kitchen-volunteers.jpg` came from the
-> parish's own Facebook page — already published by the parish, so the same
-> footing as the live-site harvest. Three caveats are recorded in
+> 2026-08-08. Three are newer and came from elsewhere. `bookstore-icons.jpg` is a
+> personal photograph from the volunteer maintaining this repo.
+> `bookstore-counter.jpg` and `festival-kitchen-volunteers.jpg` came from the
+> parish's own social media — already published by the parish, so the same
+> footing as the live-site harvest, but both show identifiable parishioners and
+> neither has a recorded permission. Three further caveats are recorded in
 > `data/parish-facts.json`:
 > `feast-transfiguration.jpg` comes from **onlinechapel.goarch.org** and is
 > Archdiocese-owned, not parish-owned — check reuse terms. `clergy-fr-john.jpg`
