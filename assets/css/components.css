@@ -1843,21 +1843,21 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-traditions-closing__link:hover, .ntgoc-traditions-closing__link:focus-visible { color: #e0b673; border-color: #e0b673; }
 
 @media (max-width: 900px) {
-  .ntgoc-grid { grid-template-columns: 1fr !important; }
-  .ntgoc-gutter { padding-left: 20px !important; padding-right: 20px !important; }
-  .ntgoc-tall { height: auto !important; min-height: 60vh; }
-  .ntgoc-shell { max-width: 100% !important; }
+  .ntgoc-grid { grid-template-columns: 1fr; }
+  .ntgoc-gutter { padding-left: 20px; padding-right: 20px; }
+  .ntgoc-tall { height: auto; min-height: 60vh; }
+  .ntgoc-shell { max-width: 100%; }
 }
 @media (max-width: 640px) {
   .ntgoc-flex { flex-wrap: wrap; }
-  .ntgoc-gutter { padding-left: 16px !important; padding-right: 16px !important; }
+  .ntgoc-gutter { padding-left: 16px; padding-right: 16px; }
   .ntgoc-tall { min-height: 50vh; }
 
   /* The top bar is a fixed-height 38px row in the design; let it grow so the
      Metropolis line can take a second line rather than be clipped. */
   .ntgoc-topbar {
-    height: auto !important;
-    padding: 10px 16px !important;
+    height: auto;
+    padding: 10px 16px;
     line-height: 1.5;
   }
 }
@@ -1867,14 +1867,14 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    of four full-width portraits is a long scroll past the thing they are meant
    to make easier, and three stacked video players is worse. */
 @media (max-width: 900px) {
-  .ntgoc-faces { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-  .ntgoc-videos { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .ntgoc-faces { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ntgoc-videos { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 640px) {
   /* Portraits become a swipeable row rather than a stack. */
   .ntgoc-faces {
-    display: flex !important;
-    gap: 16px !important;
+    display: flex;
+    gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: 12px;
@@ -1892,8 +1892,8 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    thin out by degrees rather than drop straight to one column, and the
    fixed frame heights, which are far too tall once stacked. */
 @media (max-width: 900px) {
-  .ntgoc-parish-life-section { padding-top: 64px !important; padding-bottom: 64px !important; }
-  .ntgoc-parish-life-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; grid-auto-rows: 170px; }
+  .ntgoc-parish-life-section { padding-top: 64px; padding-bottom: 64px; }
+  .ntgoc-parish-life-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 170px; }
   .ntgoc-parish-life-gallery__w3 { grid-column: span 2; }
   .ntgoc-parish-life-h520, .ntgoc-parish-life-h460, .ntgoc-parish-life-h440, .ntgoc-parish-life-h420 { height: 320px; }
   .ntgoc-parish-life-mosaic { grid-auto-rows: 170px; }
@@ -1902,8 +1902,8 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-photoslot { padding: 12px; gap: 6px; }
   .ntgoc-parish-life-h2 { font-size: clamp(28px, 8vw, 38px); }
   .ntgoc-parish-life-body { font-size: 16.5px; }
-  .ntgoc-parish-life-split { gap: 34px !important; }
-  .ntgoc-parish-life-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; grid-auto-rows: 150px; }
+  .ntgoc-parish-life-split { gap: 34px; }
+  .ntgoc-parish-life-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; }
   .ntgoc-parish-life-gallery__w2, .ntgoc-parish-life-gallery__w3 { grid-column: span 2; }
   .ntgoc-parish-life-gallery__h2 { grid-row: span 1; }
   .ntgoc-parish-life-mosaic { grid-template-columns: 1fr; grid-auto-rows: 190px; }
@@ -1952,7 +1952,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 
 /* The three essentials stack rather than squeeze. */
 @media (max-width: 900px) {
-  .ntgoc-essentials__grid { grid-template-columns: 1fr !important; gap: 30px !important; padding-top: 32px; padding-bottom: 34px; }
+  .ntgoc-essentials__grid { grid-template-columns: 1fr; gap: 30px; padding-top: 32px; padding-bottom: 34px; }
 }
 
 @media (max-width: 640px) {
@@ -1972,7 +1972,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    straight to one, and the display type, which is set in fixed px. */
 @media (max-width: 900px) {
   .ntgoc-members-shell,
-  .ntgoc-parish-section { padding-top: 52px !important; padding-bottom: 52px !important; }
+  .ntgoc-parish-section { padding-top: 52px; padding-bottom: 52px; }
   .ntgoc-stage { padding-top: 48px; }
   .ntgoc-nextsteps { padding-top: 56px; padding-bottom: 56px; }
 
@@ -2042,7 +2042,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
      carries .ntgoc-flex, which wraps below 640px — that drops the hamburger
      onto a second line at the LEFT of the header, and the panel's right:0
      anchor goes with it, so the drawer opens off the side of the screen. */
-  .ntgoc-header-inner { gap: 16px !important; flex-wrap: nowrap; }
+  .ntgoc-header-inner { gap: 16px; flex-wrap: nowrap; }
   /* .ntgoc-logo carries .ntgoc-flex as well, and it is the same trap one level
      down. At 390px the seal and the name still fit on a line so nothing wraps;
      at 320px they do not, the name drops below the seal, and the logo becomes
@@ -2065,12 +2065,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
    not hold "Orthros 9a · Liturgy 10a" at any size worth reading, so the month
    becomes a list of days. */
 @media (max-width: 900px) {
-  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: repeat(7, minmax(0, 1fr)) !important; }
+  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: repeat(7, minmax(0, 1fr)); }
   .ntgoc-calendar-day { min-height: 86px; padding: 7px 6px; }
   .ntgoc-calendar-event { font-size: 10.5px; padding: 4px 5px; }
 }
 @media (max-width: 640px) {
-  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: 1fr !important; }
+  .ntgoc-calendar-grid-grid-ruled { grid-template-columns: 1fr; }
   .ntgoc-calendar-weekday { display: none; }
   /* The blank cells carry an empty day number. They are the padding a
      seven-column month needs and a list of days does not. */
@@ -2146,7 +2146,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   /* Nine sections of desktop breathing room is most of a phone screen wasted per
      section. Scoped to the sections after the switcher, so no other page moves. */
   .ntgoc-welcome-jump ~ section .ntgoc-parish-section,
-  .ntgoc-welcome-jump ~ section.ntgoc-parish-section { padding-top: 42px !important; padding-bottom: 42px !important; }
+  .ntgoc-welcome-jump ~ section.ntgoc-parish-section { padding-top: 42px; padding-bottom: 42px; }
   .ntgoc-welcome-jump ~ section .ntgoc-stage { padding-top: 40px; padding-bottom: 14px; }
   .ntgoc-welcome-group__summary { padding: 18px 0; gap: 16px; }
   .ntgoc-welcome-intro { padding-top: 44px; padding-bottom: 28px; }
@@ -2156,9 +2156,11 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* Living the Traditions. The class grid thins by degrees rather than dropping
    from three columns straight to one — a card is small enough that two fit
    comfortably at tablet width, and twenty-four of them in a single column is a
-   very long scroll. Below 900px the blanket .ntgoc-grid rule takes over, which
-   is why the two-column step is written as a min-width band: it must not
-   compete with an !important rule it would otherwise have to repeat.
+   very long scroll. Below 900px the blanket .ntgoc-grid rule should take over
+   instead, which is why the two-column step is written as a min-width band
+   rather than a plain max-width one: it comes later in the file than the
+   blanket rule, so without the floor it would keep winning by source order
+   all the way down past 900px. */
 
    The closing band's display type is set in fixed px, like every other display
    string in this file, so it needs a clamp of its own on a phone. */
