@@ -622,6 +622,27 @@
       "permission": "RECORDED 2026-08-13. The two children are the photographer's own, and he gives the separate permission the Parish Life page promises for a photograph prominently featuring a child, as their parent. The other adults in the frame have agreed to appear. Confirmed by him directly; if the parish keeps a photograph-permission file, this is worth adding to it on paper as well.",
       "note": "Six people: four adults, the priest, a young boy standing in front and the newly baptised infant. No names are recorded here on purpose — this repository is public, and a name sitting in a data file is published whether or not a page displays it, which is the same reasoning that redacted the priest's mobile number. Permission covers appearing in the photograph; it is not a decision to publish anyone's name, and none is published. Cropped from portrait to 1400x700; the source is 0.75:1 and the frame runs to 3.4:1, so the crop keeps every head and loses everyone below the thigh. It still degrades at the 900px breakpoint, where the frame is 567x168 and the priest's head is cut — no crop or object-position fixes that, the group simply needs 605 vertical pixels in a window that offers 415. Desktop and mobile are correct."
     },
+    "pascha-candles.jpg": {
+      "from": "the parish's own photo gallery at nativity.va.goarch.org/photo-gallery, album 'Pascha' (setID 72157714162157333, 14 photographs), fetched 2026-08-13. The gallery is Flickr-backed and embedded on the parish site; the source file is live.staticflickr.com/65535/49814412792_03345875bd_b.jpg.",
+      "owner": "parish — published by the parish in its own gallery, the same footing as the 2026-08-08 live-site harvest",
+      "note": "The congregation holding lit candles in the darkened church at the Paschal midnight service. Fills the 'Pascha' frame, which was deliberately left empty when the Holy Week photographs went in because none of them was actually Pascha. Identifiable adults, no recorded permission. Cropped 1024x768 to 1000x588. _b (1024px) is the largest size the gallery serves — _k and _o both return 410, so 1024 is the ceiling for anything taken from there, and these frames can use most of it. Worth knowing: this album is mostly the Holy Friday epitaphios procession rather than Pascha proper; this frame and one other are the only genuinely Paschal images in it."
+    },
+    "_palmFoldingNote": "The three palm-* files come from one parish palm-cross folding session, supplied 2026-08-13 by the volunteer maintaining this repo as screen captures (348x406 to 637x412 — small, and the reason these three are the softest images on the page). PERMISSION, precisely: he told us the children in them are his own and gave permission for public use on the website, which is the separate child permission the Parish Life page promises. That covers the children. It does NOT cover the other adults in frame — the man in palm-folding.jpg and both men in palm-folding-pair.jpg are unnamed parishioners whose agreement is not recorded, the same standing as the festival kitchen volunteers.",
+    "palm-folding.jpg": {
+      "from": "screen capture supplied by the volunteer maintaining this repo, 2026-08-13 (source Screenshot 2026-08-13 104408.png, 637x412)",
+      "owner": "photographer/volunteer — see _palmFoldingNote above",
+      "note": "Two children and an adult folding palm crosses at a table. Fills the wide 'Children in parish life' frame in the Children & Families band. Cropped to 1150x442 from a 637px-wide screen capture, so it is upscaled about 1.35x at the tablet width — acceptable here because the composition is a horizontal band of heads and hands, which is what this 5:1-at-900px frame wants, but a camera original would be better if one exists."
+    },
+    "palm-cross-child.jpg": {
+      "from": "screen capture supplied by the volunteer maintaining this repo, 2026-08-13 (source Screenshot 2026-08-13 104425.png, 348x406)",
+      "owner": "photographer/volunteer — see _palmFoldingNote above",
+      "note": "A boy holding up the palm cross he has just folded. Fills the 'A family event' frame. Placed there rather than under the 'Sunday School' hint next to it because nobody has said this was Sunday School — the picture is a palm-folding session, and the alt text says so. The hint is a request for a photograph, not a caption. Smallest source in the repo at 348x406; cropped to 620x388."
+    },
+    "palm-folding-pair.jpg": {
+      "from": "screen capture supplied by the volunteer maintaining this repo, 2026-08-13 (source Screenshot 2026-08-13 104420.png, 582x408)",
+      "owner": "photographer/volunteer — see _palmFoldingNote above",
+      "note": "Two parishioners folding palm crosses. Fills the 'Parishioners serving in the community' frame, which is the squarest large frame on the page at 1.30:1 — the reason this near-square photograph went there rather than into a letterboxed slot. Both people are adults and neither permission is recorded. Cropped 582x408 to 900x693, an upscale of about 1.5x."
+    },
     "give-building-projects.png": {
       "from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png",
       "owner": "parish"
