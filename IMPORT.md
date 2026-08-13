@@ -18,6 +18,70 @@ Evolution CMS manager. No command line needed. Everything you paste is in
 
 ---
 
+## 0. The week of the import
+
+Things in this repo go stale on their own schedule — a date renders as
+"upcoming" only until it isn't. Run this checklist in the days immediately
+before import, top to bottom. Every step is a command to run or a link to the
+issue that owns the decision.
+
+1. **Refresh the calendar and announcements.**
+   ```sh
+   npm run parish
+   ```
+   Commit the result. Run it a second time — it must print
+   `✓ every generated block is already current`. If it doesn't, something
+   touched `data/parish-calendar.json` or `data/parish-announcements.json`
+   after the first run.
+
+2. **Remove the sample announcements.** Delete the two `"sample": true`
+   entries in `data/parish-announcements.json` (they render labelled
+   "· sample" on `for-our-parish.html`), then re-run `npm run parish`. A real
+   first announcement is the parish's to write — going live with none is
+   fine, going live with samples is not.
+
+3. **Confirm the calendar data reaches past the import date.**
+   `data/parish-calendar.json` currently ends **30 August 2026** — see
+   [#24](https://github.com/SimplyThomas/nativity-demo/issues/24). Extend it,
+   or accept that "This week at Nativity" and "The next few weeks" render
+   their empty state from that date on.
+
+4. **Regenerate the chunks and confirm they're current.**
+   ```sh
+   npm run chunks
+   git diff --exit-code -- dist/chunks
+   ```
+   A non-empty diff means a page changed after the last extraction.
+
+5. **Run the full check, green.**
+   ```sh
+   npm run check
+   npm run measure:hero
+   ```
+
+6. **Verify inside a real Evolution CMS.**
+   ```sh
+   npm run evo:up
+   npm run evo:verify
+   ```
+   Baseline (2026-08-11): 696 assertions, 19 pages, 105 chunks, passing on
+   EVO 1.4.18 and 3.5.7.
+
+7. **Decide what replaces the draft fittings.** The draft banner, `noindex`
+   and no Open Graph tags are non-negotiable *for this repo* (rule 4 in
+   `CLAUDE.md`). What the production site carries instead is a human call, not
+   a volunteer's to improvise on import day — see
+   [#27](https://github.com/SimplyThomas/nativity-demo/issues/27), item 6.
+
+Two more open items worth a look the same week, tracked separately because
+they need a person's answer, not a command:
+[#25](https://github.com/SimplyThomas/nativity-demo/issues/25) (26 parish
+facts awaiting verification) and
+[#26](https://github.com/SimplyThomas/nativity-demo/issues/26) (the
+`.ntgoc-page` body-class import contract).
+
+---
+
 ## 1. What Evolution CMS is, in four words
 
 > **Version:** reported as **EVO 1.4.x**, but *not confirmed* — check the manager
