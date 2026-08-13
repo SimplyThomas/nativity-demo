@@ -505,6 +505,11 @@
       "owner": "parish volunteer — no permission question attached: there is nobody in the frame",
       "note": "The parish bookstore, looking at the icon of Saint Nicholas and the READ lettering. Fills the wide frame of the bookstore mosaic on Parish Life — the first of the 27 empty photo frames to be filled. Cropped to a 3.2:1 band (source y150..1410, full width) and shipped at 1600x500 rather than at the camera's 4:3. The frames are heavily letterboxed and their aspect ratio swings from 2.7:1 on a desktop to 5:1 at the 900px breakpoint, so a 4:3 file lost the middle of the picture to `object-fit: cover` — it sliced the READ lettering in half. A wide band crops at the sides instead, where the shelving is repetitive and nothing is lost. The letters are stacked vertically on the wall, so the 900px breakpoint still clips them to READ minus the D; nothing survives a 5:1 window whole."
     },
+    "festival-kitchen-volunteers.jpg": {
+      "from": "supplied by the volunteer maintaining this repo on 2026-08-13 as 694282195_1547034254091035_5658582852794189215_n.jpg, 940x788. That filename is the Facebook CDN pattern and 940px is a Facebook-resized derivative, so this is very likely a download from a Facebook page rather than a camera original — probably the parish's or the Fredericksburg Greek Festival's. NOT ESTABLISHED: which page, who took it, and whether the parish holds the rights.",
+      "owner": "UNVERIFIED — see above. Establish before this goes anywhere public.",
+      "note": "Three volunteers in the festival kitchen with a tray of roast chickens; two are wearing Fredericksburg Greek Festival aprons. Fills the large dark frame in the Parish Events & Traditions band on Parish Life. THREE IDENTIFIABLE ADULTS, none of them named here and none of their permissions recorded — the parish's own rule, printed on this very page, is that photographs go up only with the permission of those pictured. Carries .ntgoc-photo--top: a centred crop beheads the group at the 900px breakpoint, where the frame is 860x320 and only ~44% of the height survives. A higher-resolution original would be worth asking for; at 940x788 it is only 1.09x at the tablet width."
+    },
     "give-building-projects.png": {
       "from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png",
       "owner": "parish"
