@@ -138,8 +138,13 @@ And the four you can skip:
 | `goa-seal-16.png`, `goa-seal-32.png`, `goa-seal-apple-touch.png` | Favicons, for the demo only. The live template already serves these from `/assets/templates/common/icons/` — see the note below. |
 | `parish-nave-panorama.jpg` | Harvested but unused; kept as an alternative hero. |
 
-> **Provenance:** these were taken from the parish's own live site on 2026-08-08,
-> with three caveats recorded in `data/parish-facts.json`:
+> **Provenance:** most of these were taken from the parish's own live site on
+> 2026-08-08. Two are newer and came from elsewhere:
+> `bookstore-interior.jpg` is a personal photograph from the volunteer
+> maintaining this repo, and `festival-kitchen-volunteers.jpg` came from the
+> parish's own Facebook page — already published by the parish, so the same
+> footing as the live-site harvest. Three caveats are recorded in
+> `data/parish-facts.json`:
 > `feast-transfiguration.jpg` comes from **onlinechapel.goarch.org** and is
 > Archdiocese-owned, not parish-owned — check reuse terms. `clergy-fr-john.jpg`
 > is a photograph of a named person; confirm Fr. John is content for it to be
