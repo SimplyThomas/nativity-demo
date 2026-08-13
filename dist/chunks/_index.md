@@ -66,12 +66,12 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishLifeEvents` | 1189 b | 1 page | — |
 | ☐ | `ntgocParishLifeFellowship` | 1229 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeFormation` | 1916 b | 1 page | — |
-| ☐ | `ntgocParishLifeGallery` | 3263 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeGallery` | 3433 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeHero` | 905 b | 1 page | — |
 | ☐ | `ntgocParishLifeNext` | 991 b | 1 page | yes (2) |
 | ☐ | `ntgocParishLifeService` | 978 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeUpcoming` | 3971 b | 1 page | yes (1) |
-| ☐ | `ntgocParishLifeWorship` | 1347 b | 1 page | — |
+| ☐ | `ntgocParishLifeWorship` | 1574 b | 1 page | — |
 | ☐ | `ntgocParishOrthodoxResources` | 3138 b | 1 page | yes (2) |
 | ☐ | `ntgocParishResources` | 3984 b | 1 page | yes (10) |
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |

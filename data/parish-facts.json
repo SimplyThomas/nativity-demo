@@ -515,6 +515,21 @@
       "owner": "parish — already published by the parish itself, the same footing as the images harvested from the live parish site on 2026-08-08",
       "note": "Three volunteers in the festival kitchen with a tray of roast chickens; two are wearing Fredericksburg Greek Festival aprons. Fills the large dark frame in the Parish Events & Traditions band on Parish Life. Three identifiable adults, none named here. The parish published this itself, so this is the same standing as every other parish-published photograph in this folder — but prior publication on Facebook is not the same as agreement to appear on the parish website, and the parish's own rule, printed on this very page, is that photographs go up only with the permission of those pictured. Worth a word with them; not a blocker on the same level as an unpublished private photograph. Carries the ntgoc-photo--top modifier: a centred crop beheads the group at the 900px breakpoint, where the frame is 860x320 and only ~44% of the height survives. A higher-resolution original is worth asking for — at 940x788 this is only 1.09x at the tablet width, and Facebook's copy is the smallest version that exists."
     },
+    "holy-week-service.jpg": {
+      "from": "personal photograph from the volunteer maintaining this repo, taken in the church during Holy Week 2026 (camera original IMG_8501.jpeg, 3024x4032 portrait), added 2026-08-13",
+      "owner": "photographer — his own photograph, as with clergy-fr-john.jpg",
+      "note": "A priest at a candlelit altar table before the iconostasis; an icon draped in black and dressed with flowers stands at the left. Fills the large frame in the Worship & Feast Days band. TWO CLERGY OR SERVERS ARE VISIBLE, neither named here and neither permission recorded. Cropped from a portrait original to 1300x867 landscape — every frame on this page is a landscape letterbox, and a 3:4 portrait dropped into one shows a narrow vertical sliver. The occasion is recorded as Holy Week rather than Pascha: the vestments and altar cloths are violet and the epitaphios icon is already out, none of which belongs to Pascha itself. Supplied as a Pascha photograph, so ask before captioning it anywhere."
+    },
+    "holy-week-epitaphios.jpg": {
+      "from": "personal photograph from the volunteer maintaining this repo, taken in the church during Holy Week 2026 (camera original IMG_8504.jpeg, 2268x4032 portrait), added 2026-08-13",
+      "owner": "photographer — his own photograph",
+      "note": "The epitaphios canopy banked with white carnations, before the royal doors. Fills the small 'Holy Week' frame in the Worship & Feast Days band. Nobody in the frame. Cropped from portrait to 900x675; the frame is 1.7:1 on a desktop and 2.8:1 at the 900px breakpoint, so the original 0.56:1 portrait would have shown a sliver of flowers and nothing else."
+    },
+    "holy-week-cross.jpg": {
+      "from": "personal photograph from the volunteer maintaining this repo, taken in the church during Holy Week 2026 (camera original IMG_8506.jpeg, 2268x4032 portrait), added 2026-08-13",
+      "owner": "photographer — his own photograph",
+      "note": "The carved crucifix set up in the church, a crown of thorns and red roses at the head of the cross. Fills the 'Holy Week' frame in the Parish Life gallery. Nobody in the frame. Cropped from portrait to 1100x500 for the same reason as the other two."
+    },
     "give-building-projects.png": {
       "from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png",
       "owner": "parish"
