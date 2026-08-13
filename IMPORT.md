@@ -158,7 +158,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the fourteen files listed below from this repo's `assets/img/` folder.
+4. Upload the twenty-one files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -177,7 +177,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 107 files.
 
-The fourteen images to upload:
+The twenty-one images to upload:
 
 | File | Used on |
 |---|---|
@@ -193,6 +193,13 @@ The fourteen images to upload:
 | `goa-seal.png` | Site header, every page |
 | `goa-seal-full.png` | Site footer colophon, every page |
 | `parish-nave-aisle.jpg` | Parish Life hero — **cropped**, see the note below |
+| `bookstore-counter.jpg` | Parish Life — the bookstore mosaic, wide frame |
+| `bookstore-icons.jpg` | Parish Life — the bookstore mosaic, icons frame |
+| `festival-kitchen-volunteers.jpg` | Parish Life — Parish Events & Traditions |
+| `holy-week-service.jpg` | Parish Life — Worship & Feast Days, large frame |
+| `holy-week-epitaphios.jpg` | Parish Life — Worship & Feast Days, small frame |
+| `holy-week-cross.jpg` | Parish Life — the gallery |
+| `parish-baptism.jpg` | Parish Life — the gallery — **children in frame**, see the note below |
 
 And the four you can skip:
 
@@ -201,8 +208,20 @@ And the four you can skip:
 | `goa-seal-16.png`, `goa-seal-32.png`, `goa-seal-apple-touch.png` | Favicons, for the demo only. The live template already serves these from `/assets/templates/common/icons/` — see the note below. |
 | `parish-nave-panorama.jpg` | Harvested but unused; kept as an alternative hero. |
 
-> **Provenance:** all but one were taken from the parish's own live site on
-> 2026-08-08, with three caveats recorded in `data/parish-facts.json`:
+> **Provenance:** most of these were taken from the parish's own live site on
+> 2026-08-08. Seven are newer and came from elsewhere. `clergy-fr-john.jpg`,
+> `bookstore-icons.jpg`, `parish-baptism.jpg` and the three `holy-week-*.jpg`
+> files are personal photographs from the volunteer maintaining this repo.
+> `bookstore-counter.jpg` and `festival-kitchen-volunteers.jpg` came from the
+> parish's own social media — already published by the parish, so the same
+> footing as the live-site harvest.
+>
+> **Of the seven newer photographs, only `parish-baptism.jpg` has a recorded
+> permission.** `bookstore-counter.jpg` (one parishioner),
+> `festival-kitchen-volunteers.jpg` (three), `holy-week-service.jpg` (two clergy
+> or servers) and `clergy-fr-john.jpg` (Fr. John) do not. Prior publication by
+> the parish is not agreement to appear here. Three further caveats are recorded
+> in `data/parish-facts.json`:
 > `feast-transfiguration.jpg` comes from **onlinechapel.goarch.org** and is
 > Archdiocese-owned, not parish-owned — check reuse terms. `clergy-fr-john.jpg`
 > no longer comes from the live site at all; see the note below. The two
@@ -215,13 +234,33 @@ And the four you can skip:
 > volunteer maintaining this repo, who owns it. The camera original is a group
 > photograph of a baptism party — parents, godparents, a young boy and the
 > infant being baptised — and the version here is cropped down to Fr. John
-> alone. The original and the other frames from that day are deliberately **not**
-> in this repo and must not be added: `assets/img/` is served publicly whether or
-> not a page links to it, and two of the people in those frames are children.
+> alone. **Superseded in part on 2026-08-13:** this note used to say that the
+> other frames from that day must never be added, because two of the people in
+> them are children. `parish-baptism.jpg` is now in the repo and is a crop of
+> one of exactly those frames — see its own note below. What changed is that the
+> permission was obtained: the children are the photographer's own and he gave
+> it as their parent. The reasoning still stands for anything without that
+> permission, and the camera originals themselves are still deliberately absent:
+> `assets/img/` is served publicly whether or not a page links to it.
+>
 > Owning a photograph and having the agreement of the person in it are two
 > different things — the same distinction as `parish-nave-aisle.jpg` below.
-> **Fr. John has not yet agreed to appear in this particular photograph. Get that
-> before the draft is shown or imported.**
+> **Fr. John has not yet agreed to appear in this particular photograph, and it
+> is already live on the draft site. Get that agreement.**
+
+> **`parish-baptism.jpg` has two children in it, and its permission is
+> recorded.** A family with their newly baptised infant, a young boy in front,
+> and the priest — a personal photograph from the volunteer maintaining this
+> repo, of his own family. The Parish Life page carries the parish's photograph
+> rule in print, directly beneath the gallery this picture sits in: permission
+> from those pictured, and *separate* permission for any photograph that
+> prominently features a child. Both children are the photographer's own and he
+> gives that separate permission as their parent; the other adults in the frame
+> have agreed. Recorded 2026-08-13 in `data/parish-facts.json`. No names appear
+> anywhere in this repository, which is a separate decision and stands: the repo
+> is public, and a name in a data file is published whether or not a page shows
+> it. **This is the only photograph here whose permission is on the record. The
+> others are not** — see the provenance note above.
 
 > **`parish-nave-aisle.jpg` is cropped, and the crop is the point.** It came
 > later, from the church website, and the parish confirmed it owns it. The full

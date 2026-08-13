@@ -843,9 +843,41 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-photoslot { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; height:100%; padding:18px; text-align:center; background:#efe7d9; background-image:repeating-linear-gradient(135deg, transparent 0 11px, rgba(176,132,66,.10) 11px 22px); }
 .ntgoc-photoslot__label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; }
 .ntgoc-photoslot__hint { font-size:13px; line-height:1.6; color:#6c6458; max-width:34ch; }
-.ntgoc-photoslot--dark { background:#4a1c1c; background-image:repeating-linear-gradient(135deg, transparent 0 11px, rgba(224,182,115,.10) 11px 22px); }
-.ntgoc-photoslot--dark .ntgoc-photoslot__label { color:#e0b673; }
-.ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
+/* The ntgoc-photoslot--dark modifier lived here: the placeholder restyled for
+   the one frame that sits in a dark band, on Parish Events & Traditions. That
+   frame now has its photograph, no other placeholder is in a dark band, and
+   lint warns about CSS no page uses. Removed rather than left to rot — `git
+   log` has it if a dark band ever needs an empty frame again. Do not put a
+   plain photoslot in a dark band without restoring it; the placeholder's ink is
+   set for a light background and will be close to unreadable on one.
+
+   Written without leading dots on purpose: lint builds its set of defined
+   classes with a regex over this file's raw text, comments included, so a
+   dotted class name in a comment reads as a definition and warns forever. */
+
+/* When a photograph does arrive, the .ntgoc-photoslot inside the frame is
+   replaced by an <img class="ntgoc-photo">, and nothing else changes: the frame
+   keeps its border and its grid cell, and this fills it the same way the
+   placeholder did.
+
+   An <img> rather than a background-image, which is how every photograph on the
+   rest of the site works. Background images cannot carry alt text, cannot be
+   lazy-loaded, and would need a bespoke class per photograph — twenty-odd more
+   near-identical rules in here, which is exactly what lint's duplicate-rule
+   check exists to complain about. One class covers every frame instead.
+
+   The frames are letterboxed and their aspect ratio moves a long way with the
+   viewport — the wide bookstore frame is 548x200 on a desktop and 860x170 at
+   the 900px breakpoint — so `cover` is doing real cropping at every size. Give
+   the file a generous horizontal margin and keep the subject central. */
+.ntgoc-photo { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+
+/* For a photograph whose subject sits in the upper part of the frame — faces,
+   usually. A centred crop beheads a group shot at the 900px breakpoint, where
+   this frame is 860x320 and only about 44% of the picture's height survives.
+   A modifier rather than a rule per photograph: it says what the picture needs,
+   not which picture it is, so the next group shot can reuse it. */
+.ntgoc-photo--top { object-position:center 25%; }
 
 /* The hero is on .ntgoc-page-hero. This eyebrow is not part of it, and is not
    dead: the "Coming up at Nativity" block further down the page is now its only
