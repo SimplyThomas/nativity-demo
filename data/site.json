@@ -145,6 +145,10 @@
         "why": "There is no visitor-specific parking."
       },
       {
+        "pattern": "its own parking",
+        "why": "Parking is free, on site, and shared across the property — not dedicated or exclusive to any one building. See parking.note. Caught on hall.html in the 2026-08-11 fact-discipline audit."
+      },
+      {
         "pattern": "(wheelchair|step-free|accessible entrance|reachable by lift)",
         "why": "No accessibility feature is confirmed. Do not claim one until the parish does."
       },
