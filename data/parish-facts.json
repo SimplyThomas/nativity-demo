@@ -530,6 +530,11 @@
       "owner": "photographer — his own photograph",
       "note": "The carved crucifix set up in the church, a crown of thorns and red roses at the head of the cross. Fills the 'Holy Week' frame in the Parish Life gallery. Nobody in the frame. Cropped from portrait to 1100x500 for the same reason as the other two."
     },
+    "parish-baptism.jpg": {
+      "from": "personal photograph from the volunteer maintaining this repo, of his own family, taken at a baptism in the church on 2026-06-20 (camera original 20260620_120603.jpeg, 1536x2048 portrait), added 2026-08-13",
+      "owner": "photographer — his own photograph and his own family",
+      "note": "SIX PEOPLE AND TWO OF THEM ARE CHILDREN: a young boy standing in front, and the newly baptised infant. Four adults and the priest. No names are recorded here on purpose — this repository is public, and a name sitting in a data file is published whether or not a page displays it, which is the same reasoning that redacted the priest's mobile number. PERMISSION IS NOT RECORDED. The Parish Life page prints the parish's rule immediately below the gallery this sits in: permission from those pictured, and separate permission for any photograph prominently featuring a child. That it is the volunteer's own family makes the permission easy to get, not unnecessary — get it from the parents and from the other adults, in writing, before this is imported or shown outside the Parish Council. Cropped from portrait to 1400x700; the source is 0.75:1 and the frame runs to 3.4:1, so the crop keeps every head and loses everyone below the thigh. It still degrades at the 900px breakpoint, where the frame is 567x168 and the priest's head is cut — no crop or object-position fixes that, the group simply needs 605 vertical pixels in a window that offers 415. Desktop and mobile are correct."
+    },
     "give-building-projects.png": {
       "from": "nativity.va.goarch.org/assets/images/Screenshot 2024-04-27 at 6.13.23 PM.png",
       "owner": "parish"

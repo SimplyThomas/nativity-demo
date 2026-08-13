@@ -94,7 +94,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the nineteen files listed below from this repo's `assets/img/` folder.
+4. Upload the twenty files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -113,7 +113,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 59 files.
 
-The nineteen images to upload:
+The twenty images to upload:
 
 | File | Used on |
 |---|---|
@@ -134,6 +134,7 @@ The nineteen images to upload:
 | `holy-week-service.jpg` | Parish Life — Worship & Feast Days, large frame |
 | `holy-week-epitaphios.jpg` | Parish Life — Worship & Feast Days, small frame |
 | `holy-week-cross.jpg` | Parish Life — the gallery |
+| `parish-baptism.jpg` | Parish Life — the gallery — **children in frame**, see the note below |
 
 And the four you can skip:
 
@@ -157,6 +158,19 @@ And the four you can skip:
 > used before it goes anywhere public. The two `goa-seal-*` files are the seal
 > of the **Greek Orthodox Archdiocese of America**, also not parish-owned —
 > confirm with DIM before this goes anywhere public.
+
+> **`parish-baptism.jpg` has two children in it, and that is the one thing this
+> page promises to ask about separately.** A family with their newly baptised
+> infant, a young boy in front, and the priest — a personal photograph from the
+> volunteer maintaining this repo, of his own family. The Parish Life page
+> carries the parish's photograph rule in print, directly beneath the gallery
+> this picture sits in: permission from those pictured, and *separate* permission
+> for any photograph that prominently features a child. This one prominently
+> features two. Nothing about it being a volunteer's own family removes that —
+> it makes it easy to obtain, not unnecessary. **Get it in writing from the
+> parents and from the other adults in the frame, and record it in
+> `data/parish-facts.json`, before this is imported or the draft is shown
+> outside the Parish Council.**
 
 > **`parish-nave-aisle.jpg` is cropped, and the crop is the point.** It came
 > later, from the church website, and the parish confirmed it owns it. The full
