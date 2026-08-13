@@ -69,7 +69,7 @@
  * deliberately.
  */
 
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
@@ -103,7 +103,7 @@ const pageArgs = args.filter(a => !a.startsWith('--'));
 const HERO_PAGES = [
   ['index.html', 'Home'],
   ['parish-life.html', 'Parish Life'],
-  ['fellowship-care.html', 'Fellowship & Care'],
+  ['get-involved.html', 'Get Involved'],
   ['faith.html', 'Our Faith'],
   ['calendar.html', 'Calendar'],
   ['about.html', 'About'],
@@ -113,6 +113,7 @@ const HERO_PAGES = [
   ['festival.html', 'Festival'],
   ['for-our-parish.html', 'For Our Parish'],
   ['welcome.html', 'Welcome'],
+  ['traditions.html', 'Traditions'],
 ];
 const LABELS = new Map(HERO_PAGES);
 const PAGES = pageArgs.length ? pageArgs : HERO_PAGES.map(([f]) => f);
@@ -121,6 +122,17 @@ const onDisk = new Set(readdirSync(REPO).filter(f => f.endsWith('.html')));
 const missing = PAGES.filter(f => !onDisk.has(f));
 if (missing.length) {
   console.error(`No such page: ${missing.join(', ')}`);
+  process.exit(2);
+}
+
+/* The list above is hand-maintained; nothing forces someone adding a hero to a
+   new page to also add it here. Catch that before it becomes an unmeasured
+   hero — the whole reason this file exists. */
+const listed = new Set(HERO_PAGES.map(([f]) => f));
+const unlisted = [...onDisk].filter(f => !listed.has(f) &&
+  /class="[^"]*\bntgoc-page-hero\b/.test(readFileSync(join(REPO, f), 'utf8')));
+if (unlisted.length) {
+  console.error(`Page(s) carry .ntgoc-page-hero but are missing from HERO_PAGES: ${unlisted.join(', ')}`);
   process.exit(2);
 }
 
