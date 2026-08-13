@@ -326,7 +326,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* --- generated component rules (437 rules) --------------------- */
 .ntgoc-topbar-row { display:flex; justify-content:space-between; align-items:center; gap:24px; height:38px; background:#3a1414; color:#e8d8bd; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; }
 .ntgoc-topbar-metropolis { opacity:.75; }
-.ntgoc-header { position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be; }
+.ntgoc-header { position:sticky; top:0; z-index:40; background:rgba(246,241,232,.94); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); border-bottom:1px solid #ded2be; }
 .ntgoc-header-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; height:84px; max-width:1440px; }
 .ntgoc-logo { display:flex; align-items:center; gap:16px; }
 /* The Archdiocese seal, from the live parish site. The 196px favicon art is
@@ -1152,6 +1152,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   top: 84px;
   z-index: 30;
   background: rgba(246,241,232,.96);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #ded2be;
 }
@@ -2091,7 +2092,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
      the banner as the page scrolls, rather than under it, which is what a
      sticky header should do anyway. The banner is untouched and returns the
      moment the menu closes. */
-  .ntgoc-header { backdrop-filter: none; z-index: 110; }
+  .ntgoc-header { -webkit-backdrop-filter: none; backdrop-filter: none; z-index: 110; }
   /* The header stays one row: seal, name, hamburger. .ntgoc-header-inner also
      carries .ntgoc-flex, which wraps below 640px — that drops the hamburger
      onto a second line at the LEFT of the header, and the panel's right:0

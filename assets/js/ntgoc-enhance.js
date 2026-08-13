@@ -24,18 +24,10 @@
   var items = document.querySelectorAll('[data-ntgoc-cat]');
   if (!filters.length || !items.length) return;
 
-  /* The design expresses the active/idle pill as two different style strings,
-     which the renderer turned into two generated classes. Rather than hard-code
-     those hashed names, read them off the markup as rendered. */
-  var activeBtn = filters[0];
-  var idleBtn = null;
-  for (var i = 0; i < filters.length; i++) {
-    if (filters[i].className !== activeBtn.className) { idleBtn = filters[i]; break; }
-  }
-  if (!idleBtn) return;
-
-  var activeClass = activeBtn.className;
-  var idleClass = idleBtn.className;
+  /* The active/idle pill is these two hand-authored classes, stable in the
+     markup — not renderer output, so there is nothing to read off the DOM. */
+  var activeClass = 'ntgoc-filter-btn ntgoc-bookstore-catalog-button-small-caps';
+  var idleClass = 'ntgoc-filter-btn ntgoc-filter-idle';
 
   var status = document.createElement('p');
   status.className = 'ntgoc-visually-hidden';
@@ -60,7 +52,7 @@
   }
 
   for (var k = 0; k < filters.length; k++) {
-    filters[k].setAttribute('aria-pressed', filters[k] === activeBtn ? 'true' : 'false');
+    filters[k].setAttribute('aria-pressed', filters[k].className === activeClass ? 'true' : 'false');
     filters[k].addEventListener('click', function (event) {
       apply(event.currentTarget.getAttribute('data-ntgoc-filter'));
     });
@@ -91,10 +83,9 @@
      that, which is why the drawer is complete without this file. */
   drawer.addEventListener('toggle', function () {
     if (drawer.open) {
-      document.body.className += ' ntgoc-scroll-locked';
+      document.body.classList.add('ntgoc-scroll-locked');
     } else {
-      document.body.className = document.body.className
-        .replace(/\s*ntgoc-scroll-locked/g, '');
+      document.body.classList.remove('ntgoc-scroll-locked');
     }
   });
 
@@ -159,11 +150,21 @@
     }
   }
 
+  /* The options-object form of scrollTo() needs Safari 14+/Chrome 61+; an
+     older browser silently drops the call — and since the dot's click handler
+     has already called preventDefault(), the href fallback never fires either.
+     'scrollBehavior' in style is a reasonable proxy for that support, so a
+     browser without it gets the two-arg form instead: an instant jump rather
+     than nothing. */
+  var supportsSmoothScroll = 'scrollBehavior' in document.documentElement.style;
+
   function go(i) {
-    track.scrollTo({
-      left: i * track.clientWidth,
-      behavior: reduce.matches ? 'auto' : 'smooth'
-    });
+    var left = i * track.clientWidth;
+    if (supportsSmoothScroll) {
+      track.scrollTo({ left: left, behavior: reduce.matches ? 'auto' : 'smooth' });
+    } else {
+      track.scrollTo(left, 0);
+    }
   }
 
   function stop() { if (timer) { clearInterval(timer); timer = null; } }
