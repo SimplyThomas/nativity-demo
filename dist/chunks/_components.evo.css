@@ -480,7 +480,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-ministries-promo-link { background:#f6f1e8; padding:32px 26px; }
 .ntgoc-home-ministries-promo-link:hover, .ntgoc-home-ministries-promo-link:focus-visible { background:#fbf8f2; }
 .ntgoc-h3-sm { font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:0 0 10px; color:#3a1414; }
-.ntgoc-footer { background:#3a1414; color:#e0d3bd; }
+.ntgoc-footer { background:#3a1414; color:#ded2be; }
 .ntgoc-footer-inner { padding-top:70px; padding-bottom:34px; }
 .ntgoc-footer-grid { display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-footer-title { font-family:Newsreader, serif; font-size:22px; color:#faf5ec; line-height:1.3; margin-bottom:14px; }
@@ -648,7 +648,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-clergy-card { background:#f6f1e8; padding:26px 22px; }
 .ntgoc-about-clergy-display { font-family:Newsreader, serif; font-size:30px; color:#7d2b2b; }
 .ntgoc-about-clergy-small-grey { font-size:13.5px; color:#6c6458; margin-top:6px; }
-.ntgoc-about-clergy-small-italic { font-size:12.5px; color:#6d6358; margin-top:14px; font-style:italic; }
+.ntgoc-about-clergy-small-italic { font-size:12.5px; color:#6c6458; margin-top:14px; font-style:italic; }
 .ntgoc-about-parish-council-shell { padding-top:80px; padding-bottom:80px; }
 .ntgoc-about-parish-council-box-3 { max-width:70ch; margin-bottom:50px; }
 .ntgoc-about-parish-council-display-ink { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.12; margin:0 0 20px; color:#3a1414; }
@@ -659,7 +659,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-council-name { font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414; }
 .ntgoc-council-role { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
 .ntgoc-about-parish-council-small { font-size:14px; }
-.ntgoc-newsletter-archive-text { font-size:12.5px; color:#6d6358; margin-top:16px; font-style:italic; }
+.ntgoc-newsletter-archive-text { font-size:12.5px; color:#6c6458; margin-top:16px; font-style:italic; }
 .ntgoc-about-parish-council-box { margin-top:76px; }
 .ntgoc-about-parish-council-heading { font-family:Newsreader, serif; font-weight:400; font-size:36px; margin:0 0 12px; color:#3a1414; }
 .ntgoc-about-parish-council-body-muted { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 40px; max-width:64ch; text-wrap:pretty; }
@@ -748,7 +748,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-book-stock { font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:#736249; }
 .ntgoc-book-reserve { cursor:pointer; margin-top:16px; border:1px solid #ccbda4; padding:12px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#5b5449; }
 .ntgoc-book-reserve:hover, .ntgoc-book-reserve:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
-.ntgoc-bookstore-catalog-text { font-size:12.5px; color:#6d6358; margin-top:20px; font-style:italic; }
+.ntgoc-bookstore-catalog-text { font-size:12.5px; color:#6c6458; margin-top:20px; font-style:italic; }
 .ntgoc-bookstore-notes-shell { padding-top:74px; padding-bottom:74px; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
 .ntgoc-bookstore-notes-link { color:#7d2b2b; border-bottom:1px solid #d9c6a8; }
@@ -882,7 +882,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-proposal__lede { font-family:Newsreader, serif; font-style:italic; font-size:18px; line-height:1.5; color:#6c6458; margin:0 0 16px; }
 .ntgoc-proposal__text { font-size:16px; line-height:1.75; color:#5b5449; margin:0 0 18px; max-width:62ch; text-wrap:pretty; }
 .ntgoc-proposal__text:last-child { margin-bottom:0; }
-.ntgoc-proposal__note { font-size:13.5px; line-height:1.65; color:#6d6358; margin:18px 0 0; font-style:italic; }
+.ntgoc-proposal__note { font-size:13.5px; line-height:1.65; color:#6c6458; margin:18px 0 0; font-style:italic; }
 .ntgoc-proposal__row { display:flex; gap:14px; flex-wrap:wrap; margin-top:4px; }
 .ntgoc-proposal__cta { display:inline-block; border:1px solid #b08442; color:#6d5220; padding:14px 26px; border-radius:2px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-proposal__cta:hover, .ntgoc-proposal__cta:focus-visible { background:#efe2c8; color:#4a3714; }
@@ -1048,7 +1048,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* Attribution without a footnote apparatus. The sources are named in a
    sentence, small and quiet, because two academic citations in the middle of
    an invitation to supper would be the wrong register entirely. */
-.ntgoc-agape-source { font-size:13.5px; line-height:1.7; color:#6d6358; margin:22px 0 0; max-width:62ch; }
+.ntgoc-agape-source { font-size:13.5px; line-height:1.7; color:#6c6458; margin:22px 0 0; max-width:62ch; }
 .ntgoc-agape-source__key { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12.5px; color:#5b5449; }
 
 /* --- Welcome — the page behind the QR code ---------------------------
@@ -1519,7 +1519,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-page-hero__lede {
   font-size: 17.5px;
   line-height: 1.7;
-  color: #ede4d3;
+  color: #ece3d5;
   margin: 24px 0 0;
   text-wrap: pretty;
 }
@@ -1607,7 +1607,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   margin: 0 0 8px;
   text-wrap: pretty;
 }
-.ntgoc-invitation__text { font-size: 16px; line-height: 1.7; color: #ede4d3; margin: 0; }
+.ntgoc-invitation__text { font-size: 16px; line-height: 1.7; color: #ece3d5; margin: 0; }
 .ntgoc-invitation--light { border-left-color: #b08442; margin: 26px 0 0; }
 .ntgoc-invitation--light .ntgoc-invitation__claim { color: #3a1414; }
 .ntgoc-invitation--light .ntgoc-invitation__text { color: #5b5449; }
@@ -1690,7 +1690,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-rota__empty {
   font-size: 15.5px;
   line-height: 1.7;
-  color: #6d6358;
+  color: #6c6458;
   font-style: italic;
   margin: 0;
   padding: 26px 0 0;
@@ -1785,7 +1785,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-traditions-card__title { font-family: Newsreader, serif; font-weight: 500; font-size: 21px; line-height: 1.25; margin: 0 0 10px; color: #3a1414; }
 .ntgoc-traditions-card__text { font-size: 15px; line-height: 1.65; color: #5b5449; margin: 0; }
 .ntgoc-traditions-card__when { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #7f5f30; margin: 14px 0 0; }
-.ntgoc-traditions-card__note { font-size: 13.5px; line-height: 1.6; font-style: italic; color: #6d6358; margin: 12px 0 0; }
+.ntgoc-traditions-card__note { font-size: 13.5px; line-height: 1.6; font-style: italic; color: #6c6458; margin: 12px 0 0; }
 .ntgoc-traditions-card__choices { display: grid; gap: 8px; margin-top: auto; padding-top: 20px; }
 
 .ntgoc-traditions-choice {
@@ -1843,7 +1843,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-traditions-closing__call { font-family: Newsreader, serif; font-weight: 300; font-style: italic; font-size: 32px; line-height: 1.3; color: #e0b673; margin: 34px 0 0; }
 .ntgoc-traditions-closing__row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 36px; }
 .ntgoc-traditions-closing__cta { display: inline-block; background: #e0b673; color: #3a1414; padding: 16px 30px; border-radius: 2px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
-.ntgoc-traditions-closing__cta:hover, .ntgoc-traditions-closing__cta:focus-visible { background: #f0cf94; color: #2a1010; }
+.ntgoc-traditions-closing__cta:hover, .ntgoc-traditions-closing__cta:focus-visible { background: #f0cd91; color: #2a1010; }
 .ntgoc-traditions-closing__link { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #e6d8c2; border-bottom: 1px solid rgba(224,182,115,.5); padding-bottom: 4px; }
 .ntgoc-traditions-closing__link:hover, .ntgoc-traditions-closing__link:focus-visible { color: #e0b673; border-color: #e0b673; }
 
