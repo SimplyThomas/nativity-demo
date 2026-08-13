@@ -158,7 +158,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the twenty-seven files listed below from this repo's `assets/img/` folder.
+4. Upload the thirty-three files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -177,7 +177,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 107 files.
 
-The twenty-seven images to upload:
+The thirty-three images to upload:
 
 | File | Used on |
 |---|---|
@@ -206,6 +206,9 @@ The twenty-seven images to upload:
 | `palm-folding-pair.jpg` | Parish Life — Parishioners serving in the community |
 | `holy-week-nave.jpg` | Parish Life — the gallery, large frame |
 | `holy-week-hierarchical.jpg` | Parish Life — the gallery, feast day frame |
+| `coffee-hour-hall.jpg` | Parish Life — Fellowship, large frame |
+| `coffee-hour-cups.jpg`, `altar-server.jpg` | Parish Life — the gallery |
+| `festival-tables.jpg`, `festival-volunteers.jpg`, `dance-troupe.jpg` | Parish Life — the gallery |
 
 And the four you can skip:
 
