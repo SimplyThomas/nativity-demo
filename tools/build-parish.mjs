@@ -9,12 +9,14 @@
  *
  * WHY THIS EXISTS
  *
- * The same list of services was hand-written into three places: the month grid
- * on calendar.html, "The next few weeks" on parish-life.html, and (now) "This
- * week at Nativity" on for-our-parish.html. Two of the three had already
- * drifted — parish-life.html showed the Sunday Liturgy at 9:00 a.m. when the
- * parish had confirmed 10:00, and gave 14 and 15 August the wrong weekday
- * names. parish-life.html even carried a comment admitting the list goes stale.
+ * The same list of services was hand-written into four places: the month grid
+ * on calendar.html, "The next few weeks" on parish-life.html, "This week at
+ * Nativity" on for-our-parish.html, and "Upcoming services & events" on
+ * index.html. Multiple of the four had already drifted — parish-life.html
+ * showed the Sunday Liturgy at 9:00 a.m. when the parish had confirmed 10:00
+ * and gave 14 and 15 August the wrong weekday names, and index.html was
+ * still leading with a date two days in the past. parish-life.html even
+ * carried a comment admitting the list goes stale.
  *
  * So the calendar lives in data/parish-calendar.json and this renders it. Same
  * for announcements: data/parish-announcements.json is the whole editing
@@ -280,6 +282,38 @@ function renderAgenda() {
   })).join('\n');
 }
 
+/**
+ * "Upcoming services & events" on index.html.
+ *
+ * Same window as "The next few weeks" on parish-life.html (`upcoming(AGENDA_DAYS,
+ * 'days')`) so the two agree, but in this page's own markup. The date cell
+ * shares its class (`ntgoc-service-date`) with the one on for-our-parish.html,
+ * so it is written the same way — "Sun 9 August" — rather than the home page's
+ * old, unrelated "Sun · Aug 9".
+ */
+function renderHomeUpcoming() {
+  const { days } = upcoming(AGENDA_DAYS, 'days');
+  if (!days.length) {
+    return '            <p class="ntgoc-home-upcoming-services-small-grey-2">Nothing further is on the parish calendar at the moment.</p>';
+  }
+
+  return days.flatMap(day => day.events.map((ev, i) => {
+    const detail = [ev.service ? esc(ev.service, 'event service') : '', ev.note ? esc(ev.note, 'event note') : '']
+      .filter(Boolean).join(' &middot; ');
+    const when = i === 0 ? `${weekday(day.at).slice(0, 3)} ${dayMonth(day.at)}` : '';
+    return [
+      '            <div class="ntgoc-service-row ntgoc-grid">',
+      `              <div class="ntgoc-service-date">${when}</div>`,
+      '              <div>',
+      `                <div class="ntgoc-h4">${esc(ev.name, 'event name')}${todo(ev)}</div>`,
+      detail ? `                <div class="ntgoc-home-upcoming-services-small-grey">${detail}</div>` : '',
+      '              </div>',
+      `              <div class="ntgoc-home-upcoming-services-text">${ev.time ? esc(ev.time, 'event time') : ''}</div>`,
+      '            </div>',
+    ].filter(Boolean).join('\n');
+  })).join('\n');
+}
+
 /* ------------------------------------------------------------------ *
  * Announcements
  * ------------------------------------------------------------------ */
@@ -337,6 +371,7 @@ const REGIONS = [
   ['parish-life.html', 'nextFewWeeks', renderAgenda],
   ['for-our-parish.html', 'thisWeek', renderThisWeek],
   ['for-our-parish.html', 'announcements', renderAnnouncements],
+  ['index.html', 'homeUpcoming', renderHomeUpcoming],
 ];
 
 const changed = [];

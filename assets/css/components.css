@@ -482,10 +482,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-upcoming-services-box { padding:30px 30px 34px; }
 .ntgoc-festival-details-micro-caps { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
 .ntgoc-home-upcoming-services-subheading { font-family:Newsreader, serif; font-weight:400; font-size:23px; margin:0 0 6px; color:#3a1414; }
-.ntgoc-home-upcoming-services-small-grey-3 { font-size:14px; color:#6c6458; margin-bottom:22px; }
-.ntgoc-home-upcoming-services-micro-caps { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#6c6458; margin-bottom:10px; }
 .ntgoc-home-upcoming-services-row { display:flex; flex-direction:column; gap:7px; font-size:15px; line-height:1.5; }
-.ntgoc-home-upcoming-services-rule { height:1px; background:#e4dac8; margin:24px 0; }
 .ntgoc-home-ministries-promo-text { font-size:14.5px; line-height:1.65; color:#5b5449; margin:0; }
 .ntgoc-band-dark { background:#3a1414; color:#f0e6d6; }
 .ntgoc-home-festival-promo-grid { display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:70px; align-items:center; min-height:400px; padding:70px 0; }
