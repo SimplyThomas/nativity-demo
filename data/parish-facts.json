@@ -333,7 +333,13 @@
       "value": "The Light, published monthly.",
       "status": "CONFIRMED_BY_PARISH",
       "source": "Confirmed directly by the parish, 2026-08-09.",
-      "note": "The frequency is now stated on newsletter.html and in the For Our Parish resource directory. There is still no archive to link to, and no issue URL has been invented. The copy deadline and the editor remain unknown."
+      "note": "The frequency is now stated on newsletter.html and in the For Our Parish resource directory. The copy deadline and the editor remain unknown. Distribution is now recorded separately under weeklyBulletin below: The Light itself is emailed monthly as a PDF, with no per-issue web archive, so no issue URL has been invented or linked."
+    },
+    "weeklyBulletin": {
+      "value": "Weekly bulletins are posted at https://bulletinbuilder.org/ntgoc/. Monthly newsletter (\"The Light\") issues are emailed as a link to a PDF, one link per email — there is no stable public URL for a given issue, so no individual issue is linked from the site.",
+      "status": "CONFIRMED_BY_PARISH",
+      "source": "Named directly by the project owner (Thomas), 2026-08-13.",
+      "note": "The bulletinbuilder.org page was checked and does show a current weekly Nativity of the Theotokos bulletin. newsletter.html links to it from the 'Back issues' section, in place of the six dead year-span placeholders' old invitation to 'send the issues' — that invitation is now answered. Whether the six year spans should eventually become a real by-year archive, and whether monthly PDFs would ever be gathered into one, is still open; nothing has been invented to fill that gap."
     },
     "stewardshipDestination": {
       "value": "Not available.",
