@@ -288,7 +288,22 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-nav-link { padding-bottom:3px; border-bottom:2px solid transparent; white-space:nowrap; }
 .ntgoc-nav-link:hover, .ntgoc-nav-link:focus-visible { color:#7d2b2b; }
 .ntgoc-btn-primary { background:#7d2b2b; color:#f6f1e8; padding:11px 22px; border-radius:2px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap; }
-.ntgoc-btn-primary:hover, .ntgoc-btn-primary:focus-visible { background:#5e1f1f; }
+.ntgoc-btn-primary:hover,
+.ntgoc-btn-primary:focus-visible,
+.ntgoc-drawer__cta:hover,
+.ntgoc-drawer__cta:focus-visible,
+.ntgoc-visitor-videos-eyebrow:hover,
+.ntgoc-visitor-videos-eyebrow:focus-visible,
+.ntgoc-visitor-directions-eyebrow:hover,
+.ntgoc-visitor-directions-eyebrow:focus-visible,
+.ntgoc-calendar-hero-small-caps:hover,
+.ntgoc-calendar-hero-small-caps:focus-visible,
+.ntgoc-ministries-grid-small-caps:hover,
+.ntgoc-ministries-grid-small-caps:focus-visible,
+.ntgoc-contact-card-button:hover,
+.ntgoc-contact-card-button:focus-visible {
+  background:#5e1f1f;
+}
 
 /* --- the Parish Life dropdown ---------------------------------------
    Authored here, not transcribed: the design carries "Parish Life" as a
@@ -363,7 +378,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-drawer__list { flex:1 1 auto; overflow-y:auto; -webkit-overflow-scrolling:touch; }
 .ntgoc-drawer__utility { flex:none; border-top:1px solid #ded2be; }
 .ntgoc-drawer__cta { display:block; padding:18px 20px; background:#7d2b2b; color:#f6f1e8; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
-.ntgoc-drawer__cta:hover, .ntgoc-drawer__cta:focus-visible { background:#5e1f1f; }
 .ntgoc-drawer__link { display:block; padding:17px 20px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:22px; color:#3a1414; }
 .ntgoc-drawer__sub { display:block; padding:14px 20px 14px 38px; border-bottom:1px solid #e4dac8; font-family:Newsreader, serif; font-size:19px; color:#5b5449; }
 .ntgoc-drawer__link:hover, .ntgoc-drawer__link:focus-visible,
@@ -406,7 +420,20 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-clergy-text-8 { margin:0; text-wrap:pretty; }
 .ntgoc-home-welcome-row { display:flex; gap:28px; margin-top:34px; flex-wrap:wrap; }
 .ntgoc-home-welcome-link { font-size:13.5px; letter-spacing:.06em; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
-.ntgoc-home-welcome-link:hover, .ntgoc-home-welcome-link:focus-visible { border-color:#7d2b2b; }
+.ntgoc-home-welcome-link:hover,
+.ntgoc-home-welcome-link:focus-visible,
+.ntgoc-home-upcoming-services-small-caps:hover,
+.ntgoc-home-upcoming-services-small-caps:focus-visible,
+.ntgoc-visitor-first-sunday-small-caps:hover,
+.ntgoc-visitor-first-sunday-small-caps:focus-visible,
+.ntgoc-visitor-what-to-eyebrow:hover,
+.ntgoc-visitor-what-to-eyebrow:focus-visible,
+.ntgoc-parish-life-card__link:hover,
+.ntgoc-parish-life-card__link:focus-visible,
+.ntgoc-parish-link:hover,
+.ntgoc-parish-link:focus-visible {
+  border-color:#7d2b2b;
+}
 .ntgoc-band { background:#ece3d5; border-top:1px solid #ded2be; border-bottom:1px solid #ded2be; }
 .ntgoc-visitor-directions-shell { padding-top:88px; padding-bottom:88px; }
 .ntgoc-festival-details-eyebrow,
@@ -425,7 +452,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-upcoming-services-text { font-size:14px; color:#5b5449; }
 .ntgoc-home-upcoming-services-small-grey { font-size:14px; color:#6c6458; margin-top:4px; }
 .ntgoc-home-upcoming-services-small-caps { display:inline-block; margin-top:30px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
-.ntgoc-home-upcoming-services-small-caps:hover, .ntgoc-home-upcoming-services-small-caps:focus-visible { border-color:#7d2b2b; }
 .ntgoc-home-upcoming-services-ruled { border:1px solid #ded2be; background:#fbf8f2; }
 .ntgoc-home-upcoming-services-media { height:190px; background-image:url('../img/feast-transfiguration.jpg'); background-size:cover; background-position:center; border-bottom:1px solid #ded2be; }
 .ntgoc-home-upcoming-services-box { padding:30px 30px 34px; }
@@ -495,7 +521,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-first-sunday-display-ink-2 { font-family:Newsreader, serif; font-weight:500; font-size:28px; margin:0 0 18px; color:#3a1414; }
 .ntgoc-visitor-first-sunday-body-muted { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 22px; max-width:62ch; text-wrap:pretty; }
 .ntgoc-visitor-first-sunday-small-caps { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
-.ntgoc-visitor-first-sunday-small-caps:hover, .ntgoc-visitor-first-sunday-small-caps:focus-visible { border-color:#7d2b2b; }
 .ntgoc-clergy-grid { display:grid; grid-template-columns:380px minmax(0,1fr); gap:70px; align-items:start; }
 .ntgoc-visitor-language-text { font-family:Newsreader, serif; font-weight:300; font-size:30px; line-height:1.45; color:#3a1414; margin:0; max-width:24ch; text-wrap:pretty; }
 .ntgoc-visitor-language-subheading { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:34px 0 14px; color:#3a1414; }
@@ -520,7 +545,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-what-to-text { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0; max-width:62ch; text-wrap:pretty; }
 .ntgoc-visitor-what-to-text-4 { margin:0 0 34px; }
 .ntgoc-visitor-what-to-eyebrow { cursor:pointer; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
-.ntgoc-visitor-what-to-eyebrow:hover, .ntgoc-visitor-what-to-eyebrow:focus-visible { border-color:#7d2b2b; }
 .ntgoc-visitor-children-card { border:1px solid #ccbda4; background:#f6f1e8; padding:30px 28px; max-width:62ch; margin:0 0 34px; }
 .ntgoc-council-bio { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px; }
 .ntgoc-visitor-greeters-figure { margin:0; }
@@ -539,7 +563,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-videos-subheading { font-family:Newsreader, serif; font-weight:500; font-size:21px; margin:14px 0 0; color:#3a1414; }
 .ntgoc-visitor-videos-text { margin:40px 0 0; }
 .ntgoc-visitor-videos-eyebrow { cursor:pointer; display:inline-block; background:#7d2b2b; color:#f6f1e8; padding:16px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-visitor-videos-eyebrow:hover, .ntgoc-visitor-videos-eyebrow:focus-visible { background:#5e1f1f; }
 .ntgoc-visitor-videos-note { font-size:16px; line-height:1.75; color:#5b5449; margin:46px 0 0; max-width:62ch; border-left:2px solid #d9c6a8; padding-left:20px; text-wrap:pretty; }
 .ntgoc-visitor-directions-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:70px; align-items:center; }
 .ntgoc-page-eyebrow { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#736249; margin-bottom:20px; }
@@ -548,7 +571,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-directions-body-grid { display:grid; gap:16px; font-size:15.5px; line-height:1.6; color:#5b5449; border-top:1px solid #e4dac8; padding-top:26px; }
 .ntgoc-ink { color:#3a1414; }
 .ntgoc-visitor-directions-eyebrow { display:inline-block; margin-top:32px; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
-.ntgoc-visitor-directions-eyebrow:hover, .ntgoc-visitor-directions-eyebrow:focus-visible { background:#5e1f1f; }
 .ntgoc-visitor-directions-media { height:400px; border:1px solid #ded2be; background-color:#e6ddcd; background-image:url('../img/directions-map.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; }
 .ntgoc-faith-intro-shell { padding-top:84px; padding-bottom:60px; }
 .ntgoc-faith-intro-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; }
@@ -578,9 +600,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-faith-watch-read-media-5 { height:150px; background-image:url('../img/faith-elders.jpg'); background-size:cover; background-position:center; }
 .ntgoc-calendar-hero-row-3 { display:flex; gap:10px; }
 .ntgoc-calendar-hero-eyebrow { cursor:pointer; border:1px solid #ccbda4; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#5b5449; }
-.ntgoc-calendar-hero-eyebrow:hover, .ntgoc-calendar-hero-eyebrow:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-calendar-hero-small-caps { cursor:pointer; background:#7d2b2b; color:#f6f1e8; padding:11px 20px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
-.ntgoc-calendar-hero-small-caps:hover, .ntgoc-calendar-hero-small-caps:focus-visible { background:#5e1f1f; }
 .ntgoc-calendar-grid-shell { padding-top:70px; padding-bottom:96px; }
 .ntgoc-calendar-grid-grid-4 { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:70px; align-items:start; }
 .ntgoc-calendar-grid-grid-ruled { display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:1px; background:#ded2be; border:1px solid #ded2be; }
@@ -617,7 +637,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-h3-lg { font-family:Newsreader, serif; font-weight:500; font-size:24px; margin:0 0 12px; color:#3a1414; }
 .ntgoc-ministries-grid-row { background:#ece3d5; padding:40px 32px; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-ministries-grid-small-caps { align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
-.ntgoc-ministries-grid-small-caps:hover, .ntgoc-ministries-grid-small-caps:focus-visible { background:#5e1f1f; }
 .ntgoc-section-shell { padding-top:84px; padding-bottom:90px; }
 .ntgoc-about-clergy-media { height:420px; background-image:url('../img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-about-clergy-box { margin-top:22px; }
@@ -685,7 +704,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-demoform__field { border:1px solid #d5c8b1; background:#f6f1e8; height:46px; width:100%; padding:0 14px; font-family:inherit; font-size:15px; color:#5b5449; }
 .ntgoc-contact-card-body-ruled { border:1px solid #d5c8b1; background:#f6f1e8; height:130px; width:100%; padding:12px 14px; font-family:inherit; font-size:15px; color:#5b5449; resize:vertical; }
 .ntgoc-contact-card-button { background:#7d2b2b; color:#f6f1e8; padding:16px; text-align:center; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; border:0; font-family:inherit; }
-.ntgoc-contact-card-button:hover, .ntgoc-contact-card-button:focus-visible { background:#5e1f1f; }
 .ntgoc-festival-details-shell { padding-top:84px; padding-bottom:84px; }
 .ntgoc-festival-details-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#ded2be; border:1px solid #ded2be; margin-bottom:60px; }
 .ntgoc-festival-details-card { background:#f6f1e8; padding:34px 28px; }
@@ -728,7 +746,18 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-book-price { font-family:Newsreader, serif; font-size:22px; color:#7d2b2b; }
 .ntgoc-book-stock { font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:#736249; }
 .ntgoc-book-reserve { cursor:pointer; margin-top:16px; border:1px solid #ccbda4; padding:12px; text-align:center; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#5b5449; }
-.ntgoc-book-reserve:hover, .ntgoc-book-reserve:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
+.ntgoc-book-reserve:hover,
+.ntgoc-book-reserve:focus-visible,
+.ntgoc-calendar-hero-eyebrow:hover,
+.ntgoc-calendar-hero-eyebrow:focus-visible,
+.ntgoc-nextsteps__link:hover,
+.ntgoc-nextsteps__link:focus-visible,
+.ntgoc-parish-cta--quiet:hover,
+.ntgoc-parish-cta--quiet:focus-visible,
+.ntgoc-welcome-jump__link:hover,
+.ntgoc-welcome-jump__link:focus-visible {
+  border-color:#7d2b2b; color:#7d2b2b;
+}
 .ntgoc-bookstore-catalog-text { font-size:12.5px; color:#6c6458; margin-top:20px; font-style:italic; }
 .ntgoc-bookstore-notes-shell { padding-top:74px; padding-bottom:74px; }
 .ntgoc-bookstore-notes-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:56px; }
@@ -814,7 +843,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-parish-life-permission__text { font-size:14.5px; line-height:1.7; color:#5b5449; margin:0; max-width:80ch; }
 
 .ntgoc-parish-life-card__link { align-self:flex-start; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
-.ntgoc-parish-life-card__link:hover, .ntgoc-parish-life-card__link:focus-visible { border-color:#7d2b2b; }
 
 .ntgoc-parish-life-cta { display:inline-block; border:1px solid rgba(240,230,214,.45); color:#f0e6d6; padding:15px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
 .ntgoc-parish-life-cta:hover, .ntgoc-parish-life-cta:focus-visible { border-color:#e0b673; color:#e0b673; }
@@ -899,7 +927,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-nextsteps__cta { display:inline-block; background:#7d2b2b; color:#f6f1e8; padding:15px 28px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-nextsteps__cta:hover, .ntgoc-nextsteps__cta:focus-visible { background:#5e1f1f; color:#f6f1e8; }
 .ntgoc-nextsteps__link { display:inline-block; border:1px solid #ccbda4; color:#5b5449; padding:15px 28px; border-radius:2px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
-.ntgoc-nextsteps__link:hover, .ntgoc-nextsteps__link:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 .ntgoc-nextsteps__stack { display:grid; gap:26px; }
 
 /* --- For Our Parish --------------------------------------------------
@@ -916,7 +943,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-parish-h2--spaced { margin-bottom: 20px; }
 .ntgoc-parish-sub { font-size:15px; line-height:1.65; color:#6c6458; margin:8px 0 0; max-width:62ch; }
 .ntgoc-parish-link { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; white-space:nowrap; }
-.ntgoc-parish-link:hover, .ntgoc-parish-link:focus-visible { border-color:#7d2b2b; }
 
 /* This Week at Nativity. Same row shape as the home page's upcoming list,
    because it is the same calendar — see the comment in the markup. */
@@ -957,7 +983,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-parish-cta { display:block; background:#7d2b2b; color:#f6f1e8; padding:15px 22px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; text-align:center; border-radius:2px; }
 .ntgoc-parish-cta:hover, .ntgoc-parish-cta:focus-visible { background:#5e1f1f; color:#f6f1e8; }
 .ntgoc-parish-cta--quiet { display:block; border:1px solid #ccbda4; color:#5b5449; padding:15px 22px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; text-align:center; border-radius:2px; }
-.ntgoc-parish-cta--quiet:hover, .ntgoc-parish-cta--quiet:focus-visible { border-color:#7d2b2b; color:#7d2b2b; }
 
 .ntgoc-resources { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:32px 56px; }
 .ntgoc-resource { border-top:1px solid #ded2be; padding-top:20px; }
@@ -1122,7 +1147,6 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   background: #fbf8f2;
   white-space: nowrap;
 }
-.ntgoc-welcome-jump__link:hover, .ntgoc-welcome-jump__link:focus-visible { border-color: #7d2b2b; color: #7d2b2b; }
 /* An anchor jump has to clear the site header AND the switcher, so this is
    larger than the site-wide 96px. Scoped to the sections that follow the
    switcher, which is exactly the ones it can cover. */
