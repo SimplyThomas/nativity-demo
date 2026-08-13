@@ -19,7 +19,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocCalendarGrid` | 10089 b | 1 page | — |
 | ☐ | `ntgocCalendarHero` | 946 b | 1 page | — |
 | ☐ | `ntgocCommitteesHero` | 549 b | 1 page | — |
-| ☐ | `ntgocCommitteesList` | 3948 b | 1 page | yes (1) |
+| ☐ | `ntgocCommitteesList` | 3932 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 3024 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 517 b | 1 page | — |
 | ☐ | `ntgocDraftBanner` | 488 b | 19 pages | — |
@@ -51,7 +51,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeHero` | 1189 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1739 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeUpcomingServices` | 3737 b | 1 page | yes (1) |
+| ☐ | `ntgocHomeUpcomingServices` | 3721 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 3203 b | 1 page | — |
 | ☐ | `ntgocMinistriesHero` | 597 b | 1 page | — |
