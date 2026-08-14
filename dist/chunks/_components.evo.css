@@ -1907,6 +1907,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-pathway__eyebrow { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7d2b2b; }
 .ntgoc-pathway__note { font-size: 14px; line-height: 1.6; color: #6c6458; }
 
+/* The second lens on the same six doors, ruled off above so that it reads as a
+   different question rather than as a seventh card: the grid sorts by what you
+   care about, this row sorts by how much time you have. Quiet on purpose — the
+   links themselves are .ntgoc-resource__quiet, already used for the same job on
+   catechumens.html. */
+.ntgoc-capacity { border-top: 1px solid #ded2be; margin-top: 34px; padding-top: 26px; }
+
 /* One step below .ntgoc-parish-h2, for the sections that now nest — coffee
    hour and the Agape Meal both sit under "Gather together". */
 .ntgoc-parish-h3 { font-family: Newsreader, serif; font-weight: 400; font-size: 29px; line-height: 1.2; margin: 0; color: #3a1414; }

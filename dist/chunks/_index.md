@@ -16,7 +16,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocBookstoreConverts` | 2805 b | 1 page | — |
 | ☐ | `ntgocBookstoreHero` | 1613 b | 1 page | — |
 | ☐ | `ntgocBookstoreNotes` | 1517 b | 1 page | yes (1) |
-| ☐ | `ntgocCalendarGrid` | 10089 b | 1 page | — |
+| ☐ | `ntgocCalendarGrid` | 10699 b | 1 page | yes (3) |
 | ☐ | `ntgocCalendarHero` | 946 b | 1 page | — |
 | ☐ | `ntgocCareAsk` | 1586 b | 1 page | yes (2) |
 | ☐ | `ntgocCareClosing` | 726 b | 1 page | yes (2) |
@@ -65,7 +65,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocGetInvolvedHero` | 1743 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedLearn` | 4049 b | 1 page | yes (4) |
 | ☐ | `ntgocGetInvolvedOffering` | 7531 b | 1 page | yes (3) |
-| ☐ | `ntgocGetInvolvedPathways` | 2099 b | 1 page | yes (1) |
+| ☐ | `ntgocGetInvolvedPathways` | 3265 b | 1 page | yes (3) |
 | ☐ | `ntgocGetInvolvedPrepare` | 6796 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedProsphora` | 4215 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedServe` | 4551 b | 1 page | yes (4) |
@@ -83,6 +83,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 4722 b | 1 page | yes (8) |
 | ☐ | `ntgocMinistriesHero` | 673 b | 1 page | — |
+| ☐ | `ntgocMinistriesWays` | 1407 b | 1 page | yes (5) |
 | ☐ | `ntgocMinistryAhepa` | 3101 b | 1 page | — |
 | ☐ | `ntgocMinistryAhepaHero` | 370 b | 1 page | yes (1) |
 | ☐ | `ntgocMinistryChoir` | 2995 b | 1 page | — |
@@ -101,6 +102,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocMinistrySundaySchoolHero` | 373 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterArchive` | 2222 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |
+| ☐ | `ntgocNewsletterReceive` | 966 b | 1 page | yes (1) |
 | ☐ | `ntgocParishAnnouncements` | 2651 b | 1 page | — |
 | ☐ | `ntgocParishAsk` | 1141 b | 1 page | yes (1) |
 | ☐ | `ntgocParishConnected` | 1954 b | 1 page | yes (1) |
@@ -125,8 +127,8 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocSiteFooter` | 4159 b | 33 pages | yes (20) |
 | ☐ | `ntgocSiteHeader` | 7501 b | 33 pages | yes (43) |
 | ☐ | `ntgocTopBar` | 208 b | 33 pages | — |
-| ☐ | `ntgocTraditionsClasses` | 33308 b | 1 page | — |
-| ☐ | `ntgocTraditionsClosing` | 956 b | 1 page | — |
+| ☐ | `ntgocTraditionsClasses` | 33968 b | 1 page | yes (1) |
+| ☐ | `ntgocTraditionsClosing` | 1618 b | 1 page | yes (3) |
 | ☐ | `ntgocTraditionsGuidance` | 1028 b | 1 page | — |
 | ☐ | `ntgocTraditionsHero` | 576 b | 1 page | — |
 | ☐ | `ntgocTraditionsIdea` | 302 b | 1 page | — |
