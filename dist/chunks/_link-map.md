@@ -44,7 +44,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-268 links across 78 chunks.
+277 links across 80 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -85,10 +85,12 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocGetInvolvedServe` | ministries ×2, events, contact | ☐ |
 | `ntgocHallRental` | contact | ☐ |
 | `ntgocHomeFestivalPromo` | ministries, calendar, about | ☐ |
+| `ntgocHomeFindYourPlace` | calendar, faith, get-involved, parish-life, care, traditions | ☐ |
 | `ntgocHomeForOurParish` | for-our-parish | ☐ |
 | `ntgocHomeHero` | visit, contact | ☐ |
 | `ntgocHomeMinistriesPromo` | ministries ×5 | ☐ |
 | `ntgocHomeServiceTimes` | contact | ☐ |
+| `ntgocHomeThisWeek` | for-our-parish ×2, get-involved | ☐ |
 | `ntgocHomeUpcomingServices` | calendar | ☐ |
 | `ntgocHomeWelcome` | faith, about | ☐ |
 | `ntgocMinistriesGrid` | ministry-sunday-school, ministry-goya, ministry-joy, ministry-philoptochos, ministry-dance-troupe, ministry-ahepa, ministry-parish-council, ministry-choir | ☐ |

@@ -316,7 +316,130 @@
 <!-- /CHUNK:ntgocHomeUpcomingServices -->
 
 
+<!-- Six doors into the parish, in the order a newcomer tends to meet them:
+     worship first, then everything that follows from it. Each card is one whole
+     link — the word is the door, and the line under it says what is behind the
+     door rather than describing it. Deliberately the same .ntgoc-pathway grid
+     get-involved.html uses, so the two pages read as one idea and not two
+     designs. -->
+<!-- CHUNK:ntgocHomeFindYourPlace -->
+<section class="ntgoc-band">
+      <div class="ntgoc-parish-section ntgoc-gutter ntgoc-shell">
+        <div class="ntgoc-parish-head ntgoc-flex">
+          <div>
+            <h2 class="ntgoc-parish-h2">Find your place at Nativity</h2>
+            <p class="ntgoc-parish-sub">The life of the parish is something you take part in rather than read about. Any one of these is a place to begin.</p>
+          </div>
+        </div>
+
+        <div class="ntgoc-pathways ntgoc-grid">
+          <a href="calendar.html" class="ntgoc-inherit ntgoc-pathway">
+            <span class="ntgoc-pathway__eyebrow">Worship</span>
+            <span class="ntgoc-pathway__note">The services through the week, the feast days, and the sacramental life of the Church.</span>
+          </a>
+          <a href="faith.html" class="ntgoc-inherit ntgoc-pathway">
+            <span class="ntgoc-pathway__eyebrow">Learn</span>
+            <span class="ntgoc-pathway__note">What the Orthodox Church believes, how the faith is taught, and what becoming Orthodox involves.</span>
+          </a>
+          <a href="get-involved.html" class="ntgoc-inherit ntgoc-pathway">
+            <span class="ntgoc-pathway__eyebrow">Serve</span>
+            <span class="ntgoc-pathway__note">Practical ways to help, however much time you have to give.</span>
+          </a>
+          <a href="parish-life.html" class="ntgoc-inherit ntgoc-pathway">
+            <span class="ntgoc-pathway__eyebrow">Connect</span>
+            <span class="ntgoc-pathway__note">Coffee hour in the parish hall, and the ordinary company of one another.</span>
+          </a>
+          <a href="care.html" class="ntgoc-inherit ntgoc-pathway">
+            <span class="ntgoc-pathway__eyebrow">Care</span>
+            <span class="ntgoc-pathway__note">Offer practical help to a household that needs it — or ask for it yourself.</span>
+          </a>
+          <a href="traditions.html" class="ntgoc-inherit ntgoc-pathway">
+            <span class="ntgoc-pathway__eyebrow">Traditions</span>
+            <span class="ntgoc-pathway__note">Learn a tradition, teach one, prepare for a feast, and take your part in it.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+<!-- /CHUNK:ntgocHomeFindYourPlace -->
+
+
+<!-- The announcements grid, rendered by `npm run parish` from
+     data/parish-announcements.json — the same file, the same renderer and the
+     same markup as the grid on for-our-parish.html, so the two pages cannot end
+     up saying different things. Do not write a card in here by hand.
+
+     The proposal box below sits OUTSIDE the BUILD markers and is what makes the
+     section a deliberate shape rather than an empty hole while the parish has
+     nothing real to post. -->
+<!-- CHUNK:ntgocHomeThisWeek -->
+<section id="ntgoc-this-week" class="ntgoc-parish-section ntgoc-gutter ntgoc-shell">
+      <div class="ntgoc-parish-head ntgoc-flex">
+        <div>
+          <h2 class="ntgoc-parish-h2">This week at Nativity</h2>
+          <p class="ntgoc-parish-sub">What the parish needs the week to know — a change to a service, something somebody can help with, a date worth keeping.</p>
+        </div>
+        <a href="for-our-parish.html" class="ntgoc-inherit ntgoc-home-upcoming-services-small-caps">All parish announcements →</a>
+      </div>
+
+      <div class="ntgoc-announce">
+        <!-- BUILD:announcements -->
+          <div class="ntgoc-announce__card ntgoc-announce__card--urgent" data-ntgoc-expires="2026-12-31">
+            <div class="ntgoc-announce__kind ntgoc-announce__kind--urgent">Urgent notice &middot; sample</div>
+            <h3 class="ntgoc-h3-sm">Sample — this is how an urgent notice appears</h3>
+            <p class="ntgoc-announce__text">An urgent announcement sorts to the front of this grid and takes the red rule, so it is not read as ordinary parish business. It is meant for a weather closure, a service moved at short notice, or a death in the parish family. Set &quot;urgent&quot;: true on an entry in data/parish-announcements.json.</p>
+            <div class="ntgoc-announce__meta">Posted 9 August &middot; until 31 December</div>
+          </div>
+          <div class="ntgoc-announce__card" data-ntgoc-expires="2026-12-31">
+            <div class="ntgoc-announce__kind">From the office &middot; sample</div>
+            <h3 class="ntgoc-h3-sm">Sample — this is how an ordinary announcement appears</h3>
+            <p class="ntgoc-announce__text">Announcements run newest first, each under a label saying what kind of notice it is, and each one can carry a date after which it comes down by itself rather than piling up. Nothing on this page is a real parish announcement yet; these two entries exist to show the Parish Council the shape of the thing.</p>
+            <div class="ntgoc-announce__meta">Posted 9 August &middot; until 31 December</div>
+          </div>
+<!-- /BUILD:announcements -->
+      </div>
+
+      <div class="ntgoc-proposal ntgoc-proposal--spaced">
+        <span class="ntgoc-proposal__tag">Proposed — what this space is for</span>
+        <p class="ntgoc-proposal__text">This space is built to carry the week's parish announcements and practical needs, as the parish begins publishing them: a service time changed at short notice, a volunteer needed, flowers for a feast, a meal for a household, a class with places left. Whatever is posted appears here and on <a href="for-our-parish.html">For our parish</a>, from one file, so the two pages cannot drift apart. The standing ways to help are gathered on <a href="get-involved.html">Get involved</a>.</p>
+        <p class="ntgoc-proposal__text">No real parish announcement has been written yet. What appears above is rendered from the announcements file as it stands, and nothing has been invented to fill the space.</p>
+      </div>
+    </section>
+<!-- /CHUNK:ntgocHomeThisWeek -->
+
+
+
+
+
+
     
+<!-- CHUNK:ntgocHomeMinistriesPromo -->
+<section class="ntgoc-home-upcoming-services-shell ntgoc-gutter ntgoc-shell">
+      <div class="ntgoc-home-ministries-promo-row ntgoc-flex">
+        <h2 class="ntgoc-home-ministries-promo-heading">The life of the parish</h2>
+        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-eyebrow">All ministries →</a>
+      </div>
+      <div class="ntgoc-home-ministries-promo-grid ntgoc-grid">
+        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
+          <h3 class="ntgoc-h3-sm">Sunday School</h3>
+          <p class="ntgoc-home-ministries-promo-text">Formation for the children of the parish during the school year.</p>
+        </a>
+        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
+          <h3 class="ntgoc-h3-sm">GOYA &amp; JOY</h3>
+          <p class="ntgoc-home-ministries-promo-text">The parish's youth ministries, for older and younger children.</p>
+        </a>
+        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
+          <h3 class="ntgoc-h3-sm">Philoptochos</h3>
+          <p class="ntgoc-home-ministries-promo-text">The women's philanthropic society — “friends of the poor.”</p>
+        </a>
+        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
+          <h3 class="ntgoc-h3-sm">Dance Troupe</h3>
+          <p class="ntgoc-home-ministries-promo-text">Traditional Greek dance, and the dancers you see at the festival.</p>
+        </a>
+      </div>
+    </section>
+<!-- /CHUNK:ntgocHomeMinistriesPromo -->
+
+
 <!-- CHUNK:ntgocHomeFestivalPromo -->
 <section class="ntgoc-band-dark">
       <div class="ntgoc-gutter ntgoc-shell">
@@ -326,9 +449,13 @@
             <article class="ntgoc-carousel__slide" id="ntgoc-promo-festival">
               <div class="ntgoc-home-festival-promo-grid ntgoc-grid">
                 <div>
-                  <div class="ntgoc-home-festival-promo-micro-caps">Every autumn</div>
+                  <div class="ntgoc-home-festival-promo-micro-caps">The parish festival</div>
                   <h2 class="ntgoc-home-festival-promo-heading">The Fredericksburg Greek Festival</h2>
-                  <p class="ntgoc-home-festival-promo-text">Three days of food, music and dancing on the church grounds, run by the parish and open to the whole city. For many of our neighbours it is the first time they walk through our doors — and the church is open for tours all weekend.</p>
+                  <!-- The season, the length of the festival and the tours of the church were all
+                       stated here and none of them is sourced; data/parish-facts.json records only
+                       the festival's own site. Dates and details stay at fredgreek.org, which the
+                       parish asked every festival link to point at. -->
+                  <p class="ntgoc-home-festival-promo-text">The parish runs the Fredericksburg Greek Festival, and it is open to the whole city. For many of our neighbours it is the first time they walk through our doors. The dates and the details are kept at fredgreek.org.</p>
                   <div class="ntgoc-home-festival-promo-row ntgoc-flex">
                     <a href="https://www.fredgreek.org/" target="_blank" rel="noreferrer" class="ntgoc-inherit ntgoc-home-festival-promo-eyebrow">Festival details</a>
                     <a href="ministries.html" class="ntgoc-inherit ntgoc-home-festival-promo-small-caps">Volunteer with us</a>
@@ -368,35 +495,6 @@
       </div>
     </section>
 <!-- /CHUNK:ntgocHomeFestivalPromo -->
-
-
-    
-<!-- CHUNK:ntgocHomeMinistriesPromo -->
-<section class="ntgoc-home-upcoming-services-shell ntgoc-gutter ntgoc-shell">
-      <div class="ntgoc-home-ministries-promo-row ntgoc-flex">
-        <h2 class="ntgoc-home-ministries-promo-heading">The life of the parish</h2>
-        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-eyebrow">All ministries →</a>
-      </div>
-      <div class="ntgoc-home-ministries-promo-grid ntgoc-grid">
-        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
-          <h3 class="ntgoc-h3-sm">Sunday School</h3>
-          <p class="ntgoc-home-ministries-promo-text">Formation for the children of the parish during the school year.</p>
-        </a>
-        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
-          <h3 class="ntgoc-h3-sm">GOYA &amp; JOY</h3>
-          <p class="ntgoc-home-ministries-promo-text">The parish's youth ministries, for older and younger children.</p>
-        </a>
-        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
-          <h3 class="ntgoc-h3-sm">Philoptochos</h3>
-          <p class="ntgoc-home-ministries-promo-text">The women's philanthropic society — “friends of the poor.”</p>
-        </a>
-        <a href="ministries.html" class="ntgoc-inherit ntgoc-home-ministries-promo-link">
-          <h3 class="ntgoc-h3-sm">Dance Troupe</h3>
-          <p class="ntgoc-home-ministries-promo-text">Traditional Greek dance, and the dancers you see at the festival.</p>
-        </a>
-      </div>
-    </section>
-<!-- /CHUNK:ntgocHomeMinistriesPromo -->
 
 
 <!-- CHUNK:ntgocHomeForOurParish -->

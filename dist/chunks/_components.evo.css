@@ -1899,6 +1899,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 .ntgoc-pathway:hover, .ntgoc-pathway:focus-visible { background: #f1e9dc; border-left-color: #7d2b2b; }
 .ntgoc-pathway__name { font-family: Newsreader, serif; font-size: 21px; line-height: 1.25; color: #3a1414; }
+/* The homepage's six doors are one word each, so they take a small-caps label
+   rather than the serif line get-involved.html uses for a whole phrase. */
+.ntgoc-pathway__eyebrow { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7d2b2b; }
 .ntgoc-pathway__note { font-size: 14px; line-height: 1.6; color: #6c6458; }
 
 /* One step below .ntgoc-parish-h2, for the sections that now nest — coffee

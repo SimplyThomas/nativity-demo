@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 147 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 149 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
