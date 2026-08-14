@@ -14,7 +14,7 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The nineteen `.html` files at the repo root are SOURCE. Edit them directly.**
+**The 23 `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
@@ -36,10 +36,11 @@ The only generated artefact is `dist/chunks/` (`npm run chunks`).
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 19 pages
+npm run shell    # propagate header/footer to all 23 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run parish   # render the calendar + announcements into the pages
+npm run catechumens # render the catechumen questions, resources and documents
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
 npm run links    # do the outbound links still resolve? (monthly in CI)
 npm run measure:hero # hero text contrast over the photograph (not in CI)
@@ -58,7 +59,7 @@ daemon. They are the only way to see the chunks inside a real Evolution CMS
 rather than inferring that they would work; `tools/evo-sandbox/README.md`
 records the gotchas, several of which are unguessable.
 
-### The one thing that IS generated from data
+### The two things that ARE generated from data
 
 `npm run parish` renders `data/parish-calendar.json` and
 `data/parish-announcements.json` into the blocks marked
@@ -74,9 +75,47 @@ leading with a date already two days in the past. That is what this exists to
 stop. It is deliberately **not** gated by CI: "upcoming" depends on today's
 date, so a CI check would fail every morning.
 
+`npm run catechumens` does the same job for `catechumens.html` and its three
+document pages. It reads two files:
+
+- `data/catechumen-faq.json` → the question cards, and `QUESTIONS-FOR-FR-JOHN.md`
+- `data/catechumen-resources.json` → the resource cards, the body of each
+  document page, and `DOCUMENTS-FOR-FR-JOHN.md`
+
+Add a question or a document by adding an entry to the JSON — never by writing
+a card into the markup, which is how one question ends up on the page twice in
+two wordings.
+
+Rules the tool enforces, which are the point of the page rather than
+housekeeping:
+
+- An answer must record its `source`; a question without one must say
+  `"pending": true`, which ships the card with *Content needed from Fr. John*
+  on its face. There is no third state where a plausible answer appears with
+  nobody behind it.
+- **A document lives at exactly one URL, and one URL holds exactly one
+  document.** Two register entries claiming the same page is an error. Nothing
+  else on this site restates a document — other pages link to it.
+- A document's `lastUpdated` is stamped onto its card *and* onto the document
+  itself from the same entry, so the two cannot disagree. `published` with no
+  date is an error.
+- Anything about Baptism, Chrismation, Confession, Communion, fasting,
+  godparent eligibility or reception is `governance: "pastoral"`. Filling in
+  its requirements without an `approvedBy` is an error — the site distributes
+  Fr. John's guidance, it does not author guidance for him.
+
+There are no PDFs anywhere in this project, deliberately: a PDF is a second
+copy, and a second copy is what goes stale in a downloads folder while the
+website says something else. The document pages print as the document (see the
+`@media print` rules at the foot of `components.css`), so the printable version
+and the web version are the same file.
+
+Unlike the calendar this output does not depend on today's date, so it **is**
+gated: `npm run check` runs `npm run catechumens -- --check`.
+
 `data/site.json` is the other half of the same idea, from the opposite
 direction: it lists what a page must NOT say, and lint fails when one says it.
-Use that for a fact stated in prose, and this for a list rendered from data.
+Use that for a fact stated in prose, and these for a list rendered from data.
 
 ---
 
@@ -146,7 +185,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 19 pages × 2 viewports, reflow 19/19 at 320px.
+0 axe violations across 23 pages × 2 viewports, reflow 23/23 at 320px.
 
 ---
 
@@ -157,6 +196,8 @@ Expected clean state: lint passes, snapshot reports no layout or colour change,
 | How do I make a change safely? | `CONTRIBUTING.md` |
 | How does a volunteer import this into EVO? | `IMPORT.md` |
 | What is verified, corrected, or withheld? | `data/parish-facts.json` |
+| What is the catechumen page still waiting on? | `QUESTIONS-FOR-FR-JOHN.md` |
+| Which documents is Fr. John still to write? | `DOCUMENTS-FOR-FR-JOHN.md` |
 | What must every page agree on? | `data/site.json` |
 | What was the accessibility work? | `ACCESSIBILITY.md` |
 | What did the old renderer guarantee? | `tools/archive/README.md` |

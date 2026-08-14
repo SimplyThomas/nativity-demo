@@ -384,6 +384,113 @@
 }());
 
 /*
+ * For catechumens & inquirers — searching the questions.
+ *
+ * Enhancement only, and unusually strictly so: the search field is written into
+ * the page with the `hidden` attribute and is revealed HERE, because a search
+ * box that does nothing is worse than no search box. With JavaScript off, the
+ * page is the complete list of questions under its headings, which is how it is
+ * built anyway — the cards are <details>, and the category cards near the top
+ * are ordinary in-page links.
+ *
+ * It only ever HIDES cards that do not match. It cannot invent a question, and
+ * clearing the field restores the page exactly, so nothing is reachable with
+ * the script that is not reachable without it.
+ *
+ * Matching is on everything the card says — its question, its answer, and the
+ * keywords the data file carries for the words people actually type before they
+ * know the Church's word for a thing: "sponsor" for godparent, "diabetes" for
+ * the fasting question. Every term has to match, so a second word narrows.
+ */
+(function () {
+  'use strict';
+
+  var box = document.querySelector('[data-ntgoc-faqsearch]');
+  var field = document.getElementById('ntgoc-faq-search');
+  var status = document.querySelector('[data-ntgoc-faqstatus]');
+  var cards = document.querySelectorAll('[data-ntgoc-faq]');
+  if (!box || !field || !cards.length) return;
+
+  var sections = document.querySelectorAll('[data-ntgoc-faqsection]');
+
+  /* Built once. textContent of a closed <details> still holds the answer, so a
+     card is searchable without being opened. */
+  var haystack = [];
+  for (var i = 0; i < cards.length; i++) {
+    haystack.push((cards[i].textContent + ' ' + cards[i].getAttribute('data-ntgoc-faq'))
+      .toLowerCase().replace(/\s+/g, ' '));
+  }
+
+  function apply() {
+    var query = field.value.toLowerCase().replace(/\s+/g, ' ').trim();
+    var terms = query ? query.split(' ') : [];
+    var shown = 0;
+
+    for (var c = 0; c < cards.length; c++) {
+      var match = true;
+      for (var t = 0; t < terms.length; t++) {
+        if (haystack[c].indexOf(terms[t]) === -1) { match = false; break; }
+      }
+      cards[c].hidden = !match;
+      if (match) shown++;
+    }
+
+    /* A heading with nothing under it reads as a section that lost its
+       contents, so a section with no surviving card steps aside too. */
+    for (var s = 0; s < sections.length; s++) {
+      sections[s].hidden = terms.length > 0 &&
+        !sections[s].querySelector('[data-ntgoc-faq]:not([hidden])');
+    }
+
+    if (!status) return;
+    if (!terms.length) {
+      status.textContent = '';
+    } else if (!shown) {
+      status.textContent = 'Nothing here matches “' + field.value.trim() +
+        '”. Try another word — or ask Fr. John, which is what the page is for.';
+    } else {
+      status.textContent = shown + (shown === 1 ? ' question' : ' questions') +
+        ' matching “' + field.value.trim() + '”.';
+    }
+  }
+
+  box.hidden = false;
+  field.addEventListener('input', apply);
+  /* Escape clears the field, the way a browser's own search does. */
+  field.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape' || !field.value) return;
+    field.value = '';
+    apply();
+  });
+  apply();
+}());
+
+/*
+ * The document pages — the Print button.
+ *
+ * Enhancement only, and the smallest one in this file: the button is written
+ * into the page hidden and revealed here, because window.print() is all it
+ * does. Without JavaScript the page is still printable by every means a browser
+ * offers, and the hint beside the button says so in words rather than relying
+ * on someone knowing where their print command lives.
+ *
+ * There is no download here, and no PDF anywhere in this project. The printed
+ * sheet IS this page — see the @media print rules in components.css — so the
+ * printable version cannot be a revision behind the web version.
+ */
+(function () {
+  'use strict';
+
+  var buttons = document.querySelectorAll('[data-ntgoc-print]');
+  if (!buttons.length || typeof window.print !== 'function') return;
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].hidden = false;
+    buttons[i].addEventListener('click', function () { window.print(); });
+  }
+}());
+
+/*
  * Open whatever an in-page link points into.
  *
  * Now that the question groups fold, a link like "The Great Entrance →" points

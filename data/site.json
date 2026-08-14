@@ -66,7 +66,7 @@
     "giveOnline": "https://square.link/u/u8cIpGbh",
     "memorialDonation": "https://square.link/u/ZlTPph2Q",
     "buildingProjects": "https://sites.google.com/ntgoc.org/projects/home",
-    "familyRegistration": "https://docs.google.com/forms/d/e/1FAIpQLSc31bhBH5k03LSTeEGr_NL9bcYbg6zl432sKOJPWXM7JaOHAw/viewform?usp=header",
+    "familyRegistration": "https://www.nativity.va.goarch.org/parish-ministries/registrationform",
     "greekFestival": "https://www.fredgreek.org/",
     "dailyReadings": "https://www.goarch.org/chapel",
     "cloudOfWitnesses": "https://orthodoxsaintfinder.com/",
@@ -169,6 +169,26 @@
       {
         "pattern": "Choir (&amp;|&) Chanters",
         "why": "The parish newsletter lists a CHOIR and says nothing about chanters. The ministry is called the Choir. Nobody has confirmed the parish has chanters as an organised group, which is what the old heading asserted."
+      },
+      {
+        "pattern": "Every lead above still reads",
+        "why": "committees.html named no lead until 2026-08-13 and said so in its closing note. All six are now named from the June and August 2026 issues of The Light — see committeeLeads in data/parish-facts.json. The note asked the reader to supply pairings that the parish had already published twice."
+      },
+      {
+        "pattern": "which committee each member leads was not part of it",
+        "why": "True of the Parish Council roster, and it was written as though it were true of every parish source. The Council President's column in The Light gives all six pairings. Do not restate this as a reason committees.html cannot name its leads."
+      },
+      {
+        "pattern": "six labels above are inert",
+        "why": "The Back issues row on newsletter.html carried six year spans (2026 down to 2022, plus 'Archive') that named nothing real. It now names the three issues a parishioner actually holds. Do not restore a row of year spans that stands for no issue anyone can produce."
+      },
+      {
+        "pattern": "no single issue's link belongs on a public page",
+        "why": "This was written as a settled conclusion when it was an open question, and it closed off the obvious next step. The Light is emailed as a PDF; whether the parish also hosts issues at an address anyone can open has never been asked. Ask it before restating this. See newsletter and weeklyBulletin in data/parish-facts.json."
+      },
+      {
+        "pattern": "1FAIpQLSc31bhBH5k03LSTeEGr_NL9bcYbg6zl432sKOJPWXM7JaOHAw",
+        "why": "This Google Form is the parish's 35th Anniversary Banquet form — fetch it and the page title says so. It was carried on four pages as the family registration form until 2026-08-13, and was recorded VERIFIED in data/parish-facts.json, so it survived a fact audit. Family registration is a form hosted on the live parish site itself, at /parish-ministries/registrationform; see links.familyRegistration. Do not restore this URL under a registration label."
       }
     ]
   }

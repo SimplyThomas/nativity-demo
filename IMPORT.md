@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 106 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 127 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -64,8 +64,12 @@ issue that owns the decision.
    npm run evo:up
    npm run evo:verify
    ```
-   Baseline (2026-08-13): 698 assertions, 19 pages, 106 chunks, passing on
-   EVO 1.4.18 and 3.5.7.
+   Baseline (2026-08-13): 698 assertions passing on EVO 1.4.18 and 3.5.7,
+   over the site as it stood that morning. The catechumen page was added the
+   same day and has NOT been through the sandbox — Docker is needed for it and
+   CI has no daemon, so the assertion count above is the last one anybody
+   actually ran, not a claim about what is in the repo now. Re-run it before
+   the import and record the new number here.
 
 7. **Decide what replaces the draft fittings.** The draft banner, `noindex`
    and no Open Graph tags are non-negotiable *for this repo* (rule 4 in
@@ -400,6 +404,10 @@ Then the page content, grouped by page:
 | **Home** | `ntgocHomeHero`, `ntgocHomeServiceTimes`, `ntgocHomeWelcome`, `ntgocHomeUpcomingServices`, `ntgocHomeFestivalPromo`, `ntgocHomeMinistriesPromo`, `ntgocHomeForOurParish` |
 | **Visit** *(the one that matters)* | `ntgocVisitorHero`, `ntgocVisitorEssentials`, `ntgocVisitorWelcome`, `ntgocVisitorStageBefore`, `ntgocVisitorWhatToWear`, `ntgocVisitorWhatToBring`, `ntgocVisitorLanguage`, `ntgocVisitorVideos`, `ntgocVisitorWhenYouArrive`, `ntgocVisitorGreeters`, `ntgocVisitorFirstSunday`, `ntgocVisitorChildren`, `ntgocVisitorNextSteps`, `ntgocVisitorDirections` — *`ntgocVisitorNextSteps` carries four internal links and a form, see Step 5 and Step 6a* |
 | **Our Faith** | `ntgocFaithHero`, `ntgocFaithIntro`, `ntgocFaithTopics`, `ntgocFaithWatchRead` |
+| **For Catechumens & Inquirers** | `ntgocCatechumensHero`, `ntgocCatechumensIntro`, `ntgocCatechumensFind`, `ntgocCatechumensGettingStarted`, `ntgocCatechumensBecoming`, `ntgocCatechumensGodparent`, `ntgocCatechumensDontKnow`, `ntgocCatechumensPatronSaint`, `ntgocCatechumensBaptism`, `ntgocCatechumensLife`, `ntgocCatechumensFamily`, `ntgocCatechumensPractical`, `ntgocCatechumensResources`, `ntgocCatechumensAskFather`, `ntgocCatechumensClosing` — *sits under Our Faith in the menu. **Read the note below before importing any of these:** most of the question cards are still placeholders awaiting Fr. John. The generated blocks — eight of questions, four of resources — come from `data/catechumen-faq.json` and `data/catechumen-resources.json` via `npm run catechumens`, never from editing the chunk* |
+| **Adult Baptism & Chrismation checklist** | `ntgocDocAdultReceptionHero`, `ntgocDocAdultReceptionBody` — *a document page. Reached from the catechumen page, not from the menu. Its body is generated* |
+| **Infant & child Baptism checklist** | `ntgocDocInfantBaptismHero`, `ntgocDocInfantBaptismBody` — *replaces the out-of-date checklist now in use; do not import until Fr. John has reviewed it* |
+| **Godparent checklist** | `ntgocDocGodparentChecklistHero`, `ntgocDocGodparentChecklistBody` — *written to be sent straight to a sponsor* |
 | **Calendar** | `ntgocCalendarHero`, `ntgocCalendarGrid` |
 | **Parish Life** | `ntgocParishLifeHero`, `ntgocParishLifeWorship`, `ntgocParishLifeFellowship`, `ntgocParishLifeFormation`, `ntgocParishLifeService`, `ntgocParishLifeEvents`, `ntgocParishLifeBookstore`, `ntgocParishLifeGallery`, `ntgocParishLifeUpcoming`, `ntgocParishLifeNext` — *read the note below before importing any of these* |
 | **Get Involved** | `ntgocGetInvolvedHero`, `ntgocGetInvolvedPathways`, `ntgocGetInvolvedCoffee`, `ntgocGetInvolvedAgape`, `ntgocGetInvolvedCare`, `ntgocGetInvolvedServe`, `ntgocGetInvolvedPrepare`, `ntgocGetInvolvedOffering`, `ntgocGetInvolvedProsphora`, `ntgocGetInvolvedLearn`, `ntgocGetInvolvedAsk`, `ntgocGetInvolvedClosing` — *sits under Parish Life in the menu; ten external destinations and one form are still unconfigured, and `ntgocGetInvolvedAgape` carries a theological constraint — see below* |
@@ -980,6 +988,81 @@ an announcement, so nothing about it should be softened.
   *Parish Life*, that is a two-line change in the shell followed by
   `npm run shell`.
 
+### Still unresolved — For catechumens & inquirers
+
+`catechumens.html` is the page for people coming into the Church, and it is
+**the page on this site least ready to be imported**, deliberately. Of its 101
+questions, 69 have no answer at all: each of those cards carries *Content needed
+from Fr. John* where the answer goes. That is not an unfinished draft — it is
+the page refusing to invent parish practice about godparents, the
+catechumenate, and how a particular person is received.
+
+- **Send `QUESTIONS-FOR-FR-JOHN.md` to Fr. John first.** It is generated from
+  `data/catechumen-faq.json` by `npm run catechumens` and lists exactly what the page
+  cannot answer, grouped by section. His answers go back into that JSON, in his
+  wording, with `source` recording where they came from; then `npm run catechumens`
+  rebuilds the cards. Do not paste answers into the markup — the build will
+  overwrite them, which is the point.
+- **Do not import it with the placeholders still showing** unless the Council
+  has decided that a visibly-incomplete page is better than none. A placeholder
+  reads as honesty on a draft preview and as neglect on a live parish site, and
+  which of those it is depends on where it is published, not on its wording.
+- **The 32 answered questions are not new teaching.** Every one restates a
+  canonical fact from `data/site.json` or wording already published elsewhere
+  on this site, and records which in its own `source` field. They still want
+  Fr. John's eye — an answer that is right but not how he would put it is worth
+  correcting — but nothing there is an invention waiting to be caught.
+- **No public list of available godparents, now or later.** The page says so in
+  a comment and in its own words: a sponsor is not chosen from a directory, and
+  a sign-up sheet would route around the pastoral relationship the whole
+  section exists to describe. If anyone asks for one, this is the reason.
+- **The patron saint quiz on A Cloud of Witnesses is linked at the project
+  owner's request** (`orthodoxSaintFinder` in `data/parish-facts.json`). It is
+  framed as a way to meet unfamiliar saints, never as how the parish chooses a
+  patron saint — which is one of the questions left for Fr. John.
+- **Where the page belongs.** It sits under *Our Faith* in the navigation —
+  which became a dropdown to hold it — and in the *Visit* column of the footer,
+  alongside the pages a newcomer reads. `faith.html`, `visit.html` and
+  `welcome.html` each link to it. Moving it is a shell edit followed by
+  `npm run shell`.
+
+### Still unresolved — the catechumen documents
+
+*Resources for your journey* on that page is a register of ten documents. **None
+of them is written.** Three have their headings published and nothing under them
+(the adult reception checklist, the infant and child baptism checklist, and the
+godparent checklist, each on its own page); the other seven are titles with a
+description of what they would hold. `DOCUMENTS-FOR-FR-JOHN.md` is generated
+from the register and is what to send him.
+
+- **The existing baptism checklist is the reason this exists.** It was reported
+  as out of date and written for infant baptisms. Nothing in it has been copied
+  into this repo, and the adult checklist was NOT made by adapting it — the
+  requirements for receiving an adult differ, are Fr. John's to set, and in
+  places are the Metropolis's. Reissuing the old document in a nicer typeface
+  would be worse than an empty one: it would look current.
+- **Do not import a document page while its headings are empty**, unless the
+  Council has decided a visibly-incomplete document is better than none. The
+  catechumen page can be imported without them — the cards say plainly that the
+  documents are not written, which is honest on a draft and unhelpful on a live
+  parish site.
+- **There are no PDFs, and adding one would break the thing the register is
+  for.** Each document page prints as the document: the parish name, the title
+  and the date it was last changed are added at the top of the sheet, the
+  navigation and footer are left off, and the draft-preview line deliberately
+  survives so a printout cannot pass as an official parish document. A PDF
+  would be a second copy with its own drift, which is how the parish arrived
+  here. If Fr. John wants a PDF anyway, generate it from the page at the moment
+  it is needed rather than storing one.
+- **One document, one URL — enforced.** `npm run catechumens` fails if two
+  register entries claim the same page, if a published document has no date, or
+  if pastoral requirements are filled in with no `approvedBy` against them. The
+  date on the card and the date on the document come from the same entry, so
+  they cannot disagree.
+- **Adding a document later** is a register entry plus a page carrying the two
+  chunk markers and one `<!-- BUILD:… -->` pair; copy one of the three existing
+  document pages. Then `npm run catechumens`, `npm run shell`, `npm run check`.
+
 ### Removed, and not said anywhere else
 
 The design's "Questions people ask before coming" card was removed: the sections
@@ -1092,7 +1175,7 @@ npm run chunks   # the 19 HTML pages -> dist/chunks/
 npm run lint     # checks everything this guide depends on
 ```
 
-The nineteen `.html` files at the repo root are the source and are edited by hand.
+The 23 `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 every page from the old design file. See `CONTRIBUTING.md`.

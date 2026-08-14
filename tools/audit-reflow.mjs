@@ -114,7 +114,10 @@ for (const f of PAGES) {
   await p.close();
 }
 
-console.log(`\nKeyboard focus — real Tab traversal, 19 pages × 2 viewports (320w with drawer opened, 1440w desktop nav)`);
+// Counted, not written down: the page count changes, and a number in a report
+// that nobody rechecks is worse than no number. Same reasoning as lint's
+// stale-count rule, which polices exactly this in the documentation.
+console.log(`\nKeyboard focus — real Tab traversal, ${PAGES.length} pages × 2 viewports (320w with drawer opened, 1440w desktop nav)`);
 console.log(`  ${focusChecked} focus stops checked, ${focusOffenders.length} without a visible focus indicator`);
 for (const o of focusOffenders) {
   console.log(`    NO RING  ${o.page.padEnd(18)} [${o.viewport}]  ${o.sel}`);

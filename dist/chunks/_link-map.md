@@ -12,6 +12,10 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `about` | _________ |
 | `bookstore` | _________ |
 | `calendar` | _________ |
+| `catechumen-adult-reception` | _________ |
+| `catechumen-godparent-checklist` | _________ |
+| `catechumen-infant-baptism` | _________ |
+| `catechumens` | _________ |
 | `committees` | _________ |
 | `contact` | _________ |
 | `events` | _________ |
@@ -30,16 +34,32 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-146 links across 48 chunks.
+236 links across 64 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
 | `ntgocAboutClergy` | contact | ☐ |
 | `ntgocAboutParishCouncil` | committees ×3 | ☐ |
 | `ntgocBookstoreNotes` | contact | ☐ |
+| `ntgocCatechumensAskFather` | contact | ☐ |
+| `ntgocCatechumensBaptism` | contact ×6, hall | ☐ |
+| `ntgocCatechumensBecoming` | contact ×4 | ☐ |
+| `ntgocCatechumensClosing` | contact, calendar | ☐ |
+| `ntgocCatechumensDontKnow` | contact, parish-life | ☐ |
+| `ntgocCatechumensFamily` | contact ×7 | ☐ |
+| `ntgocCatechumensGettingStarted` | faith, contact ×4, bookstore | ☐ |
+| `ntgocCatechumensGodparent` | contact ×4 | ☐ |
+| `ntgocCatechumensHero` | contact | ☐ |
+| `ntgocCatechumensLife` | contact ×12, bookstore, visit ×2, welcome ×3, get-involved ×2, ministries | ☐ |
+| `ntgocCatechumensPatronSaint` | contact ×3 | ☐ |
+| `ntgocCatechumensPractical` | calendar ×2, visit ×3, parish-life, contact ×2, get-involved | ☐ |
+| `ntgocCatechumensResources` | contact ×7, catechumens ×2, bookstore, catechumen-adult-reception, catechumen-infant-baptism, catechumen-godparent-checklist | ☐ |
 | `ntgocCommitteesList` | about | ☐ |
+| `ntgocDocAdultReceptionHero` | catechumens | ☐ |
+| `ntgocDocGodparentChecklistHero` | catechumens | ☐ |
+| `ntgocDocInfantBaptismHero` | catechumens | ☐ |
 | `ntgocEventsList` | calendar, hall, contact | ☐ |
-| `ntgocFaithTopics` | about, contact | ☐ |
+| `ntgocFaithTopics` | about, catechumens, contact | ☐ |
 | `ntgocGetInvolvedAgape` | calendar | ☐ |
 | `ntgocGetInvolvedAsk` | contact ×2 | ☐ |
 | `ntgocGetInvolvedCare` | contact | ☐ |
@@ -72,16 +92,16 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishServe` | ministries, committees | ☐ |
 | `ntgocParishStewardship` | give | ☐ |
 | `ntgocParishWeek` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, welcome, calendar, contact, hall, parish-life, get-involved, for-our-parish, about, ministries, traditions, committees, bookstore, newsletter, give ×3 | ☐ |
-| `ntgocSiteHeader` | index, faith ×2, parish-life ×3, get-involved ×2, for-our-parish ×2, ministries ×2, committees ×2, bookstore ×2, newsletter ×2, calendar ×2, events ×3, traditions ×2, hall ×2, about ×2, contact ×2, visit ×2, give | ☐ |
+| `ntgocSiteFooter` | visit, welcome, catechumens, calendar, contact, hall, parish-life, get-involved, for-our-parish, about, ministries, traditions, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteHeader` | index, faith ×3, catechumens ×2, parish-life ×3, get-involved ×2, for-our-parish ×2, ministries ×2, committees ×2, bookstore ×2, newsletter ×2, calendar ×2, events ×3, traditions ×2, hall ×2, about ×2, contact ×2, visit ×2, give | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |
 | `ntgocVisitorHero` | contact, calendar | ☐ |
-| `ntgocVisitorNextSteps` | contact ×2, faith, calendar | ☐ |
+| `ntgocVisitorNextSteps` | contact ×2, faith, catechumens, calendar | ☐ |
 | `ntgocWelcomeClosing` | visit, calendar | ☐ |
 | `ntgocWelcomeConnected` | calendar, visit, contact, about | ☐ |
 | `ntgocWelcomeExperience` | visit ×5, contact | ☐ |
-| `ntgocWelcomeLearn` | faith | ☐ |
+| `ntgocWelcomeLearn` | catechumens, faith | ☐ |
 
 > Search each chunk for `data-ntgoc-link`. External links (the Archdiocese,
 > Square, the Google form, fredgreek.org) are real URLs already — leave them.
