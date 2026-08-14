@@ -98,6 +98,7 @@
 .ntgoc-welcome-hint a,
 .ntgoc-question__preview a,
 .ntgoc-traditions-lede a,
+.ntgoc-agape-source a,
 .ntgoc-prose a {
   color: #7d2b2b;
   text-decoration: underline;
@@ -115,6 +116,7 @@
 .ntgoc-welcome-hint a:hover, .ntgoc-welcome-hint a:focus-visible,
 .ntgoc-question__preview a:hover, .ntgoc-question__preview a:focus-visible,
 .ntgoc-traditions-lede a:hover, .ntgoc-traditions-lede a:focus-visible,
+.ntgoc-agape-source a:hover, .ntgoc-agape-source a:focus-visible,
 .ntgoc-prose a:hover, .ntgoc-prose a:focus-visible {
   color: #b08442;
 }
