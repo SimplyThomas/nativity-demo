@@ -102,6 +102,7 @@
 .ntgoc-welcome-intro__text a,
 .ntgoc-welcome-hint a,
 .ntgoc-question__preview a,
+.ntgoc-stage__lede a,
 .ntgoc-traditions-lede a,
 .ntgoc-prose a {
   color: #7d2b2b;
@@ -119,6 +120,7 @@
 .ntgoc-welcome-intro__text a:hover, .ntgoc-welcome-intro__text a:focus-visible,
 .ntgoc-welcome-hint a:hover, .ntgoc-welcome-hint a:focus-visible,
 .ntgoc-question__preview a:hover, .ntgoc-question__preview a:focus-visible,
+.ntgoc-stage__lede a:hover, .ntgoc-stage__lede a:focus-visible,
 .ntgoc-traditions-lede a:hover, .ntgoc-traditions-lede a:focus-visible,
 .ntgoc-prose a:hover, .ntgoc-prose a:focus-visible {
   color: #b08442;
@@ -1001,6 +1003,10 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-stage__step { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
 .ntgoc-stage__heading { font-family:Newsreader, serif; font-weight:300; font-size:40px; line-height:1.14; margin:0 0 14px; color:#3a1414; }
 .ntgoc-stage__lede { font-size:17px; line-height:1.7; color:#4a443c; margin:0; max-width:62ch; text-wrap:pretty; }
+/* Every earlier use was a single lede, so the zero margin never showed. The
+   catechumen page's patron-saint section runs two, and without this they set
+   as one block of text. */
+.ntgoc-stage__lede + .ntgoc-stage__lede { margin-top:14px; }
 
 /* --- Visit page: after the first visit ------------------------------- */
 .ntgoc-nextsteps { max-width:1240px; margin:0 auto; padding:80px 40px; }
@@ -1450,6 +1456,124 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   font-weight: 600;
 }
 .ntgoc-welcome-closing__cta:hover, .ntgoc-welcome-closing__cta:focus-visible { background: #f0cd91; color: #3a1414; }
+
+/* --- For catechumens & inquirers -------------------------------------
+   The page reuses the Welcome page's question cards wholesale — same
+   .ntgoc-question markup, same behaviour, no second accordion to keep in
+   step. What is added here is only what that component does not have: the
+   note at the top of the page, the search field, the two states a card can
+   be in that a Welcome card never is (waiting on Fr. John, and carrying a
+   review date), and the two full-width callouts.
+   ------------------------------------------------------------------ */
+
+/* The note at the top. Burgundy rule rather than the gold one .ntgoc-proposal
+   carries, because this is not a proposal to the Council — it is the sentence
+   the whole page depends on, and it should not read as demo scaffolding. */
+.ntgoc-pastoral { border:1px solid #d9c6a8; border-left:3px solid #7d2b2b; background:#fbf8f2; padding:28px 32px; margin-top:36px; max-width:66ch; }
+.ntgoc-pastoral__label { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#7d2b2b; margin-bottom:14px; }
+.ntgoc-pastoral__text { font-family:Newsreader, serif; font-size:19px; line-height:1.65; color:#4a443c; margin:0 0 12px; text-wrap:pretty; }
+.ntgoc-pastoral__text:last-child { margin-bottom:0; }
+
+/* Search. Hidden in the markup and revealed by ntgoc-enhance.js, so these
+   rules only ever apply once the script that makes the field work has run. */
+.ntgoc-faqsearch { margin-top:30px; max-width:34rem; }
+.ntgoc-faqsearch__label { display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:10px; }
+.ntgoc-faqsearch__field { width:100%; box-sizing:border-box; font-family:Karla, system-ui, sans-serif; font-size:16px; color:#3a1414; background:#fbf8f2; border:1px solid #ccbda4; border-radius:2px; padding:14px 16px; }
+.ntgoc-faqsearch__field::placeholder { color:#6c6458; }
+.ntgoc-faqsearch__field:focus-visible { outline:2px solid #7d2b2b; outline-offset:1px; }
+.ntgoc-faqsearch__status { font-size:13.5px; line-height:1.6; color:#6c6458; margin:12px 0 0; min-height:1.3em; }
+
+/* A question the parish has not answered yet. It is deliberately conspicuous:
+   the point of the page is that a reader can tell at a glance which answers
+   are Fr. John's and which are still missing. */
+.ntgoc-question__preview--pending { font-style:italic; color:#6c6458; }
+.ntgoc-question__pending { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 14px; background:#f1e9dc; border-left:3px solid #b08442; padding:16px 18px; text-wrap:pretty; }
+.ntgoc-question__tag { display:block; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#6d5220; margin-bottom:8px; }
+.ntgoc-question__ask { font-size:14.5px; line-height:1.65; color:#5b5449; margin:0 0 10px; }
+.ntgoc-question__reviewed { font-size:12px; line-height:1.6; color:#6c6458; margin:16px 0 0; font-style:italic; }
+
+/* The two callouts: "I don't know who to ask", and the questions that belong
+   in a conversation. Both are full-width bands rather than cards, because
+   both are the answer to something a card would make look small. */
+.ntgoc-catechumen-callout { padding-top:76px; padding-bottom:76px; }
+.ntgoc-catechumen-callout__title { font-family:Newsreader, serif; font-weight:300; font-size:38px; line-height:1.16; margin:0 0 16px; color:#3a1414; max-width:24ch; }
+.ntgoc-catechumen-callout__lede { font-family:Newsreader, serif; font-style:italic; font-size:22px; line-height:1.5; color:#7d2b2b; margin:0 0 18px; }
+.ntgoc-catechumen-callout__text { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 16px; max-width:62ch; text-wrap:pretty; }
+.ntgoc-catechumen-callout__row { display:flex; gap:14px; flex-wrap:wrap; margin-top:28px; }
+
+/* --- The resource register -------------------------------------------
+   Cards that stand for documents rather than for reading matter, so each one
+   leads with the state it is in. A reader has to be able to tell at a glance
+   which of these is Fr. John's current instruction and which is an empty shell
+   waiting for him, and that distinction is more important than the design.
+   ------------------------------------------------------------------ */
+.ntgoc-resources { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; align-items:start; margin:0 0 44px; }
+.ntgoc-resources__heading { font-family:Newsreader, serif; font-weight:400; font-size:28px; line-height:1.2; margin:0 0 12px; color:#3a1414; }
+.ntgoc-resources__lede { font-size:15.5px; line-height:1.7; color:#5b5449; margin:0 0 18px; max-width:62ch; text-wrap:pretty; }
+
+.ntgoc-resource { background:#f6f1e8; border:1px solid #ded2be; border-top:3px solid #b08442; padding:24px 24px 22px; }
+.ntgoc-resource__status { display:inline-block; margin-bottom:14px; padding:5px 10px; font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
+.ntgoc-resource__status--awaiting { background:#f1e9dc; color:#6d5220; }
+.ntgoc-resource__status--outline { background:#efe2c8; color:#6d5220; }
+/* Defined before anything uses it, on purpose: the moment Fr. John's wording
+   goes into the register a card flips to this class, and a class the markup
+   asks for but the stylesheet does not define is a lint ERROR. A warning now is
+   cheaper than a broken page then. Same for .ntgoc-doc__list/__item below. */
+.ntgoc-resource__status--published { background:#7d2b2b; color:#f6f1e8; }
+.ntgoc-resource__warning { font-size:14.5px; line-height:1.65; color:#7d2b2b; margin:0 0 12px; border-left:2px solid #7d2b2b; padding-left:14px; text-wrap:pretty; }
+.ntgoc-resource__note { font-size:14px; line-height:1.65; color:#6c6458; margin:12px 0 0; text-wrap:pretty; }
+.ntgoc-resource__row { display:flex; gap:10px 20px; flex-wrap:wrap; margin-top:18px; }
+.ntgoc-resource__cta { display:inline-block; background:#7d2b2b; color:#f6f1e8; padding:12px 20px; border-radius:2px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; }
+.ntgoc-resource__cta:hover, .ntgoc-resource__cta:focus-visible { background:#5e1f1f; color:#f6f1e8; }
+.ntgoc-resource__quiet { display:inline-block; align-self:center; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
+.ntgoc-resource__quiet:hover, .ntgoc-resource__quiet:focus-visible { color:#6d5220; border-color:#b08442; }
+.ntgoc-resource__print { font-size:13px; line-height:1.6; color:#6c6458; margin:16px 0 0; }
+.ntgoc-resource__meta { margin-top:16px; padding-top:14px; border-top:1px solid #ded2be; font-size:12px; letter-spacing:.06em; color:#6c6458; }
+
+/* The documents that do not exist. A plain ruled list, deliberately not cards:
+   nothing here is a thing you can open, and making it look like one would be
+   the same lie as a PDF that is three revisions old. */
+.ntgoc-doclist { list-style:none; margin:18px 0 0; padding:0; max-width:74ch; }
+.ntgoc-doclist__item { border-top:1px solid #ded2be; padding:14px 0; font-size:14.5px; line-height:1.7; color:#6c6458; text-wrap:pretty; }
+.ntgoc-doclist__item:last-child { border-bottom:1px solid #ded2be; }
+.ntgoc-doclist__name { color:#3a1414; font-family:Newsreader, serif; font-size:18px; }
+
+/* --- A document page --------------------------------------------------
+   Set as a sheet of paper rather than as a web page: one column, numbered
+   sections, and a masthead that appears only when it is printed.
+
+   The hero is the text band four other pages already use — .ntgoc-hero-band
+   with .ntgoc-bookstore-hero-shell inside it — rather than a fifth version of
+   the same thing under a new name. Only the row of actions beneath it is new,
+   because no other page has one.
+   ------------------------------------------------------------------ */
+.ntgoc-docbar { display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:26px; }
+.ntgoc-docbar__back { font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
+.ntgoc-docbar__back:hover, .ntgoc-docbar__back:focus-visible { color:#6d5220; border-color:#b08442; }
+.ntgoc-docbar__print { font-family:Karla, system-ui, sans-serif; background:#7d2b2b; color:#f6f1e8; border:0; border-radius:2px; padding:13px 22px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; }
+.ntgoc-docbar__print:hover, .ntgoc-docbar__print:focus-visible { background:#5e1f1f; }
+.ntgoc-docbar__hint { font-size:13px; line-height:1.65; color:#6c6458; margin:16px 0 0; max-width:64ch; text-wrap:pretty; }
+
+.ntgoc-doc { background:#fbf8f2; }
+.ntgoc-doc__inner { padding-top:56px; padding-bottom:80px; max-width:820px; }
+/* Screen-hidden, print-visible. aria-hidden in the markup as well, because on
+   screen it is duplicate information the page already carries in its heading. */
+.ntgoc-doc__masthead { display:none; }
+.ntgoc-doc__parish { font-family:Newsreader, serif; font-size:15px; color:#3a1414; }
+.ntgoc-doc__printtitle { font-family:Newsreader, serif; font-size:22px; color:#3a1414; margin-top:4px; }
+.ntgoc-doc__printmeta { font-size:12px; color:#5b5449; margin-top:4px; }
+.ntgoc-doc__audience { font-family:Newsreader, serif; font-style:italic; font-size:19px; line-height:1.5; color:#7d2b2b; margin:0 0 16px; text-wrap:pretty; }
+.ntgoc-doc__intro { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 22px; text-wrap:pretty; }
+.ntgoc-doc__status { background:#f1e9dc; border-left:3px solid #b08442; padding:16px 18px; font-size:14.5px; line-height:1.7; color:#5b5449; margin-bottom:34px; text-wrap:pretty; }
+.ntgoc-doc__section { border-top:1px solid #ded2be; padding:26px 0 4px; }
+.ntgoc-doc__heading { font-family:Newsreader, serif; font-weight:400; font-size:25px; line-height:1.25; margin:0 0 14px; color:#3a1414; display:flex; gap:14px; align-items:baseline; }
+.ntgoc-doc__number { font-family:Karla, system-ui, sans-serif; font-size:12px; letter-spacing:.1em; color:#7f5f30; }
+.ntgoc-doc__list { list-style:none; margin:0 0 18px; padding:0; }
+.ntgoc-doc__item { position:relative; padding:0 0 12px 34px; font-size:16px; line-height:1.7; color:#5b5449; text-wrap:pretty; }
+.ntgoc-doc__item::before { content:""; position:absolute; left:0; top:4px; width:15px; height:15px; border:1px solid #7d2b2b; }
+.ntgoc-doc__pending { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 18px; background:#f6f1e8; border:1px solid #ded2be; padding:16px 18px; text-wrap:pretty; }
+.ntgoc-doc__foot { font-size:13.5px; line-height:1.7; color:#6c6458; margin:34px 0 0; padding-top:20px; border-top:1px solid #ded2be; text-wrap:pretty; }
+.ntgoc-doc__foot--screen { border-top:0; padding-top:0; margin-top:10px; font-style:italic; }
 
 /* --- responsive layer ----------------------------------------------
    The design is fixed-desktop and carries no media queries of its own,
@@ -2312,4 +2436,75 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-prepare-grid { margin-top: 32px; gap: 16px; }
   .ntgoc-offerings { margin-top: 28px; gap: 16px; }
   .ntgoc-closing-coda { font-size: 14px; }
+}
+
+/* For catechumens & inquirers. The question cards themselves are already
+   handled — they are the Welcome page's, which drop to one column at 900px
+   and tighten at 640px. Only this page's own blocks need writing, and the
+   search field has to reach full width or it looks like a stray box. */
+@media (max-width: 900px) {
+  .ntgoc-catechumen-callout { padding-top: 56px; padding-bottom: 56px; }
+  .ntgoc-catechumen-callout__title { font-size: clamp(26px, 6vw, 32px); }
+  .ntgoc-catechumen-callout__lede { font-size: 20px; }
+  .ntgoc-faqsearch { max-width: none; }
+  .ntgoc-pastoral { margin-top: 28px; padding: 24px 22px; }
+  .ntgoc-pastoral__text { font-size: 17.5px; }
+}
+@media (max-width: 640px) {
+  .ntgoc-catechumen-callout { padding-top: 44px; padding-bottom: 44px; }
+  .ntgoc-catechumen-callout__text { font-size: 16px; }
+  .ntgoc-catechumen-callout__row { margin-top: 24px; }
+  .ntgoc-pastoral { padding: 20px 18px; }
+  .ntgoc-question__pending { padding: 14px 16px; }
+}
+
+/* The resource register and the document pages. */
+@media (max-width: 900px) {
+  .ntgoc-resources { grid-template-columns: 1fr; gap: 14px; margin-bottom: 36px; }
+  .ntgoc-resources__heading { font-size: clamp(22px, 5vw, 26px); }
+  .ntgoc-docbar { margin-top: 20px; }
+  .ntgoc-doc__inner { padding-top: 40px; padding-bottom: 56px; }
+  .ntgoc-doc__heading { font-size: clamp(21px, 5vw, 24px); }
+}
+@media (max-width: 640px) {
+  .ntgoc-resource { padding: 20px 18px 18px; }
+  .ntgoc-resource__cta { display: block; text-align: center; }
+  .ntgoc-resource__quiet { align-self: flex-start; }
+  .ntgoc-doc__section { padding-top: 22px; }
+  .ntgoc-doc__heading { gap: 10px; }
+  .ntgoc-doc__pending, .ntgoc-doc__status { padding: 14px 16px; }
+  .ntgoc-doclist__name { display: block; }
+}
+
+/* --- print -------------------------------------------------------------
+   The checklists leave the building on paper, so the printed sheet has to be
+   the document and nothing else: no navigation, no footer, no "back to" link.
+
+   This is why there are no PDFs in this project. A PDF is a second copy that
+   starts going out of date the moment it is saved, and the parish's existing
+   baptism checklist is what that looks like after a few years. Printing the
+   page cannot drift from the page.
+
+   The draft banner deliberately survives printing, in a quieter form. A sheet
+   headed "Adult Baptism & Chrismation checklist" with the parish's name on it
+   would otherwise read as an official parish document the moment it left the
+   printer — which is the exact thing this repository must not produce.
+   ------------------------------------------------------------------ */
+@media print {
+  .ntgoc-topbar, .ntgoc-header, .ntgoc-footer, .ntgoc-hero-band,
+  .ntgoc-skip-link, .ntgoc-doc__foot--screen { display: none; }
+
+  .ntgoc-draft-banner { background: none; color: #000; border-bottom: 1px solid #999; padding: 0 0 6px; text-align: left; }
+  .ntgoc-draft-banner__text { font-size: 9pt; max-width: none; }
+  .ntgoc-draft-banner__link { color: #000; }
+
+  .ntgoc-doc { background: #fff; }
+  .ntgoc-doc__masthead { display: block; margin: 14pt 0 18pt; padding-bottom: 8pt; border-bottom: 1px solid #000; }
+  .ntgoc-doc__inner { padding: 0; max-width: none; }
+  .ntgoc-doc__status, .ntgoc-doc__pending { background: none; border: 1px solid #999; }
+  .ntgoc-doc__section { break-inside: avoid; page-break-inside: avoid; }
+  .ntgoc-doc__item { break-inside: avoid; page-break-inside: avoid; }
+  .ntgoc-doc__item::before { border-color: #000; }
+  .ntgoc-doc__audience { color: #000; }
+  .ntgoc-doc__foot { border-top: 1px solid #999; }
 }

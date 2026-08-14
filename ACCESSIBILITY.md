@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 19 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 38 runs
+**Scope:** all 23 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 46 runs
 
 ## Result
 
@@ -44,11 +44,44 @@ breakdown below is the 10 August split of the 164 and has not been re-run
 against that growth — see the note at "The 164 'needs review' items". The
 thirteen heroes are now measured by a tool rather than by hand.
 
+**Re-run 13 August 2026, later the same day**, after `catechumens.html` was
+added. **0 violations across 40 page-runs**, reflow **20 of 20** at 320px, and
+**2,508 focus stops checked with 0 missing a focus indicator**. The
+manual-review count reads **138 nodes across 29 of the 40 page-runs** — lower
+than the 186 above because axe reports colour-contrast "incomplete" per node
+rendered over a photograph, and the run happened to resolve more of them, not
+because anything was fixed. It is still the same unresolved class of item, and
+the breakdown below still has not been re-split.
+
+The new page found one real violation on the way in, now fixed: the two links
+in the patron-saint section's lede were `link-in-text-block` failures —
+distinguishable only by colour, at 1.24:1 against the surrounding text —
+because `.ntgoc-stage__lede` was not in the running-text link rule at the top of
+`components.css`. It is now. Any new container that holds a link inside a
+sentence needs adding there; nothing else catches it.
+
+**Re-run again 13 August 2026**, after the resource register and the three
+document pages were added. **0 violations across 46 page-runs**, reflow **23 of
+23** at 320px, **2,809 focus stops with 0 missing a focus indicator**. The
+manual-review count is unchanged at **138 nodes across 29 page-runs** — the new
+pages carry no photograph behind text, which is the only thing generating it.
+
+The document pages introduced the first `@media print` block in this project,
+which no automated check here can see: axe and the reflow audit both read the
+screen stylesheet. It was checked by rendering the pages with print media
+emulated. Two things about it are accessibility decisions rather than styling
+ones. The masthead that appears only in print is `aria-hidden="true"`, because
+on screen it would repeat the page's own `<h1>` to a screen reader for no
+reason. And the draft-preview banner deliberately survives printing, in a
+quieter form: a sheet headed with the parish's name and *Adult Baptism &amp;
+Chrismation checklist* would otherwise read as an official parish document the
+moment it left the printer.
+
 Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 19 pages x 2 viewports
+npm run audit:a11y   # 23 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
 npm run measure:hero # the thirteen photograph heroes, which axe declines to judge
 ```
@@ -378,8 +411,9 @@ disappears.
 
 ### Reflow — WCAG 1.4.10
 
-At a 320px viewport, no page scrolls horizontally. **19 of 19 pass**, Welcome,
-Get Involved and Traditions included.
+At a 320px viewport, no page scrolls horizontally. **23 of 23 pass**, Welcome,
+Get Involved, Traditions, the catechumen page and its three document pages
+included.
 
 The Mobile views reference page initially failed (406px wide) because it drew
 phone frames at their true 375px width. Rather than shrink the mock-ups — which
@@ -387,7 +421,8 @@ would have defeated their purpose — the frames were given their own scroll
 container with `tabindex="0"` and a label, so it was reachable by keyboard and
 the page body never scrolled sideways. That page has since been retired, which
 took the count to 16 of 16; the Welcome page then took it back to 17, Get
-Involved to 18, and Traditions to 19.
+Involved to 18, Traditions to 19, the catechumen page to 20, and its three
+document pages to 23.
 
 ### Keyboard
 

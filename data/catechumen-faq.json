@@ -1,0 +1,953 @@
+{
+  "_README": "The whole editing surface for catechumens.html. `npm run faq` renders it into the blocks marked <!-- BUILD:name --> … <!-- /BUILD:name --> on that page and touches nothing else. Add a question by adding an entry here — never by writing a card into the markup, which is how the same answer ends up on the page twice in two wordings. The page's headings and prose are hand-written source; only the question cards come from this file.",
+  "_updated": "2026-08-13",
+  "_rules": [
+    "An answer here is either something the parish has approved or something already published on another page of this site, and `source` records which. Nothing else may be written into `a`.",
+    "A question whose answer depends on this parish's pastoral practice is left `pending: true` until Fr. John supplies the wording. The card then says so on its face. That is the point of the page, not a gap in it — see QUESTIONS-FOR-FR-JOHN.md, which is generated from this file.",
+    "`askFather: true` adds the line routing the reader to Fr. John. Use it wherever the general answer cannot settle an individual's case, INCLUDING on questions that already carry an answer.",
+    "`verify: true` emits a <!-- TODO: verify --> marker, exactly as the calendar renderer does. Use it for a claim nobody has sourced yet.",
+    "`reviewed` is the date the wording was last checked against its source. Null while pending."
+  ],
+  "pending": {
+    "tag": "Content needed from Fr. John",
+    "cardPreview": "Waiting on Fr. John's answer.",
+    "text": "This one depends on how the Nativity does things, and nobody has written it down yet. Please ask Fr. John — and when he has answered it, the answer belongs here so that the next person does not have to ask."
+  },
+  "askFatherText": "Your own circumstances may change this answer. Ask Fr. John.",
+  "contact": {
+    "href": "contact.html",
+    "label": "Ask Fr. John"
+  },
+  "sections": [
+    {
+      "id": "ntgoc-getting-started",
+      "build": "faqGettingStarted",
+      "category": "Getting started",
+      "questions": [
+        {
+          "id": "what-is-an-inquirer",
+          "q": "What is an inquirer?",
+          "preview": "Someone who is asking questions about the Orthodox Church. Nothing is being asked of you in return.",
+          "a": [
+            "An inquirer is simply someone who is looking into the Orthodox faith — coming to services, reading, asking questions, and seeing what the life of the Church is like from the inside.",
+            "No commitment is implied. Inquirers' conversations happen quietly and at your own pace, often over many months. You are welcome to keep coming, keep reading, and take as long as you need."
+          ],
+          "link": { "href": "faith.html", "label": "Our Faith" },
+          "source": "faith.html, ntgocFaithTopics — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "inquirer enquirer visiting new asking questions start beginning"
+        },
+        {
+          "id": "what-is-a-catechumen",
+          "q": "What is a catechumen?",
+          "preview": "Someone the Church has formally set on the path towards being received, and who is being taught along the way.",
+          "a": [
+            "A catechumen is someone who has moved from looking on to preparing: the Church has received them as a learner, prays for them by name in her services, and teaches them in the time before their baptism or chrismation. The word is as old as the Church herself.",
+            "How a person becomes a catechumen here, and what that time looks like at the Nativity, is Fr. John's to describe rather than ours."
+          ],
+          "link": { "href": "https://www.nativity.va.goarch.org/our-faith/the_church", "label": "How people become Orthodox, on our parish site" },
+          "source": "General Church usage. The parish-specific half is deliberately not answered — see the next question.",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "catechumen catechumenate learner definition"
+        },
+        {
+          "id": "not-sure-yet",
+          "q": "Do I need to be sure I want to become Orthodox before I start asking questions?",
+          "preview": "No. Questions come first, and they are welcome long before any decision is.",
+          "a": [
+            "Speak with Fr. John — no commitment is implied by it. People ask questions here for a long time before anything is decided, and some never move beyond asking. Both are honourable.",
+            "You are welcome to keep coming, keep reading, and take as long as you need."
+          ],
+          "link": { "href": "contact.html", "label": "Arrange a conversation with Fr. John" },
+          "source": "faith.html, ntgocFaithTopics — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "unsure not sure decide commitment pressure"
+        },
+        {
+          "id": "who-do-i-ask",
+          "q": "Who should I ask when I have questions?",
+          "preview": "Fr. John. The parish office will arrange a conversation.",
+          "a": [
+            "Fr. John is the person to ask, and the parish office is the way to reach him: contact the office to arrange a conversation.",
+            "Parishioners are glad to answer what they can, and a good deal can be learned over coffee after the Liturgy. But an answer about your own situation should come from your priest rather than from the person standing next to you — or from a web page."
+          ],
+          "link": { "href": "contact.html", "label": "Contact the parish office" },
+          "source": "data/site.json → contact.priestRoute",
+          "reviewed": "2026-08-13",
+          "keywords": "ask questions who contact priest father office"
+        },
+        {
+          "id": "what-should-i-read",
+          "q": "What should I read?",
+          "preview": "Ask Fr. John what to read next. The parish bookstore keeps books written for inquirers and catechumens.",
+          "a": [
+            "The reading that helps one person is not the reading that helps another, so the list that matters is the one Fr. John gives you.",
+            "The parish bookstore is open every Sunday after the Divine Liturgy and stocks books, prayer books and pamphlets, including shelves meant for inquirers and for those coming into the Church."
+          ],
+          "link": { "href": "bookstore.html", "label": "The parish bookstore" },
+          "source": "data/site.json → bookstore.hours and bookstore.stock",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "read reading books bookstore study"
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-becoming-a-catechumen",
+      "build": "faqBecoming",
+      "category": "Becoming a catechumen",
+      "questions": [
+        {
+          "id": "how-do-i-become-a-catechumen",
+          "q": "How do I become a catechumen at the Nativity?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "become catechumen start begin enrol enroll service"
+        },
+        {
+          "id": "how-long-does-it-take",
+          "q": "How long does it take to become Orthodox?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "how long time length wait years months"
+        },
+        {
+          "id": "set-length",
+          "q": "Is there a set length of time for the catechumenate?",
+          "pending": true,
+          "keywords": "length set fixed period catechumenate duration"
+        },
+        {
+          "id": "every-service",
+          "q": "Do I need to attend every service?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "attend services every sunday vespers obligation"
+        },
+        {
+          "id": "what-should-i-be-doing",
+          "q": "What should I be doing while I am a catechumen?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "doing expected during catechumenate practice"
+        },
+        {
+          "id": "inquirer-class",
+          "q": "Does the Nativity have a catechism or inquirers' class?",
+          "pending": true,
+          "keywords": "class catechism inquirers course lessons teaching group"
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-godparent",
+      "build": "faqGodparent",
+      "category": "Choosing a godparent",
+      "questions": [
+        {
+          "id": "why-godparent",
+          "q": "Why do I need a godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor why need"
+        },
+        {
+          "id": "what-godparent-does",
+          "q": "What does an Orthodox godparent do?",
+          "pending": true,
+          "keywords": "godparent sponsor role duty does"
+        },
+        {
+          "id": "who-can-be",
+          "q": "Who can be my godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor who eligible requirements"
+        },
+        {
+          "id": "must-attend-nativity",
+          "q": "Does my godparent have to attend the Nativity?",
+          "pending": true,
+          "keywords": "godparent sponsor parish another church attend"
+        },
+        {
+          "id": "family-member",
+          "q": "Can a family member be my godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor family relative brother sister parent"
+        },
+        {
+          "id": "spouse",
+          "q": "Can my spouse be my godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor spouse husband wife married"
+        },
+        {
+          "id": "non-orthodox-godparent",
+          "q": "Can someone who isn't Orthodox be my godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor non-orthodox catholic protestant friend"
+        },
+        {
+          "id": "good-standing",
+          "q": "Does my godparent need to be in good standing with the Church?",
+          "pending": true,
+          "keywords": "godparent sponsor good standing stewardship requirements"
+        },
+        {
+          "id": "same-sex",
+          "q": "Does my godparent have to be the same sex as me?",
+          "pending": true,
+          "keywords": "godparent sponsor same sex man woman male female"
+        },
+        {
+          "id": "dont-know-many-orthodox",
+          "q": "How do I find a godparent if I don't know many Orthodox Christians?",
+          "pending": true,
+          "askFather": true,
+          "link": { "href": "#ntgoc-dont-know", "label": "Read this first" },
+          "keywords": "godparent sponsor nobody know alone find new"
+        },
+        {
+          "id": "dont-know-who-to-ask",
+          "q": "What if I don't know who to ask?",
+          "pending": true,
+          "askFather": true,
+          "link": { "href": "#ntgoc-dont-know", "label": "Read this first" },
+          "keywords": "godparent sponsor who to ask stuck worried"
+        },
+        {
+          "id": "close-or-spiritual",
+          "q": "Should I ask someone I am already close to, or someone who can help me spiritually?",
+          "pending": true,
+          "keywords": "godparent sponsor friend spiritual choose which"
+        },
+        {
+          "id": "when-choose",
+          "q": "When should I choose my godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor when timing choose deadline"
+        },
+        {
+          "id": "father-approve",
+          "q": "Does Fr. John need to approve my godparent?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "godparent sponsor approve permission priest father"
+        },
+        {
+          "id": "how-to-ask",
+          "q": "How do I actually ask someone to be my godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor how ask invite request"
+        },
+        {
+          "id": "godparent-before",
+          "q": "What is my godparent responsible for before my baptism or chrismation?",
+          "pending": true,
+          "keywords": "godparent sponsor before responsibilities preparation"
+        },
+        {
+          "id": "godparent-during",
+          "q": "What does my godparent do during the service?",
+          "pending": true,
+          "keywords": "godparent sponsor during service stands role"
+        },
+        {
+          "id": "godparent-after",
+          "q": "What is my godparent's responsibility after I become Orthodox?",
+          "pending": true,
+          "keywords": "godparent sponsor after responsibility ongoing"
+        },
+        {
+          "id": "my-responsibility",
+          "q": "What is my responsibility to my godparent?",
+          "pending": true,
+          "keywords": "godparent sponsor my responsibility duty owe"
+        },
+        {
+          "id": "lifelong",
+          "q": "Is godparenthood supposed to be a lifelong relationship?",
+          "pending": true,
+          "keywords": "godparent sponsor lifelong permanent relationship"
+        },
+        {
+          "id": "relationship-changes",
+          "q": "What if my relationship with my godparent changes later?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "godparent sponsor changes moves falls out later"
+        },
+        {
+          "id": "godparent-patron-saint",
+          "q": "Can my godparent help me choose my patron saint?",
+          "pending": true,
+          "link": { "href": "#ntgoc-patron-saint", "label": "Choosing your patron saint" },
+          "keywords": "godparent sponsor patron saint choose help"
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-patron-saint",
+      "build": "faqPatronSaint",
+      "category": "Choosing your patron saint",
+      "questions": [
+        {
+          "id": "why-patron-saints",
+          "q": "Why do Orthodox Christians have patron saints?",
+          "preview": "Because the saints are alive in Christ, and we ask for their prayers as we would ask a friend's.",
+          "a": [
+            "Orthodox Christians honour the saints and ask for their prayers. A patron saint is one of them given to you by name: someone whose life you come to know, whose feast becomes your own day, and whose prayers you ask for as long as you live.",
+            "A Cloud of Witnesses, a free resource made by members of this parish, is a good place to begin reading about them."
+          ],
+          "link": { "href": "https://orthodoxsaintfinder.com/", "label": "A Cloud of Witnesses" },
+          "source": "welcome.html, ntgocWelcomeLearn — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "patron saint why saints prayers intercession"
+        },
+        {
+          "id": "need-a-patron-saint",
+          "q": "Do I need to choose a patron saint?",
+          "pending": true,
+          "keywords": "patron saint need must required choose"
+        },
+        {
+          "id": "how-to-choose-saint",
+          "q": "How do I choose one?",
+          "preview": "Read about the saints, pray, and talk it over with Fr. John. There is a quiz that will give you somewhere to start.",
+          "a": [
+            "Most people arrive at a saint by reading, by praying, and by talking it over with their priest and their godparent — often a saint whose life rhymes with their own, or whose feast already falls near a day that matters to them.",
+            "A Cloud of Witnesses has a patron saint quiz, which is a gentle way in if you do not know where to start. Treat it as a way of meeting saints you had not heard of, not as an answer: the choice is made with Fr. John."
+          ],
+          "link": { "href": "https://orthodoxsaintfinder.com/quiz/", "label": "The patron saint quiz, on A Cloud of Witnesses" },
+          "source": "The resource itself; see assetProvenance in data/parish-facts.json. The pastoral half is left to Fr. John.",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "patron saint choose how quiz finder pick"
+        },
+        {
+          "id": "birth-name",
+          "q": "Does my saint have to have my birth name?",
+          "pending": true,
+          "keywords": "patron saint name birth same different"
+        },
+        {
+          "id": "baptismal-name",
+          "q": "Can I take a different baptismal name?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "baptismal name change new name take"
+        },
+        {
+          "id": "more-than-one-saint",
+          "q": "What if I feel connected to more than one saint?",
+          "pending": true,
+          "keywords": "patron saint more than one two several connected"
+        },
+        {
+          "id": "when-decide-saint",
+          "q": "When do I need to decide?",
+          "pending": true,
+          "keywords": "patron saint when decide deadline timing"
+        },
+        {
+          "id": "father-help-choose",
+          "q": "Can Fr. John help me choose?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "patron saint father help choose priest"
+        },
+        {
+          "id": "what-is-a-name-day",
+          "q": "What is a name day?",
+          "preview": "The feast of your patron saint — the day the Church keeps their memory, and with it, yours.",
+          "a": [
+            "Your name day is the feast of the saint whose name you bear. Among Orthodox Christians it is greeted much as a birthday is, and often more warmly: “Many years!” is the thing to say.",
+            "The Church's calendar of the saints, day by day, is on A Cloud of Witnesses."
+          ],
+          "link": { "href": "https://orthodoxsaintfinder.com/", "label": "The calendar of the saints" },
+          "source": "General Church practice; the calendar link is the resource already linked from this site.",
+          "reviewed": "2026-08-13",
+          "keywords": "name day feast celebrate many years"
+        },
+        {
+          "id": "celebrate-name-day",
+          "q": "How do I celebrate my name day after I become Orthodox?",
+          "pending": true,
+          "keywords": "name day celebrate how custom bread service"
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-baptism-chrismation",
+      "build": "faqBaptism",
+      "category": "Baptism & Chrismation",
+      "questions": [
+        {
+          "id": "baptized-or-chrismated",
+          "q": "Will I be baptized or chrismated?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "baptism chrismation received which reception"
+        },
+        {
+          "id": "already-baptized",
+          "q": "What if I was already baptized in another Christian tradition?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "already baptized catholic protestant previous baptism"
+        },
+        {
+          "id": "who-decides",
+          "q": "Who decides whether I will be received by baptism or chrismation?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "who decides reception bishop priest baptism chrismation"
+        },
+        {
+          "id": "before-the-service",
+          "q": "What do I need to do before my baptism or chrismation?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "before preparation fast confession paperwork"
+        },
+        {
+          "id": "confession-first",
+          "q": "Do I need to go to confession first?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "confession first before baptism chrismation"
+        },
+        {
+          "id": "what-to-wear",
+          "q": "What should I wear?",
+          "pending": true,
+          "keywords": "wear clothing white garment dress baptism"
+        },
+        {
+          "id": "what-to-bring",
+          "q": "What should I bring?",
+          "pending": true,
+          "keywords": "bring towel candle cross items list"
+        },
+        {
+          "id": "baptismal-cross",
+          "q": "Do I need a baptismal cross?",
+          "pending": true,
+          "keywords": "cross baptismal necklace chain"
+        },
+        {
+          "id": "candles",
+          "q": "Do I need candles?",
+          "pending": true,
+          "keywords": "candles baptism chrismation service"
+        },
+        {
+          "id": "special-clothing",
+          "q": "Do I need special clothing?",
+          "pending": true,
+          "keywords": "clothing white garment robe special"
+        },
+        {
+          "id": "who-provides",
+          "q": "Who provides these things?",
+          "pending": true,
+          "keywords": "provides buys pays godparent items"
+        },
+        {
+          "id": "family-attend",
+          "q": "Can my family and friends attend?",
+          "pending": true,
+          "keywords": "family friends attend guests invite"
+        },
+        {
+          "id": "non-orthodox-attend",
+          "q": "Can non-Orthodox family members attend?",
+          "pending": true,
+          "keywords": "non-orthodox family attend guests"
+        },
+        {
+          "id": "what-happens-service",
+          "q": "What happens during the service?",
+          "pending": true,
+          "keywords": "service what happens order rite"
+        },
+        {
+          "id": "first-communion",
+          "q": "When will I receive Holy Communion for the first time?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "first communion when receive eucharist"
+        },
+        {
+          "id": "afterward",
+          "q": "What happens afterward?",
+          "pending": true,
+          "keywords": "afterward after reception following days"
+        },
+        {
+          "id": "reception-meal",
+          "q": "Can we have a reception or a meal?",
+          "pending": true,
+          "link": { "href": "hall.html", "label": "The parish hall" },
+          "keywords": "reception meal party hall celebrate"
+        },
+        {
+          "id": "godparent-provides",
+          "q": "Which of these things does my godparent provide?",
+          "pending": true,
+          "link": { "href": "#ntgoc-godparent", "label": "Choosing a godparent" },
+          "keywords": "godparent provides buys cross candle towel"
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-orthodox-life",
+      "build": "faqOrthodoxLife",
+      "category": "Prayer, fasting & parish life",
+      "questions": [
+        {
+          "id": "prayer-rule",
+          "q": "Should I have a prayer rule?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "prayer rule daily discipline how much"
+        },
+        {
+          "id": "start-praying",
+          "q": "How do I start praying at home?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "pray home start beginning morning evening"
+        },
+        {
+          "id": "prayer-book",
+          "q": "Should I buy a prayer book?",
+          "preview": "The parish bookstore stocks them. Which one, and what to pray from it, is worth asking Fr. John.",
+          "a": [
+            "The parish bookstore is open every Sunday after the Divine Liturgy and stocks prayer books, along with icons, prayer ropes, incense, crosses and candles.",
+            "Which prayer book, and what to actually pray from it while you are a catechumen, is the sort of thing to settle with Fr. John rather than to decide off a shelf."
+          ],
+          "link": { "href": "bookstore.html", "label": "The parish bookstore" },
+          "source": "data/site.json → bookstore.hours and bookstore.stock",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "prayer book buy bookstore which"
+        },
+        {
+          "id": "icons-at-home",
+          "q": "Should I have icons at home?",
+          "pending": true,
+          "keywords": "icons home house which where"
+        },
+        {
+          "id": "prayer-corner",
+          "q": "How do I make a prayer corner?",
+          "pending": true,
+          "keywords": "prayer corner icon corner east home set up"
+        },
+        {
+          "id": "prayer-rope",
+          "q": "Should I use a prayer rope?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "prayer rope komboskini jesus prayer"
+        },
+        {
+          "id": "fast-as-catechumen",
+          "q": "Should I fast while I am a catechumen?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "fast fasting catechumen lent wednesday friday"
+        },
+        {
+          "id": "how-strictly-fast",
+          "q": "How strictly should I fast?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "fast fasting strictly how much rules food"
+        },
+        {
+          "id": "fasting-health",
+          "q": "What if I have medical, pregnancy, age or other dietary concerns?",
+          "preview": "Talk to Fr. John. Fasting is never meant to damage anyone's health, and this is exactly the kind of thing he adjusts.",
+          "a": [
+            "This is a question to bring to Fr. John directly, before you change anything about how you eat. Health, pregnancy, age, medication and other circumstances are ordinary reasons for the fast to be adjusted, and adjusting it is his to do.",
+            "Nothing on this page — or anywhere else on the internet — should be treated as the answer for your own situation."
+          ],
+          "source": "Routing only. No fasting guidance is given here; that belongs to the priest.",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "fasting medical pregnancy health age diet diabetes medication"
+        },
+        {
+          "id": "confession-as-catechumen",
+          "q": "Can I go to confession as a catechumen?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "confession catechumen sacrament repentance"
+        },
+        {
+          "id": "receive-communion",
+          "q": "Can I receive Holy Communion?",
+          "preview": "Not yet. Holy Communion is received by Orthodox Christians who are properly prepared — which is what you are preparing for.",
+          "a": [
+            "Holy Communion is received by Orthodox Christians who are properly prepared to receive the Eucharist. Until you are received into the Church, you do not come to the chalice — and that is not a judgement on you, it is the thing the whole catechumenate is pointed towards.",
+            "When your first Communion will be is part of your reception, and Fr. John will tell you."
+          ],
+          "link": { "href": "#ntgoc-baptism-chrismation", "label": "Baptism & Chrismation" },
+          "source": "data/site.json → worship.communion",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "communion eucharist chalice receive not yet"
+        },
+        {
+          "id": "receive-antidoron",
+          "q": "Can I receive antidoron?",
+          "preview": "Yes. Antidoron is blessed bread that anyone present may receive, including those who are not Orthodox.",
+          "a": [
+            "Antidoron is blessed bread that anyone may receive, including visitors who are not Orthodox. It is normally given by the priest after the Divine Liturgy concludes, as people leave for the hall — so you will pass him on your way out, and you are welcome to take a piece.",
+            "It is not Holy Communion. It is bread that has been blessed, given as a sign of the shared life of the parish."
+          ],
+          "link": { "href": "visit.html", "label": "Your first Sunday, step by step" },
+          "source": "data/site.json → worship.antidoron; wording as published on visit.html",
+          "reviewed": "2026-08-13",
+          "keywords": "antidoron blessed bread receive after liturgy"
+        },
+        {
+          "id": "light-candles",
+          "q": "Can I light candles?",
+          "preview": "Yes. A candle is a small offering made with a prayer, and you are welcome to light one.",
+          "a": [
+            "A candle is a small offering made with a prayer — for someone you love, for someone who has died, or for yourself. The flame is also an image: Christ is the Light of the world, and a lit candle is one of the Church's oldest ways of saying so.",
+            "You are welcome to light one when you come. You are equally welcome not to."
+          ],
+          "link": { "href": "welcome.html", "label": "More of what you saw on Sunday" },
+          "source": "welcome.html, ntgocWelcomeExperience — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "candles light offering prayer"
+        },
+        {
+          "id": "venerate-icons",
+          "q": "Can I venerate icons?",
+          "preview": "Yes. Venerating an icon is something like kissing a photograph of someone you love.",
+          "a": [
+            "Orthodox Christians venerate icons; we do not worship them. Worship belongs to God alone, and the honour given to an icon passes to the person shown in it, not to the wood and paint.",
+            "Nobody is watching to see whether you do it, or checking that you do it correctly. Follow the person in front of you, or simply stand and pray."
+          ],
+          "link": { "href": "welcome.html", "label": "More of what you saw on Sunday" },
+          "source": "welcome.html, ntgocWelcomeExperience — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "icons venerate kiss bow images"
+        },
+        {
+          "id": "sign-of-the-cross",
+          "q": "Can I make the sign of the Cross?",
+          "preview": "Yes — it is prayer made with the body, not a gesture that has to be got right.",
+          "a": [
+            "The thumb and first two fingers are joined to confess the Father, the Son and the Holy Spirit — three, and one. The remaining two fingers are folded to the palm, confessing that Christ is both God and man.",
+            "It is prayer made with the body, not a gesture that has to be got right, and nobody is expected to join in before they are ready."
+          ],
+          "link": { "href": "welcome.html", "label": "More of what you saw on Sunday" },
+          "source": "welcome.html, ntgocWelcomeExperience — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "sign of the cross crossing yourself gesture"
+        },
+        {
+          "id": "parish-life-before",
+          "q": "Can I participate in parish life before I am Orthodox?",
+          "preview": "In most of it, yes. Come to the services, stay for coffee hour, and get to know people.",
+          "a": [
+            "Most of the life of the parish is open to you now: the services, coffee hour, the festival, the classes and the ordinary work of keeping a church going. Coming to those things is a good deal of what the catechumenate is.",
+            "The sacraments are the part that waits, and a few roles are for Orthodox Christians. Where a particular thing sits, ask Fr. John."
+          ],
+          "link": { "href": "get-involved.html", "label": "Get involved" },
+          "source": "get-involved.html and visit.html — pages already published on this site",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "participate parish life involved before orthodox"
+        },
+        {
+          "id": "coffee-hour-catechumen",
+          "q": "Can I attend coffee hour?",
+          "preview": "Yes, and please do. It is where most people actually meet the parish.",
+          "a": [
+            "Our Sunday doesn't end when the service does. After the Divine Liturgy we gather in the parish hall for coffee hour — a shared, potluck-style meal, and an old Christian habit of sitting down to eat together after worship.",
+            "You do not need to know anyone to come in, and you do not need to explain yourself at the door."
+          ],
+          "link": { "href": "visit.html", "label": "Your first Sunday, step by step" },
+          "source": "visit.html, ntgocVisitorFirstSunday — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "coffee hour fellowship hall food after liturgy"
+        },
+        {
+          "id": "can-i-volunteer",
+          "q": "Can I volunteer?",
+          "preview": "There is plenty that anyone can help with. What a particular ministry needs is worth asking about first.",
+          "a": [
+            "The parish is kept going by people who help: coffee hour, the festival, the hall, the grounds, the office. Much of that is open to anyone willing.",
+            "Some things do assume that the person doing them has been received into the Church, and a few of the sign-ups the site describes do not exist yet. Ask Fr. John or the ministry's own people before you commit to something."
+          ],
+          "link": { "href": "get-involved.html", "label": "Get involved" },
+          "source": "get-involved.html — page already published on this site; the proposed sign-ups are listed in data/site.json → proposed.items",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "volunteer help serve ministry sign up"
+        },
+        {
+          "id": "children-participate",
+          "q": "Can my children participate?",
+          "preview": "Children are welcome at everything. Whether a child who is not yet Orthodox joins a Sunday School class has not been settled — please ask.",
+          "a": [
+            "Children are welcome in the church and in the hall, noise and all, and no visiting family has ever been asked to keep a child quiet here.",
+            "During the school year, parish children attending Sunday School leave for class after Holy Communion has been served and stay in class until coffee hour begins. Whether a visiting child may join a class that same day has not been settled — if you are visiting with children, please ask a greeter when you arrive and they will help you."
+          ],
+          "link": { "href": "ministries.html", "label": "Sunday School and the other ministries" },
+          "source": "visit.html — parish-approved wording already published on this site, including the open question about visiting children",
+          "askFather": true,
+          "reviewed": "2026-08-13",
+          "keywords": "children kids sunday school family participate"
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-family",
+      "build": "faqFamily",
+      "category": "Family questions",
+      "questions": [
+        {
+          "id": "spouse-not-orthodox",
+          "q": "What if my spouse isn't Orthodox?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "spouse husband wife not orthodox marriage mixed"
+        },
+        {
+          "id": "spouse-convert",
+          "q": "Does my spouse have to convert too?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "spouse convert together must marriage"
+        },
+        {
+          "id": "family-doesnt-understand",
+          "q": "What if my family doesn't understand why I am becoming Orthodox?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "family understand explain reaction difficult"
+        },
+        {
+          "id": "what-about-children",
+          "q": "What about my children?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "children kids family conversion"
+        },
+        {
+          "id": "children-with-me",
+          "q": "Can my children become Orthodox with me?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "children baptized with me together family reception"
+        },
+        {
+          "id": "children-godparents",
+          "q": "Do my children need godparents?",
+          "pending": true,
+          "link": { "href": "#ntgoc-godparent", "label": "Choosing a godparent" },
+          "keywords": "children godparents sponsors need"
+        },
+        {
+          "id": "family-upset",
+          "q": "What if my family members are upset about my conversion?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "family upset angry hurt conversion opposition"
+        },
+        {
+          "id": "talking-with-family",
+          "q": "How should I talk about Orthodoxy with non-Orthodox family members?",
+          "pending": true,
+          "askFather": true,
+          "keywords": "talk explain family friends conversation orthodoxy"
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-practical",
+      "build": "faqPractical",
+      "category": "Practical parish questions",
+      "questions": [
+        {
+          "id": "when-are-services",
+          "q": "When are services?",
+          "preview": "Every Sunday: Orthros at 9:00 a.m., Divine Liturgy at 10:00 a.m. Weekday and feast-day services are on the calendar.",
+          "a": [
+            "Sunday morning is Orthros at 9:00 a.m., followed by the Divine Liturgy at 10:00 a.m. They are two distinct services; people arrive across both.",
+            "Feasts, Paraklesis and the services of Holy Week are kept as they fall, so the parish calendar is the place to check."
+          ],
+          "link": { "href": "calendar.html", "label": "The parish calendar" },
+          "source": "data/site.json → serviceTimes (CONFIRMED_BY_PARISH)",
+          "reviewed": "2026-08-13",
+          "keywords": "services times when sunday schedule orthros liturgy"
+        },
+        {
+          "id": "what-is-orthros",
+          "q": "What is Orthros?",
+          "preview": "The morning service that comes before the Divine Liturgy. Here it begins at 9:00 a.m.",
+          "a": [
+            "Orthros is the Church's morning prayer — psalms, hymns for the day, and the Gospel of the Resurrection on a Sunday. It leads straight into the Divine Liturgy without a break, which is why the two can sound like one long service.",
+            "You are not late if you arrive during it, and you are not late if you arrive after it either."
+          ],
+          "link": { "href": "https://www.nativity.va.goarch.org/our-faith/worship", "label": "Worship, on our parish site" },
+          "source": "General Church usage; the 9:00 a.m. start is data/site.json → serviceTimes",
+          "reviewed": "2026-08-13",
+          "keywords": "orthros matins morning service before liturgy"
+        },
+        {
+          "id": "what-is-divine-liturgy",
+          "q": "What is the Divine Liturgy?",
+          "preview": "The Sunday service of the Church, at whose heart is Holy Communion. Here it begins at 10:00 a.m.",
+          "a": [
+            "The Divine Liturgy is the central service of the Orthodox Church: scripture, prayer and hymns leading to the offering of the Eucharist. Most Sundays here it is the Liturgy of St. John Chrysostom.",
+            "Services are approximately 50% Greek and 50% English, and congregational portions — the Creed, the Lord's Prayer — are offered in more than one language."
+          ],
+          "link": { "href": "https://www.nativity.va.goarch.org/our-faith/liturgy", "label": "The Divine Liturgy, on our parish site" },
+          "source": "data/site.json → worship.languages and serviceTimes; the description mirrors faith.html",
+          "reviewed": "2026-08-13",
+          "keywords": "divine liturgy service eucharist chrysostom greek english"
+        },
+        {
+          "id": "where-should-i-sit",
+          "q": "Where should I sit?",
+          "preview": "Anywhere. There is no reserved seating.",
+          "a": [
+            "There is no reserved seating. Sit where you like — towards the back is easy if you would rather watch before joining in, and nobody will move you on.",
+            "People come and go a little during Orthros, and stand and sit at different moments. Follow along if you want to; sit when you need to."
+          ],
+          "link": { "href": "visit.html", "label": "Planning a visit" },
+          "source": "data/site.json → worship.seating",
+          "reviewed": "2026-08-13",
+          "keywords": "sit seat where pew back reserved"
+        },
+        {
+          "id": "service-book",
+          "q": "How do I follow the service book?",
+          "preview": "Take a Greek-English Divine Liturgy book from a greeter or from the pew. It stays in the church.",
+          "a": [
+            "A Greek-English Divine Liturgy book is available from a greeter or in the pew, with the service in both languages side by side. It stays in the church at the end of the service.",
+            "Following it is easier than it looks, and losing your place is normal. Much of the Liturgy repeats week to week, and you will know it sooner than you expect."
+          ],
+          "link": { "href": "visit.html", "label": "Planning a visit" },
+          "source": "data/site.json → terminology.liturgyBook",
+          "reviewed": "2026-08-13",
+          "keywords": "service book follow liturgy book greek english pew"
+        },
+        {
+          "id": "kyrie-eleison",
+          "q": "What does “Kyrie eleison” mean?",
+          "preview": "“Lord, have mercy.”",
+          "a": [
+            "Kyrie eleison — “Lord, have mercy.” You will hear this response again and again throughout Orthodox worship.",
+            "Even if you know no other Greek, it probably won't be long before you recognise it."
+          ],
+          "link": { "href": "https://www.goarch.org/-/kyrie-eleison-lord-have-mercy", "label": "Kyrie eleison, on goarch.org" },
+          "source": "visit.html and welcome.html — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "kyrie eleison greek lord have mercy meaning"
+        },
+        {
+          "id": "what-happens-coffee-hour",
+          "q": "What happens at coffee hour?",
+          "preview": "Everyone goes down to the hall and eats together. That is most of it.",
+          "a": [
+            "After the Divine Liturgy the parish gathers in the parish hall for coffee hour — a shared, potluck-style meal, and an old Christian habit of sitting down to eat together after worship.",
+            "It is where the parish actually meets, and it is the easiest place to ask a question you did not want to ask in church."
+          ],
+          "link": { "href": "parish-life.html", "label": "Parish life" },
+          "source": "visit.html and data/site.json → terminology.fellowshipMeal",
+          "reviewed": "2026-08-13",
+          "keywords": "coffee hour hall meal potluck fellowship"
+        },
+        {
+          "id": "really-invited",
+          "q": "Am I really invited to coffee hour?",
+          "preview": "Yes. You don't need to explain yourself at the door.",
+          "a": [
+            "Yes — and this is the question people most often decide for themselves, wrongly, on the way to the car park.",
+            "You don't need to explain yourself at the door. Come and join us for worship, stay for coffee hour, or contact the parish office if you would like to arrange a conversation with Fr. John."
+          ],
+          "link": { "href": "visit.html", "label": "Planning a visit" },
+          "source": "visit.html — parish-approved wording already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "invited coffee hour welcome stay awkward"
+        },
+        {
+          "id": "email-list",
+          "q": "How do I join the parish email list?",
+          "preview": "Ask the parish office. Signing yourself up on the website is a proposal, not something that exists yet.",
+          "a": [
+            "Contact the parish office and ask to be added. That is the route that works today.",
+            "Self-serve sign-up from the website is on the list of things proposed to the Parish Council in this draft. It does not exist yet, and nothing you type into this site is sent anywhere."
+          ],
+          "link": { "href": "contact.html", "label": "Contact the parish office" },
+          "source": "data/site.json → proposed.items (“Self-serve sign-up for the parish email list”)",
+          "reviewed": "2026-08-13",
+          "keywords": "email list newsletter mailing subscribe updates"
+        },
+        {
+          "id": "classes-and-events",
+          "q": "How do I find out about classes and events?",
+          "preview": "The parish calendar, the weekly bulletin, and The Light — the parish's monthly newsletter.",
+          "a": [
+            "The parish calendar carries the services and the parish events. The Light, the parish's monthly newsletter, carries what is coming and what has happened, and the weekly bulletin is posted online each week.",
+            "Announcements are also made at the end of the Liturgy, which is a good reason not to leave immediately."
+          ],
+          "link": { "href": "calendar.html", "label": "The parish calendar" },
+          "source": "data/site.json → newsletter and links.weeklyBulletin",
+          "reviewed": "2026-08-13",
+          "keywords": "classes events calendar newsletter bulletin light find out"
+        },
+        {
+          "id": "get-involved-how",
+          "q": "How can I get involved in parish life?",
+          "preview": "Start by staying for coffee hour. After that, there is a page about it.",
+          "a": [
+            "The honest first step is to keep coming and to stay afterwards. Most involvement here begins with somebody knowing your name.",
+            "Beyond that, the Get Involved page sets out the ways the parish is asking for help — and marks plainly which of them are proposals rather than things that exist today."
+          ],
+          "link": { "href": "get-involved.html", "label": "Get involved" },
+          "source": "get-involved.html — page already published on this site",
+          "reviewed": "2026-08-13",
+          "keywords": "get involved help serve join ministry"
+        },
+        {
+          "id": "parish-directory",
+          "q": "How do I join the parish directory?",
+          "preview": "Family registration is the first step to being counted as a steward. Ask the office about the directory itself.",
+          "a": [
+            "The family registration form is the first step to being counted as a steward of the parish, and the parish office holds it from there.",
+            "Whether there is a printed or online directory, and how a catechumen is listed in it, is a question for the office — this draft does not know."
+          ],
+          "link": { "href": "https://www.nativity.va.goarch.org/parish-ministries/registrationform", "label": "Family registration form" },
+          "source": "data/site.json → links.familyRegistration, as corrected on 2026-08-13 — the Google Form this used to point at is the parish's 35th Anniversary Banquet form, and is now a forbidden pattern. Wording follows for-our-parish.html.",
+          "verify": true,
+          "reviewed": "2026-08-13",
+          "keywords": "directory register registration steward membership listed"
+        },
+        {
+          "id": "who-do-i-contact",
+          "q": "Who do I contact if I need help?",
+          "preview": "The parish office: (540) 548-2665, Tuesday to Friday, 9:00 a.m. to 3:00 p.m.",
+          "a": [
+            "The parish office is open Tuesday to Friday, 9:00 a.m. to 3:00 p.m., on (540) 548-2665. It is also the way to arrange a conversation with Fr. John.",
+            "If what you need is pastoral rather than practical, say so when you call — you will not be asked to explain it to anyone but him."
+          ],
+          "link": { "href": "contact.html", "label": "Contact the parish" },
+          "source": "data/site.json → contact",
+          "reviewed": "2026-08-13",
+          "keywords": "contact help office phone hours emergency need"
+        }
+      ]
+    }
+  ]
+}

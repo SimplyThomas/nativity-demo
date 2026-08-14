@@ -1,0 +1,216 @@
+{
+  "_README": "The register of catechumen and Baptism/Chrismation documents. `npm run catechumens` renders it into the resource cards on catechumens.html and into the three document pages, and regenerates DOCUMENTS-FOR-FR-JOHN.md. This file is the ONE place a document's title, status and date live: the card and the document itself are stamped from the same entry, so they cannot disagree, and there is no second copy of a document anywhere on this site to go stale.",
+  "_updated": "2026-08-13",
+  "_rules": [
+    "ONE canonical version. A document lives at exactly one URL. Other pages LINK to it; they never restate it. If two pages would say the same thing, one of them is wrong within a month — that is the whole reason this register exists.",
+    "`lastUpdated` is stamped onto the card and onto the document from this entry alone. Change it here when the content changes, and both move together.",
+    "Everything about Baptism, Chrismation, Confession, Holy Communion, fasting, godparent eligibility, sacramental preparation and reception into the Church is PASTORAL CONTENT. It carries `governance: \"pastoral\"`, and its `items` stay empty until Fr. John supplies them. The build refuses to publish a pastoral document that has content but no `approvedBy`.",
+    "`status` is one of: awaiting (nothing written yet), outline (the structure is published, the requirements are not), published (Fr. John's content is in). A card says which, in as many words, on its face.",
+    "`needs` is what Fr. John would have to supply for the entry to move on. It is not shown on the website — it is what DOCUMENTS-FOR-FR-JOHN.md is built from."
+  ],
+  "statusLabels": {
+    "awaiting": {
+      "label": "Awaiting Fr. John",
+      "note": "Not written yet. Ask Fr. John directly in the meantime."
+    },
+    "outline": {
+      "label": "Structure ready — requirements awaiting Fr. John",
+      "note": "The headings are here so you can see what the document will cover. The requirements under them are Fr. John's to set, and are not on the page until he has set them."
+    },
+    "published": {
+      "label": "Current",
+      "note": "This is the current approved version."
+    }
+  },
+  "print": {
+    "parish": "Nativity of the Theotokos Greek Orthodox Church",
+    "questions": "Questions? The parish office — (540) 548-2665, office@ntgoc.org, Tuesday to Friday 9:00 a.m. to 3:00 p.m.",
+    "questionsSource": "data/site.json → contact",
+    "notIssued": "Not yet issued"
+  },
+  "categories": [
+    {
+      "id": "ntgoc-resources-preparing",
+      "build": "resourcesPreparing",
+      "title": "Preparing to enter the Church",
+      "resources": [
+        {
+          "id": "catechumen-roadmap",
+          "title": "Catechumen roadmap",
+          "blurb": "The journey from first enquiry through to reception into the Church, in order, so you can see where you are.",
+          "status": "awaiting",
+          "governance": "pastoral",
+          "lastUpdated": null,
+          "needs": "The stages this parish recognises, in order, and what marks the move from one to the next. If the Nativity does not work in formal stages, that is an answer too and the document becomes a description of how it does work."
+        },
+        {
+          "id": "what-to-expect",
+          "title": "What to expect as a catechumen",
+          "blurb": "What is asked of you during the catechumenate, and what is not.",
+          "status": "awaiting",
+          "governance": "pastoral",
+          "lastUpdated": null,
+          "needs": "What Fr. John asks of a catechumen — attendance, reading, meetings, prayer — and, just as usefully, what he does not ask, so that nobody invents an expectation for themselves."
+        },
+        {
+          "id": "godparent-guide",
+          "title": "Choosing a godparent or sponsor",
+          "blurb": "How to choose a sponsor, what the Nativity asks of one, and what the relationship means.",
+          "status": "awaiting",
+          "governance": "pastoral",
+          "related": { "href": "catechumens.html#ntgoc-godparent", "label": "The godparent questions on this page" },
+          "lastUpdated": null,
+          "needs": "The parish's requirements for a sponsor — who may serve, what standing is asked of them, whether Fr. John approves the choice — and how someone with no Orthodox friends should go about it. Twenty-two questions on the catechumen page wait on this one document."
+        },
+        {
+          "id": "patron-saint-guide",
+          "title": "Choosing a patron saint",
+          "blurb": "How to begin, when the choice is made, and what a name day is.",
+          "status": "awaiting",
+          "governance": "pastoral",
+          "related": { "href": "catechumens.html#ntgoc-patron-saint", "label": "The patron saint questions on this page" },
+          "lastUpdated": null,
+          "needs": "How Fr. John would have someone go about choosing, whether a baptismal name may differ from a birth name, and when the decision has to be made."
+        },
+        {
+          "id": "recommended-reading",
+          "title": "Recommended reading",
+          "blurb": "Fr. John's own list — books, and anything else he would point someone to.",
+          "status": "awaiting",
+          "governance": "editorial",
+          "related": { "href": "bookstore.html", "label": "The parish bookstore" },
+          "lastUpdated": null,
+          "needs": "The books, websites, podcasts or recordings Fr. John actually recommends, and in what order. A list assembled from the internet would be worse than none — this is the resource most often asked for and the one most often answered badly elsewhere."
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-resources-baptism",
+      "build": "resourcesBaptism",
+      "title": "Baptism & Chrismation",
+      "resources": [
+        {
+          "id": "adult-reception-checklist",
+          "title": "Adult Baptism & Chrismation checklist",
+          "blurb": "For an adult being received into the Church: what to arrange, what to bring, and what happens on the day.",
+          "status": "outline",
+          "governance": "pastoral",
+          "page": "catechumen-adult-reception.html",
+          "print": true,
+          "lastUpdated": null,
+          "needs": "The requirements under each of the twelve headings on that page. This is the document the parish does not have: the checklist in use was written for infant baptisms, and adapting it by guesswork is exactly what this page refuses to do.",
+          "document": {
+            "audience": "For an adult being received into the Orthodox Church, and for their godparent.",
+            "intro": "Everything an adult needs to see to before being received into the Church, in the order it comes up. Work through it with your godparent, and bring anything you are unsure about to Fr. John.",
+            "sections": [
+              { "title": "Before the service", "prompt": "What has to be arranged, agreed or completed beforehand, and how far ahead." },
+              { "title": "Your godparent or sponsor", "prompt": "Who may serve as your sponsor, what the parish asks of them, and whether Fr. John approves the choice." },
+              { "title": "What you need to bring", "prompt": "The full list, so that nothing is discovered on the morning." },
+              { "title": "Clothing", "prompt": "What to wear, what changes of clothing to bring, and what the parish provides." },
+              { "title": "Cross", "prompt": "Whether a baptismal cross is needed, who provides it, and whether it is blessed beforehand." },
+              { "title": "Candles", "prompt": "How many, what kind, and who brings them." },
+              { "title": "Towels and linens", "prompt": "What is needed, who provides it, and what happens to it afterwards." },
+              { "title": "Paperwork the parish needs", "prompt": "Forms, records and dates the office needs, and by when. Nothing is named here until the office confirms it." },
+              { "title": "Confession and spiritual preparation", "prompt": "Fr. John's guidance. Whether a first Confession comes before reception, and how to prepare for it." },
+              { "title": "Fasting and preparing for Communion", "prompt": "Fr. John's guidance, including how it is adjusted for health, pregnancy, age or medication." },
+              { "title": "The day of the service", "prompt": "When to arrive, where to go, who will be there, and how long it lasts." },
+              { "title": "After your reception", "prompt": "What comes next — Communion, Confession, your name day, and anything the parish asks of the newly received." }
+            ]
+          }
+        },
+        {
+          "id": "infant-baptism-checklist",
+          "title": "Infant & child Baptism checklist",
+          "blurb": "For parents and godparents preparing for the Baptism of a child.",
+          "status": "outline",
+          "governance": "pastoral",
+          "page": "catechumen-infant-baptism.html",
+          "print": true,
+          "lastUpdated": null,
+          "warning": "The parish's existing baptism checklist is out of date. It has NOT been copied here, and nothing on that page was taken from it. It needs Fr. John's review before anything is published.",
+          "needs": "The parish's current requirements for an infant or child baptism, under each heading. Please review the existing checklist rather than reissuing it — it is the document reported as out of date, and it is the reason this page exists.",
+          "document": {
+            "audience": "For parents arranging the Baptism of a child, and for the godparent.",
+            "intro": "What the parish asks of parents and godparents preparing for the Baptism of a child. Anything you are unsure about, ask the parish office — it is a better use of a telephone call than a guess.",
+            "sections": [
+              { "title": "Before the baptism", "prompt": "What to arrange with the parish and the office, and how far ahead a date is set." },
+              { "title": "The godparent", "prompt": "Who may serve as godparent for a child, what the parish asks of them, and whether Fr. John approves the choice." },
+              { "title": "What to bring", "prompt": "The full list for the family and for the godparent." },
+              { "title": "Baptismal garments and clothing", "prompt": "What the child wears, what to bring for afterwards, and who provides it." },
+              { "title": "Cross", "prompt": "Whether a cross is needed, who provides it, and whether it is blessed beforehand." },
+              { "title": "Candles", "prompt": "How many, what kind, and who brings them." },
+              { "title": "Towels, linens and oil", "prompt": "What is needed, who provides it, and what happens to it afterwards." },
+              { "title": "Paperwork the parish needs", "prompt": "Forms, records and names the office needs, and by when." },
+              { "title": "The day of the service", "prompt": "When to arrive, where to go, and how long it lasts. Photography, if the parish has a practice about it." },
+              { "title": "After the baptism", "prompt": "Communion for the newly baptised, the baptismal certificate, and anything else the parish asks of the family." }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ntgoc-resources-godparent",
+      "build": "resourcesGodparent",
+      "title": "For godparents & sponsors",
+      "intro": "So that Fr. John can send a godparent straight here, rather than have instructions relayed second-hand through the person being baptised.",
+      "resources": [
+        {
+          "id": "godparent-asked",
+          "title": "I've been asked to be a godparent — now what?",
+          "blurb": "A short orientation for someone who has just been asked and does not know what is involved.",
+          "status": "awaiting",
+          "governance": "pastoral",
+          "lastUpdated": null,
+          "needs": "What a person should do first when they are asked, who to speak to, and what they are agreeing to before they agree to it."
+        },
+        {
+          "id": "godparent-responsibilities",
+          "title": "The responsibilities of a godparent",
+          "blurb": "What the Church asks of a sponsor, before the service and for the rest of a life.",
+          "status": "awaiting",
+          "governance": "pastoral",
+          "lastUpdated": null,
+          "needs": "The responsibilities as this parish teaches them, before and after the service, and what happens when a godparent moves away or the relationship changes."
+        },
+        {
+          "id": "godparent-checklist",
+          "title": "Godparent checklist for Baptism & Chrismation",
+          "blurb": "What to provide, what to do on the day, and what comes afterwards.",
+          "status": "outline",
+          "governance": "pastoral",
+          "page": "catechumen-godparent-checklist.html",
+          "print": true,
+          "lastUpdated": null,
+          "needs": "The requirements under each of the six headings on that page — in particular who provides the cross, the candles, the garment and the linens, which is the question godparents ask most and the one this parish has never written down.",
+          "document": {
+            "audience": "For the godparent or sponsor, at an adult reception or a child's baptism.",
+            "intro": "What is being asked of you, in the order it comes up. If any of it is difficult — including the cost of what a godparent traditionally provides — say so to Fr. John rather than to the family. It is an ordinary conversation and he would far rather have it.",
+            "sections": [
+              { "title": "Before you say yes", "prompt": "Who may serve as a sponsor at this parish, what standing is asked, and whether Fr. John approves the choice. This is the section a person needs before they answer, not after." },
+              { "title": "Before the service", "prompt": "What to arrange, what to speak to Fr. John about, and how far ahead." },
+              { "title": "What you provide", "prompt": "Exactly what the godparent brings or pays for, and what the parish or the family provides instead." },
+              { "title": "What you do during the service", "prompt": "Where you stand, what you hold, what you say, and what you are handed." },
+              { "title": "After the Baptism or Chrismation", "prompt": "What happens immediately afterwards, and anything the parish asks of the godparent in the following weeks." },
+              { "title": "The ongoing relationship", "prompt": "What the parish hopes for from a godparent in the years afterwards, put plainly enough to be useful." }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "future": {
+    "build": "resourcesFuture",
+    "intro": "Documents that could be added here, if Fr. John wants them. None of these exists, and none should be written without him — several are pastoral guidance that only a priest can give.",
+    "items": [
+      { "title": "Preparing for your first Confession", "note": "Only if Fr. John wants it published." },
+      { "title": "Preparing for your first Holy Communion", "note": "Only with his approved guidance." },
+      { "title": "Orthodox prayer at home", "note": "A prayer rule is set with a priest, not from a web page." },
+      { "title": "Beginning to fast", "note": "Only with his approved pastoral guidance." },
+      { "title": "Building a home prayer corner", "note": "Also proposed as a class on Living the Traditions." },
+      { "title": "A parish reading list", "note": "Overlaps the recommended reading above; one of them, not both." },
+      { "title": "Common Orthodox terms", "note": "A glossary. Not pastoral, and the least difficult of these to produce." },
+      { "title": "A guide to the service book", "note": "How to follow the Greek-English Divine Liturgy book." },
+      { "title": "What happens after I become Orthodox?", "note": "The question nobody thinks to ask until afterwards." }
+    ]
+  }
+}
