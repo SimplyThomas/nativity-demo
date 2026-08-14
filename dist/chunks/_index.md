@@ -10,7 +10,7 @@ match the filename exactly — that is how pages call it.
 |:--:|---|---:|---:|:--:|
 | ☐ | `ntgocAboutClergy` | 2995 b | 1 page | yes (1) |
 | ☐ | `ntgocAboutHero` | 536 b | 1 page | — |
-| ☐ | `ntgocAboutParishCouncil` | 4879 b | 1 page | yes (3) |
+| ☐ | `ntgocAboutParishCouncil` | 4905 b | 1 page | yes (3) |
 | ☐ | `ntgocBookstoreCatalog` | 14820 b | 1 page | — |
 | ☐ | `ntgocBookstoreCatechism` | 2996 b | 1 page | — |
 | ☐ | `ntgocBookstoreConverts` | 2805 b | 1 page | — |
@@ -115,7 +115,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishLifeFormation` | 2105 b | 1 page | — |
 | ☐ | `ntgocParishLifeGallery` | 4505 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeHero` | 905 b | 1 page | — |
-| ☐ | `ntgocParishLifeNext` | 1316 b | 1 page | yes (5) |
+| ☐ | `ntgocParishLifeNext` | 1318 b | 1 page | yes (5) |
 | ☐ | `ntgocParishLifeService` | 977 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeUpcoming` | 3972 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeWorship` | 1693 b | 1 page | — |

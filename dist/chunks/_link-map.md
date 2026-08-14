@@ -114,7 +114,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishLifeDoors` | get-involved, care, traditions | ☐ |
 | `ntgocParishLifeFellowship` | get-involved | ☐ |
 | `ntgocParishLifeGallery` | contact | ☐ |
-| `ntgocParishLifeNext` | ministries, for-our-parish, newsletter, calendar, contact | ☐ |
+| `ntgocParishLifeNext` | get-involved, for-our-parish, newsletter, calendar, contact | ☐ |
 | `ntgocParishLifeService` | ministries | ☐ |
 | `ntgocParishLifeUpcoming` | calendar | ☐ |
 | `ntgocParishOrthodoxResources` | faith, bookstore | ☐ |
