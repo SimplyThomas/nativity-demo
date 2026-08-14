@@ -99,6 +99,7 @@
 .ntgoc-question__preview a,
 .ntgoc-stage__lede a,
 .ntgoc-traditions-lede a,
+.ntgoc-agape-source a,
 .ntgoc-prose a {
   color: #7d2b2b;
   text-decoration: underline;
@@ -117,6 +118,7 @@
 .ntgoc-question__preview a:hover, .ntgoc-question__preview a:focus-visible,
 .ntgoc-stage__lede a:hover, .ntgoc-stage__lede a:focus-visible,
 .ntgoc-traditions-lede a:hover, .ntgoc-traditions-lede a:focus-visible,
+.ntgoc-agape-source a:hover, .ntgoc-agape-source a:focus-visible,
 .ntgoc-prose a:hover, .ntgoc-prose a:focus-visible {
   color: #b08442;
 }
@@ -500,7 +502,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-home-upcoming-services-small-grey { font-size:14px; color:#6c6458; margin-top:4px; }
 .ntgoc-home-upcoming-services-small-caps { display:inline-block; margin-top:30px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
 .ntgoc-home-upcoming-services-ruled { border:1px solid #ded2be; background:#fbf8f2; }
-.ntgoc-home-upcoming-services-media { height:190px; background-image:url('../img/feast-transfiguration.jpg'); background-size:cover; background-position:center; border-bottom:1px solid #ded2be; }
+.ntgoc-home-upcoming-services-media { height:380px; margin-top:30px; background-image:url('../img/feast-transfiguration.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center; background-color:#fbf8f2; }
 .ntgoc-home-upcoming-services-box { padding:30px 30px 34px; }
 .ntgoc-festival-details-micro-caps { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
 .ntgoc-home-upcoming-services-subheading { font-family:Newsreader, serif; font-weight:400; font-size:23px; margin:0 0 6px; color:#3a1414; }

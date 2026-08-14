@@ -196,13 +196,13 @@
         "note": "The history is standard and uncontroversial, but it is stated on a parish page over the parish's name, so it stays tagged until someone with the Archdiocese text in front of them confirms the wording. The failure mode is not getting a date wrong — it is a sentence that sounds devout and quietly makes the meal part of the sacrament."
       },
       "quotation": {
-        "text": "Like our spiritual ancestors in the Church of the First Century, we now come to an Agape Meal.",
+        "text": "We have just come from the celebration of the Divine Liturgy, and like our spiritual ancestors in the Church of the First Century, we now come to an Agape Meal.",
         "speaker": "His Eminence Archbishop Elpidophoros of America",
-        "occasion": "Remarks following the Divine Liturgy at Holy Trinity Greek Orthodox Cathedral, New Orleans",
+        "occasion": "Remarks at the luncheon following the Divine Liturgy at Holy Trinity Greek Orthodox Cathedral, New Orleans",
         "date": "2025-03-16",
-        "status": "UNVERIFIED",
-        "source": "Supplied in the Get Involved brief, 2026-08-11. No URL is recorded in this project and none has been invented.",
-        "note": "A named living hierarch is quoted on a parish page. Of everything on this page it is the item most worth checking against the published text before the draft goes anywhere near the Council: the wording, the occasion and the date. If it cannot be sourced, remove the quotation rather than soften the attribution."
+        "status": "VERIFIED",
+        "source": "https://www.goarch.org/-/archbishop-elpidophoros-remarks-at-the-luncheon-following-divine-liturgy%C2%A0-sunday-march-16-2025-holy-trinity-greek-orthodox-cathedral%C2%A0in-new-orleans-louisiana",
+        "note": "Sourced 2026-08-13 against the Archdiocese's published text of the remarks. The wording, the speaker, the occasion and the date all hold, and the page now carries the full sentence: it had been running the second clause alone, recapitalised as 'Like our spiritual ancestors…', which read as a whole sentence but was an unmarked mid-sentence excerpt. Two cautions for anyone editing this. First, there are TWO New Orleans luncheon addresses one day apart — 15 March 2025 after the Doxology, and this one, 16 March 2025 after the Divine Liturgy. They are different texts and the 15 March one is about an 'Agape Luncheon', so check the date before matching a quotation to a URL. Second, goarch.org returns 403 to automated fetches, including to `npm run links`, which classes it as blocked rather than dead; this URL was confirmed through search results quoting the page, not by retrieving it. Someone should open it in a browser once to confirm the punctuation."
       },
       "affects": [
         "get-involved.html"
