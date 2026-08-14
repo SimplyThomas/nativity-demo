@@ -1,5 +1,5 @@
 {
-  "_README": "Parish announcements for the 'For Our Parish' page. This file is the whole editing surface: add an object, run `npm run parish`, and the announcements grid on for-our-parish.html is rewritten. Nobody has to touch the page markup, and there is no way to break the page layout from in here.",
+  "_README": "Parish announcements. This file is the whole editing surface: add an object, run `npm run parish`, and the announcements grid is rewritten on both for-our-parish.html and index.html — same renderer, same list, so the two cannot drift. Nobody has to touch the page markup, and there is no way to break the page layout from in here. An announcement now reads on the homepage as well, so write it to make sense to somebody who arrived a moment ago.",
 
   "_fields": {
     "id": "REQUIRED. A short kebab-case slug, unique in this file. Used only to tell two entries apart in a diff.",
@@ -27,7 +27,7 @@
       "id": "sample-ordinary",
       "kind": "From the office",
       "title": "Sample — this is how an ordinary announcement appears",
-      "body": "Announcements run newest first, each under a label saying what kind of notice it is, and each one can carry a date after which it comes down by itself rather than piling up. Nothing on this page is a real parish announcement yet; these two entries exist to show the Parish Council the shape of the thing.",
+      "body": "Announcements run newest first, each under a label saying what kind of notice it is, and each one can carry a date after which it comes down by itself rather than piling up. None of these is a real parish announcement yet; the two sample entries exist to show the Parish Council the shape of the thing.",
       "posted": "2026-08-09",
       "expires": "2026-12-31",
       "sample": true

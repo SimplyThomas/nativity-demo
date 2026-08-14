@@ -78,7 +78,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHomeHero` | 1185 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1739 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeThisWeek` | 3092 b | 1 page | yes (3) |
+| ☐ | `ntgocHomeThisWeek` | 3090 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeUpcomingServices` | 5017 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeWelcome` | 1364 b | 1 page | yes (2) |
 | ☐ | `ntgocMinistriesGrid` | 4722 b | 1 page | yes (8) |
@@ -103,7 +103,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocNewsletterArchive` | 2222 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |
 | ☐ | `ntgocNewsletterReceive` | 966 b | 1 page | yes (1) |
-| ☐ | `ntgocParishAnnouncements` | 2651 b | 1 page | — |
+| ☐ | `ntgocParishAnnouncements` | 2649 b | 1 page | — |
 | ☐ | `ntgocParishAsk` | 1141 b | 1 page | yes (1) |
 | ☐ | `ntgocParishConnected` | 1954 b | 1 page | yes (1) |
 | ☐ | `ntgocParishFamilies` | 1554 b | 1 page | yes (3) |
