@@ -30,12 +30,12 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-145 links across 48 chunks.
+146 links across 48 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
 | `ntgocAboutClergy` | contact | ☐ |
-| `ntgocAboutParishCouncil` | committees ×2 | ☐ |
+| `ntgocAboutParishCouncil` | committees ×3 | ☐ |
 | `ntgocBookstoreNotes` | contact | ☐ |
 | `ntgocCommitteesList` | about | ☐ |
 | `ntgocEventsList` | calendar, hall, contact | ☐ |

@@ -1,6 +1,6 @@
 {
   "_README": "One source of truth for the facts that appear on more than one page. This project is static hand-edited HTML with no build step, so this file cannot inject values — instead `npm run lint` reads it and FAILS when a page contradicts it (see 'canonical facts' in tools/lint.mjs). Change a shared fact here first, then fix the pages lint names. Provenance for each fact lives in data/parish-facts.json; this file is about keeping the pages consistent with it.",
-  "_updated": "2026-08-10",
+  "_updated": "2026-08-13",
   "serviceTimes": {
     "orthros": "9:00 a.m.",
     "divineLiturgy": "10:00 a.m.",
@@ -59,9 +59,9 @@
     "Dance Troupe",
     "AHEPA",
     "Parish Council",
-    "Choir & Chanters"
+    "Choir"
   ],
-  "_ministriesNote": "The list is settled for this presentation. Descriptions stay general: meeting frequencies, age and grade ranges, sports, retreats, camps and named charitable programmes are all unsourced and must not be restored. 'Choir & Chanters' has no ministry page on the live site and stays tagged TODO: verify.",
+  "_ministriesNote": "The list is settled for this presentation. Descriptions stay general: meeting frequencies, age and grade ranges, sports, retreats, camps and named charitable programmes are all unsourced and must not be restored. 2026-08-13: 'Choir & Chanters' became 'Choir'. The parish newsletter's organisation list has a CHOIR heading, which settles that a choir exists — it was previously tagged TODO: verify because the live site has no ministry page for one. Nothing in that list mentions chanters, so the card no longer claims them; the old wording is a forbidden pattern below. The newsletter also heads a group HOPE/JOY where the live site and this list say JOY. Not changed on any page — HOPE and JOY are two different age groups in the Archdiocese's programme and nobody has said whether this parish runs one or both. See parishOrganizations in data/parish-facts.json.",
   "links": {
     "giveOnline": "https://square.link/u/u8cIpGbh",
     "memorialDonation": "https://square.link/u/ZlTPph2Q",
@@ -164,6 +164,10 @@
       {
         "pattern": "Divine Liturgy 9a",
         "why": "Sunday Divine Liturgy begins at 10:00 a.m.; Orthros begins at 9:00 a.m."
+      },
+      {
+        "pattern": "Choir (&amp;|&) Chanters",
+        "why": "The parish newsletter lists a CHOIR and says nothing about chanters. The ministry is called the Choir. Nobody has confirmed the parish has chanters as an organised group, which is what the old heading asserted."
       }
     ]
   }
