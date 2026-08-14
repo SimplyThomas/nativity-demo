@@ -84,7 +84,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocGetInvolvedProsphora` | traditions | ☐ |
 | `ntgocGetInvolvedServe` | ministries ×2, events, contact | ☐ |
 | `ntgocHallRental` | contact | ☐ |
-| `ntgocHomeFestivalPromo` | ministries, calendar, about | ☐ |
+| `ntgocHomeFestivalPromo` | get-involved, calendar, about | ☐ |
 | `ntgocHomeFindYourPlace` | calendar, faith, get-involved, parish-life, care, traditions | ☐ |
 | `ntgocHomeForOurParish` | for-our-parish | ☐ |
 | `ntgocHomeHero` | visit, contact | ☐ |

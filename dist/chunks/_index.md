@@ -72,7 +72,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 2075 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 2013 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeFestivalPromo` | 3960 b | 1 page | yes (3) |
+| ☐ | `ntgocHomeFestivalPromo` | 3962 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeFindYourPlace` | 2293 b | 1 page | yes (6) |
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeHero` | 1185 b | 1 page | yes (2) |
