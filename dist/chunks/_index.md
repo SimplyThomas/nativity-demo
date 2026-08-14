@@ -120,7 +120,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishStewardship` | 1820 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3824 b | 1 page | yes (1) |
 | ☐ | `ntgocSiteFooter` | 4159 b | 33 pages | yes (20) |
-| ☐ | `ntgocSiteHeader` | 7523 b | 33 pages | yes (43) |
+| ☐ | `ntgocSiteHeader` | 7501 b | 33 pages | yes (43) |
 | ☐ | `ntgocTopBar` | 208 b | 33 pages | — |
 | ☐ | `ntgocTraditionsClasses` | 33308 b | 1 page | — |
 | ☐ | `ntgocTraditionsClosing` | 956 b | 1 page | — |
