@@ -68,7 +68,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocGetInvolvedPathways` | 2099 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedPrepare` | 6796 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedProsphora` | 4215 b | 1 page | yes (1) |
-| ☐ | `ntgocGetInvolvedServe` | 4423 b | 1 page | yes (4) |
+| ☐ | `ntgocGetInvolvedServe` | 4551 b | 1 page | yes (4) |
 | ☐ | `ntgocGiveProjects` | 702 b | 1 page | — |
 | ☐ | `ntgocGiveWays` | 2075 b | 1 page | — |
 | ☐ | `ntgocHallRental` | 2013 b | 1 page | yes (1) |
@@ -115,7 +115,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishLifeUpcoming` | 3972 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeWorship` | 1693 b | 1 page | — |
 | ☐ | `ntgocParishOrthodoxResources` | 3138 b | 1 page | yes (2) |
-| ☐ | `ntgocParishResources` | 3943 b | 1 page | yes (10) |
+| ☐ | `ntgocParishResources` | 4095 b | 1 page | yes (10) |
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1820 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3824 b | 1 page | yes (1) |
@@ -151,7 +151,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocWelcomeExperience` | 24977 b | 1 page | yes (6) |
 | ☐ | `ntgocWelcomeHero` | 764 b | 1 page | — |
 | ☐ | `ntgocWelcomeIntro` | 531 b | 1 page | — |
-| ☐ | `ntgocWelcomeLearn` | 6115 b | 1 page | yes (2) |
+| ☐ | `ntgocWelcomeLearn` | 6263 b | 1 page | yes (2) |
 | ☐ | `ntgocWelcomeNav` | 750 b | 1 page | — |
 | ☐ | `ntgocWelcomeStay` | 1602 b | 1 page | — |
 | ☐ | `ntgocWelcomeSurvey` | 9939 b | 1 page | — |
