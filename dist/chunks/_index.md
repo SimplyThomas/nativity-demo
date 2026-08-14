@@ -119,8 +119,8 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1820 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3824 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3936 b | 33 pages | yes (18) |
-| ☐ | `ntgocSiteHeader` | 6433 b | 33 pages | yes (37) |
+| ☐ | `ntgocSiteFooter` | 4159 b | 33 pages | yes (20) |
+| ☐ | `ntgocSiteHeader` | 7523 b | 33 pages | yes (43) |
 | ☐ | `ntgocTopBar` | 208 b | 33 pages | — |
 | ☐ | `ntgocTraditionsClasses` | 33308 b | 1 page | — |
 | ☐ | `ntgocTraditionsClosing` | 956 b | 1 page | — |

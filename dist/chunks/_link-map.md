@@ -19,6 +19,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `catechumens` | _________ |
 | `committees` | _________ |
 | `contact` | _________ |
+| `directory` | _________ |
 | `events` | _________ |
 | `faith` | _________ |
 | `for-our-parish` | _________ |
@@ -43,7 +44,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-260 links across 78 chunks.
+268 links across 78 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -115,8 +116,8 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishServe` | ministries, committees | ☐ |
 | `ntgocParishStewardship` | give | ☐ |
 | `ntgocParishWeek` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, welcome, catechumens, calendar, contact, hall, parish-life, get-involved, for-our-parish, about, ministries, traditions, committees, bookstore, newsletter, give ×3 | ☐ |
-| `ntgocSiteHeader` | index, faith ×3, catechumens ×2, parish-life ×3, get-involved ×2, for-our-parish ×2, ministries ×2, committees ×2, bookstore ×2, newsletter ×2, calendar ×2, events ×3, traditions ×2, hall ×2, about ×2, contact ×2, visit ×2, give | ☐ |
+| `ntgocSiteFooter` | visit, welcome, catechumens, calendar, contact, hall, parish-life, get-involved, care, for-our-parish, directory, about, ministries, traditions, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteHeader` | index, faith ×3, catechumens ×2, parish-life ×3, for-our-parish ×2, care ×2, directory ×2, bookstore ×2, newsletter ×2, get-involved ×3, ministries ×2, traditions ×2, calendar ×2, events ×3, hall ×2, about ×3, committees ×2, contact ×2, visit ×2, give | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |
 | `ntgocVisitorHero` | contact, calendar | ☐ |
