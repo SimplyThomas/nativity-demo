@@ -48,7 +48,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocHallRental` | 2013 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeFestivalPromo` | 3598 b | 1 page | yes (3) |
 | ☐ | `ntgocHomeForOurParish` | 774 b | 1 page | yes (1) |
-| ☐ | `ntgocHomeHero` | 1189 b | 1 page | yes (2) |
+| ☐ | `ntgocHomeHero` | 1185 b | 1 page | yes (2) |
 | ☐ | `ntgocHomeMinistriesPromo` | 1625 b | 1 page | yes (5) |
 | ☐ | `ntgocHomeServiceTimes` | 1739 b | 1 page | yes (1) |
 | ☐ | `ntgocHomeUpcomingServices` | 5017 b | 1 page | yes (1) |
