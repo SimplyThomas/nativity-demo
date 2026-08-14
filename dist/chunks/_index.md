@@ -11,11 +11,11 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocAboutClergy` | 2995 b | 1 page | yes (1) |
 | ☐ | `ntgocAboutHero` | 536 b | 1 page | — |
 | ☐ | `ntgocAboutParishCouncil` | 4879 b | 1 page | yes (3) |
-| ☐ | `ntgocBookstoreCatalog` | 14640 b | 1 page | — |
+| ☐ | `ntgocBookstoreCatalog` | 14820 b | 1 page | — |
 | ☐ | `ntgocBookstoreCatechism` | 2996 b | 1 page | — |
 | ☐ | `ntgocBookstoreConverts` | 2805 b | 1 page | — |
-| ☐ | `ntgocBookstoreHero` | 1295 b | 1 page | — |
-| ☐ | `ntgocBookstoreNotes` | 1157 b | 1 page | yes (1) |
+| ☐ | `ntgocBookstoreHero` | 1613 b | 1 page | — |
+| ☐ | `ntgocBookstoreNotes` | 1517 b | 1 page | yes (1) |
 | ☐ | `ntgocCalendarGrid` | 10089 b | 1 page | — |
 | ☐ | `ntgocCalendarHero` | 946 b | 1 page | — |
 | ☐ | `ntgocCatechumensAskFather` | 992 b | 1 page | yes (1) |
@@ -90,7 +90,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocMinistryParishCouncilHero` | 379 b | 1 page | yes (1) |
 | ☐ | `ntgocMinistryPhiloptochos` | 5037 b | 1 page | — |
 | ☐ | `ntgocMinistryPhiloptochosHero` | 390 b | 1 page | yes (1) |
-| ☐ | `ntgocMinistrySundaySchool` | 3646 b | 1 page | — |
+| ☐ | `ntgocMinistrySundaySchool` | 3632 b | 1 page | — |
 | ☐ | `ntgocMinistrySundaySchoolHero` | 373 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterArchive` | 2222 b | 1 page | yes (1) |
 | ☐ | `ntgocNewsletterHero` | 406 b | 1 page | — |

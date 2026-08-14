@@ -111,7 +111,8 @@
       "A Kids' Corner during fellowship",
       "Meal trains for a parish household",
       "A private request for meal support, and a coordinator to read it",
-      "Setup & cleanup, Children's corner and Missions as named ministries"
+      "Setup & cleanup, Children's corner and Missions as named ministries",
+      "Reserving a book or an icon ahead of Sunday, and collecting it at the bookstore table"
     ]
   },
   "canonical": {
@@ -189,6 +190,10 @@
       {
         "pattern": "1FAIpQLSc31bhBH5k03LSTeEGr_NL9bcYbg6zl432sKOJPWXM7JaOHAw",
         "why": "This Google Form is the parish's 35th Anniversary Banquet form — fetch it and the page title says so. It was carried on four pages as the family registration form until 2026-08-13, and was recorded VERIFIED in data/parish-facts.json, so it survived a fact audit. Family registration is a form hosted on the live parish site itself, at /parish-ministries/registrationform; see links.familyRegistration. Do not restore this URL under a registration label."
+      },
+      {
+        "pattern": "bookstore table[^.]{0,60}narthex",
+        "why": "The bookstore table's location is not sourced. The 'in the narthex' claim was removed once (see parish-facts.json → bookstore note) and crept back; this closes the door."
       }
     ]
   }
