@@ -593,7 +593,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-visitor-what-to-text-4 { margin:0 0 34px; }
 .ntgoc-visitor-what-to-eyebrow { cursor:pointer; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:4px; }
 .ntgoc-visitor-children-card { border:1px solid #ccbda4; background:#f6f1e8; padding:30px 28px; max-width:62ch; margin:0 0 34px; }
-.ntgoc-council-bio { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px; }
+.ntgoc-person-bio { font-size:15px; line-height:1.7; color:#5b5449; margin:0 0 16px; }
 .ntgoc-visitor-greeters-figure { margin:0; }
 .ntgoc-visitor-greeters-box-3 { max-width:62ch; margin:0 0 46px; }
 .ntgoc-visitor-greeters-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px; }
@@ -685,7 +685,13 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-ministries-grid-row { background:#ece3d5; padding:40px 32px; display:flex; flex-direction:column; justify-content:center; }
 .ntgoc-ministries-grid-small-caps { align-self:flex-start; background:#7d2b2b; color:#f6f1e8; padding:13px 24px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .ntgoc-section-shell { padding-top:84px; padding-bottom:90px; }
-.ntgoc-about-clergy-media { height:420px; background-image:url('/assets/templates/ntgoc/img/clergy-fr-john.jpg'); background-size:cover; background-position:center 20%; border:1px solid #ded2be; background-color:#e6ddcd; }
+/* The photograph is 190x315 and the slot is 380x420, so `cover` scales it 2x and
+   crops 210px off the height. 52% is where that 210px window holds the whole
+   head with a little air above it. It also survives the mobile rule below, where
+   .ntgoc-tall goes full-width and the window narrows to about 148 source pixels
+   — barely more than the head itself. Re-measure this if the photograph
+   changes; the old 20% was framed for a different, wider picture. */
+.ntgoc-about-clergy-media { height:420px; background-image:url('/assets/templates/ntgoc/img/clergy-fr-john.jpg'); background-size:cover; background-position:center 52%; border:1px solid #ded2be; background-color:#e6ddcd; }
 .ntgoc-about-clergy-box { margin-top:22px; }
 .ntgoc-about-clergy-lede { font-family:Newsreader, serif; font-size:24px; color:#3a1414; line-height:1.25; }
 .ntgoc-about-clergy-eyebrow { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-top:8px; }
@@ -700,11 +706,11 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-parish-council-box-3 { max-width:70ch; margin-bottom:50px; }
 .ntgoc-about-parish-council-display-ink { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.12; margin:0 0 20px; color:#3a1414; }
 .ntgoc-about-parish-council-body-loose { font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
-.ntgoc-about-parish-council-grid,
+.ntgoc-person-grid,
 .ntgoc-directory { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; border-top:1px solid #ded2be; border-left:1px solid #ded2be; }
-.ntgoc-council-card { background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
-.ntgoc-council-name { font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414; }
-.ntgoc-council-role { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
+.ntgoc-person-card { background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
+.ntgoc-person-name { font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414; }
+.ntgoc-person-role { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
 .ntgoc-about-parish-council-small { font-size:14px; }
 .ntgoc-newsletter-archive-text { font-size:12.5px; color:#6c6458; margin-top:16px; font-style:italic; }
 .ntgoc-about-parish-council-box { margin-top:76px; }
@@ -712,7 +718,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-parish-council-body-muted { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 40px; max-width:64ch; text-wrap:pretty; }
 .ntgoc-committee-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:44px; padding:30px 0; border-bottom:1px solid #ded2be; }
 .ntgoc-committee-name { font-family:Newsreader, serif; font-weight:500; font-size:23px; margin:0 0 8px; color:#3a1414; }
-.ntgoc-committee-leads { font-size:14px; color:#6c6458; }
+.ntgoc-leads-line { font-size:14px; color:#6c6458; }
 .ntgoc-committee-text { font-size:16px; line-height:1.75; color:#5b5449; margin:0; text-wrap:pretty; }
 .ntgoc-give-projects-shell { padding-top:70px; padding-bottom:70px; }
 .ntgoc-newsletter-archive-heading { font-family:Newsreader, serif; font-weight:400; font-size:32px; margin:0 0 30px; color:#3a1414; }
@@ -842,9 +848,41 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-photoslot { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; height:100%; padding:18px; text-align:center; background:#efe7d9; background-image:repeating-linear-gradient(135deg, transparent 0 11px, rgba(176,132,66,.10) 11px 22px); }
 .ntgoc-photoslot__label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#7f5f30; }
 .ntgoc-photoslot__hint { font-size:13px; line-height:1.6; color:#6c6458; max-width:34ch; }
-.ntgoc-photoslot--dark { background:#4a1c1c; background-image:repeating-linear-gradient(135deg, transparent 0 11px, rgba(224,182,115,.10) 11px 22px); }
-.ntgoc-photoslot--dark .ntgoc-photoslot__label { color:#e0b673; }
-.ntgoc-photoslot--dark .ntgoc-photoslot__hint { color:#c3b299; }
+/* The ntgoc-photoslot--dark modifier lived here: the placeholder restyled for
+   the one frame that sits in a dark band, on Parish Events & Traditions. That
+   frame now has its photograph, no other placeholder is in a dark band, and
+   lint warns about CSS no page uses. Removed rather than left to rot — `git
+   log` has it if a dark band ever needs an empty frame again. Do not put a
+   plain photoslot in a dark band without restoring it; the placeholder's ink is
+   set for a light background and will be close to unreadable on one.
+
+   Written without leading dots on purpose: lint builds its set of defined
+   classes with a regex over this file's raw text, comments included, so a
+   dotted class name in a comment reads as a definition and warns forever. */
+
+/* When a photograph does arrive, the .ntgoc-photoslot inside the frame is
+   replaced by an <img class="ntgoc-photo">, and nothing else changes: the frame
+   keeps its border and its grid cell, and this fills it the same way the
+   placeholder did.
+
+   An <img> rather than a background-image, which is how every photograph on the
+   rest of the site works. Background images cannot carry alt text, cannot be
+   lazy-loaded, and would need a bespoke class per photograph — twenty-odd more
+   near-identical rules in here, which is exactly what lint's duplicate-rule
+   check exists to complain about. One class covers every frame instead.
+
+   The frames are letterboxed and their aspect ratio moves a long way with the
+   viewport — the wide bookstore frame is 548x200 on a desktop and 860x170 at
+   the 900px breakpoint — so `cover` is doing real cropping at every size. Give
+   the file a generous horizontal margin and keep the subject central. */
+.ntgoc-photo { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+
+/* For a photograph whose subject sits in the upper part of the frame — faces,
+   usually. A centred crop beheads a group shot at the 900px breakpoint, where
+   this frame is 860x320 and only about 44% of the picture's height survives.
+   A modifier rather than a rule per photograph: it says what the picture needs,
+   not which picture it is, so the next group shot can reuse it. */
+.ntgoc-photo--top { object-position:center 25%; }
 
 /* The hero is on .ntgoc-page-hero. This eyebrow is not part of it, and is not
    dead: the "Coming up at Nativity" block further down the page is now its only

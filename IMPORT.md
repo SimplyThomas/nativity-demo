@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 105 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 106 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -64,7 +64,7 @@ issue that owns the decision.
    npm run evo:up
    npm run evo:verify
    ```
-   Baseline (2026-08-11): 696 assertions, 19 pages, 105 chunks, passing on
+   Baseline (2026-08-13): 698 assertions, 19 pages, 106 chunks, passing on
    EVO 1.4.18 and 3.5.7.
 
 7. **Decide what replaces the draft fittings.** The draft banner, `noindex`
@@ -158,7 +158,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
 2. Navigate to the template asset folder. On the live site that is
    `/assets/templates/`.
 3. Create a folder named `ntgoc`, then a folder `img` inside it.
-4. Upload the fourteen files listed below from this repo's `assets/img/` folder.
+4. Upload the thirty-five files listed below from this repo's `assets/img/` folder.
    The folder holds four more; they are not needed, and the table says why.
 5. **Confirm the resulting path.** Click an uploaded image and read the URL the
    manager reports. You are checking it is exactly:
@@ -177,7 +177,7 @@ CSS. But "a file exists" is not "you may add one". Get it in writing.
    Change that line, re-run the extraction, and every chunk and the stylesheet
    are corrected together. Do **not** hand-edit paths in 107 files.
 
-The fourteen images to upload:
+The thirty-five images to upload:
 
 | File | Used on |
 |---|---|
@@ -193,6 +193,23 @@ The fourteen images to upload:
 | `goa-seal.png` | Site header, every page |
 | `goa-seal-full.png` | Site footer colophon, every page |
 | `parish-nave-aisle.jpg` | Parish Life hero — **cropped**, see the note below |
+| `bookstore-counter.jpg` | Parish Life — the bookstore mosaic, wide frame |
+| `bookstore-icons.jpg` | Parish Life — the bookstore mosaic, icons frame |
+| `festival-kitchen-volunteers.jpg` | Parish Life — Parish Events & Traditions |
+| `holy-week-service.jpg` | Parish Life — Worship & Feast Days, large frame |
+| `holy-week-epitaphios.jpg` | Parish Life — Worship & Feast Days, small frame |
+| `holy-week-cross.jpg` | Parish Life — the gallery |
+| `parish-baptism.jpg` | Parish Life — the gallery — **children in frame**, see the note below |
+| `pascha-candles.jpg` | Parish Life — Worship & Feast Days, the Pascha frame |
+| `palm-folding.jpg` | Parish Life — Children & Families, wide frame |
+| `palm-cross-child.jpg` | Parish Life — Children & Families, small frame |
+| `palm-folding-pair.jpg` | Parish Life — Parishioners serving in the community |
+| `holy-week-nave.jpg` | Parish Life — the gallery, large frame |
+| `holy-week-hierarchical.jpg` | Parish Life — the gallery, feast day frame |
+| `coffee-hour-hall.jpg` | Parish Life — Fellowship, large frame |
+| `coffee-hour-cups.jpg`, `altar-server.jpg` | Parish Life — the gallery |
+| `festival-tables.jpg`, `festival-volunteers.jpg`, `dance-troupe.jpg` | Parish Life — the gallery |
+| `nativity-play.jpg`, `nativity-play-manger.jpg` | Parish Life — Sunday School — **permission not yet obtained**, see the note below |
 
 And the four you can skip:
 
@@ -201,14 +218,103 @@ And the four you can skip:
 | `goa-seal-16.png`, `goa-seal-32.png`, `goa-seal-apple-touch.png` | Favicons, for the demo only. The live template already serves these from `/assets/templates/common/icons/` — see the note below. |
 | `parish-nave-panorama.jpg` | Harvested but unused; kept as an alternative hero. |
 
-> **Provenance:** these were taken from the parish's own live site on 2026-08-08,
-> with three caveats recorded in `data/parish-facts.json`:
+> **Provenance:** most of these were taken from the parish's own live site on
+> 2026-08-08. Seven are newer and came from elsewhere. `clergy-fr-john.jpg`,
+> `bookstore-icons.jpg`, `parish-baptism.jpg` and the three `holy-week-*.jpg`
+> files are personal photographs from the volunteer maintaining this repo.
+> `bookstore-counter.jpg` and `festival-kitchen-volunteers.jpg` came from the
+> parish's own social media — already published by the parish, so the same
+> footing as the live-site harvest.
+>
+> **Of the seven newer photographs, only `parish-baptism.jpg` has a recorded
+> permission.** `bookstore-counter.jpg` (one parishioner),
+> `festival-kitchen-volunteers.jpg` (three), `holy-week-service.jpg` (two clergy
+> or servers) and `clergy-fr-john.jpg` (Fr. John) do not. Prior publication by
+> the parish is not agreement to appear here. Three further caveats are recorded
+> in `data/parish-facts.json`:
 > `feast-transfiguration.jpg` comes from **onlinechapel.goarch.org** and is
 > Archdiocese-owned, not parish-owned — check reuse terms. `clergy-fr-john.jpg`
-> is a photograph of a named person; confirm Fr. John is content for it to be
-> used before it goes anywhere public. The two `goa-seal-*` files are the seal
-> of the **Greek Orthodox Archdiocese of America**, also not parish-owned —
-> confirm with DIM before this goes anywhere public.
+> no longer comes from the live site at all; see the note below. The two
+> `goa-seal-*` files are the seal of the **Greek Orthodox Archdiocese of
+> America**, also not parish-owned — confirm with DIM before this goes anywhere
+> public.
+
+> **`clergy-fr-john.jpg` is cropped, and the crop is the point.** Replaced on
+> 2026-08-13 with a personal photograph taken in the church on 2026-06-20 by the
+> volunteer maintaining this repo, who owns it. The camera original is a group
+> photograph of a baptism party — parents, godparents, a young boy and the
+> infant being baptised — and the version here is cropped down to Fr. John
+> alone. **Superseded in part on 2026-08-13:** this note used to say that the
+> other frames from that day must never be added, because two of the people in
+> them are children. `parish-baptism.jpg` is now in the repo and is a crop of
+> one of exactly those frames — see its own note below. What changed is that the
+> permission was obtained: the children are the photographer's own and he gave
+> it as their parent. The reasoning still stands for anything without that
+> permission, and the camera originals themselves are still deliberately absent:
+> `assets/img/` is served publicly whether or not a page links to it.
+>
+> Owning a photograph and having the agreement of the person in it are two
+> different things — the same distinction as `parish-nave-aisle.jpg` below.
+> **Fr. John has not yet agreed to appear in this particular photograph, and it
+> is already live on the draft site. Get that agreement.**
+
+> **`nativity-play.jpg` and `nativity-play-manger.jpg` are in the draft WITHOUT
+> permission, on purpose.** Two crops of one photograph of the Sunday School
+> nativity play — about eleven children, faces clear, and they are not the
+> photographer's own. Neither basis elsewhere in this file reaches them: the
+> parish has not published this photograph, and the parent's permission recorded
+> against `parish-baptism.jpg` covers only that photographer's own children.
+>
+> The parish decided on 2026-08-13 to let it stand in the draft for the Parish
+> Council's review and to survey the families for permission before anything is
+> published officially. **These two files must not be imported until that survey
+> comes back.** If it comes back short for any child, delete both files, restore
+> the two placeholders on `parish-life.html`, and re-run `npm run chunks`.
+>
+> Note also that the draft site is itself public: `assets/img/` is served
+> whether or not a page links to it. "Draft only" describes the audience and the
+> intent, not who can reach the file.
+
+> **Twenty-one parishioners are named in this draft, and the Parish Council has
+> approved it.** Added 2026-08-13 from the parish newsletter's organisation and
+> officer list. Four places: `ntgocAboutParishCouncil` (the nine Council members
+> and their offices), `ntgocPhiloptochosBoard` (the nine board members and
+> theirs), `ntgocMinistriesGrid` (four lead names — Sunday School, GOYA,
+> Philoptochos, Dance Troupe), and one sentence each in `ntgocGiveWays` and
+> `ntgocBookstoreNotes`. **These are cleared for import.**
+>
+> The approval was given at a Council meeting before 2026-08-13 and covers both
+> halves: that the names may be published, and that the roster is right as
+> printed. That is why none of the twenty-one carries a `TODO: verify` marker —
+> unlike almost everything else on these pages. Do not add one back without a
+> reason of its own.
+>
+> Names and offices only. No personal email address, telephone number,
+> photograph or biography is published: Council cards show `office@ntgoc.org`
+> and the Treasurer's shows `pctreasurer@ntgoc.org`, both role addresses; the
+> Philoptochos cards carry no address; and both roster sections say in print that
+> personal addresses are not published and mail should go through the office.
+>
+> What the approval does *not* cover: which committee each Council member leads
+> (still unknown — `ntgocCommitteesList` reads "Council Member" throughout), the
+> HOPE/JOY naming question, and any photograph. The full record, including the
+> one caveat about a Council approving a roster that is the Philoptochos's own,
+> and what to do if a member later objects, is in `data/parish-facts.json` under
+> `facts._rosterPermission`.
+
+> **`parish-baptism.jpg` has two children in it, and its permission is
+> recorded.** A family with their newly baptised infant, a young boy in front,
+> and the priest — a personal photograph from the volunteer maintaining this
+> repo, of his own family. The Parish Life page carries the parish's photograph
+> rule in print, directly beneath the gallery this picture sits in: permission
+> from those pictured, and *separate* permission for any photograph that
+> prominently features a child. Both children are the photographer's own and he
+> gives that separate permission as their parent; the other adults in the frame
+> have agreed. Recorded 2026-08-13 in `data/parish-facts.json`. Nobody in it is
+> identified by name, and no photograph in this repo identifies anyone — that is
+> a separate decision from the rosters above, and it stands. **This is the only
+> photograph here whose permission is on the record. The others are not** — see
+> the provenance note above.
 
 > **`parish-nave-aisle.jpg` is cropped, and the crop is the point.** It came
 > later, from the church website, and the parish confirmed it owns it. The full
@@ -300,7 +406,7 @@ Then the page content, grouped by page:
 | **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Living the Traditions** | `ntgocTraditionsHero`, `ntgocTraditionsIdea`, `ntgocTraditionsIntro`, `ntgocTraditionsClasses`, `ntgocTraditionsTeach`, `ntgocTraditionsSuggest`, `ntgocTraditionsPassingOn`, `ntgocTraditionsGuidance`, `ntgocTraditionsClosing` — *sits under Events in the menu; three forms live here, see Step 6a and the note below* |
-| **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` |
+| **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid`, `ntgocPhiloptochosBoard` — *`ntgocPhiloptochosBoard` names nine parishioners; see the note below before importing it* |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil` |
 | **The Light (newsletter)** | `ntgocNewsletterHero`, `ntgocNewsletterArchive` |
