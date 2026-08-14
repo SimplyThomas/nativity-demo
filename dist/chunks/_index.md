@@ -41,13 +41,16 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocCommitteesList` | 3727 b | 1 page | yes (1) |
 | ☐ | `ntgocContactCard` | 3024 b | 1 page | — |
 | ☐ | `ntgocContactHero` | 517 b | 1 page | — |
+| ☐ | `ntgocDirectoryContact` | 1386 b | 1 page | yes (2) |
+| ☐ | `ntgocDirectoryHero` | 669 b | 1 page | — |
+| ☐ | `ntgocDirectoryProposal` | 4442 b | 1 page | yes (1) |
 | ☐ | `ntgocDocAdultReceptionBody` | 6263 b | 1 page | — |
 | ☐ | `ntgocDocAdultReceptionHero` | 1089 b | 1 page | yes (1) |
 | ☐ | `ntgocDocGodparentChecklistBody` | 4116 b | 1 page | — |
 | ☐ | `ntgocDocGodparentChecklistHero` | 1067 b | 1 page | yes (1) |
 | ☐ | `ntgocDocInfantBaptismBody` | 5619 b | 1 page | — |
 | ☐ | `ntgocDocInfantBaptismHero` | 1070 b | 1 page | yes (1) |
-| ☐ | `ntgocDraftBanner` | 488 b | 32 pages | — |
+| ☐ | `ntgocDraftBanner` | 488 b | 33 pages | — |
 | ☐ | `ntgocEventsHero` | 748 b | 1 page | — |
 | ☐ | `ntgocEventsList` | 2180 b | 1 page | yes (3) |
 | ☐ | `ntgocFaithHero` | 542 b | 1 page | — |
@@ -116,9 +119,9 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1820 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3824 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3936 b | 32 pages | yes (18) |
-| ☐ | `ntgocSiteHeader` | 6433 b | 32 pages | yes (37) |
-| ☐ | `ntgocTopBar` | 208 b | 32 pages | — |
+| ☐ | `ntgocSiteFooter` | 3936 b | 33 pages | yes (18) |
+| ☐ | `ntgocSiteHeader` | 6433 b | 33 pages | yes (37) |
+| ☐ | `ntgocTopBar` | 208 b | 33 pages | — |
 | ☐ | `ntgocTraditionsClasses` | 33308 b | 1 page | — |
 | ☐ | `ntgocTraditionsClosing` | 956 b | 1 page | — |
 | ☐ | `ntgocTraditionsGuidance` | 1028 b | 1 page | — |

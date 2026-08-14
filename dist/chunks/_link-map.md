@@ -43,7 +43,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-257 links across 76 chunks.
+260 links across 78 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -67,6 +67,8 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocCatechumensPractical` | calendar ×2, visit ×3, parish-life, contact ×2, get-involved | ☐ |
 | `ntgocCatechumensResources` | contact ×7, catechumens ×2, bookstore, catechumen-adult-reception, catechumen-infant-baptism, catechumen-godparent-checklist | ☐ |
 | `ntgocCommitteesList` | about | ☐ |
+| `ntgocDirectoryContact` | contact ×2 | ☐ |
+| `ntgocDirectoryProposal` | traditions | ☐ |
 | `ntgocDocAdultReceptionHero` | catechumens | ☐ |
 | `ntgocDocGodparentChecklistHero` | catechumens | ☐ |
 | `ntgocDocInfantBaptismHero` | catechumens | ☐ |

@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 32 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 64 runs
+**Scope:** all 33 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 66 runs
 
 ## Result
 
@@ -109,11 +109,21 @@ Support clear comfortably — eyebrow 7.76:1 desktop and 7.13:1 mobile, headline
 never been measured. The 13 August table below is left as the record of that
 day and has not been re-split.
 
+**Re-run 14 August 2026, later the same day**, after `directory.html` was added.
+**0 violations across 66 page-runs**, reflow **33 of 33** at 320px, and **3,767
+focus stops with 0 missing a focus indicator**. The manual-review count is
+unchanged at **174 nodes across 45 page-runs**: the new page has no photograph
+behind any text, which is the only thing generating that count. Its hero is
+deliberately the flat `ntgoc-hero-band` the Bookstore and ministry pages use
+rather than the photograph hero, so `HERO_PAGES` in
+`tools/measure-hero-contrast.mjs` is untouched and the fifteen measured heroes
+above still stand. The page introduced no new CSS class and no new component.
+
 Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 32 pages x 2 viewports
+npm run audit:a11y   # 33 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
 npm run measure:hero # the fifteen photograph heroes, which axe declines to judge
 ```

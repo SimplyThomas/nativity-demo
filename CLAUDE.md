@@ -14,7 +14,7 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The 32 `.html` files at the repo root are SOURCE. Edit them directly.**
+**The 33 `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
@@ -38,7 +38,7 @@ inside the pages, which three data files own — see below.
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 32 pages
+npm run shell    # propagate header/footer to all 33 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run parish   # render the calendar + announcements into the pages
@@ -236,7 +236,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 32 pages × 2 viewports, reflow 32/32 at 320px.
+0 axe violations across 33 pages × 2 viewports, reflow 33/33 at 320px.
 
 ---
 
