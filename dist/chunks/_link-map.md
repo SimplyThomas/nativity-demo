@@ -26,6 +26,14 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `hall` | _________ |
 | `index` | _________ |
 | `ministries` | _________ |
+| `ministry-ahepa` | _________ |
+| `ministry-choir` | _________ |
+| `ministry-dance-troupe` | _________ |
+| `ministry-goya` | _________ |
+| `ministry-joy` | _________ |
+| `ministry-parish-council` | _________ |
+| `ministry-philoptochos` | _________ |
+| `ministry-sunday-school` | _________ |
 | `newsletter` | _________ |
 | `parish-life` | _________ |
 | `traditions` | _________ |
@@ -34,7 +42,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-236 links across 64 chunks.
+254 links across 74 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
@@ -77,6 +85,16 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocHomeServiceTimes` | contact | ☐ |
 | `ntgocHomeUpcomingServices` | calendar | ☐ |
 | `ntgocHomeWelcome` | faith, about | ☐ |
+| `ntgocMinistriesGrid` | ministry-sunday-school, ministry-goya, ministry-joy, ministry-philoptochos, ministry-dance-troupe, ministry-ahepa, ministry-parish-council, ministry-choir | ☐ |
+| `ntgocMinistryAhepaHero` | ministries | ☐ |
+| `ntgocMinistryChoirHero` | ministries | ☐ |
+| `ntgocMinistryDanceTroupeHero` | ministries | ☐ |
+| `ntgocMinistryGoyaHero` | ministries | ☐ |
+| `ntgocMinistryJoyHero` | ministries | ☐ |
+| `ntgocMinistryParishCouncil` | about, committees | ☐ |
+| `ntgocMinistryParishCouncilHero` | ministries | ☐ |
+| `ntgocMinistryPhiloptochosHero` | ministries | ☐ |
+| `ntgocMinistrySundaySchoolHero` | ministries | ☐ |
 | `ntgocNewsletterArchive` | parish-life | ☐ |
 | `ntgocParishAsk` | contact | ☐ |
 | `ntgocParishConnected` | newsletter | ☐ |

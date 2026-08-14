@@ -1572,6 +1572,36 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-doc__foot { font-size:13.5px; line-height:1.7; color:#6c6458; margin:34px 0 0; padding-top:20px; border-top:1px solid #ded2be; text-wrap:pretty; }
 .ntgoc-doc__foot--screen { border-top:0; padding-top:0; margin-top:10px; font-style:italic; }
 
+/* --- the ministry pages ------------------------------------------------
+   One page per ministry, rendered from data/ministries.json. Measurements
+   track .ntgoc-doc above because both are a single column of reading, but
+   the two are not the same component and must not be merged: a document
+   prints and a ministry page does not, so everything under .ntgoc-doc is
+   entangled with the @media print rules at the foot of this file.
+
+   The status notice is a full bordered box rather than .ntgoc-doc__status's
+   left rule. That is deliberate rather than decorative: on most of these
+   pages the notice is the most substantial thing on the page — eight
+   ministries have a page and only two have supplied anything — and a
+   notice that reads as marginalia would be telling the reader the opposite
+   of the truth. */
+.ntgoc-ministry { background:#fbf8f2; }
+.ntgoc-ministry__inner { padding-top:60px; padding-bottom:84px; max-width:820px; }
+.ntgoc-ministry__lede { font-family:Newsreader, serif; font-weight:300; font-size:23px; line-height:1.5; color:#3a1414; margin:0 0 24px; text-wrap:pretty; }
+.ntgoc-ministry__status { background:#f1e9dc; border:1px solid #ded2be; padding:18px 20px; font-size:14.5px; line-height:1.7; color:#5b5449; margin:0; text-wrap:pretty; }
+.ntgoc-ministry__section { border-top:1px solid #ded2be; padding:34px 0 6px; margin-top:30px; }
+.ntgoc-ministry__pending { font-size:15px; line-height:1.7; color:#5b5449; margin:0; background:#f6f1e8; border:1px dashed #ccbda4; padding:16px 18px; text-wrap:pretty; }
+.ntgoc-ministry__note { font-size:12.5px; line-height:1.65; color:#6c6458; margin-top:18px; font-style:italic; text-wrap:pretty; }
+.ntgoc-ministry__photos { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
+.ntgoc-ministry__frame { border:1px solid #ded2be; min-height:210px; display:flex; }
+.ntgoc-ministry__links { display:grid; gap:10px; margin-top:24px; justify-items:start; }
+.ntgoc-ministry__link { font-size:14px; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:2px; }
+.ntgoc-ministry__link:hover, .ntgoc-ministry__link:focus-visible { color:#6d5220; border-color:#b08442; }
+.ntgoc-ministry__back { display:inline-block; margin-top:24px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
+.ntgoc-ministry__back:hover, .ntgoc-ministry__back:focus-visible { color:#6d5220; border-color:#b08442; }
+.ntgoc-ministry-card__more { display:inline-block; margin-top:18px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#7d2b2b; border-bottom:1px solid #d9c6a8; padding-bottom:3px; }
+.ntgoc-ministry-card__more:hover, .ntgoc-ministry-card__more:focus-visible { color:#6d5220; border-color:#b08442; }
+
 /* --- responsive layer ----------------------------------------------
    The design is fixed-desktop and carries no media queries of its own,
    so this layer is the ONE place where layout was authored rather than
@@ -2471,6 +2501,20 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-doc__heading { gap: 10px; }
   .ntgoc-doc__pending, .ntgoc-doc__status { padding: 14px 16px; }
   .ntgoc-doclist__name { display: block; }
+}
+
+/* The ministry pages. .ntgoc-ministry__photos carries .ntgoc-grid and so
+   collapses to one column on the blanket rule higher up; the frames need
+   their height cut to match, or a stacked column of 210px boxes pushes the
+   contact route two screens down on a phone. */
+@media (max-width: 900px) {
+  .ntgoc-ministry__inner { padding-top: 40px; padding-bottom: 56px; }
+  .ntgoc-ministry__lede { font-size: clamp(19px, 4.5vw, 23px); }
+}
+@media (max-width: 640px) {
+  .ntgoc-ministry__section { padding-top: 24px; margin-top: 22px; }
+  .ntgoc-ministry__status, .ntgoc-ministry__pending { padding: 14px 16px; }
+  .ntgoc-ministry__frame { min-height: 160px; }
 }
 
 /* --- print -------------------------------------------------------------
