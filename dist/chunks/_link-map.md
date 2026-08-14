@@ -12,6 +12,7 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `about` | _________ |
 | `bookstore` | _________ |
 | `calendar` | _________ |
+| `care` | _________ |
 | `catechumen-adult-reception` | _________ |
 | `catechumen-godparent-checklist` | _________ |
 | `catechumen-infant-baptism` | _________ |
@@ -42,13 +43,16 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-254 links across 74 chunks.
+257 links across 76 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
 | `ntgocAboutClergy` | contact | ☐ |
 | `ntgocAboutParishCouncil` | committees ×3 | ☐ |
 | `ntgocBookstoreNotes` | contact | ☐ |
+| `ntgocCareAsk` | contact ×2 | ☐ |
+| `ntgocCareClosing` | get-involved, parish-life | ☐ |
+| `ntgocCareHelp` | contact | ☐ |
 | `ntgocCatechumensAskFather` | contact | ☐ |
 | `ntgocCatechumensBaptism` | contact ×6, hall | ☐ |
 | `ntgocCatechumensBecoming` | contact ×4 | ☐ |
@@ -69,12 +73,11 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocEventsList` | calendar, hall, contact | ☐ |
 | `ntgocFaithTopics` | about, catechumens, contact | ☐ |
 | `ntgocGetInvolvedAgape` | calendar | ☐ |
-| `ntgocGetInvolvedAsk` | contact ×2 | ☐ |
-| `ntgocGetInvolvedCare` | contact | ☐ |
 | `ntgocGetInvolvedClosing` | traditions | ☐ |
 | `ntgocGetInvolvedCoffee` | contact | ☐ |
 | `ntgocGetInvolvedLearn` | traditions ×4 | ☐ |
 | `ntgocGetInvolvedOffering` | contact ×3 | ☐ |
+| `ntgocGetInvolvedPathways` | care | ☐ |
 | `ntgocGetInvolvedProsphora` | traditions | ☐ |
 | `ntgocGetInvolvedServe` | ministries ×2, events, contact | ☐ |
 | `ntgocHallRental` | contact | ☐ |

@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 142 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 144 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -1226,7 +1226,7 @@ npm run chunks      # the 31 HTML pages -> dist/chunks/
 npm run lint        # checks everything this guide depends on
 ```
 
-The 31 `.html` files at the repo root are the source and are edited by hand.
+The 32 `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 every page from the old design file. See `CONTRIBUTING.md`.

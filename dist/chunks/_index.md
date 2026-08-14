@@ -18,6 +18,10 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocBookstoreNotes` | 1517 b | 1 page | yes (1) |
 | ☐ | `ntgocCalendarGrid` | 10089 b | 1 page | — |
 | ☐ | `ntgocCalendarHero` | 946 b | 1 page | — |
+| ☐ | `ntgocCareAsk` | 1586 b | 1 page | yes (2) |
+| ☐ | `ntgocCareClosing` | 726 b | 1 page | yes (2) |
+| ☐ | `ntgocCareHelp` | 7489 b | 1 page | yes (1) |
+| ☐ | `ntgocCareHero` | 1082 b | 1 page | — |
 | ☐ | `ntgocCatechumensAskFather` | 992 b | 1 page | yes (1) |
 | ☐ | `ntgocCatechumensBaptism` | 16976 b | 1 page | yes (7) |
 | ☐ | `ntgocCatechumensBecoming` | 6459 b | 1 page | yes (4) |
@@ -43,7 +47,7 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocDocGodparentChecklistHero` | 1067 b | 1 page | yes (1) |
 | ☐ | `ntgocDocInfantBaptismBody` | 5619 b | 1 page | — |
 | ☐ | `ntgocDocInfantBaptismHero` | 1070 b | 1 page | yes (1) |
-| ☐ | `ntgocDraftBanner` | 488 b | 31 pages | — |
+| ☐ | `ntgocDraftBanner` | 488 b | 32 pages | — |
 | ☐ | `ntgocEventsHero` | 748 b | 1 page | — |
 | ☐ | `ntgocEventsList` | 2180 b | 1 page | yes (3) |
 | ☐ | `ntgocFaithHero` | 542 b | 1 page | — |
@@ -53,14 +57,12 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocFestivalDetails` | 1959 b | 1 page | — |
 | ☐ | `ntgocFestivalHero` | 704 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedAgape` | 9283 b | 1 page | yes (1) |
-| ☐ | `ntgocGetInvolvedAsk` | 1581 b | 1 page | yes (2) |
-| ☐ | `ntgocGetInvolvedCare` | 7484 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedClosing` | 1364 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedCoffee` | 4018 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedHero` | 1743 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedLearn` | 4049 b | 1 page | yes (4) |
 | ☐ | `ntgocGetInvolvedOffering` | 7531 b | 1 page | yes (3) |
-| ☐ | `ntgocGetInvolvedPathways` | 2086 b | 1 page | — |
+| ☐ | `ntgocGetInvolvedPathways` | 2099 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedPrepare` | 6796 b | 1 page | — |
 | ☐ | `ntgocGetInvolvedProsphora` | 4215 b | 1 page | yes (1) |
 | ☐ | `ntgocGetInvolvedServe` | 4423 b | 1 page | yes (4) |
@@ -114,9 +116,9 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishServe` | 1968 b | 1 page | yes (2) |
 | ☐ | `ntgocParishStewardship` | 1820 b | 1 page | yes (1) |
 | ☐ | `ntgocParishWeek` | 3824 b | 1 page | yes (1) |
-| ☐ | `ntgocSiteFooter` | 3936 b | 31 pages | yes (18) |
-| ☐ | `ntgocSiteHeader` | 6433 b | 31 pages | yes (37) |
-| ☐ | `ntgocTopBar` | 208 b | 31 pages | — |
+| ☐ | `ntgocSiteFooter` | 3936 b | 32 pages | yes (18) |
+| ☐ | `ntgocSiteHeader` | 6433 b | 32 pages | yes (37) |
+| ☐ | `ntgocTopBar` | 208 b | 32 pages | — |
 | ☐ | `ntgocTraditionsClasses` | 33308 b | 1 page | — |
 | ☐ | `ntgocTraditionsClosing` | 956 b | 1 page | — |
 | ☐ | `ntgocTraditionsGuidance` | 1028 b | 1 page | — |
