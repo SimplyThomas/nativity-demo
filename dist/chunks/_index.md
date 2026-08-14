@@ -107,12 +107,13 @@ match the filename exactly — that is how pages call it.
 | ☐ | `ntgocParishFamilies` | 1554 b | 1 page | yes (3) |
 | ☐ | `ntgocParishHero` | 800 b | 1 page | — |
 | ☐ | `ntgocParishLifeBookstore` | 1866 b | 1 page | yes (1) |
+| ☐ | `ntgocParishLifeDoors` | 2193 b | 1 page | yes (3) |
 | ☐ | `ntgocParishLifeEvents` | 1189 b | 1 page | — |
 | ☐ | `ntgocParishLifeFellowship` | 1236 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeFormation` | 2105 b | 1 page | — |
 | ☐ | `ntgocParishLifeGallery` | 4505 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeHero` | 905 b | 1 page | — |
-| ☐ | `ntgocParishLifeNext` | 991 b | 1 page | yes (2) |
+| ☐ | `ntgocParishLifeNext` | 1316 b | 1 page | yes (5) |
 | ☐ | `ntgocParishLifeService` | 977 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeUpcoming` | 3972 b | 1 page | yes (1) |
 | ☐ | `ntgocParishLifeWorship` | 1693 b | 1 page | — |

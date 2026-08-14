@@ -286,6 +286,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* The header is sticky, so an anchor jump would otherwise land with the
    section's first line tucked underneath it. */
 .ntgoc-page section[id] { scroll-margin-top: 96px; }
+/* Parish Life's Learning & Formation heading shares a section with Children &
+   Families, so the door to it targets the heading rather than the section. */
+.ntgoc-parish-life-h2[id] { scroll-margin-top: 96px; }
 
 /* --- interactive bits ---------------------------------------------- */
 .ntgoc-filter-btn {
