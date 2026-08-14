@@ -21,19 +21,20 @@ compete with the real site in search, and not to be mistaken for it.
 | `content/` | Reference copy of the eight parish-authored Visit sections. **No longer an input** — edit `visit.html`, then mirror the copy here. |
 | `tools/lint.mjs` | Enforces the rules that used to be guaranteed by the renderer. Run by CI. |
 | `tools/extract-chunks.mjs` | Turns those pages into paste-ready Evolution CMS chunks. |
-| `dist/chunks/` | **Generated.** 127 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
+| `dist/chunks/` | **Generated.** 142 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
 | `data/parish-facts.json` | Every parish fact, its source URL, and whether it is verified, corrected, or withheld. |
 | `data/parish-calendar.json` | The parish calendar, once. Rendered into four pages by `npm run parish`. |
 | `data/parish-announcements.json` | Parish announcements, with optional expiry dates. Same build. |
+| `data/ministries.json` | The parish ministries, once. Rendered into the ministries grid and the eight ministry pages by `npm run ministries`. |
 | `IMPORT.md` | Step-by-step import instructions for a volunteer with no command line. |
 | `CONTRIBUTING.md` | How to make changes, and the rules that must not break. |
 | `assets/css/components.css` | **Generated.** Ships to EVO. |
 | `assets/css/provisional.css` | Demo only. Contains a reset — never import it. |
 
-The 23 `.html` files at the repo root are the **source** — edit them
-directly, with one exception: the four blocks between `<!-- BUILD:… -->` markers
-that `npm run parish` renders from the calendar and announcement data files.
-`dist/chunks/` is generated too.
+The 31 `.html` files at the repo root are the **source** — edit them
+directly, with one exception: the blocks between `<!-- BUILD:… -->` markers,
+which `npm run parish`, `npm run catechumens` and `npm run ministries` render
+from the data files those three own. `dist/chunks/` is generated too.
 
 ## Building
 
@@ -68,11 +69,15 @@ break and why, all of which CI enforces on every push.
   of the 636 classes in `components.css`, each named
   `ntgoc-<block>[__<element>][--<modifier>]`. `npm run rename` renames one
   everywhere — see "Naming CSS classes" in `CONTRIBUTING.md`.
-- **No unsourced parish fact goes unflagged.** 95 `<!-- TODO: verify -->` markers
+- **No unsourced parish fact goes unflagged.** 88 `<!-- TODO: verify -->` markers
   remain. See "What still has to be verified" in `IMPORT.md`.
 - **Nobody's face or name goes up without asking.** The Visit page's "Faces You
-  Might See" row ships as empty frames; the Parish Council block ships without
-  names. Both are filled in only with each person's permission.
+  Might See" row ships as empty frames, and so does every photograph on the
+  ministry pages. The parishioners who *are* named — the Council roster, the
+  Philoptochos board and the lead names on the ministries grid — are named
+  under the Parish
+  Council's recorded approval of 2026-08-13, which covers names and offices and
+  no photograph.
 
 ## Status
 

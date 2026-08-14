@@ -2,7 +2,7 @@
 
 **Who this is for:** a parish volunteer with editor access to the church's
 Evolution CMS manager. No command line needed. Everything you paste is in
-`dist/chunks/` — 127 plain text chunk files plus a stylesheet.
+`dist/chunks/` — 142 plain text chunk files plus a stylesheet.
 
 > ### Read this before anything else
 >
@@ -281,11 +281,16 @@ And the four you can skip:
 
 > **Twenty-one parishioners are named in this draft, and the Parish Council has
 > approved it.** Added 2026-08-13 from the parish newsletter's organisation and
-> officer list. Four places: `ntgocAboutParishCouncil` (the nine Council members
-> and their offices), `ntgocPhiloptochosBoard` (the nine board members and
+> officer list. They appear in `ntgocAboutParishCouncil` (the nine Council members
+> and their offices), `ntgocMinistryPhiloptochos` (the nine board members and
 > theirs), `ntgocMinistriesGrid` (four lead names — Sunday School, GOYA,
-> Philoptochos, Dance Troupe), and one sentence each in `ntgocGiveWays` and
-> `ntgocBookstoreNotes`. **These are cleared for import.**
+> Philoptochos, Dance Troupe), the three ministry pages that carry those same
+> leads in their team block (`ntgocMinistrySundaySchool`, `ntgocMinistryGoya`,
+> `ntgocMinistryDanceTroupe`), and one sentence each in `ntgocGiveWays` and
+> `ntgocBookstoreNotes`. **These are cleared for import.** Nobody outside the
+> twenty-one is named: the ministry pages are rendered from
+> `data/ministries.json`, which refuses to publish a person who does not carry
+> both a recorded source and a recorded permission.
 >
 > The approval was given at a Council meeting before 2026-08-13 and covers both
 > halves: that the names may be published, and that the roster is right as
@@ -414,7 +419,15 @@ Then the page content, grouped by page:
 | **For Our Parish** | `ntgocParishHero`, `ntgocParishWeek`, `ntgocParishAnnouncements`, `ntgocParishConnected`, `ntgocParishServe`, `ntgocParishStewardship`, `ntgocParishFamilies`, `ntgocParishResources`, `ntgocParishOrthodoxResources`, `ntgocParishAsk` — *see the note below on keeping it up to date* |
 | **Events** | `ntgocEventsHero`, `ntgocEventsList` |
 | **Living the Traditions** | `ntgocTraditionsHero`, `ntgocTraditionsIdea`, `ntgocTraditionsIntro`, `ntgocTraditionsClasses`, `ntgocTraditionsTeach`, `ntgocTraditionsSuggest`, `ntgocTraditionsPassingOn`, `ntgocTraditionsGuidance`, `ntgocTraditionsClosing` — *sits under Events in the menu; three forms live here, see Step 6a and the note below* |
-| **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid`, `ntgocPhiloptochosBoard` — *`ntgocPhiloptochosBoard` names nine parishioners; see the note below before importing it* |
+| **Ministries** | `ntgocMinistriesHero`, `ntgocMinistriesGrid` — *the grid is generated from `data/ministries.json` by `npm run ministries`, and every card links to that ministry's own page below. `ntgocPhiloptochosBoard` no longer exists: the board moved to the Philoptochos page so the roster sits at one URL* |
+| **Sunday School** | `ntgocMinistrySundaySchoolHero`, `ntgocMinistrySundaySchool` — *a ministry page. Reached from the Ministries grid, not from the menu. Its body is generated; it names one parishioner, see the note below* |
+| **GOYA** | `ntgocMinistryGoyaHero`, `ntgocMinistryGoya` — *names one parishioner, see the note below* |
+| **JOY** | `ntgocMinistryJoyHero`, `ntgocMinistryJoy` — *no names: the parish has not published who leads it, and the page says so* |
+| **Ladies' Philoptochos Society** | `ntgocMinistryPhiloptochosHero`, `ntgocMinistryPhiloptochos` — *names the nine board members; **read the note below before importing it**. This is where `ntgocPhiloptochosBoard` went — if you have already created that chunk in EVO, delete it and take this one instead, or the nine names will stand at two URLs* |
+| **Greek Dance Troupe** | `ntgocMinistryDanceTroupeHero`, `ntgocMinistryDanceTroupe` — *names one parishioner, see the note below* |
+| **AHEPA** | `ntgocMinistryAhepaHero`, `ntgocMinistryAhepa` — *no names published* |
+| **Parish Council (ministry page)** | `ntgocMinistryParishCouncilHero`, `ntgocMinistryParishCouncil` — *describes the Council and links to About for the roster and to Committees; it deliberately restates neither* |
+| **Choir** | `ntgocMinistryChoirHero`, `ntgocMinistryChoir` — *no names published* |
 | **Parish Council Committees** | `ntgocCommitteesHero`, `ntgocCommitteesList` |
 | **About** | `ntgocAboutHero`, `ntgocAboutClergy`, `ntgocAboutParishCouncil` |
 | **The Light (newsletter)** | `ntgocNewsletterHero`, `ntgocNewsletterArchive` |
@@ -784,7 +797,7 @@ template.
 
 ## What still has to be verified
 
-Search the built HTML for `TODO: verify` — there are 95 markers, 10 of them on
+Search the built HTML for `TODO: verify` — there are 88 markers, 10 of them on
 the Visit page. They are HTML comments, so visitors never see them, but **none
 should survive to a live parish site.** Each is a claim we could not source.
 
@@ -1063,6 +1076,42 @@ from the register and is what to send him.
   chunk markers and one `<!-- BUILD:… -->` pair; copy one of the three existing
   document pages. Then `npm run catechumens`, `npm run shell`, `npm run check`.
 
+### Still unresolved — the eight ministry pages
+
+Every card on the Ministries grid now has a page of its own, and most of those
+pages are mostly empty on purpose. Nothing about a ministry is stated here that
+nobody has confirmed, so each page says on its face whether it is waiting for
+the ministry, partly sourced, or current. `MINISTRIES-FOR-THE-PARISH.md` is
+generated from `data/ministries.json` and is what to send to the ministry
+leads — it is addressed to them rather than to Fr. John, because what a
+ministry does is the ministry's to answer.
+
+- **All eight say so in as many words** — six read "Content needed from the
+  ministry", and the Philoptochos and Parish Council pages read "Some detail
+  still to come". That is honest on a draft and unhelpful on a live parish
+  site. Either wait for the replies, or let the Council decide that a page
+  saying it is waiting is better than no page at all — the same choice as the
+  catechumen documents above.
+- **Four of the pages name nobody**, because the parish has published no lead
+  for JOY, AHEPA or the Choir, and because the Parish Council's roster lives on
+  the About page and is deliberately not restated. A lead willing to be named
+  is the single most useful thing to get back.
+- **The JOY page carries a naming question, not a spelling one.** The live
+  parish site says JOY and the newsletter says HOPE/JOY; in the Archdiocese's
+  programme HOPE and JOY are two different age groups, so the answer decides
+  whether this is one ministry or two.
+- **Every photograph is an empty frame with a caption saying what it would
+  show.** The roster approval covers no photograph. A frame becomes a
+  photograph only once somebody records who is in it and that they agreed to
+  appear, and `npm run ministries` refuses a file until that is written down.
+- **Adding a ministry later** is a register entry plus a page carrying the two
+  chunk markers and one `<!-- BUILD:… -->` pair; copy one of the eight existing
+  ministry pages. Then `npm run ministries`, `npm run shell`, `npm run check`.
+  Each page also has a hand-written region below its `BUILD:` block for
+  whatever a ministry sends that the register has no field for; a roster or a
+  telephone number does not go there, because that is the second copy this was
+  built to prevent.
+
 ### Removed, and not said anywhere else
 
 The design's "Questions people ask before coming" card was removed: the sections
@@ -1170,12 +1219,14 @@ so the next person knows those files are **generated from the pages** and must
 never be edited directly.
 
 ```sh
-npm run parish   # calendar + announcements JSON -> the BUILD blocks (four pages)
-npm run chunks   # the 19 HTML pages -> dist/chunks/
-npm run lint     # checks everything this guide depends on
+npm run parish      # calendar + announcements JSON -> the BUILD blocks (four pages)
+npm run catechumens # the FAQ + document registers -> the catechumen pages
+npm run ministries  # data/ministries.json -> the grid and the eight ministry pages
+npm run chunks      # the 31 HTML pages -> dist/chunks/
+npm run lint        # checks everything this guide depends on
 ```
 
-The 23 `.html` files at the repo root are the source and are edited by hand.
+The 31 `.html` files at the repo root are the source and are edited by hand.
 They were generated from a Claude Design import until 8 August 2026; that link
 has been cut. **Do not run `tools/archive/render.mjs`** — it would overwrite all
 every page from the old design file. See `CONTRIBUTING.md`.
