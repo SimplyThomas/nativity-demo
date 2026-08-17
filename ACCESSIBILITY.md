@@ -2,7 +2,7 @@
 
 **Audited:** 8 August 2026 · **Standard:** WCAG 2.1 AA (plus axe "best-practice" rules)
 **Tool:** axe-core 4.13.0 driven by headless Chromium
-**Scope:** all 23 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 46 runs
+**Scope:** all 31 pages × 2 viewports (1440×900 desktop, 390×844 mobile) = 62 runs
 
 ## Result
 
@@ -77,11 +77,21 @@ quieter form: a sheet headed with the parish's name and *Adult Baptism &amp;
 Chrismation checklist* would otherwise read as an official parish document the
 moment it left the printer.
 
+**Re-run once more 13 August 2026**, after the eight ministry pages were added.
+**0 violations across 62 page-runs**, reflow **31 of 31** at 320px, and **3,577
+focus stops with 0 missing a focus indicator**. The manual-review count reads
+**166 nodes across 43 page-runs** — still the same unresolved class of item,
+colour-contrast axe declines to judge and reports per node, and still not
+re-split below. The ministry pages add nothing new to it: their hero is the flat
+`ntgoc-hero-band` the Bookstore page uses rather than the photograph hero, so no
+text on them sits over an image, and every photograph on them is an empty
+placeholder frame.
+
 Reproduce it yourself:
 
 ```sh
 npm install          # axe-core + puppeteer-core, dev only
-npm run audit:a11y   # 23 pages x 2 viewports
+npm run audit:a11y   # 31 pages x 2 viewports
 npm run audit:reflow # WCAG 1.4.10 at 320px + focus-indicator check
 npm run measure:hero # the thirteen photograph heroes, which axe declines to judge
 ```
@@ -411,9 +421,9 @@ disappears.
 
 ### Reflow — WCAG 1.4.10
 
-At a 320px viewport, no page scrolls horizontally. **23 of 23 pass**, Welcome,
-Get Involved, Traditions, the catechumen page and its three document pages
-included.
+At a 320px viewport, no page scrolls horizontally. **31 of 31 pass**, Welcome,
+Get Involved, Traditions, the catechumen page, its three document pages and the
+eight ministry pages included.
 
 The Mobile views reference page initially failed (406px wide) because it drew
 phone frames at their true 375px width. Rather than shrink the mock-ups — which
@@ -421,8 +431,8 @@ would have defeated their purpose — the frames were given their own scroll
 container with `tabindex="0"` and a label, so it was reachable by keyboard and
 the page body never scrolled sideways. That page has since been retired, which
 took the count to 16 of 16; the Welcome page then took it back to 17, Get
-Involved to 18, Traditions to 19, the catechumen page to 20, and its three
-document pages to 23.
+Involved to 18, Traditions to 19, the catechumen page to 20, its three
+document pages to 23, and the eight ministry pages to 31.
 
 ### Keyboard
 

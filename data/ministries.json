@@ -1,0 +1,233 @@
+{
+  "_README": "The register of parish ministries. `npm run ministries` renders it into the card grid on ministries.html and into the body of each ministry's own page, and regenerates MINISTRIES-FOR-THE-PARISH.md. This file is the ONE place a ministry's description, team and status live: the card and the page are stamped from the same entry, so they cannot disagree. Add a ministry by adding an entry here — never by writing a card into the markup.",
+  "_updated": "2026-08-13",
+  "_rules": [
+    "A PERSON RENDERS ONLY WITH BOTH `source` AND `permission`. `source` says where the pairing between this person and this ministry came from; `permission` names the recorded approval that allows publishing the name at all. Missing either is a build error, not a silent omission. See data/parish-facts.json → _rosterPermission, which is what `permission: \"_rosterPermission\"` refers to.",
+    "TITLES ARE NOT INVENTED. `role` may only carry a title the source actually gives. The parish newsletter gives an explicit title to Dr. Judy Marrs (Director) and to the Parish Council and Philoptochos officers, and to nobody else — everywhere else it prints an organisation heading and a bare name. `role: null` renders the bare name. Nobody becomes a director, chair, coordinator or lead who was not called one in the source.",
+    "A `photos` ENTRY IS A HINT, NOT A FILE. It describes what a photograph would show, and renders an empty placeholder frame. The Parish Council's roster approval covers no photograph — see _rosterPermission item (3) — so if an entry ever gains a `file`, the build refuses it until a `permission` sits beside it.",
+    "ONE MINISTRY, ONE PAGE. Two entries claiming the same `page` is an error. The Philoptochos board lives on ministry-philoptochos.html and nowhere else; the Parish Council roster lives on about.html and nowhere else, which is why the Council's page links rather than restates.",
+    "`status` is one of: awaiting (nothing beyond the one-line description), partial (some of it is sourced, some is not), current (the ministry has supplied its content). A page says which, in as many words, on its face. `current` with nothing to show is an error.",
+    "`needs` is what the ministry would have to supply for the entry to move on. It is NOT shown on the website — it is what MINISTRIES-FOR-THE-PARISH.md is built from.",
+    "CONTACT DETAILS ARE NOT REPEATED HERE. The office address, telephone number and hours come from data/site.json → contact at build time. `involve.askFor` may only name somebody who already appears in this entry's `team`."
+  ],
+  "statusLabels": {
+    "awaiting": {
+      "label": "Content needed from the ministry",
+      "note": "Nothing beyond the description above has been supplied yet. Ask at coffee hour or write to the parish office in the meantime."
+    },
+    "partial": {
+      "label": "Some detail still to come",
+      "note": "What is here is sourced. The rest is waiting on the ministry itself."
+    },
+    "current": {
+      "label": "Current",
+      "note": "Supplied by the ministry."
+    }
+  },
+  "involveIntro": "This ministry welcomes newcomers, and does not require you to have been here long. Ask at coffee hour, or write to the parish office and it will be passed on.",
+  "noTeamNote": "The parish has not published who leads this ministry. The parish office will know, and will pass a message on.",
+  "noPersonalContact": "No personal email address or telephone number is published here: write to the parish office and it will be passed on.",
+  "ministries": [
+    {
+      "id": "sunday-school",
+      "page": "ministry-sunday-school.html",
+      "build": "ministrySundaySchool",
+      "chunk": "ntgocMinistrySundaySchool",
+      "title": "Sunday School",
+      "eyebrow": "Youth",
+      "card": "Classes for the children of the parish during the school year. Children leave for class after Holy Communion has been served and stay until coffee hour.",
+      "cardSource": "data/parish-facts.json → ministries; the live parish site's /parish-ministries/ page.",
+      "verified": true,
+      "status": "awaiting",
+      "team": [
+        {
+          "name": "Michael Euripides",
+          "role": null,
+          "source": "The parish newsletter's organisation list — see data/parish-facts.json → parishOrganizations.",
+          "permission": "_rosterPermission"
+        }
+      ],
+      "photos": [
+        { "hint": "A Sunday School class in the parish hall" }
+      ],
+      "involve": { "contact": "office", "askFor": "Michael Euripides" },
+      "links": [
+        {
+          "label": "Sunday School registration, on the parish website",
+          "href": "https://www.nativity.va.goarch.org/parish-ministries/sunday-school"
+        }
+      ],
+      "needs": "What ages or grades the classes cover; when they meet and over what part of the year; what a family does to enrol a child; who else teaches, and whether they are willing to be named."
+    },
+    {
+      "id": "goya",
+      "page": "ministry-goya.html",
+      "build": "ministryGoya",
+      "chunk": "ntgocMinistryGoya",
+      "title": "GOYA",
+      "eyebrow": "Youth",
+      "card": "Greek Orthodox Youth of America — the parish's ministry for its older young people.",
+      "cardSource": "UNVERIFIED. The live parish site lists GOYA as a ministry but describes it nowhere; the expansion of the acronym is the Archdiocese's. Carries a TODO: verify marker on ministries.html.",
+      "verified": false,
+      "status": "awaiting",
+      "team": [
+        {
+          "name": "Michael Euripides",
+          "role": null,
+          "source": "The parish newsletter's organisation list — see data/parish-facts.json → parishOrganizations.",
+          "permission": "_rosterPermission"
+        }
+      ],
+      "photos": [
+        { "hint": "GOYA young people at a parish event" }
+      ],
+      "involve": { "contact": "office", "askFor": "Michael Euripides" },
+      "links": [],
+      "needs": "What ages GOYA is for at this parish; how often it meets and where; what it actually does over a year; whether a young person may come along before joining, and what a parent should do first."
+    },
+    {
+      "id": "joy",
+      "page": "ministry-joy.html",
+      "build": "ministryJoy",
+      "chunk": "ntgocMinistryJoy",
+      "title": "JOY",
+      "eyebrow": "Youth",
+      "card": "Junior Orthodox Youth — the parish's ministry for its younger children, with parents very much included.",
+      "cardSource": "UNVERIFIED. The live parish site lists JOY; the parish newsletter heads the same group HOPE/JOY. Carries a TODO: verify marker on ministries.html.",
+      "verified": false,
+      "status": "awaiting",
+      "team": [],
+      "photos": [
+        { "hint": "Younger children and parents at a JOY gathering" }
+      ],
+      "involve": { "contact": "office", "askFor": null },
+      "links": [],
+      "needs": "FIRST, THE NAME: the live parish site says JOY and the newsletter says HOPE/JOY. In the Archdiocese's programme HOPE and JOY are two different age groups, so this is not a spelling question — it decides whether this is one ministry or two. Then: what ages it covers, how often it meets, what a parent should expect to be asked to do, and who leads it."
+    },
+    {
+      "id": "philoptochos",
+      "page": "ministry-philoptochos.html",
+      "build": "ministryPhiloptochos",
+      "chunk": "ntgocMinistryPhiloptochos",
+      "title": "Ladies' Philoptochos Society",
+      "eyebrow": "Service",
+      "card": "“Friends of the poor.” The women's philanthropic society, and the parish's charitable arm.",
+      "cardSource": "data/parish-facts.json → ministries. The translation of the name is standard Greek.",
+      "verified": true,
+      "status": "partial",
+      "team": [
+        { "name": "Yvonne Athanasaw", "role": "President", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Maria Yiasemides", "role": "Vice President", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Christina Turdean", "role": "Treasurer", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Jane Kalomatis Moore", "role": "Assistant Treasurer", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Martha Ziegenfuss", "role": "Recording Secretary", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Yvonne Rigopoulos", "role": "Corresponding Secretary", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Anthoula Makrinos", "role": "Board Member", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Lambrini Zourzoukis", "role": "Board Member", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" },
+        { "name": "Verilee Vasilakos", "role": "Advisor", "source": "The parish newsletter's officer list — see data/parish-facts.json → philoptochosBoard.", "permission": "_rosterPermission" }
+      ],
+      "teamNote": "The Philoptochos is its own society with its own officers, and these are they. Like the Parish Council, they are parishioners rather than staff.",
+      "photos": [
+        { "hint": "A Philoptochos gathering in the hall" }
+      ],
+      "involve": {
+        "contact": "office",
+        "askFor": "Yvonne Athanasaw",
+        "intro": "Who may join the society, and whether membership is by subscription, is among what this page is still waiting on — so rather than guess at it here, write to the parish office and it will be passed on."
+      },
+      "links": [],
+      "needs": "Who may join, and whether membership is by subscription; what the society does with what it raises; when and how often it meets; which of its charitable commitments are ongoing rather than one-off. None of this is currently sourced anywhere, and the board list is the only part of this entry that is."
+    },
+    {
+      "id": "dance-troupe",
+      "page": "ministry-dance-troupe.html",
+      "build": "ministryDanceTroupe",
+      "chunk": "ntgocMinistryDanceTroupe",
+      "title": "Dance Troupe",
+      "eyebrow": "Culture",
+      "card": "Traditional dance from across Greece, and the dancers you see at the Greek Festival.",
+      "cardSource": "data/parish-facts.json → ministries; the Greek Festival connection is stated on fredgreek.org.",
+      "verified": true,
+      "status": "awaiting",
+      "team": [
+        {
+          "name": "Dr. Judy Marrs",
+          "role": "Director",
+          "source": "The parish newsletter's organisation list, which gives this title explicitly — see data/parish-facts.json → parishOrganizations.",
+          "permission": "_rosterPermission"
+        }
+      ],
+      "photos": [
+        { "hint": "Dancers in costume at the Greek Festival" }
+      ],
+      "involve": { "contact": "office", "askFor": "Dr. Judy Marrs" },
+      "links": [
+        { "label": "The Greek Festival, where the troupe dances", "href": "https://www.fredgreek.org/" }
+      ],
+      "needs": "What ages dance, and whether there is more than one group; when and where rehearsals are; whether a dancer needs experience or Greek; what a costume involves and who provides it."
+    },
+    {
+      "id": "ahepa",
+      "page": "ministry-ahepa.html",
+      "build": "ministryAhepa",
+      "chunk": "ntgocMinistryAhepa",
+      "title": "AHEPA",
+      "eyebrow": "Fellowship",
+      "card": "The American Hellenic Educational Progressive Association — a national fraternal organisation with a chapter in the parish.",
+      "cardSource": "UNVERIFIED. The live parish site lists AHEPA; the expansion of the acronym is the organisation's own. Carries a TODO: verify marker on ministries.html.",
+      "verified": false,
+      "status": "awaiting",
+      "team": [],
+      "photos": [
+        { "hint": "An AHEPA chapter gathering" }
+      ],
+      "involve": { "contact": "office", "askFor": null },
+      "links": [],
+      "needs": "The chapter's name or number; who its officers are and whether they are willing to be named; when it meets; who may join; what it does in Fredericksburg specifically, as opposed to what the national organisation does."
+    },
+    {
+      "id": "parish-council",
+      "page": "ministry-parish-council.html",
+      "build": "ministryParishCouncil",
+      "chunk": "ntgocMinistryParishCouncil",
+      "title": "Parish Council",
+      "eyebrow": "Governance",
+      "card": "Elected stewards responsible for the temporal affairs of the parish, serving alongside the presiding priest.",
+      "cardSource": "data/parish-facts.json → parishCouncil; the live parish site's /parish-ministries/ page.",
+      "verified": true,
+      "status": "partial",
+      "team": [],
+      "teamNote": "The Council roster is published in one place only — on the About page — so that a correction has one page to reach. The committees each member leads are on the Parish Council Committees page.",
+      "photos": [],
+      "involve": {
+        "contact": "office",
+        "askFor": null,
+        "intro": "The Parish Council is elected by the stewards of the parish, so unlike the other ministries here it is not one you join by volunteering. How a steward stands for election, and when elections are held, is among what this page is still waiting on. Council members are parishioners rather than staff, and are glad to be asked questions in the meantime."
+      },
+      "links": [
+        { "label": "The Council roster, on the About page", "href": "about.html#ntgoc-parish-council" },
+        { "label": "What each committee does, and who leads it", "href": "committees.html" }
+      ],
+      "needs": "How a steward stands for election, and when elections are held; what a Council member is committing to in hours; whether meetings are open to stewards. The roster itself is not needed here — it is on the About page and stays there."
+    },
+    {
+      "id": "choir",
+      "page": "ministry-choir.html",
+      "build": "ministryChoir",
+      "chunk": "ntgocMinistryChoir",
+      "title": "Choir",
+      "eyebrow": "Worship",
+      "card": "Those who sing in the divine services.",
+      "cardSource": "The parish newsletter lists CHOIR as a parish organisation, which is what settles that one exists — the live parish site has no page for it. No officer is named.",
+      "verified": true,
+      "status": "awaiting",
+      "team": [],
+      "photos": [
+        { "hint": "The choir during a service" }
+      ],
+      "involve": { "contact": "office", "askFor": null },
+      "links": [],
+      "needs": "Who directs the choir; when it rehearses; whether a singer needs to read music or Byzantine notation, and whether Greek is needed; how somebody joins. Separately: whether the parish has chanters distinct from the choir — the newsletter says nothing about chanters and an earlier draft of this site invented a combined 'Choir & Chanters', so the question is open rather than settled."
+    }
+  ]
+}

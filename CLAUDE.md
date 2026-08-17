@@ -14,7 +14,7 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The 23 `.html` files at the repo root are SOURCE. Edit them directly.**
+**The 31 `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
@@ -26,7 +26,9 @@ workflow from git history or those folders, you will get it backwards.
 since the switch. It is archived so that running it is deliberate, not
 accidental.
 
-The only generated artefact is `dist/chunks/` (`npm run chunks`).
+The only wholly generated artefact is `dist/chunks/` (`npm run chunks`). The
+one other thing a tool writes is the markup between `<!-- BUILD:… -->` markers
+inside the pages, which three data files own — see below.
 
 ---
 
@@ -36,11 +38,12 @@ The only generated artefact is `dist/chunks/` (`npm run chunks`).
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 23 pages
+npm run shell    # propagate header/footer to all 31 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run parish   # render the calendar + announcements into the pages
 npm run catechumens # render the catechumen questions, resources and documents
+npm run ministries  # render the ministry cards and the eight ministry pages
 npm run snap     # layout/colour regression vs tests/layout-baseline.json
 npm run links    # do the outbound links still resolve? (monthly in CI)
 npm run measure:hero # hero text contrast over the photograph (not in CI)
@@ -59,7 +62,7 @@ daemon. They are the only way to see the chunks inside a real Evolution CMS
 rather than inferring that they would work; `tools/evo-sandbox/README.md`
 records the gotchas, several of which are unguessable.
 
-### The two things that ARE generated from data
+### The three things that ARE generated from data
 
 `npm run parish` renders `data/parish-calendar.json` and
 `data/parish-announcements.json` into the blocks marked
@@ -113,6 +116,50 @@ and the web version are the same file.
 Unlike the calendar this output does not depend on today's date, so it **is**
 gated: `npm run check` runs `npm run catechumens -- --check`.
 
+`npm run ministries` does the same job for the ministries. It reads one file:
+
+- `data/ministries.json` → the card grid on `ministries.html`, the body of each
+  of the eight `ministry-*.html` pages, and `MINISTRIES-FOR-THE-PARISH.md`
+
+Add a ministry by adding an entry to the JSON — never by writing a card into
+the markup. A ministry page is mostly a roster and a contact route, and those
+are exactly the things that end up at two URLs saying two different things: the
+Philoptochos board was published on the ministries grid, and a page that
+"introduces the society" would have made a second copy of a list that changes
+every time somebody stands down.
+
+Rules the tool enforces, which are the point of the pages rather than
+housekeeping:
+
+- **A person renders only with both a `source` and a `permission`.** `source`
+  says where the pairing of this person with this ministry came from;
+  `permission` names the recorded approval that allows publishing the name at
+  all. Missing either is an error, not a silent omission. JOY, AHEPA and the
+  Choir have no names anybody has approved, so their pages say on their face
+  that the parish has not published who leads them.
+- **Titles are not invented.** `role` may only carry a title the source
+  actually gives, and the parish newsletter gives an explicit title to almost
+  nobody — everywhere else it prints an organisation heading and a bare name.
+  `role: null` renders the bare name. Nobody becomes a director, chair,
+  coordinator or lead who was not called one in the source.
+- **A `photos` entry is a hint, not a file.** It describes what a photograph
+  would show and renders an empty frame. The roster approval covers no
+  photograph, so an entry that ever gains a `file` is refused until a
+  `permission` sits beside it.
+- **One ministry, one page**, as in the catechumen register. Two entries
+  claiming the same page is an error, which is why the Parish Council's page
+  links to the roster on `about.html` rather than restating it.
+
+Each ministry page also carries a hand-written region **outside** the `BUILD:`
+markers, for whatever a ministry sends that no schema anticipated; the tool
+never reads or rewrites it. A roster or a contact route does **not** go there —
+those come from `data/ministries.json` and `data/site.json`, and a second copy
+is what goes stale while the register says something else.
+
+Like the catechumen build and unlike the calendar, this output does not depend
+on today's date, so it **is** gated: `npm run check` runs
+`npm run ministries -- --check`.
+
 `data/site.json` is the other half of the same idea, from the opposite
 direction: it lists what a page must NOT say, and lint fails when one says it.
 Use that for a fact stated in prose, and these for a list rendered from data.
@@ -130,12 +177,16 @@ something that should not be published.
    markup. This is unguessable and the most damaging rule to break.
 2. **Never invent a parish fact.** No service times, clergy names, phone numbers,
    capacities or dates unless sourced. Unsourced claims get
-   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. 95 markers
+   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. 88 markers
    exist; they are the point of the project, not clutter.
 3. **Never publish a parishioner's name or face without recorded permission.**
-   The Parish Council block ships with placeholders and the greeter row ships as
-   empty frames, deliberately. Fr. John's personal mobile is on the live site and
-   is deliberately *not* here.
+   The names that do appear — the Council roster, the Philoptochos board and
+   the lead names on the ministries grid and pages — stand on the Parish
+   Council's approval of 2026-08-13,
+   recorded in `data/parish-facts.json` → `_rosterPermission`, which covers
+   names and offices and **no** photograph. The greeter row and every ministry
+   photograph therefore ship as empty frames, deliberately. Fr. John's personal
+   mobile is on the live site and is deliberately *not* here.
 4. **Every page keeps `noindex`, the draft banner, and no Open Graph tags.**
 5. **Class names follow one convention**, enforced by lint:
    `ntgoc-<block>[__<element>][--<modifier>]`, every part lowercase kebab-case —
@@ -185,7 +236,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 23 pages × 2 viewports, reflow 23/23 at 320px.
+0 axe violations across 31 pages × 2 viewports, reflow 31/31 at 320px.
 
 ---
 
@@ -198,6 +249,7 @@ Expected clean state: lint passes, snapshot reports no layout or colour change,
 | What is verified, corrected, or withheld? | `data/parish-facts.json` |
 | What is the catechumen page still waiting on? | `QUESTIONS-FOR-FR-JOHN.md` |
 | Which documents is Fr. John still to write? | `DOCUMENTS-FOR-FR-JOHN.md` |
+| What is each ministry still to tell us? | `MINISTRIES-FOR-THE-PARISH.md` |
 | What must every page agree on? | `data/site.json` |
 | What was the accessibility work? | `ACCESSIBILITY.md` |
 | What did the old renderer guarantee? | `tools/archive/README.md` |
