@@ -53,7 +53,14 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           BRANCH: ${{ github.ref_name }}
+        # pipefail matters: without it, `wrangler | tee` reports tee's exit
+        # code and a failed deploy shows up as a green run. That happened.
         run: |
+          set -o pipefail
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID is missing or empty — set both in Settings → Secrets and variables → Actions"
+            exit 1
+          fi
           npx --yes wrangler@4 pages deploy "$RUNNER_TEMP/site" \
             --project-name=nativity-demo \
             --branch="$BRANCH" \
