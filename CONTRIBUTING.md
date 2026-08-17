@@ -275,6 +275,12 @@ to a hyphen. Push a branch, send someone that link, and they are looking at
 your work without cloning anything. The exact URLs for a given push are on the
 workflow run's summary page.
 
+The URL lives exactly as long as the branch. Merging a PR deletes its branch
+(a repo setting), and the same workflow then deletes every deployment the
+branch made — so a merged branch's preview stops serving instead of rotting
+at a link somebody bookmarked. Production and the other branches' previews
+are untouched.
+
 This runs alongside the GitHub Pages deploy at
 <https://simplythomas.github.io/nativity-demo/>, which only ever shows `main`.
 Both are drafts: every page keeps `noindex` and the draft banner either way.

@@ -17,6 +17,12 @@ name: preview
 
 on:
   push:
+  # Deleting a branch — by hand, or automatically on merge if the repo's
+  # "Automatically delete head branches" setting is on — tears its preview
+  # deployments down again, so merged branches do not rot on pages.dev.
+  # GitHub runs `delete`-event workflows from the default branch, so this job
+  # only takes effect once the workflow file is on `main`.
+  delete:
   workflow_dispatch:
 
 # The deploy only reads the repo; Cloudflare access comes from the API token.
@@ -31,6 +37,7 @@ concurrency:
 jobs:
   deploy:
     name: Deploy to Cloudflare Pages
+    if: github.event_name != 'delete'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -76,3 +83,47 @@ jobs:
             echo "### Cloudflare Pages"
             grep -o 'https://[^ ]*\.pages\.dev' "$RUNNER_TEMP/deploy.log" | sort -u | sed 's/^/- /'
           } >> "$GITHUB_STEP_SUMMARY"
+
+  # When a branch is deleted, delete every preview deployment it made, so its
+  # <branch>.nativity-demo.pages.dev alias stops serving. Without this, a
+  # merged branch's preview keeps serving its last deploy forever.
+  cleanup:
+    name: Remove preview deployments for a deleted branch
+    if: github.event_name == 'delete' && github.event.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+
+      - name: Delete this branch's deployments
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          BRANCH: ${{ github.event.ref }}
+        run: |
+          set -o pipefail
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID is missing or empty — set both in Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          if [ "$BRANCH" = "main" ]; then
+            echo "::error::refusing to delete production deployments"
+            exit 1
+          fi
+          deleted=0
+          # The list is paginated, so re-list after each sweep until no
+          # deployment for this branch remains. The --environment filter
+          # means production deployments are never even listed.
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            ids=$(npx --yes wrangler@4 pages deployment list \
+                    --project-name=nativity-demo --environment preview --json 2>/dev/null \
+                  | jq -r --arg b "$BRANCH" '.[] | select(.Branch == $b) | .Id')
+            [ -z "$ids" ] && break
+            for id in $ids; do
+              npx --yes wrangler@4 pages deployment delete "$id" \
+                --project-name=nativity-demo --force
+              deleted=$((deleted + 1))
+            done
+          done
+          echo "Deleted $deleted deployment(s) for branch '$BRANCH'" | tee -a "$GITHUB_STEP_SUMMARY"
