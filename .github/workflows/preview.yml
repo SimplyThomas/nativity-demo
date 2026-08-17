@@ -1,0 +1,71 @@
+name: preview
+
+# Deploys every pushed branch to Cloudflare Pages (Direct Upload project
+# `nativity-demo`). A push to `main` becomes production at
+# https://nativity-demo.pages.dev/; any other branch gets a stable alias at
+# https://<branch>.nativity-demo.pages.dev/ (branch name lowercased,
+# non-alphanumerics collapsed to hyphens) plus a unique per-deploy URL.
+#
+# No untrusted input is interpolated into any `run:` step: the branch name
+# and commit SHA reach the shell only through environment variables, which
+# a shell does not evaluate.
+#
+# Secrets required (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_ACCOUNT_ID — the account that owns the Pages project
+#   CLOUDFLARE_API_TOKEN  — an API token with the "Cloudflare Pages: Edit"
+#                           permission and nothing else
+
+on:
+  push:
+  workflow_dispatch:
+
+# The deploy only reads the repo; Cloudflare access comes from the API token.
+permissions:
+  contents: read
+
+# One deploy per branch at a time; a newer push supersedes an older one.
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+
+      # The deployable site is the 33 pages, their assets, and robots.txt.
+      # Everything else in the repo (tools, data, tests, node_modules) is
+      # build tooling and never ships.
+      - name: Stage site files
+        run: |
+          mkdir -p "$RUNNER_TEMP/site"
+          cp ./*.html robots.txt "$RUNNER_TEMP/site/"
+          cp -r assets "$RUNNER_TEMP/site/"
+
+      - name: Deploy
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          npx --yes wrangler@4 pages deploy "$RUNNER_TEMP/site" \
+            --project-name=nativity-demo \
+            --branch="$BRANCH" \
+            --commit-hash="$GITHUB_SHA" \
+            --commit-dirty=false \
+            | tee "$RUNNER_TEMP/deploy.log"
+
+      # Surface the URLs on the run's summary page so nobody has to dig
+      # through the log to find where a branch landed.
+      - name: Write URLs to the job summary
+        run: |
+          {
+            echo "### Cloudflare Pages"
+            grep -o 'https://[^ ]*\.pages\.dev' "$RUNNER_TEMP/deploy.log" | sort -u | sed 's/^/- /'
+          } >> "$GITHUB_STEP_SUMMARY"

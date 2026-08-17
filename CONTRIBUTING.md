@@ -265,6 +265,22 @@ it verifies the draft banner, `noindex`, the heading structure and the links.
 
 ---
 
+## Seeing a branch online
+
+Every push deploys to Cloudflare Pages (`.github/workflows/preview.yml`).
+`main` is production at <https://nativity-demo.pages.dev/>; any other branch
+gets its own stable URL at `https://<branch>.nativity-demo.pages.dev/` — the
+branch name lowercased, with anything that is not a letter or digit collapsed
+to a hyphen. Push a branch, send someone that link, and they are looking at
+your work without cloning anything. The exact URLs for a given push are on the
+workflow run's summary page.
+
+This runs alongside the GitHub Pages deploy at
+<https://simplythomas.github.io/nativity-demo/>, which only ever shows `main`.
+Both are drafts: every page keeps `noindex` and the draft banner either way.
+
+---
+
 ## What changed, and why
 
 Until 8 August 2026 the pages were **generated** from a Claude Design
