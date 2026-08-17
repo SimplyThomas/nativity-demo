@@ -372,6 +372,10 @@ const REGIONS = [
   ['for-our-parish.html', 'thisWeek', renderThisWeek],
   ['for-our-parish.html', 'announcements', renderAnnouncements],
   ['index.html', 'homeUpcoming', renderHomeUpcoming],
+  // "This week at Nativity" on the homepage shows the same announcements as
+  // for-our-parish.html, from the same renderer. Two pages, one file: they
+  // cannot drift, and neither is a hand-written copy of the other.
+  ['index.html', 'announcements', renderAnnouncements],
 ];
 
 const changed = [];

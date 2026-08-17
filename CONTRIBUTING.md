@@ -19,7 +19,7 @@ being told never to edit the HTML, that changed on **8 August 2026** — see
 
 | File / folder | What it is |
 |---|---|
-| `*.html` (31 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
+| `*.html` (33 pages) | **Source.** Edit directly — except the blocks between `<!-- BUILD:… -->` markers. |
 | `data/site.json` | **Source of truth** for any fact stated on more than one page. Lint enforces it. |
 | `data/parish-calendar.json` | **Source of truth** for the calendar. Rendered into four pages by `npm run parish`. |
 | `data/parish-announcements.json` | **Source of truth** for parish announcements. Same build. |
@@ -71,11 +71,11 @@ last two gate CI:
 
 ```sh
 npm run snap           # layout + colour regression (the only check that sees layout)
-npm run audit:a11y     # axe-core, WCAG 2.1 AA, 31 pages x 2 viewports
+npm run audit:a11y     # axe-core, WCAG 2.1 AA, 33 pages x 2 viewports
 npm run audit:reflow   # 320px reflow + focus indicators
 npm run check          # all of the above
 npm run links          # outbound links still resolve (monthly in CI, never gates)
-npm run measure:hero   # contrast of the thirteen photograph heroes (not in CI)
+npm run measure:hero   # contrast of the fifteen photograph heroes (not in CI)
 ```
 
 `measure:hero` is the only check that can see text sitting on a photograph — axe

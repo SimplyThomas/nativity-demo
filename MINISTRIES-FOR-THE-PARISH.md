@@ -18,7 +18,7 @@ Generated from `data/ministries.json`, last updated 2026-08-13.
 
 Named on the page: Michael Euripides.
 
-What ages or grades the classes cover; when they meet and over what part of the year; what a family does to enrol a child; who else teaches, and whether they are willing to be named.
+What ages or grades the classes cover; when they meet and over what part of the year; what a family does to enrol a child; who else teaches, and whether they are willing to be named; whether the Sunday School page on the parish website actually carries registration, so the link can say so again — nobody here has been able to open it.
 
 ## GOYA
 

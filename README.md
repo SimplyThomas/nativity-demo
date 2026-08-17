@@ -21,7 +21,7 @@ compete with the real site in search, and not to be mistaken for it.
 | `content/` | Reference copy of the eight parish-authored Visit sections. **No longer an input** — edit `visit.html`, then mirror the copy here. |
 | `tools/lint.mjs` | Enforces the rules that used to be guaranteed by the renderer. Run by CI. |
 | `tools/extract-chunks.mjs` | Turns those pages into paste-ready Evolution CMS chunks. |
-| `dist/chunks/` | **Generated.** 142 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
+| `dist/chunks/` | **Generated.** 152 chunks + an asset-rewritten stylesheet. What a volunteer pastes into EVO. |
 | `data/parish-facts.json` | Every parish fact, its source URL, and whether it is verified, corrected, or withheld. |
 | `data/parish-calendar.json` | The parish calendar, once. Rendered into four pages by `npm run parish`. |
 | `data/parish-announcements.json` | Parish announcements, with optional expiry dates. Same build. |
@@ -31,7 +31,7 @@ compete with the real site in search, and not to be mistaken for it.
 | `assets/css/components.css` | **Generated.** Ships to EVO. |
 | `assets/css/provisional.css` | Demo only. Contains a reset — never import it. |
 
-The 31 `.html` files at the repo root are the **source** — edit them
+The 33 `.html` files at the repo root are the **source** — edit them
 directly, with one exception: the blocks between `<!-- BUILD:… -->` markers,
 which `npm run parish`, `npm run catechumens` and `npm run ministries` render
 from the data files those three own. `dist/chunks/` is generated too.

@@ -379,7 +379,16 @@
       "value": "Open every Sunday after Divine Liturgy.",
       "status": "CONFIRMED_BY_PARISH",
       "source": "Confirmed directly by the parish, 2026-08-09.",
-      "note": "Stock: Orthodox books, pamphlets, prayer books, icons, prayer ropes, incense, crosses, candles and other devotional items. Visitors are welcome to browse. The draft additionally claimed the table was in the narthex and open during the festival and on feast days — none of that is sourced, and it has been removed."
+      "note": "Stock: Orthodox books, pamphlets, prayer books, icons, prayer ropes, incense, crosses, candles and other devotional items. Visitors are welcome to browse. The draft additionally claimed the table was in the narthex and open during the festival and on feast days — none of that is sourced, and it has been removed. The narthex claim came back a second time inside the collection steps on bookstore.html and is now closed off by canonical.forbidden in data/site.json. Only the opening time and the stock are confirmed: the reserve-and-collect flow on that page is not a service the parish offers, and it now ships under a 'Proposed — no ordering system yet' label rather than as current practice."
+    },
+    "bookstoreSpecialOrders": {
+      "value": "Unknown. Whether the bookstore can order in a title it does not stock, and how long that takes, has not been confirmed.",
+      "status": "UNVERIFIED",
+      "source": "No source. The draft asserted that most Orthodox titles can be ordered in within a week or two; nobody has said where that came from.",
+      "note": "The page now says the question is open rather than naming a timescale, and keeps the two routes that do work — ask at the table, or write to the parish office. A week or two is the kind of figure that reads as a promise, and the person who followed it would be waiting on a service nobody has agreed to run. If the parish confirms it, put the timescale back here first.",
+      "affects": [
+        "bookstore.html"
+      ]
     },
     "catechismBooks": {
       "value": "Fr. John reads two books with those preparing to be received into the Church: 'Know the Faith: A Handbook for Orthodox Christians and Inquirers' (Fr. Michael Shanbour, Ancient Faith Publishing) and 'The Orthodox Church: An Introduction to Eastern Christianity' (Timothy Ware, later Metropolitan Kallistos Ware, Penguin).",

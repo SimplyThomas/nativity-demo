@@ -286,6 +286,9 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 /* The header is sticky, so an anchor jump would otherwise land with the
    section's first line tucked underneath it. */
 .ntgoc-page section[id] { scroll-margin-top: 96px; }
+/* Parish Life's Learning & Formation heading shares a section with Children &
+   Families, so the door to it targets the heading rather than the section. */
+.ntgoc-parish-life-h2[id] { scroll-margin-top: 96px; }
 
 /* --- interactive bits ---------------------------------------------- */
 .ntgoc-filter-btn {
@@ -711,7 +714,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-about-parish-council-display-ink { font-family:Newsreader, serif; font-weight:300; font-size:44px; line-height:1.12; margin:0 0 20px; color:#3a1414; }
 .ntgoc-about-parish-council-body-loose { font-size:17px; line-height:1.75; color:#4a443c; margin:0; text-wrap:pretty; }
 .ntgoc-person-grid,
-.ntgoc-directory { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; border-top:1px solid #ded2be; border-left:1px solid #ded2be; }
+.ntgoc-resource-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; border-top:1px solid #ded2be; border-left:1px solid #ded2be; }
 .ntgoc-person-card { background:#f6f1e8; padding:32px 28px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
 .ntgoc-person-name { font-family:Newsreader, serif; font-weight:500; font-size:22px; margin:0 0 6px; color:#3a1414; }
 .ntgoc-person-role { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7f5f30; margin-bottom:14px; }
@@ -1062,12 +1065,12 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 
 /* The resource directory. Plain ruled links — the point is finding one
    quickly, not admiring the cards. */
-.ntgoc-directory__item { display:block; background:#f6f1e8; padding:24px 24px 26px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
-.ntgoc-directory__item:hover, .ntgoc-directory__item:focus-visible { background:#fbf8f2; }
-.ntgoc-directory__name { font-family:Newsreader, serif; font-size:20px; color:#3a1414; margin-bottom:6px; }
-.ntgoc-directory__note { font-size:14px; line-height:1.6; color:#6c6458; }
-.ntgoc-directory__soon { display:block; background:#f1ece1; padding:24px 24px 26px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
-.ntgoc-directory__tag { display:inline-block; margin-top:10px; padding:4px 9px; background:#efe2c8; color:#6d5220; font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; }
+.ntgoc-resource-grid__item { display:block; background:#f6f1e8; padding:24px 24px 26px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
+.ntgoc-resource-grid__item:hover, .ntgoc-resource-grid__item:focus-visible { background:#fbf8f2; }
+.ntgoc-resource-grid__name { font-family:Newsreader, serif; font-size:20px; color:#3a1414; margin-bottom:6px; }
+.ntgoc-resource-grid__note { font-size:14px; line-height:1.6; color:#6c6458; }
+.ntgoc-resource-grid__soon { display:block; background:#f1ece1; padding:24px 24px 26px; border-right:1px solid #ded2be; border-bottom:1px solid #ded2be; }
+.ntgoc-resource-grid__tag { display:inline-block; margin-top:10px; padding:4px 9px; background:#efe2c8; color:#6d5220; font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; }
 
 .ntgoc-parish-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; align-items:start; }
 .ntgoc-parish-text { font-size:16.5px; line-height:1.75; color:#5b5449; margin:0 0 20px; max-width:62ch; text-wrap:pretty; }
@@ -1832,7 +1835,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 .ntgoc-calendar-controls { max-width: 1240px; margin: 0 auto; padding: 24px 40px; }
 
 /* --- Get Involved ----------------------------------------------------
-   Six new components, all of them small. The page reuses .ntgoc-directory,
+   Six new components, all of them small. The page reuses .ntgoc-resource-grid,
    .ntgoc-parish-card, .ntgoc-fellowship-detail and .ntgoc-proposal for
    everything else, so what is declared here is only what did not already
    exist: the invitation, the four-step cycle, the pathway cards, a heading
@@ -1899,7 +1902,17 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 .ntgoc-pathway:hover, .ntgoc-pathway:focus-visible { background: #f1e9dc; border-left-color: #7d2b2b; }
 .ntgoc-pathway__name { font-family: Newsreader, serif; font-size: 21px; line-height: 1.25; color: #3a1414; }
+/* The homepage's six doors are one word each, so they take a small-caps label
+   rather than the serif line get-involved.html uses for a whole phrase. */
+.ntgoc-pathway__eyebrow { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7d2b2b; }
 .ntgoc-pathway__note { font-size: 14px; line-height: 1.6; color: #6c6458; }
+
+/* The second lens on the same six doors, ruled off above so that it reads as a
+   different question rather than as a seventh card: the grid sorts by what you
+   care about, this row sorts by how much time you have. Quiet on purpose — the
+   links themselves are .ntgoc-resource__quiet, already used for the same job on
+   catechumens.html. */
+.ntgoc-capacity { border-top: 1px solid #ded2be; margin-top: 34px; padding-top: 26px; }
 
 /* One step below .ntgoc-parish-h2, for the sections that now nest — coffee
    hour and the Agape Meal both sit under "Gather together". */
@@ -2229,7 +2242,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
   .ntgoc-nextsteps { padding-top: 56px; padding-bottom: 56px; }
 
   .ntgoc-announce,
-  .ntgoc-directory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ntgoc-resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   /* The directions map is a 721x387 background image drawn with
      background-size:contain, so at 390px it paints about 209px tall — inside a
@@ -2245,7 +2258,7 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 }
 @media (max-width: 640px) {
   .ntgoc-announce,
-  .ntgoc-directory { grid-template-columns: 1fr; }
+  .ntgoc-resource-grid { grid-template-columns: 1fr; }
 
   /* Date, service and time on three lines rather than three squeezed
      columns — the time is what a parishioner is scanning for, so it keeps
@@ -2254,8 +2267,8 @@ a.ntgoc-faith-card__more:focus-visible { border-color: #7d2b2b; }
 
   .ntgoc-proposal { padding: 24px 22px; }
   .ntgoc-parish-card { padding: 26px 22px; }
-  .ntgoc-directory__item,
-  .ntgoc-directory__soon { padding: 20px; }
+  .ntgoc-resource-grid__item,
+  .ntgoc-resource-grid__soon { padding: 20px; }
 
   /* Buttons go full width so they clear the 44px touch target and stop
      forming a ragged two-per-row block. */

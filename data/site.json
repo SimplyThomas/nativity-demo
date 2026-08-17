@@ -88,6 +88,8 @@
     "feastDayNeeds": null,
     "prosphoraRota": null,
     "prosphoraClassSignup": null,
+    "parishDirectory": null,
+    "_parishDirectoryNote": "The sign-in address of a members-only parish directory, if the parish ever adopts one. It is null because no directory exists and no system has been chosen; directory.html is the doorway page and says so on its face. Whatever fills this key must point at an established parish-management system that admits approved members one at a time — never a shared parish password, and never a page on this site that holds member details itself.",
     "_fellowshipNote": "The ten destinations Get Involved is built around. The parish plans to use SignUpGenius for coffee-hour hosting and the monthly Agape Meal, and Meal Train for meals to an individual household; mealSupportRequest is the PRIVATE route by which someone asks for help, and it must never be a public Meal Train page. None of the ten exists yet, so all ten are null and the page renders labelled inert buttons — each one marked with a TODO comment naming the key to fill in here. The button wording stays parish-facing ('Host a coffee hour'), not service-facing ('Go to SignUpGenius'): which tool handles the sign-up is our business, not the parishioner's.",
     "_nullNote": "null means the destination does not exist yet. Render it as a clearly-labelled proposed placeholder — never invent a URL, and never leave a bare href=\"#\" that looks live.",
     "_offeringNote": "The six keys above the fellowship note belong to the Prepare & Beautify and Make an Offering sections. Two of them are deliberately a PAIR: flowerSponsorship is for someone who can pay for an arrangement and flowerHelpers is for someone who can arrange one, and they must stay separate destinations — collapsing them into a single 'help with flowers' link quietly asks each person for the thing they cannot give. prosphoraRota is NOT an open sign-up sheet: if the parish teaches its practice before someone bakes for the Liturgy, a public join button routes around the teaching, so whatever fills this key must only admit bakers the parish has approved, and it must not publish a public directory of who is baking when. Nothing about what to bring — which wine, which oil, what prosphora must be made of, where any of it is left — belongs in this file at all: those are parish instructions, they live in data/parish-facts.json under liturgicalOfferings, and until Fr. John and Presbytera supply them the cards say 'To be confirmed by the parish' rather than repeating what other parishes do."
@@ -111,7 +113,9 @@
       "A Kids' Corner during fellowship",
       "Meal trains for a parish household",
       "A private request for meal support, and a coordinator to read it",
-      "Setup & cleanup, Children's corner and Missions as named ministries"
+      "Setup & cleanup, Children's corner and Missions as named ministries",
+      "Reserving a book or an icon ahead of Sunday, and collecting it at the bookstore table",
+      "An opt-in, members-only parish directory (directory.html)"
     ]
   },
   "canonical": {
@@ -189,6 +193,10 @@
       {
         "pattern": "1FAIpQLSc31bhBH5k03LSTeEGr_NL9bcYbg6zl432sKOJPWXM7JaOHAw",
         "why": "This Google Form is the parish's 35th Anniversary Banquet form — fetch it and the page title says so. It was carried on four pages as the family registration form until 2026-08-13, and was recorded VERIFIED in data/parish-facts.json, so it survived a fact audit. Family registration is a form hosted on the live parish site itself, at /parish-ministries/registrationform; see links.familyRegistration. Do not restore this URL under a registration label."
+      },
+      {
+        "pattern": "bookstore table[^.]{0,60}narthex",
+        "why": "The bookstore table's location is not sourced. The 'in the narthex' claim was removed once (see parish-facts.json → bookstore note) and crept back; this closes the door."
       }
     ]
   }

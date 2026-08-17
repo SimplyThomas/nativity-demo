@@ -114,6 +114,8 @@ const HERO_PAGES = [
   ['for-our-parish.html', 'For Our Parish'],
   ['welcome.html', 'Welcome'],
   ['traditions.html', 'Traditions'],
+  ['catechumens.html', 'Catechumens'],
+  ['care.html', 'Care & Support'],
 ];
 const LABELS = new Map(HERO_PAGES);
 const PAGES = pageArgs.length ? pageArgs : HERO_PAGES.map(([f]) => f);

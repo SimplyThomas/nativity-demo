@@ -14,7 +14,7 @@ browser, with no shell access.
 
 ## Read this first — the history lies
 
-**The 31 `.html` files at the repo root are SOURCE. Edit them directly.**
+**The 33 `.html` files at the repo root are SOURCE. Edit them directly.**
 
 They were *generated* from a Claude Design import until 8 August 2026. That
 upstream was cut. But 10 of 26 commit messages still say "generated", and
@@ -38,7 +38,7 @@ inside the pages, which three data files own — see below.
 npm run dev      # localhost:4000, re-extracts chunks on save
 npm run lint     # the hardline rules — run before claiming anything is done
 npm run check    # lint + accessibility + reflow (what CI runs)
-npm run shell    # propagate header/footer to all 31 pages
+npm run shell    # propagate header/footer to all 33 pages
 npm run rename   # rename a CSS class everywhere; --suggest, --where
 npm run chunks   # regenerate dist/chunks/
 npm run parish   # render the calendar + announcements into the pages
@@ -68,8 +68,11 @@ records the gotchas, several of which are unguessable.
 `data/parish-announcements.json` into the blocks marked
 `<!-- BUILD:name -->` … `<!-- /BUILD:name -->` on `calendar.html`,
 `parish-life.html`, `for-our-parish.html` and `index.html`. It touches nothing
-outside those markers, and it is not the retired renderer — it owns five
-blocks, not twelve files.
+outside those markers, and it is not the retired renderer — it owns six blocks
+across four pages, not twelve files. Announcements are two of those six:
+`for-our-parish.html` and `index.html` render the same list from the same file
+through the same renderer, so neither is a hand-written copy of the other and
+they cannot drift.
 
 Edit the JSON, not the markup between the markers. The same list of services
 used to be hand-written into four pages, and the copies had drifted: 14 and 15
@@ -152,7 +155,10 @@ housekeeping:
 
 Each ministry page also carries a hand-written region **outside** the `BUILD:`
 markers, for whatever a ministry sends that no schema anticipated; the tool
-never reads or rewrites it. A roster or a contact route does **not** go there —
+never reads or rewrites it. `ministries.html` has one too: the *Ways to serve*
+block below the grid, `CHUNK:ntgocMinistriesWays`, which routes a reader who
+does not yet know which ministry they want. A roster or a contact route does
+**not** go there —
 those come from `data/ministries.json` and `data/site.json`, and a second copy
 is what goes stale while the register says something else.
 
@@ -177,8 +183,9 @@ something that should not be published.
    markup. This is unguessable and the most damaging rule to break.
 2. **Never invent a parish fact.** No service times, clergy names, phone numbers,
    capacities or dates unless sourced. Unsourced claims get
-   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. 88 markers
-   exist; they are the point of the project, not clutter.
+   `<!-- TODO: verify -->` and an entry in `data/parish-facts.json`. The count
+   is printed by `npm run lint` on every run; the markers are the point of the
+   project, not clutter, and the number going up is not a regression.
 3. **Never publish a parishioner's name or face without recorded permission.**
    The names that do appear — the Council roster, the Philoptochos board and
    the lead names on the ministries grid and pages — stand on the Parish
@@ -236,7 +243,7 @@ for anything touching markup or CSS. Both are cheap. CI runs the same checks, so
 a wrong claim surfaces within a minute anyway.
 
 Expected clean state: lint passes, snapshot reports no layout or colour change,
-0 axe violations across 31 pages × 2 viewports, reflow 31/31 at 320px.
+0 axe violations across 33 pages × 2 viewports, reflow 33/33 at 320px.
 
 ---
 
@@ -262,3 +269,83 @@ The audience is a parish council and, eventually, first-time visitors to an
 Orthodox church. Copy is plain, warm and unhurried. Do not add marketing
 language, exclamation marks, or claims about the parish that nobody has
 confirmed.
+
+---
+
+## Product & content principles (the Find Your Place strategy)
+
+The rules above say what a page must not publish. These say what a page is
+*for*. They were written after an audit found the site could state every fact
+correctly, source every one of them, and still leave a reader with nowhere to
+go. `bookstore.html` said the parish has a bookstore and stopped; that is the
+failure these exist to catch.
+
+**A page answers questions, not headings.** Every page answers at least one of:
+what is this, why does it matter, can I take part, how, who can help me, what
+should I do next. A page that only says *the parish has X* is not finished, no
+matter how well sourced X is.
+
+**The reader is on a journey; the site is the map, not the destination.**
+Discover → Understand → Connect → Participate → Serve or Receive Care → Teach.
+Prefer handing the reader the next stage over letting a page simply end, and
+never write as though the website were the community. Its whole job is to route
+somebody to worship, to another person, or to something actually happening in
+the church or the parish hall.
+
+**Route by intent, never by org chart.** The doors on the homepage's *Find your
+place*, the doors that now open Parish Life, and the *however much time you
+have* row on Get Involved are one idea asked three ways: worship, learn, serve,
+connect, care, traditions — and then, because it is the question most people
+actually arrive with, how much time they have. A reader must never need to know
+which committee or ministry owns a thing before they can take part. If taking
+part requires insider knowledge, or knowing whom to ask, the page is wrong.
+
+**Explain the tradition; never flatten it.** An unfamiliar word gets a sentence
+of explanation on first use — not a modernised substitute, and not a quiet
+omission. Same rule as Tone above, pointed at vocabulary.
+
+**Every opportunity carries a next step.** Where a real destination exists, link
+it. Where none exists, the key in `data/site.json` → `links` is `null` and the
+page renders a plainly labelled inert placeholder — see `_nullNote` there, and
+`_fellowshipNote` for the ten destinations Get Involved is built around, all of
+which are null today. Never a bare `href="#"` that looks live, and never a URL
+somebody guessed.
+
+**Offering help and asking for it are the same door from either side.**
+`care.html` carries both, weighted equally; a parish where only the offering
+side is easy is not looking after anybody. They are not symmetric in *privacy*,
+though. A request for help discloses a birth, an illness, a surgery or a death.
+It goes to a person — the office, or Fr. John through the office — and never
+onto a public page. Do not build a public care-request form, board or sign-up,
+however convenient it looks. A Meal Train page is for offers; `mealSupportRequest`
+is the private route and must stay one.
+
+**Four status states, and deliberately no fifth.** This is the design system,
+not decoration:
+
+- *no badge* — current parish practice. It happens today.
+- `ntgoc-proposal` carrying an `ntgoc-proposal__tag` that reads
+  "Proposed — …" — an outreach idea put to Fr. John and the Council for review.
+  None of it exists yet; `data/site.json` → `proposed.items` is the list, and
+  `directory.html` is a whole page in this state.
+- an announcement card labelled *sample* — demo content showing the Council the
+  shape of a section. `"sample": true` in `data/parish-announcements.json`.
+- *To be confirmed by the parish*, *Content needed from Fr. John*, and the
+  ministry pages saying on their face that nobody has published who leads them
+  — awaiting somebody's word. The three builders enforce these; see above.
+
+"Coming soon" appears nowhere on this site and must not be added. It would mean
+approved but not yet launched, nothing here is in that state, and inventing it
+blurs the exact line the proposal treatment exists to keep sharp.
+
+**Assume a phone.** Many arrivals come from a QR code or a link in a text
+message, not from a desk. The drawer and the 320px reflow audit in
+`npm run check` are gating, not a nicety: a section that only works at desk
+width has failed for precisely the reader most likely to be new.
+
+**This site is the parish's canonical public statement of itself.** The Light
+and the parish's social accounts should point *into* it rather than restate it —
+a second copy is what goes stale while the website says something else. Inside
+the site the same discipline runs three ways, all of them rules above: a shared
+fact lives once in `data/site.json`, a list renders from data through one of the
+three builders, and a document lives at exactly one URL.

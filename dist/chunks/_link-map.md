@@ -12,12 +12,14 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `about` | _________ |
 | `bookstore` | _________ |
 | `calendar` | _________ |
+| `care` | _________ |
 | `catechumen-adult-reception` | _________ |
 | `catechumen-godparent-checklist` | _________ |
 | `catechumen-infant-baptism` | _________ |
 | `catechumens` | _________ |
 | `committees` | _________ |
 | `contact` | _________ |
+| `directory` | _________ |
 | `events` | _________ |
 | `faith` | _________ |
 | `for-our-parish` | _________ |
@@ -42,13 +44,17 @@ where `<id>` is the numeric resource id EVO assigns that page.
 
 ## 2. Then work through the chunks
 
-254 links across 74 chunks.
+298 links across 86 chunks.
 
 | Chunk | Links to | Done |
 |---|---|:--:|
 | `ntgocAboutClergy` | contact | ☐ |
 | `ntgocAboutParishCouncil` | committees ×3 | ☐ |
 | `ntgocBookstoreNotes` | contact | ☐ |
+| `ntgocCalendarGrid` | events, for-our-parish, visit | ☐ |
+| `ntgocCareAsk` | contact ×2 | ☐ |
+| `ntgocCareClosing` | get-involved, parish-life | ☐ |
+| `ntgocCareHelp` | contact | ☐ |
 | `ntgocCatechumensAskFather` | contact | ☐ |
 | `ntgocCatechumensBaptism` | contact ×6, hall | ☐ |
 | `ntgocCatechumensBecoming` | contact ×4 | ☐ |
@@ -63,29 +69,33 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocCatechumensPractical` | calendar ×2, visit ×3, parish-life, contact ×2, get-involved | ☐ |
 | `ntgocCatechumensResources` | contact ×7, catechumens ×2, bookstore, catechumen-adult-reception, catechumen-infant-baptism, catechumen-godparent-checklist | ☐ |
 | `ntgocCommitteesList` | about | ☐ |
+| `ntgocDirectoryContact` | contact ×2 | ☐ |
+| `ntgocDirectoryProposal` | traditions | ☐ |
 | `ntgocDocAdultReceptionHero` | catechumens | ☐ |
 | `ntgocDocGodparentChecklistHero` | catechumens | ☐ |
 | `ntgocDocInfantBaptismHero` | catechumens | ☐ |
 | `ntgocEventsList` | calendar, hall, contact | ☐ |
 | `ntgocFaithTopics` | about, catechumens, contact | ☐ |
 | `ntgocGetInvolvedAgape` | calendar | ☐ |
-| `ntgocGetInvolvedAsk` | contact ×2 | ☐ |
-| `ntgocGetInvolvedCare` | contact | ☐ |
 | `ntgocGetInvolvedClosing` | traditions | ☐ |
 | `ntgocGetInvolvedCoffee` | contact | ☐ |
 | `ntgocGetInvolvedLearn` | traditions ×4 | ☐ |
 | `ntgocGetInvolvedOffering` | contact ×3 | ☐ |
+| `ntgocGetInvolvedPathways` | care ×2, traditions | ☐ |
 | `ntgocGetInvolvedProsphora` | traditions | ☐ |
 | `ntgocGetInvolvedServe` | ministries ×2, events, contact | ☐ |
 | `ntgocHallRental` | contact | ☐ |
-| `ntgocHomeFestivalPromo` | ministries, calendar, about | ☐ |
+| `ntgocHomeFestivalPromo` | get-involved, calendar, about | ☐ |
+| `ntgocHomeFindYourPlace` | calendar, faith, get-involved, parish-life, care, traditions | ☐ |
 | `ntgocHomeForOurParish` | for-our-parish | ☐ |
 | `ntgocHomeHero` | visit, contact | ☐ |
 | `ntgocHomeMinistriesPromo` | ministries ×5 | ☐ |
 | `ntgocHomeServiceTimes` | contact | ☐ |
+| `ntgocHomeThisWeek` | for-our-parish ×2, get-involved | ☐ |
 | `ntgocHomeUpcomingServices` | calendar | ☐ |
 | `ntgocHomeWelcome` | faith, about | ☐ |
 | `ntgocMinistriesGrid` | ministry-sunday-school, ministry-goya, ministry-joy, ministry-philoptochos, ministry-dance-troupe, ministry-ahepa, ministry-parish-council, ministry-choir | ☐ |
+| `ntgocMinistriesWays` | get-involved ×4, care | ☐ |
 | `ntgocMinistryAhepaHero` | ministries | ☐ |
 | `ntgocMinistryChoirHero` | ministries | ☐ |
 | `ntgocMinistryDanceTroupeHero` | ministries | ☐ |
@@ -96,13 +106,15 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocMinistryPhiloptochosHero` | ministries | ☐ |
 | `ntgocMinistrySundaySchoolHero` | ministries | ☐ |
 | `ntgocNewsletterArchive` | parish-life | ☐ |
+| `ntgocNewsletterReceive` | welcome | ☐ |
 | `ntgocParishAsk` | contact | ☐ |
 | `ntgocParishConnected` | newsletter | ☐ |
 | `ntgocParishFamilies` | ministries, visit, contact | ☐ |
 | `ntgocParishLifeBookstore` | bookstore | ☐ |
+| `ntgocParishLifeDoors` | get-involved, care, traditions | ☐ |
 | `ntgocParishLifeFellowship` | get-involved | ☐ |
 | `ntgocParishLifeGallery` | contact | ☐ |
-| `ntgocParishLifeNext` | ministries, for-our-parish | ☐ |
+| `ntgocParishLifeNext` | get-involved, for-our-parish, newsletter, calendar, contact | ☐ |
 | `ntgocParishLifeService` | ministries | ☐ |
 | `ntgocParishLifeUpcoming` | calendar | ☐ |
 | `ntgocParishOrthodoxResources` | faith, bookstore | ☐ |
@@ -110,8 +122,10 @@ where `<id>` is the numeric resource id EVO assigns that page.
 | `ntgocParishServe` | ministries, committees | ☐ |
 | `ntgocParishStewardship` | give | ☐ |
 | `ntgocParishWeek` | calendar | ☐ |
-| `ntgocSiteFooter` | visit, welcome, catechumens, calendar, contact, hall, parish-life, get-involved, for-our-parish, about, ministries, traditions, committees, bookstore, newsletter, give ×3 | ☐ |
-| `ntgocSiteHeader` | index, faith ×3, catechumens ×2, parish-life ×3, get-involved ×2, for-our-parish ×2, ministries ×2, committees ×2, bookstore ×2, newsletter ×2, calendar ×2, events ×3, traditions ×2, hall ×2, about ×2, contact ×2, visit ×2, give | ☐ |
+| `ntgocSiteFooter` | visit, welcome, catechumens, calendar, contact, hall, parish-life, get-involved, care, for-our-parish, directory, about, ministries, traditions, committees, bookstore, newsletter, give ×3 | ☐ |
+| `ntgocSiteHeader` | index, faith ×3, catechumens ×2, parish-life ×3, for-our-parish ×2, care ×2, directory ×2, bookstore ×2, newsletter ×2, get-involved ×3, ministries ×2, traditions ×2, calendar ×2, events ×3, hall ×2, about ×3, committees ×2, contact ×2, visit ×2, give | ☐ |
+| `ntgocTraditionsClasses` | get-involved | ☐ |
+| `ntgocTraditionsClosing` | get-involved, care, calendar | ☐ |
 | `ntgocVisitorDirections` | contact | ☐ |
 | `ntgocVisitorFirstSunday` | bookstore | ☐ |
 | `ntgocVisitorHero` | contact, calendar | ☐ |
